@@ -1,0 +1,44 @@
+!!! 5
+html(lang='en')
+  head
+    block head
+      meta(charset='utf-8')
+      title
+        block title
+          = locals.name
+      link(href='/css/bootstrap-combined.no-icons.min.css', rel='stylesheet')
+      // link(href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css', rel='stylesheet')
+      link(href='//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css', rel='stylesheet')
+      link(href='http://vjs.zencdn.net/c/video-js.css', rel='stylesheet')
+      script(src='http://vjs.zencdn.net/c/video.js')
+
+      link(href='/css/main.css', rel='stylesheet')
+  body
+    header
+      .navbar.navbar-fixed-top
+        .navbar-inner
+          .container
+            a(href=locals.url)
+              img(src='/img/logo.png', alt=locals.name)
+            ul.nav.pull-right
+              li
+                a(href='#') Get Started
+              li
+                a(href='#') Docs
+              li
+                a(href='#') Help & Support
+      // GitHub Fork thing
+      a(href='https://github.com/zencoder/video-js')
+        img#forkMe(src='https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png', alt='Fork me on GitHub')
+    #content
+      block content
+    footer
+      div.inner
+        block footer
+          p
+            | Video.JS is a free HTML5 video player created and open sourced by <a href="#">Steve Heffernan</a> and <a href="#">Zencoder</a>
+            span
+              a.tiwtterLink(href='http://twitter.com/videojs')
+                | @videojs&nbsp;
+                i.icon-twitter
+          // p &copy; #{ new Date().getFullYear() } #{ locals.owner }

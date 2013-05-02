@@ -1,0 +1,151 @@
+// Google Webfont
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400);
+
+// Variables
+@lightBlue: #3da2d9;
+@lightGray: #eee;
+@darkGray: #d4d4d4;
+@footer: #323232;
+
+// Style all the things
+body { font-family: 'Source Sans Pro', sans-serif; }
+
+// Start Navbar
+.navbar {
+  .navbar-inner {
+    line-height: 75px;
+    background: rgba(0,0,0,0.7);
+  }
+  .nav {
+    margin-top: 18px;
+    li>a {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 110%;
+      &:hover {
+        color: @lightBlue;
+      }
+    }
+  }
+}
+// End Navbar
+
+// GitHub Fork me banner
+#forkMe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  z-index: 1031;
+}
+
+// Banner
+.banner {
+  height: 610px;
+  background-color: @lightBlue;
+  .container {
+    text-align: center;
+    padding: 115px 0 20px 0;
+    .hero {
+      width: 100%;
+      h3 {
+        background: rgba(0,0,0,0.7);
+        display: inline;
+        color: #fff;
+        padding: 10px 15px;
+      }
+    }
+    #home_video {
+      margin-top: 40px;
+      margin-bottom: 36px;
+    }
+  }
+}
+// End Banner
+
+// Social
+.social {
+  background-color: @lightGray;
+  line-height: 45px;
+  p { margin-bottom: 0; }
+  a.btn {
+    margin-top: -2px;
+    margin-left: 25px;
+  }
+}
+// End Social
+
+// Benefits
+.benefits {
+  margin-top: 45px;
+  margin-bottom: 65px;
+  text-align: center;
+  h2 { font-weight: 200; color: @lightBlue; }
+  ul {
+    list-style: none;
+    margin-left: 0;
+  }
+}
+// End Benefits
+
+// Used By
+.spriteness (@position, @width) {
+  background-position: @position 0;
+  width: @width;
+  &:hover {
+    background-position: @position -37px;
+  }
+}
+
+.usedBy {
+  background-color: @lightGray;
+  text-align: center;
+  height: 185px;
+  margin-bottom: 85px;
+  h2 { font-weight: 200; }
+  .container {
+    padding-top: 20px;
+  }
+  ul {
+    list-style: none;
+    margin-left: 0;
+    margin-top: 40px;
+    li {
+      display: inline;
+      a {
+        text-indent: -9999px;
+        height: 36px;
+        display: block;
+        float: left;
+        background: url("/img/sprite.png") no-repeat scroll transparent;
+        margin-right: 47px;
+        &.blueAngels { .spriteness(0, 118px) }
+        &.twitpic { .spriteness(-137px, 95px) }
+        &.telly { .spriteness(-245px, 65px) }
+        &.vine { .spriteness(-328px, 82px) }
+        &.onion { .spriteness(-431px, 200px) }
+        &.mit { .spriteness(-652px, 61px) }
+        &.airbnb { .spriteness(-732px, 96px) }
+        &.hubpages { .spriteness(-843px, 119px); margin-right: 0; }
+      }
+    }
+  }
+}
+// End Used By
+
+// Footer
+footer {
+  height: 55px;
+  background-color: @footer;
+  text-align: center;
+  color: #fff;
+  p { line-height: 55px; }
+  span {
+    padding-left: 20px;
+    a {
+      &:hover { text-decoration: none; }
+      i { color: #fff; }
+    }
+  }
+}
+// End Footer

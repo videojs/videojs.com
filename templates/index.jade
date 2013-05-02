@@ -1,0 +1,71 @@
+extends layout
+
+block content
+  .banner
+    .container
+      .hero
+        h3= locals.description
+      video#home_video.video-js.vjs-default-skin(controls, preload='none', width=760, height=320, poster='http://video-js.zencoder.com/oceans-clip.jpg')
+        source(src='http://video-js.zencoder.com/oceans-clip.mp4', type='video/mp4')
+        source(src='http://video-js.zencoder.com/oceans-clip.webm', type='video/webm')
+        track(kind='captions', src='/video-js/captions.vtt', srclang='en', label='English')
+
+      p
+        | Encoding and Dev support by: <a href="http://www.zencoder.com">Zencoder, Inc</a>.
+        |  Video clip from: <a href="#">Disney Nature Oceans</a>
+
+  .social
+    .container
+      .lastCommit.pull-left
+        p Latest commit on GitHub: Apr 26, 2013 Commit <a href='#'>9183240fksdf9dssdfk49023kd013w230</a>
+      .buttons.pull-right
+        a.btn.btn-small.btn-info(href='#') Tweet
+        a.btn.btn-small.btn-primary(href='#') Like
+        a.btn.btn-small.btn-inverse(href='#') +1
+        a.btn.btn-small.btn-success(href='#') Fork
+        a.btn.btn-small.btn-success(href='#') Star
+
+  .container.benefits
+    .row
+      .span4
+        img(src='/img/cloud.png', alt='cloud')
+        h2 Designers
+        ul
+          li Style with the same CSS you know and love
+          li Responsive design and retina displays supported
+          li Built with FontAwesome
+      .span4
+        img(src='/img/cloud.png', alt='cloud')
+        h2 Developers
+        ul
+          li Open Source and CDN hosted
+          li Dead simple embed code using the video tag
+          li JavaScript API that works everywhere
+      .span4
+        img(src='/img/cloud.png', alt='cloud')
+        h2 Everyone
+        ul
+          li Free as in beer (gratis)
+          li Crazy fast, less than 100k with no dependencies
+          li Built by experts at at <a href="#">Brightcove</a> + <a href="#">Zencoder</a>
+
+  .usedBy
+    .container.content
+      h2 Sites using Video.JS
+      ul
+        li
+          a.blueAngels(href='#') BlueAngels
+        li
+          a.twitpic(href='#') twitpic
+        li
+          a.telly(href='#') Telly
+        li
+          a.vine(href='#') Vine
+        li
+          a.onion(href='#') The Onion
+        li
+          a.mit(href='#') MIT
+        li
+          a.airbnb(href='#') airbnb
+        li
+          a.hubpages(href='#') HubPages
