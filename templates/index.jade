@@ -5,10 +5,15 @@ block content
     .container
       .hero
         h3= locals.description
-      video#home_video.video-js.vjs-default-skin(controls, preload='none', width=760, height=320, poster='http://video-js.zencoder.com/oceans-clip.jpg')
-        source(src='http://video-js.zencoder.com/oceans-clip.mp4', type='video/mp4')
-        source(src='http://video-js.zencoder.com/oceans-clip.webm', type='video/webm')
-        track(kind='captions', src='/video-js/captions.vtt', srclang='en', label='English')
+      .row
+        .span8.offset2
+          video#home_video.video-js.vjs-default-skin(controls, preload='none', poster='http://video-js.zencoder.com/oceans-clip.jpg', data-setup='{"width":"auto", "height":"auto"}')
+            source(src='http://video-js.zencoder.com/oceans-clip.mp4', type='video/mp4')
+            source(src='http://video-js.zencoder.com/oceans-clip.webm', type='video/webm')
+            track(kind='captions', src='/video-js/captions.vtt', srclang='en', label='English')
+
+      #buttons
+        a#changeSize(href='#') Change colors!
 
       p
         | Encoding and Dev support by: <a href="http://www.zencoder.com">Zencoder, Inc</a>.
