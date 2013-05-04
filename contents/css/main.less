@@ -1,5 +1,6 @@
 // Google Webfont
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400);
+@import "./bootstrap-colorpicker";
 
 // Variables
 @lightBlue: #3da2d9;
@@ -60,8 +61,7 @@ footer, #push {
 
 // Banner
 .banner {
-  height: 610px;
-  background: #04212A url('/img/banner_bg.png') center bottom no-repeat;
+  background: #fff url('/img/banner_bg.png') center bottom no-repeat;
   moz-background-size: cover;
   background-size: cover;
   .container {
@@ -82,11 +82,17 @@ footer, #push {
       font-size: 80%;
       letter-spacing: 0.1em;
     }
+    .video {
+      width: 960px;
+      height: 400px;
+      margin: 40px auto;
+    }
     #home_video {
-      margin: 40px auto 36px auto;
       height: 100%;
       width: 100%;
-      height: 318px;
+      box-shadow: 0 0 10px 1px rgba(74,137,151,0.5);
+      // -moz-box-shadow: 0 0 15px @darkGray;
+      // -webkit-box-shadow: 0 0 15px @darkGray;
     }
   }
 }
@@ -95,12 +101,11 @@ footer, #push {
 // Social
 .social {
   background-color: @lightGray;
-  line-height: 45px;
+  text-align: center;
+  padding: 10px 0 5px 0;
   p { margin-bottom: 0; }
-  a.btn {
-    margin-top: -2px;
-    margin-left: 25px;
-  }
+  .twitter-share-button { margin-left: 15px; }
+  .twitter-follow-button { margin-left: 15px; }
 }
 // End Social
 

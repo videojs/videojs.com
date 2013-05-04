@@ -5,25 +5,25 @@ block content
     .container
       .hero
         h3= locals.description
-      .row
-        .span8.offset2
-          video#home_video.video-js.vjs-default-skin(controls, preload='none', poster='/img/poster.png', data-setup='{"width":"auto", "height":"auto"}')
-            source(src='http://video-js.zencoder.com/oceans-clip.mp4', type='video/mp4')
-            source(src='http://video-js.zencoder.com/oceans-clip.webm', type='video/webm')
-            track(kind='captions', src='/video-js/captions.vtt', srclang='en', label='English')
+      .video
+        video#home_video.video-js.vjs-default-skin(controls, preload='none', poster='/img/poster.png', data-setup='{"width":"auto", "height":"auto"}')
+          source(src='/videos/oceans.mp4', type='video/mp4')
+          source(src='/videos/oceans.webm', type='video/webm')
+          track(kind='captions', src='/video-js/captions.vtt', srclang='en', label='English')
+        #videoModifications
+          p This is where the mods will go
 
       p Encoding and Dev support by: <a href="http://www.zencoder.com">Zencoder, Inc</a>. Video clip from: <a href="#">Disney Nature Oceans</a>.
 
   .social
     .container
-      .lastCommit.pull-left
-        p Latest commit on GitHub: Apr 26, 2013 Commit <a href='#'>9183240fksdf9dssdfk49023kd013w230</a>
-      .buttons.pull-right
-        a.btn.btn-small.btn-info(href='#') Tweet
-        a.btn.btn-small.btn-primary(href='#') Like
-        a.btn.btn-small.btn-inverse(href='#') +1
-        a.btn.btn-small.btn-success(href='#') Fork
-        a.btn.btn-small.btn-success(href='#') Star
+      .buttons
+        iframe(src="http://ghbtns.com/github-btn.html?user=zencoder&repo=video-js&type=watch&count=true",
+  allowtransparency="true", frameborder="0", scrolling="0", width="110", height="20")
+        iframe(src="http://ghbtns.com/github-btn.html?user=zencoder&repo=video-js&type=fork&count=true",
+  allowtransparency="true", frameborder="0", scrolling="0", width="95", height="20")
+        a(href="https://twitter.com/share", class="twitter-share-button", data-url="http://videojs.com", data-via="videojs", data-related="matt_mcclure") Tweet
+        a(href="https://twitter.com/videojs", class="twitter-follow-button", data-show-count="true") Follow @videojs
 
   .container.benefits
     .row
