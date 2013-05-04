@@ -53,6 +53,9 @@ footer, #push {
   right: 0;
   border: 0;
   z-index: 1031;
+  @media (max-width: 1020px) {
+    display: none;
+  }
 }
 
 // Banner
@@ -162,7 +165,6 @@ footer, #push {
 // Footer
 footer {
   font-size: 90%;
-  height: 55px;
   background-color: @footer;
   text-align: center;
   color: #fff;
@@ -176,3 +178,14 @@ footer {
   }
 }
 // End Footer
+
+// Media queries and what not
+@media (max-width: 767px) {
+  body { padding: 0; }
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
