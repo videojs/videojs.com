@@ -7,8 +7,23 @@
 @darkGray: #d4d4d4;
 @footer: #323232;
 
+* { margin: 0; }
+
 // Style all the things
 body { font-family: 'Source Sans Pro', sans-serif; }
+html, body { height: 100%; }
+
+// Wrapper for sticky footer
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -55px;
+}
+footer, #push {
+    height: 55px;
+}
+// End sticky footer
 
 // Start Navbar
 .navbar {
@@ -22,6 +37,7 @@ body { font-family: 'Source Sans Pro', sans-serif; }
       color: #fff;
       text-transform: uppercase;
       font-size: 110%;
+      text-shadow: none;
       &:hover {
         color: @lightBlue;
       }
@@ -42,18 +58,26 @@ body { font-family: 'Source Sans Pro', sans-serif; }
 // Banner
 .banner {
   height: 610px;
-  background-color: @lightBlue;
+  background: #04212A url('/img/banner_bg.png') center bottom no-repeat;
+  moz-background-size: cover;
+  background-size: cover;
   .container {
+    color: #fff;
     text-align: center;
     padding: 115px 0 20px 0;
     .hero {
       width: 100%;
       h3 {
-        background: rgba(0,0,0,0.7);
+        background: rgba(0,0,0,0.5);
         display: inline;
         color: #fff;
         padding: 10px 15px;
       }
+    }
+    p {
+      font-weight: 200;
+      font-size: 80%;
+      letter-spacing: 0.1em;
     }
     #home_video {
       margin: 40px auto 36px auto;
@@ -102,7 +126,6 @@ body { font-family: 'Source Sans Pro', sans-serif; }
 .usedBy {
   background-color: @lightGray;
   text-align: center;
-  height: 185px;
   margin-bottom: 85px;
   h2 { font-weight: 200; }
   .container {
@@ -112,6 +135,7 @@ body { font-family: 'Source Sans Pro', sans-serif; }
     list-style: none;
     margin-left: 0;
     margin-top: 40px;
+    padding-bottom: 60px;
     li {
       display: inline;
       a {

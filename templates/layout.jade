@@ -15,24 +15,26 @@ html(lang='en')
 
       link(href='/css/main.css', rel='stylesheet')
   body
-    header
-      .navbar.navbar-fixed-top
-        .navbar-inner
-          .container
-            a(href=locals.url)
-              img(src='/img/logo.png', alt=locals.name)
-            ul.nav.pull-right
-              li
-                a(href='#') Get Started
-              li
-                a(href='#') Docs
-              li
-                a(href='#') Help & Support
-      // GitHub Fork thing
-      a(href='https://github.com/zencoder/video-js')
-        img#forkMe(src='https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png', alt='Fork me on GitHub')
-    #content
-      block content
+    #wrap
+      header
+        .navbar.navbar-fixed-top
+          .navbar-inner
+            .container
+              a(href=locals.url)
+                img(src='/img/logo.png', alt=locals.name)
+              ul.nav.pull-right
+                li
+                  a(href='#') Get Started
+                li
+                  a(href='#') Docs
+                li
+                  a(href='#') Help & Support
+        // GitHub Fork thing
+        a(href='https://github.com/zencoder/video-js')
+          img#forkMe(src='https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png', alt='Fork me on GitHub')
+      #content
+        block content
+      #push
     footer
       div.inner
         block footer
