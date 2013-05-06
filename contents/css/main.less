@@ -1,6 +1,7 @@
 // Google Webfont
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400);
 @import "./bootstrap-colorpicker";
+@import "./slider";
 
 // Variables
 @lightBlue: #3da2d9;
@@ -94,6 +95,29 @@ footer, #push {
       // -moz-box-shadow: 0 0 15px @darkGray;
       // -webkit-box-shadow: 0 0 15px @darkGray;
     }
+  }
+  .colorPicker {
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 5px;
+    height: 15px;
+    width: 75px;
+    border: 1px solid @lightGray;
+    &#iconPicker {
+      background-color: #fff;
+      text-indent: -9999px;
+    }
+    &#progressPicker {
+      background-color: #66A8CC;
+      text-indent: -9999px;
+    }
+    &#backgroundPicker {
+      background-color: #000000;
+      text-indent: -9999px;
+    }
+  }
+  .slider {
+    margin-left: 20px;
   }
 }
 // End Banner

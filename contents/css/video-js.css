@@ -190,7 +190,8 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 .vjs-default-skin .vjs-slider-handle:before {
   /*content: "\f111";*/ /* Circle icon = f111 */
   content: "\f04d"; /* Square icon */
-  color: #ccc;
+  /*TODO*/
+/*  color: #ccc;*/
   font-family: FontAwesome;
   font-size: 0.8em;
   line-height: 1;
@@ -254,7 +255,8 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 /* FontAwsome button icons */
 .vjs-default-skin .vjs-control:before {
   font-family: FontAwesome;
-  color: #ccc;
+  /*TODO*/
+/*  color: #ccc;*/
   font-size: 1.5em;
   line-height: 2;
   position: absolute;
@@ -269,7 +271,6 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 /* Replacement for focus outline */
 .vjs-default-skin .vjs-control:focus:before,
 .vjs-default-skin .vjs-control:hover:before {
-  color: #fff;
   text-shadow: 0em 0em 1em rgba(255, 255, 255, 1);
 }
 
@@ -534,7 +535,8 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 .vjs-default-skin .vjs-big-play-button:before {
   content: "\f04b"; /* Play icon */
   font-family: FontAwesome;
-  color: #ccc;
+  /*TODO*/
+  /*color: #ccc;*/
   font-size: 3em;
   line-height: 2.66;
   text-shadow: 0.05em 0.05em 0.1em #000;
@@ -546,7 +548,8 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
   height: 100%;
 }
 .vjs-default-skin:hover .vjs-big-play-button:before {
-  color: #fff;
+  /*TODO*/
+/*  color: #fff;*/
 }
 
 /* Loading Spinner
@@ -722,7 +725,8 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 .vjs-default-skin .vjs-captions-button:before {
   display: none;
   font-family: FontAwesome;
-  color: #ccc;
+  /*TODO*/
+/*  color: #ccc;*/
   font-size: 1em;
   line-height: 2;
   position: absolute;
