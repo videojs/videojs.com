@@ -6,12 +6,15 @@ $(function() {
   // $('.colorpicker').colorpicker()
   $('#iconPicker').colorpicker().on('changeColor', function(ev){
     $('.vjs-big-play-button, .vjs-control-bar').css('color', ev.color.toHex());
+    $(this).css('background-color', ev.color.toHex());
   });
   $('#progressPicker').colorpicker().on('changeColor', function(ev){
     $('.vjs-play-progress, .vjs-volume-level').css('background-color', ev.color.toHex());
+    $(this).css('background-color', ev.color.toHex());
   });
   $('#backgroundPicker').colorpicker().on('changeColor', function(ev){
     $('.vjs-control-bar, .vjs-big-play-button').css('background-color', ev.color.toHex());
+    $(this).css('background-color', ev.color.toHex());
   });
   $('#fontSize').slider().on('slide', function(ev){
     console.log(ev.value);

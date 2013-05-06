@@ -12,9 +12,9 @@ block content
           track(kind='captions', src='/video-js/captions.vtt', srclang='en', label='English')
         #videoModifications
           p
-            a.colorPicker#iconPicker(href='#') Icon Color
-            a.colorPicker#progressPicker(href='#') Progress Color
-            a.colorPicker#backgroundPicker(href='#') Background Color
+            a.colorPicker#iconPicker(href='#', data-color='#FFFFFF') Icon Color
+            a.colorPicker#progressPicker(href='#', data-color='#66A8CC') Progress Color
+            a.colorPicker#backgroundPicker(href='#', data-color='#000000') Background Color
             input#fontSize(type='text', class='span2', value='', data-slider-min='60', data-slider-max='300', data-slider-step='1', data-slider-value='100', data-slider-orientation='horizontal', data-slider-selection='after', data-slider-tooltip='hide')
 
       p Encoding and Dev support by: <a href="http://www.zencoder.com">Zencoder, Inc</a>. Video clip from: <a href="#">Disney Nature Oceans</a>.
