@@ -1,0 +1,18 @@
+{
+  "name": "videojs.com",
+  "version": "0.0.0",
+  "description": "The Video.js site",
+  "main": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/videojs/videojs.com.git"
+  },
+  "author": "",
+  "license": "Apache 2.0",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-s3": "~0.2.0-alpha.1"
+  }
+}
