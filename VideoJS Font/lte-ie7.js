@@ -17,7 +17,8 @@ window.onload = function() {
 			'icon-Closed_captioning_symbol' : '&#xe008;',
 			'icon-stop' : '&#xe009;',
 			'icon-spinner' : '&#xe00a;',
-			'icon-contract' : '&#xe00b;'
+			'icon-contract' : '&#xe00b;',
+			'icon-bubble' : '&#xe00c;'
 		},
 		els = document.getElementsByTagName('*'),
 		i, attr, html, c, el;

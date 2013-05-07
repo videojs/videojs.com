@@ -27,7 +27,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-expand, .icon-play, .icon-pause, .icon-volume-mute, .icon-volume-low, .icon-volume-medium, .icon-volume-high, .icon-diamonds, .icon-Closed_captioning_symbol, .icon-stop, .icon-spinner, .icon-contract {
+.icon-expand, .icon-play, .icon-pause, .icon-volume-mute, .icon-volume-low, .icon-volume-medium, .icon-volume-high, .icon-diamonds, .icon-Closed_captioning_symbol, .icon-stop, .icon-spinner, .icon-contract, .icon-bubble {
 	font-family: 'VideoJS';
 	speak: none;
 	font-style: normal;
@@ -72,4 +72,7 @@ you can use the generic selector below, but it's slower:
 }
 .icon-contract:before {
 	content: "\e00b";
+}
+.icon-bubble:before {
+	content: "\e00c";
 }
