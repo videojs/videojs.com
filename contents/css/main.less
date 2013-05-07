@@ -91,6 +91,7 @@ footer, #push {
     #home_video {
       height: 100%;
       width: 100%;
+      text-align: left;
       box-shadow: 0 0 10px 1px rgba(74,137,151,0.5);
       // -moz-box-shadow: 0 0 15px @darkGray;
       // -webkit-box-shadow: 0 0 15px @darkGray;
@@ -100,11 +101,12 @@ footer, #push {
     display: inline-block;
     margin-left: 20px;
     margin-top: 5px;
+    margin-bottom: -5px;
     height: 15px;
     width: 75px;
     border: 1px solid @lightGray;
     &#iconPicker {
-      background-color: #fff;
+      background-color: #ccc;
       text-indent: -9999px;
     }
     &#progressPicker {
@@ -118,8 +120,23 @@ footer, #push {
   }
   .slider {
     margin-left: 20px;
+    &.slider-horizontal .slider-track {
+      height: 5px;
+    }
+    .slider-handle {
+      height: 15px;
+      width: 15px;
+      background-color: @lightBlue;
+      opacity: 100;
+      background-image: -moz-linear-gradient(top, @lightBlue, darken(@lightBlue, 10%));
+      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@lightBlue), to(darken(@lightBlue, 10%)));
+      background-image: -webkit-linear-gradient(top, @lightBlue, darken(@lightBlue, 10%));
+      background-image: -o-linear-gradient(top, @lightBlue, darken(@lightBlue, 10%));
+      background-image: linear-gradient(to bottom, @lightBlue, darken(@lightBlue, 10%));
+    }
   }
 }
+
 // End Banner
 
 // Social
@@ -169,14 +186,14 @@ footer, #push {
     margin-top: 40px;
     padding-bottom: 60px;
     li {
-      display: inline;
+      display: inline-block;
       a {
         text-indent: -9999px;
         height: 36px;
         display: block;
         float: left;
         background: url("/img/sprite.png") no-repeat scroll transparent;
-        margin-right: 47px;
+        margin-right: 44px;
         &.blueAngels { .spriteness(0, 118px) }
         &.twitpic { .spriteness(-137px, 95px) }
         &.telly { .spriteness(-245px, 65px) }

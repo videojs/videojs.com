@@ -5,7 +5,7 @@
 $(function() {
   // $('.colorpicker').colorpicker()
   $('#iconPicker').colorpicker().on('changeColor', function(ev){
-    $('.vjs-big-play-button, .vjs-control-bar').css('color', ev.color.toHex());
+    $('.vjs-default-skin').css('color', ev.color.toHex());
     $(this).css('background-color', ev.color.toHex());
   });
   $('#progressPicker').colorpicker().on('changeColor', function(ev){
@@ -13,11 +13,18 @@ $(function() {
     $(this).css('background-color', ev.color.toHex());
   });
   $('#backgroundPicker').colorpicker().on('changeColor', function(ev){
-    $('.vjs-control-bar, .vjs-big-play-button').css('background-color', ev.color.toHex());
-    $(this).css('background-color', ev.color.toHex());
+    console.log(ev.color.toRGB());
+    var color = ev.color.toRGB();
+
+    var colorString = 'rgba('+color.r+','+color.g+','+color.b+','+color.a+')';
+    $('.vjs-control-bar, .vjs-big-play-button').css('background', colorString);
+
+    var sliderBackground = 'rgba('+color.r+','+color.g+','+color.b+','+color.a/3+')';
+    $('.vjs-slider').css('background', sliderBackground);
+
+    $(this).css('background-color', colorString);
   });
   $('#fontSize').slider().on('slide', function(ev){
-    console.log(ev.value);
     $('.vjs-control-bar').css('font-size', ev.value + '%');
   });
 });

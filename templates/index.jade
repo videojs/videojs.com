@@ -12,9 +12,10 @@ block content
           track(kind='captions', src='/video-js/captions.vtt', srclang='en', label='English')
         #videoModifications
           p
-            a.colorPicker#iconPicker(href='#', data-color='#FFFFFF') Icon Color
+            | Customize Me:
+            a.colorPicker#iconPicker(href='#', data-color='#ccc') Icon Color
             a.colorPicker#progressPicker(href='#', data-color='#66A8CC') Progress Color
-            a.colorPicker#backgroundPicker(href='#', data-color='#000000') Background Color
+            a.colorPicker#backgroundPicker(href='#', data-color='rgba(0,0,0,0.7)', data-color-format='rgba') Background Color
             input#fontSize(type='text', class='span2', value='', data-slider-min='60', data-slider-max='300', data-slider-step='1', data-slider-value='100', data-slider-orientation='horizontal', data-slider-selection='after', data-slider-tooltip='hide')
 
       p Encoding and Dev support by: <a href="http://www.zencoder.com">Zencoder, Inc</a>. Video clip from: <a href="#">Disney Nature Oceans</a>.
@@ -22,9 +23,9 @@ block content
   .social
     .container
       .buttons
-        iframe(src="http://ghbtns.com/github-btn.html?user=zencoder&repo=video-js&type=watch&count=true",
+        iframe(src="http://ghbtns.com/github-btn.html?user=videojs&repo=video.js&type=watch&count=true",
   allowtransparency="true", frameborder="0", scrolling="0", width="110", height="20")
-        iframe(src="http://ghbtns.com/github-btn.html?user=zencoder&repo=video-js&type=fork&count=true",
+        iframe(src="http://ghbtns.com/github-btn.html?user=videojs&repo=video.js&type=fork&count=true",
   allowtransparency="true", frameborder="0", scrolling="0", width="95", height="20")
         a(href="https://twitter.com/share", class="twitter-share-button", data-url="http://videojs.com", data-via="videojs", data-related="matt_mcclure") Tweet
         a(href="https://twitter.com/videojs", class="twitter-follow-button", data-show-count="true") Follow @videojs
