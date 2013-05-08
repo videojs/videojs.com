@@ -44,7 +44,7 @@ $(function() {
   // Slider for font size
   $('#fontSize').slider().on('slide', function(ev){
     $('.vjs-control-bar').css('font-size', ev.value + '%');
-    customstyles.fontSize = ev.value;
+    customStyles.fontSize = ev.value;
   });
 
   // Show embed code btn
@@ -59,7 +59,7 @@ $(function() {
       style += "  .vjs-control-bar, .vjs-big-play-button { background: "+ customStyles.background.main +" }\n"
       style += "  .vjs-slider { background: "+ customStyles.background.slider +" }\n"
     }
-    if (customStyles.fontSize) { style += "  .vjs-control-bar { "+ customStyles.fontSize +" }\n" }
+    if (customStyles.fontSize) { style += "  .vjs-control-bar { font-size: "+ customStyles.fontSize +"% }\n" }
     if (style) {
       $('#customStyleTag').text('\n<style type="text/css">\n'+style+'</style>\n')
     }
