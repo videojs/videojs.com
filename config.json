@@ -1,6 +1,6 @@
 {
   "locals": {
-    "url": "http://localhost:8080",
+    "url": "http://videojs.com",
     "name": "Video.JS",
     "owner": "Brightcove, Inc",
     "description": "The open source HTML5 video player",
