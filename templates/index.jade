@@ -17,6 +17,28 @@ block content
             a.colorPicker#progressPicker(href='#', data-color='#66A8CC') Progress Color
             a.colorPicker#backgroundPicker(href='#', data-color='rgba(0,0,0,0.7)', data-color-format='rgba') Background Color
             input#fontSize(type='text', class='span2', value='', data-slider-min='60', data-slider-max='300', data-slider-step='1', data-slider-value='100', data-slider-orientation='horizontal', data-slider-selection='after', data-slider-tooltip='hide')
+            a.btn.btn-info.btn-mini#showEmbedModal(href='#embedModal', role='button', data-toggle='modal') Embed This Player
+
+          <!-- Modal -->
+          #embedModal.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='embedCode', aria-hidden='true')
+            .modal-header
+              button.close(type='button', data-dismiss='modal', aria-hidden='true')×
+              h3#embedCode Use Video.JS
+            .modal-body
+              h4 In the &lt;head&gt;:
+              pre.prettyprint.lang-html
+                &lt;link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet"&gt;
+                &lt;script src="http://vjs.zencdn.net/c/video.js"&gt;&lt;/script&gt;
+
+              h4 In the &lt;body&gt;:
+              pre.prettyprint.lang-html
+                &lt;video id="my_video_1" class="video-js vjs-default-skin" controls
+                |  preload="auto" width="640" height="264" poster="my_video_poster.png"
+                |  data-setup="{}"&lt;
+                |  &lt;source src="my_video.mp4" type='video/mp4'&gt;
+                |  &lt;source src="my_video.webm" type='video/webm'&gt;
+                &lt;/video&gt;
+                span#customStyleTag
 
       p Encoding and Dev support by: <a href="http://www.zencoder.com">Zencoder, Inc</a>. Video clip from: <a href="#">Disney Nature Oceans</a>.
 

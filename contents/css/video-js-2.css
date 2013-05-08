@@ -706,7 +706,7 @@ so you can upgrade to newer versions easier. You can remove all these styles by 
 }
 
 /* Subtitles Button */
-.vjs-default-skin .vjs-subtitles-button:before { content: "\f075"; }
+.vjs-default-skin .vjs-subtitles-button:before { content: "\e00c"; }
 
 /* There's unfortunately no CC button in FontAwesome, so we need
     to manually create one. Please +1 the fontawesome request.
