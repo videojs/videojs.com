@@ -6,11 +6,12 @@ html(lang='en')
       title
         block title
           = locals.name
+
       link(href='/css/bootstrap-combined.no-icons.min.css', rel='stylesheet')
       // link(href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css', rel='stylesheet')
       link(href='//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css', rel='stylesheet')
 
-      script(src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js')
+      script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
       script(src='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js')
       script(src='/js/bootstrap-colorpicker.js')
       script(src='/js/bootstrap-slider.js')
@@ -22,6 +23,10 @@ html(lang='en')
       script(src='/js/scripts.js')
 
       link(href='/css/main.css', rel='stylesheet')
+
+      // HTML5 shim, for IE6-8 support of HTML5 elements
+      //if lt IE 9
+        script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
   body
     #wrap
       header
