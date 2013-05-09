@@ -1,7 +1,7 @@
 {
   "locals": {
     "url": "http://videojs.com",
-    "name": "Video.JS",
+    "name": "Video.js",
     "owner": "Brightcove, Inc",
     "description": "The open source HTML5 video player",
     "index_articles": 3
