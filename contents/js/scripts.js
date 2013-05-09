@@ -43,7 +43,7 @@ $(function() {
 
   // Slider for font size
   $('#fontSize').slider().on('slide', function(ev){
-    $('.vjs-control-bar').css('font-size', ev.value + '%');
+    $('.vjs-default-skin').css('font-size', ev.value + '%');
     customStyles.fontSize = ev.value;
   });
 
