@@ -64,4 +64,20 @@ $(function() {
       $('#customStyleTag').text('\n<style type="text/css">\n'+style+'</style>\n')
     }
   });
+
+  videojs("home_video", {"height":"auto", "width":"auto"}).ready(function(){
+    var myPlayer = this;    // Store the video object
+    var aspectRatio = 5/12; // Make up an aspect ratio
+
+    function resizeVideoJS(){
+      // Get the parent element's actual width
+      var width = document.getElementById(myPlayer.L).parentElement.offsetWidth;
+      // Set width to fill parent element, Set height
+      myPlayer.width(width).height( width * aspectRatio );
+    }
+
+    resizeVideoJS(); // Initialize the function
+    window.onresize = resizeVideoJS; // Call the function on resize
+  });
+
 });

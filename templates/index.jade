@@ -5,40 +5,42 @@ block content
     .container
       .hero
         h3= locals.description
-      .video
-        video#home_video.video-js.vjs-default-skin(controls, preload='none', poster='/img/poster.jpg', data-setup='{"width":"auto", "height":"auto"}')
-          source(src='http://vjs.zencdn.net/v/oceans.mp4', type='video/mp4')
-          source(src='http://vjs.zencdn.net/v/oceans.webm', type='video/webm')
-          track(kind='captions', src='/video-js/captions.vtt', srclang='en', label='English')
-        #videoModifications
-          p
-            | Customize Me:
-            a.colorPicker#iconPicker(href='#', data-color='#ccc') Icon Color
-            a.colorPicker#progressPicker(href='#', data-color='#66A8CC') Progress Color
-            a.colorPicker#backgroundPicker(href='#', data-color='rgba(0,0,0,0.7)', data-color-format='rgba') Background Color
-            input#fontSize(type='text', class='span2', value='', data-slider-min='60', data-slider-max='200', data-slider-step='1', data-slider-value='100', data-slider-orientation='horizontal', data-slider-selection='after', data-slider-tooltip='hide')
-            a.btn.btn-info.btn-mini#showEmbedModal(href='#embedModal', role='button', data-toggle='modal') Embed This Player
+      .row
+        .video.span10.offset1
+          video#home_video.video-js.vjs-default-skin(controls, preload='none', poster='/img/poster.jpg')
+            source(src='http://vjs.zencdn.net/v/oceans.mp4', type='video/mp4')
+            source(src='http://vjs.zencdn.net/v/oceans.webm', type='video/webm')
+            track(kind='captions', src='/video-js/captions.vtt', srclang='en', label='English')
 
-          <!-- Modal -->
-          #embedModal.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='embedCode', aria-hidden='true')
-            .modal-header
-              button.close(type='button', data-dismiss='modal', aria-hidden='true')×
-              h3#embedCode Use Video.JS
-            .modal-body
-              h4 In the &lt;head&gt;:
-              pre.prettyprint.lang-html
-                &lt;link href="http://vjs.zencdn.net/4.0/video-js.css" rel="stylesheet"&gt;
-                &lt;script src="http://vjs.zencdn.net/4.0/video.js"&gt;&lt;/script&gt;
+          #videoModifications
+            p
+              | Customize Me:
+              a.colorPicker#iconPicker(href='#', data-color='#ccc') Icon Color
+              a.colorPicker#progressPicker(href='#', data-color='#66A8CC') Progress Color
+              a.colorPicker#backgroundPicker(href='#', data-color='rgba(0,0,0,0.7)', data-color-format='rgba') Background Color
+              input#fontSize(type='text', class='span2', value='', data-slider-min='60', data-slider-max='200', data-slider-step='1', data-slider-value='100', data-slider-orientation='horizontal', data-slider-selection='after', data-slider-tooltip='hide')
+              a.btn.btn-info.btn-mini#showEmbedModal(href='#embedModal', role='button', data-toggle='modal') Embed This Player
 
-              h4 In the &lt;body&gt;:
-              pre.prettyprint.lang-html
-                &lt;video id="my_video_1" class="video-js vjs-default-skin" controls
-                |  preload="auto" width="640" height="264" poster="my_video_poster.png"
-                |  data-setup="{}"&lt;
-                |  &lt;source src="my_video.mp4" type='video/mp4'&gt;
-                |  &lt;source src="my_video.webm" type='video/webm'&gt;
-                &lt;/video&gt;
-                span#customStyleTag
+            <!-- Modal -->
+            #embedModal.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='embedCode', aria-hidden='true')
+              .modal-header
+                button.close(type='button', data-dismiss='modal', aria-hidden='true')×
+                h3#embedCode Use Video.JS
+              .modal-body
+                h4 In the &lt;head&gt;:
+                pre.prettyprint.lang-html
+                  &lt;link href="http://vjs.zencdn.net/4.0/video-js.css" rel="stylesheet"&gt;
+                  &lt;script src="http://vjs.zencdn.net/4.0/video.js"&gt;&lt;/script&gt;
+
+                h4 In the &lt;body&gt;:
+                pre.prettyprint.lang-html
+                  &lt;video id="my_video_1" class="video-js vjs-default-skin" controls
+                  |  preload="auto" width="640" height="264" poster="my_video_poster.png"
+                  |  data-setup="{}"&lt;
+                  |  &lt;source src="my_video.mp4" type='video/mp4'&gt;
+                  |  &lt;source src="my_video.webm" type='video/webm'&gt;
+                  &lt;/video&gt;
+                  span#customStyleTag
 
       p Video clip from <a target="_blank" href="http://nature.disney.com/oceans">Disney Nature's Oceans</a>
 
