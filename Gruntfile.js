@@ -40,7 +40,7 @@ module.exports = function(grunt) {
     },
     cloudfront_clear: {
       invalidateAll: {
-        resourcePaths: ["/css/main.css"],
+        resourcePaths: ["/"],
         secret_key: s3config.secret,
         access_key: s3config.key,
         dist: s3config.cloudfront_distribution_id
