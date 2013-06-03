@@ -16,8 +16,8 @@ html(lang='en')
       script(src='/js/bootstrap-slider.js')
       script(src='/js/prettify.js')
 
-      script(src='http://vjs.zencdn.net/4.0/video.js')
-      link(href='http://vjs.zencdn.net/4.0/video-js.css', rel='stylesheet')
+      script(src='http://vjs.zencdn.net/4.0.3/video.js')
+      link(href='http://vjs.zencdn.net/4.0.3/video-js.css', rel='stylesheet')
 
       script(src='/js/scripts.js')
 
@@ -37,6 +37,8 @@ html(lang='en')
               ul.nav.pull-right
                 li
                   a(href='https://github.com/videojs/video.js/blob/master/docs/setup.md') Get Started
+                li
+                  <a href="/downloads/video-js-4.0.3.zip" onclick="_gaq.push(['_trackPageview', '/downloaded']);">Download</a>
                 li
                   a(href='https://github.com/videojs/video.js/blob/master/docs/index.md') Docs
                 li
@@ -61,3 +63,15 @@ html(lang='en')
                 | @videojs&nbsp;
                 i.icon-twitter
           // p &copy; #{ new Date().getFullYear() } #{ locals.owner }
+
+    script(type='text/javascript')
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-16505296-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
