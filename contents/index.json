@@ -1,3 +1,4 @@
 {
-  "template": "index.jade"
+  "template": "index.jade",
+  "title": "HTML5 Video Player"
 }

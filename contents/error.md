@@ -1,5 +1,6 @@
 ---
 template: page.jade
+title: 'Error! Page not found.'
 ---
 
 Page not found :(
