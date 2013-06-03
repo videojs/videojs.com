@@ -1,4 +1,5 @@
 {
   "template": "index.jade",
-  "title": "HTML5 Video Player"
+  "title": "HTML5 Video Player",
+  "description": "Video.js is a JavaScript and CSS library that makes it easier to work with and build on HTML5 video. This is also known as an HTML5 Video Player."
 }

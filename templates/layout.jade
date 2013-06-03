@@ -7,6 +7,12 @@ html(lang='en')
         block title
           = page.title + ' | ' + locals.name
 
+      
+
+      meta(name='description', content='Video.js is a JavaScript and CSS library that makes it easier to work with and build on HTML5 video. This is also known as an HTML5 Video Player.')
+
+      meta(name="author", content="Steve Heffernan & Contributors")
+
       link(href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css', rel='stylesheet')
       link(href='//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css', rel='stylesheet')
 
@@ -22,6 +28,8 @@ html(lang='en')
       script(src='/js/scripts.js')
 
       link(href='/css/main.css', rel='stylesheet')
+
+      <link rel=alternate type="application/rss+xml" title=RSS href="http://feeds.feedburner.com/video-js">
 
       // HTML5 shim, for IE6-8 support of HTML5 elements
       //if lt IE 9
