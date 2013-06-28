@@ -71,7 +71,7 @@ $(function() {
 
     function resizeVideoJS(){
       // Get the parent element's actual width
-      var width = document.getElementById(myPlayer.L).parentElement.offsetWidth;
+      var width = document.getElementById(myPlayer.id()).parentElement.offsetWidth;
       // Set width to fill parent element, Set height
       myPlayer.width(width).height( width * aspectRatio );
     }
