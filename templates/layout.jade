@@ -56,7 +56,7 @@ html(lang='en')
                 li
                   a(href='http://stackoverflow.com/questions/tagged/video.js') Help & Support
         // GitHub Fork thing
-        a(href='https://github.com/videojs/video.js')
+        //- a(href='https://github.com/videojs/video.js')
           img#forkMe(src='https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png', alt='Fork me on GitHub')
       #content
         block content
@@ -69,9 +69,16 @@ html(lang='en')
             | Copyright <a href="http://www.brightcove.com" target="_blank">Brightcove, Inc.</a>
             | View <a target="_blank" href="https://github.com/videojs/video.js/blob/master/LICENSE">license</a>.
             span
-              a.tiwtterLink(href='http://twitter.com/videojs')
-                | @videojs&nbsp;
+              a.tiwtterLink(href='http://twitter.com/videojs', target='_blank')
                 i.icon-twitter
+                | &nbsp;@videojs&nbsp;&nbsp;
+              a.newsletterLink(href='http://zencoder.us2.list-manage2.com/subscribe?u=36f130c3d3fadb2a21d2983b7&id=0f35b0535c', target='_blank')
+                i.icon-envelope-alt
+                | &nbsp;Newsletter&nbsp;&nbsp;
+              a.newsletterLink(href='https://github.com/videojs/video.js', target='_blank')
+                i.icon-github-alt
+                | &nbsp;Source&nbsp;&nbsp;
+                
           // p &copy; #{ new Date().getFullYear() } #{ locals.owner }
 
     script(type='text/javascript').
