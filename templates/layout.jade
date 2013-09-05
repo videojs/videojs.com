@@ -7,7 +7,7 @@ html(lang='en')
         block title
           = page.title + ' | ' + locals.name
 
-      
+
 
       meta(name='description', content='Video.js is a JavaScript and CSS library that makes it easier to work with and build on HTML5 video. This is also known as an HTML5 Video Player.')
 
@@ -22,8 +22,8 @@ html(lang='en')
       script(src='/js/bootstrap-slider.js')
       script(src='/js/prettify.js')
 
-      script(src='http://vjs.zencdn.net/4.1.0/video.js')
-      link(href='http://vjs.zencdn.net/4.1.0/video-js.css', rel='stylesheet')
+      script(src='//vjs.zencdn.net/4.1.0/video.js')
+      link(href='//vjs.zencdn.net/4.1.0/video-js.css', rel='stylesheet')
 
       script(src='/js/scripts.js')
 
@@ -74,7 +74,7 @@ html(lang='en')
                 i.icon-twitter
           // p &copy; #{ new Date().getFullYear() } #{ locals.owner }
 
-    script(type='text/javascript')
+    script(type='text/javascript').
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-16505296-1']);
