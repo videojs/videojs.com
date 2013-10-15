@@ -53,10 +53,10 @@ $(function() {
 
     // Build custom <style> tag
     var style = '';
-    if (customStyles.color) { style += "  .vjs-default-skin { color: "+ customStyles.color +" }\n" }
-    if (customStyles.progress) { style += "  .vjs-default-skin .vjs-play-progress, .vjs-default-skin .vjs-volume-level { background-color: "+ customStyles.progress +" }\n" }
+    if (customStyles.color) { style += "  .vjs-default-skin { color: "+ customStyles.color +"; }\n" }
+    if (customStyles.progress) { style += "  .vjs-default-skin .vjs-play-progress,\n  .vjs-default-skin .vjs-volume-level { background-color: "+ customStyles.progress +" }\n" }
     if (customStyles.background) {
-      style += "  .vjs-default-skin .vjs-control-bar, .vjs-default-skin .vjs-big-play-button { background: "+ customStyles.background.main +" }\n"
+      style += "  .vjs-default-skin .vjs-control-bar,\n  .vjs-default-skin .vjs-big-play-button { background: "+ customStyles.background.main +" }\n"
       style += "  .vjs-default-skin .vjs-slider { background: "+ customStyles.background.slider +" }\n"
     }
     if (customStyles.fontSize) { style += "  .vjs-default-skin .vjs-control-bar { font-size: "+ customStyles.fontSize +"% }\n" }
