@@ -54,12 +54,12 @@ $(function() {
     // Build custom <style> tag
     var style = '';
     if (customStyles.color) { style += "  .vjs-default-skin { color: "+ customStyles.color +" }\n" }
-    if (customStyles.progress) { style += "  .vjs-play-progress, .vjs-volume-level { background-color: "+ customStyles.progress +" }\n" }
+    if (customStyles.progress) { style += "  .vjs-default-skin .vjs-play-progress, .vjs-default-skin .vjs-volume-level { background-color: "+ customStyles.progress +" }\n" }
     if (customStyles.background) {
-      style += "  .vjs-control-bar, .vjs-big-play-button { background: "+ customStyles.background.main +" }\n"
-      style += "  .vjs-slider { background: "+ customStyles.background.slider +" }\n"
+      style += "  .vjs-default-skin .vjs-control-bar, .vjs-default-skin .vjs-big-play-button { background: "+ customStyles.background.main +" }\n"
+      style += "  .vjs-default-skin .vjs-slider { background: "+ customStyles.background.slider +" }\n"
     }
-    if (customStyles.fontSize) { style += "  .vjs-control-bar { font-size: "+ customStyles.fontSize +"% }\n" }
+    if (customStyles.fontSize) { style += "  .vjs-default-skin .vjs-control-bar { font-size: "+ customStyles.fontSize +"% }\n" }
     if (style) {
       $('#customStyleTag').text('\n<style type="text/css">\n'+style+'</style>\n')
     }
