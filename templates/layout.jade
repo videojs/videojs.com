@@ -29,7 +29,7 @@ html(lang='en')
 
       link(href='/css/main.css', rel='stylesheet')
 
-      <link rel=alternate type="application/rss+xml" title=RSS href="http://feeds.feedburner.com/video-js">
+      link(rel='alternate', type='application/rss+xml', title='RSS', href='http://feeds.feedburner.com/video-js')
 
       // HTML5 shim, for IE6-8 support of HTML5 elements
       //if lt IE 9
@@ -46,15 +46,15 @@ html(lang='en')
                 li
                   a(href='https://github.com/videojs/video.js/blob/v4.2.2/docs/setup.md') Get Started
                 li
-                  <a href="/downloads/video-js-4.2.2.zip" onclick="_gaq.push(['_trackPageview', '/downloaded']);">Download</a>
+                  a(href='/downloads/video-js-4.2.2.zip', onclick="_gaq.push(['_trackPageview', '/downloaded']);") Downloads
                 li
                   a(href='https://github.com/videojs/video.js/blob/v4.2.2/docs/index.md') Docs
                 li
-                  <a href="http://designer.videojs.com" target="_blank">Designer</a>
+                  a(href='http://designer.videojs.com', target='_blank') Designer
                 li
-                  <a href="http://blog.videojs.com" target="_blank">Blog</a>
+                  a(href='http://blog.videojs.com', target='_blank') Blog
                 li
-                  a(href='http://stackoverflow.com/questions/tagged/video.js') Help & Support
+                  a(href='https://github.com/videojs/video.js/wiki/Support') Help & Support
         // GitHub Fork thing
         //- a(href='https://github.com/videojs/video.js')
           img#forkMe(src='https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png', alt='Fork me on GitHub')
@@ -78,7 +78,7 @@ html(lang='en')
               a.newsletterLink(href='https://github.com/videojs/video.js', target='_blank')
                 i.icon-github-alt
                 | &nbsp;Source&nbsp;&nbsp;
-                
+
           // p &copy; #{ new Date().getFullYear() } #{ locals.owner }
 
     script(type='text/javascript').
