@@ -2,8 +2,17 @@
   "lynda/index.html": "http://www.lynda.com/HTML-5-tutorials/HTML5-Video-and-Audio-in-Depth/80781-2.html?utm_medium=affiliate&utm_source=ldc_affiliate&utm_content=524&utm_campaign=CD3175&bid=524&aid=CD3175",
   "embed-builder/index.html": "/tag-builder/index.html",
   "tag-builder/index.html": "/index.html",
-  "docs/index.html": "https://github.com/videojs/video.js/blob/master/docs/index.md",
   "html5-video/index.html": "/index.html",
+  "about/index.html": "/index.html",
+
+  "docs/index.html"          : "https://github.com/videojs/video.js/blob/master/docs/index.md",
+  "docs/setup/index.html"    : "https://github.com/videojs/video.js/blob/master/docs/guides/setup.md",
+  "docs/options/index.html"  : "https://github.com/videojs/video.js/blob/master/docs/guides/options.md",
+  "docs/tracks/index.html"   : "https://github.com/videojs/video.js/blob/master/docs/guides/tracks.md",
+  "docs/api/index.html"      : "https://github.com/videojs/video.js/blob/master/docs/guides/api.md",
+  "docs/skins/index.html"    : "https://github.com/videojs/video.js/blob/master/docs/guides/skins.md",
+  "docs/tech/index.html"     : "https://github.com/videojs/video.js/blob/master/docs/guides/tech.md",
+  "docs/glossary/index.html" : "https://github.com/videojs/video.js/blob/master/docs/guides/glossary.md",
 
   "2012/07/brightcove-acquires-zencoder/index.html"                                 : "http://blog.videojs.com/post/35666994917/brightcove-acquires-zencoder",
   "2012/03/version-3-2-update/index.html"                                           : "http://blog.videojs.com/post/35883671470/version-3-2-update",
