@@ -1,10 +1,11 @@
 module.exports = function(grunt) {
-
   try {
     s3config = grunt.file.readJSON('.s3config.json');
   } catch(e) {
     s3config = {};
   }
+
+  var vjsversion = JSON.parse(grunt.file.read('node_modules/video.js/package.json')).version;
 
   // Project configuration.
   grunt.initConfig({
@@ -45,16 +46,94 @@ module.exports = function(grunt) {
         access_key: s3config.key,
         dist: s3config.cloudfront_distribution_id
       }
+    },
+    version: {
+      options: {
+        pkg: 'node_modules/video.js/package.json'
+      },
+      layout: {
+        options: {
+          prefix: 'vjs.zencdn.net/'
+        },
+        src: ['templates/layout.jade']
+      },
+      download: {
+        options: {
+          prefix: '/downloads/video-js-'
+        },
+        src: ['templates/layout.jade']
+      }
+    },
+    shell: {
+      options: {
+        failOnError: true
+      },
+      'wintersmith-build': { command: 'wintersmith build' },
+      'npm-update-videojs': { command: 'npm update video.js' }
     }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-s3');
   grunt.loadNpmTasks('grunt-cloudfront-clear');
+  grunt.loadNpmTasks('grunt-version');
+  grunt.loadNpmTasks('grunt-shell');
 
   // Default task(s).
   // grunt.registerTask('default', ['redirects:staging']);
   grunt.registerTask('deploy:staging', ['s3:staging', 'redirects:staging']);
+
+  grunt.registerTask('release', 'Rebuild the site with a new video.js version', function(){
+    grunt.task.run([
+      'shell:npm-update-videojs',    // get the latest video.js version
+      'cdn-links',                   // update site CDN links
+      'version:layout',              // update player links used on site
+      'zip',                         // zip the video.js dist for download
+      'version:download',            // update links to the download file
+      'shell:wintersmith-build',     // build the new site
+      's3:staging'                   // push to staging
+    ]);
+  });
+
+  grunt.registerTask('cdn-links', 'Update the version of CDN links', function(){
+    var index = grunt.file.read('templates/index.jade');
+    var version = JSON.parse(grunt.file.read('node_modules/video.js/package.json')).version;
+
+    // remove the patch version to point to the latest patch
+    version = version.replace(/(\d\.\d)\.\d/, '$1');
+
+    // update the version in http://vjs.zencdn.net/4.3/video.js
+    index = index.replace(/(http:\/\/vjs\.zencdn\.net\/)\d\.\d(\.\d)?/g, '$1'+version);
+    grunt.file.write('templates/index.jade', index);
+  });
+
+  grunt.registerTask('zip', 'Zip video.js folder', function(){
+    // grunt-zip was giving me issues when using DEFLATE. The zip files would
+    // error when you tried to unzip them, "No such file or directory"
+
+    var exec = require('child_process').exec;
+    var done = this.async();
+    var dirLoc = 'node_modules/video.js/dist';
+
+    var zipFile = 'contents/downloads/video-js-'+vjsversion+'.zip';
+    var cd1 = 'cd node_modules/video.js/dist';
+    var zip = 'zip -r ../../../'+zipFile+' video-js';
+    var cd2 = 'cd ../../../';
+
+    exec(cd1+' && '+zip+' && '+cd2, { maxBuffer: 500*1024 }, function(err, stdout, stderr){
+
+      if (err) {
+        grunt.log.error(err);
+        return done(false);
+      }
+
+      if (stdout) {
+        grunt.log.writeln(stdout);
+      }
+
+      done();
+    });
+  });
 
   grunt.registerTask('redirects', 'Created redirects on s3', function(arg1) {
     var done = this.async();    

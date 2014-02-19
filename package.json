@@ -12,8 +12,14 @@
   "license": "Apache 2.0",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "grunt": "~0.4.1",
+    "grunt": "~0.4.2",
     "grunt-s3": "~0.2.0-alpha.2",
-    "grunt-cloudfront-clear": "0.0.1"
+    "grunt-cloudfront-clear": "0.0.1",
+    "grunt-version": "~0.3.0",
+    "grunt-shell": "~0.6.4",
+    "grunt-zip": "~0.12.0"
+  },
+  "dependencies": {
+    "video.js": ">4.0.0"
   }
 }
