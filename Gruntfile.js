@@ -91,7 +91,10 @@ module.exports = function(grunt) {
       'zip',                         // zip the video.js dist for download
       'version:download',            // update links to the download file
       'shell:wintersmith-build',     // build the new site
-      's3:staging'                   // push to staging
+      's3:staging',                  // push to staging
+      // 's3:production',               // push to production
+      // 'redirects',                   // create redirects
+      // 'cloudfront_clear'             // clear the cdn
     ]);
   });
 
