@@ -79,24 +79,28 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-version');
   grunt.loadNpmTasks('grunt-shell');
 
-  // Default task(s).
-  // grunt.registerTask('default', ['redirects:staging']);
-  grunt.registerTask('deploy:staging', ['s3:staging', 'redirects:staging']);
+  // deploy: staging
+  grunt.registerTask('deploy:staging', [
+    's3:staging', 
+    'redirects:staging'
+  ]);
 
-  grunt.registerTask('release', 'Rebuild the site with a new video.js version', function(){
-    grunt.task.run([
-      'shell:npm-update-videojs',    // get the latest video.js version
-      'cdn-links',                   // update site CDN links
-      'version:layout',              // update player links used on site
-      'zip',                         // zip the video.js dist for download
-      'version:download',            // update links to the download file
-      'shell:wintersmith-build',     // build the new site
-      's3:staging',                  // push to staging
-      // 's3:production',               // push to production
-      // 'redirects',                   // create redirects
-      // 'cloudfront_clear'             // clear the cdn
-    ]);
-  });
+  // deploy:production
+  grunt.registerTask('deploy:production', [
+    's3:production',
+    'redirects:production',
+    'cloudfront_clear'
+  ]);
+
+  // release
+  grunt.registerTask('release', [
+    'shell:npm-update-videojs',    // get the latest video.js version
+    'cdn-links',                   // update site CDN links
+    'version:layout',              // update player links used on site
+    'zip',                         // zip the video.js dist for download
+    'version:download',            // update links to the download file
+    'shell:wintersmith-build'      // build the new site
+  ]);
 
   grunt.registerTask('cdn-links', 'Update the version of CDN links', function(){
     var index = grunt.file.read('templates/index.jade');

@@ -20,3 +20,23 @@ Finally, run the site:
 	wintersmith preview
 
 Withersmith will return a host and port to view the site, usually [http://localhost:8080/](localhost:8080)
+
+## Release and Deploy
+
+Update to latest video.js version and build site files
+
+```
+grunt release
+```
+
+Deploy to staging for testing (always test staging before deploying to production)
+
+```
+grunt deploy:staging
+```
+
+Deploy to production
+
+```
+grunt deploy:production
+```
