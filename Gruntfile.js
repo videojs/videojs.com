@@ -118,6 +118,8 @@ module.exports = function(grunt) {
     // grunt-zip was giving me issues when using DEFLATE. The zip files would
     // error when you tried to unzip them, "No such file or directory"
 
+    vjsversion = JSON.parse(grunt.file.read('node_modules/video.js/package.json')).version;
+
     var exec = require('child_process').exec;
     var done = this.async();
     var dirLoc = 'node_modules/video.js/dist';
