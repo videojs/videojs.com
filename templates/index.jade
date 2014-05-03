@@ -1,5 +1,11 @@
 extends layout
 
+block head-includes
+  script(src='//vjs.zencdn.net/4.5.1/video.js')
+  link(href='//vjs.zencdn.net/4.5.1/video-js.css', rel='stylesheet')
+
+  script(src='/js/home.js')
+
 block content
   .banner
     .container

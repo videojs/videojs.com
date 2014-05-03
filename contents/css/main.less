@@ -213,7 +213,7 @@ footer, #push {
 
 .what-is {
   margin-bottom: 40px;
-  .container { max-width: 900px; } 
+  .container { max-width: 900px; }
   p { font-size: 16px; line-height: 1.5; margin-bottom: 1em; }
   #html5_img_container { text-align: center; padding-top: 20px; }
   img { margin-bottom: 20px; text-align: center; }
@@ -282,6 +282,27 @@ footer {
   padding-top: 115px;
 }
 // end normal page print stuff
+
+// Browser Support
+#no-js-support {
+  text-align: center;
+}
+
+.my-browser-support {
+  margin-bottom: 20px;
+}
+
+table.html5-support {
+  th, td { text-align: center; }
+  th { font-weight: bold; background-color: @lightGray }
+  td { width: 33.333% }
+  li { display: inline }
+  .tooltip-arrow { display: none; }
+  .tooltip-inner {
+    background-color: @lightBlue;
+  }
+}
+// End Browser Support
 
 // Media queries and what not
 @media (max-width: 767px) {

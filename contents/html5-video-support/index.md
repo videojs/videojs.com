@@ -1,5 +1,5 @@
 ---
-template: page.jade
+template: html5_support.jade
 title: 'HTML5 Video Support'
 ---
 
