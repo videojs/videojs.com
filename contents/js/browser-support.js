@@ -6,7 +6,7 @@ $(function() {
     msg = msg + probablySupport() + maybeSupport();
     $('.my-browser-support').append(msg);
   } else {
-    $('.my-browser-support').append("<p>We did a quick test, and it looks like you <span class='video-support-status label label-important'>don't</span> support HTML5 video. Please consider upgrading to a modern version of one of the browsers below.</p>")
+    $('.my-browser-support').append("<p>We did a quick test, and it looks like you <span class='video-support-status label label-important'>don't</span> support HTML5 video. Please consider upgrading to a modern version of one of the browsers below, such as <a href='https://www.google.com/intl/en/chrome/browser/' target='_blank'>Chrome</a></p>")
   }
 
   $('.html5-support img').tooltip({
