@@ -148,39 +148,47 @@ module.exports = function(grunt) {
     var done = this.async();    
     var s3 = require('grunt-s3')().s3;
     var redirects = grunt.file.readJSON('redirects.json');
-    var redirectConfig;
-    var bucket;
+    var redirectConfig = {};
 
     if (arg1 === 'production') {
-      bucket = 'www.videojs.com';
+      redirectConfig.bucket = 'www.videojs.com';
     } else {
-      bucket = 'staging.videojs.com'
+      redirectConfig.bucket = 'staging.videojs.com'
     }
 
-    for (src in redirects) {
-      // Reset options object so we're not copying between
-      redirectConfig = {};
-      for (key in s3config) {
-        redirectConfig[key] = s3config[key];
-      }
-      redirectConfig.bucket = bucket;
+    for (key in s3config) {
+      redirectConfig[key] = s3config[key];
+    }
+
+    var redirectKeys = Object.keys(redirects);
+    var i = 0;
+
+    function next(){
+      var from = redirectKeys[i];
+      var to = redirects[from];
+
       redirectConfig.headers = {
-        'x-amz-website-redirect-location': redirects[src]
+        'x-amz-website-redirect-location': to
       };
 
-      var upload = s3.upload('README.md', src, redirectConfig);
+      var upload = s3.upload('README.md', from, redirectConfig);
       // It does not work without this step.
       upload
         .done(function(msg) {
-          console.log(msg);
+          console.log('Uploaded: '+from);
+
+          if (i == (redirectKeys.length-1)) {
+            done();
+          } else {
+            i++;
+            next();
+          }
         })
         .fail(function(err) {
-          console.log(err);
-        })
-        .always(function() {
-          console.log('dance!');
+          grunt.log.error(err);
         });
-    }
+    };
+    next();
   });
 
 };
