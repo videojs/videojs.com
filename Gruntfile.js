@@ -47,21 +47,28 @@ module.exports = function(grunt) {
         dist: s3config.cloudfront_distribution_id
       }
     },
-    version: {
-      options: {
-        pkg: 'node_modules/video.js/package.json'
-      },
-      layout: {
+    replace: {
+       version_urls: {
         options: {
-          prefix: 'vjs.zencdn.net/'
+          patterns: [
+            { // Patch urls (e.g. /4.5.0/)
+              match: /(vjs\.zencdn\.net\/)\d\.\d\.\d/g,
+              replacement: '$1'+vjsversion,
+            },
+            { // Minor urls (e.g /4.5/)
+              match: /(vjs\.zencdn\.net\/)\d\.\d\//g,
+              replacement: '$1'+vjsversion.replace(/(\d\.\d)\.\d/, '$1')+'/',
+            },
+            { // Download link
+              match: /(\/downloads\/video-js-)\d\.\d\.\d/g,
+              replacement: '$1'+vjsversion,
+            }
+          ]
         },
-        src: ['templates/layout.jade']
-      },
-      download: {
-        options: {
-          prefix: '/downloads/video-js-'
-        },
-        src: ['templates/layout.jade']
+        files: [
+          { src: ['templates/index.jade'], dest: 'templates/index.jade' },
+          { src: ['templates/layout.jade'], dest: 'templates/layout.jade' }
+        ]
       }
     },
     shell: {
@@ -76,7 +83,7 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-s3');
   grunt.loadNpmTasks('grunt-cloudfront-clear');
-  grunt.loadNpmTasks('grunt-version');
+  grunt.loadNpmTasks('grunt-replace');
   grunt.loadNpmTasks('grunt-shell');
 
   // deploy: staging
@@ -95,24 +102,10 @@ module.exports = function(grunt) {
   // release
   grunt.registerTask('release', [
     'shell:npm-update-videojs',    // get the latest video.js version
-    'cdn-links',                   // update site CDN links
-    'version:layout',              // update player links used on site
     'zip',                         // zip the video.js dist for download
-    'version:download',            // update links to the download file
+    'replace:version_urls',        // update file version urls used on site
     'shell:wintersmith-build'      // build the new site
   ]);
-
-  grunt.registerTask('cdn-links', 'Update the version of CDN links', function(){
-    var index = grunt.file.read('templates/index.jade');
-    var version = JSON.parse(grunt.file.read('node_modules/video.js/package.json')).version;
-
-    // remove the patch version to point to the latest patch
-    version = version.replace(/(\d\.\d)\.\d/, '$1');
-
-    // update the version in http://vjs.zencdn.net/4.3/video.js
-    index = index.replace(/(http:\/\/vjs\.zencdn\.net\/)\d\.\d(\.\d)?/g, '$1'+version);
-    grunt.file.write('templates/index.jade', index);
-  });
 
   grunt.registerTask('zip', 'Zip video.js folder', function(){
     // grunt-zip was giving me issues when using DEFLATE. The zip files would
