@@ -52,15 +52,15 @@ module.exports = function(grunt) {
         options: {
           patterns: [
             { // Patch urls (e.g. /4.5.0/)
-              match: /(vjs\.zencdn\.net\/)\d\.\d\.\d/g,
+              match: /(vjs\.zencdn\.net\/)\d+\.\d+\.\d+/g,
               replacement: '$1'+vjsversion,
             },
             { // Minor urls (e.g /4.5/)
-              match: /(vjs\.zencdn\.net\/)\d\.\d\//g,
-              replacement: '$1'+vjsversion.replace(/(\d\.\d)\.\d/, '$1')+'/',
+              match: /(vjs\.zencdn\.net\/)\d+\.\d+\//g,
+              replacement: '$1'+vjsversion.replace(/(\d+\.\d+)\.\d+/, '$1')+'/',
             },
             { // Download link
-              match: /(\/downloads\/video-js-)\d\.\d\.\d/g,
+              match: /(\/downloads\/video-js-)\d+\.\d+\.\d+/g,
               replacement: '$1'+vjsversion,
             }
           ]
