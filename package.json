@@ -1,25 +1,19 @@
 {
-  "name": "videojs.com",
-  "version": "0.0.0",
-  "description": "The Video.js site",
-  "main": "",
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/videojs/videojs.com.git"
+  "name": "harp-starter-app",
+  "version": "1.0.0",
+  "description": "Just some boiler plate for a harp application",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "Apache 2.0",
-  "readmeFilename": "README.md",
+  "author": "Matthew McClure <matt@mmcc.io>",
+  "license": "MIT",
   "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-s3": "~0.2.0-alpha.2",
-    "grunt-cloudfront-clear": "0.0.1",
-    "grunt-shell": "~0.6.4",
-    "grunt-zip": "~0.12.0",
-    "grunt-replace": "~0.7.7"
-  },
-  "dependencies": {
-    "video.js": ">4.0.0"
+    "bootstrap-sass": "^3.3.4",
+    "grunt-browserify": "^3.3.0",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-harp": "^0.1.4",
+    "jquery": "^2.1.3"
   }
 }
