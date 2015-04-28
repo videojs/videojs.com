@@ -13,7 +13,7 @@
     "grunt-browserify": "^3.3.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-harp": "^0.1.4",
+    "grunt-harp": "^0.1.5",
     "jquery": "^2.1.3"
   }
 }

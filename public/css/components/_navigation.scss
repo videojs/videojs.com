@@ -1,0 +1,21 @@
+nav {
+  @extend .navbar;
+  @extend .navbar-fixed-top;
+
+  @extend .navbar-default;
+}
+
+nav .logo {
+  height: 30px;
+  width: 50px;
+  background-image: url('/img/logo.png');
+  background-size: cover;
+  text-indent: -99999px;
+  margin: 0;
+
+  @include transition(all .3s ease-in-out);
+
+  &:hover {
+    width: 214px;
+  }
+}
