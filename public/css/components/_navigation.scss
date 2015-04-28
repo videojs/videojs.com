@@ -3,9 +3,40 @@ nav {
   @extend .navbar-fixed-top;
 
   @extend .navbar-default;
+
+  min-height: $nav-height;
+  background-color: $background-secondary;
+}
+
+nav a {
+  color: $text-primary;
+
+  &:hover {
+    color: darken($text-primary, 15%);
+    text-decoration: none;
+  }
+}
+
+nav ul {
+  list-style: none;
+}
+
+// Logo (or other primary branding)
+// Currently on the left side of the navigation bar
+nav .nav-header {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 nav .logo {
+  line-height: 40px;
+  float: left;
+  height: $nav-height;
+  padding: 5px;
+}
+
+nav .logo h1 {
   height: 30px;
   width: 50px;
   background-image: url('/img/logo.png');
@@ -15,7 +46,57 @@ nav .logo {
 
   @include transition(all .3s ease-in-out);
 
-  &:hover {
-    width: 214px;
+  // This breakpoint is custom to the navbar because this is when it just gets
+  // untenable to show the full logo.
+  @media (min-device-width: 650px) {
+    &:hover {
+      width: 214px;
+    }
+  }
+}
+
+// The actual navigation links
+// Currently centered in the navigation bar.
+nav .nav-links {
+  text-align: center;
+  font-size: 1.25em;
+  line-height: $nav-height;
+
+  @media (max-device-width: $screen-xs) {
+    text-align: right;
+    padding-right: 5px;
+  }
+}
+
+nav .nav-links ul {
+  margin: 0;
+  padding: 0;
+}
+nav .nav-links li {
+  display: inline;
+  margin-right: 40px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-device-width: $screen-sm) {
+    margin-right: 10px;
+  }
+}
+
+
+// Random bits in the navigation bar, such as a Github link.
+// Currently on the right side of the nav bar.
+nav .nav-other {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 2.5em;
+  line-height: $nav-height;
+  padding-right: 5px;
+
+  @media (max-device-width: $screen-xs) {
+    display: none;
   }
 }

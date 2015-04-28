@@ -35,6 +35,19 @@ module.exports = function(grunt) {
           'public/js/bundle.js': ['src-js/app.js']
         }
       }
+    },
+    copy: {
+      font: {
+        files: [
+          {
+            expand: true,
+            src: ['node_modules/font-awesome/fonts/*'],
+            dest: 'public/fonts',
+            filter: 'isFile',
+            flatten: true
+          }
+        ]
+      }
     }
   });
 
@@ -42,8 +55,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-harp');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['browserify', 'harp:dist']);
+  grunt.registerTask('default', ['copy:font', 'browserify', 'harp:dist']);
   grunt.registerTask('dev', ['concurrent']);
 };

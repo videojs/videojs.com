@@ -4,3 +4,21 @@
   -o-transition: $string;
   transition: $string;
 }
+
+@mixin display-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex($string) {
+  @if $string == 'auto' {
+    $string: 1
+  }
+
+  -webkit-box-flex: $string;
+  -webkit-flex: $string;
+  -ms-flex: $string;
+  flex: $string;
+}
