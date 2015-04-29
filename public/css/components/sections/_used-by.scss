@@ -1,4 +1,33 @@
 .used-by {
   background-color: $background-secondary;
   text-align: center;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: flex-start;
+}
+
+.used-by ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.used-by li {
+  background: $dark-gray;
+  width: 200px;
+  height: 150px;
+  margin: 10px 10px 0 0;
+
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
 }
