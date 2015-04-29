@@ -33,16 +33,45 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'public/js/bundle.js': ['src-js/app.js']
+        },
+        options: {
+          transform: [
+            require('babelify').configure({
+              sourceMapRelative: './src/js'
+            })
+          ]
         }
       }
     },
     copy: {
-      font: {
+      fontawesome: {
         files: [
           {
             expand: true,
             src: ['node_modules/font-awesome/fonts/*'],
             dest: 'public/fonts',
+            filter: 'isFile',
+            flatten: true
+          }
+        ]
+      },
+      fontvjs: {
+        files: [
+          {
+            expand: true,
+            src: ['node_modules/video.js/dist/font/*'],
+            dest: 'public/fonts',
+            filter: 'isFile',
+            flatten: true
+          }
+        ]
+      },
+      stylevjs: {
+        files: [
+          {
+            expand: true,
+            src: ['node_modules/video.js/dist/video-js.css'],
+            dest: 'public/css/vendor',
             filter: 'isFile',
             flatten: true
           }
@@ -58,6 +87,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['copy:font', 'browserify', 'harp:dist']);
-  grunt.registerTask('dev', ['concurrent']);
+  grunt.registerTask('default', ['copy:fontawesome', 'copy:stylevjs', 'copy:fontvjs', 'browserify', 'harp:dist']);
+  grunt.registerTask('dev', ['browserify', 'concurrent']); // Browserify before starting concurrent things
 };

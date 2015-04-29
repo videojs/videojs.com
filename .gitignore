@@ -18,3 +18,5 @@ build
 .s3config.json
 
 *.DS_Store
+
+www

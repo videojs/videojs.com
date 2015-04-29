@@ -1,0 +1,24 @@
+@mixin generate-player-padding-top($width-percentage) {
+  padding-top: $width-percentage * $preview-video-ratio
+}
+
+.main-preview-player {
+  margin: 30px auto;
+
+  text-align: center;
+}
+
+.main-preview-player .button {
+  text-transform: uppercase;
+}
+
+#btn-use-now {
+  margin-right: 20px;
+}
+
+#preview-player {
+  width: 95%;
+  margin: 0 auto 30px;
+
+  @include generate-player-padding-top(95%);
+}
