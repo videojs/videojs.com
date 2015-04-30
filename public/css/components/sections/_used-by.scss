@@ -1,13 +1,6 @@
 .used-by {
   background-color: $background-secondary;
   text-align: center;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  align-items: flex-start;
 }
 
 .used-by ul {
@@ -16,8 +9,11 @@
   list-style: none;
 
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: center;
+  align-items: flex-start;
 }
 
 .used-by li {

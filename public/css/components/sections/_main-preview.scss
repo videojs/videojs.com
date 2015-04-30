@@ -1,9 +1,10 @@
-@mixin generate-player-padding-top($width-percentage) {
+@mixin generate-player-sizing($width-percentage) {
+  width: $width-percentage;
   padding-top: $width-percentage * $preview-video-ratio
 }
 
 .main-preview-player {
-  margin: 30px auto;
+  margin: 0 auto;
 
   text-align: center;
 }
@@ -17,8 +18,7 @@
 }
 
 #preview-player {
-  width: 95%;
   margin: 0 auto 30px;
 
-  @include generate-player-padding-top(95%);
+  @include generate-player-sizing(100%);
 }
