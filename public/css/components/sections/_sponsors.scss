@@ -15,6 +15,7 @@
   background: #fff;
   padding: 20px;
   margin: 10px;
+  flex: 1 1 200px;
 }
 
 .sponsor h3 {
@@ -23,8 +24,6 @@
 
 .shepherd {
   flex-grow: 3;
-  flex-shrink: 0;
-  flex-basis: content;
 }
 
 .shepherd .logo {
@@ -37,12 +36,6 @@
     width: 100%;
     height: auto;
   }
-}
-
-.cdn {
-  flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: content;
 }
 
 .cdn .logo {
