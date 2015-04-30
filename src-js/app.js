@@ -1,2 +1,3 @@
 import $ from 'jquery';
-import videojs from 'video.js';
+
+import 'videojs-overlay/lib/videojs-overlay.js';

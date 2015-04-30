@@ -36,6 +36,7 @@ module.exports = function(grunt) {
           'public/js/plugins.js': ['src-js/plugins.js']
         },
         options: {
+          external: ['videojs'],
           transform: [
             require('babelify').configure({
               sourceMapRelative: './src/js'
