@@ -5,12 +5,12 @@
   transition: $string;
 }
 
-@mixin display-flex {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
+// @mixin display-flex {
+//   display: -webkit-box;
+//   display: -webkit-flex;
+//   display: -ms-flexbox;
+//   display: flex;
+// }
 
 @mixin flex($string) {
   @if $string == 'auto' {

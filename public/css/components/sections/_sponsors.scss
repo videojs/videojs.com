@@ -5,16 +5,15 @@
   justify-content: space-around;
   align-content: stretch;
   align-items: stretch;
-
-  @media (max-device-width: $screen-md) {
-    flex-direction: column;
-  }
 }
 
 .sponsor {
   background: #fff;
   padding: 20px;
   margin: 10px;
+  height: auto;
+  flex: 1 1 0%;
+  min-width: 265px;
 }
 
 .sponsor h3 {
@@ -23,8 +22,7 @@
 
 .shepherd {
   flex-grow: 3;
-  flex-shrink: 0;
-  flex-basis: content;
+  flex-shrink: 1;
 }
 
 .shepherd .logo {
@@ -33,7 +31,7 @@
   float: left;
   margin: 0 20px 20px 0;
 
-  @media (max-device-width: 480px) {
+  @media (max-width: 480px) {
     width: 100%;
     height: auto;
   }
@@ -41,8 +39,8 @@
 
 .cdn {
   flex-grow: 1;
-  flex-shrink: 0;
-  flex-basis: content;
+  flex-shrink: 1;
+  flex-basis: 200px;
 }
 
 .cdn .logo {

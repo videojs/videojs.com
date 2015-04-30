@@ -48,7 +48,7 @@ nav .logo h1 {
 
   // This breakpoint is custom to the navbar because this is when it just gets
   // untenable to show the full logo.
-  @media (min-device-width: 650px) {
+  @media (min-width: 650px) {
     &:hover {
       width: 214px;
     }
@@ -62,7 +62,7 @@ nav .nav-links {
   font-size: 1.25em;
   line-height: $nav-height;
 
-  @media (max-device-width: $screen-xs) {
+  @media (max-width: $screen-xs) {
     text-align: right;
     padding-right: 5px;
   }
@@ -80,7 +80,7 @@ nav .nav-links li {
     margin-right: 0;
   }
 
-  @media (max-device-width: $screen-sm) {
+  @media (max-width: $screen-sm) {
     margin-right: 10px;
   }
 }
@@ -96,7 +96,7 @@ nav .nav-other {
   line-height: $nav-height;
   padding-right: 5px;
 
-  @media (max-device-width: $screen-xs) {
+  @media (max-width: $screen-xs) {
     display: none;
   }
 }
