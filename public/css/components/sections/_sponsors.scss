@@ -24,7 +24,7 @@
 .shepherd {
   flex-grow: 3;
   flex-shrink: 0;
-  flex-basis: 200px;
+  flex-basis: content;
 }
 
 .shepherd .logo {
@@ -42,7 +42,7 @@
 .cdn {
   flex-grow: 1;
   flex-shrink: 0;
-  flex-basis: 200px;
+  flex-basis: content;
 }
 
 .cdn .logo {

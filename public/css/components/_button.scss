@@ -3,6 +3,10 @@
 @mixin generate-button($primary-color) {
   background-color: $primary-color;
   border-color: darken($primary-color, 15%);
+
+  &:hover {
+    background-color: darken($primary-color, 15%);
+  }
 }
 
 .button {
