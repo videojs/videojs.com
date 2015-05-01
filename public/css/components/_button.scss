@@ -30,3 +30,8 @@
   @include generate-button($blue);
   color: $white;
 }
+
+.button.white {
+  @include generate-button($white);
+  color: $dark-gray;
+}

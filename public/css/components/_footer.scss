@@ -1,4 +1,33 @@
 footer {
   background-color: $dark-gray;
   color: $white;
+  height: 40px;
+  line-height: 20px;
+  padding: 10px 20px;
+}
+
+footer a {
+  color: $light-gray;
+
+  &:hover {
+    color: darken($light-gray, 10%);
+  }
+}
+
+footer .button {
+  @extend .btn-xs
+}
+
+footer .copyright {
+  float: left;
+}
+
+footer .other-links {
+  margin: 0;
+  padding: 0;
+  float: right;
+}
+
+footer .other-links li {
+  display: inline;
 }
