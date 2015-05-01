@@ -78,7 +78,18 @@ module.exports = function(grunt) {
             flatten: true
           }
         ]
-      }
+      },
+      videojsoverlay: {
+        files: [
+          {
+            expand: true,
+            src: ['node_modules/videojs-overlay/lib/videojs-overlay.css'],
+            dest: 'public/css/vendor',
+            filter: 'isFile',
+            flatten: true
+          }
+        ]
+      },
     }
   });
 
@@ -90,5 +101,5 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['copy:fontawesome', 'copy:stylevjs', 'copy:fontvjs', 'browserify', 'harp:dist']);
-  grunt.registerTask('dev', ['browserify', 'concurrent']); // Browserify before starting concurrent things
+  grunt.registerTask('dev', ['copy', 'browserify', 'concurrent']); // Browserify before starting concurrent things
 };

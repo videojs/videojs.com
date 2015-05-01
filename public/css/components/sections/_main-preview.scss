@@ -23,3 +23,39 @@
 
   @include generate-player-sizing(100%);
 }
+
+
+.vjs-overlay.vjs-overlay-top.videojs-hero-overlay {
+   top: 30%;
+   left: 0;
+   width: 100%;
+   margin: 0;
+   background-color: rgba(250, 252, 255, 0.96);
+   color: #71777F;
+
+   .videojs-hero {
+     margin: 2.5%;
+
+     img.logo {
+       width: 30%;
+       margin: 0 auto 2%;
+       display: block;
+     }
+
+     .subhead {
+       font-size: 1.25em;
+       margin: 1%;
+     }
+
+     img.npm-badge {
+       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Greyscale=1)";
+       -webkit-filter: #{"grayscale(1)"};
+       -moz-filter: #{"grayscale(1)"};
+       filter: #{"grayscale(1)"};
+       height: 1.25em;
+       vertical-align: sub;
+     }
+
+   }
+
+}
