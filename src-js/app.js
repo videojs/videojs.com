@@ -1,28 +1,20 @@
 import $ from 'jquery';
 
-import 'videojs-overlay/lib/videojs-overlay.js';
+var player, overlay, templateEl, $overlay;
 
-var template =
-    '<div class="videojs-hero">'
-    + '<img src="/img/logo.png" alt="Video.js" class="logo">'
-    + '<span class="subhead">The Player Framework</span>'
-    + '<a href="https://www.npmjs.com/package/video.js">'
-    + '<img src="https://img.shields.io/npm/v/video.js.svg" class="npm-badge">'
-    + '</a>'
-    + '</div>';
+player = videojs('preview-player');
 
-var player = videojs('preview-player');
-player.overlay({
-  overlays: [{
-    content: template,
-    class: 'videojs-hero-overlay',
-    align: 'top',
-    start: 'pause',
-    end: 'playing'
-  }]
+overlay = document.createElement('div');
+overlay.className = 'videojs-hero-overlay';
+templateEl = document.querySelector('#overlay-template');
+overlay.innerHTML = templateEl.innerHTML;
+player.el().appendChild(overlay);
+
+$overlay = $(overlay);
+player.on('play', function() {
+  $overlay.hide();
 });
 
-// var overlay = document.createElement('div');
-// overlay.className = 'vjs-overlay vjs-overlay-top videojs-hero-overlay';
-// overlay.innerHtml = template;
-// player.el().appendChild(overlay);
+player.on('pause', function() {
+  $overlay.show();
+});

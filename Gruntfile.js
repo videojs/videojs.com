@@ -78,18 +78,7 @@ module.exports = function(grunt) {
             flatten: true
           }
         ]
-      },
-      videojsoverlay: {
-        files: [
-          {
-            expand: true,
-            src: ['node_modules/videojs-overlay/lib/videojs-overlay.css'],
-            dest: 'public/css/vendor',
-            filter: 'isFile',
-            flatten: true
-          }
-        ]
-      },
+      }
     }
   });
 

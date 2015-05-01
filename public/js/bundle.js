@@ -37525,10 +37525,6 @@ module.exports = exports['default'];
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],3:[function(require,module,exports){
 'use strict';
-=======
-},{}],3:[function(require,module,exports){
-'use strict';
->>>>>>> Set up for videojs-overlay
 
 var _interopRequireDefault = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
 
@@ -37536,24 +37532,23 @@ var _$ = require('jquery');
 
 var _$2 = _interopRequireDefault(_$);
 
-require('videojs-overlay/lib/videojs-overlay.js');
+var player, overlay, templateEl, $overlay;
 
-var template = '<div class="videojs-hero">' + '<img src="/img/logo.png" alt="Video.js" class="logo">' + '<span class="subhead">The Player Framework</span>' + '<a href="https://www.npmjs.com/package/video.js">' + '<img src="https://img.shields.io/npm/v/video.js.svg" class="npm-badge">' + '</a>' + '</div>';
+player = videojs('preview-player');
 
-var player = videojs('preview-player');
-player.overlay({
-  overlays: [{
-    content: template,
-    'class': 'videojs-hero-overlay',
-    align: 'top',
-    start: 'pause',
-    end: 'playing'
-  }]
+overlay = document.createElement('div');
+overlay.className = 'videojs-hero-overlay';
+templateEl = document.querySelector('#overlay-template');
+overlay.innerHTML = templateEl.innerHTML;
+player.el().appendChild(overlay);
+
+$overlay = _$2['default'](overlay);
+player.on('play', function () {
+  $overlay.hide();
 });
 
-// var overlay = document.createElement('div');
-// overlay.className = 'vjs-overlay vjs-overlay-top videojs-hero-overlay';
-// overlay.innerHtml = template;
-// player.el().appendChild(overlay);
+player.on('pause', function () {
+  $overlay.show();
+});
 
-},{"jquery":1,"videojs-overlay/lib/videojs-overlay.js":2}]},{},[3]);
+},{"jquery":1}]},{},[2]);
