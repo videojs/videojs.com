@@ -3,82 +3,6 @@ import videojs from 'video.js';
 import { createElement as el, render, createClass } from 'react';
 import marked from 'marked';
 
-// -----
-// Model
-// -----
-
-// the plugin currently being displayed
-const model = {
-
-  selectedPlugin: 0,
-
-  // the list of all plugins currently selectable
-  plugins: [{
-    "author": "Matthew McClure",
-    "created": "2015-01-13T04:13:59.184Z",
-    "description": "Videojs default skin with pretty colors",
-    "downloads": 72,
-    "modified": "2015-01-17T20:01:29.248Z",
-    "name": "videojs-skin-colors"
-  }, {
-    "author": "Matthew McClure",
-    "created": "2015-01-15T05:07:53.222Z",
-    "description": "Videojs skin that happens to resemble a certain video game streaming site",
-    "downloads": 74,
-    "modified": "2015-01-16T07:15:52.703Z",
-    "name": "videojs-skin-twitchy"
-  }, {
-    "author": "Brightcove",
-    "created": "2013-01-15T05:07:53.222Z",
-    "description": "A video.js tech that plays HLS video on platforms that don't support it but have Flash.",
-    "downloads": 22,
-    "modified": "2015-01-22T07:15:52.703Z",
-    "name": "videojs-contrib-hls"
-  }, {
-    "author": "Matthew McClure",
-    "created": "2015-01-13T04:13:59.184Z",
-    "description": "Videojs default skin with pretty colors",
-    "downloads": 72,
-    "modified": "2015-01-17T20:01:29.248Z",
-    "name": "videojs-skin-colors"
-  }, {
-    "author": "Matthew McClure",
-    "created": "2015-01-15T05:07:53.222Z",
-    "description": "Videojs skin that happens to resemble a certain video game streaming site",
-    "downloads": 74,
-    "modified": "2015-01-16T07:15:52.703Z",
-    "name": "videojs-skin-twitchy"
-  }, {
-    "author": "Matthew McClure",
-    "created": "2015-01-13T04:13:59.184Z",
-    "description": "Videojs default skin with pretty colors",
-    "downloads": 72,
-    "modified": "2015-01-17T20:01:29.248Z",
-    "name": "videojs-skin-colors"
-  }, {
-    "author": "Matthew McClure",
-    "created": "2015-01-15T05:07:53.222Z",
-    "description": "Videojs skin that happens to resemble a certain video game streaming site",
-    "downloads": 74,
-    "modified": "2015-01-16T07:15:52.703Z",
-    "name": "videojs-skin-twitchy"
-  }, {
-    "author": "Matthew McClure",
-    "created": "2015-01-13T04:13:59.184Z",
-    "description": "Videojs default skin with pretty colors",
-    "downloads": 72,
-    "modified": "2015-01-17T20:01:29.248Z",
-    "name": "videojs-skin-colors"
-  }, {
-    "author": "Matthew McClure",
-    "created": "2015-01-15T05:07:53.222Z",
-    "description": "Videojs skin that happens to resemble a certain video game streaming site",
-    "downloads": 74,
-    "modified": "2015-01-16T07:15:52.703Z",
-    "name": "videojs-skin-twitchy"
-  }]
-};
-
 // -----------------
 // Plugin Navigation
 // -----------------
@@ -125,15 +49,18 @@ const PluginListSection = createClass({
 const PluginList = createClass({
   displayName: 'Plugin List',
   render () {
-    if (!this.props.plugins || this.props.plugins.length === 0) {
-      return el('p', {
-        className: 'plugin-list-loading'
-      }, 'Loading plugins\u2026');
+    const plugins = this.props.plugins;
+
+    if (!plugins || plugins.length === 0) {
+      return el('ul', {
+        className: 'plugin-list',
+      }, el('li',
+            { className: 'plugin-list-empty' }));
     }
 
     return el('ul', {
       className: 'plugin-list'
-    }, this.props.plugins.map((plugin, index) => {
+    }, plugins.map((plugin, index) => {
       return el(PluginListEntry, {
         key: index,
         index,
@@ -150,7 +77,7 @@ const PluginListEntry = createClass({
   },
   render () {
     return el('li', {
-      className: this.props.selected ? 'active' : '',
+      className: 'plugin-entry ' + (this.props.selected ? 'active' : ''),
       onClick: this.handleClick
     }, this.props.name);
   }
@@ -167,7 +94,7 @@ const PluginDocsSection = createClass({
     const plugin = this.props.selectedPlugin;
     if (!plugin) {
       return el('section', { className: 'plugin-docs col-sm-8' },
-                el('h2', null, 'Select a plugin'));
+                el(VideoJS));
     }
 
     return el('section', { className: 'plugin-docs col-sm-8' },
@@ -180,11 +107,11 @@ const PluginDocsSection = createClass({
                  },
                     el('li', null,
                        'created on ' +
-                       new Date(plugin.created).toLocaleDateString() +
+                       new Date(plugin.time.created).toLocaleDateString() +
                        ' by ' + plugin.author),
                     el('li', null,
                        'last updated ' +
-                       new Date(plugin.modified).toLocaleDateString()),
+                       new Date(plugin.time.modified).toLocaleDateString()),
                     el('li', null, plugin.downloads + ' downloads'))),
               el(PluginDocs, { plugin }));
   }
@@ -208,6 +135,7 @@ const VideoJS = createClass({
     this.player = videojs(video, {
       width: 'auto',
       height: 'auto',
+      poster: '//www.videojs.com/img/poster.jpg',
       sources: [
         { src: 'http://video-js.zencoder.com/oceans-clip.mp4', type: 'video/mp4' },
         { src: 'http://video-js.zencoder.com/oceans-clip.webm', type: 'video/webm' },
@@ -234,33 +162,15 @@ const VideoJS = createClass({
 const PluginDocs = createClass({
   displayName: 'Plugin Readme',
 
-  fetchPluginDetails () {
-    $.getJSON('/registry/' + this.props.plugin.name +'.json', (plugin) => {
-      this.setState(plugin);
-    })
-  },
-
-  // fetch the detailed plugin data
-  componentDidMount () {
-    this.fetchPluginDetails();
-  },
-  getInitialState () {
-    return null;
-  },
   render () {
-    if (!this.state) {
-      return el('div', { className: 'plugin-docs' }, 'Loading...');
-    }
-
-    if (this.state.name !== this.props.plugin.name) {
-      this.fetchPluginDetails();
+    if (!this.props.plugin) {
       return el('div', { className: 'plugin-docs' }, 'Loading...');
     }
 
     return el('div', {
       className: 'plugin-readme',
       dangerouslySetInnerHTML: {
-        __html: marked(this.state.readme, { sanitize: true })
+        __html: marked(this.props.plugin.readme, { sanitize: true })
       }
     });
   }
@@ -281,12 +191,14 @@ const PluginComponent = createClass({
   },
 
   componentDidMount () {
-    // some time passes and we pull down the plugin list...
-    setTimeout(() => {
-      this.setState($.extend(model, {
-        filteredPlugins: model.plugins
-      }));
-    }, 1000);
+    // TODO replace me with the real extension data URL
+    $.getJSON('/registry/extensions.json', (plugins) => {
+      this.setState({
+        plugins,
+        filteredPlugins: plugins,
+        selectedPlugin: 0
+      });
+    });
   },
 
   handleSelectionChange (selectedPlugin) {

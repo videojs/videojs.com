@@ -45474,82 +45474,6 @@ var _marked = require('marked');
 
 var _marked2 = _interopRequireDefault(_marked);
 
-// -----
-// Model
-// -----
-
-// the plugin currently being displayed
-var model = {
-
-  selectedPlugin: 0,
-
-  // the list of all plugins currently selectable
-  plugins: [{
-    author: 'Matthew McClure',
-    created: '2015-01-13T04:13:59.184Z',
-    description: 'Videojs default skin with pretty colors',
-    downloads: 72,
-    modified: '2015-01-17T20:01:29.248Z',
-    name: 'videojs-skin-colors'
-  }, {
-    author: 'Matthew McClure',
-    created: '2015-01-15T05:07:53.222Z',
-    description: 'Videojs skin that happens to resemble a certain video game streaming site',
-    downloads: 74,
-    modified: '2015-01-16T07:15:52.703Z',
-    name: 'videojs-skin-twitchy'
-  }, {
-    author: 'Brightcove',
-    created: '2013-01-15T05:07:53.222Z',
-    description: 'A video.js tech that plays HLS video on platforms that don\'t support it but have Flash.',
-    downloads: 22,
-    modified: '2015-01-22T07:15:52.703Z',
-    name: 'videojs-contrib-hls'
-  }, {
-    author: 'Matthew McClure',
-    created: '2015-01-13T04:13:59.184Z',
-    description: 'Videojs default skin with pretty colors',
-    downloads: 72,
-    modified: '2015-01-17T20:01:29.248Z',
-    name: 'videojs-skin-colors'
-  }, {
-    author: 'Matthew McClure',
-    created: '2015-01-15T05:07:53.222Z',
-    description: 'Videojs skin that happens to resemble a certain video game streaming site',
-    downloads: 74,
-    modified: '2015-01-16T07:15:52.703Z',
-    name: 'videojs-skin-twitchy'
-  }, {
-    author: 'Matthew McClure',
-    created: '2015-01-13T04:13:59.184Z',
-    description: 'Videojs default skin with pretty colors',
-    downloads: 72,
-    modified: '2015-01-17T20:01:29.248Z',
-    name: 'videojs-skin-colors'
-  }, {
-    author: 'Matthew McClure',
-    created: '2015-01-15T05:07:53.222Z',
-    description: 'Videojs skin that happens to resemble a certain video game streaming site',
-    downloads: 74,
-    modified: '2015-01-16T07:15:52.703Z',
-    name: 'videojs-skin-twitchy'
-  }, {
-    author: 'Matthew McClure',
-    created: '2015-01-13T04:13:59.184Z',
-    description: 'Videojs default skin with pretty colors',
-    downloads: 72,
-    modified: '2015-01-17T20:01:29.248Z',
-    name: 'videojs-skin-colors'
-  }, {
-    author: 'Matthew McClure',
-    created: '2015-01-15T05:07:53.222Z',
-    description: 'Videojs skin that happens to resemble a certain video game streaming site',
-    downloads: 74,
-    modified: '2015-01-16T07:15:52.703Z',
-    name: 'videojs-skin-twitchy'
-  }]
-};
-
 // -----------------
 // Plugin Navigation
 // -----------------
@@ -45594,15 +45518,16 @@ var PluginList = _el$render$createClass.createClass({
   render: function render() {
     var _this = this;
 
-    if (!this.props.plugins || this.props.plugins.length === 0) {
-      return _el$render$createClass.createElement('p', {
-        className: 'plugin-list-loading'
-      }, 'Loading plugins…');
+    var plugins = this.props.plugins;
+
+    if (!plugins || plugins.length === 0) {
+      return _el$render$createClass.createElement('ul', {
+        className: 'plugin-list' }, _el$render$createClass.createElement('li', { className: 'plugin-list-empty' }));
     }
 
     return _el$render$createClass.createElement('ul', {
       className: 'plugin-list'
-    }, this.props.plugins.map(function (plugin, index) {
+    }, plugins.map(function (plugin, index) {
       return _el$render$createClass.createElement(PluginListEntry, {
         key: index,
         index: index,
@@ -45619,7 +45544,7 @@ var PluginListEntry = _el$render$createClass.createClass({
   },
   render: function render() {
     return _el$render$createClass.createElement('li', {
-      className: this.props.selected ? 'active' : '',
+      className: 'plugin-entry ' + (this.props.selected ? 'active' : ''),
       onClick: this.handleClick
     }, this.props.name);
   }
@@ -45635,13 +45560,13 @@ var PluginDocsSection = _el$render$createClass.createClass({
   render: function render() {
     var plugin = this.props.selectedPlugin;
     if (!plugin) {
-      return _el$render$createClass.createElement('section', { className: 'plugin-docs col-sm-8' }, _el$render$createClass.createElement('h2', null, 'Select a plugin'));
+      return _el$render$createClass.createElement('section', { className: 'plugin-docs col-sm-8' }, _el$render$createClass.createElement(VideoJS));
     }
 
     return _el$render$createClass.createElement('section', { className: 'plugin-docs col-sm-8' }, _el$render$createClass.createElement(VideoJS), _el$render$createClass.createElement('div', {
       className: 'panel panel-default'
     }, _el$render$createClass.createElement('ul', {
-      className: 'plugin-info' }, _el$render$createClass.createElement('li', null, 'created on ' + new Date(plugin.created).toLocaleDateString() + ' by ' + plugin.author), _el$render$createClass.createElement('li', null, 'last updated ' + new Date(plugin.modified).toLocaleDateString()), _el$render$createClass.createElement('li', null, plugin.downloads + ' downloads'))), _el$render$createClass.createElement(PluginDocs, { plugin: plugin }));
+      className: 'plugin-info' }, _el$render$createClass.createElement('li', null, 'created on ' + new Date(plugin.time.created).toLocaleDateString() + ' by ' + plugin.author), _el$render$createClass.createElement('li', null, 'last updated ' + new Date(plugin.time.modified).toLocaleDateString()), _el$render$createClass.createElement('li', null, plugin.downloads + ' downloads'))), _el$render$createClass.createElement(PluginDocs, { plugin: plugin }));
   }
 });
 
@@ -45659,6 +45584,7 @@ var VideoJS = _el$render$createClass.createClass({
     this.player = _videojs2['default'](video, {
       width: 'auto',
       height: 'auto',
+      poster: '//www.videojs.com/img/poster.jpg',
       sources: [{ src: 'http://video-js.zencoder.com/oceans-clip.mp4', type: 'video/mp4' }, { src: 'http://video-js.zencoder.com/oceans-clip.webm', type: 'video/webm' }, { src: 'http://video-js.zencoder.com/oceans-clip.ogv', type: 'video/ogg' }]
     });
   },
@@ -45681,35 +45607,15 @@ var VideoJS = _el$render$createClass.createClass({
 var PluginDocs = _el$render$createClass.createClass({
   displayName: 'Plugin Readme',
 
-  fetchPluginDetails: function fetchPluginDetails() {
-    var _this2 = this;
-
-    _$2['default'].getJSON('/registry/' + this.props.plugin.name + '.json', function (plugin) {
-      _this2.setState(plugin);
-    });
-  },
-
-  // fetch the detailed plugin data
-  componentDidMount: function componentDidMount() {
-    this.fetchPluginDetails();
-  },
-  getInitialState: function getInitialState() {
-    return null;
-  },
   render: function render() {
-    if (!this.state) {
-      return _el$render$createClass.createElement('div', { className: 'plugin-docs' }, 'Loading...');
-    }
-
-    if (this.state.name !== this.props.plugin.name) {
-      this.fetchPluginDetails();
+    if (!this.props.plugin) {
       return _el$render$createClass.createElement('div', { className: 'plugin-docs' }, 'Loading...');
     }
 
     return _el$render$createClass.createElement('div', {
       className: 'plugin-readme',
       dangerouslySetInnerHTML: {
-        __html: _marked2['default'](this.state.readme, { sanitize: true })
+        __html: _marked2['default'](this.props.plugin.readme, { sanitize: true })
       }
     });
   }
@@ -45730,14 +45636,16 @@ var PluginComponent = _el$render$createClass.createClass({
   },
 
   componentDidMount: function componentDidMount() {
-    var _this3 = this;
+    var _this2 = this;
 
-    // some time passes and we pull down the plugin list...
-    setTimeout(function () {
-      _this3.setState(_$2['default'].extend(model, {
-        filteredPlugins: model.plugins
-      }));
-    }, 1000);
+    // TODO replace me with the real extension data URL
+    _$2['default'].getJSON('/registry/extensions.json', function (plugins) {
+      _this2.setState({
+        plugins: plugins,
+        filteredPlugins: plugins,
+        selectedPlugin: 0
+      });
+    });
   },
 
   handleSelectionChange: function handleSelectionChange(selectedPlugin) {

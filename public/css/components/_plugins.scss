@@ -1,15 +1,29 @@
+/* Plugin Navigation */
+
 .plugin-nav {
   border-top: thin solid $dark-gray;
 }
-.plugin-list-loading {
-  margin-left: 40px;
-}
+
+/* Plugin Listing */
+
 .plugin-list {
   @extend .list-group;
 }
 
-.plugin-list li {
+.plugin-entry,
+.plugin-list-empty {
   @extend .list-group-item;
+}
+
+.plugin-list-empty {
+  min-height: 200px;
+}
+
+/* Plugin Docs and Example */
+
+.plugin-preview-player {
+  margin: 0 auto 30px;
+  @include generate-player-sizing(100%);
 }
 
 .plugin-info {
@@ -24,13 +38,4 @@
 }
 .plugin-readme p:nth-child(2) {
   @extend .lead;
-}
-
-.plugin-install {
-  border: none;
-}
-
-.plugin-preview-player {
-  margin: 0 auto 30px;
-  @include generate-player-sizing(100%);
 }
