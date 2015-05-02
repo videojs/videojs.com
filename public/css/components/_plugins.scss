@@ -1,0 +1,36 @@
+.plugin-nav {
+  border-top: thin solid $dark-gray;
+}
+.plugin-list-loading {
+  margin-left: 40px;
+}
+.plugin-list {
+  @extend .list-group;
+}
+
+.plugin-list li {
+  @extend .list-group-item;
+}
+
+.plugin-info {
+  padding: 0;
+  margin: 5px;
+  list-style-type: none;
+  @extend .panel-body;
+}
+
+.plugin-readme h1 {
+  margin-bottom: 20px;
+}
+.plugin-readme p:nth-child(2) {
+  @extend .lead;
+}
+
+.plugin-install {
+  border: none;
+}
+
+.plugin-preview-player {
+  margin: 0 auto 30px;
+  @include generate-player-sizing(100%);
+}
