@@ -9213,11 +9213,11 @@ return jQuery;
 },{}],2:[function(require,module,exports){
 'use strict';
 
-var _interopRequireDefault = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _$ = require('jquery');
+var _jquery = require('jquery');
 
-var _$2 = _interopRequireDefault(_$);
+var _jquery2 = _interopRequireDefault(_jquery);
 
 var player, overlay, templateEl, $overlay;
 
@@ -9229,7 +9229,7 @@ templateEl = document.querySelector('#overlay-template');
 overlay.innerHTML = templateEl.innerHTML;
 player.el().appendChild(overlay);
 
-$overlay = _$2['default'](overlay);
+$overlay = _jquery2['default'](overlay);
 
 setTimeout(function () {
   $overlay.removeClass('transparent');

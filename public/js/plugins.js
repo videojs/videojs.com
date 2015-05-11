@@ -4,32 +4,64 @@
 var process = module.exports = {};
 var queue = [];
 var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
 
 function drainQueue() {
     if (draining) {
         return;
     }
+    var timeout = setTimeout(cleanUpNextTick);
     draining = true;
-    var currentQueue;
+
     var len = queue.length;
     while(len) {
         currentQueue = queue;
         queue = [];
-        var i = -1;
-        while (++i < len) {
-            currentQueue[i]();
+        while (++queueIndex < len) {
+            currentQueue[queueIndex].run();
         }
+        queueIndex = -1;
         len = queue.length;
     }
+    currentQueue = null;
     draining = false;
+    clearTimeout(timeout);
 }
+
 process.nextTick = function (fun) {
-    queue.push(fun);
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
     if (!draining) {
         setTimeout(drainQueue, 0);
     }
 };
 
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
 process.title = 'browser';
 process.browser = true;
 process.env = {};
@@ -30267,13 +30299,13 @@ module.exports = require('./lib/React');
 },{"./lib/React":31}],159:[function(require,module,exports){
 'use strict';
 
-var _interopRequireDefault = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _$ = require('jquery');
+var _jquery = require('jquery');
 
-var _$2 = _interopRequireDefault(_$);
+var _jquery2 = _interopRequireDefault(_jquery);
 
-var _el$render$createClass = require('react');
+var _react = require('react');
 
 var _marked = require('marked');
 
@@ -30283,7 +30315,7 @@ var _marked2 = _interopRequireDefault(_marked);
 // Plugin Navigation
 // -----------------
 
-var PluginNavSection = _el$render$createClass.createClass({
+var PluginNavSection = _react.createClass({
   displayName: 'Plugin Navigation Section',
 
   // update the list of filtered plugins while the user types
@@ -30295,9 +30327,9 @@ var PluginNavSection = _el$render$createClass.createClass({
   },
 
   render: function render() {
-    return _el$render$createClass.createElement('nav', { className: 'plugin-nav col-sm-12' }, _el$render$createClass.createElement('form', {
+    return _react.createElement('nav', { className: 'plugin-nav col-sm-12' }, _react.createElement('form', {
       className: 'navbar-form',
-      role: 'search' }, _el$render$createClass.createElement('div', { className: 'form-group' }, _el$render$createClass.createElement('input', {
+      role: 'search' }, _react.createElement('div', { className: 'form-group' }, _react.createElement('input', {
       type: 'text',
       className: 'form-control',
       placeholder: 'find extensions',
@@ -30310,15 +30342,15 @@ var PluginNavSection = _el$render$createClass.createClass({
 // Plugin Listing
 // --------------
 
-var PluginListSection = _el$render$createClass.createClass({
+var PluginListSection = _react.createClass({
   displayName: 'Plugin List Section',
   render: function render() {
-    return _el$render$createClass.createElement('section', {
+    return _react.createElement('section', {
       className: 'col-sm-4'
-    }, _el$render$createClass.createElement(PluginList, this.props));
+    }, _react.createElement(PluginList, this.props));
   }
 });
-var PluginList = _el$render$createClass.createClass({
+var PluginList = _react.createClass({
   displayName: 'Plugin List',
   render: function render() {
     var _this = this;
@@ -30326,14 +30358,14 @@ var PluginList = _el$render$createClass.createClass({
     var plugins = this.props.plugins;
 
     if (!plugins || plugins.length === 0) {
-      return _el$render$createClass.createElement('ul', {
-        className: 'plugin-list' }, _el$render$createClass.createElement('li', { className: 'plugin-list-empty' }));
+      return _react.createElement('ul', {
+        className: 'plugin-list' }, _react.createElement('li', { className: 'plugin-list-empty' }));
     }
 
-    return _el$render$createClass.createElement('ul', {
+    return _react.createElement('ul', {
       className: 'plugin-list'
     }, plugins.map(function (plugin, index) {
-      return _el$render$createClass.createElement(PluginListEntry, {
+      return _react.createElement(PluginListEntry, {
         key: index,
         index: index,
         selected: _this.props.selectedPlugin === index,
@@ -30343,12 +30375,12 @@ var PluginList = _el$render$createClass.createClass({
     }));
   }
 });
-var PluginListEntry = _el$render$createClass.createClass({
+var PluginListEntry = _react.createClass({
   handleClick: function handleClick() {
     this.props.setSelection(this.props.index);
   },
   render: function render() {
-    return _el$render$createClass.createElement('li', {
+    return _react.createElement('li', {
       className: 'plugin-entry ' + (this.props.selected ? 'active' : ''),
       onClick: this.handleClick
     }, this.props.name);
@@ -30360,23 +30392,23 @@ var PluginListEntry = _el$render$createClass.createClass({
 // -----------------------
 
 // The plugin documentation and example pane
-var PluginDocsSection = _el$render$createClass.createClass({
+var PluginDocsSection = _react.createClass({
   displayName: 'Plugin Docs Section',
   render: function render() {
     var plugin = this.props.selectedPlugin;
     if (!plugin) {
-      return _el$render$createClass.createElement('section', { className: 'plugin-docs col-sm-8' }, _el$render$createClass.createElement(VideoJS));
+      return _react.createElement('section', { className: 'plugin-docs col-sm-8' }, _react.createElement(VideoJS));
     }
 
-    return _el$render$createClass.createElement('section', { className: 'plugin-docs col-sm-8' }, _el$render$createClass.createElement(VideoJS), _el$render$createClass.createElement('div', {
+    return _react.createElement('section', { className: 'plugin-docs col-sm-8' }, _react.createElement(VideoJS), _react.createElement('div', {
       className: 'panel panel-default'
-    }, _el$render$createClass.createElement('ul', {
-      className: 'plugin-info' }, _el$render$createClass.createElement('li', null, 'created on ' + new Date(plugin.time.created).toLocaleDateString() + ' by ' + plugin.author), _el$render$createClass.createElement('li', null, 'last updated ' + new Date(plugin.time.modified).toLocaleDateString()), _el$render$createClass.createElement('li', null, plugin.downloads + ' downloads'))), _el$render$createClass.createElement(PluginDocs, { plugin: plugin }));
+    }, _react.createElement('ul', {
+      className: 'plugin-info' }, _react.createElement('li', null, 'created on ' + new Date(plugin.time.created).toLocaleDateString() + ' by ' + plugin.author), _react.createElement('li', null, 'last updated ' + new Date(plugin.time.modified).toLocaleDateString()), _react.createElement('li', null, plugin.downloads + ' downloads'))), _react.createElement(PluginDocs, { plugin: plugin }));
   }
 });
 
 // A video.js player used to demonstrate plugins
-var VideoJS = _el$render$createClass.createClass({
+var VideoJS = _react.createClass({
   displayName: 'VideoJS Component',
   player: null,
 
@@ -30401,7 +30433,7 @@ var VideoJS = _el$render$createClass.createClass({
   },
 
   render: function render() {
-    return _el$render$createClass.createElement('div', {
+    return _react.createElement('div', {
       className: 'videojs-container',
       ref: 'placeholder'
     });
@@ -30409,15 +30441,15 @@ var VideoJS = _el$render$createClass.createClass({
 });
 
 // The readme and stats for a plugin
-var PluginDocs = _el$render$createClass.createClass({
+var PluginDocs = _react.createClass({
   displayName: 'Plugin Readme',
 
   render: function render() {
     if (!this.props.plugin) {
-      return _el$render$createClass.createElement('div', { className: 'plugin-docs' }, 'Loading...');
+      return _react.createElement('div', { className: 'plugin-docs' }, 'Loading...');
     }
 
-    return _el$render$createClass.createElement('div', {
+    return _react.createElement('div', {
       className: 'plugin-readme',
       dangerouslySetInnerHTML: {
         __html: _marked2['default'](this.props.plugin.readme, { sanitize: true })
@@ -30430,7 +30462,7 @@ var PluginDocs = _el$render$createClass.createClass({
 // Main Plugin Component
 // ---------------------
 
-var PluginComponent = _el$render$createClass.createClass({
+var PluginComponent = _react.createClass({
   displayName: 'Plugin Component',
   getInitialState: function getInitialState() {
     return {
@@ -30444,7 +30476,7 @@ var PluginComponent = _el$render$createClass.createClass({
     var _this2 = this;
 
     // TODO replace me with the real extension data URL
-    _$2['default'].getJSON('/registry/extensions.json', function (plugins) {
+    _jquery2['default'].getJSON('/registry/extensions.json', function (plugins) {
       _this2.setState({
         plugins: plugins,
         filteredPlugins: plugins,
@@ -30465,22 +30497,22 @@ var PluginComponent = _el$render$createClass.createClass({
   },
 
   render: function render() {
-    return _el$render$createClass.createElement('div', {
+    return _react.createElement('div', {
       className: 'row'
-    }, _el$render$createClass.createElement(PluginNavSection, {
+    }, _react.createElement(PluginNavSection, {
       plugins: this.state.plugins,
       filterPlugins: this.filterPlugins
-    }), _el$render$createClass.createElement(PluginListSection, {
+    }), _react.createElement(PluginListSection, {
       selectedPlugin: this.state.selectedPlugin,
       plugins: this.state.filteredPlugins,
       setSelection: this.handleSelectionChange
-    }), _el$render$createClass.createElement(PluginDocsSection, {
+    }), _react.createElement(PluginDocsSection, {
       selectedPlugin: this.state.filteredPlugins[this.state.selectedPlugin]
     }));
   }
 });
 
 // render everything once to initialize the page
-_el$render$createClass.render(_el$render$createClass.createElement(PluginComponent), document.querySelector('.container-fluid'));
+_react.render(_react.createElement(PluginComponent), document.querySelector('.container-fluid'));
 
 },{"jquery":2,"marked":3,"react":158}]},{},[159]);
