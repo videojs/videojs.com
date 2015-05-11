@@ -21,7 +21,6 @@
   },
   "dependencies": {
     "marked": "^0.3.3",
-    "react": "^0.13.2",
-    "video.js": "^4.12.5"
+    "react": "^0.13.2"
   }
 }
