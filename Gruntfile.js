@@ -90,5 +90,5 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['copy:fontawesome', 'copy:stylevjs', 'copy:fontvjs', 'browserify', 'harp:dist']);
-  grunt.registerTask('dev', ['copy', 'browserify', 'concurrent']); // Browserify before starting concurrent things
+  grunt.registerTask('dev', ['browserify', 'concurrent']); // Browserify before starting concurrent things
 };
