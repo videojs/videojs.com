@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import videojs from 'video.js';
 import { createElement as el, render, createClass } from 'react';
 import marked from 'marked';
 
