@@ -36,6 +36,7 @@
    background-color: rgba(250, 252, 255, 0.95);
    color: #757A7D;
    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   @include transition(opacity 0.2s);
 
    .videojs-hero {
      margin: 3% 2% 1%;

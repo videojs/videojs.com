@@ -37537,18 +37537,23 @@ var player, overlay, templateEl, $overlay;
 player = videojs('preview-player');
 
 overlay = document.createElement('div');
-overlay.className = 'videojs-hero-overlay';
+overlay.className = 'videojs-hero-overlay transparent';
 templateEl = document.querySelector('#overlay-template');
 overlay.innerHTML = templateEl.innerHTML;
 player.el().appendChild(overlay);
 
 $overlay = _$2['default'](overlay);
+
+setTimeout(function () {
+  $overlay.removeClass('transparent');
+}, 250);
+
 player.on('play', function () {
-  $overlay.hide();
+  $overlay.addClass('transparent');
 });
 
 player.on('pause', function () {
-  $overlay.show();
+  $overlay.removeClass('transparent');
 });
 
 },{"jquery":1}]},{},[2]);
