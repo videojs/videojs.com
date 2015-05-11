@@ -21,7 +21,7 @@
 
 /* Plugin Docs and Example */
 
-.plugin-preview-player {
+.video-js.plugin-preview-player {
   margin: 0 auto 30px;
   @include generate-player-sizing(100%);
 }
