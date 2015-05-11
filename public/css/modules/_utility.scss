@@ -22,3 +22,11 @@
   -ms-flex: $string;
   flex: $string;
 }
+
+.transparent {
+  opacity: 0;
+}
+
+.opaque {
+  opacity: 1;
+}
