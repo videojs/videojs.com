@@ -33,6 +33,7 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'public/js/index.js': ['src-js/index.js'],
+          'public/js/home.js': ['src-js/home.js'],
           'public/js/plugins.js': ['src-js/plugins.js']
         },
         options: {

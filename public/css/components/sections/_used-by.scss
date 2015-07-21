@@ -17,7 +17,6 @@
 }
 
 .used-by li {
-  background: $dark-gray;
   width: 200px;
   height: 150px;
   margin: 10px 10px 0 0;
@@ -26,4 +25,17 @@
   color: white;
   font-weight: bold;
   text-align: center;
+}
+
+.used-by li img {
+  max-width: 75%;
+  max-height: 70%;
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+  @include transition(all 0.4s);
+
+  &:hover {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
 }

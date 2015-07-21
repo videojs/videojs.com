@@ -31,3 +31,7 @@
   background-image: linear-gradient(to bottom,$primary 0,$secondary 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$primary', endColorstr='$secondary', GradientType=0);
 }
+
+@function grayscale($value) {
+  @return #{ "grayscale(" + $value + ")" };
+}

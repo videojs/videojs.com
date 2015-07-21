@@ -1,25 +1,13 @@
 import $ from 'jquery';
+import hljs from 'highlight.js';
+import { getPackage } from './lib/vjs-version.js';
 
-var player, overlay, templateEl, $overlay;
+// Start highlighting
+hljs.initHighlightingOnLoad();
 
-player = videojs('preview-player');
+// Get the package information for doing things like swapping out version numbers
+getPackage(function(e, pkg) {
+  if (e) return console.error(e);
 
-overlay = document.createElement('div');
-overlay.className = 'videojs-hero-overlay transparent';
-templateEl = document.querySelector('#overlay-template');
-overlay.innerHTML = templateEl.innerHTML;
-player.el().appendChild(overlay);
-
-$overlay = $(overlay);
-
-setTimeout(function(){
-  $overlay.removeClass('transparent');
-}, 250);
-
-player.on('play', function() {
-  $overlay.addClass('transparent');
-});
-
-player.on('pause', function() {
-  $overlay.removeClass('transparent');
+  $('.vjs-version').html(pkg.version);
 });

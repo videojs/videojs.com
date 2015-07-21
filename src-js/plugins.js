@@ -131,16 +131,16 @@ const VideoJS = createClass({
       '<a href="http://videojs.com/html5-video-support/" target="_blank">' +
       'supports HTML5 video</a></p>';
     this.refs.placeholder.getDOMNode().appendChild(video);
-    this.player = videojs(video, {
-      width: 'auto',
-      height: 'auto',
-      poster: '//www.videojs.com/img/poster.jpg',
-      sources: [
-        { src: 'http://video-js.zencoder.com/oceans-clip.mp4', type: 'video/mp4' },
-        { src: 'http://video-js.zencoder.com/oceans-clip.webm', type: 'video/webm' },
-        { src: 'http://video-js.zencoder.com/oceans-clip.ogv', type: 'video/ogg' }
-      ]
-    });
+    // this.player = videojs(video, {
+    //   width: 'auto',
+    //   height: 'auto',
+    //   poster: '//www.videojs.com/img/poster.jpg',
+    //   sources: [
+    //     { src: 'http://video-js.zencoder.com/oceans-clip.mp4', type: 'video/mp4' },
+    //     { src: 'http://video-js.zencoder.com/oceans-clip.webm', type: 'video/webm' },
+    //     { src: 'http://video-js.zencoder.com/oceans-clip.ogv', type: 'video/ogg' }
+    //   ]
+    // });
   },
   componentWillUnmount () {
     this.player.dispose();

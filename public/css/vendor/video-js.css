@@ -1,142 +1,236 @@
-@font-face {
-  font-family: 'VideoJS';
-  src: url('font/VideoJS.eot'); }
+.video-js .vjs-big-play-button:before, .video-js .vjs-control:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center; }
 
 @font-face {
-  font-family: 'VideoJS';
-  src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype'), url(data:application/font-woff;charset=utf-8;base64,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) format('woff');
+  font-family: VideoJS;
+  src: url('font/VideoJS.eot?') format('eot'); }
+
+@font-face {
+  font-family: VideoJS;
+  src: url(data:application/font-woff;charset=utf-8;base64,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) format('woff'), url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAAKAIAAAwAgT1MvMlGRXgQAAAEoAAAAVmNtYXDiLxC2AAAB+AAAAUpnbHlm5X8X/gAAA4QAAA7kaGVhZAlaRHkAAADQAAAANmhoZWEOogcfAAAArAAAACRobXR40gAAAAAAAYAAAAB4bG9jYTDILUIAAANEAAAAPm1heHABLwB5AAABCAAAACBuYW1l1cf1oAAAEmgAAAIKcG9zdL2sAHoAABR0AAABeQABAAAHAAAAAKEHAAAAAAAHAAABAAAAAAAAAAAAAAAAAAAAHgABAAAAAQAAFEp24l8PPPUACwcAAAAAANGd/L4AAAAA0Z38vgAAAAAHAAcAAAAACAACAAAAAAAAAAEAAAAeAG0ABwAAAAAAAgAAAAoACgAAAP8AAAAAAAAAAQcAAZAABQAIBHEE5gAAAPoEcQTmAAADXABXAc4AAAIABQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUGZFZABA8QHxHQcAAAAAoQcAAAAAAAABAAAAAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAABwAAAAcAAAAHAAAAAAAAAwAAAAMAAAAcAAEAAAAAAEQAAwABAAAAHAAEACgAAAAGAAQAAQACAADxHf//AAAAAPEB//8AAA8AAAEAAAAAAAAAAAEGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AUABmALIAxgDmAR4BSAF0AZwB8gIuAo4CugMKA44DsAPqBDgEfAS4BOgFDAWiBegGNgZsBtoHcgAAAAEAAAAABYsFiwACAAABEQECVQM2BYv76gILAAADAAAAAAZrBmsAAgAOABoAAAkCEwQAAxIABSQAEwIAASYAJzYANxYAFwYAAusBwP5Alf7D/loICAGmAT0BPQGmCAj+Wv7D/f6uBgYBUv39AVIGBv6uAjABUAFQAZsI/lr+w/7D/loICAGmAT0BPQGm+sgGAVL9/QFSBgb+rv39/q4AAAACAAAAAAVABYsAAwAHAAABIREpAREhEQHAASv+1QJVASsBdQQW++oEFgAAAAQAAAAABiAGIAAGABMAJAAnAAABLgEnFRc2NwYHFz4BNSYAJxUWEgEHASERIQERAQYHFT4BNxc3AQcXBNABZVW4A7sCJ3ElKAX+3+Wlzvu3XwFh/p8BKwF1AT5MXU6KO5lf/WCcnAOAZJ4rpbgYGGpbcUacVPQBYziaNP70Aetf/p/+QP6LAfb+wjsdmhJEMZhfBJacnAAAAQAAAAAEqwXWAAUAAAERIQERAQILASoBdv6KBGD+QP6LBKr+iwAAAAIAAAAABWYF1gAGAAwAAAEuAScRPgEBESEBEQEFZQFlVFRl/BEBKwF1/osDgGSeK/2mK54BRP5A/osEqv6LAAADAAAAAAYgBg8ABQAMABoAABMRIQERAQUuAScRPgEDFRYSFwYCBxU2ADcmAOABKwF1/osCxQFlVVVluqXOAwPOpeUBIQUF/t8EYP5A/osEqv6L4GSeK/2mK54C85o0/vS1tf70NJo4AWL19QFiAAAABAAAAAAFiwWLAAUACwARABcAAAEjESE1IwMzNTM1IQEjFSERIwMVMxUzEQILlgF24JaW4P6KA4DgAXaW4OCWAuv+ipYCCuCW/ICWAXYCoJbgAXYABAAAAAAFiwWLAAUACwARABcAAAEzFTMRIRMjFSERIwEzNTM1IRM1IxEhNQF14Jb+iuDgAXaWAcCW4P6KlpYBdgJV4AF2AcCWAXb76uCWAcDg/oqWAAAAAAIAAAAABdYF1gAPABMAAAEhDgEHER4BFyE+ATcRLgEDIREhBUD8gD9VAQFVPwOAP1UBAVU//IADgAXVAVU//IA/VQEBVT8DgD9V++wDgAAABgAAAAAGawZrAAcADAATABsAIAAoAAAJASYnDgEHASUuAScBBSEBNhI3JgUBBgIHFhchBR4BFwEzARYXPgE3AQK+AWROVIfwYQESA4416aH+7gLl/dABelxoAQH8E/7dXGgBAQ4CMP3kNemhARJ4/t1OVIfwYf7uA/ACaBIBAVhQ/id3pfY+/idL/XNkAQGTTU0B+GT+/5NNSEul9j4B2f4IEgEBWFAB2QAAAAUAAAAABmsF1gAPABMAFwAbAB8AAAEhDgEHER4BFyE+ATcRLgEBIRUhASE1IQUhNSE1ITUhBdX7VkBUAgJUQASqQFQCAlT7FgEq/tYC6v0WAuoBwP7WASr9FgLqBdUBVT/8gD9VAQFVPwOAP1X9rJX+1ZWVlZaVAAMAAAAABiAF1gAPACcAPwAAASEOAQcRHgEXIT4BNxEuAQEjNSMVMzUzFRQGByMuAScRPgE3Mx4BFQUjNSMVMzUzFQ4BByMuATURNDY3Mx4BFwWL++o/VAICVD8EFj9UAgJU/WtwlZVwKiDgICoBASog4CAqAgtwlZVwASog4CAqKiDgICoBBdUBVT/8gD9VAQFVPwOAP1X99yXgJUogKgEBKiABKiAqAQEqIEol4CVKICoBASogASogKgEBKiAAAAYAAAAABiAE9gADAAcACwAPABMAFwAAEzM1IxEzNSMRMzUjASE1IREhNSERFSE14JWVlZWVlQErBBX76wQV++sEFQM1lv5AlQHAlf5Alv5AlQJVlZUAAAABAAAAAAYgBmwALgAAASIGBwE2NCcBHgEzPgE3LgEnDgEHFBcBLgEjDgEHHgEXMjY3AQYHHgEXPgE3LgEFQCtKHv3sBwcCDx5OLF9/AgJ/X19/Agf98R5OLF9/AgJ/XyxOHgIUBQEDe1xcewMDewJPHxsBNxk2GQE0HSACf19ffwICf18bGf7NHCACf19ffwIgHP7KFxpcewICe1xdewAAAgAAAAAGWQZrAEMATwAAATY0Jzc+AScDLgEPASYvAS4BJyEOAQ8BBgcnJgYHAwYWHwEGFBcHDgEXEx4BPwEWHwEeARchPgE/ATY3FxY2NxM2JicFLgEnPgE3HgEXDgEFqwUFngoGB5YHGQ26OkQcAxQP/tYPFAIcRTm6DRoHlQcFC50FBZ0LBQeVBxoNujlFHAIUDwEqDxQCHEU5ug0aB5UHBQv9OG+UAgKUb2+UAgKUAzckSiR7CRoNAQMMCQVLLRzGDhEBAREOxhwtSwUJDP79DBsJeyRKJHsJGg3+/QwJBUstHMYOEQEBEQ7GHC1LBQkMAQMMGwlBApRvb5QCApRvb5QAAAAAAQAAAAAGawZrAAsAABMSAAUkABMCACUEAJUIAaYBPQE9AaYICP5a/sP+w/5aA4D+w/5aCAgBpgE9AT0BpggI/loAAAACAAAAAAZrBmsACwAXAAABBAADEgAFJAATAgABJgAnNgA3FgAXBgADgP7D/loICAGmAT0BPQGmCAj+Wv7D/f6uBgYBUv39AVIGBv6uBmsI/lr+w/7D/loICAGmAT0BPQGm+sgGAVL9/QFSBgb+rv39/q4AAAMAAAAABmsGawALABcAIwAAAQQAAxIABSQAEwIAASYAJzYANxYAFwYAAw4BBy4BJz4BNx4BA4D+w/5aCAgBpgE9AT0BpggI/lr+w/3+rgYGAVL9/QFSBgb+rh0Cf19ffwICf19ffwZrCP5a/sP+w/5aCAgBpgE9AT0BpvrIBgFS/f0BUgYG/q79/f6uAk9ffwICf19ffwICfwAAAAQAAAAABiAGIAAPABsAJQApAAABIQ4BBxEeARchPgE3ES4BASM1IxUjETMVMzU7ASEeARcRDgEHITczNSMFi/vqP1QCAlQ/BBY/VAICVP1rcJVwcJVwlgEqICoBASog/tZwlZUGIAJUP/vqP1QCAlQ/BBY/VPyClZUBwLu7ASog/tYgKgFw4AACAAAAAAZrBmsACwAXAAABBAADEgAFJAATAgATBwkBJwkBNwkBFwEDgP7D/loICAGmAT0BPQGmCAj+Wjhp/vT+9GkBC/71aQEMAQxp/vUGawj+Wv7D/sP+WggIAaYBPQE9Aab8EWkBC/71aQEMAQxp/vUBC2n+9AABAAAAAAXWBrYAFgAAAREJAREeARcOAQcuAScjFgAXNgA3JgADgP6LAXW+/QUF/b6+/QWVBgFR/v4BUQYG/q8FiwEq/ov+iwEqBP2/vv0FBf2+/v6vBgYBUf7+AVEAAAABAAAAAAU/BwAAFAAAAREjIgYdASEDIxEhESMRMzU0NjMyBT+dVjwBJSf+/s7//9Ctkwb0/vhISL3+2P0JAvcBKNq6zQAAAAAEAAAAAAaOBwAAMABFAGAAbAAAARQeAxUUBwYEIyImJyY1NDY3NiUuATU0NwYjIiY1NDY3PgEzIQcjHgEVFA4DJzI2NzY1NC4CIyIGBwYVFB4DEzI+AjU0LgEvASYvAiYjIg4DFRQeAgEzFSMVIzUjNTM1MwMfQFtaQDBI/uqfhOU5JVlKgwERIB8VLhaUy0g/TdNwAaKKg0pMMUVGMZImUBo1Ij9qQCpRGS8UKz1ZNjprWzcODxMeChwlThAgNWhvUzZGcX0Da9XVadTUaQPkJEVDUIBOWlN6c1NgPEdRii5SEipAKSQxBMGUUpo2QkBYP4xaSHNHO0A+IRs5ZjqGfVInITtlLmdnUjT8lxo0Xj4ZMCQYIwsXHTgCDiQ4XTtGazsdA2xs29ts2QADAAAAAAaABmwAAwAOACoAAAERIREBFgYrASImNDYyFgERIRE0JiMiBgcGFREhEhAvASEVIz4DMzIWAd3+tgFfAWdUAlJkZ6ZkBI/+t1FWP1UVC/63AgEBAUkCFCpHZz+r0ASP/CED3wEySWJik2Fh/N39yAISaXdFMx4z/dcBjwHwMDCQIDA4H+MAAAEAAAAABpQGAAAxAAABBgcWFRQCDgEEIyAnFjMyNy4BJxYzMjcuAT0BFhcuATU0NxYEFyY1NDYzMhc2NwYHNgaUQ18BTJvW/tKs/vHhIyvhsGmmHyEcKypwk0ROQk4seQFbxgi9hoxgbWAlaV0FaGJFDhyC/v3ut22RBIoCfWEFCxexdQQmAyyOU1hLlbMKJiSGvWYVOXM/CgAAAAEAAAAABYAHAAAiAAABFw4BBwYuAzURIzU+BDc+ATsBESEVIREUHgI3NgUwUBewWWitcE4hqEhyRDAUBQEHBPQBTf6yDSBDME4Bz+0jPgECOFx4eDoCINcaV11vVy0FB/5Y/P36HjQ1HgECAAEAAAAABoAGgABKAAABFAIEIyInNj8BHgEzMj4BNTQuASMiDgMVFBYXFj8BNjc2JyY1NDYzMhYVFAYjIiY3PgI1NCYjIgYVFBcDBhcmAjU0EiQgBBIGgM7+n9FvazsTNhRqPXm+aHfijmm2f1srUE0eCAgGAgYRM9Gpl6mJaz1KDgglFzYyPlYZYxEEzv7OAWEBogFhzgOA0f6fziBdR9MnOYnwlnLIfjpgfYZDaJ4gDCAfGAYXFD1al9mkg6ruVz0jdVkfMkJyVUkx/l5Ga1sBfOnRAWHOzv6fAAAHAAAAAAcABM8ADgAXACoAPQBQAFoAXQAAARE2HgIHDgEHBiYjJyY3FjY3NiYHERQFFjY3PgE3LgEnIwYfAR4BFw4BFxY2Nz4BNy4BJyMGHwEeARcUBhcWNjc+ATcuAScjBh8BHgEXDgEFMz8BFTMRIwYDJRUnAxyEzZRbCA2rgketCAEBqlRoCglxYwF+IiEOIysBAkswHQEECiQ0AgE+YyIhDiIsAQJLMB4BBQokNAE/YyIhDiIsAQJLMB4BBQokNAEBPvmD7kHhqs0s0gEnjgHJAv0FD2a9gIrADwUFAwPDAlVMZ3MF/pUHwgc1HTyWV325PgsJED+oY3G9TAc1HTyWV325PgsJED+oY3G9TAc1HTyWV325PgsJED+oY3G9UmQBZQMMR/61g/kBAAAAAAAQAMYAAQAAAAAAAQAHAAAAAQAAAAAAAgAHAAcAAQAAAAAAAwAHAA4AAQAAAAAABAAHABUAAQAAAAAABQALABwAAQAAAAAABgAHACcAAQAAAAAACgArAC4AAQAAAAAACwATAFkAAwABBAkAAQAOAGwAAwABBAkAAgAOAHoAAwABBAkAAwAOAIgAAwABBAkABAAOAJYAAwABBAkABQAWAKQAAwABBAkABgAOALoAAwABBAkACgBWAMgAAwABBAkACwAmAR5WaWRlb0pTUmVndWxhclZpZGVvSlNWaWRlb0pTVmVyc2lvbiAxLjBWaWRlb0pTR2VuZXJhdGVkIGJ5IHN2ZzJ0dGYgZnJvbSBGb250ZWxsbyBwcm9qZWN0Lmh0dHA6Ly9mb250ZWxsby5jb20AVgBpAGQAZQBvAEoAUwBSAGUAZwB1AGwAYQByAFYAaQBkAGUAbwBKAFMAVgBpAGQAZQBvAEoAUwBWAGUAcgBzAGkAbwBuACAAMQAuADAAVgBpAGQAZQBvAEoAUwBHAGUAbgBlAHIAYQB0AGUAZAAgAGIAeQAgAHMAdgBnADIAdAB0AGYAIABmAHIAbwBtACAARgBvAG4AdABlAGwAbABvACAAcAByAG8AagBlAGMAdAAuAGgAdAB0AHAAOgAvAC8AZgBvAG4AdABlAGwAbABvAC4AYwBvAG0AAAACAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4AAAECAQMBBAEFAQYBBwEIAQkBCgELAQwBDQEOAQ8BEAERARIBEwEUARUBFgEXARgBGQEaARsBHAEdAR4EcGxheQtwbGF5LWNpcmNsZQVwYXVzZQt2b2x1bWUtbXV0ZQp2b2x1bWUtbG93CnZvbHVtZS1taWQLdm9sdW1lLWhpZ2gQZnVsbHNjcmVlbi1lbnRlcg9mdWxsc2NyZWVuLWV4aXQGc3F1YXJlB3NwaW5uZXIJc3VidGl0bGVzCGNhcHRpb25zCGNoYXB0ZXJzBXNoYXJlA2NvZwZjaXJjbGUOY2lyY2xlLW91dGxpbmUTY2lyY2xlLWlubmVyLWNpcmNsZQJoZAZjYW5jZWwGcmVwbGF5CGZhY2Vib29rBWdwbHVzCGxpbmtlZGluB3R3aXR0ZXIGdHVtYmxyCXBpbnRlcmVzdBFhdWRpby1kZXNjcmlwdGlvbgAAAAAA) format('truetype');
   font-weight: normal;
   font-style: normal; }
 
 .vjs-icon-play, .video-js .vjs-big-play-button, .video-js .vjs-play-control {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-play:before, .video-js .vjs-big-play-button:before, .video-js .vjs-play-control:before {
-    content: "\25b6"; }
+    content: '\f101'; }
+
+.vjs-icon-play-circle {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-play-circle:before {
+    content: '\f102'; }
 
 .vjs-icon-pause, .video-js.vjs-playing .vjs-play-control {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-pause:before, .video-js.vjs-playing .vjs-play-control:before {
-    content: "\e830"; }
+    content: '\f103'; }
 
 .vjs-icon-volume-mute, .video-js .vjs-mute-control.vjs-vol-0, .video-js .vjs-volume-menu-button.vjs-vol-0 {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-volume-mute:before, .video-js .vjs-mute-control.vjs-vol-0:before, .video-js .vjs-volume-menu-button.vjs-vol-0:before {
-    content: "\e84b"; }
+    content: '\f104'; }
 
 .vjs-icon-volume-low, .video-js .vjs-mute-control.vjs-vol-1, .video-js .vjs-volume-menu-button.vjs-vol-1 {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-volume-low:before, .video-js .vjs-mute-control.vjs-vol-1:before, .video-js .vjs-volume-menu-button.vjs-vol-1:before {
-    content: "\e84a"; }
+    content: '\f105'; }
 
 .vjs-icon-volume-mid, .video-js .vjs-mute-control.vjs-vol-2, .video-js .vjs-volume-menu-button.vjs-vol-2 {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-volume-mid:before, .video-js .vjs-mute-control.vjs-vol-2:before, .video-js .vjs-volume-menu-button.vjs-vol-2:before {
-    content: "\e849"; }
+    content: '\f106'; }
 
 .vjs-icon-volume-high, .video-js .vjs-mute-control, .video-js .vjs-volume-menu-button {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-volume-high:before, .video-js .vjs-mute-control:before, .video-js .vjs-volume-menu-button:before {
-    content: "\e84c"; }
+    content: '\f107'; }
 
 .vjs-icon-fullscreen-enter, .video-js .vjs-fullscreen-control {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-fullscreen-enter:before, .video-js .vjs-fullscreen-control:before {
-    content: "\e64b"; }
+    content: '\f108'; }
 
 .vjs-icon-fullscreen-exit, .video-js.vjs-fullscreen .vjs-fullscreen-control {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-fullscreen-exit:before, .video-js.vjs-fullscreen .vjs-fullscreen-control:before {
-    content: "\e64c"; }
+    content: '\f109'; }
 
 .vjs-icon-square {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-square:before {
-    content: "\e601"; }
+    content: '\f10a'; }
 
 .vjs-icon-spinner, .vjs-loading-spinner {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-spinner:before, .vjs-loading-spinner:before {
-    content: "\e650"; }
+    content: '\f10b'; }
 
 .vjs-icon-subtitles, .video-js .vjs-subtitles-button {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-subtitles:before, .video-js .vjs-subtitles-button:before {
-    content: "\e80d"; }
+    content: '\f10c'; }
 
 .vjs-icon-captions, .video-js .vjs-captions-button {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-captions:before, .video-js .vjs-captions-button:before {
-    content: "\e81e"; }
+    content: '\f10d'; }
 
 .vjs-icon-chapters, .video-js .vjs-chapters-button {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-chapters:before, .video-js .vjs-chapters-button:before {
-    content: "\e891"; }
+    content: '\f10e'; }
 
 .vjs-icon-share {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-share:before {
-    content: "\e61a"; }
+    content: '\f10f'; }
 
 .vjs-icon-cog {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-cog:before {
-    content: "\e8b1"; }
+    content: '\f110'; }
 
-.vjs-icon-circle, .video-js .vjs-slider-handle {
-  font-family: 'VideoJS';
+.vjs-icon-circle, .video-js .vjs-play-progress, .video-js .vjs-volume-level {
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
-  .vjs-icon-circle:before, .video-js .vjs-slider-handle:before {
-    content: "\e692"; }
+  .vjs-icon-circle:before, .video-js .vjs-play-progress:before, .video-js .vjs-volume-level:before {
+    content: '\f111'; }
 
 .vjs-icon-circle-outline {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-circle-outline:before {
-    content: "\e6f2"; }
+    content: '\f112'; }
 
 .vjs-icon-circle-inner-circle {
-  font-family: 'VideoJS';
+  font-family: VideoJS;
   font-weight: normal;
   font-style: normal; }
   .vjs-icon-circle-inner-circle:before {
-    content: "\e603"; }
+    content: '\f113'; }
+
+.vjs-icon-hd {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-hd:before {
+    content: '\f114'; }
+
+.vjs-icon-cancel {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-cancel:before {
+    content: '\f115'; }
+
+.vjs-icon-replay {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-replay:before {
+    content: '\f116'; }
+
+.vjs-icon-facebook {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-facebook:before {
+    content: '\f117'; }
+
+.vjs-icon-gplus {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-gplus:before {
+    content: '\f118'; }
+
+.vjs-icon-linkedin {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-linkedin:before {
+    content: '\f119'; }
+
+.vjs-icon-twitter {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-twitter:before {
+    content: '\f11a'; }
+
+.vjs-icon-tumblr {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-tumblr:before {
+    content: '\f11b'; }
+
+.vjs-icon-pinterest {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-pinterest:before {
+    content: '\f11c'; }
+
+.vjs-icon-audio-description {
+  font-family: VideoJS;
+  font-weight: normal;
+  font-style: normal; }
+  .vjs-icon-audio-description:before {
+    content: '\f11d'; }
 
 .video-js {
+  /* display:inline-block would be closer to the video el's display:inline
+   * but it results in flash reloading when going into fullscreen [#2205]
+   */
   display: block;
+  /* Make video.js videos align top when next to video elements */
+  vertical-align: top;
   box-sizing: border-box;
+  /* Default to the video element width/height. This will be overridden by
+   * the source width height unless changed elsewhere. */
+  width: 300px;
+  height: 150px;
   color: #fff;
   background-color: #000;
   position: relative;
@@ -144,13 +238,11 @@
   /* Start with 10px for base font size so other dimensions can be em based and
   easily calculable. */
   font-size: 10px;
-  /* Allow poster to be vertially aligned. */
-  vertical-align: middle;
   /* Provide some basic defaults for fonts */
   font-weight: normal;
   font-style: normal;
   /* Avoiding helvetica: issue #376 */
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -166,6 +258,24 @@
 /* All elements inherit border-box sizing */
 .video-js *, .video-js *:before, .video-js *:after {
   box-sizing: inherit; }
+
+/* Fill the width of the containing element and use padding to create the
+   desired aspect ratio. Default to 16x9 unless another ratio is given. */
+.video-js.vjs-fluid, .video-js.vjs-16-9 {
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  padding-top: 56.25%; }
+
+.video-js.vjs-4-3 {
+  width: 100%;
+  max-width: 100%;
+  height: 0;
+  padding-top: 75%; }
+
+.video-js.vjs-fill {
+  width: 100%;
+  height: 100%; }
 
 /* Playback technology elements expand to the width/height of the containing div
 <video> or <object> */
@@ -193,7 +303,9 @@ body.vjs-full-window {
   bottom: 0;
   right: 0;
   width: 100% !important;
-  height: 100% !important; }
+  height: 100% !important;
+  /* Undo any aspect ratio padding for fluid layouts */
+  padding-top: 0 !important; }
 
 .video-js.vjs-fullscreen.vjs-user-inactive {
   cursor: none; }
@@ -216,7 +328,7 @@ about what's required to play video. */
   color: #fff;
   background-color: #000;
   font-size: 18px;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   width: 300px;
   height: 150px;
@@ -227,13 +339,15 @@ about what's required to play video. */
 
 .video-js .vjs-big-play-button {
   font-size: 3em;
-  line-height: 1em;
+  line-height: 1.5em;
+  height: 1.5em;
+  width: 3em;
   display: block;
   z-index: 2;
   position: absolute;
   top: 10px;
   left: 10px;
-  padding: 0.2em 1em;
+  padding: 0;
   cursor: pointer;
   opacity: 1;
   border: 2px solid #fff;
@@ -264,6 +378,17 @@ about what's required to play video. */
 
 .vjs-error .vjs-big-play-button {
   display: none; }
+
+.video-js button {
+  background: none;
+  border: none;
+  color: #fff;
+  display: inline-block;
+  overflow: visible;
+  font-size: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
 
 .video-js .vjs-control-bar {
   display: none;
@@ -329,16 +454,9 @@ fonts to show/hide properly.
   -webkit-flex: none;
   -ms-flex: none;
   flex: none; }
-
-.video-js .vjs-control:before {
-  font-size: 1.8em;
-  line-height: 1.67;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  text-align: center; }
+  .video-js .vjs-control:before {
+    font-size: 1.8em;
+    line-height: 1.67; }
 
 /* Replacement for focus outline */
 .video-js .vjs-control:focus:before, .video-js .vjs-control:hover:before, .video-js .vjs-control:focus {
@@ -360,6 +478,22 @@ fonts to show/hide properly.
   display: table-cell;
   vertical-align: middle; }
 
+.video-js .vjs-custom-control-spacer {
+  display: none; }
+
+/**
+ * Let's talk pixel math!
+ * Start with a base font size of 10px (assuming that hasn't changed)
+ * No Hover:
+ * - Progress holder is 3px
+ * - Progress handle is 9px
+ * - Progress handle is pulled up 3px to center it.
+ *
+ * Hover:
+ * - Progress holder becomes 5px
+ * - Progress handle becomes 15px
+ * - Progress handle is pulled up 5px to center it
+ */
 .video-js .vjs-progress-control {
   -webkit-box-flex: auto;
   -moz-box-flex: auto;
@@ -382,13 +516,29 @@ fonts to show/hide properly.
   -webkit-flex: auto;
   -ms-flex: auto;
   flex: auto;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
   height: 0.3em; }
+
+/* We need an increased hit area on hover */
+.video-js .vjs-progress-control:hover .vjs-progress-holder {
+  font-size: 1.6666666667em; }
+
+/* Also show the current time tooltip */
+.video-js .vjs-progress-control:hover .vjs-play-progress:after {
+  display: block;
+  /* If we let the font size grow as much as everything else, the current time tooltip ends up
+     ginormous. If you'd like to enable the current time tooltip all the time, this should be disabled
+     to avoid a weird hitch when you roll off the hover. */
+  font-size: 0.6em; }
 
 /* Progress Bars */
 .video-js .vjs-progress-holder .vjs-play-progress, .video-js .vjs-progress-holder .vjs-load-progress, .video-js .vjs-progress-holder .vjs-load-progress div {
   position: absolute;
   display: block;
-  height: 100%;
+  height: 0.3em;
   margin: 0;
   padding: 0;
   /* updated by javascript during playback */
@@ -399,6 +549,29 @@ fonts to show/hide properly.
 
 .video-js .vjs-play-progress {
   background-color: #fff; }
+  .video-js .vjs-play-progress:before {
+    position: absolute;
+    top: -0.3333333333em;
+    right: -0.5em;
+    font-size: 0.9em;
+    height: 1em;
+    line-height: 1em; }
+
+.video-js .vjs-play-progress:after {
+  /* By default this is hidden and only shown when hovering over the progress control */
+  display: none;
+  position: absolute;
+  top: -2.4em;
+  right: -1.5em;
+  font-size: 0.9em;
+  color: #000;
+  content: attr(data-current-time);
+  padding: 0.2em 0.5em;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  border-radius: 0.3em; }
 
 .video-js .vjs-load-progress {
   background: #646464;
@@ -409,10 +582,6 @@ fonts to show/hide properly.
 specific time ranges that have been buffered */
 .video-js .vjs-load-progress div {
   background: rgba(89, 89, 89, 0.1); }
-
-.video-js .vjs-slider-handle.vjs-seek-handle {
-  width: 0.95em;
-  height: 0.95em; }
 
 .video-js.vjs-no-flex .vjs-progress-control {
   width: auto; }
@@ -430,25 +599,6 @@ specific time ranges that have been buffered */
   -webkit-box-shadow: 0 0 1em #fff;
   -moz-box-shadow: 0 0 1em #fff;
   box-shadow: 0 0 1em #fff; }
-
-.video-js .vjs-slider-handle {
-  position: absolute; }
-
-.video-js .vjs-slider-horizontal .vjs-slider-handle {
-  left: 0;
-  top: -0.34em; }
-
-.video-js .vjs-slider-vertical .vjs-slider-handle {
-  left: -0.3em;
-  bottom: 0; }
-
-.video-js .vjs-slider-handle:before {
-  font-size: 1em;
-  line-height: 1;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  left: 0; }
 
 .video-js .vjs-mute-control, .video-js .vjs-volume-menu-button {
   cursor: pointer;
@@ -488,34 +638,27 @@ specific time ranges that have been buffered */
   bottom: 0;
   left: 0;
   background-color: #fff; }
+  .video-js .vjs-volume-level:before {
+    position: absolute; }
 
 .video-js .vjs-slider-vertical .vjs-volume-level {
   width: 0.3em; }
+  .video-js .vjs-slider-vertical .vjs-volume-level:before {
+    top: -0.5em;
+    left: -0.35em; }
 
 .video-js .vjs-slider-horizontal .vjs-volume-level {
   height: 0.3em; }
+  .video-js .vjs-slider-horizontal .vjs-volume-level:before {
+    top: -0.35em;
+    right: -0.5em; }
 
-.video-js .vjs-volume-bar .vjs-volume-handle {
-  width: 0.8em;
-  height: 0.8em; }
-
-/* Assumes volume starts at 1.0. If you change the size of the
-handle relative to the volume bar, you'll need to update this value
-too. */
+/* Assumes volume starts at 1.0. */
 .video-js .vjs-volume-bar.vjs-slider-vertical .vjs-volume-level {
   height: 100%; }
 
-.video-js .vjs-volume-bar.vjs-slider-vertical .vjs-volume-handle {
-  bottom: 4.3em; }
-
 .video-js .vjs-volume-bar.vjs-slider-horizontal .vjs-volume-level {
   width: 100%; }
-
-.video-js .vjs-volume-bar.vjs-slider-horizontal .vjs-volume-handle {
-  left: 4.3em; }
-
-.video-js .vjs-volume-handle:before {
-  font-size: 0.9em; }
 
 /* The volume menu button is like menu buttons (captions/subtitles) but works
 a little differently. It needs to be possible to tab to the volume slider
@@ -573,11 +716,11 @@ width and height to zero. */
   max-height: 15em;
   overflow: auto; }
 
-.video-js .vjs-menu-button:hover .vjs-control-content .vjs-menu, .video-js .vjs-control-content .vjs-menu.vjs-lock-showing {
+.video-js .vjs-menu-button:hover .vjs-menu, .video-js .vjs-menu.vjs-lock-showing {
   display: block; }
 
 /* prevent menus from opening while scrubbing (FF, IE) */
-.video-js.vjs-scrubbing .vjs-menu-button:hover .vjs-control-content .vjs-menu {
+.video-js.vjs-scrubbing .vjs-menu-button:hover .vjs-menu {
   display: none; }
 
 .video-js .vjs-menu-button ul li {
@@ -609,6 +752,8 @@ width and height to zero. */
   cursor: default; }
 
 .vjs-poster {
+  display: inline-block;
+  vertical-align: middle;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: contain;
@@ -619,10 +764,12 @@ width and height to zero. */
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0; }
+  left: 0;
+  height: 100%; }
 
 .vjs-poster img {
   display: block;
+  vertical-align: middle;
   margin: 0 auto;
   max-height: 100%;
   padding: 0;
@@ -669,9 +816,6 @@ and the native poster can take over */
 .video-js .vjs-duration, .video-js.vjs-no-flex .vjs-duration {
   display: none; }
 
-.video-js .vjs-remaining-time, .video-js.vjs-no-flex .vjs-remaining-time {
-  display: none; }
-
 .vjs-time-divider {
   display: none;
   line-height: 3em; }
@@ -686,12 +830,12 @@ and the native poster can take over */
   flex: none; }
 
 .video-js .vjs-text-track-display {
-  text-align: center;
   position: absolute;
-  bottom: 4em;
-  /* Leave padding on left and right */
-  left: 1em;
-  right: 1em; }
+  bottom: 3em;
+  left: 0;
+  right: 0;
+  top: 0;
+  pointer-events: none; }
 
 /* Move captions down when controls aren't being shown */
 .video-js.vjs-user-inactive.vjs-playing .vjs-text-track-display {
@@ -758,7 +902,7 @@ and the native poster can take over */
 
 .vjs-error .vjs-error-display:before {
   content: 'X';
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 4em;
   color: #595959;
   /* In order to center the play icon vertically we need to set the line height
@@ -879,3 +1023,65 @@ and the native poster can take over */
 
 .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-current-time, .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-captions-button, .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-time-divider, .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-duration, .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-remaining-time, .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-playback-rate, .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-mute-control, .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-volume-control, .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-chapters-button, .video-js.vjs-layout-small:not(.vjs-fullscreen) .vjs-subtitles-button {
   display: none; }
+
+.vjs-caption-settings {
+  position: relative;
+  top: 1em;
+  background-color: #000;
+  opacity: 0.75;
+  color: #fff;
+  margin: 0 auto;
+  padding: 0.5em;
+  height: 15em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  width: 40em; }
+
+.vjs-caption-settings .vjs-tracksettings {
+  top: 0;
+  bottom: 2em;
+  left: 0;
+  right: 0;
+  position: absolute;
+  overflow: auto; }
+
+.vjs-caption-settings .vjs-tracksettings-colors, .vjs-caption-settings .vjs-tracksettings-font {
+  float: left; }
+
+.vjs-caption-settings .vjs-tracksettings-colors:after, .vjs-caption-settings .vjs-tracksettings-font:after, .vjs-caption-settings .vjs-tracksettings-controls:after {
+  clear: both; }
+
+.vjs-caption-settings .vjs-tracksettings-controls {
+  position: absolute;
+  bottom: 1em;
+  right: 1em; }
+
+.vjs-caption-settings .vjs-tracksetting {
+  margin: 5px;
+  padding: 3px;
+  min-height: 40px; }
+
+.vjs-caption-settings .vjs-tracksetting label {
+  display: block;
+  width: 100px;
+  margin-bottom: 5px; }
+
+.vjs-caption-settings .vjs-tracksetting span {
+  display: inline;
+  margin-left: 5px; }
+
+.vjs-caption-settings .vjs-tracksetting > div {
+  margin-bottom: 5px;
+  min-height: 20px; }
+
+.vjs-caption-settings .vjs-tracksetting > div:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  min-height: 0; }
+
+.vjs-caption-settings label > input {
+  margin-right: 10px; }
+
+.vjs-caption-settings input[type="button"] {
+  width: 40px;
+  height: 40px; }

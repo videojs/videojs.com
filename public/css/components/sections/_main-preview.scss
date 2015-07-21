@@ -24,7 +24,6 @@
   @include generate-player-sizing(100%);
 }
 
-
 .videojs-hero-overlay {
    position: absolute;
    text-align: center;
@@ -37,35 +36,33 @@
    color: #757A7D;
    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
    @include transition(opacity 0.2s);
+}
 
-   .videojs-hero {
-     margin: 3% 2% 1%;
+.videojs-hero-overlay .videojs-hero {
+  margin: 3% 2% 1%;
+}
 
-     img.logo {
-       width: 30%;
-       margin: 0 auto;
-       display: block;
-     }
+.videojs-hero-overlay .videojs-hero img.logo {
+  width: 30%;
+  margin: 0 auto;
+  display: block;
+}
 
-     .subhead {
-       font-size: 1.25vw;
-       margin: 1%;
-       vertical-align: middle;
-       line-height: 1.5vw;
-     }
+.videojs-hero-overlay .videojs-hero .subhead {
+  font-size: 1.25vw;
+  margin: 1%;
+  vertical-align: middle;
+  line-height: 1.5vw;
+}
 
-     a {
-       line-height: 3.5vw;
-     }
+.videojs-hero-overlay .videojs-hero a {
+  line-height: 3.5vw;
+}
 
-     img.npm-badge {
-       -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Greyscale=1)";
-       -webkit-filter: #{"grayscale(1)"};
-       -moz-filter: #{"grayscale(1)"};
-       filter: #{"grayscale(1)"};
-       height: 1.25vw;
-     }
-
-   }
-
+.videojs-hero-overlay .videojs-hero img.npm-badge {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Greyscale=1)";
+  -webkit-filter: #{"grayscale(1)"};
+  -moz-filter: #{"grayscale(1)"};
+  filter: #{"grayscale(1)"};
+  height: 1.25vw;
 }

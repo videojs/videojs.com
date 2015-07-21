@@ -1,0 +1,52 @@
+<section class="overview">
+  <h1>Getting Started</h1>
+  <p class="tagline">
+    An overview of how to get started using Video.js, from basic CDN usage to Browserify, along with
+    examples.
+  </p>
+</section>
+
+<section class="download">
+  <h2 class="page-header">Download</h2>
+
+  <p class="lead">
+    There are a few ways to get started using Video.js (currently v<span class="vjs-version">5.0.0</span>),
+    but you should select the one that best fits your particular use case.
+  </p>
+
+  <p>
+    There are a few common things you should keep in mind regardless of which way you end up including
+    Video.js in your project. The core codebase uses a few modern features of Javascript (ES5), so if you'd like
+    to support IE8 you'll need to include an ES5 shim. To make things easier, we created a single file you
+    can include for IE8 support. No matter where the core Video.js library is placed, this file needs to be located
+    in the <code>&lt;head&gt;</code> of the document.
+  </p>
+
+  <h3>Video.js CDN</h3>
+  <p>
+    Our friends at <a href="http://fastly.com" parent="_blank">Fastly</a> are nice enough to provide
+    hosting for all the necessary files for Video.js on their content delivery network. Using these
+    hosted files is probably the easiest way to get started using Video.js, you simply need to include
+    the following links in your page.
+
+  <pre><code class="html contains-vjs-version">&lt;head&gt;
+  &lt;link href="http://vjs.zencdn.net/{{vjs-version}}/video-js.css" rel="stylesheet"&gt;
+
+  &lt;!-- If you'd like to support IE8 --&gt;
+  &lt;script src="http://vjs.zencdn.net/ie8/{{vjs-ie8-version}}/videojs-ie8.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="MY_VIDEO_POSTER.jpg" data-setup="{}"&gt;
+    &lt;source src="MY_VIDEO.mp4" type='video/mp4'&gt;
+    &lt;source src="MY_VIDEO.webm" type='video/webm'&gt;
+    &lt;p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      &lt;a href="http://videojs.com/html5-video-support/" target="_blank"&gt;supports HTML5 video&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/video&gt;
+
+  &lt;script src="http://vjs.zencdn.net/{{vjs-version}}/video.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+</section>
