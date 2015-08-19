@@ -2,7 +2,7 @@ import http from 'http';
 
 let pkgUrl = {
   host: 'rawgit.com',
-  path: '/videojs/video.js/stable/package.json'
+  path: '/videojs/video.js/master/package.json'
 };
 
 function getPackage(cb) {

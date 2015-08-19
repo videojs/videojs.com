@@ -9,5 +9,6 @@ hljs.initHighlightingOnLoad();
 getPackage(function(e, pkg) {
   if (e) return console.error(e);
 
-  $('.vjs-version').html(pkg.version);
+  $('.vjs-version').text(pkg.version);
+  $('.ie8-version').text(pkg.dependencies['videojs-ie8'])
 });
