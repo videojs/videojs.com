@@ -2,6 +2,9 @@ import $ from 'jquery';
 import hljs from 'highlight.js';
 import { getPackage } from './lib/vjs-version.js';
 
+// Other things might want jQuery.
+window.jQuery = window.$ = $;
+
 // Start highlighting
 hljs.initHighlightingOnLoad();
 
@@ -10,5 +13,18 @@ getPackage(function(e, pkg) {
   if (e) return console.error(e);
 
   $('.vjs-version').text(pkg.version);
-  $('.ie8-version').text(pkg.dependencies['videojs-ie8'])
+  $('.ie8-version').text(pkg.dependencies['videojs-ie8']);
+});
+
+// Bootstrap component initialization
+$(function() {
+  $('.affixed-sidebar').affix({
+    offset: {
+      top: function() {
+        return $('section.overview').outerHeight(true);
+      }
+    }
+  });
+
+  $('body').scrollspy({ target: '.affixed-sidebar', offset: 50 });
 });

@@ -1,4 +1,4 @@
-nav {
+header nav {
   @extend .navbar;
   @extend .navbar-fixed-top;
 
@@ -9,7 +9,7 @@ nav {
   border-bottom: 2px solid $dark-gray;
 }
 
-nav a {
+header nav a {
   color: $text-primary;
 
   &:hover {
@@ -18,26 +18,26 @@ nav a {
   }
 }
 
-nav ul {
+header nav ul {
   list-style: none;
 }
 
 // Logo (or other primary branding)
 // Currently on the left side of the navigation bar
-nav .nav-header {
+header nav .nav-header {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-nav .logo {
+header nav .logo {
   line-height: 40px;
   float: left;
   height: $nav-height;
   padding: 5px;
 }
 
-nav .logo h1 {
+header nav .logo h1 {
   height: 30px;
   width: 50px;
   background-image: url('/img/logo.png');
@@ -58,7 +58,7 @@ nav .logo h1 {
 
 // The actual navigation links
 // Currently centered in the navigation bar.
-nav .nav-links {
+header nav .nav-links {
   text-align: center;
   font-size: 1.25em;
   line-height: $nav-height;
@@ -69,11 +69,11 @@ nav .nav-links {
   }
 }
 
-nav .nav-links ul {
+header nav .nav-links ul {
   margin: 0;
   padding: 0;
 }
-nav .nav-links li {
+header nav .nav-links li {
   display: inline;
   margin-right: 40px;
 
@@ -89,7 +89,7 @@ nav .nav-links li {
 
 // Random bits in the navigation bar, such as a Github link.
 // Currently on the right side of the nav bar.
-nav .nav-other {
+header nav .nav-other {
   position: absolute;
   right: 0;
   top: 0;
