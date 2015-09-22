@@ -1,12 +1,18 @@
 header nav {
   @extend .navbar;
-  @extend .navbar-fixed-top;
 
   @extend .navbar-default;
 
   min-height: $nav-height;
   background-color: $background-secondary;
   border-bottom: 2px solid $dark-gray;
+}
+
+header nav.navbar-absolute-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 header nav a {
