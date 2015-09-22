@@ -19,6 +19,13 @@
           </ul>
         </li>
         <li role="presentation">
+          <a href="#included">What's in the box</a>
+          <ul class="nav">
+            <li><a href="#included-dist">Distribution</a></li>
+            <li><a href="#included-source">Source code</a></li>
+          </ul>
+        </li>
+        <li role="presentation">
           <a href="#build">Build</a>
           <ul class="nav">
             <li><a href="#build-grunt">Install Grunt</a></li>
@@ -86,6 +93,84 @@
 
     </section>
 
+    <section class="included">
+      <h2 id="included" class="page-header">What's in the box?</h2>
+
+      <p class="lead">
+        If you've downloaded one of the <a href="https://github.com/videojs/video.js/releases">releases</a> or installed via a package manager,
+        you've probably noticed that the contents are slightly different from the source code available on Github. The former includes just the compiled
+        files necessary to use Video.js, and the other includes the source used to create those files.
+      </p>
+
+      <h3 id="included-dist">Distributions</h3>
+      <p>A Video.js distribution is what you'll find if you've downloaded a release or installed via a package manager.</p>
+      <pre><code>video.js/
+├── alt
+│   ├── video.novtt.js
+│   ├── video.novtt.min.js
+│   └── video.novtt.min.js.map
+├── examples/
+├── font
+│   ├── VideoJS.eot
+│   ├── VideoJS.svg
+│   ├── VideoJS.ttf
+│   └── VideoJS.woff
+├── ie8
+│   ├── videojs-ie8.js
+│   └── videojs-ie8.min.js
+├── lang/
+├── video-js-<span class="vjs-version">5.0.0</span>.zip
+├── video-js.css
+├── video-js.min.css
+├── video-js.swf
+├── video.js
+├── video.js.map
+├── video.min.js
+├── video.min.js.map
+└── video.novtt.js</pre></code>
+
+      <p>
+        This package includes everything you'll need to use Video.js on a production site. By default, we bundle Video.js with Mozilla's excellent <a href="https://github.com/mozilla/vtt.js" parent="_blank">VTT.js</a>.
+        If you don't need VTT.js functionality for whatever reason, you can use one of the Video.js copies that don't include VTT.js. These have <code>novtt</code> in the name and can be found in the <code>alt/</code>
+        directory. <code>font/</code> includes all the generated icon font files from the <a href="https://github.com/videojs/font" parent="_blank">Videojs Font project</a>. <code>ie8/</code> contains the shim required to
+        support IE8, and <code>lang/</code> contains all the generated translation files.
+      </p>
+
+      <h3 id="included-source">Source Code</h3>
+      <p>
+        The source code is everything you'll find when checking out the Video.js git repository. This includes all the source files
+        and any tooling necessary to build a production ready version of Video.js, as well as useful development tools such as sandboxed examples.
+      </p>
+
+      <pre><code>video.js/
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── Gruntfile.js
+├── LICENSE
+├── README.md
+├── bower.json
+├── build/
+├── component.json
+├── composer.json
+├── contrib.json
+├── dist/
+├── docs/
+├── grunt.js
+├── lang/
+├── package.json
+├── sandbox/
+├── src/
+│   ├── css
+│   └── js
+└── test/</pre></code>
+
+      <p>
+        A lot of the root source directory is JSON configs for various package managers because, Internet. Most likely the important things you're looking for will be in <code>src/</code> and <code>build/</code>.
+        <code>src/</code> contains all of the source files for both the player JS and the base skin, while the <code>build/</code> directory contains various grunt tasks. For the rest of the Grunt configuration
+        check the <code>grunt.js</code> file.
+      </p>
+    </section>
+
     <section class="build">
       <h2 id="build" class="page-header">Build Tools</h2>
 
@@ -123,7 +208,7 @@ $ git pull upstream master</code></pre>
         something like this.
       </pre>
       <pre><code>$ grunt dist</code></pre>
-      <p>This lints the code base, runs the tests, builds Video.js, and puts everything you need in the <code>dist</code>directory.</p>
+      <p>This lints the code base, runs the tests, builds Video.js, and puts everything you need for production use in the <code>dist</code>directory.</p>
 
       <h4>For development</h4>
       <p>
