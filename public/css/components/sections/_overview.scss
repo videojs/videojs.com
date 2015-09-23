@@ -10,3 +10,12 @@
 .overview p {
   font-size: 1.2em;
 }
+
+.overview a {
+  color: $white;
+  text-decoration: underline;
+
+  &:hover {
+    color: darken($white, 10%);
+  }
+}

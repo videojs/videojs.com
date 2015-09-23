@@ -6,6 +6,7 @@ function displayPlugin(plugin) {
     <div class="panel-heading">
       <h3 class="panel-title">
         <a href="https://npmjs.org/package/${plugin.name}" parent="_blank">${plugin.name}</a>
+        <span class="pull-right"><i class="fa fa-tag"></i> ${plugin.version}</span>
         <span class="pull-right"><i class="fa fa-download"></i> ${plugin.downloads}</span>
       </h3>
     </div>
