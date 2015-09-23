@@ -1,15 +1,15 @@
 let $ = window.jQuery;
 
 function displayPlugin(plugin) {
+  console.log(plugin);
   return `<div class="plugin panel panel-default">
     <div class="panel-heading">
-      <h3 class="panel-title">${plugin.name}</h3>
+      <h3 class="panel-title">
+        <a href="https://npmjs.org/package/${plugin.name}" parent="_blank">${plugin.name}</a>
+        <span class="pull-right"><i class="fa fa-download"></i> ${plugin.downloads}</span>
+      </h3>
     </div>
     <div class="panel-body">
-      <ul>
-        <li>License: ${plugin.version}</li>
-        <li>Downloads: ${plugin.downloads}</li>
-      </ul>
       <p>${plugin.description}</p>
     </div>
   </div>`;
