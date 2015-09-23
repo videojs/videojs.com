@@ -35,6 +35,13 @@
             <li><a href="#build-build">Build it!</a></li>
           </ul>
         </li>
+        <li role="presentation">
+          <a href="#customize">Customize</a>
+          <ul class="nav">
+            <li><a href="#skinning">Skinning</a></li>
+            <li><a href="#plugins">Plugins</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>
@@ -218,6 +225,30 @@ $ git pull upstream master</code></pre>
         This will keep updated code in the <code>build</code> directory, allowing to use the Sandbox demo files. To make things easier,
         this also runs a local http server so you can access the sandbox via <a href="http://localhost:9999/sandbox" parent="_blank">localhost:9999/sandbox</a>.
       </p>
+
+    </section>
+
+    <section class="customize">
+      <h2 id="customize">Customize</h2>
+
+      <p>Using Video.js straight out of the box is fine, but we think it's better if you make it your own. Plugins and skins make it possible to completely customize your player.</p>
+
+      <h3 id="skinning">Skinning</h3>
+
+      <p>The player skin is completely built from HTML and CSS, including when Flash and other players like YouTube are used.</p>
+
+      <p>Skin changes can be as simple as centering the play button (you can just add the 'vjs-big-play-centered' class to your video tag), or as complex as creating entirely new layouts. We've built a codepen project where you can explore different changes.</p>
+
+
+      <p><a href="http://codepen.io/heff/pen/EarCt" target="_blank">Video.js Skin Designer</a></p>
+
+      <p>And if you know CSS, you can always just open your Chrome dev tools and hack away!</p>
+
+      <h3 id="plugins">Plugins</h3>
+
+      <p>Video.js by itself is purposefully very simple. It supports the basic video and audio playback features and ensures they work the same across different playback technologies ("techs"). Any more advanced features are built as plugins, including playlists, analytics, advertising, and support for advanced formats like HLS and DASH. Check out the plugins page to see what's available.</p>
+
+      <p><a href="/plugins/">Video.js Plugins</a></p>
 
     </section>
   </div>
