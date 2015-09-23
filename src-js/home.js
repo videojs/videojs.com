@@ -1,4 +1,5 @@
-import $ from 'jquery';
+import window from 'global/window';
+let $ = window.jQuery;
 
 var player, overlay, templateEl, $overlay;
 
