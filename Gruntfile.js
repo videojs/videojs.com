@@ -34,7 +34,8 @@ module.exports = function(grunt) {
         files: {
           'public/js/index.js': ['src-js/index.js'],
           'public/js/home.js': ['src-js/home.js'],
-          'public/js/plugins.js': ['src-js/plugins.js']
+          'public/js/plugins.js': ['src-js/plugins.js'],
+					'public/js/support.js': ['src-js/support.js']
         },
         options: {
           external: ['videojs'],

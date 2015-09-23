@@ -1,9 +1,8 @@
-import $ from 'jquery';
+import window from 'global/window';
+let $ = window.jQuery;
+
 import hljs from 'highlight.js';
 import { getPackage } from './lib/vjs-version.js';
-
-// Other things might want jQuery.
-window.jQuery = window.$ = $;
 
 // Start highlighting
 hljs.initHighlightingOnLoad();
