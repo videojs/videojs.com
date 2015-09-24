@@ -55,25 +55,38 @@
   <div class="gallery-items">
   	<div class="gallery-item">
       <div class="gallery-item-wrapper">
-  		  <iframe name="embedded" allowfullscreen webkitallowfullscreen mozallowfullscreen width="480" height="270" frameborder="no" scrolling="no" src="http://www.onionstudios.com/embed?id=3158"></iframe>
+  		  <iframe name="embedded" allowfullscreen webkitallowfullscreen mozallowfullscreen width="480" height="270" frameborder="no" scrolling="no" temp-src="http://www.onionstudios.com/embed?id=3158"></iframe>
       </div>
   		<a href="http://www.onionstudios.com/channels/the-onion" target="_blank"><img src="/img/company-logos/onion-horizontal.png" alt="The Onion"></a>
   	</div>
 
   	<div class="gallery-item">
       <div class="gallery-item-wrapper">
-		    <iframe src="//www.funnyordie.com/embed/25c17d6eb2" width="640" height="400" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+		    <iframe temp-src="//www.funnyordie.com/embed/25c17d6eb2" width="640" height="400" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
       </div>
   		<a href="http://funnyordie.com" target="_blank"><img src="/img/company-logos/funnyordie.png" alt="Funny or Die"></a>
   	</div>
 
   	<div class="gallery-item">
       <div class="gallery-item-wrapper guardian-fix">
-  		  <iframe src="https://embed.theguardian.com/embed/video/news/video/2015/jul/20/california-drought-eat-beef-wash-video" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+  		  <iframe temp-src="https://embed.theguardian.com/embed/video/news/video/2015/jul/20/california-drought-eat-beef-wash-video" width="560" height="315" frameborder="0" allowfullscreen></iframe>
       </div>
   		<a href="http://www.theguardian.com/video" parent="_blank"><img src="/img/company-logos/guardian.png" alt="The Guardian"></a>
   	</div>
   </div>
+
+  <script>
+    // Poor man's lazy loading the iframe content to speed up homeage loading
+    setTimeout(function(){
+      Array.prototype.forEach.call(document.querySelectorAll('iframe'), function(ifrm){
+        var src = ifrm.getAttribute('temp-src');
+
+        if (src) {
+          ifrm.setAttribute('src', src);
+        }
+      });
+    }, 1000);
+  </script>
 
 </section>
 
