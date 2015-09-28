@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       scripts: {
-        files: ['./_harp/src-js/**/*'],
+        files: ['./_src-js/**/*'],
         tasks: ['browserify'],
         options: {
           spawn: false,
@@ -22,20 +22,20 @@ module.exports = function(grunt) {
     harp: {
       server: {
         server: true,
-        source: '_harp/public'
+        source: '_harp'
       },
       dist: {
-        source: '_harp/public',
-        dest: './'
+        source: '_harp',
+        dest: '_www'
       }
     },
     browserify: {
       dist: {
         files: {
-          '_harp/public/js/index.js': ['_harp/src-js/index.js'],
-          '_harp/public/js/home.js': ['_harp/src-js/home.js'],
-          '_harp/public/js/plugins.js': ['_harp/src-js/plugins.js'],
-					'_harp/public/js/support.js': ['_harp/src-js/support.js']
+          '_harp/js/index.js': ['_src-js/index.js'],
+          '_harp/js/home.js': ['_src-js/home.js'],
+          '_harp/js/plugins.js': ['_src-js/plugins.js'],
+					'_harp/js/support.js': ['_src-js/support.js']
         },
         options: {
           external: ['videojsSite'],
@@ -46,12 +46,22 @@ module.exports = function(grunt) {
       }
     },
     copy: {
+      dist: {
+        files: [
+          {
+            expand: true,
+            cwd: '_www',
+            src: ['**'],
+            dest: './'
+          }
+        ]
+      },
       fontawesome: {
         files: [
           {
             expand: true,
             src: ['node_modules/font-awesome/fonts/*'],
-            dest: '_harp/public/fonts',
+            dest: '_harp/fonts',
             filter: 'isFile',
             flatten: true
           }
@@ -62,7 +72,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             src: ['node_modules/video.js/dist/font/*'],
-            dest: '_harp/public/fonts',
+            dest: '_harp/fonts',
             filter: 'isFile',
             flatten: true
           }
@@ -73,7 +83,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             src: ['node_modules/video.js/dist/video-js.css'],
-            dest: '_harp/public/css/vendor',
+            dest: '_harp/css/vendor',
             filter: 'isFile',
             flatten: true
           }
@@ -90,5 +100,6 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['copy:fontawesome', 'copy:stylevjs', 'copy:fontvjs', 'browserify', 'harp:dist']);
+  grunt.registerTask('dist', ['default', 'copy:dist']);
   grunt.registerTask('dev', ['browserify', 'concurrent']); // Browserify before starting concurrent things
 };
