@@ -1,9 +1,16 @@
 footer {
   background-color: $dark-gray;
   color: $white;
-  height: 40px;
+  min-height: 40px;
+  height: auto;
   line-height: 20px;
   padding: 10px 20px;
+}
+
+footer:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 footer a {
@@ -20,12 +27,18 @@ footer .button {
 
 footer .copyright {
   float: left;
+  width: 50%;
 }
 
 footer .other-links {
   margin: 0;
   padding: 0;
   float: right;
+
+  @media (max-width: $screen-sm) {
+    float: none;
+    text-align: center;
+  }
 }
 
 footer .other-links li {
