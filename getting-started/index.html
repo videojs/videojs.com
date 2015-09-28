@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>getting-started/index - Video.js: The Player Framework</title>
+
+  <link rel="stylesheet" href="https://vjs.zencdn.net/5-unsafe/video-js.css" type="text/css">
+  <link rel="stylesheet" href="/css/main.css" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript">var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-16505296-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+<body id="getting-started_index">
+  <header>
+    <nav class="navbar-fixed-top">
+      <div class="nav-header">
+        <a href="/" class="logo">
+          <h1>Videojs</h1>
+        </a>
+      </div>
+
+      <div class="nav-links">
+        <ul>
+          <li><a href="/getting-started/">start</a></li>
+          <li><a href="/getting-started/#customize">customize</a></li>
+          <li><a href="http://docs.videojs.com">docs</a></li>
+					<li><a href="http://blog.videojs.com">blog</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-other">
+        <ul>
+          <li><a href="https://github.com/videojs/video.js"><i class="fa fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="overview">
+  <h1>Getting Started</h1>
+  <p class="tagline">
+    An overview of how to get started using Video.js, from basic CDN usage to Browserify, along with
+    examples.
+  </p>
+</section>
+
+<div class="row">
+  <div class="col-md-2">
+    <nav class="affixed-sidebar">
+      <ul class="nav">
+        <li role="presentation" class="active">
+          <a href="#download">Download</a>
+          <ul class="nav">
+            <li><a href="#download-cdn">CDN</a></li>
+            <li><a href="#download-npm">npm</a></li>
+            <li><a href="#download-bower">Bower</a></li>
+          </ul>
+        </li>
+        <li role="presentation">
+          <a href="#included">What's in the box</a>
+          <ul class="nav">
+            <li><a href="#included-dist">Distribution</a></li>
+            <li><a href="#included-source">Source code</a></li>
+          </ul>
+        </li>
+        <li role="presentation">
+          <a href="#build">Build</a>
+          <ul class="nav">
+            <li><a href="#build-grunt">Install Grunt</a></li>
+            <li><a href="#build-fork">Fork &amp; clone Video.js</a></li>
+            <li><a href="#build-upstream">Create upstream remote</a></li>
+            <li><a href="#build-install">Install dependencies</a></li>
+            <li><a href="#build-build">Build it!</a></li>
+          </ul>
+        </li>
+        <li role="presentation">
+          <a href="#customize">Customize</a>
+          <ul class="nav">
+            <li><a href="#skinning">Skinning</a></li>
+            <li><a href="#plugins">Plugins</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="col-md-10">
+    <section class="download">
+      <h2 id="download" class="page-header">Download</h2>
+
+      <p class="lead">
+        There are a few ways to get started using Video.js (currently v<span class="vjs-version">5.0.0</span>),
+        but you should select the one that best fits your particular use case.
+      </p>
+
+      <p>
+        There are a few common things you should keep in mind regardless of which way you end up including
+        Video.js in your project. The core codebase uses a few modern features of Javascript (ES5), so if you'd like
+        to support IE8 you'll need to include an ES5 shim. To make things easier, we created a single file you
+        can include for IE8 support. No matter where the core Video.js library is placed, this file needs to be located
+        in the <code>&lt;head&gt;</code> of the document.
+      </p>
+
+      <h3 id="download-cdn">Video.js CDN</h3>
+      <p>
+        Our friends at <a href="http://fastly.com" parent="_blank">Fastly</a> are nice enough to provide
+        hosting for all the necessary files for Video.js on their content delivery network. Using these
+        hosted files is probably the easiest way to get started using Video.js, you simply need to include
+        the following links in your page.
+
+      <pre><code class="html">&lt;head&gt;
+  &lt;link href="http://vjs.zencdn.net/<span class="vjs-version">vjs-version</span>/video-js.css" rel="stylesheet"&gt;
+
+  &lt;!-- If you'd like to support IE8 --&gt;
+  &lt;script src="http://vjs.zencdn.net/ie8/<span class="ie8-version">ie8-version</span>/videojs-ie8.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+  poster="MY_VIDEO_POSTER.jpg" data-setup="{}"&gt;
+    &lt;source src="MY_VIDEO.mp4" type='video/mp4'&gt;
+    &lt;source src="MY_VIDEO.webm" type='video/webm'&gt;
+    &lt;p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      &lt;a href="http://videojs.com/html5-video-support/" target="_blank"&gt;supports HTML5 video&lt;/a&gt;
+    &lt;/p&gt;
+  &lt;/video&gt;
+
+  &lt;script src="http://vjs.zencdn.net/<span class="vjs-version">vjs-version</span>/video.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+
+      <h3 id="download-npm">Install via npm</h3>
+      <p>For more advanced workflows, installing via <a href="http://npmjs.com">npm</a> is recommended</p>
+      <pre><code>$ npm install --save-dev video.js</code></pre>
+
+      <h3 id="download-bower">Install via Bower</h3>
+      <p>Video.js is also available on <a href="http://bower.io">Bower.io</a>.</p>
+      <pre><code>$ bower install video.js</code></pre>
+
+    </section>
+
+    <section class="included">
+      <h2 id="included" class="page-header">What's in the box?</h2>
+
+      <p class="lead">
+        If you've downloaded one of the <a href="https://github.com/videojs/video.js/releases">releases</a> or installed via a package manager,
+        you've probably noticed that the contents are slightly different from the source code available on Github. The former includes just the compiled
+        files necessary to use Video.js, and the other includes the source used to create those files.
+      </p>
+
+      <h3 id="included-dist">Distributions</h3>
+      <p>A Video.js distribution is what you'll find if you've downloaded a release or installed via a package manager.</p>
+      <pre><code>video.js/
+├── alt
+│   ├── video.novtt.js
+│   ├── video.novtt.min.js
+│   └── video.novtt.min.js.map
+├── examples/
+├── font
+│   ├── VideoJS.eot
+│   ├── VideoJS.svg
+│   ├── VideoJS.ttf
+│   └── VideoJS.woff
+├── ie8
+│   ├── videojs-ie8.js
+│   └── videojs-ie8.min.js
+├── lang/
+├── video-js-<span class="vjs-version">5.0.0</span>.zip
+├── video-js.css
+├── video-js.min.css
+├── video-js.swf
+├── video.js
+├── video.js.map
+├── video.min.js
+└── video.min.js.map</pre></code>
+
+      <p>
+        This package includes everything you'll need to use Video.js on a production site. By default, we bundle Video.js with Mozilla's excellent <a href="https://github.com/mozilla/vtt.js" parent="_blank">VTT.js</a>.
+        If you don't need VTT.js functionality for whatever reason, you can use one of the Video.js copies that don't include VTT.js. These have <code>novtt</code> in the name and can be found in the <code>alt/</code>
+        directory. <code>font/</code> includes all the generated icon font files from the <a href="https://github.com/videojs/font" parent="_blank">Videojs Font project</a>. <code>ie8/</code> contains the shim required to
+        support IE8, and <code>lang/</code> contains all the generated translation files.
+      </p>
+
+      <h3 id="included-source">Source Code</h3>
+      <p>
+        The source code is everything you'll find when checking out the Video.js git repository. This includes all the source files
+        and any tooling necessary to build a production ready version of Video.js, as well as useful development tools such as sandboxed examples.
+      </p>
+
+      <pre><code>video.js/
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── Gruntfile.js
+├── LICENSE
+├── README.md
+├── bower.json
+├── build/
+├── component.json
+├── composer.json
+├── contrib.json
+├── dist/
+├── docs/
+├── lang/
+├── package.json
+├── sandbox/
+├── src/
+│   ├── css
+│   └── js
+└── test/</pre></code>
+
+      <p>
+        A lot of the root source directory is JSON configs for various package managers because, Internet. Most likely the important things you're looking for will be in <code>src/</code> and <code>build/</code>.
+        <code>src/</code> contains all of the source files for both the player JS and the base skin, while the <code>build/</code> directory contains various grunt tasks as well as the primary build file,
+        <code>grunt.js</code>.
+      </p>
+    </section>
+
+    <section class="build">
+      <h2 id="build" class="page-header">Build Tools</h2>
+
+      <p class="lead">
+        Video.js uses a taskrunner called <a href="https://gruntjs.com" parent="_blank">Grunt</a> for its build
+        pipeline. Before getting started, you'll need <a href="https://nodejs.org/" parent="_blank">Node.js</a> installed.
+      </p>
+
+      <h3 id="build-grunt">Install Grunt</h3>
+      <p>This may require <code>sudo</code>.</p>
+      <pre><code>$ npm install -g grunt-cli</code></pre>
+
+      <h3 id="build-fork">Fork and clone the repository</h3>
+      <p>
+        Contributions to Video.js need to be done via your own <a href="https://help.github.com/articles/fork-a-repo/" parent="_blank">fork</a>
+        of the repository. Even if you don't plan on doing so right away, we suggest <a href="https://help.github.com/articles/fork-a-repo/" parent="_blank">creating your own fork</a>
+        to work from just in case you want to contribute down the road.
+      </p>
+      <pre><code>$ git clone https://github.com/YOUR-GITHUB-USERNAME/video.js && cd video.js</code></pre>
+
+      <h3 id="build-upstream">Set up an upstream remote</h3>
+      <p>In order to be able to pull upstreams for Video.js in the future, you can set an upstream remote.</p>
+      <pre><code>$ git checkout master
+$ git remote add upstream https://github.com/videojs/video.js.git
+$ git pull upstream master</code></pre>
+
+      <h3 id="build-install">Install dependencies</h3>
+      <p>Dependencies are installed via <a href="https://www.npmjs.org/" parent="_blank">npm</a>, which is installed along with Node.js</p>
+      <pre><code>$ npm install</code></pre>
+
+      <h3 id="build-build">Build away!</h3>
+      <h4>For production</h4>
+      <p>
+        There are a few different ways to build the source depending on what you want to do. When we make a new release, we do
+        something like this.
+      </pre>
+      <pre><code>$ grunt dist</code></pre>
+      <p>This lints the code base, runs the tests, builds Video.js, and puts everything you need for production use in the <code>dist</code>directory.</p>
+
+      <h4>For development</h4>
+      <p>
+        In order to use ES6 features, we need to transpile the source code using <a href="http://babeljs.io/" parent="_blank">Babel</a>. This
+        means that during development we have to watch the source for changes so we can rebuild when testing.
+      </p>
+      <pre><code>$ grunt dev</code></pre>
+      <p>
+        This will keep updated code in the <code>build</code> directory, allowing to use the Sandbox demo files. To make things easier,
+        this also runs a local http server so you can access the sandbox via <a href="http://localhost:9999/sandbox" parent="_blank">localhost:9999/sandbox</a>.
+      </p>
+
+    </section>
+
+    <section class="customize">
+      <h2 id="customize">Customize</h2>
+
+      <p>Using Video.js straight out of the box is fine, but we think it's better if you make it your own. Plugins and skins make it possible to completely customize your player.</p>
+
+      <h3 id="skinning">Skinning</h3>
+
+      <p>The player skin is completely built from HTML and CSS, including when Flash and other players like YouTube are used.</p>
+
+      <p>Skin changes can be as simple as centering the play button (you can just add the 'vjs-big-play-centered' class to your video tag), or as complex as creating entirely new layouts. We've built a codepen project where you can explore different changes.</p>
+
+
+      <p><a href="http://codepen.io/heff/pen/EarCt" target="_blank">Video.js Skin Designer</a></p>
+
+      <p>And if you know CSS, you can always just open your Chrome dev tools and hack away!</p>
+
+      <h3 id="plugins">Plugins</h3>
+
+      <p>Video.js by itself is purposefully very simple. It supports the basic video and audio playback features and ensures they work the same across different playback technologies ("techs"). Any more advanced features are built as plugins, including playlists, analytics, advertising, and support for advanced formats like HLS and DASH. Check out the plugins page to see what's available.</p>
+
+      <p><a href="/plugins/">Video.js Plugins</a></p>
+
+    </section>
+  </div>
+</div>
+
+
+  <footer>
+    <span class="copyright">
+      Video.js is a free and open source HTML5 video player. © <a href="https://brightcove.com" parent="_blank">Brightcove, Inc</a>.
+      <a href="https://github.com/videojs/video.js/blob/master/LICENSE" class="button blue" parent="_blank">View license</a>
+    </span>
+
+    <ul class="other-links">
+      <li>
+        <a href="https://twitter.com/videojs" class="button white" parent="_blank"><i class="fa fa-twitter"></i> @videojs</a>
+      </li>
+      <li>
+        <a href="http://zencoder.us2.list-manage2.com/subscribe?u=36f130c3d3fadb2a21d2983b7&id=0f35b0535c" class="button white" parent="_blank"><i class="fa fa-envelope"></i> Newsletter</a>
+      </li>
+      <li><a href="http://github.com/videojs/video.js" class="button white" parent="_blank"><i class="fa fa-github-alt"></i> Source</a></li>
+    </ul>
+  </footer>
+
+  <script src="//vjs.zencdn.net/5-unsafe/video.js"></script>
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="/js/index.js"></script>
+	<script>
+	/* Modernizr 2.8.1 (Custom Build) | MIT & BSD
+	 * Build: http://modernizr.com/download/#-video-shiv-cssclasses-load
+	 */
+	;window.Modernizr=function(a,b,c){function u(a){j.cssText=a}function v(a,b){return u(prefixes.join(a+";")+(b||""))}function w(a,b){return typeof a===b}function x(a,b){return!!~(""+a).indexOf(b)}function y(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:w(f,"function")?f.bind(d||b):f}return!1}var d="2.8.0",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m={},n={},o={},p=[],q=p.slice,r,s={}.hasOwnProperty,t;!w(s,"undefined")&&!w(s.call,"undefined")?t=function(a,b){return s.call(a,b)}:t=function(a,b){return b in a&&w(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=q.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(q.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(q.call(arguments)))};return e}),m.video=function(){var a=b.createElement("video"),c=!1;try{if(c=!!a.canPlayType)c=new Boolean(c),c.ogg=a.canPlayType('video/ogg; codecs="theora"').replace(/^no$/,""),c.h264=a.canPlayType('video/mp4; codecs="avc1.42E01E"').replace(/^no$/,""),c.webm=a.canPlayType('video/webm; codecs="vp8, vorbis"').replace(/^no$/,"")}catch(d){}return c};for(var z in m)t(m,z)&&(r=z.toLowerCase(),e[r]=m[z](),p.push((e[r]?"":"no-")+r));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)t(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},u(""),i=k=null,function(a,b){function l(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function m(){var a=s.elements;return typeof a=="string"?a.split(" "):a}function n(a){var b=j[a[h]];return b||(b={},i++,a[h]=i,j[i]=b),b}function o(a,c,d){c||(c=b);if(k)return c.createElement(a);d||(d=n(c));var g;return d.cache[a]?g=d.cache[a].cloneNode():f.test(a)?g=(d.cache[a]=d.createElem(a)).cloneNode():g=d.createElem(a),g.canHaveChildren&&!e.test(a)&&!g.tagUrn?d.frag.appendChild(g):g}function p(a,c){a||(a=b);if(k)return a.createDocumentFragment();c=c||n(a);var d=c.frag.cloneNode(),e=0,f=m(),g=f.length;for(;e<g;e++)d.createElement(f[e]);return d}function q(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return s.shivMethods?o(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+m().join().replace(/[\w\-]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(s,b.frag)}function r(a){a||(a=b);var c=n(a);return s.shivCSS&&!g&&!c.hasCSS&&(c.hasCSS=!!l(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),k||q(a,c),a}var c="3.7.0",d=a.html5||{},e=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,f=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,g,h="_html5shiv",i=0,j={},k;(function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",g="hidden"in a,k=a.childNodes.length==1||function(){b.createElement("a");var a=b.createDocumentFragment();return typeof a.cloneNode=="undefined"||typeof a.createDocumentFragment=="undefined"||typeof a.createElement=="undefined"}()}catch(c){g=!0,k=!0}})();var s={elements:d.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video",version:c,shivCSS:d.shivCSS!==!1,supportsUnknownElements:k,shivMethods:d.shivMethods!==!1,type:"default",shivDocument:r,createElement:o,createDocumentFragment:p};a.html5=s,r(b)}(this,b),e._version=d,g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+p.join(" "):""),e}(this,this.document),function(a,b,c){function d(a){return"[object Function]"==o.call(a)}function e(a){return"string"==typeof a}function f(){}function g(a){return!a||"loaded"==a||"complete"==a||"uninitialized"==a}function h(){var a=p.shift();q=1,a?a.t?m(function(){("c"==a.t?B.injectCss:B.injectJs)(a.s,0,a.a,a.x,a.e,1)},0):(a(),h()):q=0}function i(a,c,d,e,f,i,j){function k(b){if(!o&&g(l.readyState)&&(u.r=o=1,!q&&h(),l.onload=l.onreadystatechange=null,b)){"img"!=a&&m(function(){t.removeChild(l)},50);for(var d in y[c])y[c].hasOwnProperty(d)&&y[c][d].onload()}}var j=j||B.errorTimeout,l=b.createElement(a),o=0,r=0,u={t:d,s:c,e:f,a:i,x:j};1===y[c]&&(r=1,y[c]=[]),"object"==a?l.data=c:(l.src=c,l.type=a),l.width=l.height="0",l.onerror=l.onload=l.onreadystatechange=function(){k.call(this,r)},p.splice(e,0,u),"img"!=a&&(r||2===y[c]?(t.insertBefore(l,s?null:n),m(k,j)):y[c].push(l))}function j(a,b,c,d,f){return q=0,b=b||"j",e(a)?i("c"==b?v:u,a,b,this.i++,c,d,f):(p.splice(this.i++,0,a),1==p.length&&h()),this}function k(){var a=B;return a.loader={load:j,i:0},a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=s?l:n.parentNode,l=a.opera&&"[object Opera]"==o.call(a.opera),l=!!b.attachEvent&&!l,u=r?"object":l?"script":"img",v=l?"script":u,w=Array.isArray||function(a){return"[object Array]"==o.call(a)},x=[],y={},z={timeout:function(a,b){return b.length&&(a.timeout=b[0]),a}},A,B;B=function(a){function b(a){var a=a.split("!"),b=x.length,c=a.pop(),d=a.length,c={url:c,origUrl:c,prefixes:a},e,f,g;for(f=0;f<d;f++)g=a[f].split("="),(e=z[g.shift()])&&(c=e(c,g));for(f=0;f<b;f++)c=x[f](c);return c}function g(a,e,f,g,h){var i=b(a),j=i.autoCallback;i.url.split(".").pop().split("?").shift(),i.bypass||(e&&(e=d(e)?e:e[a]||e[g]||e[a.split("/").pop().split("?")[0]]),i.instead?i.instead(a,e,f,g,h):(y[i.url]?i.noexec=!0:y[i.url]=1,f.load(i.url,i.forceCSS||!i.forceJS&&"css"==i.url.split(".").pop().split("?").shift()?"c":c,i.noexec,i.attrs,i.timeout),(d(e)||d(j))&&f.load(function(){k(),e&&e(i.origUrl,h,g),j&&j(i.origUrl,h,g),y[i.url]=2})))}function h(a,b){function c(a,c){if(a){if(e(a))c||(j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}),g(a,j,b,0,h);else if(Object(a)===a)for(n in m=function(){var b=0,c;for(c in a)a.hasOwnProperty(c)&&b++;return b}(),a)a.hasOwnProperty(n)&&(!c&&!--m&&(d(j)?j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}:j[n]=function(a){return function(){var b=[].slice.call(arguments);a&&a.apply(this,b),l()}}(k[n])),g(a[n],j,b,n,h))}else!c&&l()}var h=!!a.test,i=a.load||a.both,j=a.callback||f,k=j,l=a.complete||f,m,n;c(h?a.yep:a.nope,!!i),i&&c(i)}var i,j,l=this.yepnope.loader;if(e(a))g(a,0,l,0);else if(w(a))for(i=0;i<a.length;i++)j=a[i],e(j)?g(j,0,l,0):w(j)?B(j):Object(j)===j&&h(j,l);else Object(a)===a&&h(a,l)},B.addPrefix=function(a,b){z[a]=b},B.addFilter=function(a){x.push(a)},B.errorTimeout=1e4,null==b.readyState&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",A=function(){b.removeEventListener("DOMContentLoaded",A,0),b.readyState="complete"},0)),a.yepnope=k(),a.yepnope.executeStack=h,a.yepnope.injectJs=function(a,c,d,e,i,j){var k=b.createElement("script"),l,o,e=e||B.errorTimeout;k.src=a;for(o in d)k.setAttribute(o,d[o]);c=j?h:c||f,k.onreadystatechange=k.onload=function(){!l&&g(k.readyState)&&(l=1,c(),k.onload=k.onreadystatechange=null)},m(function(){l||(l=1,c(1))},e),i?k.onload():n.parentNode.insertBefore(k,n)},a.yepnope.injectCss=function(a,c,d,e,g,i){var e=b.createElement("link"),j,c=i?h:c||f;e.href=a,e.rel="stylesheet",e.type="text/css";for(j in d)e.setAttribute(j,d[j]);g||(n.parentNode.insertBefore(e,n),m(c,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))};
+	</script>
+
+  
+</body>
+</html>
