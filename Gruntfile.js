@@ -4,7 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       scripts: {
-        files: ['./src-js/**/*'],
+        files: ['./_harp/src-js/**/*'],
         tasks: ['browserify'],
         options: {
           spawn: false,
@@ -22,27 +22,25 @@ module.exports = function(grunt) {
     harp: {
       server: {
         server: true,
-        source: 'public'
+        source: '_harp/public'
       },
       dist: {
-        source: 'public',
-        dest: 'www'
+        source: '_harp/public',
+        dest: './'
       }
     },
     browserify: {
       dist: {
         files: {
-          'public/js/index.js': ['src-js/index.js'],
-          'public/js/home.js': ['src-js/home.js'],
-          'public/js/plugins.js': ['src-js/plugins.js'],
-					'public/js/support.js': ['src-js/support.js']
+          '_harp/public/js/index.js': ['_harp/src-js/index.js'],
+          '_harp/public/js/home.js': ['_harp/src-js/home.js'],
+          '_harp/public/js/plugins.js': ['_harp/src-js/plugins.js'],
+					'_harp/public/js/support.js': ['_harp/src-js/support.js']
         },
         options: {
-          external: ['videojs'],
+          external: ['videojsSite'],
           transform: [
-            require('babelify').configure({
-              sourceMapRelative: './src/js'
-            })
+            require('babelify').configure({})
           ]
         }
       }
@@ -53,7 +51,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             src: ['node_modules/font-awesome/fonts/*'],
-            dest: 'public/fonts',
+            dest: '_harp/public/fonts',
             filter: 'isFile',
             flatten: true
           }
@@ -64,7 +62,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             src: ['node_modules/video.js/dist/font/*'],
-            dest: 'public/fonts',
+            dest: '_harp/public/fonts',
             filter: 'isFile',
             flatten: true
           }
@@ -75,7 +73,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             src: ['node_modules/video.js/dist/video-js.css'],
-            dest: 'public/css/vendor',
+            dest: '_harp/public/css/vendor',
             filter: 'isFile',
             flatten: true
           }
