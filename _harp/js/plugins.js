@@ -19,7 +19,7 @@ function displayPlugins(plugins) {
 }
 
 $(function () {
-  $.getJSON('/registry/extensions.json', function (plugins) {
+  $.getJSON('https://s3-us-west-2.amazonaws.com/vjs-extensions/extensions.json', function (plugins) {
     displayPlugins(plugins);
   });
 });
