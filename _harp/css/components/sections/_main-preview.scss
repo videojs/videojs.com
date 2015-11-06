@@ -25,6 +25,7 @@
 }
 
 .videojs-hero-overlay {
+   pointer-events: none;
    position: absolute;
    text-align: center;
    top: 37.5%;
@@ -57,6 +58,7 @@
 
 .videojs-hero-overlay .videojs-hero a {
   line-height: 3.5vw;
+  pointer-events: auto;
 }
 
 .videojs-hero-overlay .videojs-hero img.npm-badge {
