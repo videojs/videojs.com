@@ -1,8 +1,8 @@
 import http from 'http';
 
 let pkgUrl = {
-  host: 'rawgit.com',
-  path: '/videojs/video.js/master/package.json'
+  host: 'crossorigin.me',
+  path: '/https://registry.npmjs.org/video.js/latest'
 };
 
 function getPackage(cb) {
