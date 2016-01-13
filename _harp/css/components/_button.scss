@@ -1,0 +1,38 @@
+// This mixin should *only* be used in the button component,
+// so this should go here and not in the utility module.
+@mixin generate-button($primary-color) {
+  background-color: $primary-color;
+  border-color: darken($primary-color, 15%);
+
+  &:hover {
+    background-color: darken($primary-color, 15%);
+  }
+}
+
+.button {
+  @extend .btn;
+
+  border-radius: 4px;
+  padding: 10px 30px;
+  height: auto;
+
+  @media (max-width: $screen-sm) {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+.button.gray {
+  @include generate-button($dark-gray);
+  color: $white;
+}
+
+.button.blue {
+  @include generate-button($blue);
+  color: $white;
+}
+
+.button.white {
+  @include generate-button($white);
+  color: $dark-gray;
+}

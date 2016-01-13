@@ -1,0 +1,8 @@
+{
+  "globals": {
+    "title": "",
+		"title_tagline": " - Video.js: The Player Framework",
+    "description": "",
+		"javascripts": []
+  }
+}

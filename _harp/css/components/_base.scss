@@ -1,0 +1,18 @@
+body {
+  background-color: $background-primary;
+
+  // offset for the sticky nav bar;
+  padding-top: $nav-height;
+
+  color: $text-primary;
+
+  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.opaque {
+  opacity: 1;
+}
