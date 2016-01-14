@@ -20,6 +20,17 @@
 		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 	</script>
+
+  <!-- Video QoS -->
+  <script>
+    window.mux=window.mux||function(){(mux.q=mux.q||[]).push([arguments,1*new Date])};
+    mux('create', 'VJSISBEST');
+    mux('send', 'pageloadstart');
+  </script>
+  <script async src="https://d3ihilmo9kazre.cloudfront.net/core/mux.js"></script>
+
+  <script src="//vjs.zencdn.net/5-unsafe/video.js"></script>
+  <script src="https://d3ihilmo9kazre.cloudfront.net/videojs/videojs-mux.min.js"></script>
 </head>
 <body id="html5-video-support_index">
   <header>
@@ -114,7 +125,6 @@
     </ul>
   </footer>
 
-  <script src="//vjs.zencdn.net/5-unsafe/video.js"></script>
 	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="/js/index.js"></script>
