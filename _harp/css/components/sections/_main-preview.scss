@@ -20,8 +20,7 @@
 
 #preview-player {
   margin: 0 auto 30px;
-
-  @include generate-player-sizing(100%);
+  width: 100%;
 }
 
 .videojs-hero-overlay {
