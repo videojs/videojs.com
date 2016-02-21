@@ -7,7 +7,16 @@
     <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
   </video>
   <script>
-    videojs('preview-player', { "fluid": true, plugins: { mux: {} } });
+    try {
+      var player = window.player = videojs('preview-player', { "fluid": true, plugins: { mux: {} } });
+    } catch(err) {
+      trackJs.track(err);
+      throw err;
+    }
+
+    player.on('error', function(){
+      trackJs.track(player.error());
+    });
   </script>
 
   <script type="text/template" id="overlay-template">
