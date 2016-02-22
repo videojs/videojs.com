@@ -10,12 +10,14 @@
     try {
       var player = window.player = videojs('preview-player', { "fluid": true, plugins: { mux: {} } });
     } catch(err) {
-      trackJs.track(err);
+      //trackJs.track(err);
+      Raven.captureException(err);
       throw err;
     }
 
     player.on('error', function(){
-      trackJs.track(player.error());
+      // trackJs.track(player.error());
+      Raven.captureMessage(player.error() && player.error().message);
     });
   </script>
 
