@@ -6,20 +6,27 @@ let pkgUrl = {
 };
 
 function getPackage(cb) {
-  http.get({host: pkgUrl.host, path: pkgUrl.path, withCredentials: false}, function(res) {
-    var body = '';
-    res.on('data', function(d) {
-      body += d;
-    });
-
-    res.on('end', function(e) {
-      body = JSON.parse(body);
-      cb(null, body);
-    });
-
-  }).on('error', function(e) {
-    cb(e);
+  cb(null, {
+    version: "5.8.8",
+    dependencies: {
+      "videojs-ie8": "1.1.2"
+    }
   });
+
+  //http.get({host: pkgUrl.host, path: pkgUrl.path, withCredentials: false}, function(res) {
+    //var body = '';
+    //res.on('data', function(d) {
+      //body += d;
+    //});
+
+    //res.on('end', function(e) {
+      //body = JSON.parse(body);
+      //cb(null, body);
+    //});
+
+  //}).on('error', function(e) {
+    //cb(e);
+  //});
 }
 
 export { getPackage };
