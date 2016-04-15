@@ -9,7 +9,7 @@ hljs.initHighlightingOnLoad();
 
 // Get the package information for doing things like swapping out version numbers
 getPackage(function(e, pkg) {
-  if (e) return console.error(e);
+  if (e) console.error(e);
 
   $('.vjs-version').text(pkg.version);
   $('.ie8-version').text(pkg.dependencies['videojs-ie8']);
