@@ -1,5 +1,8 @@
 import window from 'global/window';
-let $ = window.jQuery;
+import $ from 'jquery';
+
+window.jQuery = $;
+require('bootstrap');
 
 import hljs from 'highlight.js';
 import { getPackage } from './lib/vjs-version.js';

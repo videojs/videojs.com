@@ -1,9 +1,23 @@
 import window from 'global/window';
-let $ = window.jQuery;
+import document from 'global/document';
+import $ from 'jquery';
+import videojs from 'video.js';
 
 var player, overlay, templateEl, $overlay;
 
-player = videojs('preview-player');
+window.player = player = videojs('preview-player', {
+  fluid: true,
+  plugins: {
+    mux: {
+      data: {
+        property_key: 'VJSISBEST',
+        video_title: 'The Boids!',
+        video_id: 1
+      }
+    }
+  }
+});
+
 
 overlay = document.createElement('div');
 overlay.className = 'videojs-hero-overlay';
@@ -20,3 +34,14 @@ setTimeout(function(){
 player.on(['play', 'pause'], function() {
   $overlay.toggleClass('transparent');
 });
+
+// Poor man's lazy loading the iframe content to speed up homeage loading
+setTimeout(function(){
+  Array.prototype.forEach.call(document.querySelectorAll('iframe'), function(ifrm){
+    var src = ifrm.getAttribute('temp-src');
+
+    if (src) {
+      ifrm.setAttribute('src', src);
+    }
+  });
+}, 1000);

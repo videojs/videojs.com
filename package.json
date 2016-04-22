@@ -12,6 +12,7 @@
   "license": "MIT",
   "devDependencies": {
     "babelify": "^6.0.2",
+    "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.4",
     "browserify": "^13.0.0",
     "browserify-shim": "^3.8.12",
