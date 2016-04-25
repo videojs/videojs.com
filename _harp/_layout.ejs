@@ -6,23 +6,21 @@
 
   <title><%= title || current.path.join('/') %><%= title_tagline %></title>
 
-  <link rel="stylesheet" href="https://vjs.zencdn.net/5-unsafe/video-js.css" type="text/css">
-  <link rel="stylesheet" href="/css/main.css" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <% for(var i=0; i<styles.length; i++) {%>
+    <link rel="stylesheet" href="<%= styles[i] %>">
+  <% } %>
 
-	<script type="text/javascript">var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-16505296-1']);
-		_gaq.push(['_trackPageview']);
+  <script type="text/javascript">var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-16505296-1']);
+          _gaq.push(['_trackPageview']);
 
-		(function() {
-		  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+  </script>
 
-  <script src="//vjs.zencdn.net/5-unsafe/video.js"></script>
-  <script src="https://src.litix.io/videojs/1/videojs-mux.js"></script>
 </head>
 <body id="<%= current.path.join('_') %>">
   <header>
