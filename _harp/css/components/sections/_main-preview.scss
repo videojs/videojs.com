@@ -22,7 +22,10 @@
 #preview-player {
   margin: 0 auto 30px;
   width: 100%;
-  padding-top: $preview-video-ratio * 100%;
+
+  &.placeholder {
+    padding-top: $preview-video-ratio * 100%;
+  }
 }
 
 .videojs-hero-overlay {

@@ -16,6 +16,9 @@ const player = window.player = videojs('preview-player', {
   }
 });
 
+player.on('ready', function() {
+  player.removeClass('placeholder');
+});
 
 const overlay = $('.videojs-hero-overlay');
 player.on(['play', 'pause'], function() {
