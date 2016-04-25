@@ -19,7 +19,7 @@ const player = window.player = videojs('preview-player', {
 
 const overlay = $('.videojs-hero-overlay');
 player.on(['play', 'pause'], function() {
-  $overlay.toggleClass('transparent');
+  overlay.toggleClass('transparent');
 });
 
 // Poor man's lazy loading the iframe content to speed up homeage loading
