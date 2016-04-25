@@ -1,7 +1,7 @@
 import document from 'global/document';
 import window from 'global/window';
+import $ from 'jquery';
 
-let $ = window.jQuery;
 
 $(function() {
   $('#no-js-support').remove();

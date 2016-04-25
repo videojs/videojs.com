@@ -1,4 +1,4 @@
-let $ = window.jQuery;
+import $ from 'jquery';
 
 function displayPlugin(plugin) {
   console.log(plugin);
