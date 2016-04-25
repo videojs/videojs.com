@@ -3,9 +3,7 @@ import document from 'global/document';
 import $ from 'jquery';
 import videojs from 'video.js';
 
-var player, overlay, templateEl, $overlay;
-
-window.player = player = videojs('preview-player', {
+const player = window.player = videojs('preview-player', {
   fluid: true,
   plugins: {
     mux: {
@@ -19,18 +17,7 @@ window.player = player = videojs('preview-player', {
 });
 
 
-overlay = document.createElement('div');
-overlay.className = 'videojs-hero-overlay';
-templateEl = document.querySelector('#overlay-template');
-overlay.innerHTML = templateEl.innerHTML;
-player.el().appendChild(overlay);
-
-$overlay = $(overlay);
-
-setTimeout(function(){
-  $overlay.removeClass('transparent');
-}, 250);
-
+const overlay = $('.videojs-hero-overlay');
 player.on(['play', 'pause'], function() {
   $overlay.toggleClass('transparent');
 });
@@ -38,7 +25,7 @@ player.on(['play', 'pause'], function() {
 // Poor man's lazy loading the iframe content to speed up homeage loading
 setTimeout(function(){
   Array.prototype.forEach.call(document.querySelectorAll('iframe'), function(ifrm){
-    var src = ifrm.getAttribute('temp-src');
+    const src = ifrm.getAttribute('temp-src');
 
     if (src) {
       ifrm.setAttribute('src', src);
