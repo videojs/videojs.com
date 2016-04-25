@@ -35,12 +35,13 @@ module.exports = function(grunt) {
           '_harp/js/index.js': ['_src-js/index.js'],
           '_harp/js/home.js': ['_src-js/home.js'],
           '_harp/js/plugins.js': ['_src-js/plugins.js'],
-					'_harp/js/support.js': ['_src-js/support.js']
+          '_harp/js/support.js': ['_src-js/support.js']
         },
         options: {
           external: ['videojsSite'],
           transform: [
-            require('babelify').configure({})
+            require('babelify').configure({}),
+            "browserify-shim"
           ]
         }
       }
