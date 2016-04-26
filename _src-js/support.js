@@ -1,7 +1,7 @@
 import document from 'global/document';
 import window from 'global/window';
-
-let $ = window.jQuery;
+import $ from 'jquery';
+import './lib/bootstrap.js';
 
 $(function() {
   $('#no-js-support').remove();

@@ -1,26 +1,37 @@
 import window from 'global/window';
-let $ = window.jQuery;
+import document from 'global/document';
+import $ from 'jquery';
+import videojs from 'video.js';
 
-var player, overlay, templateEl, $overlay;
+const player = window.player = videojs('preview-player', {
+  fluid: true,
+  plugins: {
+    mux: {
+      data: {
+        property_key: 'VJSISBEST',
+        video_title: 'The Boids!',
+        video_id: 1
+      }
+    }
+  }
+});
 
-player = videojs('preview-player');
+player.on('ready', function() {
+  player.removeClass('placeholder');
+});
 
-overlay = document.createElement('div');
-overlay.className = 'videojs-hero-overlay transparent';
-templateEl = document.querySelector('#overlay-template');
-overlay.innerHTML = templateEl.innerHTML;
-player.el().appendChild(overlay);
+const overlay = $('.videojs-hero-overlay');
+player.on(['play', 'pause'], function() {
+  overlay.toggleClass('transparent');
+});
 
-$overlay = $(overlay);
-
+// Poor man's lazy loading the iframe content to speed up homeage loading
 setTimeout(function(){
-  $overlay.removeClass('transparent');
-}, 250);
+  Array.prototype.forEach.call(document.querySelectorAll('iframe'), function(ifrm){
+    const src = ifrm.getAttribute('temp-src');
 
-player.on('play', function() {
-  $overlay.addClass('transparent');
-});
-
-player.on('pause', function() {
-  $overlay.removeClass('transparent');
-});
+    if (src) {
+      ifrm.setAttribute('src', src);
+    }
+  });
+}, 1000);
