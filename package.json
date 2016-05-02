@@ -15,7 +15,7 @@
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.4",
     "browserify": "^13.0.0",
-    "browserify-shim": "^3.8.12",
+    "browserify-global-shim": "^1.0.3",
     "font-awesome": "^4.3.0",
     "globals": "^8.2.0",
     "grunt": "^0.4.5",
@@ -31,9 +31,9 @@
   "dependencies": {
     "global": "^4.3.0",
     "marked": "^0.3.3",
-    "react": "^0.13.2"
-  },
-  "browserify-shim": {
-    "video.js": "global:videojs"
+    "react": "^0.13.2",
+    "videojs-contrib-hls": "^2.1.1",
+    "videojs-playlist": "^2.3.1",
+    "videojs-playlist-ui": "^2.1.2"
   }
 }

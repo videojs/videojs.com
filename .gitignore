@@ -26,3 +26,4 @@ www
 # Things in public js folder are built via Browserify
 public/js/**/*.js
 _harp/js/**/*.js
+_harp/vendor/**/*

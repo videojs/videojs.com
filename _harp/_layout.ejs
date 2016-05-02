@@ -6,6 +6,9 @@
 
   <title><%= title || current.path.join('/') %><%= title_tagline %></title>
 
+  <% for(var i=0; i<globalstyles.length; i++) {%>
+    <link rel="stylesheet" href="<%= globalstyles[i] %>">
+  <% } %>
   <% for(var i=0; i<styles.length; i++) {%>
     <link rel="stylesheet" href="<%= styles[i] %>">
   <% } %>
