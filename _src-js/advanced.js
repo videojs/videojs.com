@@ -10,11 +10,20 @@ const player = window.player = videojs('preview-player', {
     mux: {
       data: {
         property_key: 'VJSISBEST',
-        video_title: 'The Boids!',
-        video_id: 1
       }
     }
   }
+});
+
+player.on('loadstart', function() {
+  const pl = player.playlist();
+  const plitem = pl[player.playlist.currentItem()];
+
+  player.muxChangeVideo({
+    video_id: plitem.name,
+    video_title: plitem.name,
+    video_duration: plitem.duration,
+  });
 });
 
 
