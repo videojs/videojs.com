@@ -47,10 +47,16 @@
   .events-list {
     list-style-type: none;
 
+    .events-list-header {
+      font-size: 1.2em;
+      font-variant: small-caps;
+    }
+
     .event-item {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+      padding: 5px;
     }
 
     .event-name {
