@@ -1,5 +1,36 @@
 module.exports = function(grunt) {
 
+  var getBrowserifyOptions = function(watchify) {
+    var options = {
+      transform: [
+        'babelify',
+        [require('browserify-global-shim').configure({
+          'video.js': 'videojs'
+        }), {global: true}]
+      ],
+    };
+    var files = {
+      '_harp/js/index.js': ['_src-js/index.js'],
+      '_harp/js/home.js': ['_src-js/home.js'],
+      '_harp/js/advanced.js': ['_src-js/advanced.js'],
+      '_harp/js/plugins.js': ['_src-js/plugins.js'],
+      '_harp/js/support.js': ['_src-js/support.js']
+    };
+
+    if (watchify) {
+      options.watch = true;
+      options.keepAlive = true;
+      options.watchifyOptions = {
+        verbose: true
+      };
+    }
+
+    return {
+      files: files,
+      options: options
+    };
+  };
+
   // Project configuration.
   grunt.initConfig({
     watch: {
@@ -20,7 +51,7 @@ module.exports = function(grunt) {
         logConcurrentOutput: true
       },
       dev: {
-        tasks: ['watch', 'harp']
+        tasks: ['watch', 'browserify:watch', 'harp']
       }
     },
     harp: {
@@ -34,23 +65,8 @@ module.exports = function(grunt) {
       }
     },
     browserify: {
-      dist: {
-        files: {
-          '_harp/js/index.js': ['_src-js/index.js'],
-          '_harp/js/home.js': ['_src-js/home.js'],
-          '_harp/js/advanced.js': ['_src-js/advanced.js'],
-          '_harp/js/plugins.js': ['_src-js/plugins.js'],
-          '_harp/js/support.js': ['_src-js/support.js']
-        },
-        options: {
-          transform: [
-            'babelify',
-            [require('browserify-global-shim').configure({
-              'video.js': 'videojs'
-            }), {global: true}]
-          ]
-        }
-      }
+      dist: getBrowserifyOptions(),
+      watch: getBrowserifyOptions(true)
     },
     copy: {
       vendor: {
@@ -116,7 +132,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['copy:fontawesome', 'copy:vendor', 'copy:stylevjs', 'copy:fontvjs', 'browserify', 'harp:dist']);
+  grunt.registerTask('default', ['copy:fontawesome', 'copy:vendor', 'copy:stylevjs', 'copy:fontvjs', 'browserify:dist', 'harp:dist']);
   grunt.registerTask('dist', ['default', 'copy:dist']);
-  grunt.registerTask('dev', ['browserify', 'concurrent']); // Browserify before starting concurrent things
+  grunt.registerTask('dev', ['concurrent']);
 };
