@@ -1,4 +1,5 @@
 import videojs from 'video.js';
+import document from 'global/document';
 import 'videojs-contrib-hls';
 import 'videojs-playlist';
 import 'videojs-playlist-ui';
@@ -15,6 +16,16 @@ const player = window.player = videojs('preview-player', {
   }
 });
 
+const events = window.MediaEvents = videojs.getTech('Html5').Events;
+const eventsData = window.MediaEventsData = {};
+events.reduce((acc, c) => (acc[c] = 0, acc), eventsData);
+
+events.forEach((event) => {
+  player.on(event, () => {
+    eventsData[event]++;
+  });
+});
+
 player.on('loadstart', function() {
   const pl = player.playlist();
   const plitem = pl[player.playlist.currentItem()];
@@ -25,7 +36,6 @@ player.on('loadstart', function() {
     video_duration: plitem.duration,
   });
 });
-
 
 player.playlist(playlist);
 player.playlistUi();
