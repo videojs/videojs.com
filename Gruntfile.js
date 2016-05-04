@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         },
         options: {
           transform: [
-            require('babelify').configure({}),
+            'babelify',
             [require('browserify-global-shim').configure({
               'video.js': 'videojs'
             }), {global: true}]

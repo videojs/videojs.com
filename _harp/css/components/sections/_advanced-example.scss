@@ -28,3 +28,36 @@
     }
   }
 }
+
+.details {
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 100px;
+  overflow: scroll;
+
+  .bound-properties,
+  .media-properties,
+  .media-events {
+    flex: 1 1 30%;
+    min-width: 100px;
+  }
+
+  .events-list {
+    list-style-type: none;
+
+    .event-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .event-name {
+      flex: 1 0 0;
+    }
+    .event-value {
+      flex: 1 1 0;
+    }
+  }
+}

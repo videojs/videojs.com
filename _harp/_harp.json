@@ -8,6 +8,6 @@
       "https://vjs.zencdn.net/5-unsafe/video-js.css",
       "https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext"
     ],
-    "styles": []
+    "styles": ["/css/main.css"]
   }
 }
