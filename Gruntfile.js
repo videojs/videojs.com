@@ -34,13 +34,6 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     watch: {
-      scripts: {
-        files: ['./_src-js/**/*'],
-        tasks: ['browserify'],
-        options: {
-          spawn: false,
-        },
-      },
       vendor: {
         files: ['./node_modules/videojs-playlist-ui/dist/*'],
         tasks: ['copy:vendor']
