@@ -44,25 +44,25 @@
     min-width: 100px;
   }
 
-  .events-list {
+  .list {
     list-style-type: none;
 
-    .events-list-header {
+    .list-header {
       font-size: 1.2em;
       font-variant: small-caps;
     }
 
-    .event-item {
+    .list-item {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       padding: 5px;
     }
 
-    .event-name {
+    .list-item-name {
       flex: 1 0 0;
     }
-    .event-value {
+    .list-item-value {
       flex: 1 1 0;
     }
   }

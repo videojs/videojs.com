@@ -5,6 +5,7 @@ import 'videojs-playlist';
 import 'videojs-playlist-ui';
 import playlist from './lib/playlist.js';
 import mediaEvents from './lib/media-events.js';
+import mediaProperties from './lib/media-properties.js';
 
 const player = window.player = videojs('preview-player', {
   fluid: true,
@@ -32,3 +33,4 @@ player.playlist(playlist);
 player.playlistUi();
 
 mediaEvents(player);
+mediaProperties(player);
