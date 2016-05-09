@@ -73,7 +73,7 @@ export default React.createClass({
     let events = ['loadstart', 'loadedmetadata'];
 
     if (item.updater) {
-      events.concat(item.updater);
+      events = events.concat(item.updater);
     }
 
     player.on(events, () => this.setState({value: this.getItemState()}));
