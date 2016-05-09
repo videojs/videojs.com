@@ -1,3 +1,6 @@
+import 'es5-shim';
+import 'es6-shim';
+import 'es7-shim';
 import videojs from 'video.js';
 import document from 'global/document';
 import 'videojs-contrib-hls';
