@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import videojs from 'video.js';
+import document from 'global/document';
 import EventBoxMaker from './components/box.js';
 import EventItem from './components/events-item.js';
 

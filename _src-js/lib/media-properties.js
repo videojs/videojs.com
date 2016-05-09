@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import videojs from 'video.js';
+import document from 'global/document';
 import BoxMaker from './components/box.js';
 import MediaPropertiesItem from './components/media-properties-item.js';
 
