@@ -13,14 +13,50 @@ const getter = (item, player) => {
             prop;
   }
 
-  return JSON.stringify(value) || "";
+  return value;
 };
+
+const timerangePropertyNames = [
+  'buffered',
+  'seekable',
+  'played'
+];
+
+const timeRangesToString = (tr) => {
+  const arr = [];
+
+  for (let i = 0; i < tr.length; i++) {
+    arr.push('[' + tr.start(i).toFixed(2) + ', ' + tr.end(i).toFixed(2) + ']');
+  }
+
+  return arr;
+};
+
+const urlLike = (val) => (/^(?:.*https?(:|%3A))?\/\//).test(val);
+
+const urlMinifier = (val) => {
+  let start = val.match(/^(?:.*https?(:|%3A))?\/\/[^\/]*\//)[0].length;
+  let end = val.match(/[^\/]*$/)[0].length;
+  start = Math.min(start, 30);
+  end = Math.min(end, 20);
+  return val.slice(0, start) + '(…)' + val.slice(-end);
+};
+
 
 export default React.createClass({
   getItemState() {
     const item = this.props.item;
     const player = this.props.player;
-    const value = getter(item, player);
+    let value = getter(item, player);
+
+    if (typeof value === 'string' && urlLike(value)) {
+      value = urlMinifier(value);
+    } else if (value && timerangePropertyNames.includes(item.name)) {
+      value = timeRangesToString(value).join(', ');
+    } else {
+      value = JSON.stringify(value) || '';
+    }
+
 
     return value;
   },
