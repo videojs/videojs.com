@@ -7,6 +7,7 @@ import 'videojs-contrib-hls';
 import 'videojs-playlist';
 import 'videojs-playlist-ui';
 import playlist from './lib/playlist.js';
+import boundProperties from './lib/bound-properties.js';
 import mediaEvents from './lib/media-events.js';
 import mediaProperties from './lib/media-properties.js';
 
@@ -35,5 +36,6 @@ player.on('loadstart', function() {
 player.playlist(playlist);
 player.playlistUi();
 
+boundProperties(player);
 mediaEvents(player);
 mediaProperties(player);

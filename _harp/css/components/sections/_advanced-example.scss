@@ -44,18 +44,26 @@
     flex: 1 1 30%;
     min-width: 200px;
   }
+  .bound-properties,
+  .media-properties {
+    padding-right: 30px;
+  }
+
+  .slider-name,
+  label.checkbox-name,
+  .list-header,
+  .list-item-name {
+    font-weight: bold;
+  }
+
 
   .list {
     list-style-type: none;
+    padding: 0;
 
     .list-header {
       font-size: 1.2em;
       font-variant: small-caps;
-    }
-
-    .list-header,
-    .list-item-name {
-      font-weight: bold;
     }
 
     .list-item {
@@ -81,6 +89,16 @@
     .list-item-value {
       flex: 1 1 0;
       overflow-wrap: break-word;
+    }
+  }
+
+  .bound-props-form {
+    .slider-value {
+      float: right;
+    }
+
+    .slider-volume .slider-value:after {
+      content: '%';
     }
   }
 }
