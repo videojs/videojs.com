@@ -39,8 +39,8 @@
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "shortid": "^2.2.6",
-    "videojs-contrib-hls": "^2.1.1",
-    "videojs-playlist": "^2.3.1",
-    "videojs-playlist-ui": "^2.1.2"
+    "videojs-contrib-hls": "^2.2.0",
+    "videojs-playlist": "^2.4.0",
+    "videojs-playlist-ui": "^2.2.0"
   }
 }
