@@ -31,6 +31,7 @@
 
 .details {
   color: black;
+  font-family: sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -41,7 +42,7 @@
   .media-properties,
   .media-events {
     flex: 1 1 30%;
-    min-width: 100px;
+    min-width: 200px;
   }
 
   .list {
@@ -52,6 +53,11 @@
       font-variant: small-caps;
     }
 
+    .list-header,
+    .list-item-name {
+      font-weight: bold;
+    }
+
     .list-item {
       display: flex;
       flex-wrap: wrap;
@@ -59,11 +65,22 @@
       padding: 5px;
     }
 
+    .list-item:nth-child(even) {
+      background-color: lightgrey;
+    }
+
+    .list-item-name,
+    .list-item-value {
+      min-width: 125px;
+    }
+
     .list-item-name {
       flex: 1 0 0;
     }
+
     .list-item-value {
       flex: 1 1 0;
+      overflow-wrap: break-word;
     }
   }
 }
