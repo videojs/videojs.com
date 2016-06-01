@@ -21,8 +21,11 @@ player.on('ready', function() {
 });
 
 const overlay = $('.videojs-hero-overlay');
-player.on(['play', 'pause'], function() {
-  overlay.toggleClass('transparent');
+player.on(['play', 'playing'], function() {
+  overlay.addClass('transparent');
+});
+player.on(['pause'], function() {
+  overlay.removeClass('transparent');
 });
 
 // Poor man's lazy loading the iframe content to speed up homeage loading

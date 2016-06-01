@@ -4,10 +4,10 @@
     "title_tagline": " - Video.js: The Player Framework",
     "description": "",
     "javascripts": [],
-    "styles": [
+    "globalstyles": [
       "https://vjs.zencdn.net/5-unsafe/video-js.css",
-      "/css/main.css",
       "https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext"
-    ]
+    ],
+    "styles": ["/css/main.css"]
   }
 }

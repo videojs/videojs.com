@@ -14,12 +14,14 @@
     "babelify": "^6.0.2",
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.4",
-    "browserify": "^13.0.0",
-    "browserify-shim": "^3.8.12",
+    "browserify-global-shim": "^1.0.3",
+    "es5-shim": "^4.5.8",
+    "es6-shim": "^0.35.0",
+    "es7-shim": "^5.0.0",
     "font-awesome": "^4.3.0",
     "globals": "^8.2.0",
     "grunt": "^0.4.5",
-    "grunt-browserify": "^3.3.0",
+    "grunt-browserify": "^5.0.0",
     "grunt-cli": "^1.2.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-copy": "^0.8.0",
@@ -29,11 +31,16 @@
     "jquery": "^2.1.3"
   },
   "dependencies": {
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
     "global": "^4.3.0",
     "marked": "^0.3.3",
-    "react": "^0.13.2"
-  },
-  "browserify-shim": {
-    "video.js": "global:videojs"
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "shortid": "^2.2.6",
+    "videojs-contrib-hls": "^3.0.4",
+    "videojs-playlist": "^2.4.1",
+    "videojs-playlist-ui": "^2.2.0"
   }
 }
