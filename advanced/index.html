@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>plugins/index - Video.js: The Player Framework</title>
+  <title>Advanced Player Example - Video.js: The Player Framework</title>
 
   
     <link rel="stylesheet" href="https://vjs.zencdn.net/5-unsafe/video-js.css">
@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&amp;subset=latin,latin-ext">
   
   
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/advanced.css">
+  
+    <link rel="stylesheet" href="/vendor/videojs-playlist-ui/videojs-playlist-ui.vertical.css">
   
 
   <script type="text/javascript">
@@ -28,7 +30,7 @@
 </script>
 
 </head>
-<body id="plugins_index">
+<body id="advanced_index">
   <header>
     <nav class="navbar-fixed-top">
   <div class="nav-header">
@@ -55,16 +57,20 @@
 
   </header>
 
-  <section class="overview">
-  <h1>Plugins and Skins</h1>
-  <p class="tagline">
-    You can customize Video.js using 3rd party plugins and skins. For more information about creating and using
-    Video.js extensions, please see the <a href="http://docs.videojs.com/docs/guides/plugins.html">documentation</a>.
-  </p>
-</section>
+  <section class="main-preview-player">
+  <video id="preview-player" class="video-js vjs-fluid" controls preload="auto" crossorigin="anonymous">
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
 
-<div id="plugin-container" class="container">
-</div>
+  <div class="playlist-container preview-player-dimensions vjs-fluid">
+    <ol class="vjs-playlist"></ol>
+  </div>
+</section>
+<section class="details">
+  <div class="bound-properties"></div>
+  <div class="media-properties"></div>
+  <div class="media-events"></div>
+</section>
 
 
   <footer>
@@ -87,7 +93,11 @@
   
 
   
-    <script src="/js/plugins.js"></script>
+    <script src="//vjs.zencdn.net/5-unsafe/video.js"></script>
+  
+    <script src="https://src.litix.io/videojs/1/videojs-mux.js"></script>
+  
+    <script src="/js/advanced.js"></script>
   
 </body>
 </html>

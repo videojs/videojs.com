@@ -1,0 +1,168 @@
+/* The default color for the playlist menu background, almost black */
+/* The color used to emphasize the currently playing video and for
+hover effects */
+/* The primary foreground color */
+/* The alternate foreground color */
+/* Rules common to mouse and touch devices */
+.vjs-playlist {
+  list-style-type: none;
+  overflow: auto;
+  position: relative;
+}
+.vjs-playlist .vjs-playlist-item {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.vjs-playlist .vjs-playlist-thumbnail {
+  background-color: #a6a6a6;
+  display: block;
+  float: left;
+}
+.vjs-playlist .vjs-playlist-thumbnail:before {
+  display: block;
+  position: absolute;
+  background-color: rgba(26, 26, 26, 0.5);
+  text-align: center;
+}
+.vjs-playlist img {
+  width: 100%;
+  height: 100%;
+}
+.vjs-playlist .vjs-playlist-duration {
+  background-color: rgba(26, 26, 26, 0.8);
+  left: 0;
+  padding: 2px 8px;
+  position: absolute;
+  top: 0;
+}
+.vjs-playlist .vjs-selected .vjs-playlist-duration {
+  display: none;
+}
+.vjs-playlist cite {
+  display: block;
+  font-style: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vjs-playlist .vjs-playlist-description {
+  color: #a6a6a6;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0;
+  white-space: nowrap;
+}
+/* Prevent interaction with the playlist menu while ads are playing */
+/* on browsers that don't support pointer-events (IE<11), prevent
+scrolling past the ad overlay */
+.vjs-playlist.vjs-ad-playing {
+  overflow: hidden;
+}
+/* prevent clicks and scrolling from affecting the playlist during ads */
+.vjs-playlist.vjs-ad-playing.vjs-csspointerevents {
+  pointer-events: none;
+  overflow: auto;
+}
+/* darken the playlist menu display to indicate it's not interactive
+during ads and capture click events on IE<11 */
+.vjs-playlist.vjs-ad-playing .vjs-playlist-ad-overlay {
+  display: none;
+}
+.vjs-playlist.vjs-ad-playing .vjs-playlist-ad-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* IE8 fallback */
+  background-color: #1a1a1a;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  /* modern browsers */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* Parametric rules. These are specialized for touch and mouse-based devices */
+/* Touch-device playlist dimensions */
+.vjs-playlist {
+  font-size: 14px;
+  min-width: 238px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 14px 14px 0 14px;
+}
+.vjs-playlist .vjs-playlist-item {
+  height: 56px;
+  margin-bottom: 14px;
+}
+.vjs-playlist .vjs-playlist-thumbnail {
+  height: 56px;
+  font-size: 11px;
+  margin-right: 14px;
+  width: 100px;
+}
+.vjs-playlist .vjs-selected .vjs-playlist-thumbnail:before {
+  height: 56px;
+  line-height: 56px;
+  width: 100px;
+}
+.vjs-playlist time {
+  font-size: 11px;
+}
+.vjs-playlist cite {
+  height: 14px;
+  line-height: 14px;
+}
+.vjs-playlist .vjs-playlist-description {
+  height: 42px;
+  line-height: 21px;
+}
+/* Mouse-only playlist dimensions */
+.vjs-mouse.vjs-playlist {
+  font-size: 17px;
+  min-width: 289px;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 17px 17px 0 17px;
+}
+.vjs-mouse.vjs-playlist .vjs-playlist-item {
+  height: 68px;
+  margin-bottom: 17px;
+}
+.vjs-mouse.vjs-playlist .vjs-playlist-thumbnail {
+  height: 68px;
+  font-size: 13px;
+  margin-right: 17px;
+  width: 121px;
+}
+.vjs-mouse.vjs-playlist .vjs-selected .vjs-playlist-thumbnail:before {
+  height: 68px;
+  line-height: 68px;
+  width: 121px;
+}
+.vjs-mouse.vjs-playlist time {
+  font-size: 13px;
+}
+.vjs-mouse.vjs-playlist cite {
+  height: 17px;
+  line-height: 17px;
+}
+.vjs-mouse.vjs-playlist .vjs-playlist-description {
+  height: 51px;
+  line-height: 26px;
+}
+.vjs-mouse.vjs-playlist .vjs-playlist-item:hover .vjs-playlist-thumbnail:before,
+.vjs-mouse.vjs-playlist .vjs-playlist-item:focus .vjs-playlist-thumbnail:before {
+  border-radius: 5px;
+  font-family: 'VideoJS';
+  height: 34px;
+  left: 40.5px;
+  line-height: 34px;
+  top: 17px;
+  width: 40px;
+}
+.vjs-playlist-now-playing:before {
+  content: 'Now Playing';
+  top: 0;
+  left: 0;
+}

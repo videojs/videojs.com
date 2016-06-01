@@ -1,33 +1,31 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// This is a shim to be able to require bootstrap correctly.
-// bootstrap requires `jQuery` to be available globally but still offers up
-// a requireable-npm module.
 'use strict';
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-window.jQuery = _jquery2['default'];
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+window.jQuery = _jquery2.default;
 
 // We have to use `require` here because otherwise the imports get re-ordered to be above
 // `window.jQuery = $;`
+// This is a shim to be able to require bootstrap correctly.
+// bootstrap requires `jQuery` to be available globally but still offers up
+// a requireable-npm module.
 require('bootstrap');
 
 },{"bootstrap":3,"jquery":19}],2:[function(require,module,exports){
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var _document = require('global/document');
 
-var _globalDocument = require('global/document');
+var _document2 = _interopRequireDefault(_document);
 
-var _globalDocument2 = _interopRequireDefault(_globalDocument);
+var _window = require('global/window');
 
-var _globalWindow = require('global/window');
-
-var _globalWindow2 = _interopRequireDefault(_globalWindow);
+var _window2 = _interopRequireDefault(_window);
 
 var _jquery = require('jquery');
 
@@ -35,22 +33,24 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 require('./lib/bootstrap.js');
 
-(0, _jquery2['default'])(function () {
-  (0, _jquery2['default'])('#no-js-support').remove();
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _jquery2.default)(function () {
+  (0, _jquery2.default)('#no-js-support').remove();
 
   if (Modernizr.video) {
     var msg = "<p>We did a quick test, and it looks like you <span class='video-support-status label label-success'>do</span> support HTML5 video!";
     msg = msg + probablySupport() + maybeSupport();
-    (0, _jquery2['default'])('.my-browser-support').append(msg);
+    (0, _jquery2.default)('.my-browser-support').append(msg);
   } else {
-    (0, _jquery2['default'])('.my-browser-support').append("<p>We did a quick test, and it looks like you <span class='video-support-status label label-important'>don't</span> support HTML5 video. Please consider upgrading to a modern version of one of the browsers below, such as <a href='https://www.google.com/intl/en/chrome/browser/' target='_blank'>Chrome</a></p>");
+    (0, _jquery2.default)('.my-browser-support').append("<p>We did a quick test, and it looks like you <span class='video-support-status label label-important'>don't</span> support HTML5 video. Please consider upgrading to a modern version of one of the browsers below, such as <a href='https://www.google.com/intl/en/chrome/browser/' target='_blank'>Chrome</a></p>");
   }
 
-  (0, _jquery2['default'])('.html5-support img').tooltip({
+  (0, _jquery2.default)('.html5-support img').tooltip({
     placement: function placement(tooltip, el) {
-      var el = (0, _jquery2['default'])(el).position();
+      var el = (0, _jquery2.default)(el).position();
       setTimeout(function () {
-        (0, _jquery2['default'])(tooltip).css(el);
+        (0, _jquery2.default)(tooltip).css(el);
       }, 0);
     }
   });

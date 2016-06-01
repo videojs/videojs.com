@@ -1,29 +1,29 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function displayPlugin(plugin) {
   console.log(plugin);
-  return '<div class="plugin panel panel-default">\n    <div class="panel-heading">\n      <h3 class="panel-title">\n        <a href="https://npmjs.org/package/' + plugin.name + '" parent="_blank">' + plugin.name + '</a>\n        <span class="pull-right"><i class="fa fa-tag"></i> ' + plugin.version + '</span>\n        <span class="pull-right"><i class="fa fa-download"></i> ' + plugin.downloads + '</span>\n      </h3>\n    </div>\n    <div class="panel-body">\n      <p>' + plugin.description + '</p>\n    </div>\n  </div>';
+  return '<div class="plugin panel panel-default">\n    <div class="panel-heading">\n      <h3 class="panel-title">\n        <a href="https://npmjs.org/package/' + plugin.name + '" target="_blank">' + plugin.name + '</a>\n        <span class="pull-right"><i class="fa fa-tag"></i> ' + plugin.version + '</span>\n        <span class="pull-right"><i class="fa fa-download"></i> ' + plugin.downloads + '</span>\n      </h3>\n    </div>\n    <div class="panel-body">\n      <p>' + plugin.description + '</p>\n    </div>\n  </div>';
 }
 
 function displayPlugins(plugins) {
-  var pluginContainerEl = (0, _jquery2['default'])('#plugin-container');
+  var pluginContainerEl = (0, _jquery2.default)('#plugin-container');
 
-  _jquery2['default'].each(plugins, function (i, plugin) {
+  _jquery2.default.each(plugins, function (i, plugin) {
     var content = displayPlugin(plugin);
 
     pluginContainerEl.append(content);
   });
 }
 
-(0, _jquery2['default'])(function () {
-  _jquery2['default'].getJSON('https://s3-us-west-2.amazonaws.com/videojs-extensions/extensions.json', function (plugins) {
+(0, _jquery2.default)(function () {
+  _jquery2.default.getJSON('https://s3-us-west-2.amazonaws.com/videojs-extensions/extensions.json', function (plugins) {
     displayPlugins(plugins);
   });
 });

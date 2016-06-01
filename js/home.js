@@ -1,26 +1,25 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-(function (global){
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var _window = require('global/window');
 
-var _globalWindow = require('global/window');
+var _window2 = _interopRequireDefault(_window);
 
-var _globalWindow2 = _interopRequireDefault(_globalWindow);
+var _document = require('global/document');
 
-var _globalDocument = require('global/document');
-
-var _globalDocument2 = _interopRequireDefault(_globalDocument);
+var _document2 = _interopRequireDefault(_document);
 
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _videoJs = (typeof window !== "undefined" ? window['videojs'] : typeof global !== "undefined" ? global['videojs'] : null);
+var _video = (window.videojs);
 
-var _videoJs2 = _interopRequireDefault(_videoJs);
+var _video2 = _interopRequireDefault(_video);
 
-var player = _globalWindow2['default'].player = (0, _videoJs2['default'])('preview-player', {
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var player = _window2.default.player = (0, _video2.default)('preview-player', {
   fluid: true,
   plugins: {
     mux: {
@@ -37,14 +36,17 @@ player.on('ready', function () {
   player.removeClass('placeholder');
 });
 
-var overlay = (0, _jquery2['default'])('.videojs-hero-overlay');
-player.on(['play', 'pause'], function () {
-  overlay.toggleClass('transparent');
+var overlay = (0, _jquery2.default)('.videojs-hero-overlay');
+player.on(['play', 'playing'], function () {
+  overlay.addClass('transparent');
+});
+player.on(['pause'], function () {
+  overlay.removeClass('transparent');
 });
 
 // Poor man's lazy loading the iframe content to speed up homeage loading
 setTimeout(function () {
-  Array.prototype.forEach.call(_globalDocument2['default'].querySelectorAll('iframe'), function (ifrm) {
+  Array.prototype.forEach.call(_document2.default.querySelectorAll('iframe'), function (ifrm) {
     var src = ifrm.getAttribute('temp-src');
 
     if (src) {
@@ -53,7 +55,6 @@ setTimeout(function () {
   });
 }, 1000);
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"global/document":2,"global/window":3,"jquery":5}],2:[function(require,module,exports){
 (function (global){
 var topLevel = typeof global !== 'undefined' ? global :
