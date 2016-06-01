@@ -15,8 +15,12 @@
   text-transform: uppercase;
 }
 
-#btn-use-now {
+.button-group .button {
   margin-right: 20px;
+
+  &:last-child {
+    margin-right: auto;
+  }
 }
 
 #preview-player {
