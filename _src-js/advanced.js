@@ -26,7 +26,7 @@ player.on('loadstart', function() {
   const pl = player.playlist();
   const plitem = pl[player.playlist.currentItem()];
 
-  player.muxChangeVideo({
+  player.mux.emit('videochange', {
     video_id: plitem.name,
     video_title: plitem.name,
     video_duration: plitem.duration,
