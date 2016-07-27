@@ -1,4 +1,4 @@
-/*! videojs-playlist-ui - v2.2.0 - 2016-05-09
+/*! videojs-playlist-ui - v2.3.0 - 2016-07-18
 * Copyright (c) 2016 Brightcove; Licensed Apache-2.0 */
 
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
@@ -236,13 +236,22 @@ var PlaylistMenu = (function (_Component2) {
       _this.update();
     });
 
-    // keep track of whether an ad is playing so that the menu
+    // Keep track of whether an ad is playing so that the menu
     // appearance can be adapted appropriately
     player.on("adstart", function () {
       _this.addClass("vjs-ad-playing");
     });
     player.on("adend", function () {
-      _this.removeClass("vjs-ad-playing");
+      if (player.ended()) {
+        // player.ended() is true because the content is done, but the ended event doesn't
+        // trigger until after the postroll is done and the ad implementation has finished
+        // its cycle. We don't consider a postroll ad ended until the "ended" event.
+        player.one("ended", function () {
+          _this.removeClass("vjs-ad-playing");
+        });
+      } else {
+        _this.removeClass("vjs-ad-playing");
+      }
     });
   }
 

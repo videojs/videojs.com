@@ -88,7 +88,7 @@ during ads and capture click events on IE<11 */
   font-size: 14px;
   min-width: 238px;
   background-color: #1a1a1a;
-  color: #ffffff;
+  color: #fff;
   padding: 14px 14px 0 14px;
 }
 .vjs-playlist .vjs-playlist-item {
@@ -122,7 +122,7 @@ during ads and capture click events on IE<11 */
   font-size: 17px;
   min-width: 289px;
   background-color: #1a1a1a;
-  color: #ffffff;
+  color: #fff;
   padding: 17px 17px 0 17px;
 }
 .vjs-mouse.vjs-playlist .vjs-playlist-item {
