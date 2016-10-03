@@ -25,7 +25,7 @@ var player = _window2.default.player = (0, _video2.default)('preview-player', {
     mux: {
       data: {
         property_key: 'VJSISBEST',
-        video_title: 'The Boids!',
+        video_title: 'Disney\'s Oceans',
         video_id: 1
       }
     }
