@@ -1,6 +1,6 @@
 # videojs.com (the [video.js](https://github.com/videojs/video.js) website)
 
-The site uses [Harp](http://harpjs.com) as the main framework. It also uses [Browserify](http://browserify.com) and [Babel](https://github.com/babel/babelify) for ES2015 (javascript) modules.
+The site uses [Harp](https://harpjs.com) as the main framework. It also uses [Browserify](http://browserify.com) and [Babel](https://github.com/babel/babelify) for ES2015 (javascript) modules.
 
 
 ### Setup
