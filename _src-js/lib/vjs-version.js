@@ -1,7 +1,8 @@
 import http from 'http';
 
 let pkgUrl = {
-  host: 'npmcdn.com',
+  protocol: 'https',
+  host: 'unpkg.com',
   path: '/video.js@latest/package.json'
 };
 
