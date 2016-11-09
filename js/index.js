@@ -76,7 +76,8 @@ var _http2 = _interopRequireDefault(_http);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var pkgUrl = {
-  host: 'npmcdn.com',
+  protocol: 'https',
+  host: 'unpkg.com',
   path: '/video.js@latest/package.json'
 };
 
