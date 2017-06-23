@@ -90,6 +90,19 @@
   &lt;script src="http://vjs.zencdn.net/<span class="vjs-version">vjs-version</span>/video.js"&gt;&lt;/script&gt;
 &lt;/body&gt;</code></pre>
 
+      <h4>Google Analytics</h4>
+
+      <p>
+        We include a stripped down Google Analytics pixel that tracks a random
+        percentage (currently 1%) of players loaded from the CDN. This allows
+        us to see (roughly) what browsers are in use in the wild, along with
+        other useful metrics such as OS and device. If you'd like to disable
+        analytics, you can simply include the following global before including
+        Video.js via the free CDN:
+      </p>
+
+      <pre><code class="javascript">window.HELP_IMPROVE_VIDEOJS = false;</code></pre>
+
       <h3 id="download-npm">Install via npm</h3>
       <p>For more advanced workflows, installing via <a href="http://npmjs.com">npm</a> is recommended</p>
       <pre><code>$ npm install --save-dev video.js</code></pre>
