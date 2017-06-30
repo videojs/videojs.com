@@ -2480,30 +2480,36 @@ var topLevel = typeof global !== 'undefined' ? global :
     typeof window !== 'undefined' ? window : {}
 var minDoc = require('min-document');
 
+var doccy;
+
 if (typeof document !== 'undefined') {
-    module.exports = document;
+    doccy = document;
 } else {
-    var doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'];
+    doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'];
 
     if (!doccy) {
         doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'] = minDoc;
     }
-
-    module.exports = doccy;
 }
+
+module.exports = doccy;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"min-document":18}],17:[function(require,module,exports){
 (function (global){
+var win;
+
 if (typeof window !== "undefined") {
-    module.exports = window;
+    win = window;
 } else if (typeof global !== "undefined") {
-    module.exports = global;
+    win = global;
 } else if (typeof self !== "undefined"){
-    module.exports = self;
+    win = self;
 } else {
-    module.exports = {};
+    win = {};
 }
+
+module.exports = win;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],18:[function(require,module,exports){
