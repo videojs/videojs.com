@@ -13,6 +13,8 @@ The site uses [Harp](http://harpjs.com) as the main framework. It also uses [Bro
 
 2. Run the grunt dev task to generate the files and run a server. Once it's running you can start working. A local preview is running on port 9000.
 
+> Note: I sometimes get errors here and have to downgrade to node v4 - @heff
+
   ```
   $ grunt dev
   ```
