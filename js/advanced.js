@@ -15,8 +15,6 @@ var _document = require('global/document');
 
 var _document2 = _interopRequireDefault(_document);
 
-require('videojs-contrib-hls');
-
 require('videojs-playlist');
 
 require('videojs-playlist-ui');
@@ -38,6 +36,10 @@ var _mediaProperties = require('./lib/media-properties.js');
 var _mediaProperties2 = _interopRequireDefault(_mediaProperties);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+if (typeof Uint8Array !== 'undefined') {
+  require('videojs-contrib-hls');
+}
 
 var player = window.player = (0, _video2.default)('preview-player', {
   fluid: true,
@@ -68,7 +70,7 @@ player.playlistUi();
 (0, _mediaEvents2.default)(player);
 (0, _mediaProperties2.default)(player);
 
-},{"./lib/bound-properties.js":2,"./lib/media-events.js":6,"./lib/media-properties.js":7,"./lib/playlist.js":8,"es5-shim":9,"es6-shim":10,"es7-shim":31,"global/document":308,"videojs-contrib-hls":527,"videojs-playlist":619,"videojs-playlist-ui":615}],2:[function(require,module,exports){
+},{"./lib/bound-properties.js":2,"./lib/media-events.js":6,"./lib/media-properties.js":7,"./lib/playlist.js":8,"es5-shim":9,"es6-shim":10,"es7-shim":22,"global/document":236,"videojs-contrib-hls":455,"videojs-playlist":547,"videojs-playlist-ui":543}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -259,7 +261,7 @@ var Form = _react2.default.createClass({
 
 ;
 
-},{"react":502,"react-dom":312,"shortid":503}],3:[function(require,module,exports){
+},{"react":430,"react-dom":240,"shortid":431}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -312,7 +314,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 ;
 
-},{"react":502,"react-dom":312,"shortid":503}],4:[function(require,module,exports){
+},{"react":430,"react-dom":240,"shortid":431}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -361,7 +363,7 @@ exports.default = _react2.default.createClass({
   }
 });
 
-},{"react":502,"react-dom":312}],5:[function(require,module,exports){
+},{"react":430,"react-dom":240}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -471,7 +473,7 @@ exports.default = _react2.default.createClass({
   }
 });
 
-},{"react":502,"react-dom":312}],6:[function(require,module,exports){
+},{"react":430,"react-dom":240}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -514,7 +516,7 @@ var EventBox = (0, _box2.default)(_eventsItem2.default);
 
 ;
 
-},{"./components/box.js":3,"./components/events-item.js":4,"global/document":308,"react":502,"react-dom":312}],7:[function(require,module,exports){
+},{"./components/box.js":3,"./components/events-item.js":4,"global/document":236,"react":430,"react-dom":240}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -666,7 +668,7 @@ var MediaProperties = [{
 
 ;
 
-},{"./components/box.js":3,"./components/media-properties-item.js":5,"global/document":308,"react":502,"react-dom":312}],8:[function(require,module,exports){
+},{"./components/box.js":3,"./components/media-properties-item.js":5,"global/document":236,"react":430,"react-dom":240}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6695,7 +6697,7 @@ exports.default = [{
 }));
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":311}],11:[function(require,module,exports){
+},{"_process":239}],11:[function(require,module,exports){
 'use strict';
 
 var proto = require('./Array.prototype');
@@ -6712,7 +6714,7 @@ module.exports = {
 
 module.exports = require('array-includes');
 
-},{"array-includes":34}],13:[function(require,module,exports){
+},{"array-includes":25}],13:[function(require,module,exports){
 'use strict';
 
 var includes = require('./Array.prototype.includes');
@@ -6725,35 +6727,6 @@ module.exports = {
 };
 
 },{"./Array.prototype.includes":12}],14:[function(require,module,exports){
-'use strict';
-
-var proto = require('./Map.prototype');
-
-module.exports = {
-	prototype: proto,
-	shim: function shimMap() {
-		proto.shim();
-	}
-};
-
-},{"./Map.prototype":15}],15:[function(require,module,exports){
-'use strict';
-
-var toJSON = require('./Map.prototype.toJSON');
-
-module.exports = {
-	toJSON: toJSON,
-	shim: function shimMapPrototype() {
-		toJSON.shim();
-	}
-};
-
-},{"./Map.prototype.toJSON":16}],16:[function(require,module,exports){
-'use strict';
-
-module.exports = require('map-tojson');
-
-},{"map-tojson":59}],17:[function(require,module,exports){
 'use strict';
 
 var getDescriptors = require('object.getownpropertydescriptors');
@@ -6771,58 +6744,7 @@ module.exports = {
 	values: values
 };
 
-},{"object.entries":84,"object.getownpropertydescriptors":110,"object.values":135}],18:[function(require,module,exports){
-'use strict';
-
-module.exports = require('regexp.escape');
-
-},{"regexp.escape":161}],19:[function(require,module,exports){
-'use strict';
-
-var escapeShim = require('./RegExp.escape');
-
-module.exports = {
-	escape: escapeShim,
-	shim: function shimRegExp() {
-		escapeShim.shim();
-	}
-};
-
-},{"./RegExp.escape":18}],20:[function(require,module,exports){
-'use strict';
-
-module.exports = require('simd');
-
-},{"simd":210}],21:[function(require,module,exports){
-'use strict';
-
-var proto = require('./Set.prototype');
-
-module.exports = {
-	prototype: proto,
-	shim: function shimSet() {
-		proto.shim();
-	}
-};
-
-},{"./Set.prototype":22}],22:[function(require,module,exports){
-'use strict';
-
-var toJSON = require('./Set.prototype.toJSON');
-
-module.exports = {
-	toJSON: toJSON,
-	shim: function shimSetPrototype() {
-		toJSON.shim();
-	}
-};
-
-},{"./Set.prototype.toJSON":23}],23:[function(require,module,exports){
-'use strict';
-
-module.exports = require('set-tojson');
-
-},{"set-tojson":185}],24:[function(require,module,exports){
+},{"object.entries":52,"object.getownpropertydescriptors":80,"object.values":108}],15:[function(require,module,exports){
 'use strict';
 
 var stringPrototype = require('./String.prototype');
@@ -6834,12 +6756,12 @@ module.exports = {
 	}
 };
 
-},{"./String.prototype":26}],25:[function(require,module,exports){
+},{"./String.prototype":17}],16:[function(require,module,exports){
 'use strict';
 
 module.exports = require('string-at');
 
-},{"string-at":216}],26:[function(require,module,exports){
+},{"string-at":135}],17:[function(require,module,exports){
 'use strict';
 
 var at = require('./String.prototype.at');
@@ -6863,32 +6785,32 @@ module.exports = {
 	}
 };
 
-},{"./String.prototype.at":25,"./String.prototype.padEnd":27,"./String.prototype.padStart":28,"./String.prototype.trimLeft":29,"./String.prototype.trimRight":30}],27:[function(require,module,exports){
+},{"./String.prototype.at":16,"./String.prototype.padEnd":18,"./String.prototype.padStart":19,"./String.prototype.trimLeft":20,"./String.prototype.trimRight":21}],18:[function(require,module,exports){
 'use strict';
 
 module.exports = require('string.prototype.padend');
 
-},{"string.prototype.padend":241}],28:[function(require,module,exports){
+},{"string.prototype.padend":161}],19:[function(require,module,exports){
 'use strict';
 
 module.exports = require('string.prototype.padstart');
 
-},{"string.prototype.padstart":268}],29:[function(require,module,exports){
+},{"string.prototype.padstart":189}],20:[function(require,module,exports){
 'use strict';
 
 module.exports = require('string.prototype.trimleft');
 
-},{"string.prototype.trimleft":294}],30:[function(require,module,exports){
+},{"string.prototype.trimleft":217}],21:[function(require,module,exports){
 'use strict';
 
 module.exports = require('string.prototype.trimright');
 
-},{"string.prototype.trimright":301}],31:[function(require,module,exports){
+},{"string.prototype.trimright":227}],22:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./es7-shim').shim();
 
-},{"./es7-shim":32}],32:[function(require,module,exports){
+},{"./es7-shim":23}],23:[function(require,module,exports){
 /*!
  * https://github.com/es-shims/es7-shim
  * @license es7-shim Copyright 2014 by contributors, MIT License
@@ -6898,33 +6820,21 @@ module.exports = require('./es7-shim').shim();
 'use strict';
 
 var $Array = require('./Array');
-var $Map = require('./Map');
 var $Object = require('./Object');
-var $RegExp = require('./RegExp');
-var $Set = require('./Set');
-var $SIMD = require('./SIMD');
 var $String = require('./String');
 
 module.exports = {
 	Array: $Array,
-	Map: $Map,
 	Object: $Object,
-	RegExp: $RegExp,
-	Set: $Set,
-	SIMD: $SIMD,
 	String: $String,
 	shim: function shimES7() {
 		$Array.shim();
-		$Map.shim();
 		$Object.shim();
-		$RegExp.shim();
-		$Set.shim();
-		$SIMD.shim();
 		$String.shim();
 	}
 };
 
-},{"./Array":11,"./Map":14,"./Object":17,"./RegExp":19,"./SIMD":20,"./Set":21,"./String":24}],33:[function(require,module,exports){
+},{"./Array":11,"./Object":14,"./String":15}],24:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -6959,7 +6869,7 @@ module.exports = function includes(searchElement) {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"es-abstract/es6":40}],34:[function(require,module,exports){
+},{"es-abstract/es6":32}],25:[function(require,module,exports){
 'use strict';
 
 var define = require('define-properties');
@@ -6986,7 +6896,7 @@ define(boundIncludesShim, {
 
 module.exports = boundIncludesShim;
 
-},{"./implementation":33,"./polyfill":57,"./shim":58,"define-properties":35,"es-abstract/es6":40}],35:[function(require,module,exports){
+},{"./implementation":24,"./polyfill":49,"./shim":50,"define-properties":26,"es-abstract/es6":32}],26:[function(require,module,exports){
 'use strict';
 
 var keys = require('object-keys');
@@ -7044,7 +6954,7 @@ defineProperties.supportsDescriptors = !!supportsDescriptors;
 
 module.exports = defineProperties;
 
-},{"foreach":36,"object-keys":37}],36:[function(require,module,exports){
+},{"foreach":27,"object-keys":28}],27:[function(require,module,exports){
 
 var hasOwn = Object.prototype.hasOwnProperty;
 var toString = Object.prototype.toString;
@@ -7068,7 +6978,7 @@ module.exports = function forEach (obj, fn, ctx) {
 };
 
 
-},{}],37:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 'use strict';
 
 // modified from https://github.com/es-shims/es5-shim
@@ -7210,7 +7120,7 @@ keysShim.shim = function shimObjectKeys() {
 
 module.exports = keysShim;
 
-},{"./isArguments":38}],38:[function(require,module,exports){
+},{"./isArguments":29}],29:[function(require,module,exports){
 'use strict';
 
 var toStr = Object.prototype.toString;
@@ -7229,96 +7139,10 @@ module.exports = function isArguments(value) {
 	return isArgs;
 };
 
-},{}],39:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 'use strict';
 
-var $isNaN = require('./helpers/isNaN');
-var $isFinite = require('./helpers/isFinite');
-
-var sign = require('./helpers/sign');
-var mod = require('./helpers/mod');
-
-var IsCallable = require('is-callable');
-var toPrimitive = require('es-to-primitive/es5');
-
-// https://es5.github.io/#x9
-var ES5 = {
-	ToPrimitive: toPrimitive,
-
-	ToBoolean: function ToBoolean(value) {
-		return Boolean(value);
-	},
-	ToNumber: function ToNumber(value) {
-		return Number(value);
-	},
-	ToInteger: function ToInteger(value) {
-		var number = this.ToNumber(value);
-		if ($isNaN(number)) { return 0; }
-		if (number === 0 || !$isFinite(number)) { return number; }
-		return sign(number) * Math.floor(Math.abs(number));
-	},
-	ToInt32: function ToInt32(x) {
-		return this.ToNumber(x) >> 0;
-	},
-	ToUint32: function ToUint32(x) {
-		return this.ToNumber(x) >>> 0;
-	},
-	ToUint16: function ToUint16(value) {
-		var number = this.ToNumber(value);
-		if ($isNaN(number) || number === 0 || !$isFinite(number)) { return 0; }
-		var posInt = sign(number) * Math.floor(Math.abs(number));
-		return mod(posInt, 0x10000);
-	},
-	ToString: function ToString(value) {
-		return String(value);
-	},
-	ToObject: function ToObject(value) {
-		this.CheckObjectCoercible(value);
-		return Object(value);
-	},
-	CheckObjectCoercible: function CheckObjectCoercible(value, optMessage) {
-		/* jshint eqnull:true */
-		if (value == null) {
-			throw new TypeError(optMessage || 'Cannot call method on ' + value);
-		}
-		return value;
-	},
-	IsCallable: IsCallable,
-	SameValue: function SameValue(x, y) {
-		if (x === y) { // 0 === -0, but they are not identical.
-			if (x === 0) { return 1 / x === 1 / y; }
-			return true;
-		}
-		return $isNaN(x) && $isNaN(y);
-	},
-
-	// http://www.ecma-international.org/ecma-262/5.1/#sec-8
-	Type: function Type(x) {
-		if (x === null) {
-			return 'Null';
-		}
-		if (typeof x === 'undefined') {
-			return 'Undefined';
-		}
-		if (typeof x === 'function' || typeof x === 'object') {
-			return 'Object';
-		}
-		if (typeof x === 'number') {
-			return 'Number';
-		}
-		if (typeof x === 'boolean') {
-			return 'Boolean';
-		}
-		if (typeof x === 'string') {
-			return 'String';
-		}
-	}
-};
-
-module.exports = ES5;
-
-},{"./helpers/isFinite":42,"./helpers/isNaN":43,"./helpers/mod":45,"./helpers/sign":46,"es-to-primitive/es5":47,"is-callable":54}],40:[function(require,module,exports){
-'use strict';
+var has = require('has');
 
 var toStr = Object.prototype.toString;
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
@@ -7335,9 +7159,11 @@ var isPrimitive = require('./helpers/isPrimitive');
 var toPrimitive = require('es-to-primitive/es6');
 var parseInteger = parseInt;
 var bind = require('function-bind');
+var arraySlice = bind.call(Function.call, Array.prototype.slice);
 var strSlice = bind.call(Function.call, String.prototype.slice);
 var isBinary = bind.call(Function.call, RegExp.prototype.test, /^0b[01]+$/i);
 var isOctal = bind.call(Function.call, RegExp.prototype.test, /^0o[0-7]+$/i);
+var regexExec = bind.call(Function.call, RegExp.prototype.exec);
 var nonWS = ['\u0085', '\u200b', '\ufffe'].join('');
 var nonWSregex = new RegExp('[' + nonWS + ']', 'g');
 var hasNonWS = bind.call(Function.call, RegExp.prototype.test, nonWSregex);
@@ -7644,6 +7470,135 @@ var ES6 = assign(assign({}, ES5), {
 			return S;
 		}
 		throw new TypeError('no constructor found');
+	},
+
+	// http://ecma-international.org/ecma-262/6.0/#sec-completepropertydescriptor
+	CompletePropertyDescriptor: function CompletePropertyDescriptor(Desc) {
+		if (!this.IsPropertyDescriptor(Desc)) {
+			throw new TypeError('Desc must be a Property Descriptor');
+		}
+
+		if (this.IsGenericDescriptor(Desc) || this.IsDataDescriptor(Desc)) {
+			if (!has(Desc, '[[Value]]')) {
+				Desc['[[Value]]'] = void 0;
+			}
+			if (!has(Desc, '[[Writable]]')) {
+				Desc['[[Writable]]'] = false;
+			}
+		} else {
+			if (!has(Desc, '[[Get]]')) {
+				Desc['[[Get]]'] = void 0;
+			}
+			if (!has(Desc, '[[Set]]')) {
+				Desc['[[Set]]'] = void 0;
+			}
+		}
+		if (!has(Desc, '[[Enumerable]]')) {
+			Desc['[[Enumerable]]'] = false;
+		}
+		if (!has(Desc, '[[Configurable]]')) {
+			Desc['[[Configurable]]'] = false;
+		}
+		return Desc;
+	},
+
+	// http://ecma-international.org/ecma-262/6.0/#sec-set-o-p-v-throw
+	Set: function Set(O, P, V, Throw) {
+		if (this.Type(O) !== 'Object') {
+			throw new TypeError('O must be an Object');
+		}
+		if (!this.IsPropertyKey(P)) {
+			throw new TypeError('P must be a Property Key');
+		}
+		if (this.Type(Throw) !== 'Boolean') {
+			throw new TypeError('Throw must be a Boolean');
+		}
+		if (Throw) {
+			O[P] = V;
+			return true;
+		} else {
+			try {
+				O[P] = V;
+			} catch (e) {
+				return false;
+			}
+		}
+	},
+
+	// http://ecma-international.org/ecma-262/6.0/#sec-hasownproperty
+	HasOwnProperty: function HasOwnProperty(O, P) {
+		if (this.Type(O) !== 'Object') {
+			throw new TypeError('O must be an Object');
+		}
+		if (!this.IsPropertyKey(P)) {
+			throw new TypeError('P must be a Property Key');
+		}
+		return has(O, P);
+	},
+
+	// http://ecma-international.org/ecma-262/6.0/#sec-hasproperty
+	HasProperty: function HasProperty(O, P) {
+		if (this.Type(O) !== 'Object') {
+			throw new TypeError('O must be an Object');
+		}
+		if (!this.IsPropertyKey(P)) {
+			throw new TypeError('P must be a Property Key');
+		}
+		return P in O;
+	},
+
+	// http://ecma-international.org/ecma-262/6.0/#sec-isconcatspreadable
+	IsConcatSpreadable: function IsConcatSpreadable(O) {
+		if (this.Type(O) !== 'Object') {
+			return false;
+		}
+		if (hasSymbols && typeof Symbol.isConcatSpreadable === 'symbol') {
+			var spreadable = this.Get(O, Symbol.isConcatSpreadable);
+			if (typeof spreadable !== 'undefined') {
+				return this.ToBoolean(spreadable);
+			}
+		}
+		return this.IsArray(O);
+	},
+
+	// http://ecma-international.org/ecma-262/6.0/#sec-invoke
+	Invoke: function Invoke(O, P) {
+		if (!this.IsPropertyKey(P)) {
+			throw new TypeError('P must be a Property Key');
+		}
+		var argumentsList = arraySlice(arguments, 2);
+		var func = this.GetV(O, P);
+		return this.Call(func, O, argumentsList);
+	},
+
+	// http://ecma-international.org/ecma-262/6.0/#sec-createiterresultobject
+	CreateIterResultObject: function CreateIterResultObject(value, done) {
+		if (this.Type(done) !== 'Boolean') {
+			throw new TypeError('Assertion failed: Type(done) is not Boolean');
+		}
+		return {
+			value: value,
+			done: done
+		};
+	},
+
+	// http://ecma-international.org/ecma-262/6.0/#sec-regexpexec
+	RegExpExec: function RegExpExec(R, S) {
+		if (this.Type(R) !== 'Object') {
+			throw new TypeError('R must be an Object');
+		}
+		if (this.Type(S) !== 'String') {
+			throw new TypeError('S must be a String');
+		}
+		var exec = this.Get(R, 'exec');
+		if (this.IsCallable(exec)) {
+			var result = this.Call(exec, R, [S]);
+			if (result === null || this.Type(result) === 'Object') {
+				return result;
+			}
+			throw new TypeError('"exec" method must return `null` or an Object');
+		}
+		return regexExec(R, S);
 	}
 });
 
@@ -7651,9 +7606,255 @@ delete ES6.CheckObjectCoercible; // renamed in ES6 to RequireObjectCoercible
 
 module.exports = ES6;
 
-},{"./es5":39,"./helpers/assign":41,"./helpers/isFinite":42,"./helpers/isNaN":43,"./helpers/isPrimitive":44,"./helpers/mod":45,"./helpers/sign":46,"es-to-primitive/es6":48,"function-bind":53,"is-regex":55}],41:[function(require,module,exports){
+},{"./es5":31,"./helpers/assign":33,"./helpers/isFinite":34,"./helpers/isNaN":35,"./helpers/isPrimitive":36,"./helpers/mod":37,"./helpers/sign":38,"es-to-primitive/es6":40,"function-bind":45,"has":46,"is-regex":48}],31:[function(require,module,exports){
+'use strict';
+
+var $isNaN = require('./helpers/isNaN');
+var $isFinite = require('./helpers/isFinite');
+
+var sign = require('./helpers/sign');
+var mod = require('./helpers/mod');
+
+var IsCallable = require('is-callable');
+var toPrimitive = require('es-to-primitive/es5');
+
+var has = require('has');
+
+// https://es5.github.io/#x9
+var ES5 = {
+	ToPrimitive: toPrimitive,
+
+	ToBoolean: function ToBoolean(value) {
+		return !!value;
+	},
+	ToNumber: function ToNumber(value) {
+		return Number(value);
+	},
+	ToInteger: function ToInteger(value) {
+		var number = this.ToNumber(value);
+		if ($isNaN(number)) { return 0; }
+		if (number === 0 || !$isFinite(number)) { return number; }
+		return sign(number) * Math.floor(Math.abs(number));
+	},
+	ToInt32: function ToInt32(x) {
+		return this.ToNumber(x) >> 0;
+	},
+	ToUint32: function ToUint32(x) {
+		return this.ToNumber(x) >>> 0;
+	},
+	ToUint16: function ToUint16(value) {
+		var number = this.ToNumber(value);
+		if ($isNaN(number) || number === 0 || !$isFinite(number)) { return 0; }
+		var posInt = sign(number) * Math.floor(Math.abs(number));
+		return mod(posInt, 0x10000);
+	},
+	ToString: function ToString(value) {
+		return String(value);
+	},
+	ToObject: function ToObject(value) {
+		this.CheckObjectCoercible(value);
+		return Object(value);
+	},
+	CheckObjectCoercible: function CheckObjectCoercible(value, optMessage) {
+		/* jshint eqnull:true */
+		if (value == null) {
+			throw new TypeError(optMessage || 'Cannot call method on ' + value);
+		}
+		return value;
+	},
+	IsCallable: IsCallable,
+	SameValue: function SameValue(x, y) {
+		if (x === y) { // 0 === -0, but they are not identical.
+			if (x === 0) { return 1 / x === 1 / y; }
+			return true;
+		}
+		return $isNaN(x) && $isNaN(y);
+	},
+
+	// http://www.ecma-international.org/ecma-262/5.1/#sec-8
+	Type: function Type(x) {
+		if (x === null) {
+			return 'Null';
+		}
+		if (typeof x === 'undefined') {
+			return 'Undefined';
+		}
+		if (typeof x === 'function' || typeof x === 'object') {
+			return 'Object';
+		}
+		if (typeof x === 'number') {
+			return 'Number';
+		}
+		if (typeof x === 'boolean') {
+			return 'Boolean';
+		}
+		if (typeof x === 'string') {
+			return 'String';
+		}
+	},
+
+	// http://ecma-international.org/ecma-262/6.0/#sec-property-descriptor-specification-type
+	IsPropertyDescriptor: function IsPropertyDescriptor(Desc) {
+		if (this.Type(Desc) !== 'Object') {
+			return false;
+		}
+		var allowed = {
+			'[[Configurable]]': true,
+			'[[Enumerable]]': true,
+			'[[Get]]': true,
+			'[[Set]]': true,
+			'[[Value]]': true,
+			'[[Writable]]': true
+		};
+		// jscs:disable
+		for (var key in Desc) { // eslint-disable-line
+			if (has(Desc, key) && !allowed[key]) {
+				return false;
+			}
+		}
+		// jscs:enable
+		var isData = has(Desc, '[[Value]]');
+		var IsAccessor = has(Desc, '[[Get]]') || has(Desc, '[[Set]]');
+		if (isData && IsAccessor) {
+			throw new TypeError('Property Descriptors may not be both accessor and data descriptors');
+		}
+		return true;
+	},
+
+	// http://ecma-international.org/ecma-262/5.1/#sec-8.10.1
+	IsAccessorDescriptor: function IsAccessorDescriptor(Desc) {
+		if (typeof Desc === 'undefined') {
+			return false;
+		}
+
+		if (!this.IsPropertyDescriptor(Desc)) {
+			throw new TypeError('Desc must be a Property Descriptor');
+		}
+
+		if (!has(Desc, '[[Get]]') && !has(Desc, '[[Set]]')) {
+			return false;
+		}
+
+		return true;
+	},
+
+	// http://ecma-international.org/ecma-262/5.1/#sec-8.10.2
+	IsDataDescriptor: function IsDataDescriptor(Desc) {
+		if (typeof Desc === 'undefined') {
+			return false;
+		}
+
+		if (!this.IsPropertyDescriptor(Desc)) {
+			throw new TypeError('Desc must be a Property Descriptor');
+		}
+
+		if (!has(Desc, '[[Value]]') && !has(Desc, '[[Writable]]')) {
+			return false;
+		}
+
+		return true;
+	},
+
+	// http://ecma-international.org/ecma-262/5.1/#sec-8.10.3
+	IsGenericDescriptor: function IsGenericDescriptor(Desc) {
+		if (typeof Desc === 'undefined') {
+			return false;
+		}
+
+		if (!this.IsPropertyDescriptor(Desc)) {
+			throw new TypeError('Desc must be a Property Descriptor');
+		}
+
+		if (!this.IsAccessorDescriptor(Desc) && !this.IsDataDescriptor(Desc)) {
+			return true;
+		}
+
+		return false;
+	},
+
+	// http://ecma-international.org/ecma-262/5.1/#sec-8.10.4
+	FromPropertyDescriptor: function FromPropertyDescriptor(Desc) {
+		if (typeof Desc === 'undefined') {
+			return Desc;
+		}
+
+		if (!this.IsPropertyDescriptor(Desc)) {
+			throw new TypeError('Desc must be a Property Descriptor');
+		}
+
+		if (this.IsDataDescriptor(Desc)) {
+			return {
+				value: Desc['[[Value]]'],
+				writable: !!Desc['[[Writable]]'],
+				enumerable: !!Desc['[[Enumerable]]'],
+				configurable: !!Desc['[[Configurable]]']
+			};
+		} else if (this.IsAccessorDescriptor(Desc)) {
+			return {
+				get: Desc['[[Get]]'],
+				set: Desc['[[Set]]'],
+				enumerable: !!Desc['[[Enumerable]]'],
+				configurable: !!Desc['[[Configurable]]']
+			};
+		} else {
+			throw new TypeError('FromPropertyDescriptor must be called with a fully populated Property Descriptor');
+		}
+	},
+
+	// http://ecma-international.org/ecma-262/5.1/#sec-8.10.5
+	ToPropertyDescriptor: function ToPropertyDescriptor(Obj) {
+		if (this.Type(Obj) !== 'Object') {
+			throw new TypeError('ToPropertyDescriptor requires an object');
+		}
+
+		var desc = {};
+		if (has(Obj, 'enumerable')) {
+			desc['[[Enumerable]]'] = this.ToBoolean(Obj.enumerable);
+		}
+		if (has(Obj, 'configurable')) {
+			desc['[[Configurable]]'] = this.ToBoolean(Obj.configurable);
+		}
+		if (has(Obj, 'value')) {
+			desc['[[Value]]'] = Obj.value;
+		}
+		if (has(Obj, 'writable')) {
+			desc['[[Writable]]'] = this.ToBoolean(Obj.writable);
+		}
+		if (has(Obj, 'get')) {
+			var getter = Obj.get;
+			if (typeof getter !== 'undefined' && !this.IsCallable(getter)) {
+				throw new TypeError('getter must be a function');
+			}
+			desc['[[Get]]'] = getter;
+		}
+		if (has(Obj, 'set')) {
+			var setter = Obj.set;
+			if (typeof setter !== 'undefined' && !this.IsCallable(setter)) {
+				throw new TypeError('setter must be a function');
+			}
+			desc['[[Set]]'] = setter;
+		}
+
+		if ((has(desc, '[[Get]]') || has(desc, '[[Set]]')) && (has(desc, '[[Value]]') || has(desc, '[[Writable]]'))) {
+			throw new TypeError('Invalid property descriptor. Cannot both specify accessors and a value or writable attribute');
+		}
+		return desc;
+	}
+};
+
+module.exports = ES5;
+
+},{"./helpers/isFinite":34,"./helpers/isNaN":35,"./helpers/mod":37,"./helpers/sign":38,"es-to-primitive/es5":39,"has":46,"is-callable":47}],32:[function(require,module,exports){
+'use strict';
+
+module.exports = require('./es2015');
+
+},{"./es2015":30}],33:[function(require,module,exports){
 var has = Object.prototype.hasOwnProperty;
-module.exports = Object.assign || function assign(target, source) {
+module.exports = function assign(target, source) {
+	if (Object.assign) {
+		return Object.assign(target, source);
+	}
 	for (var key in source) {
 		if (has.call(source, key)) {
 			target[key] = source[key];
@@ -7662,33 +7863,33 @@ module.exports = Object.assign || function assign(target, source) {
 	return target;
 };
 
-},{}],42:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 var $isNaN = Number.isNaN || function (a) { return a !== a; };
 
 module.exports = Number.isFinite || function (x) { return typeof x === 'number' && !$isNaN(x) && x !== Infinity && x !== -Infinity; };
 
-},{}],43:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 module.exports = Number.isNaN || function isNaN(a) {
 	return a !== a;
 };
 
-},{}],44:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 module.exports = function isPrimitive(value) {
 	return value === null || (typeof value !== 'function' && typeof value !== 'object');
 };
 
-},{}],45:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 module.exports = function mod(number, modulo) {
 	var remain = number % modulo;
 	return Math.floor(remain >= 0 ? remain : remain + modulo);
 };
 
-},{}],46:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 module.exports = function sign(number) {
 	return number >= 0 ? 1 : -1;
 };
 
-},{}],47:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 'use strict';
 
 var toStr = Object.prototype.toString;
@@ -7727,7 +7928,7 @@ module.exports = function ToPrimitive(input, PreferredType) {
 	return ES5internalSlots['[[DefaultValue]]'](input, PreferredType);
 };
 
-},{"./helpers/isPrimitive":49,"is-callable":54}],48:[function(require,module,exports){
+},{"./helpers/isPrimitive":41,"is-callable":47}],40:[function(require,module,exports){
 'use strict';
 
 var hasSymbols = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol';
@@ -7803,9 +8004,9 @@ module.exports = function ToPrimitive(input, PreferredType) {
 	return ordinaryToPrimitive(input, hint === 'default' ? 'number' : hint);
 };
 
-},{"./helpers/isPrimitive":49,"is-callable":54,"is-date-object":50,"is-symbol":51}],49:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],50:[function(require,module,exports){
+},{"./helpers/isPrimitive":41,"is-callable":47,"is-date-object":42,"is-symbol":43}],41:[function(require,module,exports){
+arguments[4][36][0].apply(exports,arguments)
+},{"dup":36}],42:[function(require,module,exports){
 'use strict';
 
 var getDay = Date.prototype.getDay;
@@ -7827,7 +8028,7 @@ module.exports = function isDateObject(value) {
 	return hasToStringTag ? tryDateObject(value) : toStr.call(value) === dateClass;
 };
 
-},{}],51:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 'use strict';
 
 var toStr = Object.prototype.toString;
@@ -7856,7 +8057,11 @@ if (hasSymbols) {
 	};
 }
 
-},{}],52:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
+'use strict';
+
+/* eslint no-invalid-this: 1 */
+
 var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
 var slice = Array.prototype.slice;
 var toStr = Object.prototype.toString;
@@ -7906,12 +8111,19 @@ module.exports = function bind(that) {
     return bound;
 };
 
-},{}],53:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
+'use strict';
+
 var implementation = require('./implementation');
 
 module.exports = Function.prototype.bind || implementation;
 
-},{"./implementation":52}],54:[function(require,module,exports){
+},{"./implementation":44}],46:[function(require,module,exports){
+var bind = require('function-bind');
+
+module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+
+},{"function-bind":45}],47:[function(require,module,exports){
 'use strict';
 
 var fnToStr = Function.prototype.toString;
@@ -7952,7 +8164,7 @@ module.exports = function isCallable(value) {
 	return strClass === fnClass || strClass === genClass;
 };
 
-},{}],55:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 var has = require('has');
@@ -7993,12 +8205,7 @@ module.exports = function isRegex(value) {
 	return tryRegexExecCall(value);
 };
 
-},{"has":56}],56:[function(require,module,exports){
-var bind = require('function-bind');
-
-module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
-
-},{"function-bind":53}],57:[function(require,module,exports){
+},{"has":46}],49:[function(require,module,exports){
 'use strict';
 
 var implementation = require('./implementation');
@@ -8007,7 +8214,7 @@ module.exports = function getPolyfill() {
 	return Array.prototype.includes || implementation;
 };
 
-},{"./implementation":33}],58:[function(require,module,exports){
+},{"./implementation":24}],50:[function(require,module,exports){
 'use strict';
 
 var define = require('define-properties');
@@ -8023,130 +8230,7 @@ module.exports = function shimArrayPrototypeIncludes() {
 	return polyfill;
 };
 
-},{"./polyfill":57,"define-properties":35}],59:[function(require,module,exports){
-'use strict';
-
-var ES = require('es-abstract/es7');
-var define = require('define-properties');
-
-var hasMaps = typeof Map !== 'undefined' && ES.IsCallable(Map);
-
-var mapEntries;
-if (hasMaps) { mapEntries = Map.prototype.entries; }
-
-// polyfilled Maps with es6-shim might exist without for..of
-var iterateWithWhile = function (map, receive) {
-	var entries = mapEntries.call(map);
-	var next;
-	do {
-		next = entries.next();
-	} while (!next.done && receive(next.value));
-};
-
-var iterate = (function () {
-	try {
-		// Safari 8's native Map can't be iterated except with for..of
-		return Function('mapEntries', 'map', 'receive', 'for (var entry of mapEntries.call(map)) { receive(entry); }').bind(null, mapEntries);
-	} catch (e) {
-		/* for..of seems to not be supported */
-	}
-	return iterateWithWhile;
-}());
-
-var requireMap = function requireMap() {
-	if (!hasMaps) {
-		throw new TypeError('Map.prototype.toJSON requires Map (either native, or polyfilled with es6-shim)');
-	}
-};
-
-var mapToJSONshim = function toJSON() {
-	ES.RequireObjectCoercible(this);
-	requireMap();
-	var entries = [];
-	iterate(this, Array.prototype.push.bind(entries));
-	return entries;
-};
-
-var boundMapToJSON = function mapToJSON(map) {
-	ES.RequireObjectCoercible(map);
-	return mapToJSONshim.call(map);
-};
-define(boundMapToJSON, {
-	method: mapToJSONshim,
-	shim: function shimMapPrototypeToJSON() {
-		requireMap();
-		define(Map.prototype, {
-			toJSON: mapToJSONshim
-		});
-		return Map.prototype.toJSON;
-	}
-});
-
-module.exports = boundMapToJSON;
-
-},{"define-properties":60,"es-abstract/es7":66}],60:[function(require,module,exports){
-arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":61,"object-keys":62}],61:[function(require,module,exports){
-arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],62:[function(require,module,exports){
-arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":63,"dup":37}],63:[function(require,module,exports){
-arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],64:[function(require,module,exports){
-arguments[4][39][0].apply(exports,arguments)
-},{"./helpers/isFinite":68,"./helpers/isNaN":69,"./helpers/mod":71,"./helpers/sign":72,"dup":39,"es-to-primitive/es5":73,"is-callable":80}],65:[function(require,module,exports){
-arguments[4][40][0].apply(exports,arguments)
-},{"./es5":64,"./helpers/assign":67,"./helpers/isFinite":68,"./helpers/isNaN":69,"./helpers/isPrimitive":70,"./helpers/mod":71,"./helpers/sign":72,"dup":40,"es-to-primitive/es6":74,"function-bind":79,"is-regex":81}],66:[function(require,module,exports){
-'use strict';
-
-var ES6 = require('./es6');
-var assign = require('./helpers/assign');
-
-var ES7 = assign(ES6, {
-	// https://github.com/tc39/ecma262/pull/60
-	SameValueNonNumber: function SameValueNonNumber(x, y) {
-		if (typeof x === 'number' || typeof x !== typeof y) {
-			throw new TypeError('SameValueNonNumber requires two non-number values of the same type.');
-		}
-		return this.SameValue(x, y);
-	}
-});
-
-module.exports = ES7;
-
-},{"./es6":65,"./helpers/assign":67}],67:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],68:[function(require,module,exports){
-arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],69:[function(require,module,exports){
-arguments[4][43][0].apply(exports,arguments)
-},{"dup":43}],70:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],71:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],72:[function(require,module,exports){
-arguments[4][46][0].apply(exports,arguments)
-},{"dup":46}],73:[function(require,module,exports){
-arguments[4][47][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":75,"dup":47,"is-callable":80}],74:[function(require,module,exports){
-arguments[4][48][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":75,"dup":48,"is-callable":80,"is-date-object":76,"is-symbol":77}],75:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],76:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],77:[function(require,module,exports){
-arguments[4][51][0].apply(exports,arguments)
-},{"dup":51}],78:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],79:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":78,"dup":53}],80:[function(require,module,exports){
-arguments[4][54][0].apply(exports,arguments)
-},{"dup":54}],81:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55,"has":82}],82:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"dup":56,"function-bind":79}],83:[function(require,module,exports){
+},{"./polyfill":49,"define-properties":26}],51:[function(require,module,exports){
 'use strict';
 
 var ES = require('es-abstract/es7');
@@ -8165,7 +8249,7 @@ module.exports = function entries(O) {
 	return entrys;
 };
 
-},{"es-abstract/es7":91,"function-bind":106,"has":107}],84:[function(require,module,exports){
+},{"es-abstract/es7":60,"function-bind":75,"has":76}],52:[function(require,module,exports){
 'use strict';
 
 var define = require('define-properties');
@@ -8184,53 +8268,74 @@ define(polyfill, {
 
 module.exports = polyfill;
 
-},{"./implementation":83,"./polyfill":108,"./shim":109,"define-properties":85}],85:[function(require,module,exports){
+},{"./implementation":51,"./polyfill":77,"./shim":78,"define-properties":53}],53:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26,"foreach":54,"object-keys":55}],54:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],55:[function(require,module,exports){
+arguments[4][28][0].apply(exports,arguments)
+},{"./isArguments":56,"dup":28}],56:[function(require,module,exports){
+arguments[4][29][0].apply(exports,arguments)
+},{"dup":29}],57:[function(require,module,exports){
+arguments[4][30][0].apply(exports,arguments)
+},{"./es5":59,"./helpers/assign":61,"./helpers/isFinite":62,"./helpers/isNaN":63,"./helpers/isPrimitive":64,"./helpers/mod":65,"./helpers/sign":66,"dup":30,"es-to-primitive/es6":68,"function-bind":75,"has":76,"is-regex":73}],58:[function(require,module,exports){
+'use strict';
+
+var ES2015 = require('./es2015');
+var assign = require('./helpers/assign');
+
+var ES2016 = assign(assign({}, ES2015), {
+	// https://github.com/tc39/ecma262/pull/60
+	SameValueNonNumber: function SameValueNonNumber(x, y) {
+		if (typeof x === 'number' || typeof x !== typeof y) {
+			throw new TypeError('SameValueNonNumber requires two non-number values of the same type.');
+		}
+		return this.SameValue(x, y);
+	}
+});
+
+module.exports = ES2016;
+
+},{"./es2015":57,"./helpers/assign":61}],59:[function(require,module,exports){
+arguments[4][31][0].apply(exports,arguments)
+},{"./helpers/isFinite":62,"./helpers/isNaN":63,"./helpers/mod":65,"./helpers/sign":66,"dup":31,"es-to-primitive/es5":67,"has":76,"is-callable":72}],60:[function(require,module,exports){
+'use strict';
+
+module.exports = require('./es2016');
+
+},{"./es2016":58}],61:[function(require,module,exports){
+arguments[4][33][0].apply(exports,arguments)
+},{"dup":33}],62:[function(require,module,exports){
+arguments[4][34][0].apply(exports,arguments)
+},{"dup":34}],63:[function(require,module,exports){
 arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":86,"object-keys":87}],86:[function(require,module,exports){
+},{"dup":35}],64:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],87:[function(require,module,exports){
+},{"dup":36}],65:[function(require,module,exports){
 arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":88,"dup":37}],88:[function(require,module,exports){
+},{"dup":37}],66:[function(require,module,exports){
 arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],89:[function(require,module,exports){
+},{"dup":38}],67:[function(require,module,exports){
 arguments[4][39][0].apply(exports,arguments)
-},{"./helpers/isFinite":93,"./helpers/isNaN":94,"./helpers/mod":96,"./helpers/sign":97,"dup":39,"es-to-primitive/es5":98,"is-callable":103}],90:[function(require,module,exports){
+},{"./helpers/isPrimitive":69,"dup":39,"is-callable":72}],68:[function(require,module,exports){
 arguments[4][40][0].apply(exports,arguments)
-},{"./es5":89,"./helpers/assign":92,"./helpers/isFinite":93,"./helpers/isNaN":94,"./helpers/isPrimitive":95,"./helpers/mod":96,"./helpers/sign":97,"dup":40,"es-to-primitive/es6":99,"function-bind":106,"is-regex":104}],91:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"./es6":90,"./helpers/assign":92,"dup":66}],92:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],93:[function(require,module,exports){
+},{"./helpers/isPrimitive":69,"dup":40,"is-callable":72,"is-date-object":70,"is-symbol":71}],69:[function(require,module,exports){
+arguments[4][36][0].apply(exports,arguments)
+},{"dup":36}],70:[function(require,module,exports){
 arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],94:[function(require,module,exports){
+},{"dup":42}],71:[function(require,module,exports){
 arguments[4][43][0].apply(exports,arguments)
-},{"dup":43}],95:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],96:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],97:[function(require,module,exports){
-arguments[4][46][0].apply(exports,arguments)
-},{"dup":46}],98:[function(require,module,exports){
+},{"dup":43}],72:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":100,"dup":47,"is-callable":103}],99:[function(require,module,exports){
+},{"dup":47}],73:[function(require,module,exports){
 arguments[4][48][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":100,"dup":48,"is-callable":103,"is-date-object":101,"is-symbol":102}],100:[function(require,module,exports){
+},{"dup":48,"has":76}],74:[function(require,module,exports){
 arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],101:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],102:[function(require,module,exports){
-arguments[4][51][0].apply(exports,arguments)
-},{"dup":51}],103:[function(require,module,exports){
-arguments[4][54][0].apply(exports,arguments)
-},{"dup":54}],104:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55,"has":107}],105:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],106:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":105,"dup":53}],107:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"dup":56,"function-bind":106}],108:[function(require,module,exports){
+},{"dup":44}],75:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"./implementation":74,"dup":45}],76:[function(require,module,exports){
+arguments[4][46][0].apply(exports,arguments)
+},{"dup":46,"function-bind":75}],77:[function(require,module,exports){
 'use strict';
 
 var implementation = require('./implementation');
@@ -8239,7 +8344,7 @@ module.exports = function getPolyfill() {
 	return typeof Object.entries === 'function' ? Object.entries : implementation;
 };
 
-},{"./implementation":83}],109:[function(require,module,exports){
+},{"./implementation":51}],78:[function(require,module,exports){
 'use strict';
 
 var getPolyfill = require('./polyfill');
@@ -8255,95 +8360,143 @@ module.exports = function shimEntries() {
 	return polyfill;
 };
 
-},{"./polyfill":108,"define-properties":85}],110:[function(require,module,exports){
+},{"./polyfill":77,"define-properties":53}],79:[function(require,module,exports){
 'use strict';
 
-var define = require('define-properties');
 var ES = require('es-abstract/es7');
 
+var defineProperty = Object.defineProperty;
 var getDescriptor = Object.getOwnPropertyDescriptor;
 var getOwnNames = Object.getOwnPropertyNames;
 var getSymbols = Object.getOwnPropertySymbols;
 var concat = Function.call.bind(Array.prototype.concat);
 var reduce = Function.call.bind(Array.prototype.reduce);
-var getAll = !getSymbols ? getOwnNames : function (obj) {
+var getAll = getSymbols ? function (obj) {
 	return concat(getOwnNames(obj), getSymbols(obj));
-};
+} : getOwnNames;
 
 var isES5 = ES.IsCallable(getDescriptor) && ES.IsCallable(getOwnNames);
 
-var getDescriptorsShim = function getOwnPropertyDescriptors(value) {
+var safePut = function put(obj, prop, val) { // eslint-disable-line max-params
+	if (defineProperty && prop in obj) {
+		defineProperty(obj, prop, {
+			configurable: true,
+			enumerable: true,
+			value: val,
+			writable: true
+		});
+	} else {
+		obj[prop] = val;
+	}
+};
+
+module.exports = function getOwnPropertyDescriptors(value) {
 	ES.RequireObjectCoercible(value);
-	if (!isES5) { throw new TypeError('getOwnPropertyDescriptors requires Object.getOwnPropertyDescriptor'); }
+	if (!isES5) {
+		throw new TypeError('getOwnPropertyDescriptors requires Object.getOwnPropertyDescriptor');
+	}
 
 	var O = ES.ToObject(value);
 	return reduce(getAll(O), function (acc, key) {
-		acc[key] = getDescriptor(O, key);
+		var descriptor = getDescriptor(O, key);
+		if (typeof descriptor !== 'undefined') {
+			safePut(acc, key, descriptor);
+		}
 		return acc;
 	}, {});
 };
 
-define(getDescriptorsShim, {
-	method: getDescriptorsShim,
-	shim: function shimGetOwnPropertyDescriptors() {
-		if (isES5) {
-			define(Object, {
-				getOwnPropertyDescriptors: getDescriptorsShim
-			});
-			return Object.getOwnPropertyDescriptors || getDescriptorsShim;
-		}
-	}
+},{"es-abstract/es7":88}],80:[function(require,module,exports){
+'use strict';
+
+var define = require('define-properties');
+
+var implementation = require('./implementation');
+var getPolyfill = require('./polyfill');
+var shim = require('./shim');
+
+define(implementation, {
+	getPolyfill: getPolyfill,
+	implementation: implementation,
+	shim: shim
 });
 
-module.exports = getDescriptorsShim;
+module.exports = implementation;
 
-},{"define-properties":111,"es-abstract/es7":117}],111:[function(require,module,exports){
+},{"./implementation":79,"./polyfill":105,"./shim":106,"define-properties":81}],81:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26,"foreach":82,"object-keys":83}],82:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],83:[function(require,module,exports){
+arguments[4][28][0].apply(exports,arguments)
+},{"./isArguments":84,"dup":28}],84:[function(require,module,exports){
+arguments[4][29][0].apply(exports,arguments)
+},{"dup":29}],85:[function(require,module,exports){
+arguments[4][30][0].apply(exports,arguments)
+},{"./es5":87,"./helpers/assign":89,"./helpers/isFinite":90,"./helpers/isNaN":91,"./helpers/isPrimitive":92,"./helpers/mod":93,"./helpers/sign":94,"dup":30,"es-to-primitive/es6":96,"function-bind":101,"has":102,"is-regex":104}],86:[function(require,module,exports){
+arguments[4][58][0].apply(exports,arguments)
+},{"./es2015":85,"./helpers/assign":89,"dup":58}],87:[function(require,module,exports){
+arguments[4][31][0].apply(exports,arguments)
+},{"./helpers/isFinite":90,"./helpers/isNaN":91,"./helpers/mod":93,"./helpers/sign":94,"dup":31,"es-to-primitive/es5":95,"has":102,"is-callable":103}],88:[function(require,module,exports){
+arguments[4][60][0].apply(exports,arguments)
+},{"./es2016":86,"dup":60}],89:[function(require,module,exports){
+arguments[4][33][0].apply(exports,arguments)
+},{"dup":33}],90:[function(require,module,exports){
+arguments[4][34][0].apply(exports,arguments)
+},{"dup":34}],91:[function(require,module,exports){
 arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":112,"object-keys":113}],112:[function(require,module,exports){
+},{"dup":35}],92:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],113:[function(require,module,exports){
+},{"dup":36}],93:[function(require,module,exports){
 arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":114,"dup":37}],114:[function(require,module,exports){
+},{"dup":37}],94:[function(require,module,exports){
 arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],115:[function(require,module,exports){
+},{"dup":38}],95:[function(require,module,exports){
 arguments[4][39][0].apply(exports,arguments)
-},{"./helpers/isFinite":119,"./helpers/isNaN":120,"./helpers/mod":122,"./helpers/sign":123,"dup":39,"es-to-primitive/es5":124,"is-callable":131}],116:[function(require,module,exports){
+},{"./helpers/isPrimitive":97,"dup":39,"is-callable":103}],96:[function(require,module,exports){
 arguments[4][40][0].apply(exports,arguments)
-},{"./es5":115,"./helpers/assign":118,"./helpers/isFinite":119,"./helpers/isNaN":120,"./helpers/isPrimitive":121,"./helpers/mod":122,"./helpers/sign":123,"dup":40,"es-to-primitive/es6":125,"function-bind":130,"is-regex":132}],117:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"./es6":116,"./helpers/assign":118,"dup":66}],118:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],119:[function(require,module,exports){
+},{"./helpers/isPrimitive":97,"dup":40,"is-callable":103,"is-date-object":98,"is-symbol":99}],97:[function(require,module,exports){
+arguments[4][36][0].apply(exports,arguments)
+},{"dup":36}],98:[function(require,module,exports){
 arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],120:[function(require,module,exports){
+},{"dup":42}],99:[function(require,module,exports){
 arguments[4][43][0].apply(exports,arguments)
-},{"dup":43}],121:[function(require,module,exports){
+},{"dup":43}],100:[function(require,module,exports){
 arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],122:[function(require,module,exports){
+},{"dup":44}],101:[function(require,module,exports){
 arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],123:[function(require,module,exports){
+},{"./implementation":100,"dup":45}],102:[function(require,module,exports){
 arguments[4][46][0].apply(exports,arguments)
-},{"dup":46}],124:[function(require,module,exports){
+},{"dup":46,"function-bind":101}],103:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":126,"dup":47,"is-callable":131}],125:[function(require,module,exports){
+},{"dup":47}],104:[function(require,module,exports){
 arguments[4][48][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":126,"dup":48,"is-callable":131,"is-date-object":127,"is-symbol":128}],126:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],127:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],128:[function(require,module,exports){
-arguments[4][51][0].apply(exports,arguments)
-},{"dup":51}],129:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],130:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":129,"dup":53}],131:[function(require,module,exports){
-arguments[4][54][0].apply(exports,arguments)
-},{"dup":54}],132:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55,"has":133}],133:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"dup":56,"function-bind":130}],134:[function(require,module,exports){
+},{"dup":48,"has":102}],105:[function(require,module,exports){
+'use strict';
+
+var implementation = require('./implementation');
+
+module.exports = function getPolyfill() {
+	return typeof Object.getOwnPropertyDescriptors === 'function' ? Object.getOwnPropertyDescriptors : implementation;
+};
+
+},{"./implementation":79}],106:[function(require,module,exports){
+'use strict';
+
+var getPolyfill = require('./polyfill');
+var define = require('define-properties');
+
+module.exports = function shimGetOwnPropertyDescriptors() {
+	var polyfill = getPolyfill();
+	define(
+		Object,
+		{ getOwnPropertyDescriptors: polyfill },
+		{ getOwnPropertyDescriptors: function () { return Object.getOwnPropertyDescriptors !== polyfill; } }
+	);
+	return polyfill;
+};
+
+},{"./polyfill":105,"define-properties":81}],107:[function(require,module,exports){
 'use strict';
 
 var ES = require('es-abstract/es7');
@@ -8362,55 +8515,57 @@ module.exports = function values(O) {
 	return vals;
 };
 
-},{"es-abstract/es7":142,"function-bind":157,"has":158}],135:[function(require,module,exports){
-arguments[4][84][0].apply(exports,arguments)
-},{"./implementation":134,"./polyfill":159,"./shim":160,"define-properties":136,"dup":84}],136:[function(require,module,exports){
-arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":137,"object-keys":138}],137:[function(require,module,exports){
-arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],138:[function(require,module,exports){
-arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":139,"dup":37}],139:[function(require,module,exports){
-arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],140:[function(require,module,exports){
-arguments[4][39][0].apply(exports,arguments)
-},{"./helpers/isFinite":144,"./helpers/isNaN":145,"./helpers/mod":147,"./helpers/sign":148,"dup":39,"es-to-primitive/es5":149,"is-callable":154}],141:[function(require,module,exports){
-arguments[4][40][0].apply(exports,arguments)
-},{"./es5":140,"./helpers/assign":143,"./helpers/isFinite":144,"./helpers/isNaN":145,"./helpers/isPrimitive":146,"./helpers/mod":147,"./helpers/sign":148,"dup":40,"es-to-primitive/es6":150,"function-bind":157,"is-regex":155}],142:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"./es6":141,"./helpers/assign":143,"dup":66}],143:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],144:[function(require,module,exports){
-arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],145:[function(require,module,exports){
-arguments[4][43][0].apply(exports,arguments)
-},{"dup":43}],146:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],147:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],148:[function(require,module,exports){
-arguments[4][46][0].apply(exports,arguments)
-},{"dup":46}],149:[function(require,module,exports){
-arguments[4][47][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":151,"dup":47,"is-callable":154}],150:[function(require,module,exports){
-arguments[4][48][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":151,"dup":48,"is-callable":154,"is-date-object":152,"is-symbol":153}],151:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],152:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],153:[function(require,module,exports){
-arguments[4][51][0].apply(exports,arguments)
-},{"dup":51}],154:[function(require,module,exports){
-arguments[4][54][0].apply(exports,arguments)
-},{"dup":54}],155:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55,"has":158}],156:[function(require,module,exports){
+},{"es-abstract/es7":116,"function-bind":131,"has":132}],108:[function(require,module,exports){
 arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],157:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":156,"dup":53}],158:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"dup":56,"function-bind":157}],159:[function(require,module,exports){
+},{"./implementation":107,"./polyfill":133,"./shim":134,"define-properties":109,"dup":52}],109:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26,"foreach":110,"object-keys":111}],110:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],111:[function(require,module,exports){
+arguments[4][28][0].apply(exports,arguments)
+},{"./isArguments":112,"dup":28}],112:[function(require,module,exports){
+arguments[4][29][0].apply(exports,arguments)
+},{"dup":29}],113:[function(require,module,exports){
+arguments[4][30][0].apply(exports,arguments)
+},{"./es5":115,"./helpers/assign":117,"./helpers/isFinite":118,"./helpers/isNaN":119,"./helpers/isPrimitive":120,"./helpers/mod":121,"./helpers/sign":122,"dup":30,"es-to-primitive/es6":124,"function-bind":131,"has":132,"is-regex":129}],114:[function(require,module,exports){
+arguments[4][58][0].apply(exports,arguments)
+},{"./es2015":113,"./helpers/assign":117,"dup":58}],115:[function(require,module,exports){
+arguments[4][31][0].apply(exports,arguments)
+},{"./helpers/isFinite":118,"./helpers/isNaN":119,"./helpers/mod":121,"./helpers/sign":122,"dup":31,"es-to-primitive/es5":123,"has":132,"is-callable":128}],116:[function(require,module,exports){
+arguments[4][60][0].apply(exports,arguments)
+},{"./es2016":114,"dup":60}],117:[function(require,module,exports){
+arguments[4][33][0].apply(exports,arguments)
+},{"dup":33}],118:[function(require,module,exports){
+arguments[4][34][0].apply(exports,arguments)
+},{"dup":34}],119:[function(require,module,exports){
+arguments[4][35][0].apply(exports,arguments)
+},{"dup":35}],120:[function(require,module,exports){
+arguments[4][36][0].apply(exports,arguments)
+},{"dup":36}],121:[function(require,module,exports){
+arguments[4][37][0].apply(exports,arguments)
+},{"dup":37}],122:[function(require,module,exports){
+arguments[4][38][0].apply(exports,arguments)
+},{"dup":38}],123:[function(require,module,exports){
+arguments[4][39][0].apply(exports,arguments)
+},{"./helpers/isPrimitive":125,"dup":39,"is-callable":128}],124:[function(require,module,exports){
+arguments[4][40][0].apply(exports,arguments)
+},{"./helpers/isPrimitive":125,"dup":40,"is-callable":128,"is-date-object":126,"is-symbol":127}],125:[function(require,module,exports){
+arguments[4][36][0].apply(exports,arguments)
+},{"dup":36}],126:[function(require,module,exports){
+arguments[4][42][0].apply(exports,arguments)
+},{"dup":42}],127:[function(require,module,exports){
+arguments[4][43][0].apply(exports,arguments)
+},{"dup":43}],128:[function(require,module,exports){
+arguments[4][47][0].apply(exports,arguments)
+},{"dup":47}],129:[function(require,module,exports){
+arguments[4][48][0].apply(exports,arguments)
+},{"dup":48,"has":132}],130:[function(require,module,exports){
+arguments[4][44][0].apply(exports,arguments)
+},{"dup":44}],131:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"./implementation":130,"dup":45}],132:[function(require,module,exports){
+arguments[4][46][0].apply(exports,arguments)
+},{"dup":46,"function-bind":131}],133:[function(require,module,exports){
 'use strict';
 
 var implementation = require('./implementation');
@@ -8419,7 +8574,7 @@ module.exports = function getPolyfill() {
 	return typeof Object.values === 'function' ? Object.values : implementation;
 };
 
-},{"./implementation":134}],160:[function(require,module,exports){
+},{"./implementation":107}],134:[function(require,module,exports){
 'use strict';
 
 var getPolyfill = require('./polyfill');
@@ -8435,5983 +8590,7 @@ module.exports = function shimValues() {
 	return polyfill;
 };
 
-},{"./polyfill":159,"define-properties":136}],161:[function(require,module,exports){
-'use strict';
-
-var define = require('define-properties');
-var ES = require('es-abstract/es7');
-var bind = require('function-bind');
-var replace = bind.call(Function.call, String.prototype.replace);
-var syntaxChars = /[\^\$\\\.\*\+\?\(\)\[\]\{\}\|]/g;
-
-var escapeShim = function escape(S) {
-	return replace(ES.ToString(S), syntaxChars, '\\$&');
-};
-
-define(escapeShim, {
-	method: escapeShim,
-	shim: function shimRegExpEscape() {
-		define(RegExp, {
-			escape: escapeShim
-		});
-		return RegExp.escape;
-	}
-});
-
-module.exports = escapeShim;
-
-},{"define-properties":162,"es-abstract/es7":168,"function-bind":184}],162:[function(require,module,exports){
-arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":163,"object-keys":164}],163:[function(require,module,exports){
-arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],164:[function(require,module,exports){
-arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":165,"dup":37}],165:[function(require,module,exports){
-arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],166:[function(require,module,exports){
-arguments[4][39][0].apply(exports,arguments)
-},{"./helpers/isFinite":170,"./helpers/isNaN":171,"./helpers/mod":173,"./helpers/sign":174,"dup":39,"es-to-primitive/es5":175,"is-callable":180}],167:[function(require,module,exports){
-arguments[4][40][0].apply(exports,arguments)
-},{"./es5":166,"./helpers/assign":169,"./helpers/isFinite":170,"./helpers/isNaN":171,"./helpers/isPrimitive":172,"./helpers/mod":173,"./helpers/sign":174,"dup":40,"es-to-primitive/es6":176,"function-bind":184,"is-regex":181}],168:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"./es6":167,"./helpers/assign":169,"dup":66}],169:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],170:[function(require,module,exports){
-arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],171:[function(require,module,exports){
-arguments[4][43][0].apply(exports,arguments)
-},{"dup":43}],172:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],173:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],174:[function(require,module,exports){
-arguments[4][46][0].apply(exports,arguments)
-},{"dup":46}],175:[function(require,module,exports){
-arguments[4][47][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":177,"dup":47,"is-callable":180}],176:[function(require,module,exports){
-arguments[4][48][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":177,"dup":48,"is-callable":180,"is-date-object":178,"is-symbol":179}],177:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],178:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],179:[function(require,module,exports){
-arguments[4][51][0].apply(exports,arguments)
-},{"dup":51}],180:[function(require,module,exports){
-arguments[4][54][0].apply(exports,arguments)
-},{"dup":54}],181:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55,"has":182}],182:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"dup":56,"function-bind":184}],183:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],184:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":183,"dup":53}],185:[function(require,module,exports){
-'use strict';
-
-var ES = require('es-abstract/es7');
-var define = require('define-properties');
-
-var hasSets = typeof Set !== 'undefined' && ES.IsCallable(Set);
-
-var setValues;
-if (hasSets) { setValues = Set.prototype.values; }
-var push = Array.prototype.push;
-
-// polyfilled Sets with es6-shim might exist without for..of
-var iterateWithWhile = function (set, receive) {
-	var values = setValues.call(set);
-	var next;
-	do {
-		next = values.next();
-	} while (!next.done && receive(next.value));
-};
-
-var iterate = (function () {
-	try {
-		// Safari 8's native Set can't be iterated except with for..of
-		return Function('setValues', 'set', 'receive', 'for (var value of setValues.call(set)) { receive(value); }').bind(null, setValues);
-	} catch (e) {
-		/* for..of seems to not be supported */
-	}
-	return iterateWithWhile;
-}());
-
-var requireSet = function requireSet() {
-	if (!hasSets) {
-		throw new TypeError('Set.prototype.toJSON requires Set (either native, or polyfilled with es6-shim)');
-	}
-};
-
-var setToJSONshim = function toJSON() {
-	ES.RequireObjectCoercible(this);
-	requireSet();
-	var values = [];
-	iterate(this, push.bind(values));
-	return values;
-};
-
-var boundSetToJSON = function setToJSON(set) {
-	ES.RequireObjectCoercible(set);
-	return setToJSONshim.call(set);
-};
-define(boundSetToJSON, {
-	method: setToJSONshim,
-	shim: function shimSetPrototypeToJSON() {
-		requireSet();
-		define(Set.prototype, {
-			toJSON: setToJSONshim
-		});
-		return Set.prototype.toJSON;
-	}
-});
-
-module.exports = boundSetToJSON;
-
-},{"define-properties":186,"es-abstract/es7":192}],186:[function(require,module,exports){
-arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":187,"object-keys":188}],187:[function(require,module,exports){
-arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],188:[function(require,module,exports){
-arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":189,"dup":37}],189:[function(require,module,exports){
-arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],190:[function(require,module,exports){
-arguments[4][39][0].apply(exports,arguments)
-},{"./helpers/isFinite":194,"./helpers/isNaN":195,"./helpers/mod":197,"./helpers/sign":198,"dup":39,"es-to-primitive/es5":199,"is-callable":206}],191:[function(require,module,exports){
-arguments[4][40][0].apply(exports,arguments)
-},{"./es5":190,"./helpers/assign":193,"./helpers/isFinite":194,"./helpers/isNaN":195,"./helpers/isPrimitive":196,"./helpers/mod":197,"./helpers/sign":198,"dup":40,"es-to-primitive/es6":200,"function-bind":205,"is-regex":207}],192:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"./es6":191,"./helpers/assign":193,"dup":66}],193:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],194:[function(require,module,exports){
-arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],195:[function(require,module,exports){
-arguments[4][43][0].apply(exports,arguments)
-},{"dup":43}],196:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],197:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],198:[function(require,module,exports){
-arguments[4][46][0].apply(exports,arguments)
-},{"dup":46}],199:[function(require,module,exports){
-arguments[4][47][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":201,"dup":47,"is-callable":206}],200:[function(require,module,exports){
-arguments[4][48][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":201,"dup":48,"is-callable":206,"is-date-object":202,"is-symbol":203}],201:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],202:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],203:[function(require,module,exports){
-arguments[4][51][0].apply(exports,arguments)
-},{"dup":51}],204:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],205:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":204,"dup":53}],206:[function(require,module,exports){
-arguments[4][54][0].apply(exports,arguments)
-},{"dup":54}],207:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55,"has":208}],208:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"dup":56,"function-bind":205}],209:[function(require,module,exports){
-(function (global){
-/* global window, global, self */
-
-module.exports = function getGlobal() {
-	if (typeof window !== 'undefined') { return window; }
-	if (typeof global !== 'undefined') { return global; }
-	if (typeof self !== 'undefined') { return self; }
-	return Function('return this')();
-};
-
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],210:[function(require,module,exports){
-var installShim = require('./simd');
-var define = require('define-properties');
-
-var fakeGlobal = {};
-installShim(fakeGlobal);
-
-var simd = fakeGlobal.SIMD;
-
-var getGlobal = require('./getGlobal');
-
-define(simd, {
-	shim: function shim() {
-		var globalObject = getGlobal();
-		var predicates = {
-			SIMD: function () {
-				// Firefox Nightly v41
-				return globalObject.SIMD && typeof globalObject.SIMD.float32x4.extractLane !== 'function';
-			}
-		};
-		define(globalObject, { SIMD: simd }, predicates);
-		return globalObject.SIMD || simd;
-	}
-});
-
-module.exports = simd;
-
-},{"./getGlobal":209,"./simd":215,"define-properties":211}],211:[function(require,module,exports){
-arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":212,"object-keys":213}],212:[function(require,module,exports){
-arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],213:[function(require,module,exports){
-arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":214,"dup":37}],214:[function(require,module,exports){
-arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],215:[function(require,module,exports){
-/*
-  vim: set ts=8 sts=2 et sw=2 tw=79:
-  Copyright (C) 2013
-
-  This software is provided 'as-is', without any express or implied
-  warranty.  In no event will the authors be held liable for any damages
-  arising from the use of this software.
-
-  Permission is granted to anyone to use this software for any purpose,
-  including commercial applications, and to alter it and redistribute it
-  freely, subject to the following restrictions:
-
-  1. The origin of this software must not be misrepresented; you must not
-     claim that you wrote the original software. If you use this software
-     in a product, an acknowledgment in the product documentation would be
-     appreciated but is not required.
-  2. Altered source versions must be plainly marked as such, and must not be
-     misrepresented as being the original software.
-  3. This notice may not be removed or altered from any source distribution.
-*/
-
-// A conforming SIMD.js implementation may contain the following deviations to
-// normal JS numeric behavior:
-//  - Subnormal numbers may or may not be flushed to zero on input or output of
-//    any SIMD operation.
-
-// Many of the operations in SIMD.js have semantics which correspond to scalar
-// operations in JS, however there are a few differences:
-//  - Vector shifts don't mask the shift count.
-//  - Conversions from float to int32 throw on error.
-//  - Load and store operations throw when out of bounds.
-
-module.exports = function (global) {
-
-if (typeof global.SIMD === "undefined") {
-  // SIMD module.
-  global.SIMD = {};
-}
-
-if (typeof module !== "undefined") {
-  // For CommonJS modules
-
-}
-
-var SIMD = global.SIMD;
-
-// private stuff.
-// Temporary buffers for swizzles and bitcasts.
-var _f32x4 = new Float32Array(4);
-var _f64x2 = new Float64Array(_f32x4.buffer);
-var _i32x4 = new Int32Array(_f32x4.buffer);
-var _i16x8 = new Int16Array(_f32x4.buffer);
-var _i8x16 = new Int8Array(_f32x4.buffer);
-
-var _f32;
-var truncatef32;
-if (typeof Math.fround !== 'undefined') {
-  truncatef32 = Math.fround;
-} else {
-  _f32 = new Float32Array(1);
-
-  truncatef32 = function(x) {
-    _f32[0] = x;
-    return _f32[0];
-  }
-}
-
-// Type checking functions.
-
-function isInt32(o) {
-  return (o | 0) === o;
-}
-
-function isTypedArray(o) {
-  return (o instanceof Int8Array) ||
-         (o instanceof Uint8Array) ||
-         (o instanceof Uint8ClampedArray) ||
-         (o instanceof Int16Array) ||
-         (o instanceof Uint16Array) ||
-         (o instanceof Int32Array) ||
-         (o instanceof Uint32Array) ||
-         (o instanceof Float32Array) ||
-         (o instanceof Float64Array);
-}
-
-function minNum(x, y) {
-  return x != x ? y :
-         y != y ? x :
-         Math.min(x, y);
-}
-
-function maxNum(x, y) {
-  return x != x ? y :
-         y != y ? x :
-         Math.max(x, y);
-}
-
-function int32FromFloat(x) {
-  if (x > -2147483649.0 && x < 2147483648.0)
-    return x|0;
-  throw new RangeError("Conversion from floating-point to integer failed");
-}
-
-function checkLaneIndex(numLanes) {
-  return function(lane) {
-    if (!isInt32(lane))
-      throw new TypeError('lane index must be an int32');
-    if (lane < 0 || lane >= numLanes)
-      throw new RangeError('lane index must be in bounds');
-  }
-}
-
-var check2 = checkLaneIndex(2);
-var check4 = checkLaneIndex(4);
-var check8 = checkLaneIndex(8);
-var check16 = checkLaneIndex(16);
-var check32 = checkLaneIndex(32);
-
-// Save/Restore utilities for implementing bitwise conversions.
-
-function saveBool32x4(x) {
-  x = SIMD.Bool32x4.check(x);
-  _i32x4[0] = SIMD.Bool32x4.extractLane(x, 0);
-  _i32x4[1] = SIMD.Bool32x4.extractLane(x, 1);
-  _i32x4[2] = SIMD.Bool32x4.extractLane(x, 2);
-  _i32x4[3] = SIMD.Bool32x4.extractLane(x, 3);
-}
-
-function saveBool16x8(x) {
-  x = SIMD.Bool16x8.check(x);
-  _i16x8[0] = SIMD.Bool16x8.extractLane(x, 0);
-  _i16x8[1] = SIMD.Bool16x8.extractLane(x, 1);
-  _i16x8[2] = SIMD.Bool16x8.extractLane(x, 2);
-  _i16x8[3] = SIMD.Bool16x8.extractLane(x, 3);
-  _i16x8[4] = SIMD.Bool16x8.extractLane(x, 4);
-  _i16x8[5] = SIMD.Bool16x8.extractLane(x, 5);
-  _i16x8[6] = SIMD.Bool16x8.extractLane(x, 6);
-  _i16x8[7] = SIMD.Bool16x8.extractLane(x, 7);
-}
-
-function saveBool8x16(x) {
-  x = SIMD.Bool8x16.check(x);
-  _i8x16[0] = SIMD.Bool8x16.extractLane(x, 0);
-  _i8x16[1] = SIMD.Bool8x16.extractLane(x, 1);
-  _i8x16[2] = SIMD.Bool8x16.extractLane(x, 2);
-  _i8x16[3] = SIMD.Bool8x16.extractLane(x, 3);
-  _i8x16[4] = SIMD.Bool8x16.extractLane(x, 4);
-  _i8x16[5] = SIMD.Bool8x16.extractLane(x, 5);
-  _i8x16[6] = SIMD.Bool8x16.extractLane(x, 6);
-  _i8x16[7] = SIMD.Bool8x16.extractLane(x, 7);
-  _i8x16[8] = SIMD.Bool8x16.extractLane(x, 8);
-  _i8x16[9] = SIMD.Bool8x16.extractLane(x, 9);
-  _i8x16[10] = SIMD.Bool8x16.extractLane(x, 10);
-  _i8x16[11] = SIMD.Bool8x16.extractLane(x, 11);
-  _i8x16[12] = SIMD.Bool8x16.extractLane(x, 12);
-  _i8x16[13] = SIMD.Bool8x16.extractLane(x, 13);
-  _i8x16[14] = SIMD.Bool8x16.extractLane(x, 14);
-  _i8x16[15] = SIMD.Bool8x16.extractLane(x, 15);
-}
-
-function saveFloat64x2(x) {
-  x = SIMD.Float64x2.check(x);
-  _f64x2[0] = SIMD.Float64x2.extractLane(x, 0);
-  _f64x2[1] = SIMD.Float64x2.extractLane(x, 1);
-}
-
-function saveFloat32x4(x) {
-  x = SIMD.Float32x4.check(x);
-  _f32x4[0] = SIMD.Float32x4.extractLane(x, 0);
-  _f32x4[1] = SIMD.Float32x4.extractLane(x, 1);
-  _f32x4[2] = SIMD.Float32x4.extractLane(x, 2);
-  _f32x4[3] = SIMD.Float32x4.extractLane(x, 3);
-}
-
-function saveInt32x4(x) {
-  x = SIMD.Int32x4.check(x);
-  _i32x4[0] = SIMD.Int32x4.extractLane(x, 0);
-  _i32x4[1] = SIMD.Int32x4.extractLane(x, 1);
-  _i32x4[2] = SIMD.Int32x4.extractLane(x, 2);
-  _i32x4[3] = SIMD.Int32x4.extractLane(x, 3);
-}
-
-function saveInt16x8(x) {
-  x = SIMD.Int16x8.check(x);
-  _i16x8[0] = SIMD.Int16x8.extractLane(x, 0);
-  _i16x8[1] = SIMD.Int16x8.extractLane(x, 1);
-  _i16x8[2] = SIMD.Int16x8.extractLane(x, 2);
-  _i16x8[3] = SIMD.Int16x8.extractLane(x, 3);
-  _i16x8[4] = SIMD.Int16x8.extractLane(x, 4);
-  _i16x8[5] = SIMD.Int16x8.extractLane(x, 5);
-  _i16x8[6] = SIMD.Int16x8.extractLane(x, 6);
-  _i16x8[7] = SIMD.Int16x8.extractLane(x, 7);
-}
-
-function saveInt8x16(x) {
-  x = SIMD.Int8x16.check(x);
-  _i8x16[0] = SIMD.Int8x16.extractLane(x, 0);
-  _i8x16[1] = SIMD.Int8x16.extractLane(x, 1);
-  _i8x16[2] = SIMD.Int8x16.extractLane(x, 2);
-  _i8x16[3] = SIMD.Int8x16.extractLane(x, 3);
-  _i8x16[4] = SIMD.Int8x16.extractLane(x, 4);
-  _i8x16[5] = SIMD.Int8x16.extractLane(x, 5);
-  _i8x16[6] = SIMD.Int8x16.extractLane(x, 6);
-  _i8x16[7] = SIMD.Int8x16.extractLane(x, 7);
-  _i8x16[8] = SIMD.Int8x16.extractLane(x, 8);
-  _i8x16[9] = SIMD.Int8x16.extractLane(x, 9);
-  _i8x16[10] = SIMD.Int8x16.extractLane(x, 10);
-  _i8x16[11] = SIMD.Int8x16.extractLane(x, 11);
-  _i8x16[12] = SIMD.Int8x16.extractLane(x, 12);
-  _i8x16[13] = SIMD.Int8x16.extractLane(x, 13);
-  _i8x16[14] = SIMD.Int8x16.extractLane(x, 14);
-  _i8x16[15] = SIMD.Int8x16.extractLane(x, 15);
-}
-
-function restoreBool32x4() {
-  var alias = _i32x4;
-  return SIMD.Bool32x4(alias[0], alias[1], alias[2], alias[3]);
-}
-
-function restoreBool16x8() {
-  var alias = _i16x8;
-  return SIMD.Bool16x8(alias[0], alias[1], alias[2], alias[3],
-                       alias[4], alias[5], alias[6], alias[7]);
-}
-
-function restoreBool8x16() {
-  var alias = _i8x16;
-  return SIMD.Bool8x16(alias[0], alias[1], alias[2], alias[3],
-                       alias[4], alias[5], alias[6], alias[7],
-                       alias[8], alias[9], alias[10], alias[11],
-                       alias[12], alias[13], alias[14], alias[15]);
-}
-
-function restoreFloat64x2() {
-  var alias = _f64x2;
-  return SIMD.Float64x2(alias[0], alias[1]);
-}
-
-function restoreFloat32x4() {
-  var alias = _f32x4;
-  return SIMD.Float32x4(alias[0], alias[1], alias[2], alias[3]);
-}
-
-function restoreInt32x4() {
-  var alias = _i32x4;
-  return SIMD.Int32x4(alias[0], alias[1], alias[2], alias[3]);
-}
-
-function restoreInt16x8() {
-  var alias = _i16x8;
-  return SIMD.Int16x8(alias[0], alias[1], alias[2], alias[3],
-                      alias[4], alias[5], alias[6], alias[7]);
-}
-
-function restoreInt8x16() {
-  var alias = _i8x16;
-  return SIMD.Int8x16(alias[0], alias[1], alias[2], alias[3],
-                      alias[4], alias[5], alias[6], alias[7],
-                      alias[8], alias[9], alias[10], alias[11],
-                      alias[12], alias[13], alias[14], alias[15]);
-}
-
-if (typeof SIMD.Bool64x2 === "undefined") {
-  /**
-    * Construct a new instance of bool64x2 number.
-    * @constructor
-    */
-  SIMD.Bool64x2 = function(x, y) {
-    if (!(this instanceof SIMD.Bool64x2)) {
-      return new SIMD.Bool64x2(x, y);
-    }
-
-    this.x_ = !!x;
-    this.y_ = !!y;
-  }
-}
-
-if (typeof SIMD.Bool64x2.check === "undefined") {
-  /**
-    * Check whether the argument is a bool64x2.
-    * @param {bool64x2} v An instance of bool64x2.
-    * @return {bool64x2} The bool64x2 instance.
-    */
-  SIMD.Bool64x2.check = function(v) {
-    if (!(v instanceof SIMD.Bool64x2)) {
-      throw new TypeError("argument is not a bool64x2.");
-    }
-    return v;
-  }
-}
-
-if (typeof SIMD.Bool64x2.splat === "undefined") {
-  /**
-    * Construct a new instance of bool64x2 with the same value
-    * in all lanes.
-    * @param {double} value used for all lanes.
-    * @constructor
-    */
-  SIMD.Bool64x2.splat = function(s) {
-    return SIMD.Bool64x2(s, s);
-  }
-}
-
-if (typeof SIMD.Bool64x2.extractLane === "undefined") {
-  /**
-    * @param {bool64x2} v An instance of bool64x2.
-    * @param {integer} i Index in concatenation of v for lane i
-    * @return {Boolean} The value in lane i of v.
-    */
-  SIMD.Bool64x2.extractLane = function(v, i) {
-    v = SIMD.Bool64x2.check(v);
-    check2(i);
-    switch(i) {
-      case 0: return v.x_;
-      case 1: return v.y_;
-    }
-  }
-}
-
-if (typeof SIMD.Bool64x2.replaceLane === "undefined") {
-  /**
-    * @param {bool64x2} v An instance of bool64x2.
-    * @param {integer} i Index in concatenation of v for lane i
-    * @param {double} value used for lane i.
-    * @return {bool64x2} New instance of bool64x2 with the values in v and
-    * lane i replaced with {s}.
-    */
-  SIMD.Bool64x2.replaceLane = function(v, i, s) {
-    v = SIMD.Bool64x2.check(v);
-    check2(i);
-    // Other replaceLane implementations do the replacement in memory, but
-    // this is awkward for bool64x2 without something like Int64Array.
-    return i == 0 ?
-           SIMD.Bool64x2(s, SIMD.Bool64x2.extractLane(v, 1)) :
-           SIMD.Bool64x2(SIMD.Bool64x2.extractLane(v, 0), s);
-  }
-}
-
-if (typeof SIMD.Bool64x2.allTrue === "undefined") {
-  /**
-    * Check if all 2 lanes hold a true value
-    * @param {bool64x2} v An instance of bool64x2.
-    * @return {Boolean} All 2 lanes hold a true value
-    */
-  SIMD.Bool64x2.allTrue = function(v) {
-    v = SIMD.Bool64x2.check(v);
-    return SIMD.Bool64x2.extractLane(v, 0) &&
-        SIMD.Bool64x2.extractLane(v, 1);
-  }
-}
-
-if (typeof SIMD.Bool64x2.anyTrue === "undefined") {
-  /**
-    * Check if any of the 2 lanes hold a true value
-    * @param {bool64x2} v An instance of bool64x2.
-    * @return {Boolean} Any of the 2 lanes holds a true value
-    */
-  SIMD.Bool64x2.anyTrue = function(v) {
-    v = SIMD.Bool64x2.check(v);
-    return SIMD.Bool64x2.extractLane(v, 0) ||
-        SIMD.Bool64x2.extractLane(v, 1);
-  }
-}
-
-if (typeof SIMD.Bool64x2.and === "undefined") {
-  /**
-    * @param {bool64x2} a An instance of bool64x2.
-    * @param {bool64x2} b An instance of bool64x2.
-    * @return {bool64x2} New instance of bool64x2 with values of a & b.
-    */
-  SIMD.Bool64x2.and = function(a, b) {
-    a = SIMD.Bool64x2.check(a);
-    b = SIMD.Bool64x2.check(b);
-    return SIMD.Bool64x2(SIMD.Bool64x2.extractLane(a, 0) & SIMD.Bool64x2.extractLane(b, 0),
-                         SIMD.Bool64x2.extractLane(a, 1) & SIMD.Bool64x2.extractLane(b, 1));
-  }
-}
-
-if (typeof SIMD.Bool64x2.or === "undefined") {
-  /**
-    * @param {bool64x2} a An instance of bool64x2.
-    * @param {bool64x2} b An instance of bool64x2.
-    * @return {bool64x2} New instance of bool64x2 with values of a | b.
-    */
-  SIMD.Bool64x2.or = function(a, b) {
-    a = SIMD.Bool64x2.check(a);
-    b = SIMD.Bool64x2.check(b);
-    return SIMD.Bool64x2(SIMD.Bool64x2.extractLane(a, 0) | SIMD.Bool64x2.extractLane(b, 0),
-                         SIMD.Bool64x2.extractLane(a, 1) | SIMD.Bool64x2.extractLane(b, 1));
-  }
-}
-
-if (typeof SIMD.Bool64x2.xor === "undefined") {
-  /**
-    * @param {bool64x2} a An instance of bool64x2.
-    * @param {bool64x2} b An instance of bool64x2.
-    * @return {bool64x2} New instance of bool64x2 with values of a ^ b.
-    */
-  SIMD.Bool64x2.xor = function(a, b) {
-    a = SIMD.Bool64x2.check(a);
-    b = SIMD.Bool64x2.check(b);
-    return SIMD.Bool64x2(SIMD.Bool64x2.extractLane(a, 0) ^ SIMD.Bool64x2.extractLane(b, 0),
-                         SIMD.Bool64x2.extractLane(a, 1) ^ SIMD.Bool64x2.extractLane(b, 1));
-  }
-}
-
-if (typeof SIMD.Bool64x2.not === "undefined") {
-  /**
-    * @param {bool64x2} a An instance of bool64x2.
-    * @return {bool64x2} New instance of bool64x2 with values of !a
-    */
-  SIMD.Bool64x2.not = function(a) {
-    a = SIMD.Bool64x2.check(a);
-    return SIMD.Bool64x2(!SIMD.Bool64x2.extractLane(a, 0),
-                         !SIMD.Bool64x2.extractLane(a, 1));
-  }
-}
-
-if (typeof SIMD.Bool64x2.equal === "undefined") {
-  /**
-    * @param {bool64x2} a An instance of bool64x2.
-    * @param {bool64x2} b An instance of bool64x2.
-    * @return {bool64x2} true or false in each lane depending on
-    * the result of a == b.
-    */
-  SIMD.Bool64x2.equal = function(a, b) {
-    a = SIMD.Bool64x2.check(a);
-    b = SIMD.Bool64x2.check(b);
-    return SIMD.Bool64x2(SIMD.Bool64x2.extractLane(a, 0) == SIMD.Bool64x2.extractLane(b, 0),
-                         SIMD.Bool64x2.extractLane(a, 1) == SIMD.Bool64x2.extractLane(b, 1));
-  }
-}
-
-if (typeof SIMD.Bool64x2.notEqual === "undefined") {
-  /**
-    * @param {bool64x2} a An instance of bool64x2.
-    * @param {bool64x2} b An instance of bool64x2.
-    * @return {bool64x2} true or false in each lane depending on
-    * the result of a != b.
-    */
-  SIMD.Bool64x2.notEqual = function(a, b) {
-    a = SIMD.Bool64x2.check(a);
-    b = SIMD.Bool64x2.check(b);
-    return SIMD.Bool64x2(SIMD.Bool64x2.extractLane(a, 0) != SIMD.Bool64x2.extractLane(b, 0),
-                         SIMD.Bool64x2.extractLane(a, 1) != SIMD.Bool64x2.extractLane(b, 1));
-  }
-}
-
-if (typeof SIMD.Bool64x2.select === "undefined") {
-  /**
-    * @param {bool64x2} mask Selector mask. An instance of bool64x2
-    * @param {bool64x2} trueValue Pick lane from here if corresponding
-    * selector lane is 1
-    * @param {bool64x2} falseValue Pick lane from here if corresponding
-    * selector lane is 0
-    * @return {bool64x2} Mix of lanes from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Bool64x2.select = function(mask, trueValue, falseValue) {
-    mask = SIMD.Bool64x2.check(mask);
-    trueValue = SIMD.Bool64x2.check(trueValue);
-    falseValue = SIMD.Bool64x2.check(falseValue);
-    var tr = SIMD.Bool64x2.and(mask, trueValue);
-    var fr = SIMD.Bool64x2.and(SIMD.Bool64x2.not(mask), falseValue);
-    return SIMD.Bool64x2.or(tr, fr);
-  }
-}
-
-if (typeof SIMD.Bool32x4 === "undefined") {
-  /**
-    * Construct a new instance of Bool32x4 number.
-    * @constructor
-    */
-  SIMD.Bool32x4 = function(x, y, z, w) {
-    if (!(this instanceof SIMD.Bool32x4)) {
-      return new SIMD.Bool32x4(x, y, z, w);
-    }
-
-    this.x_ = !!x;
-    this.y_ = !!y;
-    this.z_ = !!z;
-    this.w_ = !!w;
-  }
-}
-
-if (typeof SIMD.Bool32x4.check === "undefined") {
-  /**
-    * Check whether the argument is a Bool32x4.
-    * @param {Bool32x4} v An instance of Bool32x4.
-    * @return {Bool32x4} The Bool32x4 instance.
-    */
-  SIMD.Bool32x4.check = function(v) {
-    if (!(v instanceof SIMD.Bool32x4)) {
-      throw new TypeError("argument is not a Bool32x4.");
-    }
-    return v;
-  }
-}
-
-if (typeof SIMD.Bool32x4.splat === "undefined") {
-  /**
-    * Construct a new instance of Bool32x4 with the same value
-    * in all lanes.
-    * @param {double} value used for all lanes.
-    * @constructor
-    */
-  SIMD.Bool32x4.splat = function(s) {
-    return SIMD.Bool32x4(s, s, s, s);
-  }
-}
-
-if (typeof SIMD.Bool32x4.extractLane === "undefined") {
-  /**
-    * @param {Bool32x4} v An instance of Bool32x4.
-    * @param {integer} i Index in concatenation of v for lane i
-    * @return {Boolean} The value in lane i of v.
-    */
-  SIMD.Bool32x4.extractLane = function(v, i) {
-    v = SIMD.Bool32x4.check(v);
-    check4(i);
-    switch(i) {
-      case 0: return v.x_;
-      case 1: return v.y_;
-      case 2: return v.z_;
-      case 3: return v.w_;
-    }
-  }
-}
-
-if (typeof SIMD.Bool32x4.replaceLane === "undefined") {
-  /**
-    * @param {Bool32x4} v An instance of Bool32x4.
-    * @param {integer} i Index in concatenation of v for lane i
-    * @param {double} value used for lane i.
-    * @return {Bool32x4} New instance of Bool32x4 with the values in v and
-    * lane i replaced with {s}.
-    */
-  SIMD.Bool32x4.replaceLane = function(v, i, s) {
-    v = SIMD.Bool32x4.check(v);
-    check4(i);
-    saveBool32x4(v);
-    _i32x4[i] = s;
-    return restoreBool32x4();
-  }
-}
-
-if (typeof SIMD.Bool32x4.allTrue === "undefined") {
-  /**
-    * Check if all 4 lanes hold a true value
-    * @param {Bool32x4} v An instance of Bool32x4.
-    * @return {Boolean} All 4 lanes holds a true value
-    */
-  SIMD.Bool32x4.allTrue = function(v) {
-    v = SIMD.Bool32x4.check(v);
-    return SIMD.Bool32x4.extractLane(v, 0) &&
-        SIMD.Bool32x4.extractLane(v, 1) &&
-        SIMD.Bool32x4.extractLane(v, 2) &&
-        SIMD.Bool32x4.extractLane(v, 3);
-  }
-}
-
-if (typeof SIMD.Bool32x4.anyTrue === "undefined") {
-  /**
-    * Check if any of the 4 lanes hold a true value
-    * @param {Bool32x4} v An instance of Bool32x4.
-    * @return {Boolean} Any of the 4 lanes holds a true value
-    */
-  SIMD.Bool32x4.anyTrue = function(v) {
-    v = SIMD.Bool32x4.check(v);
-    return SIMD.Bool32x4.extractLane(v, 0) ||
-        SIMD.Bool32x4.extractLane(v, 1) ||
-        SIMD.Bool32x4.extractLane(v, 2) ||
-        SIMD.Bool32x4.extractLane(v, 3);
-  }
-}
-
-if (typeof SIMD.Bool32x4.and === "undefined") {
-  /**
-    * @param {Bool32x4} a An instance of Bool32x4.
-    * @param {Bool32x4} b An instance of Bool32x4.
-    * @return {Bool32x4} New instance of Bool32x4 with values of a & b.
-    */
-  SIMD.Bool32x4.and = function(a, b) {
-    a = SIMD.Bool32x4.check(a);
-    b = SIMD.Bool32x4.check(b);
-    return SIMD.Bool32x4(SIMD.Bool32x4.extractLane(a, 0) & SIMD.Bool32x4.extractLane(b, 0),
-                         SIMD.Bool32x4.extractLane(a, 1) & SIMD.Bool32x4.extractLane(b, 1),
-                         SIMD.Bool32x4.extractLane(a, 2) & SIMD.Bool32x4.extractLane(b, 2),
-                         SIMD.Bool32x4.extractLane(a, 3) & SIMD.Bool32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Bool32x4.or === "undefined") {
-  /**
-    * @param {Bool32x4} a An instance of Bool32x4.
-    * @param {Bool32x4} b An instance of Bool32x4.
-    * @return {Bool32x4} New instance of Bool32x4 with values of a | b.
-    */
-  SIMD.Bool32x4.or = function(a, b) {
-    a = SIMD.Bool32x4.check(a);
-    b = SIMD.Bool32x4.check(b);
-    return SIMD.Bool32x4(SIMD.Bool32x4.extractLane(a, 0) | SIMD.Bool32x4.extractLane(b, 0),
-                         SIMD.Bool32x4.extractLane(a, 1) | SIMD.Bool32x4.extractLane(b, 1),
-                         SIMD.Bool32x4.extractLane(a, 2) | SIMD.Bool32x4.extractLane(b, 2),
-                         SIMD.Bool32x4.extractLane(a, 3) | SIMD.Bool32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Bool32x4.xor === "undefined") {
-  /**
-    * @param {Bool32x4} a An instance of Bool32x4.
-    * @param {Bool32x4} b An instance of Bool32x4.
-    * @return {Bool32x4} New instance of Bool32x4 with values of a ^ b.
-    */
-  SIMD.Bool32x4.xor = function(a, b) {
-    a = SIMD.Bool32x4.check(a);
-    b = SIMD.Bool32x4.check(b);
-    return SIMD.Bool32x4(SIMD.Bool32x4.extractLane(a, 0) ^ SIMD.Bool32x4.extractLane(b, 0),
-                         SIMD.Bool32x4.extractLane(a, 1) ^ SIMD.Bool32x4.extractLane(b, 1),
-                         SIMD.Bool32x4.extractLane(a, 2) ^ SIMD.Bool32x4.extractLane(b, 2),
-                         SIMD.Bool32x4.extractLane(a, 3) ^ SIMD.Bool32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Bool32x4.not === "undefined") {
-  /**
-    * @param {Bool32x4} a An instance of Bool32x4.
-    * @return {Bool32x4} New instance of Bool32x4 with values of !a
-    */
-  SIMD.Bool32x4.not = function(a) {
-    a = SIMD.Bool32x4.check(a);
-    return SIMD.Bool32x4(!SIMD.Bool32x4.extractLane(a, 0),
-                         !SIMD.Bool32x4.extractLane(a, 1),
-                         !SIMD.Bool32x4.extractLane(a, 2),
-                         !SIMD.Bool32x4.extractLane(a, 3));
-  }
-}
-
-if (typeof SIMD.Bool32x4.equal === "undefined") {
-  /**
-    * @param {Bool32x4} a An instance of Bool32x4.
-    * @param {Bool32x4} b An instance of Bool32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of a == b.
-    */
-  SIMD.Bool32x4.equal = function(a, b) {
-    a = SIMD.Bool32x4.check(a);
-    b = SIMD.Bool32x4.check(b);
-    return SIMD.Bool32x4(SIMD.Bool32x4.extractLane(a, 0) == SIMD.Bool32x4.extractLane(b, 0),
-                         SIMD.Bool32x4.extractLane(a, 1) == SIMD.Bool32x4.extractLane(b, 1),
-                         SIMD.Bool32x4.extractLane(a, 2) == SIMD.Bool32x4.extractLane(b, 2),
-                         SIMD.Bool32x4.extractLane(a, 3) == SIMD.Bool32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Bool32x4.notEqual === "undefined") {
-  /**
-    * @param {Bool32x4} a An instance of Bool32x4.
-    * @param {Bool32x4} b An instance of Bool32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of a != b.
-    */
-  SIMD.Bool32x4.notEqual = function(a, b) {
-    a = SIMD.Bool32x4.check(a);
-    b = SIMD.Bool32x4.check(b);
-    return SIMD.Bool32x4(SIMD.Bool32x4.extractLane(a, 0) != SIMD.Bool32x4.extractLane(b, 0),
-                         SIMD.Bool32x4.extractLane(a, 1) != SIMD.Bool32x4.extractLane(b, 1),
-                         SIMD.Bool32x4.extractLane(a, 2) != SIMD.Bool32x4.extractLane(b, 2),
-                         SIMD.Bool32x4.extractLane(a, 3) != SIMD.Bool32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Bool32x4.select === "undefined") {
-  /**
-    * @param {Bool32x4} mask Selector mask. An instance of Bool32x4
-    * @param {Bool32x4} trueValue Pick lane from here if corresponding
-    * selector lane is 1
-    * @param {Bool32x4} falseValue Pick lane from here if corresponding
-    * selector lane is 0
-    * @return {Bool32x4} Mix of lanes from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Bool32x4.select = function(mask, trueValue, falseValue) {
-    mask = SIMD.Bool32x4.check(mask);
-    trueValue = SIMD.Bool32x4.check(trueValue);
-    falseValue = SIMD.Bool32x4.check(falseValue);
-    var tr = SIMD.Bool32x4.and(mask, trueValue);
-    var fr = SIMD.Bool32x4.and(SIMD.Bool32x4.not(mask), falseValue);
-    return SIMD.Bool32x4.or(tr, fr);
-  }
-}
-
-if (typeof SIMD.Bool16x8 === "undefined") {
-  /**
-    * Construct a new instance of Bool16x8 number.
-    * @constructor
-    */
-  SIMD.Bool16x8 = function(s0, s1, s2, s3, s4, s5, s6, s7) {
-    if (!(this instanceof SIMD.Bool16x8)) {
-      return new SIMD.Bool16x8(s0, s1, s2, s3, s4, s5, s6, s7);
-    }
-
-    this.s0_ = !!s0;
-    this.s1_ = !!s1;
-    this.s2_ = !!s2;
-    this.s3_ = !!s3;
-    this.s4_ = !!s4;
-    this.s5_ = !!s5;
-    this.s6_ = !!s6;
-    this.s7_ = !!s7;
-  }
-}
-
-if (typeof SIMD.Bool16x8.check === "undefined") {
-  /**
-    * Check whether the argument is a Bool16x8.
-    * @param {Bool16x8} v An instance of Bool16x8.
-    * @return {Bool16x8} The Bool16x8 instance.
-    */
-  SIMD.Bool16x8.check = function(v) {
-    if (!(v instanceof SIMD.Bool16x8)) {
-      throw new TypeError("argument is not a Bool16x8.");
-    }
-    return v;
-  }
-}
-
-if (typeof SIMD.Bool16x8.splat === "undefined") {
-  /**
-    * Construct a new instance of Bool16x8 with the same value
-    * in all lanes.
-    * @param {double} value used for all lanes.
-    * @constructor
-    */
-  SIMD.Bool16x8.splat = function(s) {
-    return SIMD.Bool16x8(s, s, s, s, s, s, s, s);
-  }
-}
-
-if (typeof SIMD.Bool16x8.extractLane === "undefined") {
-  /**
-    * @param {Bool16x8} v An instance of Bool16x8.
-    * @param {integer} i Index in concatenation of v for lane i
-    * @return {Boolean} The value in lane i of v.
-    */
-  SIMD.Bool16x8.extractLane = function(v, i) {
-    v = SIMD.Bool16x8.check(v);
-    check8(i);
-    switch(i) {
-      case 0: return v.s0_;
-      case 1: return v.s1_;
-      case 2: return v.s2_;
-      case 3: return v.s3_;
-      case 4: return v.s4_;
-      case 5: return v.s5_;
-      case 6: return v.s6_;
-      case 7: return v.s7_;
-    }
-  }
-}
-
-if (typeof SIMD.Bool16x8.replaceLane === "undefined") {
-  /**
-    * @param {Bool16x8} v An instance of Bool16x8.
-    * @param {integer} i Index in concatenation of v for lane i
-    * @param {double} value used for lane i.
-    * @return {Bool16x8} New instance of Bool16x8 with the values in v and
-    * lane i replaced with {s}.
-    */
-  SIMD.Bool16x8.replaceLane = function(v, i, s) {
-    v = SIMD.Bool16x8.check(v);
-    check8(i);
-    saveBool16x8(v);
-    _i16x8[i] = s;
-    return restoreBool16x8();
-  }
-}
-
-if (typeof SIMD.Bool16x8.allTrue === "undefined") {
-  /**
-    * Check if all 8 lanes hold a true value
-    * @param {Bool16x8} v An instance of Bool16x8.
-    * @return {Boolean} All 8 lanes holds a true value
-    */
-  SIMD.Bool16x8.allTrue = function(v) {
-    v = SIMD.Bool16x8.check(v);
-    return SIMD.Bool16x8.extractLane(v, 0) &&
-           SIMD.Bool16x8.extractLane(v, 1) &&
-           SIMD.Bool16x8.extractLane(v, 2) &&
-           SIMD.Bool16x8.extractLane(v, 3) &&
-           SIMD.Bool16x8.extractLane(v, 4) &&
-           SIMD.Bool16x8.extractLane(v, 5) &&
-           SIMD.Bool16x8.extractLane(v, 6) &&
-           SIMD.Bool16x8.extractLane(v, 7);
-  }
-}
-
-if (typeof SIMD.Bool16x8.anyTrue === "undefined") {
-  /**
-    * Check if any of the 8 lanes hold a true value
-    * @param {Bool16x8} v An instance of Int16x8.
-    * @return {Boolean} Any of the 8 lanes holds a true value
-    */
-  SIMD.Bool16x8.anyTrue = function(v) {
-    v = SIMD.Bool16x8.check(v);
-    return SIMD.Bool16x8.extractLane(v, 0) ||
-           SIMD.Bool16x8.extractLane(v, 1) ||
-           SIMD.Bool16x8.extractLane(v, 2) ||
-           SIMD.Bool16x8.extractLane(v, 3) ||
-           SIMD.Bool16x8.extractLane(v, 4) ||
-           SIMD.Bool16x8.extractLane(v, 5) ||
-           SIMD.Bool16x8.extractLane(v, 6) ||
-           SIMD.Bool16x8.extractLane(v, 7);
-  }
-}
-
-if (typeof SIMD.Bool16x8.and === "undefined") {
-  /**
-    * @param {Bool16x8} a An instance of Bool16x8.
-    * @param {Bool16x8} b An instance of Bool16x8.
-    * @return {Bool16x8} New instance of Bool16x8 with values of a & b.
-    */
-  SIMD.Bool16x8.and = function(a, b) {
-    a = SIMD.Bool16x8.check(a);
-    b = SIMD.Bool16x8.check(b);
-    return SIMD.Bool16x8(SIMD.Bool16x8.extractLane(a, 0) & SIMD.Bool16x8.extractLane(b, 0),
-                         SIMD.Bool16x8.extractLane(a, 1) & SIMD.Bool16x8.extractLane(b, 1),
-                         SIMD.Bool16x8.extractLane(a, 2) & SIMD.Bool16x8.extractLane(b, 2),
-                         SIMD.Bool16x8.extractLane(a, 3) & SIMD.Bool16x8.extractLane(b, 3),
-                         SIMD.Bool16x8.extractLane(a, 4) & SIMD.Bool16x8.extractLane(b, 4),
-                         SIMD.Bool16x8.extractLane(a, 5) & SIMD.Bool16x8.extractLane(b, 5),
-                         SIMD.Bool16x8.extractLane(a, 6) & SIMD.Bool16x8.extractLane(b, 6),
-                         SIMD.Bool16x8.extractLane(a, 7) & SIMD.Bool16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Bool16x8.or === "undefined") {
-  /**
-    * @param {Bool16x8} a An instance of Bool16x8.
-    * @param {Bool16x8} b An instance of Bool16x8.
-    * @return {Bool16x8} New instance of Bool16x8 with values of a | b.
-    */
-  SIMD.Bool16x8.or = function(a, b) {
-    a = SIMD.Bool16x8.check(a);
-    b = SIMD.Bool16x8.check(b);
-    return SIMD.Bool16x8(SIMD.Bool16x8.extractLane(a, 0) | SIMD.Bool16x8.extractLane(b, 0),
-                         SIMD.Bool16x8.extractLane(a, 1) | SIMD.Bool16x8.extractLane(b, 1),
-                         SIMD.Bool16x8.extractLane(a, 2) | SIMD.Bool16x8.extractLane(b, 2),
-                         SIMD.Bool16x8.extractLane(a, 3) | SIMD.Bool16x8.extractLane(b, 3),
-                         SIMD.Bool16x8.extractLane(a, 4) | SIMD.Bool16x8.extractLane(b, 4),
-                         SIMD.Bool16x8.extractLane(a, 5) | SIMD.Bool16x8.extractLane(b, 5),
-                         SIMD.Bool16x8.extractLane(a, 6) | SIMD.Bool16x8.extractLane(b, 6),
-                         SIMD.Bool16x8.extractLane(a, 7) | SIMD.Bool16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Bool16x8.xor === "undefined") {
-  /**
-    * @param {Bool16x8} a An instance of Bool16x8.
-    * @param {Bool16x8} b An instance of Bool16x8.
-    * @return {Bool16x8} New instance of Bool16x8 with values of a ^ b.
-    */
-  SIMD.Bool16x8.xor = function(a, b) {
-    a = SIMD.Bool16x8.check(a);
-    b = SIMD.Bool16x8.check(b);
-    return SIMD.Bool16x8(SIMD.Bool16x8.extractLane(a, 0) ^ SIMD.Bool16x8.extractLane(b, 0),
-                         SIMD.Bool16x8.extractLane(a, 1) ^ SIMD.Bool16x8.extractLane(b, 1),
-                         SIMD.Bool16x8.extractLane(a, 2) ^ SIMD.Bool16x8.extractLane(b, 2),
-                         SIMD.Bool16x8.extractLane(a, 3) ^ SIMD.Bool16x8.extractLane(b, 3),
-                         SIMD.Bool16x8.extractLane(a, 4) ^ SIMD.Bool16x8.extractLane(b, 4),
-                         SIMD.Bool16x8.extractLane(a, 5) ^ SIMD.Bool16x8.extractLane(b, 5),
-                         SIMD.Bool16x8.extractLane(a, 6) ^ SIMD.Bool16x8.extractLane(b, 6),
-                         SIMD.Bool16x8.extractLane(a, 7) ^ SIMD.Bool16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Bool16x8.not === "undefined") {
-  /**
-    * @param {Bool16x8} a An instance of Bool16x8.
-    * @return {Bool16x8} New instance of Bool16x8 with values of !a
-    */
-  SIMD.Bool16x8.not = function(a) {
-    a = SIMD.Bool16x8.check(a);
-    return SIMD.Bool16x8(!SIMD.Bool16x8.extractLane(a, 0),
-                         !SIMD.Bool16x8.extractLane(a, 1),
-                         !SIMD.Bool16x8.extractLane(a, 2),
-                         !SIMD.Bool16x8.extractLane(a, 3),
-                         !SIMD.Bool16x8.extractLane(a, 4),
-                         !SIMD.Bool16x8.extractLane(a, 5),
-                         !SIMD.Bool16x8.extractLane(a, 6),
-                         !SIMD.Bool16x8.extractLane(a, 7));
-  }
-}
-
-if (typeof SIMD.Bool16x8.equal === "undefined") {
-  /**
-    * @param {Bool16x8} a An instance of Bool16x8.
-    * @param {Bool16x8} b An instance of Bool16x8.
-    * @return {Bool16x8} true or false in each lane depending on
-    * the result of a == b.
-    */
-  SIMD.Bool16x8.equal = function(a, b) {
-    a = SIMD.Bool16x8.check(a);
-    b = SIMD.Bool16x8.check(b);
-    return SIMD.Bool16x8(SIMD.Bool16x8.extractLane(a, 0) == SIMD.Bool16x8.extractLane(b, 0),
-                         SIMD.Bool16x8.extractLane(a, 1) == SIMD.Bool16x8.extractLane(b, 1),
-                         SIMD.Bool16x8.extractLane(a, 2) == SIMD.Bool16x8.extractLane(b, 2),
-                         SIMD.Bool16x8.extractLane(a, 3) == SIMD.Bool16x8.extractLane(b, 3),
-                         SIMD.Bool16x8.extractLane(a, 4) == SIMD.Bool16x8.extractLane(b, 4),
-                         SIMD.Bool16x8.extractLane(a, 5) == SIMD.Bool16x8.extractLane(b, 5),
-                         SIMD.Bool16x8.extractLane(a, 6) == SIMD.Bool16x8.extractLane(b, 6),
-                         SIMD.Bool16x8.extractLane(a, 7) == SIMD.Bool16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Bool16x8.notEqual === "undefined") {
-  /**
-    * @param {Bool16x8} a An instance of Bool16x8.
-    * @param {Bool16x8} b An instance of Bool16x8.
-    * @return {Bool16x8} true or false in each lane depending on
-    * the result of a != b.
-    */
-  SIMD.Bool16x8.notEqual = function(a, b) {
-    a = SIMD.Bool16x8.check(a);
-    b = SIMD.Bool16x8.check(b);
-    return SIMD.Bool16x8(SIMD.Bool16x8.extractLane(a, 0) != SIMD.Bool16x8.extractLane(b, 0),
-                         SIMD.Bool16x8.extractLane(a, 1) != SIMD.Bool16x8.extractLane(b, 1),
-                         SIMD.Bool16x8.extractLane(a, 2) != SIMD.Bool16x8.extractLane(b, 2),
-                         SIMD.Bool16x8.extractLane(a, 3) != SIMD.Bool16x8.extractLane(b, 3),
-                         SIMD.Bool16x8.extractLane(a, 4) != SIMD.Bool16x8.extractLane(b, 4),
-                         SIMD.Bool16x8.extractLane(a, 5) != SIMD.Bool16x8.extractLane(b, 5),
-                         SIMD.Bool16x8.extractLane(a, 6) != SIMD.Bool16x8.extractLane(b, 6),
-                         SIMD.Bool16x8.extractLane(a, 7) != SIMD.Bool16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Bool16x8.select === "undefined") {
-  /**
-    * @param {Bool16x8} mask Selector mask. An instance of Bool16x8
-    * @param {Bool16x8} trueValue Pick lane from here if corresponding
-    * selector lane is 1
-    * @param {Bool16x8} falseValue Pick lane from here if corresponding
-    * selector lane is 0
-    * @return {Bool16x8} Mix of lanes from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Bool16x8.select = function(mask, trueValue, falseValue) {
-    mask = SIMD.Bool16x8.check(mask);
-    trueValue = SIMD.Bool16x8.check(trueValue);
-    falseValue = SIMD.Bool16x8.check(falseValue);
-    var tr = SIMD.Bool16x8.and(mask, trueValue);
-    var fr = SIMD.Bool16x8.and(SIMD.Bool16x8.not(mask), falseValue);
-    return SIMD.Bool16x8.or(tr, fr);
-  }
-}
-
-if (typeof SIMD.Bool8x16 === "undefined") {
-  /**
-    * Construct a new instance of Bool8x16 number.
-    * @constructor
-    */
-  SIMD.Bool8x16 = function(s0, s1, s2, s3, s4, s5, s6, s7,
-                           s8, s9, s10, s11, s12, s13, s14, s15) {
-    if (!(this instanceof SIMD.Bool8x16)) {
-      return new SIMD.Bool8x16(s0, s1, s2, s3, s4, s5, s6, s7,
-                               s8, s9, s10, s11, s12, s13, s14, s15);
-    }
-
-    this.s0_ = !!s0;
-    this.s1_ = !!s1;
-    this.s2_ = !!s2;
-    this.s3_ = !!s3;
-    this.s4_ = !!s4;
-    this.s5_ = !!s5;
-    this.s6_ = !!s6;
-    this.s7_ = !!s7;
-    this.s8_ = !!s8;
-    this.s9_ = !!s9;
-    this.s10_ = !!s10;
-    this.s11_ = !!s11;
-    this.s12_ = !!s12;
-    this.s13_ = !!s13;
-    this.s14_ = !!s14;
-    this.s15_ = !!s15;
-  }
-}
-
-if (typeof SIMD.Bool8x16.check === "undefined") {
-  /**
-    * Check whether the argument is a Bool8x16.
-    * @param {Bool8x16} v An instance of Bool8x16.
-    * @return {Bool8x16} The Bool8x16 instance.
-    */
-  SIMD.Bool8x16.check = function(v) {
-    if (!(v instanceof SIMD.Bool8x16)) {
-      throw new TypeError("argument is not a Bool8x16.");
-    }
-    return v;
-  }
-}
-
-if (typeof SIMD.Bool8x16.splat === "undefined") {
-  /**
-    * Construct a new instance of Bool8x16 with the same value
-    * in all lanes.
-    * @param {double} value used for all lanes.
-    * @constructor
-    */
-  SIMD.Bool8x16.splat = function(s) {
-    return SIMD.Bool8x16(s, s, s, s, s, s, s, s,
-                         s, s, s, s, s, s, s, s);
-  }
-}
-
-if (typeof SIMD.Bool8x16.extractLane === "undefined") {
-  /**
-    * @param {Bool8x16} v An instance of Bool8x16.
-    * @param {integer} i Index in concatenation of v for lane i
-    * @return {Boolean} The value in lane i of v.
-    */
-  SIMD.Bool8x16.extractLane = function(v, i) {
-    v = SIMD.Bool8x16.check(v);
-    check16(i);
-    switch(i) {
-      case 0: return v.s0_;
-      case 1: return v.s1_;
-      case 2: return v.s2_;
-      case 3: return v.s3_;
-      case 4: return v.s4_;
-      case 5: return v.s5_;
-      case 6: return v.s6_;
-      case 7: return v.s7_;
-      case 8: return v.s8_;
-      case 9: return v.s9_;
-      case 10: return v.s10_;
-      case 11: return v.s11_;
-      case 12: return v.s12_;
-      case 13: return v.s13_;
-      case 14: return v.s14_;
-      case 15: return v.s15_;
-    }
-  }
-}
-
-if (typeof SIMD.Bool8x16.replaceLane === "undefined") {
-  /**
-    * @param {Bool8x16} v An instance of Bool8x16.
-    * @param {integer} i Index in concatenation of v for lane i
-    * @param {double} value used for lane i.
-    * @return {Bool8x16} New instance of Bool8x16 with the values in v and
-    * lane i replaced with {s}.
-    */
-  SIMD.Bool8x16.replaceLane = function(v, i, s) {
-    v = SIMD.Bool8x16.check(v);
-    check16(i);
-    saveBool8x16(v);
-    _i8x16[i] = s;
-    return restoreBool8x16();
-  }
-}
-
-if (typeof SIMD.Bool8x16.allTrue === "undefined") {
-  /**
-    * Check if all 16 lanes hold a true value
-    * @param {Bool8x16} v An instance of Bool8x16.
-    * @return {Boolean} All 16 lanes holds a true value
-    */
-  SIMD.Bool8x16.allTrue = function(v) {
-    v = SIMD.Bool8x16.check(v);
-    return SIMD.Bool8x16.extractLane(v, 0) &&
-           SIMD.Bool8x16.extractLane(v, 1) &&
-           SIMD.Bool8x16.extractLane(v, 2) &&
-           SIMD.Bool8x16.extractLane(v, 3) &&
-           SIMD.Bool8x16.extractLane(v, 4) &&
-           SIMD.Bool8x16.extractLane(v, 5) &&
-           SIMD.Bool8x16.extractLane(v, 6) &&
-           SIMD.Bool8x16.extractLane(v, 7) &&
-           SIMD.Bool8x16.extractLane(v, 8) &&
-           SIMD.Bool8x16.extractLane(v, 9) &&
-           SIMD.Bool8x16.extractLane(v, 10) &&
-           SIMD.Bool8x16.extractLane(v, 11) &&
-           SIMD.Bool8x16.extractLane(v, 12) &&
-           SIMD.Bool8x16.extractLane(v, 13) &&
-           SIMD.Bool8x16.extractLane(v, 14) &&
-           SIMD.Bool8x16.extractLane(v, 15);
-  }
-}
-
-if (typeof SIMD.Bool8x16.anyTrue === "undefined") {
-  /**
-    * Check if any of the 16 lanes hold a true value
-    * @param {Bool8x16} v An instance of Bool16x8.
-    * @return {Boolean} Any of the 16 lanes holds a true value
-    */
-  SIMD.Bool8x16.anyTrue = function(v) {
-    v = SIMD.Bool8x16.check(v);
-    return SIMD.Bool8x16.extractLane(v, 0) ||
-           SIMD.Bool8x16.extractLane(v, 1) ||
-           SIMD.Bool8x16.extractLane(v, 2) ||
-           SIMD.Bool8x16.extractLane(v, 3) ||
-           SIMD.Bool8x16.extractLane(v, 4) ||
-           SIMD.Bool8x16.extractLane(v, 5) ||
-           SIMD.Bool8x16.extractLane(v, 6) ||
-           SIMD.Bool8x16.extractLane(v, 7) ||
-           SIMD.Bool8x16.extractLane(v, 8) ||
-           SIMD.Bool8x16.extractLane(v, 9) ||
-           SIMD.Bool8x16.extractLane(v, 10) ||
-           SIMD.Bool8x16.extractLane(v, 11) ||
-           SIMD.Bool8x16.extractLane(v, 12) ||
-           SIMD.Bool8x16.extractLane(v, 13) ||
-           SIMD.Bool8x16.extractLane(v, 14) ||
-           SIMD.Bool8x16.extractLane(v, 15);
-  }
-}
-
-if (typeof SIMD.Bool8x16.and === "undefined") {
-  /**
-    * @param {Bool8x16} a An instance of Bool8x16.
-    * @param {Bool8x16} b An instance of Bool8x16.
-    * @return {Bool8x16} New instance of Bool8x16 with values of a & b.
-    */
-  SIMD.Bool8x16.and = function(a, b) {
-    a = SIMD.Bool8x16.check(a);
-    b = SIMD.Bool8x16.check(b);
-    return SIMD.Bool8x16(SIMD.Bool8x16.extractLane(a, 0) & SIMD.Bool8x16.extractLane(b, 0),
-                         SIMD.Bool8x16.extractLane(a, 1) & SIMD.Bool8x16.extractLane(b, 1),
-                         SIMD.Bool8x16.extractLane(a, 2) & SIMD.Bool8x16.extractLane(b, 2),
-                         SIMD.Bool8x16.extractLane(a, 3) & SIMD.Bool8x16.extractLane(b, 3),
-                         SIMD.Bool8x16.extractLane(a, 4) & SIMD.Bool8x16.extractLane(b, 4),
-                         SIMD.Bool8x16.extractLane(a, 5) & SIMD.Bool8x16.extractLane(b, 5),
-                         SIMD.Bool8x16.extractLane(a, 6) & SIMD.Bool8x16.extractLane(b, 6),
-                         SIMD.Bool8x16.extractLane(a, 7) & SIMD.Bool8x16.extractLane(b, 7),
-                         SIMD.Bool8x16.extractLane(a, 8) & SIMD.Bool8x16.extractLane(b, 8),
-                         SIMD.Bool8x16.extractLane(a, 9) & SIMD.Bool8x16.extractLane(b, 9),
-                         SIMD.Bool8x16.extractLane(a, 10) & SIMD.Bool8x16.extractLane(b, 10),
-                         SIMD.Bool8x16.extractLane(a, 11) & SIMD.Bool8x16.extractLane(b, 11),
-                         SIMD.Bool8x16.extractLane(a, 12) & SIMD.Bool8x16.extractLane(b, 12),
-                         SIMD.Bool8x16.extractLane(a, 13) & SIMD.Bool8x16.extractLane(b, 13),
-                         SIMD.Bool8x16.extractLane(a, 14) & SIMD.Bool8x16.extractLane(b, 14),
-                         SIMD.Bool8x16.extractLane(a, 15) & SIMD.Bool8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Bool8x16.or === "undefined") {
-  /**
-    * @param {Bool8x16} a An instance of Bool8x16.
-    * @param {Bool8x16} b An instance of Bool8x16.
-    * @return {Bool8x16} New instance of Bool8x16 with values of a | b.
-    */
-  SIMD.Bool8x16.or = function(a, b) {
-    a = SIMD.Bool8x16.check(a);
-    b = SIMD.Bool8x16.check(b);
-    return SIMD.Bool8x16(SIMD.Bool8x16.extractLane(a, 0) | SIMD.Bool8x16.extractLane(b, 0),
-                         SIMD.Bool8x16.extractLane(a, 1) | SIMD.Bool8x16.extractLane(b, 1),
-                         SIMD.Bool8x16.extractLane(a, 2) | SIMD.Bool8x16.extractLane(b, 2),
-                         SIMD.Bool8x16.extractLane(a, 3) | SIMD.Bool8x16.extractLane(b, 3),
-                         SIMD.Bool8x16.extractLane(a, 4) | SIMD.Bool8x16.extractLane(b, 4),
-                         SIMD.Bool8x16.extractLane(a, 5) | SIMD.Bool8x16.extractLane(b, 5),
-                         SIMD.Bool8x16.extractLane(a, 6) | SIMD.Bool8x16.extractLane(b, 6),
-                         SIMD.Bool8x16.extractLane(a, 7) | SIMD.Bool8x16.extractLane(b, 7),
-                         SIMD.Bool8x16.extractLane(a, 8) | SIMD.Bool8x16.extractLane(b, 8),
-                         SIMD.Bool8x16.extractLane(a, 9) | SIMD.Bool8x16.extractLane(b, 9),
-                         SIMD.Bool8x16.extractLane(a, 10) | SIMD.Bool8x16.extractLane(b, 10),
-                         SIMD.Bool8x16.extractLane(a, 11) | SIMD.Bool8x16.extractLane(b, 11),
-                         SIMD.Bool8x16.extractLane(a, 12) | SIMD.Bool8x16.extractLane(b, 12),
-                         SIMD.Bool8x16.extractLane(a, 13) | SIMD.Bool8x16.extractLane(b, 13),
-                         SIMD.Bool8x16.extractLane(a, 14) | SIMD.Bool8x16.extractLane(b, 14),
-                         SIMD.Bool8x16.extractLane(a, 15) | SIMD.Bool8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Bool8x16.xor === "undefined") {
-  /**
-    * @param {Bool8x16} a An instance of Bool8x16.
-    * @param {Bool8x16} b An instance of Bool8x16.
-    * @return {Bool8x16} New instance of Bool8x16 with values of a ^ b.
-    */
-  SIMD.Bool8x16.xor = function(a, b) {
-    a = SIMD.Bool8x16.check(a);
-    b = SIMD.Bool8x16.check(b);
-    return SIMD.Bool8x16(SIMD.Bool8x16.extractLane(a, 0) ^ SIMD.Bool8x16.extractLane(b, 0),
-                         SIMD.Bool8x16.extractLane(a, 1) ^ SIMD.Bool8x16.extractLane(b, 1),
-                         SIMD.Bool8x16.extractLane(a, 2) ^ SIMD.Bool8x16.extractLane(b, 2),
-                         SIMD.Bool8x16.extractLane(a, 3) ^ SIMD.Bool8x16.extractLane(b, 3),
-                         SIMD.Bool8x16.extractLane(a, 4) ^ SIMD.Bool8x16.extractLane(b, 4),
-                         SIMD.Bool8x16.extractLane(a, 5) ^ SIMD.Bool8x16.extractLane(b, 5),
-                         SIMD.Bool8x16.extractLane(a, 6) ^ SIMD.Bool8x16.extractLane(b, 6),
-                         SIMD.Bool8x16.extractLane(a, 7) ^ SIMD.Bool8x16.extractLane(b, 7),
-                         SIMD.Bool8x16.extractLane(a, 8) ^ SIMD.Bool8x16.extractLane(b, 8),
-                         SIMD.Bool8x16.extractLane(a, 9) ^ SIMD.Bool8x16.extractLane(b, 9),
-                         SIMD.Bool8x16.extractLane(a, 10) ^ SIMD.Bool8x16.extractLane(b, 10),
-                         SIMD.Bool8x16.extractLane(a, 11) ^ SIMD.Bool8x16.extractLane(b, 11),
-                         SIMD.Bool8x16.extractLane(a, 12) ^ SIMD.Bool8x16.extractLane(b, 12),
-                         SIMD.Bool8x16.extractLane(a, 13) ^ SIMD.Bool8x16.extractLane(b, 13),
-                         SIMD.Bool8x16.extractLane(a, 14) ^ SIMD.Bool8x16.extractLane(b, 14),
-                         SIMD.Bool8x16.extractLane(a, 15) ^ SIMD.Bool8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Bool8x16.not === "undefined") {
-  /**
-    * @param {Bool8x16} a An instance of Bool8x16.
-    * @return {Bool8x16} New instance of Bool8x16 with values of !a
-    */
-  SIMD.Bool8x16.not = function(a) {
-    a = SIMD.Bool8x16.check(a);
-    return SIMD.Bool8x16(!SIMD.Bool8x16.extractLane(a, 0),
-                         !SIMD.Bool8x16.extractLane(a, 1),
-                         !SIMD.Bool8x16.extractLane(a, 2),
-                         !SIMD.Bool8x16.extractLane(a, 3),
-                         !SIMD.Bool8x16.extractLane(a, 4),
-                         !SIMD.Bool8x16.extractLane(a, 5),
-                         !SIMD.Bool8x16.extractLane(a, 6),
-                         !SIMD.Bool8x16.extractLane(a, 7),
-                         !SIMD.Bool8x16.extractLane(a, 8),
-                         !SIMD.Bool8x16.extractLane(a, 9),
-                         !SIMD.Bool8x16.extractLane(a, 10),
-                         !SIMD.Bool8x16.extractLane(a, 11),
-                         !SIMD.Bool8x16.extractLane(a, 12),
-                         !SIMD.Bool8x16.extractLane(a, 13),
-                         !SIMD.Bool8x16.extractLane(a, 14),
-                         !SIMD.Bool8x16.extractLane(a, 15));
-  }
-}
-
-if (typeof SIMD.Bool8x16.equal === "undefined") {
-  /**
-    * @param {Bool8x16} a An instance of Bool8x16.
-    * @param {Bool8x16} b An instance of Bool8x16.
-    * @return {Bool8x16} true or false in each lane depending on
-    * the result of a == b.
-    */
-  SIMD.Bool8x16.equal = function(a, b) {
-    a = SIMD.Bool8x16.check(a);
-    b = SIMD.Bool8x16.check(b);
-    return SIMD.Bool8x16(SIMD.Bool8x16.extractLane(a, 0) == SIMD.Bool8x16.extractLane(b, 0),
-                         SIMD.Bool8x16.extractLane(a, 1) == SIMD.Bool8x16.extractLane(b, 1),
-                         SIMD.Bool8x16.extractLane(a, 2) == SIMD.Bool8x16.extractLane(b, 2),
-                         SIMD.Bool8x16.extractLane(a, 3) == SIMD.Bool8x16.extractLane(b, 3),
-                         SIMD.Bool8x16.extractLane(a, 4) == SIMD.Bool8x16.extractLane(b, 4),
-                         SIMD.Bool8x16.extractLane(a, 5) == SIMD.Bool8x16.extractLane(b, 5),
-                         SIMD.Bool8x16.extractLane(a, 6) == SIMD.Bool8x16.extractLane(b, 6),
-                         SIMD.Bool8x16.extractLane(a, 7) == SIMD.Bool8x16.extractLane(b, 7),
-                         SIMD.Bool8x16.extractLane(a, 8) == SIMD.Bool8x16.extractLane(b, 8),
-                         SIMD.Bool8x16.extractLane(a, 9) == SIMD.Bool8x16.extractLane(b, 9),
-                         SIMD.Bool8x16.extractLane(a, 10) == SIMD.Bool8x16.extractLane(b, 10),
-                         SIMD.Bool8x16.extractLane(a, 11) == SIMD.Bool8x16.extractLane(b, 11),
-                         SIMD.Bool8x16.extractLane(a, 12) == SIMD.Bool8x16.extractLane(b, 12),
-                         SIMD.Bool8x16.extractLane(a, 13) == SIMD.Bool8x16.extractLane(b, 13),
-                         SIMD.Bool8x16.extractLane(a, 14) == SIMD.Bool8x16.extractLane(b, 14),
-                         SIMD.Bool8x16.extractLane(a, 15) == SIMD.Bool8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Bool8x16.notEqual === "undefined") {
-  /**
-    * @param {Bool8x16} a An instance of Bool8x16.
-    * @param {Bool8x16} b An instance of Bool8x16.
-    * @return {Bool8x16} true or false in each lane depending on
-    * the result of a != b.
-    */
-  SIMD.Bool8x16.notEqual = function(a, b) {
-    a = SIMD.Bool8x16.check(a);
-    b = SIMD.Bool8x16.check(b);
-    return SIMD.Bool8x16(SIMD.Bool8x16.extractLane(a, 0) != SIMD.Bool8x16.extractLane(b, 0),
-                         SIMD.Bool8x16.extractLane(a, 1) != SIMD.Bool8x16.extractLane(b, 1),
-                         SIMD.Bool8x16.extractLane(a, 2) != SIMD.Bool8x16.extractLane(b, 2),
-                         SIMD.Bool8x16.extractLane(a, 3) != SIMD.Bool8x16.extractLane(b, 3),
-                         SIMD.Bool8x16.extractLane(a, 4) != SIMD.Bool8x16.extractLane(b, 4),
-                         SIMD.Bool8x16.extractLane(a, 5) != SIMD.Bool8x16.extractLane(b, 5),
-                         SIMD.Bool8x16.extractLane(a, 6) != SIMD.Bool8x16.extractLane(b, 6),
-                         SIMD.Bool8x16.extractLane(a, 7) != SIMD.Bool8x16.extractLane(b, 7),
-                         SIMD.Bool8x16.extractLane(a, 8) != SIMD.Bool8x16.extractLane(b, 8),
-                         SIMD.Bool8x16.extractLane(a, 9) != SIMD.Bool8x16.extractLane(b, 9),
-                         SIMD.Bool8x16.extractLane(a, 10) != SIMD.Bool8x16.extractLane(b, 10),
-                         SIMD.Bool8x16.extractLane(a, 11) != SIMD.Bool8x16.extractLane(b, 11),
-                         SIMD.Bool8x16.extractLane(a, 12) != SIMD.Bool8x16.extractLane(b, 12),
-                         SIMD.Bool8x16.extractLane(a, 13) != SIMD.Bool8x16.extractLane(b, 13),
-                         SIMD.Bool8x16.extractLane(a, 14) != SIMD.Bool8x16.extractLane(b, 14),
-                         SIMD.Bool8x16.extractLane(a, 15) != SIMD.Bool8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Bool8x16.select === "undefined") {
-  /**
-    * @param {Bool8x16} mask Selector mask. An instance of Bool8x16
-    * @param {Bool8x16} trueValue Pick lane from here if corresponding
-    * selector lane is 1
-    * @param {Bool8x16} falseValue Pick lane from here if corresponding
-    * selector lane is 0
-    * @return {Bool8x16} Mix of lanes from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Bool8x16.select = function(mask, trueValue, falseValue) {
-    mask = SIMD.Bool8x16.check(mask);
-    trueValue = SIMD.Bool8x16.check(trueValue);
-    falseValue = SIMD.Bool8x16.check(falseValue);
-    var tr = SIMD.Bool8x16.and(mask, trueValue);
-    var fr = SIMD.Bool8x16.and(SIMD.Bool8x16.not(mask), falseValue);
-    return SIMD.Bool8x16.or(tr, fr);
-  }
-}
-
-if (typeof SIMD.Float32x4 === "undefined") {
-  /**
-    * Construct a new instance of Float32x4 number.
-    * @param {double} value used for x lane.
-    * @param {double} value used for y lane.
-    * @param {double} value used for z lane.
-    * @param {double} value used for w lane.
-    * @constructor
-    */
-  SIMD.Float32x4 = function(x, y, z, w) {
-    if (!(this instanceof SIMD.Float32x4)) {
-      return new SIMD.Float32x4(x, y, z, w);
-    }
-
-    this.x_ = truncatef32(x);
-    this.y_ = truncatef32(y);
-    this.z_ = truncatef32(z);
-    this.w_ = truncatef32(w);
-  }
-}
-
-if (typeof SIMD.Float32x4.extractLane === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @return {double} The value in lane i of t.
-    */
-  SIMD.Float32x4.extractLane = function(t, i) {
-    t = SIMD.Float32x4.check(t);
-    check4(i);
-    switch(i) {
-      case 0: return t.x_;
-      case 1: return t.y_;
-      case 2: return t.z_;
-      case 3: return t.w_;
-    }
-  }
-}
-
-if (typeof SIMD.Float32x4.replaceLane === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @param {double} value used for lane i.
-    * @return {Float32x4} New instance of Float32x4 with the values in t and
-    * lane i replaced with {v}.
-    */
-  SIMD.Float32x4.replaceLane = function(t, i, v) {
-    t = SIMD.Float32x4.check(t);
-    check4(i);
-    saveFloat32x4(t);
-    _f32x4[i] = v;
-    return restoreFloat32x4();
-  }
-}
-
-if (typeof SIMD.Float32x4.check === "undefined") {
-  /**
-    * Check whether the argument is a Float32x4.
-    * @param {Float32x4} v An instance of Float32x4.
-    * @return {Float32x4} The Float32x4 instance.
-    */
-  SIMD.Float32x4.check = function(v) {
-    if (!(v instanceof SIMD.Float32x4)) {
-      throw new TypeError("argument is not a Float32x4.");
-    }
-    return v;
-  }
-}
-
-if (typeof SIMD.Float32x4.splat === "undefined") {
-  /**
-    * Construct a new instance of Float32x4 with the same value
-    * in all lanes.
-    * @param {double} value used for all lanes.
-    * @constructor
-    */
-  SIMD.Float32x4.splat = function(s) {
-    return SIMD.Float32x4(s, s, s, s);
-  }
-}
-
-if (typeof SIMD.Float32x4.fromFloat64x2 === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @return {Float32x4} A Float32x4 with .x and .y from t
-    */
-  SIMD.Float32x4.fromFloat64x2 = function(t) {
-    t = SIMD.Float64x2.check(t);
-    return SIMD.Float32x4(SIMD.Float64x2.extractLane(t, 0),
-                          SIMD.Float64x2.extractLane(t, 1), 0, 0);
-  }
-}
-
-if (typeof SIMD.Float32x4.fromInt32x4 === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @return {Float32x4} An integer to float conversion copy of t.
-    */
-  SIMD.Float32x4.fromInt32x4 = function(t) {
-    t = SIMD.Int32x4.check(t);
-    return SIMD.Float32x4(SIMD.Int32x4.extractLane(t, 0),
-                          SIMD.Int32x4.extractLane(t, 1),
-                          SIMD.Int32x4.extractLane(t, 2),
-                          SIMD.Int32x4.extractLane(t, 3));
-  }
-}
-
-if (typeof SIMD.Float32x4.fromFloat64x2Bits === "undefined") {
-  /**
-   * @param {Float64x2} t An instance of Float64x2.
-   * @return {Float32x4} a bit-wise copy of t as a Float32x4.
-   */
-  SIMD.Float32x4.fromFloat64x2Bits = function(t) {
-    saveFloat64x2(t);
-    return restoreFloat32x4();
-  }
-}
-
-if (typeof SIMD.Float32x4.fromInt32x4Bits === "undefined") {
-  /**
-   * @param {Int32x4} t An instance of Int32x4.
-   * @return {Float32x4} a bit-wise copy of t as a Float32x4.
-   */
-  SIMD.Float32x4.fromInt32x4Bits = function(t) {
-    saveInt32x4(t);
-    return restoreFloat32x4();
-  }
-}
-
-if (typeof SIMD.Float32x4.fromInt16x8Bits === "undefined") {
-  /**
-   * @param {Int16x8} t An instance of Int16x8.
-   * @return {Float32x4} a bit-wise copy of t as a Float32x4.
-   */
-  SIMD.Float32x4.fromInt16x8Bits = function(t) {
-    saveInt16x8(t);
-    return restoreFloat32x4();
-  }
-}
-
-if (typeof SIMD.Float32x4.fromInt8x16Bits === "undefined") {
-  /**
-   * @param {Int8x16} t An instance of Int8x16.
-   * @return {Float32x4} a bit-wise copy of t as a Float32x4.
-   */
-  SIMD.Float32x4.fromInt8x16Bits = function(t) {
-    saveInt8x16(t);
-    return restoreFloat32x4();
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Float32x4.prototype, 'toString')) {
-  /**
-   * @return {String} a string representing the Float32x4.
-   */
-  SIMD.Float32x4.prototype.toString = function() {
-    return "Float32x4(" +
-      this.x_ + ", " +
-      this.y_ + ", " +
-      this.z_ + ", " +
-      this.w_ + ")"
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Float32x4.prototype, 'toLocaleString')) {
-  /**
-   * @return {String} a locale-sensitive string representing the Float32x4.
-   */
-  SIMD.Float32x4.prototype.toLocaleString = function() {
-    return "Float32x4(" +
-      this.x_.toLocaleString() + ", " +
-      this.y_.toLocaleString() + ", " +
-      this.z_.toLocaleString() + ", " +
-      this.w_.toLocaleString() + ")"
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Float32x4.prototype, 'valueOf')) {
-  SIMD.Float32x4.prototype.valueOf = function() {
-    throw new TypeError("Float32x4 cannot be converted to a number");
-  }
-}
-
-if (typeof SIMD.Float64x2 === "undefined") {
-  /**
-    * Construct a new instance of Float64x2 number.
-    * @param {double} value used for x lane.
-    * @param {double} value used for y lane.
-    * @constructor
-    */
-  SIMD.Float64x2 = function(x, y) {
-    if (!(this instanceof SIMD.Float64x2)) {
-      return new SIMD.Float64x2(x, y);
-    }
-
-    // Use unary + to force coercion to Number.
-    this.x_ = +x;
-    this.y_ = +y;
-  }
-}
-
-if (typeof SIMD.Float64x2.extractLane === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @return {double} The value in lane i of t.
-    */
-  SIMD.Float64x2.extractLane = function(t, i) {
-    t = SIMD.Float64x2.check(t);
-    check2(i);
-    switch(i) {
-      case 0: return t.x_;
-      case 1: return t.y_;
-    }
-  }
-}
-
-if (typeof SIMD.Float64x2.replaceLane === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @param {double} value used for lane i.
-    * @return {Float64x2} New instance of Float64x2 with the values in t and
-    * lane i replaced with {v}.
-    */
-  SIMD.Float64x2.replaceLane = function(t, i, v) {
-    t = SIMD.Float64x2.check(t);
-    check2(i);
-    saveFloat64x2(t);
-    _f64x2[i] = v;
-    return restoreFloat64x2();
-  }
-}
-
-if (typeof SIMD.Float64x2.check === "undefined") {
-  /**
-    * Check whether the argument is a Float64x2.
-    * @param {Float64x2} v An instance of Float64x2.
-    * @return {Float64x2} The Float64x2 instance.
-    */
-  SIMD.Float64x2.check = function(v) {
-    if (!(v instanceof SIMD.Float64x2)) {
-      throw new TypeError("argument is not a Float64x2.");
-    }
-    return v;
-  }
-}
-
-if (typeof SIMD.Float64x2.splat === "undefined") {
-  /**
-    * Construct a new instance of Float64x2 with the same value
-    * in all lanes.
-    * @param {double} value used for all lanes.
-    * @constructor
-    */
-  SIMD.Float64x2.splat = function(s) {
-    return SIMD.Float64x2(s, s);
-  }
-}
-
-if (typeof SIMD.Float64x2.fromFloat32x4 === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @return {Float64x2} A Float64x2 with .x and .y from t
-    */
-  SIMD.Float64x2.fromFloat32x4 = function(t) {
-    t = SIMD.Float32x4.check(t);
-    return SIMD.Float64x2(SIMD.Float32x4.extractLane(t, 0),
-                          SIMD.Float32x4.extractLane(t, 1));
-  }
-}
-
-if (typeof SIMD.Float64x2.fromInt32x4 === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @return {Float64x2} A Float64x2 with .x and .y from t
-    */
-  SIMD.Float64x2.fromInt32x4 = function(t) {
-    t = SIMD.Int32x4.check(t);
-    return SIMD.Float64x2(SIMD.Int32x4.extractLane(t, 0),
-                          SIMD.Int32x4.extractLane(t, 1));
-  }
-}
-
-if (typeof SIMD.Float64x2.fromFloat32x4Bits === "undefined") {
-  /**
-   * @param {Float32x4} t An instance of Float32x4.
-   * @return {Float64x2} a bit-wise copy of t as a Float64x2.
-   */
-  SIMD.Float64x2.fromFloat32x4Bits = function(t) {
-    saveFloat32x4(t);
-    return restoreFloat64x2();
-  }
-}
-
-if (typeof SIMD.Float64x2.fromInt32x4Bits === "undefined") {
-  /**
-   * @param {Int32x4} t An instance of Int32x4.
-   * @return {Float64x2} a bit-wise copy of t as a Float64x2.
-   */
-  SIMD.Float64x2.fromInt32x4Bits = function(t) {
-    saveInt32x4(t);
-    return restoreFloat64x2();
-  }
-}
-
-if (typeof SIMD.Float64x2.fromInt16x8Bits === "undefined") {
-  /**
-   * @param {Int16x8} t An instance of Int16x8.
-   * @return {Float64x2} a bit-wise copy of t as a Float64x2.
-   */
-  SIMD.Float64x2.fromInt16x8Bits = function(t) {
-    saveInt16x8(t);
-    return restoreFloat64x2();
-  }
-}
-
-if (typeof SIMD.Float64x2.fromInt8x16Bits === "undefined") {
-  /**
-   * @param {Int8x16} t An instance of Int8x16.
-   * @return {Float64x2} a bit-wise copy of t as a Float64x2.
-   */
-  SIMD.Float64x2.fromInt8x16Bits = function(t) {
-    saveInt8x16(t);
-    return restoreFloat64x2();
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Float64x2.prototype, 'toString')) {
-  /**
-   * @return {String} a string representing the Float64x2.
-   */
-  SIMD.Float64x2.prototype.toString = function() {
-    return "Float64x2(" +
-      this.x_ + ", " +
-      this.y_ + ")";
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Float64x2.prototype, 'toLocaleString')) {
-  /**
-   * @return {String} a locale-sensitive string representing the Float64x2.
-   */
-  SIMD.Float64x2.prototype.toLocaleString = function() {
-    return "Float64x2(" +
-      this.x_.toLocaleString() + ", " +
-      this.y_.toLocaleString() + ")";
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Float64x2.prototype, 'valueOf')) {
-  SIMD.Float64x2.prototype.valueOf = function() {
-    throw new TypeError("Float64x2 cannot be converted to a number");
-  }
-}
-
-
-if (typeof SIMD.Int32x4 === "undefined") {
-  /**
-    * Construct a new instance of Int32x4 number.
-    * @param {integer} 32-bit value used for x lane.
-    * @param {integer} 32-bit value used for y lane.
-    * @param {integer} 32-bit value used for z lane.
-    * @param {integer} 32-bit value used for w lane.
-    * @constructor
-    */
-  SIMD.Int32x4 = function(x, y, z, w) {
-    if (!(this instanceof SIMD.Int32x4)) {
-      return new SIMD.Int32x4(x, y, z, w);
-    }
-
-    this.x_ = x|0;
-    this.y_ = y|0;
-    this.z_ = z|0;
-    this.w_ = w|0;
-  }
-}
-
-if (typeof SIMD.Int32x4.extractLane === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @return {integer} The value in lane i of t.
-    */
-  SIMD.Int32x4.extractLane = function(t, i) {
-    t = SIMD.Int32x4.check(t);
-    check4(i);
-    switch(i) {
-      case 0: return t.x_;
-      case 1: return t.y_;
-      case 2: return t.z_;
-      case 3: return t.w_;
-    }
-  }
-}
-
-if (typeof SIMD.Int32x4.replaceLane === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @param {integer} value used for lane i.
-    * @return {Int32x4} New instance of Int32x4 with the values in t and
-    * lane i replaced with {v}.
-    */
-  SIMD.Int32x4.replaceLane = function(t, i, v) {
-    t = SIMD.Int32x4.check(t);
-    check4(i);
-    saveInt32x4(t);
-    _i32x4[i] = v;
-    return restoreInt32x4();
-  }
-}
-
-if (typeof SIMD.Int32x4.check === "undefined") {
-  /**
-    * Check whether the argument is a Int32x4.
-    * @param {Int32x4} v An instance of Int32x4.
-    * @return {Int32x4} The Int32x4 instance.
-    */
-  SIMD.Int32x4.check = function(v) {
-    if (!(v instanceof SIMD.Int32x4)) {
-      throw new TypeError("argument is not a Int32x4.");
-    }
-    return v;
-  }
-}
-
-if (typeof SIMD.Int32x4.splat === "undefined") {
-  /**
-    * Construct a new instance of Int32x4 with the same value
-    * in all lanes.
-    * @param {integer} value used for all lanes.
-    * @constructor
-    */
-  SIMD.Int32x4.splat = function(s) {
-    return SIMD.Int32x4(s, s, s, s);
-  }
-}
-
-if (typeof SIMD.Int32x4.fromFloat32x4 === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @return {Int32x4} with a integer to float conversion of t.
-    */
-  SIMD.Int32x4.fromFloat32x4 = function(t) {
-    t = SIMD.Float32x4.check(t);
-    return SIMD.Int32x4(int32FromFloat(SIMD.Float32x4.extractLane(t, 0)),
-                        int32FromFloat(SIMD.Float32x4.extractLane(t, 1)),
-                        int32FromFloat(SIMD.Float32x4.extractLane(t, 2)),
-                        int32FromFloat(SIMD.Float32x4.extractLane(t, 3)));
-  }
-}
-
-if (typeof SIMD.Int32x4.fromFloat64x2 === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @return {Int32x4}  An Int32x4 with .x and .y from t
-    */
-  SIMD.Int32x4.fromFloat64x2 = function(t) {
-    t = SIMD.Float64x2.check(t);
-    return SIMD.Int32x4(int32FromFloat(SIMD.Float64x2.extractLane(t, 0)),
-                        int32FromFloat(SIMD.Float64x2.extractLane(t, 1)),
-                        0,
-                        0);
-  }
-}
-
-if (typeof SIMD.Int32x4.fromFloat32x4Bits === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @return {Int32x4} a bit-wise copy of t as a Int32x4.
-    */
-  SIMD.Int32x4.fromFloat32x4Bits = function(t) {
-    saveFloat32x4(t);
-    return restoreInt32x4();
-  }
-}
-
-if (typeof SIMD.Int32x4.fromFloat64x2Bits === "undefined") {
-  /**
-   * @param {Float64x2} t An instance of Float64x2.
-   * @return {Int32x4} a bit-wise copy of t as an Int32x4.
-   */
-  SIMD.Int32x4.fromFloat64x2Bits = function(t) {
-    saveFloat64x2(t);
-    return restoreInt32x4();
-  }
-}
-
-if (typeof SIMD.Int32x4.fromInt16x8Bits === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @return {Int32x4} a bit-wise copy of t as a Int32x4.
-    */
-  SIMD.Int32x4.fromInt16x8Bits = function(t) {
-    saveInt16x8(t);
-    return restoreInt32x4();
-  }
-}
-
-if (typeof SIMD.Int32x4.fromInt8x16Bits === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @return {Int32x4} a bit-wise copy of t as a Int32x4.
-    */
-  SIMD.Int32x4.fromInt8x16Bits = function(t) {
-    saveInt8x16(t);
-    return restoreInt32x4();
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Int32x4.prototype, 'toString')) {
-  /**
-   * @return {String} a string representing the Int32x4.
-   */
-  SIMD.Int32x4.prototype.toString = function() {
-    return "Int32x4(" +
-      this.x_ + ", " +
-      this.y_ + ", " +
-      this.z_ + ", " +
-      this.w_ + ")";
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Int32x4.prototype, 'toLocaleString')) {
-  /**
-   * @return {String} a locale-sensitive string representing the Int32x4.
-   */
-  SIMD.Int32x4.prototype.toLocaleString = function() {
-    return "Int32x4(" +
-      this.x_.toLocaleString() + ", " +
-      this.y_.toLocaleString() + ", " +
-      this.z_.toLocaleString() + ", " +
-      this.w_.toLocaleString() + ")";
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Int32x4.prototype, 'valueOf')) {
-  SIMD.Int32x4.prototype.valueOf = function() {
-    throw new TypeError("Int32x4 cannot be converted to a number");
-  }
-}
-
-if (typeof SIMD.Int16x8 === "undefined") {
-  /**
-    * Construct a new instance of Int16x8 number.
-    * @param {integer} 16-bit value used for s0 lane.
-    * @param {integer} 16-bit value used for s1 lane.
-    * @param {integer} 16-bit value used for s2 lane.
-    * @param {integer} 16-bit value used for s3 lane.
-    * @param {integer} 16-bit value used for s4 lane.
-    * @param {integer} 16-bit value used for s5 lane.
-    * @param {integer} 16-bit value used for s6 lane.
-    * @param {integer} 16-bit value used for s7 lane.
-    * @constructor
-    */
-  SIMD.Int16x8 = function(s0, s1, s2, s3, s4, s5, s6, s7) {
-    if (!(this instanceof SIMD.Int16x8)) {
-      return new SIMD.Int16x8(s0, s1, s2, s3, s4, s5, s6, s7);
-    }
-
-    this.s0_ = s0 << 16 >> 16;
-    this.s1_ = s1 << 16 >> 16;
-    this.s2_ = s2 << 16 >> 16;
-    this.s3_ = s3 << 16 >> 16;
-    this.s4_ = s4 << 16 >> 16;
-    this.s5_ = s5 << 16 >> 16;
-    this.s6_ = s6 << 16 >> 16;
-    this.s7_ = s7 << 16 >> 16;
-  }
-}
-
-if (typeof SIMD.Int16x8.extractLane === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @return {integer} The value in lane i of t.
-    */
-  SIMD.Int16x8.extractLane = function(t, i) {
-    t = SIMD.Int16x8.check(t);
-    check8(i);
-    switch(i) {
-      case 0: return t.s0_;
-      case 1: return t.s1_;
-      case 2: return t.s2_;
-      case 3: return t.s3_;
-      case 4: return t.s4_;
-      case 5: return t.s5_;
-      case 6: return t.s6_;
-      case 7: return t.s7_;
-    }
-  }
-}
-
-if (typeof SIMD.Int16x8.replaceLane === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @param {integer} value used for lane i.
-    * @return {Int16x8} New instance of Int16x8 with the values in t and
-    * lane i replaced with {v}.
-    */
-  SIMD.Int16x8.replaceLane = function(t, i, v) {
-    t = SIMD.Int16x8.check(t);
-    check8(i);
-    saveInt16x8(t);
-    _i16x8[i] = v;
-    return restoreInt16x8();
-  }
-}
-
-if (typeof SIMD.Int16x8.check === "undefined") {
-  /**
-    * Check whether the argument is a Int16x8.
-    * @param {Int16x8} v An instance of Int16x8.
-    * @return {Int16x8} The Int16x8 instance.
-    */
-  SIMD.Int16x8.check = function(v) {
-    if (!(v instanceof SIMD.Int16x8)) {
-      throw new TypeError("argument is not a Int16x8.");
-    }
-    return v;
-  }
-}
-
-if (typeof SIMD.Int16x8.splat === "undefined") {
-  /**
-    * Construct a new instance of Int16x8 with the same value
-    * in all lanes.
-    * @param {integer} value used for all lanes.
-    * @constructor
-    */
-  SIMD.Int16x8.splat = function(s) {
-    return SIMD.Int16x8(s, s, s, s, s, s, s, s);
-  }
-}
-
-if (typeof SIMD.Int16x8.fromFloat32x4Bits === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @return {Int16x8} a bit-wise copy of t as a Int16x8.
-    */
-  SIMD.Int16x8.fromFloat32x4Bits = function(t) {
-    saveFloat32x4(t);
-    return restoreInt16x8();
-  }
-}
-
-if (typeof SIMD.Int16x8.fromFloat64x2Bits === "undefined") {
-  /**
-   * @param {Float64x2} t An instance of Float64x2.
-   * @return {Int16x8} a bit-wise copy of t as an Int16x8.
-   */
-  SIMD.Int16x8.fromFloat64x2Bits = function(t) {
-    saveFloat64x2(t);
-    return restoreInt16x8();
-  }
-}
-
-if (typeof SIMD.Int16x8.fromInt32x4Bits === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @return {Int16x8} a bit-wise copy of t as a Int16x8.
-    */
-  SIMD.Int16x8.fromInt32x4Bits = function(t) {
-    saveInt32x4(t);
-    return restoreInt16x8();
-  }
-}
-
-if (typeof SIMD.Int16x8.fromInt8x16Bits === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @return {Int16x8} a bit-wise copy of t as a Int16x8.
-    */
-  SIMD.Int16x8.fromInt8x16Bits = function(t) {
-    saveInt8x16(t);
-    return restoreInt16x8();
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Int16x8.prototype, 'toString')) {
-  /**
-   * @return {String} a string representing the Int16x8.
-   */
-  SIMD.Int16x8.prototype.toString = function() {
-    return "Int16x8(" +
-      this.s0_ + ", " +
-      this.s1_ + ", " +
-      this.s2_ + ", " +
-      this.s3_ + ", " +
-      this.s4_ + ", " +
-      this.s5_ + ", " +
-      this.s6_ + ", " +
-      this.s7_ + ")";
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Int16x8.prototype, 'toLocaleString')) {
-  /**
-   * @return {String} a locale-sensitive string representing the Int16x8.
-   */
-  SIMD.Int16x8.prototype.toLocaleString = function() {
-    return "Int16x8(" +
-      this.s0_.toLocaleString() + ", " +
-      this.s1_.toLocaleString() + ", " +
-      this.s2_.toLocaleString() + ", " +
-      this.s3_.toLocaleString() + ", " +
-      this.s4_.toLocaleString() + ", " +
-      this.s5_.toLocaleString() + ", " +
-      this.s6_.toLocaleString() + ", " +
-      this.s7_.toLocaleString() + ")";
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Int16x8.prototype, 'valueOf')) {
-  SIMD.Int16x8.prototype.valueOf = function() {
-    throw new TypeError("Int16x8 cannot be converted to a number");
-  }
-}
-
-if (typeof SIMD.Int8x16 === "undefined") {
-  /**
-    * Construct a new instance of Int8x16 number.
-    * @param {integer} 8-bit value used for s0 lane.
-    * @param {integer} 8-bit value used for s1 lane.
-    * @param {integer} 8-bit value used for s2 lane.
-    * @param {integer} 8-bit value used for s3 lane.
-    * @param {integer} 8-bit value used for s4 lane.
-    * @param {integer} 8-bit value used for s5 lane.
-    * @param {integer} 8-bit value used for s6 lane.
-    * @param {integer} 8-bit value used for s7 lane.
-    * @param {integer} 8-bit value used for s8 lane.
-    * @param {integer} 8-bit value used for s9 lane.
-    * @param {integer} 8-bit value used for s10 lane.
-    * @param {integer} 8-bit value used for s11 lane.
-    * @param {integer} 8-bit value used for s12 lane.
-    * @param {integer} 8-bit value used for s13 lane.
-    * @param {integer} 8-bit value used for s14 lane.
-    * @param {integer} 8-bit value used for s15 lane.
-    * @constructor
-    */
-  SIMD.Int8x16 = function(s0, s1, s2, s3, s4, s5, s6, s7,
-                          s8, s9, s10, s11, s12, s13, s14, s15) {
-    if (!(this instanceof SIMD.Int8x16)) {
-      return new SIMD.Int8x16(s0, s1, s2, s3, s4, s5, s6, s7,
-                              s8, s9, s10, s11, s12, s13, s14, s15);
-    }
-
-    this.s0_ = s0 << 24 >> 24;
-    this.s1_ = s1 << 24 >> 24;
-    this.s2_ = s2 << 24 >> 24;
-    this.s3_ = s3 << 24 >> 24;
-    this.s4_ = s4 << 24 >> 24;
-    this.s5_ = s5 << 24 >> 24;
-    this.s6_ = s6 << 24 >> 24;
-    this.s7_ = s7 << 24 >> 24;
-    this.s8_ = s8 << 24 >> 24;
-    this.s9_ = s9 << 24 >> 24;
-    this.s10_ = s10 << 24 >> 24;
-    this.s11_ = s11 << 24 >> 24;
-    this.s12_ = s12 << 24 >> 24;
-    this.s13_ = s13 << 24 >> 24;
-    this.s14_ = s14 << 24 >> 24;
-    this.s15_ = s15 << 24 >> 24;
-  }
-}
-
-if (typeof SIMD.Int8x16.extractLane === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @return {integer} The value in lane i of t.
-    */
-  SIMD.Int8x16.extractLane = function(t, i) {
-    t = SIMD.Int8x16.check(t);
-    check16(i);
-    switch(i) {
-      case 0: return t.s0_;
-      case 1: return t.s1_;
-      case 2: return t.s2_;
-      case 3: return t.s3_;
-      case 4: return t.s4_;
-      case 5: return t.s5_;
-      case 6: return t.s6_;
-      case 7: return t.s7_;
-      case 8: return t.s8_;
-      case 9: return t.s9_;
-      case 10: return t.s10_;
-      case 11: return t.s11_;
-      case 12: return t.s12_;
-      case 13: return t.s13_;
-      case 14: return t.s14_;
-      case 15: return t.s15_;
-    }
-  }
-}
-
-if (typeof SIMD.Int8x16.replaceLane === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @param {integer} i Index in concatenation of t for lane i
-    * @param {integer} value used for lane i.
-    * @return {Int8x16} New instance of Int8x16 with the values in t and
-    * lane i replaced with {v}.
-    */
-  SIMD.Int8x16.replaceLane = function(t, i, v) {
-    t = SIMD.Int8x16.check(t);
-    check16(i);
-    saveInt8x16(t);
-    _i8x16[i] = v;
-    return restoreInt8x16();
-  }
-}
-
-if (typeof SIMD.Int8x16.check === "undefined") {
-  /**
-    * Check whether the argument is a Int8x16.
-    * @param {Int8x16} v An instance of Int8x16.
-    * @return {Int8x16} The Int8x16 instance.
-    */
-  SIMD.Int8x16.check = function(v) {
-    if (!(v instanceof SIMD.Int8x16)) {
-      throw new TypeError("argument is not a Int8x16.");
-    }
-    return v;
-  }
-}
-
-if (typeof SIMD.Int8x16.splat === "undefined") {
-  /**
-    * Construct a new instance of Int8x16 with the same value
-    * in all lanes.
-    * @param {integer} value used for all lanes.
-    * @constructor
-    */
-  SIMD.Int8x16.splat = function(s) {
-    return SIMD.Int8x16(s, s, s, s, s, s, s, s,
-                        s, s, s, s, s, s, s, s);
-  }
-}
-
-if (typeof SIMD.Int8x16.fromFloat32x4Bits === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @return {Int8x16} a bit-wise copy of t as a Int8x16.
-    */
-  SIMD.Int8x16.fromFloat32x4Bits = function(t) {
-    saveFloat32x4(t);
-    return restoreInt8x16();
-  }
-}
-
-if (typeof SIMD.Int8x16.fromFloat64x2Bits === "undefined") {
-  /**
-   * @param {Float64x2} t An instance of Float64x2.
-   * @return {Int8x16} a bit-wise copy of t as an Int8x16.
-   */
-  SIMD.Int8x16.fromFloat64x2Bits = function(t) {
-    saveFloat64x2(t);
-    return restoreInt8x16();
-  }
-}
-
-if (typeof SIMD.Int8x16.fromInt32x4Bits === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @return {Int8x16} a bit-wise copy of t as a Int8x16.
-    */
-  SIMD.Int8x16.fromInt32x4Bits = function(t) {
-    saveInt32x4(t);
-    return restoreInt8x16();
-  }
-}
-
-if (typeof SIMD.Int8x16.fromInt16x8Bits === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @return {Int8x16} a bit-wise copy of t as a Int8x16.
-    */
-  SIMD.Int8x16.fromInt16x8Bits = function(t) {
-    saveInt16x8(t);
-    return restoreInt8x16();
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Int8x16.prototype, 'toString')) {
-  /**
-   * @return {String} a string representing the Int8x16.
-   */
-  SIMD.Int8x16.prototype.toString = function() {
-    return "Int8x16(" +
-      this.s0_ + ", " +
-      this.s1_ + ", " +
-      this.s2_ + ", " +
-      this.s3_ + ", " +
-      this.s4_ + ", " +
-      this.s5_ + ", " +
-      this.s6_ + ", " +
-      this.s7_ + ", " +
-      this.s8_ + ", " +
-      this.s9_ + ", " +
-      this.s10_ + ", " +
-      this.s11_ + ", " +
-      this.s12_ + ", " +
-      this.s13_ + ", " +
-      this.s14_ + ", " +
-      this.s15_ + ")";
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Int8x16.prototype, 'toLocaleString')) {
-  /**
-   * @return {String} a locale-sensitive string representing the Int8x16.
-   */
-  SIMD.Int8x16.prototype.toLocaleString = function() {
-    return "Int8x16(" +
-      this.s0_.toLocaleString() + ", " +
-      this.s1_.toLocaleString() + ", " +
-      this.s2_.toLocaleString() + ", " +
-      this.s3_.toLocaleString() + ", " +
-      this.s4_.toLocaleString() + ", " +
-      this.s5_.toLocaleString() + ", " +
-      this.s6_.toLocaleString() + ", " +
-      this.s7_.toLocaleString() + ", " +
-      this.s8_.toLocaleString() + ", " +
-      this.s9_.toLocaleString() + ", " +
-      this.s10_.toLocaleString() + ", " +
-      this.s11_.toLocaleString() + ", " +
-      this.s12_.toLocaleString() + ", " +
-      this.s13_.toLocaleString() + ", " +
-      this.s14_.toLocaleString() + ", " +
-      this.s15_.toLocaleString() + ")";
-  }
-}
-
-if (!Object.hasOwnProperty(SIMD.Int8x16.prototype, 'valueOf')) {
-  SIMD.Int8x16.prototype.valueOf = function() {
-    throw new TypeError("Int8x16 cannot be converted to a number");
-  }
-}
-
-if (typeof SIMD.Float32x4.abs === "undefined") {
-  /**
-   * @param {Float32x4} t An instance of Float32x4.
-   * @return {Float32x4} New instance of Float32x4 with absolute values of
-   * t.
-   */
-  SIMD.Float32x4.abs = function(t) {
-    t = SIMD.Float32x4.check(t);
-    return SIMD.Float32x4(Math.abs(SIMD.Float32x4.extractLane(t, 0)),
-                          Math.abs(SIMD.Float32x4.extractLane(t, 1)),
-                          Math.abs(SIMD.Float32x4.extractLane(t, 2)),
-                          Math.abs(SIMD.Float32x4.extractLane(t, 3)));
-  }
-}
-
-if (typeof SIMD.Float32x4.neg === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with negated values of
-    * t.
-    */
-  SIMD.Float32x4.neg = function(t) {
-    t = SIMD.Float32x4.check(t);
-    return SIMD.Float32x4(-SIMD.Float32x4.extractLane(t, 0),
-                          -SIMD.Float32x4.extractLane(t, 1),
-                          -SIMD.Float32x4.extractLane(t, 2),
-                          -SIMD.Float32x4.extractLane(t, 3));
-  }
-}
-
-if (typeof SIMD.Float32x4.add === "undefined") {
-  /**
-    * @param {Float32x4} a An instance of Float32x4.
-    * @param {Float32x4} b An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with a + b.
-    */
-  SIMD.Float32x4.add = function(a, b) {
-    a = SIMD.Float32x4.check(a);
-    b = SIMD.Float32x4.check(b);
-    return SIMD.Float32x4(
-        SIMD.Float32x4.extractLane(a, 0) + SIMD.Float32x4.extractLane(b, 0),
-        SIMD.Float32x4.extractLane(a, 1) + SIMD.Float32x4.extractLane(b, 1),
-        SIMD.Float32x4.extractLane(a, 2) + SIMD.Float32x4.extractLane(b, 2),
-        SIMD.Float32x4.extractLane(a, 3) + SIMD.Float32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Float32x4.sub === "undefined") {
-  /**
-    * @param {Float32x4} a An instance of Float32x4.
-    * @param {Float32x4} b An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with a - b.
-    */
-  SIMD.Float32x4.sub = function(a, b) {
-    a = SIMD.Float32x4.check(a);
-    b = SIMD.Float32x4.check(b);
-    return SIMD.Float32x4(
-        SIMD.Float32x4.extractLane(a, 0) - SIMD.Float32x4.extractLane(b, 0),
-        SIMD.Float32x4.extractLane(a, 1) - SIMD.Float32x4.extractLane(b, 1),
-        SIMD.Float32x4.extractLane(a, 2) - SIMD.Float32x4.extractLane(b, 2),
-        SIMD.Float32x4.extractLane(a, 3) - SIMD.Float32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Float32x4.mul === "undefined") {
-  /**
-    * @param {Float32x4} a An instance of Float32x4.
-    * @param {Float32x4} b An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with a * b.
-    */
-  SIMD.Float32x4.mul = function(a, b) {
-    a = SIMD.Float32x4.check(a);
-    b = SIMD.Float32x4.check(b);
-    return SIMD.Float32x4(
-        SIMD.Float32x4.extractLane(a, 0) * SIMD.Float32x4.extractLane(b, 0),
-        SIMD.Float32x4.extractLane(a, 1) * SIMD.Float32x4.extractLane(b, 1),
-        SIMD.Float32x4.extractLane(a, 2) * SIMD.Float32x4.extractLane(b, 2),
-        SIMD.Float32x4.extractLane(a, 3) * SIMD.Float32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Float32x4.div === "undefined") {
-  /**
-    * @param {Float32x4} a An instance of Float32x4.
-    * @param {Float32x4} b An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with a / b.
-    */
-  SIMD.Float32x4.div = function(a, b) {
-    a = SIMD.Float32x4.check(a);
-    b = SIMD.Float32x4.check(b);
-    return SIMD.Float32x4(
-        SIMD.Float32x4.extractLane(a, 0) / SIMD.Float32x4.extractLane(b, 0),
-        SIMD.Float32x4.extractLane(a, 1) / SIMD.Float32x4.extractLane(b, 1),
-        SIMD.Float32x4.extractLane(a, 2) / SIMD.Float32x4.extractLane(b, 2),
-        SIMD.Float32x4.extractLane(a, 3) / SIMD.Float32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Float32x4.min === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with the minimum value of
-    * t and other.
-    */
-  SIMD.Float32x4.min = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx = Math.min(SIMD.Float32x4.extractLane(t, 0),
-                      SIMD.Float32x4.extractLane(other, 0));
-    var cy = Math.min(SIMD.Float32x4.extractLane(t, 1),
-                      SIMD.Float32x4.extractLane(other, 1));
-    var cz = Math.min(SIMD.Float32x4.extractLane(t, 2),
-                      SIMD.Float32x4.extractLane(other, 2));
-    var cw = Math.min(SIMD.Float32x4.extractLane(t, 3),
-                      SIMD.Float32x4.extractLane(other, 3));
-    return SIMD.Float32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.max === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with the maximum value of
-    * t and other.
-    */
-  SIMD.Float32x4.max = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx = Math.max(SIMD.Float32x4.extractLane(t, 0),
-                      SIMD.Float32x4.extractLane(other, 0));
-    var cy = Math.max(SIMD.Float32x4.extractLane(t, 1),
-                      SIMD.Float32x4.extractLane(other, 1));
-    var cz = Math.max(SIMD.Float32x4.extractLane(t, 2),
-                      SIMD.Float32x4.extractLane(other, 2));
-    var cw = Math.max(SIMD.Float32x4.extractLane(t, 3),
-                      SIMD.Float32x4.extractLane(other, 3));
-    return SIMD.Float32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.minNum === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with the minimum value of
-    * t and other, preferring numbers over NaNs.
-    */
-  SIMD.Float32x4.minNum = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx = minNum(SIMD.Float32x4.extractLane(t, 0),
-                    SIMD.Float32x4.extractLane(other, 0));
-    var cy = minNum(SIMD.Float32x4.extractLane(t, 1),
-                    SIMD.Float32x4.extractLane(other, 1));
-    var cz = minNum(SIMD.Float32x4.extractLane(t, 2),
-                    SIMD.Float32x4.extractLane(other, 2));
-    var cw = minNum(SIMD.Float32x4.extractLane(t, 3),
-                    SIMD.Float32x4.extractLane(other, 3));
-    return SIMD.Float32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.maxNum === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with the maximum value of
-    * t and other, preferring numbers over NaNs.
-    */
-  SIMD.Float32x4.maxNum = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx = maxNum(SIMD.Float32x4.extractLane(t, 0),
-                    SIMD.Float32x4.extractLane(other, 0));
-    var cy = maxNum(SIMD.Float32x4.extractLane(t, 1),
-                    SIMD.Float32x4.extractLane(other, 1));
-    var cz = maxNum(SIMD.Float32x4.extractLane(t, 2),
-                    SIMD.Float32x4.extractLane(other, 2));
-    var cw = maxNum(SIMD.Float32x4.extractLane(t, 3),
-                    SIMD.Float32x4.extractLane(other, 3));
-    return SIMD.Float32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.reciprocalApproximation === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with an approximation of the
-    * reciprocal value of t.
-    */
-  SIMD.Float32x4.reciprocalApproximation = function(t) {
-    t = SIMD.Float32x4.check(t);
-    return SIMD.Float32x4.div(SIMD.Float32x4.splat(1.0), t);
-  }
-}
-
-if (typeof SIMD.Float32x4.reciprocalSqrtApproximation === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with an approximation of the
-    * reciprocal value of the square root of t.
-    */
-  SIMD.Float32x4.reciprocalSqrtApproximation = function(t) {
-    t = SIMD.Float32x4.check(t);
-    return SIMD.Float32x4.reciprocalApproximation(SIMD.Float32x4.sqrt(t));
-  }
-}
-
-if (typeof SIMD.Float32x4.sqrt === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @return {Float32x4} New instance of Float32x4 with square root of
-    * values of t.
-    */
-  SIMD.Float32x4.sqrt = function(t) {
-    t = SIMD.Float32x4.check(t);
-    return SIMD.Float32x4(Math.sqrt(SIMD.Float32x4.extractLane(t, 0)),
-                          Math.sqrt(SIMD.Float32x4.extractLane(t, 1)),
-                          Math.sqrt(SIMD.Float32x4.extractLane(t, 2)),
-                          Math.sqrt(SIMD.Float32x4.extractLane(t, 3)));
-  }
-}
-
-if (typeof SIMD.Float32x4.swizzle === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4 to be swizzled.
-    * @param {integer} x - Index in t for lane x
-    * @param {integer} y - Index in t for lane y
-    * @param {integer} z - Index in t for lane z
-    * @param {integer} w - Index in t for lane w
-    * @return {Float32x4} New instance of Float32x4 with lanes swizzled.
-    */
-  SIMD.Float32x4.swizzle = function(t, x, y, z, w) {
-    t = SIMD.Float32x4.check(t);
-    check4(x);
-    check4(y);
-    check4(z);
-    check4(w);
-    _f32x4[0] = SIMD.Float32x4.extractLane(t, 0);
-    _f32x4[1] = SIMD.Float32x4.extractLane(t, 1);
-    _f32x4[2] = SIMD.Float32x4.extractLane(t, 2);
-    _f32x4[3] = SIMD.Float32x4.extractLane(t, 3);
-    var storage = _f32x4;
-    return SIMD.Float32x4(storage[x], storage[y], storage[z], storage[w]);
-  }
-}
-
-if (typeof SIMD.Float32x4.shuffle === "undefined") {
-
-  _f32x8 = new Float32Array(8);
-
-  /**
-    * @param {Float32x4} t1 An instance of Float32x4 to be shuffled.
-    * @param {Float32x4} t2 An instance of Float32x4 to be shuffled.
-    * @param {integer} x - Index in concatenation of t1 and t2 for lane x
-    * @param {integer} y - Index in concatenation of t1 and t2 for lane y
-    * @param {integer} z - Index in concatenation of t1 and t2 for lane z
-    * @param {integer} w - Index in concatenation of t1 and t2 for lane w
-    * @return {Float32x4} New instance of Float32x4 with lanes shuffled.
-    */
-  SIMD.Float32x4.shuffle = function(t1, t2, x, y, z, w) {
-    t1 = SIMD.Float32x4.check(t1);
-    t2 = SIMD.Float32x4.check(t2);
-    check8(x);
-    check8(y);
-    check8(z);
-    check8(w);
-    var storage = _f32x8;
-    storage[0] = SIMD.Float32x4.extractLane(t1, 0);
-    storage[1] = SIMD.Float32x4.extractLane(t1, 1);
-    storage[2] = SIMD.Float32x4.extractLane(t1, 2);
-    storage[3] = SIMD.Float32x4.extractLane(t1, 3);
-    storage[4] = SIMD.Float32x4.extractLane(t2, 0);
-    storage[5] = SIMD.Float32x4.extractLane(t2, 1);
-    storage[6] = SIMD.Float32x4.extractLane(t2, 2);
-    storage[7] = SIMD.Float32x4.extractLane(t2, 3);
-    return SIMD.Float32x4(storage[x], storage[y], storage[z], storage[w]);
-  }
-}
-
-if (typeof SIMD.Float32x4.lessThan === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t < other.
-    */
-  SIMD.Float32x4.lessThan = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx =
-        SIMD.Float32x4.extractLane(t, 0) < SIMD.Float32x4.extractLane(other, 0);
-    var cy =
-        SIMD.Float32x4.extractLane(t, 1) < SIMD.Float32x4.extractLane(other, 1);
-    var cz =
-        SIMD.Float32x4.extractLane(t, 2) < SIMD.Float32x4.extractLane(other, 2);
-    var cw =
-        SIMD.Float32x4.extractLane(t, 3) < SIMD.Float32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.lessThanOrEqual === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t <= other.
-    */
-  SIMD.Float32x4.lessThanOrEqual = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx = SIMD.Float32x4.extractLane(t, 0) <=
-        SIMD.Float32x4.extractLane(other, 0);
-    var cy = SIMD.Float32x4.extractLane(t, 1) <=
-        SIMD.Float32x4.extractLane(other, 1);
-    var cz = SIMD.Float32x4.extractLane(t, 2) <=
-        SIMD.Float32x4.extractLane(other, 2);
-    var cw = SIMD.Float32x4.extractLane(t, 3) <=
-        SIMD.Float32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.equal === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t == other.
-    */
-  SIMD.Float32x4.equal = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx = SIMD.Float32x4.extractLane(t, 0) ==
-        SIMD.Float32x4.extractLane(other, 0);
-    var cy = SIMD.Float32x4.extractLane(t, 1) ==
-        SIMD.Float32x4.extractLane(other, 1);
-    var cz = SIMD.Float32x4.extractLane(t, 2) ==
-        SIMD.Float32x4.extractLane(other, 2);
-    var cw = SIMD.Float32x4.extractLane(t, 3) ==
-        SIMD.Float32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.notEqual === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t != other.
-    */
-  SIMD.Float32x4.notEqual = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx = SIMD.Float32x4.extractLane(t, 0) !=
-        SIMD.Float32x4.extractLane(other, 0);
-    var cy = SIMD.Float32x4.extractLane(t, 1) !=
-        SIMD.Float32x4.extractLane(other, 1);
-    var cz = SIMD.Float32x4.extractLane(t, 2) !=
-        SIMD.Float32x4.extractLane(other, 2);
-    var cw = SIMD.Float32x4.extractLane(t, 3) !=
-        SIMD.Float32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.greaterThanOrEqual === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t >= other.
-    */
-  SIMD.Float32x4.greaterThanOrEqual = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx = SIMD.Float32x4.extractLane(t, 0) >=
-        SIMD.Float32x4.extractLane(other, 0);
-    var cy = SIMD.Float32x4.extractLane(t, 1) >=
-        SIMD.Float32x4.extractLane(other, 1);
-    var cz = SIMD.Float32x4.extractLane(t, 2) >=
-        SIMD.Float32x4.extractLane(other, 2);
-    var cw = SIMD.Float32x4.extractLane(t, 3) >=
-        SIMD.Float32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.greaterThan === "undefined") {
-  /**
-    * @param {Float32x4} t An instance of Float32x4.
-    * @param {Float32x4} other An instance of Float32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t > other.
-    */
-  SIMD.Float32x4.greaterThan = function(t, other) {
-    t = SIMD.Float32x4.check(t);
-    other = SIMD.Float32x4.check(other);
-    var cx =
-        SIMD.Float32x4.extractLane(t, 0) > SIMD.Float32x4.extractLane(other, 0);
-    var cy =
-        SIMD.Float32x4.extractLane(t, 1) > SIMD.Float32x4.extractLane(other, 1);
-    var cz =
-        SIMD.Float32x4.extractLane(t, 2) > SIMD.Float32x4.extractLane(other, 2);
-    var cw =
-        SIMD.Float32x4.extractLane(t, 3) > SIMD.Float32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Float32x4.select === "undefined") {
-  /**
-    * @param {Bool32x4} t Selector mask. An instance of Bool32x4
-    * @param {Float32x4} trueValue Pick lane from here if corresponding
-    * selector lane is true
-    * @param {Float32x4} falseValue Pick lane from here if corresponding
-    * selector lane is false
-    * @return {Float32x4} Mix of lanes from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Float32x4.select = function(t, trueValue, falseValue) {
-    t = SIMD.Bool32x4.check(t);
-    trueValue = SIMD.Float32x4.check(trueValue);
-    falseValue = SIMD.Float32x4.check(falseValue);
-    return SIMD.Float32x4(
-        SIMD.Bool32x4.extractLane(t, 0) ?
-            SIMD.Float32x4.extractLane(trueValue, 0) :
-                SIMD.Float32x4.extractLane(falseValue, 0),
-        SIMD.Bool32x4.extractLane(t, 1) ?
-            SIMD.Float32x4.extractLane(trueValue, 1) :
-                SIMD.Float32x4.extractLane(falseValue, 1),
-        SIMD.Bool32x4.extractLane(t, 2) ?
-            SIMD.Float32x4.extractLane(trueValue, 2) :
-                SIMD.Float32x4.extractLane(falseValue, 2),
-        SIMD.Bool32x4.extractLane(t, 3) ?
-            SIMD.Float32x4.extractLane(trueValue, 3) :
-                SIMD.Float32x4.extractLane(falseValue, 3));
-  }
-}
-
-if (typeof SIMD.Float32x4.load === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Float32x4} New instance of Float32x4.
-    */
-  SIMD.Float32x4.load = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var f32temp = _f32x4;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? f32temp : _i32x4) :
-                _f64x2;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Float32x4(f32temp[0], f32temp[1], f32temp[2], f32temp[3]);
-  }
-}
-
-if (typeof SIMD.Float32x4.load1 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Float32x4} New instance of Float32x4.
-    */
-  SIMD.Float32x4.load1 = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 4) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var f32temp = _f32x4;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? f32temp : _i32x4) :
-                _f64x2;
-    var n = 4 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Float32x4(f32temp[0], 0.0, 0.0, 0.0);
-  }
-}
-
-if (typeof SIMD.Float32x4.load2 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Float32x4} New instance of Float32x4.
-    */
-  SIMD.Float32x4.load2 = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 8) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var f32temp = _f32x4;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? f32temp : _i32x4) :
-                _f64x2;
-    var n = 8 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Float32x4(f32temp[0], f32temp[1], 0.0, 0.0);
-  }
-}
-
-if (typeof SIMD.Float32x4.load3 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Float32x4} New instance of Float32x4.
-    */
-  SIMD.Float32x4.load3 = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 12) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var f32temp = _f32x4;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? f32temp : _i32x4) :
-                _f64x2;
-    var n = 12 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Float32x4(f32temp[0], f32temp[1], f32temp[2], 0.0);
-  }
-}
-
-if (typeof SIMD.Float32x4.store === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Float32x4} value An instance of Float32x4.
-    * @return {Float32x4} value
-    */
-  SIMD.Float32x4.store = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Float32x4.check(value);
-    _f32x4[0] = SIMD.Float32x4.extractLane(value, 0);
-    _f32x4[1] = SIMD.Float32x4.extractLane(value, 1);
-    _f32x4[2] = SIMD.Float32x4.extractLane(value, 2);
-    _f32x4[3] = SIMD.Float32x4.extractLane(value, 3);
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      tarray[index + i] = array[i];
-    return value;
-  }
-}
-
-if (typeof SIMD.Float32x4.store1 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Float32x4} value An instance of Float32x4.
-    * @return {Float32x4} value
-    */
-  SIMD.Float32x4.store1 = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 4) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Float32x4.check(value);
-    if (bpe == 8) {
-      // tarray's elements are too wide. Just create a new view; this is rare.
-      var view = new Float32Array(tarray.buffer,
-                                  tarray.byteOffset + index * 8, 1);
-      view[0] = SIMD.Float32x4.extractLane(value, 0);
-    } else {
-      _f32x4[0] = SIMD.Float32x4.extractLane(value, 0);
-      var array = bpe == 1 ? _i8x16 :
-                  bpe == 2 ? _i16x8 :
-                  (tarray instanceof Float32Array ? _f32x4 : _i32x4);
-      var n = 4 / bpe;
-      for (var i = 0; i < n; ++i)
-        tarray[index + i] = array[i];
-      return value;
-    }
-  }
-}
-
-if (typeof SIMD.Float32x4.store2 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Float32x4} value An instance of Float32x4.
-    * @return {Float32x4} value
-    */
-  SIMD.Float32x4.store2 = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 8) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Float32x4.check(value);
-    _f32x4[0] = SIMD.Float32x4.extractLane(value, 0);
-    _f32x4[1] = SIMD.Float32x4.extractLane(value, 1);
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 8 / bpe;
-    for (var i = 0; i < n; ++i)
-      tarray[index + i] = array[i];
-    return value;
-  }
-}
-
-if (typeof SIMD.Float32x4.store3 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Float32x4} value An instance of Float32x4.
-    * @return {Float32x4} value
-    */
-  SIMD.Float32x4.store3 = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 12) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Float32x4.check(value);
-    if (bpe == 8) {
-      // tarray's elements are too wide. Just create a new view; this is rare.
-      var view = new Float32Array(tarray.buffer,
-                                  tarray.byteOffset + index * 8, 3);
-      view[0] = SIMD.Float32x4.extractLane(value, 0);
-      view[1] = SIMD.Float32x4.extractLane(value, 1);
-      view[2] = SIMD.Float32x4.extractLane(value, 2);
-    } else {
-      _f32x4[0] = SIMD.Float32x4.extractLane(value, 0);
-      _f32x4[1] = SIMD.Float32x4.extractLane(value, 1);
-      _f32x4[2] = SIMD.Float32x4.extractLane(value, 2);
-      var array = bpe == 1 ? _i8x16 :
-                  bpe == 2 ? _i16x8 :
-                  (tarray instanceof Float32Array ? _f32x4 : _i32x4);
-      var n = 12 / bpe;
-      for (var i = 0; i < n; ++i)
-        tarray[index + i] = array[i];
-      return value;
-    }
-  }
-}
-
-if (typeof SIMD.Float64x2.abs === "undefined") {
-  /**
-   * @param {Float64x2} t An instance of Float64x2.
-   * @return {Float64x2} New instance of Float64x2 with absolute values of
-   * t.
-   */
-  SIMD.Float64x2.abs = function(t) {
-    t = SIMD.Float64x2.check(t);
-    return SIMD.Float64x2(Math.abs(SIMD.Float64x2.extractLane(t, 0)),
-                          Math.abs(SIMD.Float64x2.extractLane(t, 1)));
-  }
-}
-
-if (typeof SIMD.Float64x2.neg === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with negated values of
-    * t.
-    */
-  SIMD.Float64x2.neg = function(t) {
-    t = SIMD.Float64x2.check(t);
-    return SIMD.Float64x2(-SIMD.Float64x2.extractLane(t, 0),
-                          -SIMD.Float64x2.extractLane(t, 1));
-  }
-}
-
-if (typeof SIMD.Float64x2.add === "undefined") {
-  /**
-    * @param {Float64x2} a An instance of Float64x2.
-    * @param {Float64x2} b An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with a + b.
-    */
-  SIMD.Float64x2.add = function(a, b) {
-    a = SIMD.Float64x2.check(a);
-    b = SIMD.Float64x2.check(b);
-    return SIMD.Float64x2(
-        SIMD.Float64x2.extractLane(a, 0) + SIMD.Float64x2.extractLane(b, 0),
-        SIMD.Float64x2.extractLane(a, 1) + SIMD.Float64x2.extractLane(b, 1));
-  }
-}
-
-if (typeof SIMD.Float64x2.sub === "undefined") {
-  /**
-    * @param {Float64x2} a An instance of Float64x2.
-    * @param {Float64x2} b An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with a - b.
-    */
-  SIMD.Float64x2.sub = function(a, b) {
-    a = SIMD.Float64x2.check(a);
-    b = SIMD.Float64x2.check(b);
-    return SIMD.Float64x2(
-        SIMD.Float64x2.extractLane(a, 0) - SIMD.Float64x2.extractLane(b, 0),
-        SIMD.Float64x2.extractLane(a, 1) - SIMD.Float64x2.extractLane(b, 1));
-  }
-}
-
-if (typeof SIMD.Float64x2.mul === "undefined") {
-  /**
-    * @param {Float64x2} a An instance of Float64x2.
-    * @param {Float64x2} b An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with a * b.
-    */
-  SIMD.Float64x2.mul = function(a, b) {
-    a = SIMD.Float64x2.check(a);
-    b = SIMD.Float64x2.check(b);
-    return SIMD.Float64x2(
-        SIMD.Float64x2.extractLane(a, 0) * SIMD.Float64x2.extractLane(b, 0),
-        SIMD.Float64x2.extractLane(a, 1) * SIMD.Float64x2.extractLane(b, 1));
-  }
-}
-
-if (typeof SIMD.Float64x2.div === "undefined") {
-  /**
-    * @param {Float64x2} a An instance of Float64x2.
-    * @param {Float64x2} b An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with a / b.
-    */
-  SIMD.Float64x2.div = function(a, b) {
-    a = SIMD.Float64x2.check(a);
-    b = SIMD.Float64x2.check(b);
-    return SIMD.Float64x2(
-        SIMD.Float64x2.extractLane(a, 0) / SIMD.Float64x2.extractLane(b, 0),
-        SIMD.Float64x2.extractLane(a, 1) / SIMD.Float64x2.extractLane(b, 1));
-  }
-}
-
-if (typeof SIMD.Float64x2.min === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with the minimum value of
-    * t and other.
-    */
-  SIMD.Float64x2.min = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx = Math.min(SIMD.Float64x2.extractLane(t, 0),
-                      SIMD.Float64x2.extractLane(other, 0));
-    var cy = Math.min(SIMD.Float64x2.extractLane(t, 1),
-                      SIMD.Float64x2.extractLane(other, 1));
-    return SIMD.Float64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.max === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with the maximum value of
-    * t and other.
-    */
-  SIMD.Float64x2.max = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx = Math.max(SIMD.Float64x2.extractLane(t, 0),
-                      SIMD.Float64x2.extractLane(other, 0));
-    var cy = Math.max(SIMD.Float64x2.extractLane(t, 1),
-                      SIMD.Float64x2.extractLane(other, 1));
-    return SIMD.Float64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.minNum === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with the minimum value of
-    * t and other, preferring numbers over NaNs.
-    */
-  SIMD.Float64x2.minNum = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx = minNum(SIMD.Float64x2.extractLane(t, 0),
-                    SIMD.Float64x2.extractLane(other, 0));
-    var cy = minNum(SIMD.Float64x2.extractLane(t, 1),
-                    SIMD.Float64x2.extractLane(other, 1));
-    return SIMD.Float64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.maxNum === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with the maximum value of
-    * t and other, preferring numbers over NaNs.
-    */
-  SIMD.Float64x2.maxNum = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx = maxNum(SIMD.Float64x2.extractLane(t, 0),
-                    SIMD.Float64x2.extractLane(other, 0));
-    var cy = maxNum(SIMD.Float64x2.extractLane(t, 1),
-                    SIMD.Float64x2.extractLane(other, 1));
-    return SIMD.Float64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.reciprocalApproximation === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with an approximation of the
-    * reciprocal value of t.
-    */
-  SIMD.Float64x2.reciprocalApproximation = function(t) {
-    t = SIMD.Float64x2.check(t);
-    return SIMD.Float64x2.div(SIMD.Float64x2.splat(1.0), t);
-  }
-}
-
-if (typeof SIMD.Float64x2.reciprocalSqrtApproximation === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with an approximation of the
-    * reciprocal value of the square root of t.
-    */
-  SIMD.Float64x2.reciprocalSqrtApproximation = function(t) {
-    t = SIMD.Float64x2.check(t);
-    return SIMD.Float64x2.reciprocalApproximation(SIMD.Float64x2.sqrt(t));
-  }
-}
-
-if (typeof SIMD.Float64x2.sqrt === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @return {Float64x2} New instance of Float64x2 with square root of
-    * values of t.
-    */
-  SIMD.Float64x2.sqrt = function(t) {
-    t = SIMD.Float64x2.check(t);
-    return SIMD.Float64x2(Math.sqrt(SIMD.Float64x2.extractLane(t, 0)),
-                          Math.sqrt(SIMD.Float64x2.extractLane(t, 1)));
-  }
-}
-
-if (typeof SIMD.Float64x2.swizzle === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2 to be swizzled.
-    * @param {integer} x - Index in t for lane x
-    * @param {integer} y - Index in t for lane y
-    * @return {Float64x2} New instance of Float64x2 with lanes swizzled.
-    */
-  SIMD.Float64x2.swizzle = function(t, x, y) {
-    t = SIMD.Float64x2.check(t);
-    check2(x);
-    check2(y);
-    var storage = _f64x2;
-    storage[0] = SIMD.Float64x2.extractLane(t, 0);
-    storage[1] = SIMD.Float64x2.extractLane(t, 1);
-    return SIMD.Float64x2(storage[x], storage[y]);
-  }
-}
-
-if (typeof SIMD.Float64x2.shuffle === "undefined") {
-
-  _f64x4 = new Float64Array(4);
-
-  /**
-    * @param {Float64x2} t1 An instance of Float64x2 to be shuffled.
-    * @param {Float64x2} t2 An instance of Float64x2 to be shuffled.
-    * @param {integer} x - Index in concatenation of t1 and t2 for lane x
-    * @param {integer} y - Index in concatenation of t1 and t2 for lane y
-    * @return {Float64x2} New instance of Float64x2 with lanes shuffled.
-    */
-  SIMD.Float64x2.shuffle = function(t1, t2, x, y) {
-    t1 = SIMD.Float64x2.check(t1);
-    t2 = SIMD.Float64x2.check(t2);
-    check4(x);
-    check4(y);
-    var storage = _f64x4;
-    storage[0] = SIMD.Float64x2.extractLane(t1, 0);
-    storage[1] = SIMD.Float64x2.extractLane(t1, 1);
-    storage[2] = SIMD.Float64x2.extractLane(t2, 0);
-    storage[3] = SIMD.Float64x2.extractLane(t2, 1);
-    return SIMD.Float64x2(storage[x], storage[y]);
-  }
-}
-
-if (typeof SIMD.Float64x2.lessThan === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {bool64x2} true or false in each lane depending on
-    * the result of t < other.
-    */
-  SIMD.Float64x2.lessThan = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx =
-        SIMD.Float64x2.extractLane(t, 0) < SIMD.Float64x2.extractLane(other, 0);
-    var cy =
-        SIMD.Float64x2.extractLane(t, 1) < SIMD.Float64x2.extractLane(other, 1);
-    return SIMD.Bool64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.lessThanOrEqual === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {bool64x2} true or false in each lane depending on
-    * the result of t <= other.
-    */
-  SIMD.Float64x2.lessThanOrEqual = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx = SIMD.Float64x2.extractLane(t, 0) <=
-        SIMD.Float64x2.extractLane(other, 0);
-    var cy = SIMD.Float64x2.extractLane(t, 1) <=
-        SIMD.Float64x2.extractLane(other, 1);
-    return SIMD.Bool64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.equal === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {bool64x2} true or false in each lane depending on
-    * the result of t == other.
-    */
-  SIMD.Float64x2.equal = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx = SIMD.Float64x2.extractLane(t, 0) ==
-        SIMD.Float64x2.extractLane(other, 0);
-    var cy = SIMD.Float64x2.extractLane(t, 1) ==
-        SIMD.Float64x2.extractLane(other, 1);
-    return SIMD.Bool64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.notEqual === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {bool64x2} true or false in each lane depending on
-    * the result of t != other.
-    */
-  SIMD.Float64x2.notEqual = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx = SIMD.Float64x2.extractLane(t, 0) !=
-        SIMD.Float64x2.extractLane(other, 0);
-    var cy = SIMD.Float64x2.extractLane(t, 1) !=
-        SIMD.Float64x2.extractLane(other, 1);
-    return SIMD.Bool64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.greaterThanOrEqual === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {bool64x2} true or false in each lane depending on
-    * the result of t >= other.
-    */
-  SIMD.Float64x2.greaterThanOrEqual = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx = SIMD.Float64x2.extractLane(t, 0) >=
-        SIMD.Float64x2.extractLane(other, 0);
-    var cy = SIMD.Float64x2.extractLane(t, 1) >=
-        SIMD.Float64x2.extractLane(other, 1);
-    return SIMD.Bool64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.greaterThan === "undefined") {
-  /**
-    * @param {Float64x2} t An instance of Float64x2.
-    * @param {Float64x2} other An instance of Float64x2.
-    * @return {bool64x2} true or false in each lane depending on
-    * the result of t > other.
-    */
-  SIMD.Float64x2.greaterThan = function(t, other) {
-    t = SIMD.Float64x2.check(t);
-    other = SIMD.Float64x2.check(other);
-    var cx =
-        SIMD.Float64x2.extractLane(t, 0) > SIMD.Float64x2.extractLane(other, 0);
-    var cy =
-        SIMD.Float64x2.extractLane(t, 1) > SIMD.Float64x2.extractLane(other, 1);
-    return SIMD.Bool64x2(cx, cy);
-  }
-}
-
-if (typeof SIMD.Float64x2.select === "undefined") {
-  /**
-    * @param {bool64x2} t Selector mask. An instance of bool64x2
-    * @param {Float64x2} trueValue Pick lane from here if corresponding
-    * selector lane is true
-    * @param {Float64x2} falseValue Pick lane from here if corresponding
-    * selector lane is false
-    * @return {Float64x2} Mix of lanes from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Float64x2.select = function(t, trueValue, falseValue) {
-    t = SIMD.Bool64x2.check(t);
-    trueValue = SIMD.Float64x2.check(trueValue);
-    falseValue = SIMD.Float64x2.check(falseValue);
-    return SIMD.Float64x2(
-        SIMD.Bool64x2.extractLane(t, 0) ?
-            SIMD.Float64x2.extractLane(trueValue, 0) :
-                SIMD.Float64x2.extractLane(falseValue, 0),
-        SIMD.Bool64x2.extractLane(t, 1) ?
-            SIMD.Float64x2.extractLane(trueValue, 1) :
-                SIMD.Float64x2.extractLane(falseValue, 1));
-  }
-}
-
-if (typeof SIMD.Float64x2.load === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Float64x2} New instance of Float64x2.
-    */
-  SIMD.Float64x2.load = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var f64temp = _f64x2;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                f64temp;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Float64x2(f64temp[0], f64temp[1]);
-  }
-}
-
-if (typeof SIMD.Float64x2.load1 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Float64x2} New instance of Float64x2.
-    */
-  SIMD.Float64x2.load1 = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 8) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var f64temp = _f64x2;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                f64temp;
-    var n = 8 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Float64x2(f64temp[0], 0.0);
-  }
-}
-
-if (typeof SIMD.Float64x2.store === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Float64x2} value An instance of Float64x2.
-    * @return {Float64x2} value
-    */
-  SIMD.Float64x2.store = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Float64x2.check(value);
-    _f64x2[0] = SIMD.Float64x2.extractLane(value, 0);
-    _f64x2[1] = SIMD.Float64x2.extractLane(value, 1);
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      tarray[index + i] = array[i];
-    return value;
-  }
-}
-
-if (typeof SIMD.Float64x2.store1 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Float64x2} value An instance of Float64x2.
-    * @return {Float64x2} value
-    */
-  SIMD.Float64x2.store1 = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 8) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Float64x2.check(value);
-    _f64x2[0] = SIMD.Float64x2.extractLane(value, 0);
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 8 / bpe;
-    for (var i = 0; i < n; ++i)
-      tarray[index + i] = array[i];
-    return value;
-  }
-}
-
-if (typeof SIMD.Int32x4.and === "undefined") {
-  /**
-    * @param {Int32x4} a An instance of Int32x4.
-    * @param {Int32x4} b An instance of Int32x4.
-    * @return {Int32x4} New instance of Int32x4 with values of a & b.
-    */
-  SIMD.Int32x4.and = function(a, b) {
-    a = SIMD.Int32x4.check(a);
-    b = SIMD.Int32x4.check(b);
-    return SIMD.Int32x4(
-        SIMD.Int32x4.extractLane(a, 0) & SIMD.Int32x4.extractLane(b, 0),
-        SIMD.Int32x4.extractLane(a, 1) & SIMD.Int32x4.extractLane(b, 1),
-        SIMD.Int32x4.extractLane(a, 2) & SIMD.Int32x4.extractLane(b, 2),
-        SIMD.Int32x4.extractLane(a, 3) & SIMD.Int32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Int32x4.or === "undefined") {
-  /**
-    * @param {Int32x4} a An instance of Int32x4.
-    * @param {Int32x4} b An instance of Int32x4.
-    * @return {Int32x4} New instance of Int32x4 with values of a | b.
-    */
-  SIMD.Int32x4.or = function(a, b) {
-    a = SIMD.Int32x4.check(a);
-    b = SIMD.Int32x4.check(b);
-    return SIMD.Int32x4(
-        SIMD.Int32x4.extractLane(a, 0) | SIMD.Int32x4.extractLane(b, 0),
-        SIMD.Int32x4.extractLane(a, 1) | SIMD.Int32x4.extractLane(b, 1),
-        SIMD.Int32x4.extractLane(a, 2) | SIMD.Int32x4.extractLane(b, 2),
-        SIMD.Int32x4.extractLane(a, 3) | SIMD.Int32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Int32x4.xor === "undefined") {
-  /**
-    * @param {Int32x4} a An instance of Int32x4.
-    * @param {Int32x4} b An instance of Int32x4.
-    * @return {Int32x4} New instance of Int32x4 with values of a ^ b.
-    */
-  SIMD.Int32x4.xor = function(a, b) {
-    a = SIMD.Int32x4.check(a);
-    b = SIMD.Int32x4.check(b);
-    return SIMD.Int32x4(
-        SIMD.Int32x4.extractLane(a, 0) ^ SIMD.Int32x4.extractLane(b, 0),
-        SIMD.Int32x4.extractLane(a, 1) ^ SIMD.Int32x4.extractLane(b, 1),
-        SIMD.Int32x4.extractLane(a, 2) ^ SIMD.Int32x4.extractLane(b, 2),
-        SIMD.Int32x4.extractLane(a, 3) ^ SIMD.Int32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Int32x4.not === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @return {Int32x4} New instance of Int32x4 with values of ~t
-    */
-  SIMD.Int32x4.not = function(t) {
-    t = SIMD.Int32x4.check(t);
-    return SIMD.Int32x4(~SIMD.Int32x4.extractLane(t, 0),
-                        ~SIMD.Int32x4.extractLane(t, 1),
-                        ~SIMD.Int32x4.extractLane(t, 2),
-                        ~SIMD.Int32x4.extractLane(t, 3));
-  }
-}
-
-if (typeof SIMD.Int32x4.neg === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @return {Int32x4} New instance of Int32x4 with values of -t
-    */
-  SIMD.Int32x4.neg = function(t) {
-    t = SIMD.Int32x4.check(t);
-    return SIMD.Int32x4(-SIMD.Int32x4.extractLane(t, 0),
-                        -SIMD.Int32x4.extractLane(t, 1),
-                        -SIMD.Int32x4.extractLane(t, 2),
-                        -SIMD.Int32x4.extractLane(t, 3));
-  }
-}
-
-if (typeof SIMD.Int32x4.add === "undefined") {
-  /**
-    * @param {Int32x4} a An instance of Int32x4.
-    * @param {Int32x4} b An instance of Int32x4.
-    * @return {Int32x4} New instance of Int32x4 with values of a + b.
-    */
-  SIMD.Int32x4.add = function(a, b) {
-    a = SIMD.Int32x4.check(a);
-    b = SIMD.Int32x4.check(b);
-    return SIMD.Int32x4(
-        SIMD.Int32x4.extractLane(a, 0) + SIMD.Int32x4.extractLane(b, 0),
-        SIMD.Int32x4.extractLane(a, 1) + SIMD.Int32x4.extractLane(b, 1),
-        SIMD.Int32x4.extractLane(a, 2) + SIMD.Int32x4.extractLane(b, 2),
-        SIMD.Int32x4.extractLane(a, 3) + SIMD.Int32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Int32x4.sub === "undefined") {
-  /**
-    * @param {Int32x4} a An instance of Int32x4.
-    * @param {Int32x4} b An instance of Int32x4.
-    * @return {Int32x4} New instance of Int32x4 with values of a - b.
-    */
-  SIMD.Int32x4.sub = function(a, b) {
-    a = SIMD.Int32x4.check(a);
-    b = SIMD.Int32x4.check(b);
-    return SIMD.Int32x4(
-        SIMD.Int32x4.extractLane(a, 0) - SIMD.Int32x4.extractLane(b, 0),
-        SIMD.Int32x4.extractLane(a, 1) - SIMD.Int32x4.extractLane(b, 1),
-        SIMD.Int32x4.extractLane(a, 2) - SIMD.Int32x4.extractLane(b, 2),
-        SIMD.Int32x4.extractLane(a, 3) - SIMD.Int32x4.extractLane(b, 3));
-  }
-}
-
-if (typeof SIMD.Int32x4.mul === "undefined") {
-  /**
-    * @param {Int32x4} a An instance of Int32x4.
-    * @param {Int32x4} b An instance of Int32x4.
-    * @return {Int32x4} New instance of Int32x4 with values of a * b.
-    */
-  SIMD.Int32x4.mul = function(a, b) {
-    a = SIMD.Int32x4.check(a);
-    b = SIMD.Int32x4.check(b);
-    return SIMD.Int32x4(
-        Math.imul(SIMD.Int32x4.extractLane(a, 0),
-                  SIMD.Int32x4.extractLane(b, 0)),
-        Math.imul(SIMD.Int32x4.extractLane(a, 1),
-                  SIMD.Int32x4.extractLane(b, 1)),
-        Math.imul(SIMD.Int32x4.extractLane(a, 2),
-                  SIMD.Int32x4.extractLane(b, 2)),
-        Math.imul(SIMD.Int32x4.extractLane(a, 3),
-                  SIMD.Int32x4.extractLane(b, 3)));
-  }
-}
-
-if (typeof SIMD.Int32x4.swizzle === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4 to be swizzled.
-    * @param {integer} x - Index in t for lane x
-    * @param {integer} y - Index in t for lane y
-    * @param {integer} z - Index in t for lane z
-    * @param {integer} w - Index in t for lane w
-    * @return {Int32x4} New instance of Int32x4 with lanes swizzled.
-    */
-  SIMD.Int32x4.swizzle = function(t, x, y, z, w) {
-    t = SIMD.Int32x4.check(t);
-    check4(x);
-    check4(y);
-    check4(z);
-    check4(w);
-    var storage = _i32x4;
-    storage[0] = SIMD.Int32x4.extractLane(t, 0);
-    storage[1] = SIMD.Int32x4.extractLane(t, 1);
-    storage[2] = SIMD.Int32x4.extractLane(t, 2);
-    storage[3] = SIMD.Int32x4.extractLane(t, 3);
-    return SIMD.Int32x4(storage[x], storage[y], storage[z], storage[w]);
-  }
-}
-
-if (typeof SIMD.Int32x4.shuffle === "undefined") {
-
-  _i32x8 = new Int32Array(8);
-
-  /**
-    * @param {Int32x4} t1 An instance of Int32x4 to be shuffled.
-    * @param {Int32x4} t2 An instance of Int32x4 to be shuffled.
-    * @param {integer} x - Index in concatenation of t1 and t2 for lane x
-    * @param {integer} y - Index in concatenation of t1 and t2 for lane y
-    * @param {integer} z - Index in concatenation of t1 and t2 for lane z
-    * @param {integer} w - Index in concatenation of t1 and t2 for lane w
-    * @return {Int32x4} New instance of Int32x4 with lanes shuffled.
-    */
-  SIMD.Int32x4.shuffle = function(t1, t2, x, y, z, w) {
-    t1 = SIMD.Int32x4.check(t1);
-    t2 = SIMD.Int32x4.check(t2);
-    check8(x);
-    check8(y);
-    check8(z);
-    check8(w);
-    var storage = _i32x8;
-    storage[0] = SIMD.Int32x4.extractLane(t1, 0);
-    storage[1] = SIMD.Int32x4.extractLane(t1, 1);
-    storage[2] = SIMD.Int32x4.extractLane(t1, 2);
-    storage[3] = SIMD.Int32x4.extractLane(t1, 3);
-    storage[4] = SIMD.Int32x4.extractLane(t2, 0);
-    storage[5] = SIMD.Int32x4.extractLane(t2, 1);
-    storage[6] = SIMD.Int32x4.extractLane(t2, 2);
-    storage[7] = SIMD.Int32x4.extractLane(t2, 3);
-    return SIMD.Int32x4(storage[x], storage[y], storage[z], storage[w]);
-  }
-}
-
-if (typeof SIMD.Int32x4.select === "undefined") {
-  /**
-    * @param {Bool32x4} t Selector mask. An instance of Bool32x4
-    * @param {Int32x4} trueValue Pick lane from here if corresponding
-    * selector lane is true
-    * @param {Int32x4} falseValue Pick lane from here if corresponding
-    * selector lane is false
-    * @return {Int32x4} Mix of lanes from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Int32x4.select = function(t, trueValue, falseValue) {
-    t = SIMD.Bool32x4.check(t);
-    trueValue = SIMD.Int32x4.check(trueValue);
-    falseValue = SIMD.Int32x4.check(falseValue);
-    return SIMD.Int32x4(
-        SIMD.Bool32x4.extractLane(t, 0) ?
-            SIMD.Int32x4.extractLane(trueValue, 0) :
-                SIMD.Int32x4.extractLane(falseValue, 0),
-        SIMD.Bool32x4.extractLane(t, 1) ?
-            SIMD.Int32x4.extractLane(trueValue, 1) :
-                SIMD.Int32x4.extractLane(falseValue, 1),
-        SIMD.Bool32x4.extractLane(t, 2) ?
-            SIMD.Int32x4.extractLane(trueValue, 2) :
-                SIMD.Int32x4.extractLane(falseValue, 2),
-        SIMD.Bool32x4.extractLane(t, 3) ?
-            SIMD.Int32x4.extractLane(trueValue, 3) :
-                SIMD.Int32x4.extractLane(falseValue, 3));
-  }
-}
-
-if (typeof SIMD.Int32x4.selectBits === "undefined") {
-  /**
-    * @param {Int32x4} t Selector mask. An instance of Int32x4
-    * @param {Int32x4} trueValue Pick bit from here if corresponding
-    * selector bit is 1
-    * @param {Int32x4} falseValue Pick bit from here if corresponding
-    * selector bit is 0
-    * @return {Int32x4} Mix of bits from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Int32x4.selectBits = function(t, trueValue, falseValue) {
-    t = SIMD.Int32x4.check(t);
-    trueValue = SIMD.Int32x4.check(trueValue);
-    falseValue = SIMD.Int32x4.check(falseValue);
-    var tr = SIMD.Int32x4.and(t, trueValue);
-    var fr = SIMD.Int32x4.and(SIMD.Int32x4.not(t), falseValue);
-    return SIMD.Int32x4.or(tr, fr);
-  }
-}
-
-if (typeof SIMD.Int32x4.equal === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @param {Int32x4} other An instance of Int32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t == other.
-    */
-  SIMD.Int32x4.equal = function(t, other) {
-    t = SIMD.Int32x4.check(t);
-    other = SIMD.Int32x4.check(other);
-    var cx =
-        SIMD.Int32x4.extractLane(t, 0) == SIMD.Int32x4.extractLane(other, 0);
-    var cy =
-        SIMD.Int32x4.extractLane(t, 1) == SIMD.Int32x4.extractLane(other, 1);
-    var cz =
-        SIMD.Int32x4.extractLane(t, 2) == SIMD.Int32x4.extractLane(other, 2);
-    var cw =
-        SIMD.Int32x4.extractLane(t, 3) == SIMD.Int32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Int32x4.notEqual === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @param {Int32x4} other An instance of Int32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t != other.
-    */
-  SIMD.Int32x4.notEqual = function(t, other) {
-    t = SIMD.Int32x4.check(t);
-    other = SIMD.Int32x4.check(other);
-    var cx =
-        SIMD.Int32x4.extractLane(t, 0) != SIMD.Int32x4.extractLane(other, 0);
-    var cy =
-        SIMD.Int32x4.extractLane(t, 1) != SIMD.Int32x4.extractLane(other, 1);
-    var cz =
-        SIMD.Int32x4.extractLane(t, 2) != SIMD.Int32x4.extractLane(other, 2);
-    var cw =
-        SIMD.Int32x4.extractLane(t, 3) != SIMD.Int32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Int32x4.greaterThan === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @param {Int32x4} other An instance of Int32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t > other.
-    */
-  SIMD.Int32x4.greaterThan = function(t, other) {
-    t = SIMD.Int32x4.check(t);
-    other = SIMD.Int32x4.check(other);
-    var cx =
-        SIMD.Int32x4.extractLane(t, 0) > SIMD.Int32x4.extractLane(other, 0);
-    var cy =
-        SIMD.Int32x4.extractLane(t, 1) > SIMD.Int32x4.extractLane(other, 1);
-    var cz =
-        SIMD.Int32x4.extractLane(t, 2) > SIMD.Int32x4.extractLane(other, 2);
-    var cw =
-        SIMD.Int32x4.extractLane(t, 3) > SIMD.Int32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Int32x4.greaterThanOrEqual === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @param {Int32x4} other An instance of Int32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t >= other.
-    */
-  SIMD.Int32x4.greaterThanOrEqual = function(t, other) {
-    t = SIMD.Int32x4.check(t);
-    other = SIMD.Int32x4.check(other);
-    var cx =
-        SIMD.Int32x4.extractLane(t, 0) >= SIMD.Int32x4.extractLane(other, 0);
-    var cy =
-        SIMD.Int32x4.extractLane(t, 1) >= SIMD.Int32x4.extractLane(other, 1);
-    var cz =
-        SIMD.Int32x4.extractLane(t, 2) >= SIMD.Int32x4.extractLane(other, 2);
-    var cw =
-        SIMD.Int32x4.extractLane(t, 3) >= SIMD.Int32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Int32x4.lessThan === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @param {Int32x4} other An instance of Int32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t < other.
-    */
-  SIMD.Int32x4.lessThan = function(t, other) {
-    t = SIMD.Int32x4.check(t);
-    other = SIMD.Int32x4.check(other);
-    var cx =
-        SIMD.Int32x4.extractLane(t, 0) < SIMD.Int32x4.extractLane(other, 0);
-    var cy =
-        SIMD.Int32x4.extractLane(t, 1) < SIMD.Int32x4.extractLane(other, 1);
-    var cz =
-        SIMD.Int32x4.extractLane(t, 2) < SIMD.Int32x4.extractLane(other, 2);
-    var cw =
-        SIMD.Int32x4.extractLane(t, 3) < SIMD.Int32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Int32x4.lessThanOrEqual === "undefined") {
-  /**
-    * @param {Int32x4} t An instance of Int32x4.
-    * @param {Int32x4} other An instance of Int32x4.
-    * @return {Bool32x4} true or false in each lane depending on
-    * the result of t <= other.
-    */
-  SIMD.Int32x4.lessThanOrEqual = function(t, other) {
-    t = SIMD.Int32x4.check(t);
-    other = SIMD.Int32x4.check(other);
-    var cx =
-        SIMD.Int32x4.extractLane(t, 0) <= SIMD.Int32x4.extractLane(other, 0);
-    var cy =
-        SIMD.Int32x4.extractLane(t, 1) <= SIMD.Int32x4.extractLane(other, 1);
-    var cz =
-        SIMD.Int32x4.extractLane(t, 2) <= SIMD.Int32x4.extractLane(other, 2);
-    var cw =
-        SIMD.Int32x4.extractLane(t, 3) <= SIMD.Int32x4.extractLane(other, 3);
-    return SIMD.Bool32x4(cx, cy, cz, cw);
-  }
-}
-
-if (typeof SIMD.Int32x4.shiftLeftByScalar === "undefined") {
-  /**
-    * @param {Int32x4} a An instance of Int32x4.
-    * @param {integer} bits Bit count to shift by.
-    * @return {Int32x4} lanes in a shifted by bits.
-    */
-  SIMD.Int32x4.shiftLeftByScalar = function(a, bits) {
-    a = SIMD.Int32x4.check(a);
-    if (bits>>>0 >= 32)
-      return SIMD.Int32x4.splat(0.0);
-    var x = SIMD.Int32x4.extractLane(a, 0) << bits;
-    var y = SIMD.Int32x4.extractLane(a, 1) << bits;
-    var z = SIMD.Int32x4.extractLane(a, 2) << bits;
-    var w = SIMD.Int32x4.extractLane(a, 3) << bits;
-    return SIMD.Int32x4(x, y, z, w);
-  }
-}
-
-if (typeof SIMD.Int32x4.shiftRightLogicalByScalar === "undefined") {
-  /**
-    * @param {Int32x4} a An instance of Int32x4.
-    * @param {integer} bits Bit count to shift by.
-    * @return {Int32x4} lanes in a shifted by bits.
-    */
-  SIMD.Int32x4.shiftRightLogicalByScalar = function(a, bits) {
-    a = SIMD.Int32x4.check(a);
-    if (bits>>>0 >= 32)
-      return SIMD.Int32x4.splat(0.0);
-    var x = SIMD.Int32x4.extractLane(a, 0) >>> bits;
-    var y = SIMD.Int32x4.extractLane(a, 1) >>> bits;
-    var z = SIMD.Int32x4.extractLane(a, 2) >>> bits;
-    var w = SIMD.Int32x4.extractLane(a, 3) >>> bits;
-    return SIMD.Int32x4(x, y, z, w);
-  }
-}
-
-if (typeof SIMD.Int32x4.shiftRightArithmeticByScalar === "undefined") {
-  /**
-    * @param {Int32x4} a An instance of Int32x4.
-    * @param {integer} bits Bit count to shift by.
-    * @return {Int32x4} lanes in a shifted by bits.
-    */
-  SIMD.Int32x4.shiftRightArithmeticByScalar = function(a, bits) {
-    a = SIMD.Int32x4.check(a);
-    if (bits>>>0 >= 32)
-      bits = 31;
-    var x = SIMD.Int32x4.extractLane(a, 0) >> bits;
-    var y = SIMD.Int32x4.extractLane(a, 1) >> bits;
-    var z = SIMD.Int32x4.extractLane(a, 2) >> bits;
-    var w = SIMD.Int32x4.extractLane(a, 3) >> bits;
-    return SIMD.Int32x4(x, y, z, w);
-  }
-}
-
-if (typeof SIMD.Int32x4.load === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Int32x4} New instance of Int32x4.
-    */
-  SIMD.Int32x4.load = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var i32temp = _i32x4;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : i32temp) :
-                _f64x2;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Int32x4(i32temp[0], i32temp[1], i32temp[2], i32temp[3]);
-  }
-}
-
-if (typeof SIMD.Int32x4.load1 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Int32x4} New instance of Int32x4.
-    */
-  SIMD.Int32x4.load1 = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 4) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var i32temp = _i32x4;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : i32temp) :
-                _f64x2;
-    var n = 4 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Int32x4(i32temp[0], 0, 0, 0);
-  }
-}
-
-if (typeof SIMD.Int32x4.load2 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Int32x4} New instance of Int32x4.
-    */
-  SIMD.Int32x4.load2 = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 8) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var i32temp = _i32x4;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : i32temp) :
-                _f64x2;
-    var n = 8 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Int32x4(i32temp[0], i32temp[1], 0, 0);
-  }
-}
-
-if (typeof SIMD.Int32x4.load3 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Int32x4} New instance of Int32x4.
-    */
-  SIMD.Int32x4.load3 = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 12) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var i32temp = _i32x4;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : i32temp) :
-                _f64x2;
-    var n = 12 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Int32x4(i32temp[0], i32temp[1], i32temp[2], 0);
-  }
-}
-
-if (typeof SIMD.Int32x4.store === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Int32x4} value An instance of Int32x4.
-    * @return {Int32x4} value
-    */
-  SIMD.Int32x4.store = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Int32x4.check(value);
-    _i32x4[0] = SIMD.Int32x4.extractLane(value, 0);
-    _i32x4[1] = SIMD.Int32x4.extractLane(value, 1);
-    _i32x4[2] = SIMD.Int32x4.extractLane(value, 2);
-    _i32x4[3] = SIMD.Int32x4.extractLane(value, 3);
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      tarray[index + i] = array[i];
-    return value;
-  }
-}
-
-if (typeof SIMD.Int32x4.store1 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Int32x4} value An instance of Int32x4.
-    * @return {Int32x4} value
-    */
-  SIMD.Int32x4.store1 = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 4) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Int32x4.check(value);
-    if (bpe == 8) {
-      // tarray's elements are too wide. Just create a new view; this is rare.
-      var view = new Int32Array(tarray.buffer,
-                                tarray.byteOffset + index * 8, 1);
-      view[0] = SIMD.Int32x4.extractLane(value, 0);
-    } else {
-      _i32x4[0] = SIMD.Int32x4.extractLane(value, 0);
-      var array = bpe == 1 ? _i8x16 :
-                  bpe == 2 ? _i16x8 :
-                  (tarray instanceof Float32Array ? _f32x4 : _i32x4);
-      var n = 4 / bpe;
-      for (var i = 0; i < n; ++i)
-        tarray[index + i] = array[i];
-      return value;
-    }
-  }
-}
-
-if (typeof SIMD.Int32x4.store2 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Int32x4} value An instance of Int32x4.
-    * @return {Int32x4} value
-    */
-  SIMD.Int32x4.store2 = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 8) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Int32x4.check(value);
-    _i32x4[0] = SIMD.Int32x4.extractLane(value, 0);
-    _i32x4[1] = SIMD.Int32x4.extractLane(value, 1);
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 8 / bpe;
-    for (var i = 0; i < n; ++i)
-      tarray[index + i] = array[i];
-    return value;
-  }
-}
-
-if (typeof SIMD.Int32x4.store3 === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Int32x4} value An instance of Int32x4.
-    * @return {Int32x4} value
-    */
-  SIMD.Int32x4.store3 = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 12) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Int32x4.check(value);
-    if (bpe == 8) {
-      // tarray's elements are too wide. Just create a new view; this is rare.
-      var view = new Int32Array(tarray.buffer,
-                                tarray.byteOffset + index * 8, 3);
-      view[0] = SIMD.Int32x4.extractLane(value, 0);
-      view[1] = SIMD.Int32x4.extractLane(value, 1);
-      view[2] = SIMD.Int32x4.extractLane(value, 2);
-    } else {
-      _i32x4[0] = SIMD.Int32x4.extractLane(value, 0);
-      _i32x4[1] = SIMD.Int32x4.extractLane(value, 1);
-      _i32x4[2] = SIMD.Int32x4.extractLane(value, 2);
-      var array = bpe == 1 ? _i8x16 :
-                  bpe == 2 ? _i16x8 :
-                  (tarray instanceof Float32Array ? _f32x4 : _i32x4);
-      var n = 12 / bpe;
-      for (var i = 0; i < n; ++i)
-        tarray[index + i] = array[i];
-      return value;
-    }
-  }
-}
-
-if (typeof SIMD.Int16x8.and === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {Int16x8} b An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of a & b.
-    */
-  SIMD.Int16x8.and = function(a, b) {
-    a = SIMD.Int16x8.check(a);
-    b = SIMD.Int16x8.check(b);
-    return SIMD.Int16x8(
-        SIMD.Int16x8.extractLane(a, 0) & SIMD.Int16x8.extractLane(b, 0),
-        SIMD.Int16x8.extractLane(a, 1) & SIMD.Int16x8.extractLane(b, 1),
-        SIMD.Int16x8.extractLane(a, 2) & SIMD.Int16x8.extractLane(b, 2),
-        SIMD.Int16x8.extractLane(a, 3) & SIMD.Int16x8.extractLane(b, 3),
-        SIMD.Int16x8.extractLane(a, 4) & SIMD.Int16x8.extractLane(b, 4),
-        SIMD.Int16x8.extractLane(a, 5) & SIMD.Int16x8.extractLane(b, 5),
-        SIMD.Int16x8.extractLane(a, 6) & SIMD.Int16x8.extractLane(b, 6),
-        SIMD.Int16x8.extractLane(a, 7) & SIMD.Int16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Int16x8.or === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {Int16x8} b An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of a | b.
-    */
-  SIMD.Int16x8.or = function(a, b) {
-    a = SIMD.Int16x8.check(a);
-    b = SIMD.Int16x8.check(b);
-    return SIMD.Int16x8(
-        SIMD.Int16x8.extractLane(a, 0) | SIMD.Int16x8.extractLane(b, 0),
-        SIMD.Int16x8.extractLane(a, 1) | SIMD.Int16x8.extractLane(b, 1),
-        SIMD.Int16x8.extractLane(a, 2) | SIMD.Int16x8.extractLane(b, 2),
-        SIMD.Int16x8.extractLane(a, 3) | SIMD.Int16x8.extractLane(b, 3),
-        SIMD.Int16x8.extractLane(a, 4) | SIMD.Int16x8.extractLane(b, 4),
-        SIMD.Int16x8.extractLane(a, 5) | SIMD.Int16x8.extractLane(b, 5),
-        SIMD.Int16x8.extractLane(a, 6) | SIMD.Int16x8.extractLane(b, 6),
-        SIMD.Int16x8.extractLane(a, 7) | SIMD.Int16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Int16x8.xor === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {Int16x8} b An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of a ^ b.
-    */
-  SIMD.Int16x8.xor = function(a, b) {
-    a = SIMD.Int16x8.check(a);
-    b = SIMD.Int16x8.check(b);
-    return SIMD.Int16x8(
-        SIMD.Int16x8.extractLane(a, 0) ^ SIMD.Int16x8.extractLane(b, 0),
-        SIMD.Int16x8.extractLane(a, 1) ^ SIMD.Int16x8.extractLane(b, 1),
-        SIMD.Int16x8.extractLane(a, 2) ^ SIMD.Int16x8.extractLane(b, 2),
-        SIMD.Int16x8.extractLane(a, 3) ^ SIMD.Int16x8.extractLane(b, 3),
-        SIMD.Int16x8.extractLane(a, 4) ^ SIMD.Int16x8.extractLane(b, 4),
-        SIMD.Int16x8.extractLane(a, 5) ^ SIMD.Int16x8.extractLane(b, 5),
-        SIMD.Int16x8.extractLane(a, 6) ^ SIMD.Int16x8.extractLane(b, 6),
-        SIMD.Int16x8.extractLane(a, 7) ^ SIMD.Int16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Int16x8.not === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of ~t
-    */
-  SIMD.Int16x8.not = function(t) {
-    t = SIMD.Int16x8.check(t);
-    return SIMD.Int16x8(~SIMD.Int16x8.extractLane(t, 0),
-                        ~SIMD.Int16x8.extractLane(t, 1),
-                        ~SIMD.Int16x8.extractLane(t, 2),
-                        ~SIMD.Int16x8.extractLane(t, 3),
-                        ~SIMD.Int16x8.extractLane(t, 4),
-                        ~SIMD.Int16x8.extractLane(t, 5),
-                        ~SIMD.Int16x8.extractLane(t, 6),
-                        ~SIMD.Int16x8.extractLane(t, 7));
-  }
-}
-
-if (typeof SIMD.Int16x8.neg === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of -t
-    */
-  SIMD.Int16x8.neg = function(t) {
-    t = SIMD.Int16x8.check(t);
-    return SIMD.Int16x8(-SIMD.Int16x8.extractLane(t, 0),
-                        -SIMD.Int16x8.extractLane(t, 1),
-                        -SIMD.Int16x8.extractLane(t, 2),
-                        -SIMD.Int16x8.extractLane(t, 3),
-                        -SIMD.Int16x8.extractLane(t, 4),
-                        -SIMD.Int16x8.extractLane(t, 5),
-                        -SIMD.Int16x8.extractLane(t, 6),
-                        -SIMD.Int16x8.extractLane(t, 7));
-  }
-}
-
-if (typeof SIMD.Int16x8.add === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {Int16x8} b An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of a + b.
-    */
-  SIMD.Int16x8.add = function(a, b) {
-    a = SIMD.Int16x8.check(a);
-    b = SIMD.Int16x8.check(b);
-    return SIMD.Int16x8(
-        SIMD.Int16x8.extractLane(a, 0) + SIMD.Int16x8.extractLane(b, 0),
-        SIMD.Int16x8.extractLane(a, 1) + SIMD.Int16x8.extractLane(b, 1),
-        SIMD.Int16x8.extractLane(a, 2) + SIMD.Int16x8.extractLane(b, 2),
-        SIMD.Int16x8.extractLane(a, 3) + SIMD.Int16x8.extractLane(b, 3),
-        SIMD.Int16x8.extractLane(a, 4) + SIMD.Int16x8.extractLane(b, 4),
-        SIMD.Int16x8.extractLane(a, 5) + SIMD.Int16x8.extractLane(b, 5),
-        SIMD.Int16x8.extractLane(a, 6) + SIMD.Int16x8.extractLane(b, 6),
-        SIMD.Int16x8.extractLane(a, 7) + SIMD.Int16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Int16x8.sub === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {Int16x8} b An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of a - b.
-    */
-  SIMD.Int16x8.sub = function(a, b) {
-    a = SIMD.Int16x8.check(a);
-    b = SIMD.Int16x8.check(b);
-    return SIMD.Int16x8(
-        SIMD.Int16x8.extractLane(a, 0) - SIMD.Int16x8.extractLane(b, 0),
-        SIMD.Int16x8.extractLane(a, 1) - SIMD.Int16x8.extractLane(b, 1),
-        SIMD.Int16x8.extractLane(a, 2) - SIMD.Int16x8.extractLane(b, 2),
-        SIMD.Int16x8.extractLane(a, 3) - SIMD.Int16x8.extractLane(b, 3),
-        SIMD.Int16x8.extractLane(a, 4) - SIMD.Int16x8.extractLane(b, 4),
-        SIMD.Int16x8.extractLane(a, 5) - SIMD.Int16x8.extractLane(b, 5),
-        SIMD.Int16x8.extractLane(a, 6) - SIMD.Int16x8.extractLane(b, 6),
-        SIMD.Int16x8.extractLane(a, 7) - SIMD.Int16x8.extractLane(b, 7));
-  }
-}
-
-if (typeof SIMD.Int16x8.mul === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {Int16x8} b An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of a * b.
-    */
-  SIMD.Int16x8.mul = function(a, b) {
-    a = SIMD.Int16x8.check(a);
-    b = SIMD.Int16x8.check(b);
-    return SIMD.Int16x8(Math.imul(SIMD.Int16x8.extractLane(a, 0),
-                                  SIMD.Int16x8.extractLane(b, 0)),
-                        Math.imul(SIMD.Int16x8.extractLane(a, 1),
-                                  SIMD.Int16x8.extractLane(b, 1)),
-                        Math.imul(SIMD.Int16x8.extractLane(a, 2),
-                                  SIMD.Int16x8.extractLane(b, 2)),
-                        Math.imul(SIMD.Int16x8.extractLane(a, 3),
-                                  SIMD.Int16x8.extractLane(b, 3)),
-                        Math.imul(SIMD.Int16x8.extractLane(a, 4),
-                                  SIMD.Int16x8.extractLane(b, 4)),
-                        Math.imul(SIMD.Int16x8.extractLane(a, 5),
-                                  SIMD.Int16x8.extractLane(b, 5)),
-                        Math.imul(SIMD.Int16x8.extractLane(a, 6),
-                                  SIMD.Int16x8.extractLane(b, 6)),
-                        Math.imul(SIMD.Int16x8.extractLane(a, 7),
-                                  SIMD.Int16x8.extractLane(b, 7)));
-  }
-}
-
-if (typeof SIMD.Int16x8.swizzle === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8 to be swizzled.
-    * @param {integer} s0 - Index in t for lane s0
-    * @param {integer} s1 - Index in t for lane s1
-    * @param {integer} s2 - Index in t for lane s2
-    * @param {integer} s3 - Index in t for lane s3
-    * @param {integer} s4 - Index in t for lane s4
-    * @param {integer} s5 - Index in t for lane s5
-    * @param {integer} s6 - Index in t for lane s6
-    * @param {integer} s7 - Index in t for lane s7
-    * @return {Int16x8} New instance of Int16x8 with lanes swizzled.
-    */
-  SIMD.Int16x8.swizzle = function(t, s0, s1, s2, s3, s4, s5, s6, s7) {
-    t = SIMD.Int16x8.check(t);
-    check8(s0);
-    check8(s1);
-    check8(s2);
-    check8(s3);
-    check8(s4);
-    check8(s5);
-    check8(s6);
-    check8(s7);
-    var storage = _i16x8;
-    storage[0] = SIMD.Int16x8.extractLane(t, 0);
-    storage[1] = SIMD.Int16x8.extractLane(t, 1);
-    storage[2] = SIMD.Int16x8.extractLane(t, 2);
-    storage[3] = SIMD.Int16x8.extractLane(t, 3);
-    storage[4] = SIMD.Int16x8.extractLane(t, 4);
-    storage[5] = SIMD.Int16x8.extractLane(t, 5);
-    storage[6] = SIMD.Int16x8.extractLane(t, 6);
-    storage[7] = SIMD.Int16x8.extractLane(t, 7);
-    return SIMD.Int16x8(storage[s0], storage[s1], storage[s2], storage[s3],
-                        storage[s4], storage[s5], storage[s6], storage[s7]);
-  }
-}
-
-if (typeof SIMD.Int16x8.shuffle === "undefined") {
-
-  _i16x16 = new Int16Array(16);
-
-  /**
-    * @param {Int16x8} t0 An instance of Int16x8 to be shuffled.
-    * @param {Int16x8} t1 An instance of Int16x8 to be shuffled.
-    * @param {integer} s0 - Index in concatenation of t0 and t1 for lane s0
-    * @param {integer} s1 - Index in concatenation of t0 and t1 for lane s1
-    * @param {integer} s2 - Index in concatenation of t0 and t1 for lane s2
-    * @param {integer} s3 - Index in concatenation of t0 and t1 for lane s3
-    * @param {integer} s4 - Index in concatenation of t0 and t1 for lane s4
-    * @param {integer} s5 - Index in concatenation of t0 and t1 for lane s5
-    * @param {integer} s6 - Index in concatenation of t0 and t1 for lane s6
-    * @param {integer} s7 - Index in concatenation of t0 and t1 for lane s7
-    * @return {Int16x8} New instance of Int16x8 with lanes shuffled.
-    */
-  SIMD.Int16x8.shuffle = function(t0, t1, s0, s1, s2, s3, s4, s5, s6, s7) {
-    t0 = SIMD.Int16x8.check(t0);
-    t1 = SIMD.Int16x8.check(t1);
-    check16(s0);
-    check16(s1);
-    check16(s2);
-    check16(s3);
-    check16(s4);
-    check16(s5);
-    check16(s6);
-    check16(s7);
-    var storage = _i16x16;
-    storage[0] = SIMD.Int16x8.extractLane(t0, 0);
-    storage[1] = SIMD.Int16x8.extractLane(t0, 1);
-    storage[2] = SIMD.Int16x8.extractLane(t0, 2);
-    storage[3] = SIMD.Int16x8.extractLane(t0, 3);
-    storage[4] = SIMD.Int16x8.extractLane(t0, 4);
-    storage[5] = SIMD.Int16x8.extractLane(t0, 5);
-    storage[6] = SIMD.Int16x8.extractLane(t0, 6);
-    storage[7] = SIMD.Int16x8.extractLane(t0, 7);
-    storage[8] = SIMD.Int16x8.extractLane(t1, 0);
-    storage[9] = SIMD.Int16x8.extractLane(t1, 1);
-    storage[10] = SIMD.Int16x8.extractLane(t1, 2);
-    storage[11] = SIMD.Int16x8.extractLane(t1, 3);
-    storage[12] = SIMD.Int16x8.extractLane(t1, 4);
-    storage[13] = SIMD.Int16x8.extractLane(t1, 5);
-    storage[14] = SIMD.Int16x8.extractLane(t1, 6);
-    storage[15] = SIMD.Int16x8.extractLane(t1, 7);
-    return SIMD.Int16x8(storage[s0], storage[s1], storage[s2], storage[s3],
-                        storage[s4], storage[s5], storage[s6], storage[s7]);
-  }
-}
-
-if (typeof SIMD.Int16x8.addSaturate === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {Int16x8} b An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of a + b with
-    * signed saturating behavior on overflow.
-    */
-  SIMD.Int16x8.addSaturate = function(a, b) {
-    a = SIMD.Int16x8.check(a);
-    b = SIMD.Int16x8.check(b);
-    var c = SIMD.Int16x8.add(a, b);
-    var max = SIMD.Int16x8.splat(0x7fff);
-    var min = SIMD.Int16x8.splat(0x8000);
-    var mask = SIMD.Int16x8.lessThan(c, a);
-    var bneg = SIMD.Int16x8.lessThan(b, SIMD.Int16x8.splat(0));
-    return SIMD.Int16x8.select(SIMD.Bool16x8.and(mask, SIMD.Bool16x8.not(bneg)), max,
-             SIMD.Int16x8.select(SIMD.Bool16x8.and(SIMD.Bool16x8.not(mask), bneg), min,
-               c));
-  }
-}
-
-if (typeof SIMD.Int16x8.subSaturate === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {Int16x8} b An instance of Int16x8.
-    * @return {Int16x8} New instance of Int16x8 with values of a - b with
-    * signed saturating behavior on overflow.
-    */
-  SIMD.Int16x8.subSaturate = function(a, b) {
-    a = SIMD.Int16x8.check(a);
-    b = SIMD.Int16x8.check(b);
-    var c = SIMD.Int16x8.sub(a, b);
-    var max = SIMD.Int16x8.splat(0x7fff);
-    var min = SIMD.Int16x8.splat(0x8000);
-    var mask = SIMD.Int16x8.greaterThan(c, a);
-    var bneg = SIMD.Int16x8.lessThan(b, SIMD.Int16x8.splat(0));
-    return SIMD.Int16x8.select(SIMD.Bool16x8.and(mask, SIMD.Bool16x8.not(bneg)), min,
-             SIMD.Int16x8.select(SIMD.Bool16x8.and(SIMD.Bool16x8.not(mask), bneg), max,
-               c));
-  }
-}
-
-if (typeof SIMD.Int16x8.select === "undefined") {
-  /**
-    * @param {Bool16x8} t Selector mask. An instance of Bool16x8
-    * @param {Int16x8} trueValue Pick lane from here if corresponding
-    * selector lane is true
-    * @param {Int16x8} falseValue Pick lane from here if corresponding
-    * selector lane is false
-    * @return {Int16x8} Mix of lanes from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Int16x8.select = function(t, trueValue, falseValue) {
-    t = SIMD.Bool16x8.check(t);
-    trueValue = SIMD.Int16x8.check(trueValue);
-    falseValue = SIMD.Int16x8.check(falseValue);
-    return SIMD.Int16x8(
-        SIMD.Bool16x8.extractLane(t, 0) ?
-            SIMD.Int16x8.extractLane(trueValue, 0) :
-                SIMD.Int16x8.extractLane(falseValue, 0),
-        SIMD.Bool16x8.extractLane(t, 1) ?
-            SIMD.Int16x8.extractLane(trueValue, 1) :
-                SIMD.Int16x8.extractLane(falseValue, 1),
-        SIMD.Bool16x8.extractLane(t, 2) ?
-            SIMD.Int16x8.extractLane(trueValue, 2) :
-                SIMD.Int16x8.extractLane(falseValue, 2),
-        SIMD.Bool16x8.extractLane(t, 3) ?
-            SIMD.Int16x8.extractLane(trueValue, 3) :
-                SIMD.Int16x8.extractLane(falseValue, 3),
-        SIMD.Bool16x8.extractLane(t, 4) ?
-            SIMD.Int16x8.extractLane(trueValue, 4) :
-                SIMD.Int16x8.extractLane(falseValue, 4),
-        SIMD.Bool16x8.extractLane(t, 5) ?
-            SIMD.Int16x8.extractLane(trueValue, 5) :
-                SIMD.Int16x8.extractLane(falseValue, 5),
-        SIMD.Bool16x8.extractLane(t, 6) ?
-            SIMD.Int16x8.extractLane(trueValue, 6) :
-                SIMD.Int16x8.extractLane(falseValue, 6),
-        SIMD.Bool16x8.extractLane(t, 7) ?
-            SIMD.Int16x8.extractLane(trueValue, 7) :
-                SIMD.Int16x8.extractLane(falseValue, 7));
-  }
-}
-
-if (typeof SIMD.Int16x8.selectBits === "undefined") {
-  /**
-    * @param {Int16x8} t Selector mask. An instance of Int16x8
-    * @param {Int16x8} trueValue Pick bit from here if corresponding
-    * selector bit is 1
-    * @param {Int16x8} falseValue Pick bit from here if corresponding
-    * selector bit is 0
-    * @return {Int16x8} Mix of bits from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Int16x8.selectBits = function(t, trueValue, falseValue) {
-    t = SIMD.Int16x8.check(t);
-    trueValue = SIMD.Int16x8.check(trueValue);
-    falseValue = SIMD.Int16x8.check(falseValue);
-    var tr = SIMD.Int16x8.and(t, trueValue);
-    var fr = SIMD.Int16x8.and(SIMD.Int16x8.not(t), falseValue);
-    return SIMD.Int16x8.or(tr, fr);
-  }
-}
-
-if (typeof SIMD.Int16x8.equal === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @param {Int16x8} other An instance of Int16x8.
-    * @return {Bool16x8} true or false in each lane depending on
-    * the result of t == other.
-    */
-  SIMD.Int16x8.equal = function(t, other) {
-    t = SIMD.Int16x8.check(t);
-    other = SIMD.Int16x8.check(other);
-    var cs0 =
-        SIMD.Int16x8.extractLane(t, 0) == SIMD.Int16x8.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int16x8.extractLane(t, 1) == SIMD.Int16x8.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int16x8.extractLane(t, 2) == SIMD.Int16x8.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int16x8.extractLane(t, 3) == SIMD.Int16x8.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int16x8.extractLane(t, 4) == SIMD.Int16x8.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int16x8.extractLane(t, 5) == SIMD.Int16x8.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int16x8.extractLane(t, 6) == SIMD.Int16x8.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int16x8.extractLane(t, 7) == SIMD.Int16x8.extractLane(other, 7);
-    return SIMD.Bool16x8(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7);
-  }
-}
-
-if (typeof SIMD.Int16x8.notEqual === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @param {Int16x8} other An instance of Int16x8.
-    * @return {Bool16x8} true or false in each lane depending on
-    * the result of t != other.
-    */
-  SIMD.Int16x8.notEqual = function(t, other) {
-    t = SIMD.Int16x8.check(t);
-    other = SIMD.Int16x8.check(other);
-    var cs0 =
-        SIMD.Int16x8.extractLane(t, 0) != SIMD.Int16x8.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int16x8.extractLane(t, 1) != SIMD.Int16x8.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int16x8.extractLane(t, 2) != SIMD.Int16x8.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int16x8.extractLane(t, 3) != SIMD.Int16x8.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int16x8.extractLane(t, 4) != SIMD.Int16x8.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int16x8.extractLane(t, 5) != SIMD.Int16x8.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int16x8.extractLane(t, 6) != SIMD.Int16x8.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int16x8.extractLane(t, 7) != SIMD.Int16x8.extractLane(other, 7);
-    return SIMD.Bool16x8(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7);
-  }
-}
-
-if (typeof SIMD.Int16x8.greaterThan === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @param {Int16x8} other An instance of Int16x8.
-    * @return {Bool16x8} true or false in each lane depending on
-    * the result of t > other.
-    */
-  SIMD.Int16x8.greaterThan = function(t, other) {
-    t = SIMD.Int16x8.check(t);
-    other = SIMD.Int16x8.check(other);
-    var cs0 =
-        SIMD.Int16x8.extractLane(t, 0) > SIMD.Int16x8.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int16x8.extractLane(t, 1) > SIMD.Int16x8.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int16x8.extractLane(t, 2) > SIMD.Int16x8.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int16x8.extractLane(t, 3) > SIMD.Int16x8.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int16x8.extractLane(t, 4) > SIMD.Int16x8.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int16x8.extractLane(t, 5) > SIMD.Int16x8.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int16x8.extractLane(t, 6) > SIMD.Int16x8.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int16x8.extractLane(t, 7) > SIMD.Int16x8.extractLane(other, 7);
-    return SIMD.Bool16x8(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7);
-  }
-}
-
-if (typeof SIMD.Int16x8.greaterThanOrEqual === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @param {Int16x8} other An instance of Int16x8.
-    * @return {Bool16x8} true or false in each lane depending on
-    * the result of t >= other.
-    */
-  SIMD.Int16x8.greaterThanOrEqual = function(t, other) {
-    t = SIMD.Int16x8.check(t);
-    other = SIMD.Int16x8.check(other);
-    var cs0 =
-        SIMD.Int16x8.extractLane(t, 0) >= SIMD.Int16x8.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int16x8.extractLane(t, 1) >= SIMD.Int16x8.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int16x8.extractLane(t, 2) >= SIMD.Int16x8.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int16x8.extractLane(t, 3) >= SIMD.Int16x8.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int16x8.extractLane(t, 4) >= SIMD.Int16x8.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int16x8.extractLane(t, 5) >= SIMD.Int16x8.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int16x8.extractLane(t, 6) >= SIMD.Int16x8.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int16x8.extractLane(t, 7) >= SIMD.Int16x8.extractLane(other, 7);
-    return SIMD.Bool16x8(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7);
-  }
-}
-
-if (typeof SIMD.Int16x8.lessThan === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @param {Int16x8} other An instance of Int16x8.
-    * @return {Bool16x8} true or false in each lane depending on
-    * the result of t < other.
-    */
-  SIMD.Int16x8.lessThan = function(t, other) {
-    t = SIMD.Int16x8.check(t);
-    other = SIMD.Int16x8.check(other);
-    var cs0 =
-        SIMD.Int16x8.extractLane(t, 0) < SIMD.Int16x8.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int16x8.extractLane(t, 1) < SIMD.Int16x8.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int16x8.extractLane(t, 2) < SIMD.Int16x8.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int16x8.extractLane(t, 3) < SIMD.Int16x8.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int16x8.extractLane(t, 4) < SIMD.Int16x8.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int16x8.extractLane(t, 5) < SIMD.Int16x8.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int16x8.extractLane(t, 6) < SIMD.Int16x8.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int16x8.extractLane(t, 7) < SIMD.Int16x8.extractLane(other, 7);
-    return SIMD.Bool16x8(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7);
-  }
-}
-
-if (typeof SIMD.Int16x8.lessThanOrEqual === "undefined") {
-  /**
-    * @param {Int16x8} t An instance of Int16x8.
-    * @param {Int16x8} other An instance of Int16x8.
-    * @return {Bool16x8} true or false in each lane depending on
-    * the result of t <= other.
-    */
-  SIMD.Int16x8.lessThanOrEqual = function(t, other) {
-    t = SIMD.Int16x8.check(t);
-    other = SIMD.Int16x8.check(other);
-    var cs0 =
-        SIMD.Int16x8.extractLane(t, 0) <= SIMD.Int16x8.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int16x8.extractLane(t, 1) <= SIMD.Int16x8.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int16x8.extractLane(t, 2) <= SIMD.Int16x8.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int16x8.extractLane(t, 3) <= SIMD.Int16x8.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int16x8.extractLane(t, 4) <= SIMD.Int16x8.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int16x8.extractLane(t, 5) <= SIMD.Int16x8.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int16x8.extractLane(t, 6) <= SIMD.Int16x8.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int16x8.extractLane(t, 7) <= SIMD.Int16x8.extractLane(other, 7);
-    return SIMD.Bool16x8(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7);
-  }
-}
-
-if (typeof SIMD.Int16x8.shiftLeftByScalar === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {integer} bits Bit count to shift by.
-    * @return {Int16x8} lanes in a shifted by bits.
-    */
-  SIMD.Int16x8.shiftLeftByScalar = function(a, bits) {
-    a = SIMD.Int16x8.check(a);
-    if (bits>>>0 > 16)
-      bits = 16;
-    var s0 = SIMD.Int16x8.extractLane(a, 0) << bits;
-    var s1 = SIMD.Int16x8.extractLane(a, 1) << bits;
-    var s2 = SIMD.Int16x8.extractLane(a, 2) << bits;
-    var s3 = SIMD.Int16x8.extractLane(a, 3) << bits;
-    var s4 = SIMD.Int16x8.extractLane(a, 4) << bits;
-    var s5 = SIMD.Int16x8.extractLane(a, 5) << bits;
-    var s6 = SIMD.Int16x8.extractLane(a, 6) << bits;
-    var s7 = SIMD.Int16x8.extractLane(a, 7) << bits;
-    return SIMD.Int16x8(s0, s1, s2, s3, s4, s5, s6, s7);
-  }
-}
-
-if (typeof SIMD.Int16x8.shiftRightLogicalByScalar === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {integer} bits Bit count to shift by.
-    * @return {Int16x8} lanes in a shifted by bits.
-    */
-  SIMD.Int16x8.shiftRightLogicalByScalar = function(a, bits) {
-    a = SIMD.Int16x8.check(a);
-    if (bits>>>0 > 16)
-      bits = 16;
-    var s0 = (SIMD.Int16x8.extractLane(a, 0) & 0xffff) >>> bits;
-    var s1 = (SIMD.Int16x8.extractLane(a, 1) & 0xffff) >>> bits;
-    var s2 = (SIMD.Int16x8.extractLane(a, 2) & 0xffff) >>> bits;
-    var s3 = (SIMD.Int16x8.extractLane(a, 3) & 0xffff) >>> bits;
-    var s4 = (SIMD.Int16x8.extractLane(a, 4) & 0xffff) >>> bits;
-    var s5 = (SIMD.Int16x8.extractLane(a, 5) & 0xffff) >>> bits;
-    var s6 = (SIMD.Int16x8.extractLane(a, 6) & 0xffff) >>> bits;
-    var s7 = (SIMD.Int16x8.extractLane(a, 7) & 0xffff) >>> bits;
-    return SIMD.Int16x8(s0, s1, s2, s3, s4, s5, s6, s7);
-  }
-}
-
-if (typeof SIMD.Int16x8.shiftRightArithmeticByScalar === "undefined") {
-  /**
-    * @param {Int16x8} a An instance of Int16x8.
-    * @param {integer} bits Bit count to shift by.
-    * @return {Int16x8} lanes in a shifted by bits.
-    */
-  SIMD.Int16x8.shiftRightArithmeticByScalar = function(a, bits) {
-    a = SIMD.Int16x8.check(a);
-    if (bits>>>0 > 16)
-      bits = 16;
-    var s0 = SIMD.Int16x8.extractLane(a, 0) >> bits;
-    var s1 = SIMD.Int16x8.extractLane(a, 1) >> bits;
-    var s2 = SIMD.Int16x8.extractLane(a, 2) >> bits;
-    var s3 = SIMD.Int16x8.extractLane(a, 3) >> bits;
-    var s4 = SIMD.Int16x8.extractLane(a, 4) >> bits;
-    var s5 = SIMD.Int16x8.extractLane(a, 5) >> bits;
-    var s6 = SIMD.Int16x8.extractLane(a, 6) >> bits;
-    var s7 = SIMD.Int16x8.extractLane(a, 7) >> bits;
-    return SIMD.Int16x8(s0, s1, s2, s3, s4, s5, s6, s7);
-  }
-}
-
-if (typeof SIMD.Int16x8.load === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Int16x8} New instance of Int16x8.
-    */
-  SIMD.Int16x8.load = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var i16temp = _i16x8;
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? i16temp :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Int16x8(i16temp[0], i16temp[1], i16temp[2], i16temp[3],
-                        i16temp[4], i16temp[5], i16temp[6], i16temp[7]);
-  }
-}
-
-if (typeof SIMD.Int16x8.store === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Int16x8} value An instance of Int16x8.
-    * @return {Int16x8} value
-    */
-  SIMD.Int16x8.store = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Int16x8.check(value);
-    _i16x8[0] = SIMD.Int16x8.extractLane(value, 0);
-    _i16x8[1] = SIMD.Int16x8.extractLane(value, 1);
-    _i16x8[2] = SIMD.Int16x8.extractLane(value, 2);
-    _i16x8[3] = SIMD.Int16x8.extractLane(value, 3);
-    _i16x8[4] = SIMD.Int16x8.extractLane(value, 4);
-    _i16x8[5] = SIMD.Int16x8.extractLane(value, 5);
-    _i16x8[6] = SIMD.Int16x8.extractLane(value, 6);
-    _i16x8[7] = SIMD.Int16x8.extractLane(value, 7);
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      tarray[index + i] = array[i];
-    return value;
-  }
-}
-
-if (typeof SIMD.Int8x16.and === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {Int8x16} b An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of a & b.
-    */
-  SIMD.Int8x16.and = function(a, b) {
-    a = SIMD.Int8x16.check(a);
-    b = SIMD.Int8x16.check(b);
-    return SIMD.Int8x16(
-        SIMD.Int8x16.extractLane(a, 0) & SIMD.Int8x16.extractLane(b, 0),
-        SIMD.Int8x16.extractLane(a, 1) & SIMD.Int8x16.extractLane(b, 1),
-        SIMD.Int8x16.extractLane(a, 2) & SIMD.Int8x16.extractLane(b, 2),
-        SIMD.Int8x16.extractLane(a, 3) & SIMD.Int8x16.extractLane(b, 3),
-        SIMD.Int8x16.extractLane(a, 4) & SIMD.Int8x16.extractLane(b, 4),
-        SIMD.Int8x16.extractLane(a, 5) & SIMD.Int8x16.extractLane(b, 5),
-        SIMD.Int8x16.extractLane(a, 6) & SIMD.Int8x16.extractLane(b, 6),
-        SIMD.Int8x16.extractLane(a, 7) & SIMD.Int8x16.extractLane(b, 7),
-        SIMD.Int8x16.extractLane(a, 8) & SIMD.Int8x16.extractLane(b, 8),
-        SIMD.Int8x16.extractLane(a, 9) & SIMD.Int8x16.extractLane(b, 9),
-        SIMD.Int8x16.extractLane(a, 10) & SIMD.Int8x16.extractLane(b, 10),
-        SIMD.Int8x16.extractLane(a, 11) & SIMD.Int8x16.extractLane(b, 11),
-        SIMD.Int8x16.extractLane(a, 12) & SIMD.Int8x16.extractLane(b, 12),
-        SIMD.Int8x16.extractLane(a, 13) & SIMD.Int8x16.extractLane(b, 13),
-        SIMD.Int8x16.extractLane(a, 14) & SIMD.Int8x16.extractLane(b, 14),
-        SIMD.Int8x16.extractLane(a, 15) & SIMD.Int8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Int8x16.or === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {Int8x16} b An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of a | b.
-    */
-  SIMD.Int8x16.or = function(a, b) {
-    a = SIMD.Int8x16.check(a);
-    b = SIMD.Int8x16.check(b);
-    return SIMD.Int8x16(
-        SIMD.Int8x16.extractLane(a, 0) | SIMD.Int8x16.extractLane(b, 0),
-        SIMD.Int8x16.extractLane(a, 1) | SIMD.Int8x16.extractLane(b, 1),
-        SIMD.Int8x16.extractLane(a, 2) | SIMD.Int8x16.extractLane(b, 2),
-        SIMD.Int8x16.extractLane(a, 3) | SIMD.Int8x16.extractLane(b, 3),
-        SIMD.Int8x16.extractLane(a, 4) | SIMD.Int8x16.extractLane(b, 4),
-        SIMD.Int8x16.extractLane(a, 5) | SIMD.Int8x16.extractLane(b, 5),
-        SIMD.Int8x16.extractLane(a, 6) | SIMD.Int8x16.extractLane(b, 6),
-        SIMD.Int8x16.extractLane(a, 7) | SIMD.Int8x16.extractLane(b, 7),
-        SIMD.Int8x16.extractLane(a, 8) | SIMD.Int8x16.extractLane(b, 8),
-        SIMD.Int8x16.extractLane(a, 9) | SIMD.Int8x16.extractLane(b, 9),
-        SIMD.Int8x16.extractLane(a, 10) | SIMD.Int8x16.extractLane(b, 10),
-        SIMD.Int8x16.extractLane(a, 11) | SIMD.Int8x16.extractLane(b, 11),
-        SIMD.Int8x16.extractLane(a, 12) | SIMD.Int8x16.extractLane(b, 12),
-        SIMD.Int8x16.extractLane(a, 13) | SIMD.Int8x16.extractLane(b, 13),
-        SIMD.Int8x16.extractLane(a, 14) | SIMD.Int8x16.extractLane(b, 14),
-        SIMD.Int8x16.extractLane(a, 15) | SIMD.Int8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Int8x16.xor === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {Int8x16} b An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of a ^ b.
-    */
-  SIMD.Int8x16.xor = function(a, b) {
-    a = SIMD.Int8x16.check(a);
-    b = SIMD.Int8x16.check(b);
-    return SIMD.Int8x16(
-        SIMD.Int8x16.extractLane(a, 0) ^ SIMD.Int8x16.extractLane(b, 0),
-        SIMD.Int8x16.extractLane(a, 1) ^ SIMD.Int8x16.extractLane(b, 1),
-        SIMD.Int8x16.extractLane(a, 2) ^ SIMD.Int8x16.extractLane(b, 2),
-        SIMD.Int8x16.extractLane(a, 3) ^ SIMD.Int8x16.extractLane(b, 3),
-        SIMD.Int8x16.extractLane(a, 4) ^ SIMD.Int8x16.extractLane(b, 4),
-        SIMD.Int8x16.extractLane(a, 5) ^ SIMD.Int8x16.extractLane(b, 5),
-        SIMD.Int8x16.extractLane(a, 6) ^ SIMD.Int8x16.extractLane(b, 6),
-        SIMD.Int8x16.extractLane(a, 7) ^ SIMD.Int8x16.extractLane(b, 7),
-        SIMD.Int8x16.extractLane(a, 8) ^ SIMD.Int8x16.extractLane(b, 8),
-        SIMD.Int8x16.extractLane(a, 9) ^ SIMD.Int8x16.extractLane(b, 9),
-        SIMD.Int8x16.extractLane(a, 10) ^ SIMD.Int8x16.extractLane(b, 10),
-        SIMD.Int8x16.extractLane(a, 11) ^ SIMD.Int8x16.extractLane(b, 11),
-        SIMD.Int8x16.extractLane(a, 12) ^ SIMD.Int8x16.extractLane(b, 12),
-        SIMD.Int8x16.extractLane(a, 13) ^ SIMD.Int8x16.extractLane(b, 13),
-        SIMD.Int8x16.extractLane(a, 14) ^ SIMD.Int8x16.extractLane(b, 14),
-        SIMD.Int8x16.extractLane(a, 15) ^ SIMD.Int8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Int8x16.not === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of ~t
-    */
-  SIMD.Int8x16.not = function(t) {
-    t = SIMD.Int8x16.check(t);
-    return SIMD.Int8x16(~SIMD.Int8x16.extractLane(t, 0),
-                        ~SIMD.Int8x16.extractLane(t, 1),
-                        ~SIMD.Int8x16.extractLane(t, 2),
-                        ~SIMD.Int8x16.extractLane(t, 3),
-                        ~SIMD.Int8x16.extractLane(t, 4),
-                        ~SIMD.Int8x16.extractLane(t, 5),
-                        ~SIMD.Int8x16.extractLane(t, 6),
-                        ~SIMD.Int8x16.extractLane(t, 7),
-                        ~SIMD.Int8x16.extractLane(t, 8),
-                        ~SIMD.Int8x16.extractLane(t, 9),
-                        ~SIMD.Int8x16.extractLane(t, 10),
-                        ~SIMD.Int8x16.extractLane(t, 11),
-                        ~SIMD.Int8x16.extractLane(t, 12),
-                        ~SIMD.Int8x16.extractLane(t, 13),
-                        ~SIMD.Int8x16.extractLane(t, 14),
-                        ~SIMD.Int8x16.extractLane(t, 15));
-  }
-}
-
-if (typeof SIMD.Int8x16.neg === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of -t
-    */
-  SIMD.Int8x16.neg = function(t) {
-    t = SIMD.Int8x16.check(t);
-    return SIMD.Int8x16(-SIMD.Int8x16.extractLane(t, 0),
-                        -SIMD.Int8x16.extractLane(t, 1),
-                        -SIMD.Int8x16.extractLane(t, 2),
-                        -SIMD.Int8x16.extractLane(t, 3),
-                        -SIMD.Int8x16.extractLane(t, 4),
-                        -SIMD.Int8x16.extractLane(t, 5),
-                        -SIMD.Int8x16.extractLane(t, 6),
-                        -SIMD.Int8x16.extractLane(t, 7),
-                        -SIMD.Int8x16.extractLane(t, 8),
-                        -SIMD.Int8x16.extractLane(t, 9),
-                        -SIMD.Int8x16.extractLane(t, 10),
-                        -SIMD.Int8x16.extractLane(t, 11),
-                        -SIMD.Int8x16.extractLane(t, 12),
-                        -SIMD.Int8x16.extractLane(t, 13),
-                        -SIMD.Int8x16.extractLane(t, 14),
-                        -SIMD.Int8x16.extractLane(t, 15));
-  }
-}
-
-if (typeof SIMD.Int8x16.add === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {Int8x16} b An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of a + b.
-    */
-  SIMD.Int8x16.add = function(a, b) {
-    a = SIMD.Int8x16.check(a);
-    b = SIMD.Int8x16.check(b);
-    return SIMD.Int8x16(
-        SIMD.Int8x16.extractLane(a, 0) + SIMD.Int8x16.extractLane(b, 0),
-        SIMD.Int8x16.extractLane(a, 1) + SIMD.Int8x16.extractLane(b, 1),
-        SIMD.Int8x16.extractLane(a, 2) + SIMD.Int8x16.extractLane(b, 2),
-        SIMD.Int8x16.extractLane(a, 3) + SIMD.Int8x16.extractLane(b, 3),
-        SIMD.Int8x16.extractLane(a, 4) + SIMD.Int8x16.extractLane(b, 4),
-        SIMD.Int8x16.extractLane(a, 5) + SIMD.Int8x16.extractLane(b, 5),
-        SIMD.Int8x16.extractLane(a, 6) + SIMD.Int8x16.extractLane(b, 6),
-        SIMD.Int8x16.extractLane(a, 7) + SIMD.Int8x16.extractLane(b, 7),
-        SIMD.Int8x16.extractLane(a, 8) + SIMD.Int8x16.extractLane(b, 8),
-        SIMD.Int8x16.extractLane(a, 9) + SIMD.Int8x16.extractLane(b, 9),
-        SIMD.Int8x16.extractLane(a, 10) + SIMD.Int8x16.extractLane(b, 10),
-        SIMD.Int8x16.extractLane(a, 11) + SIMD.Int8x16.extractLane(b, 11),
-        SIMD.Int8x16.extractLane(a, 12) + SIMD.Int8x16.extractLane(b, 12),
-        SIMD.Int8x16.extractLane(a, 13) + SIMD.Int8x16.extractLane(b, 13),
-        SIMD.Int8x16.extractLane(a, 14) + SIMD.Int8x16.extractLane(b, 14),
-        SIMD.Int8x16.extractLane(a, 15) + SIMD.Int8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Int8x16.sub === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {Int8x16} b An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of a - b.
-    */
-  SIMD.Int8x16.sub = function(a, b) {
-    a = SIMD.Int8x16.check(a);
-    b = SIMD.Int8x16.check(b);
-    return SIMD.Int8x16(
-        SIMD.Int8x16.extractLane(a, 0) - SIMD.Int8x16.extractLane(b, 0),
-        SIMD.Int8x16.extractLane(a, 1) - SIMD.Int8x16.extractLane(b, 1),
-        SIMD.Int8x16.extractLane(a, 2) - SIMD.Int8x16.extractLane(b, 2),
-        SIMD.Int8x16.extractLane(a, 3) - SIMD.Int8x16.extractLane(b, 3),
-        SIMD.Int8x16.extractLane(a, 4) - SIMD.Int8x16.extractLane(b, 4),
-        SIMD.Int8x16.extractLane(a, 5) - SIMD.Int8x16.extractLane(b, 5),
-        SIMD.Int8x16.extractLane(a, 6) - SIMD.Int8x16.extractLane(b, 6),
-        SIMD.Int8x16.extractLane(a, 7) - SIMD.Int8x16.extractLane(b, 7),
-        SIMD.Int8x16.extractLane(a, 8) - SIMD.Int8x16.extractLane(b, 8),
-        SIMD.Int8x16.extractLane(a, 9) - SIMD.Int8x16.extractLane(b, 9),
-        SIMD.Int8x16.extractLane(a, 10) - SIMD.Int8x16.extractLane(b, 10),
-        SIMD.Int8x16.extractLane(a, 11) - SIMD.Int8x16.extractLane(b, 11),
-        SIMD.Int8x16.extractLane(a, 12) - SIMD.Int8x16.extractLane(b, 12),
-        SIMD.Int8x16.extractLane(a, 13) - SIMD.Int8x16.extractLane(b, 13),
-        SIMD.Int8x16.extractLane(a, 14) - SIMD.Int8x16.extractLane(b, 14),
-        SIMD.Int8x16.extractLane(a, 15) - SIMD.Int8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Int8x16.mul === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {Int8x16} b An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of a * b.
-    */
-  SIMD.Int8x16.mul = function(a, b) {
-    a = SIMD.Int8x16.check(a);
-    b = SIMD.Int8x16.check(b);
-    return SIMD.Int8x16(Math.imul(SIMD.Int8x16.extractLane(a, 0),
-                                  SIMD.Int8x16.extractLane(b, 0)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 1),
-                                  SIMD.Int8x16.extractLane(b, 1)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 2),
-                                  SIMD.Int8x16.extractLane(b, 2)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 3),
-                                  SIMD.Int8x16.extractLane(b, 3)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 4),
-                                  SIMD.Int8x16.extractLane(b, 4)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 5),
-                                  SIMD.Int8x16.extractLane(b, 5)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 6),
-                                  SIMD.Int8x16.extractLane(b, 6)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 7),
-                                  SIMD.Int8x16.extractLane(b, 7)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 8),
-                                  SIMD.Int8x16.extractLane(b, 8)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 9),
-                                  SIMD.Int8x16.extractLane(b, 9)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 10),
-                                  SIMD.Int8x16.extractLane(b, 10)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 11),
-                                  SIMD.Int8x16.extractLane(b, 11)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 12),
-                                  SIMD.Int8x16.extractLane(b, 12)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 13),
-                                  SIMD.Int8x16.extractLane(b, 13)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 14),
-                                  SIMD.Int8x16.extractLane(b, 14)),
-                        Math.imul(SIMD.Int8x16.extractLane(a, 15),
-                                  SIMD.Int8x16.extractLane(b, 15)));
-  }
-}
-
-if (typeof SIMD.Int8x16.swizzle === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16 to be swizzled.
-    * @param {integer} s0 - Index in t for lane s0
-    * @param {integer} s1 - Index in t for lane s1
-    * @param {integer} s2 - Index in t for lane s2
-    * @param {integer} s3 - Index in t for lane s3
-    * @param {integer} s4 - Index in t for lane s4
-    * @param {integer} s5 - Index in t for lane s5
-    * @param {integer} s6 - Index in t for lane s6
-    * @param {integer} s7 - Index in t for lane s7
-    * @param {integer} s8 - Index in t for lane s8
-    * @param {integer} s9 - Index in t for lane s9
-    * @param {integer} s10 - Index in t for lane s10
-    * @param {integer} s11 - Index in t for lane s11
-    * @param {integer} s12 - Index in t for lane s12
-    * @param {integer} s13 - Index in t for lane s13
-    * @param {integer} s14 - Index in t for lane s14
-    * @param {integer} s15 - Index in t for lane s15
-    * @return {Int8x16} New instance of Int8x16 with lanes swizzled.
-    */
-  SIMD.Int8x16.swizzle = function(t, s0, s1, s2, s3, s4, s5, s6, s7,
-                                     s8, s9, s10, s11, s12, s13, s14, s15) {
-    t = SIMD.Int8x16.check(t);
-    check16(s0);
-    check16(s1);
-    check16(s2);
-    check16(s3);
-    check16(s4);
-    check16(s5);
-    check16(s6);
-    check16(s7);
-    check16(s8);
-    check16(s9);
-    check16(s10);
-    check16(s11);
-    check16(s12);
-    check16(s13);
-    check16(s14);
-    check16(s15);
-    var storage = _i8x16;
-    storage[0] = SIMD.Int8x16.extractLane(t, 0);
-    storage[1] = SIMD.Int8x16.extractLane(t, 1);
-    storage[2] = SIMD.Int8x16.extractLane(t, 2);
-    storage[3] = SIMD.Int8x16.extractLane(t, 3);
-    storage[4] = SIMD.Int8x16.extractLane(t, 4);
-    storage[5] = SIMD.Int8x16.extractLane(t, 5);
-    storage[6] = SIMD.Int8x16.extractLane(t, 6);
-    storage[7] = SIMD.Int8x16.extractLane(t, 7);
-    storage[8] = SIMD.Int8x16.extractLane(t, 8);
-    storage[9] = SIMD.Int8x16.extractLane(t, 9);
-    storage[10] = SIMD.Int8x16.extractLane(t, 10);
-    storage[11] = SIMD.Int8x16.extractLane(t, 11);
-    storage[12] = SIMD.Int8x16.extractLane(t, 12);
-    storage[13] = SIMD.Int8x16.extractLane(t, 13);
-    storage[14] = SIMD.Int8x16.extractLane(t, 14);
-    storage[15] = SIMD.Int8x16.extractLane(t, 15);
-    return SIMD.Int8x16(storage[s0], storage[s1], storage[s2], storage[s3],
-                        storage[s4], storage[s5], storage[s6], storage[s7],
-                        storage[s8], storage[s9], storage[s10], storage[s11],
-                        storage[s12], storage[s13], storage[s14], storage[s15]);
-  }
-}
-
-if (typeof SIMD.Int8x16.shuffle === "undefined") {
-
-  _i8x32 = new Int8Array(32);
-
-  /**
-    * @param {Int8x16} t0 An instance of Int8x16 to be shuffled.
-    * @param {Int8x16} t1 An instance of Int8x16 to be shuffled.
-    * @param {integer} s0 - Index in concatenation of t0 and t1 for lane s0
-    * @param {integer} s1 - Index in concatenation of t0 and t1 for lane s1
-    * @param {integer} s2 - Index in concatenation of t0 and t1 for lane s2
-    * @param {integer} s3 - Index in concatenation of t0 and t1 for lane s3
-    * @param {integer} s4 - Index in concatenation of t0 and t1 for lane s4
-    * @param {integer} s5 - Index in concatenation of t0 and t1 for lane s5
-    * @param {integer} s6 - Index in concatenation of t0 and t1 for lane s6
-    * @param {integer} s7 - Index in concatenation of t0 and t1 for lane s7
-    * @param {integer} s8 - Index in concatenation of t0 and t1 for lane s8
-    * @param {integer} s9 - Index in concatenation of t0 and t1 for lane s9
-    * @param {integer} s10 - Index in concatenation of t0 and t1 for lane s10
-    * @param {integer} s11 - Index in concatenation of t0 and t1 for lane s11
-    * @param {integer} s12 - Index in concatenation of t0 and t1 for lane s12
-    * @param {integer} s13 - Index in concatenation of t0 and t1 for lane s13
-    * @param {integer} s14 - Index in concatenation of t0 and t1 for lane s14
-    * @param {integer} s15 - Index in concatenation of t0 and t1 for lane s15
-    * @return {Int8x16} New instance of Int8x16 with lanes shuffled.
-    */
-  SIMD.Int8x16.shuffle = function(t0, t1, s0, s1, s2, s3, s4, s5, s6, s7,
-                                          s8, s9, s10, s11, s12, s13, s14, s15) {
-    t0 = SIMD.Int8x16.check(t0);
-    t1 = SIMD.Int8x16.check(t1);
-    check32(s0);
-    check32(s1);
-    check32(s2);
-    check32(s3);
-    check32(s4);
-    check32(s5);
-    check32(s6);
-    check32(s7);
-    check32(s8);
-    check32(s9);
-    check32(s10);
-    check32(s11);
-    check32(s12);
-    check32(s13);
-    check32(s14);
-    check32(s15);
-    var storage = _i8x32;
-    storage[0] = SIMD.Int8x16.extractLane(t0, 0);
-    storage[1] = SIMD.Int8x16.extractLane(t0, 1);
-    storage[2] = SIMD.Int8x16.extractLane(t0, 2);
-    storage[3] = SIMD.Int8x16.extractLane(t0, 3);
-    storage[4] = SIMD.Int8x16.extractLane(t0, 4);
-    storage[5] = SIMD.Int8x16.extractLane(t0, 5);
-    storage[6] = SIMD.Int8x16.extractLane(t0, 6);
-    storage[7] = SIMD.Int8x16.extractLane(t0, 7);
-    storage[8] = SIMD.Int8x16.extractLane(t0, 8);
-    storage[9] = SIMD.Int8x16.extractLane(t0, 9);
-    storage[10] = SIMD.Int8x16.extractLane(t0, 10);
-    storage[11] = SIMD.Int8x16.extractLane(t0, 11);
-    storage[12] = SIMD.Int8x16.extractLane(t0, 12);
-    storage[13] = SIMD.Int8x16.extractLane(t0, 13);
-    storage[14] = SIMD.Int8x16.extractLane(t0, 14);
-    storage[15] = SIMD.Int8x16.extractLane(t0, 15);
-    storage[16] = SIMD.Int8x16.extractLane(t1, 0);
-    storage[17] = SIMD.Int8x16.extractLane(t1, 1);
-    storage[18] = SIMD.Int8x16.extractLane(t1, 2);
-    storage[19] = SIMD.Int8x16.extractLane(t1, 3);
-    storage[20] = SIMD.Int8x16.extractLane(t1, 4);
-    storage[21] = SIMD.Int8x16.extractLane(t1, 5);
-    storage[22] = SIMD.Int8x16.extractLane(t1, 6);
-    storage[23] = SIMD.Int8x16.extractLane(t1, 7);
-    storage[24] = SIMD.Int8x16.extractLane(t1, 8);
-    storage[25] = SIMD.Int8x16.extractLane(t1, 9);
-    storage[26] = SIMD.Int8x16.extractLane(t1, 10);
-    storage[27] = SIMD.Int8x16.extractLane(t1, 11);
-    storage[28] = SIMD.Int8x16.extractLane(t1, 12);
-    storage[29] = SIMD.Int8x16.extractLane(t1, 13);
-    storage[30] = SIMD.Int8x16.extractLane(t1, 14);
-    storage[31] = SIMD.Int8x16.extractLane(t1, 15);
-    return SIMD.Int8x16(storage[s0], storage[s1], storage[s2], storage[s3],
-                        storage[s4], storage[s5], storage[s6], storage[s7],
-                        storage[s8], storage[s9], storage[s10], storage[s11],
-                        storage[s12], storage[s13], storage[s14], storage[s15]);
-  }
-}
-
-if (typeof SIMD.Int8x16.addSaturate === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {Int8x16} b An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of a + b with
-    * signed saturating behavior on overflow.
-    */
-  SIMD.Int8x16.addSaturate = function(a, b) {
-    a = SIMD.Int8x16.check(a);
-    b = SIMD.Int8x16.check(b);
-    var c = SIMD.Int8x16.add(a, b);
-    var max = SIMD.Int8x16.splat(0x7f);
-    var min = SIMD.Int8x16.splat(0x80);
-    var mask = SIMD.Int8x16.lessThan(c, a);
-    var bneg = SIMD.Int8x16.lessThan(b, SIMD.Int8x16.splat(0));
-    return SIMD.Int8x16.select(SIMD.Bool8x16.and(mask, SIMD.Bool8x16.not(bneg)), max,
-             SIMD.Int8x16.select(SIMD.Bool8x16.and(SIMD.Bool8x16.not(mask), bneg), min,
-               c));
-  }
-}
-
-if (typeof SIMD.Int8x16.subSaturate === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {Int8x16} b An instance of Int8x16.
-    * @return {Int8x16} New instance of Int8x16 with values of a - b with
-    * signed saturating behavior on overflow.
-    */
-  SIMD.Int8x16.subSaturate = function(a, b) {
-    a = SIMD.Int8x16.check(a);
-    b = SIMD.Int8x16.check(b);
-    var c = SIMD.Int8x16.sub(a, b);
-    var max = SIMD.Int8x16.splat(0x7f);
-    var min = SIMD.Int8x16.splat(0x80);
-    var mask = SIMD.Int8x16.greaterThan(c, a);
-    var bneg = SIMD.Int8x16.lessThan(b, SIMD.Int8x16.splat(0));
-    return SIMD.Int8x16.select(SIMD.Bool8x16.and(mask, SIMD.Bool8x16.not(bneg)), min,
-             SIMD.Int8x16.select(SIMD.Bool8x16.and(SIMD.Bool8x16.not(mask), bneg), max,
-               c));
-  }
-}
-
-if (typeof SIMD.Int8x16.sumOfAbsoluteDifferences === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {Int8x16} b An instance of Int8x16.
-    * @return {Number} The sum of the absolute differences (SAD) of the
-    * corresponding elements of a and b.
-    */
-  SIMD.Int8x16.sumOfAbsoluteDifferences = function(a, b) {
-    a = SIMD.Int8x16.check(a);
-    b = SIMD.Int8x16.check(b);
-    return Math.abs(
-        SIMD.Int8x16.extractLane(a, 0) - SIMD.Int8x16.extractLane(b, 0)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 1) - SIMD.Int8x16.extractLane(b, 1)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 2) - SIMD.Int8x16.extractLane(b, 2)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 3) - SIMD.Int8x16.extractLane(b, 3)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 4) - SIMD.Int8x16.extractLane(b, 4)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 5) - SIMD.Int8x16.extractLane(b, 5)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 6) - SIMD.Int8x16.extractLane(b, 6)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 7) - SIMD.Int8x16.extractLane(b, 7)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 8) - SIMD.Int8x16.extractLane(b, 8)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 9) - SIMD.Int8x16.extractLane(b, 9)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 10) - SIMD.Int8x16.extractLane(b, 10)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 11) - SIMD.Int8x16.extractLane(b, 11)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 12) - SIMD.Int8x16.extractLane(b, 12)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 13) - SIMD.Int8x16.extractLane(b, 13)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 14) - SIMD.Int8x16.extractLane(b, 14)) +
-        Math.abs(
-            SIMD.Int8x16.extractLane(a, 15) - SIMD.Int8x16.extractLane(b, 15));
-  }
-}
-
-if (typeof SIMD.Int8x16.select === "undefined") {
-  /**
-    * @param {Bool8x16} t Selector mask. An instance of Bool8x16
-    * @param {Int8x16} trueValue Pick lane from here if corresponding
-    * selector lane is true
-    * @param {Int8x16} falseValue Pick lane from here if corresponding
-    * selector lane is false
-    * @return {Int8x16} Mix of lanes from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Int8x16.select = function(t, trueValue, falseValue) {
-    t = SIMD.Bool8x16.check(t);
-    trueValue = SIMD.Int8x16.check(trueValue);
-    falseValue = SIMD.Int8x16.check(falseValue);
-    return SIMD.Int8x16(
-        SIMD.Bool8x16.extractLane(t, 0) ?
-            SIMD.Int8x16.extractLane(trueValue, 0) :
-                SIMD.Int8x16.extractLane(falseValue, 0),
-        SIMD.Bool8x16.extractLane(t, 1) ?
-            SIMD.Int8x16.extractLane(trueValue, 1) :
-                SIMD.Int8x16.extractLane(falseValue, 1),
-        SIMD.Bool8x16.extractLane(t, 2) ?
-            SIMD.Int8x16.extractLane(trueValue, 2) :
-                SIMD.Int8x16.extractLane(falseValue, 2),
-        SIMD.Bool8x16.extractLane(t, 3) ?
-            SIMD.Int8x16.extractLane(trueValue, 3) :
-                SIMD.Int8x16.extractLane(falseValue, 3),
-        SIMD.Bool8x16.extractLane(t, 4) ?
-            SIMD.Int8x16.extractLane(trueValue, 4) :
-                SIMD.Int8x16.extractLane(falseValue, 4),
-        SIMD.Bool8x16.extractLane(t, 5) ?
-            SIMD.Int8x16.extractLane(trueValue, 5) :
-                SIMD.Int8x16.extractLane(falseValue, 5),
-        SIMD.Bool8x16.extractLane(t, 6) ?
-            SIMD.Int8x16.extractLane(trueValue, 6) :
-                SIMD.Int8x16.extractLane(falseValue, 6),
-        SIMD.Bool8x16.extractLane(t, 7) ?
-            SIMD.Int8x16.extractLane(trueValue, 7) :
-                SIMD.Int8x16.extractLane(falseValue, 7),
-        SIMD.Bool8x16.extractLane(t, 8) ?
-            SIMD.Int8x16.extractLane(trueValue, 8) :
-                SIMD.Int8x16.extractLane(falseValue, 8),
-        SIMD.Bool8x16.extractLane(t, 9) ?
-            SIMD.Int8x16.extractLane(trueValue, 9) :
-                SIMD.Int8x16.extractLane(falseValue, 9),
-        SIMD.Bool8x16.extractLane(t, 10) ?
-            SIMD.Int8x16.extractLane(trueValue, 10) :
-                SIMD.Int8x16.extractLane(falseValue, 10),
-        SIMD.Bool8x16.extractLane(t, 11) ?
-            SIMD.Int8x16.extractLane(trueValue, 11) :
-                SIMD.Int8x16.extractLane(falseValue, 11),
-        SIMD.Bool8x16.extractLane(t, 12) ?
-            SIMD.Int8x16.extractLane(trueValue, 12) :
-                SIMD.Int8x16.extractLane(falseValue, 12),
-        SIMD.Bool8x16.extractLane(t, 13) ?
-            SIMD.Int8x16.extractLane(trueValue, 13) :
-                SIMD.Int8x16.extractLane(falseValue, 13),
-        SIMD.Bool8x16.extractLane(t, 14) ?
-            SIMD.Int8x16.extractLane(trueValue, 14) :
-                SIMD.Int8x16.extractLane(falseValue, 14),
-        SIMD.Bool8x16.extractLane(t, 15) ?
-            SIMD.Int8x16.extractLane(trueValue, 15) :
-                SIMD.Int8x16.extractLane(falseValue, 15));
-  }
-}
-
-if (typeof SIMD.Int8x16.selectBits === "undefined") {
-  /**
-    * @param {Int8x16} t Selector mask. An instance of Int8x16
-    * @param {Int8x16} trueValue Pick bit from here if corresponding
-    * selector bit is 1
-    * @param {Int8x16} falseValue Pick bit from here if corresponding
-    * selector bit is 0
-    * @return {Int8x16} Mix of bits from trueValue or falseValue as
-    * indicated
-    */
-  SIMD.Int8x16.selectBits = function(t, trueValue, falseValue) {
-    t = SIMD.Int8x16.check(t);
-    trueValue = SIMD.Int8x16.check(trueValue);
-    falseValue = SIMD.Int8x16.check(falseValue);
-    var tr = SIMD.Int8x16.and(t, trueValue);
-    var fr = SIMD.Int8x16.and(SIMD.Int8x16.not(t), falseValue);
-    return SIMD.Int8x16.or(tr, fr);
-  }
-}
-
-if (typeof SIMD.Int8x16.equal === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @param {Int8x16} other An instance of Int8x16.
-    * @return {Bool8x16} true or false in each lane depending on
-    * the result of t == other.
-    */
-  SIMD.Int8x16.equal = function(t, other) {
-    t = SIMD.Int8x16.check(t);
-    other = SIMD.Int8x16.check(other);
-    var cs0 =
-        SIMD.Int8x16.extractLane(t, 0) == SIMD.Int8x16.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int8x16.extractLane(t, 1) == SIMD.Int8x16.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int8x16.extractLane(t, 2) == SIMD.Int8x16.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int8x16.extractLane(t, 3) == SIMD.Int8x16.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int8x16.extractLane(t, 4) == SIMD.Int8x16.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int8x16.extractLane(t, 5) == SIMD.Int8x16.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int8x16.extractLane(t, 6) == SIMD.Int8x16.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int8x16.extractLane(t, 7) == SIMD.Int8x16.extractLane(other, 7);
-    var cs8 =
-        SIMD.Int8x16.extractLane(t, 8) == SIMD.Int8x16.extractLane(other, 8);
-    var cs9 =
-        SIMD.Int8x16.extractLane(t, 9) == SIMD.Int8x16.extractLane(other, 9);
-    var cs10 =
-        SIMD.Int8x16.extractLane(t, 10) == SIMD.Int8x16.extractLane(other, 10);
-    var cs11 =
-        SIMD.Int8x16.extractLane(t, 11) == SIMD.Int8x16.extractLane(other, 11);
-    var cs12 =
-        SIMD.Int8x16.extractLane(t, 12) == SIMD.Int8x16.extractLane(other, 12);
-    var cs13 =
-        SIMD.Int8x16.extractLane(t, 13) == SIMD.Int8x16.extractLane(other, 13);
-    var cs14 =
-        SIMD.Int8x16.extractLane(t, 14) == SIMD.Int8x16.extractLane(other, 14);
-    var cs15 =
-        SIMD.Int8x16.extractLane(t, 15) == SIMD.Int8x16.extractLane(other, 15);
-    return SIMD.Bool8x16(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7,
-                         cs8, cs9, cs10, cs11, cs12, cs13, cs14, cs15);
-  }
-}
-
-if (typeof SIMD.Int8x16.notEqual === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @param {Int8x16} other An instance of Int8x16.
-    * @return {Bool8x16} true or false in each lane depending on
-    * the result of t != other.
-    */
-  SIMD.Int8x16.notEqual = function(t, other) {
-    t = SIMD.Int8x16.check(t);
-    other = SIMD.Int8x16.check(other);
-    var cs0 =
-        SIMD.Int8x16.extractLane(t, 0) != SIMD.Int8x16.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int8x16.extractLane(t, 1) != SIMD.Int8x16.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int8x16.extractLane(t, 2) != SIMD.Int8x16.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int8x16.extractLane(t, 3) != SIMD.Int8x16.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int8x16.extractLane(t, 4) != SIMD.Int8x16.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int8x16.extractLane(t, 5) != SIMD.Int8x16.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int8x16.extractLane(t, 6) != SIMD.Int8x16.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int8x16.extractLane(t, 7) != SIMD.Int8x16.extractLane(other, 7);
-    var cs8 =
-        SIMD.Int8x16.extractLane(t, 8) != SIMD.Int8x16.extractLane(other, 8);
-    var cs9 =
-        SIMD.Int8x16.extractLane(t, 9) != SIMD.Int8x16.extractLane(other, 9);
-    var cs10 =
-        SIMD.Int8x16.extractLane(t, 10) != SIMD.Int8x16.extractLane(other, 10);
-    var cs11 =
-        SIMD.Int8x16.extractLane(t, 11) != SIMD.Int8x16.extractLane(other, 11);
-    var cs12 =
-        SIMD.Int8x16.extractLane(t, 12) != SIMD.Int8x16.extractLane(other, 12);
-    var cs13 =
-        SIMD.Int8x16.extractLane(t, 13) != SIMD.Int8x16.extractLane(other, 13);
-    var cs14 =
-        SIMD.Int8x16.extractLane(t, 14) != SIMD.Int8x16.extractLane(other, 14);
-    var cs15 =
-        SIMD.Int8x16.extractLane(t, 15) != SIMD.Int8x16.extractLane(other, 15);
-    return SIMD.Bool8x16(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7,
-                         cs8, cs9, cs10, cs11, cs12, cs13, cs14, cs15);
-  }
-}
-
-if (typeof SIMD.Int8x16.greaterThan === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @param {Int8x16} other An instance of Int8x16.
-    * @return {Bool8x16} true or false in each lane depending on
-    * the result of t > other.
-    */
-  SIMD.Int8x16.greaterThan = function(t, other) {
-    t = SIMD.Int8x16.check(t);
-    other = SIMD.Int8x16.check(other);
-    var cs0 =
-        SIMD.Int8x16.extractLane(t, 0) > SIMD.Int8x16.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int8x16.extractLane(t, 1) > SIMD.Int8x16.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int8x16.extractLane(t, 2) > SIMD.Int8x16.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int8x16.extractLane(t, 3) > SIMD.Int8x16.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int8x16.extractLane(t, 4) > SIMD.Int8x16.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int8x16.extractLane(t, 5) > SIMD.Int8x16.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int8x16.extractLane(t, 6) > SIMD.Int8x16.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int8x16.extractLane(t, 7) > SIMD.Int8x16.extractLane(other, 7);
-    var cs8 =
-        SIMD.Int8x16.extractLane(t, 8) > SIMD.Int8x16.extractLane(other, 8);
-    var cs9 =
-        SIMD.Int8x16.extractLane(t, 9) > SIMD.Int8x16.extractLane(other, 9);
-    var cs10 =
-        SIMD.Int8x16.extractLane(t, 10) > SIMD.Int8x16.extractLane(other, 10);
-    var cs11 =
-        SIMD.Int8x16.extractLane(t, 11) > SIMD.Int8x16.extractLane(other, 11);
-    var cs12 =
-        SIMD.Int8x16.extractLane(t, 12) > SIMD.Int8x16.extractLane(other, 12);
-    var cs13 =
-        SIMD.Int8x16.extractLane(t, 13) > SIMD.Int8x16.extractLane(other, 13);
-    var cs14 =
-        SIMD.Int8x16.extractLane(t, 14) > SIMD.Int8x16.extractLane(other, 14);
-    var cs15 =
-        SIMD.Int8x16.extractLane(t, 15) > SIMD.Int8x16.extractLane(other, 15);
-    return SIMD.Bool8x16(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7,
-                         cs8, cs9, cs10, cs11, cs12, cs13, cs14, cs15);
-  }
-}
-
-if (typeof SIMD.Int8x16.greaterThanOrEqual === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @param {Int8x16} other An instance of Int8x16.
-    * @return {Bool8x16} true or false in each lane depending on
-    * the result of t >= other.
-    */
-  SIMD.Int8x16.greaterThanOrEqual = function(t, other) {
-    t = SIMD.Int8x16.check(t);
-    other = SIMD.Int8x16.check(other);
-    var cs0 =
-        SIMD.Int8x16.extractLane(t, 0) >= SIMD.Int8x16.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int8x16.extractLane(t, 1) >= SIMD.Int8x16.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int8x16.extractLane(t, 2) >= SIMD.Int8x16.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int8x16.extractLane(t, 3) >= SIMD.Int8x16.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int8x16.extractLane(t, 4) >= SIMD.Int8x16.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int8x16.extractLane(t, 5) >= SIMD.Int8x16.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int8x16.extractLane(t, 6) >= SIMD.Int8x16.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int8x16.extractLane(t, 7) >= SIMD.Int8x16.extractLane(other, 7);
-    var cs8 =
-        SIMD.Int8x16.extractLane(t, 8) >= SIMD.Int8x16.extractLane(other, 8);
-    var cs9 =
-        SIMD.Int8x16.extractLane(t, 9) >= SIMD.Int8x16.extractLane(other, 9);
-    var cs10 =
-        SIMD.Int8x16.extractLane(t, 10) >= SIMD.Int8x16.extractLane(other, 10);
-    var cs11 =
-        SIMD.Int8x16.extractLane(t, 11) >= SIMD.Int8x16.extractLane(other, 11);
-    var cs12 =
-        SIMD.Int8x16.extractLane(t, 12) >= SIMD.Int8x16.extractLane(other, 12);
-    var cs13 =
-        SIMD.Int8x16.extractLane(t, 13) >= SIMD.Int8x16.extractLane(other, 13);
-    var cs14 =
-        SIMD.Int8x16.extractLane(t, 14) >= SIMD.Int8x16.extractLane(other, 14);
-    var cs15 =
-        SIMD.Int8x16.extractLane(t, 15) >= SIMD.Int8x16.extractLane(other, 15);
-    return SIMD.Bool8x16(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7,
-                         cs8, cs9, cs10, cs11, cs12, cs13, cs14, cs15);
-  }
-}
-
-if (typeof SIMD.Int8x16.lessThan === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @param {Int8x16} other An instance of Int8x16.
-    * @return {Bool8x16} true or false in each lane depending on
-    * the result of t < other.
-    */
-  SIMD.Int8x16.lessThan = function(t, other) {
-    t = SIMD.Int8x16.check(t);
-    other = SIMD.Int8x16.check(other);
-    var cs0 =
-        SIMD.Int8x16.extractLane(t, 0) < SIMD.Int8x16.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int8x16.extractLane(t, 1) < SIMD.Int8x16.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int8x16.extractLane(t, 2) < SIMD.Int8x16.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int8x16.extractLane(t, 3) < SIMD.Int8x16.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int8x16.extractLane(t, 4) < SIMD.Int8x16.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int8x16.extractLane(t, 5) < SIMD.Int8x16.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int8x16.extractLane(t, 6) < SIMD.Int8x16.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int8x16.extractLane(t, 7) < SIMD.Int8x16.extractLane(other, 7);
-    var cs8 =
-        SIMD.Int8x16.extractLane(t, 8) < SIMD.Int8x16.extractLane(other, 8);
-    var cs9 =
-        SIMD.Int8x16.extractLane(t, 9) < SIMD.Int8x16.extractLane(other, 9);
-    var cs10 =
-        SIMD.Int8x16.extractLane(t, 10) < SIMD.Int8x16.extractLane(other, 10);
-    var cs11 =
-        SIMD.Int8x16.extractLane(t, 11) < SIMD.Int8x16.extractLane(other, 11);
-    var cs12 =
-        SIMD.Int8x16.extractLane(t, 12) < SIMD.Int8x16.extractLane(other, 12);
-    var cs13 =
-        SIMD.Int8x16.extractLane(t, 13) < SIMD.Int8x16.extractLane(other, 13);
-    var cs14 =
-        SIMD.Int8x16.extractLane(t, 14) < SIMD.Int8x16.extractLane(other, 14);
-    var cs15 =
-        SIMD.Int8x16.extractLane(t, 15) < SIMD.Int8x16.extractLane(other, 15);
-    return SIMD.Bool8x16(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7,
-                         cs8, cs9, cs10, cs11, cs12, cs13, cs14, cs15);
-  }
-}
-
-if (typeof SIMD.Int8x16.lessThanOrEqual === "undefined") {
-  /**
-    * @param {Int8x16} t An instance of Int8x16.
-    * @param {Int8x16} other An instance of Int8x16.
-    * @return {Bool8x16} true or false in each lane depending on
-    * the result of t <= other.
-    */
-  SIMD.Int8x16.lessThanOrEqual = function(t, other) {
-    t = SIMD.Int8x16.check(t);
-    other = SIMD.Int8x16.check(other);
-    var cs0 =
-        SIMD.Int8x16.extractLane(t, 0) <= SIMD.Int8x16.extractLane(other, 0);
-    var cs1 =
-        SIMD.Int8x16.extractLane(t, 1) <= SIMD.Int8x16.extractLane(other, 1);
-    var cs2 =
-        SIMD.Int8x16.extractLane(t, 2) <= SIMD.Int8x16.extractLane(other, 2);
-    var cs3 =
-        SIMD.Int8x16.extractLane(t, 3) <= SIMD.Int8x16.extractLane(other, 3);
-    var cs4 =
-        SIMD.Int8x16.extractLane(t, 4) <= SIMD.Int8x16.extractLane(other, 4);
-    var cs5 =
-        SIMD.Int8x16.extractLane(t, 5) <= SIMD.Int8x16.extractLane(other, 5);
-    var cs6 =
-        SIMD.Int8x16.extractLane(t, 6) <= SIMD.Int8x16.extractLane(other, 6);
-    var cs7 =
-        SIMD.Int8x16.extractLane(t, 7) <= SIMD.Int8x16.extractLane(other, 7);
-    var cs8 =
-        SIMD.Int8x16.extractLane(t, 8) <= SIMD.Int8x16.extractLane(other, 8);
-    var cs9 =
-        SIMD.Int8x16.extractLane(t, 9) <= SIMD.Int8x16.extractLane(other, 9);
-    var cs10 =
-        SIMD.Int8x16.extractLane(t, 10) <= SIMD.Int8x16.extractLane(other, 10);
-    var cs11 =
-        SIMD.Int8x16.extractLane(t, 11) <= SIMD.Int8x16.extractLane(other, 11);
-    var cs12 =
-        SIMD.Int8x16.extractLane(t, 12) <= SIMD.Int8x16.extractLane(other, 12);
-    var cs13 =
-        SIMD.Int8x16.extractLane(t, 13) <= SIMD.Int8x16.extractLane(other, 13);
-    var cs14 =
-        SIMD.Int8x16.extractLane(t, 14) <= SIMD.Int8x16.extractLane(other, 14);
-    var cs15 =
-        SIMD.Int8x16.extractLane(t, 15) <= SIMD.Int8x16.extractLane(other, 15);
-    return SIMD.Bool8x16(cs0, cs1, cs2, cs3, cs4, cs5, cs6, cs7,
-                         cs8, cs9, cs10, cs11, cs12, cs13, cs14, cs15);
-  }
-}
-
-if (typeof SIMD.Int8x16.shiftLeftByScalar === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {integer} bits Bit count to shift by.
-    * @return {Int8x16} lanes in a shifted by bits.
-    */
-  SIMD.Int8x16.shiftLeftByScalar = function(a, bits) {
-    a = SIMD.Int8x16.check(a);
-    if (bits>>>0 > 8)
-      bits = 8;
-    var s0 = SIMD.Int8x16.extractLane(a, 0) << bits;
-    var s1 = SIMD.Int8x16.extractLane(a, 1) << bits;
-    var s2 = SIMD.Int8x16.extractLane(a, 2) << bits;
-    var s3 = SIMD.Int8x16.extractLane(a, 3) << bits;
-    var s4 = SIMD.Int8x16.extractLane(a, 4) << bits;
-    var s5 = SIMD.Int8x16.extractLane(a, 5) << bits;
-    var s6 = SIMD.Int8x16.extractLane(a, 6) << bits;
-    var s7 = SIMD.Int8x16.extractLane(a, 7) << bits;
-    var s8 = SIMD.Int8x16.extractLane(a, 8) << bits;
-    var s9 = SIMD.Int8x16.extractLane(a, 9) << bits;
-    var s10 = SIMD.Int8x16.extractLane(a, 10) << bits;
-    var s11 = SIMD.Int8x16.extractLane(a, 11) << bits;
-    var s12 = SIMD.Int8x16.extractLane(a, 12) << bits;
-    var s13 = SIMD.Int8x16.extractLane(a, 13) << bits;
-    var s14 = SIMD.Int8x16.extractLane(a, 14) << bits;
-    var s15 = SIMD.Int8x16.extractLane(a, 15) << bits;
-    return SIMD.Int8x16(s0, s1, s2, s3, s4, s5, s6, s7,
-                        s8, s9, s10, s11, s12, s13, s14, s15);
-  }
-}
-
-if (typeof SIMD.Int8x16.shiftRightLogicalByScalar === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {integer} bits Bit count to shift by.
-    * @return {Int8x16} lanes in a shifted by bits.
-    */
-  SIMD.Int8x16.shiftRightLogicalByScalar = function(a, bits) {
-    a = SIMD.Int8x16.check(a);
-    if (bits>>>0 > 8)
-      bits = 8;
-    var s0 = (SIMD.Int8x16.extractLane(a, 0) & 0xff) >>> bits;
-    var s1 = (SIMD.Int8x16.extractLane(a, 1) & 0xff) >>> bits;
-    var s2 = (SIMD.Int8x16.extractLane(a, 2) & 0xff) >>> bits;
-    var s3 = (SIMD.Int8x16.extractLane(a, 3) & 0xff) >>> bits;
-    var s4 = (SIMD.Int8x16.extractLane(a, 4) & 0xff) >>> bits;
-    var s5 = (SIMD.Int8x16.extractLane(a, 5) & 0xff) >>> bits;
-    var s6 = (SIMD.Int8x16.extractLane(a, 6) & 0xff) >>> bits;
-    var s7 = (SIMD.Int8x16.extractLane(a, 7) & 0xff) >>> bits;
-    var s8 = (SIMD.Int8x16.extractLane(a, 8) & 0xff) >>> bits;
-    var s9 = (SIMD.Int8x16.extractLane(a, 9) & 0xff) >>> bits;
-    var s10 = (SIMD.Int8x16.extractLane(a, 10) & 0xff) >>> bits;
-    var s11 = (SIMD.Int8x16.extractLane(a, 11) & 0xff) >>> bits;
-    var s12 = (SIMD.Int8x16.extractLane(a, 12) & 0xff) >>> bits;
-    var s13 = (SIMD.Int8x16.extractLane(a, 13) & 0xff) >>> bits;
-    var s14 = (SIMD.Int8x16.extractLane(a, 14) & 0xff) >>> bits;
-    var s15 = (SIMD.Int8x16.extractLane(a, 15) & 0xff) >>> bits;
-    return SIMD.Int8x16(s0, s1, s2, s3, s4, s5, s6, s7,
-                        s8, s9, s10, s11, s12, s13, s14, s15);
-  }
-}
-
-if (typeof SIMD.Int8x16.shiftRightArithmeticByScalar === "undefined") {
-  /**
-    * @param {Int8x16} a An instance of Int8x16.
-    * @param {integer} bits Bit count to shift by.
-    * @return {Int8x16} lanes in a shifted by bits.
-    */
-  SIMD.Int8x16.shiftRightArithmeticByScalar = function(a, bits) {
-    a = SIMD.Int8x16.check(a);
-    if (bits>>>0 > 8)
-      bits = 8;
-    var s0 = SIMD.Int8x16.extractLane(a, 0) >> bits;
-    var s1 = SIMD.Int8x16.extractLane(a, 1) >> bits;
-    var s2 = SIMD.Int8x16.extractLane(a, 2) >> bits;
-    var s3 = SIMD.Int8x16.extractLane(a, 3) >> bits;
-    var s4 = SIMD.Int8x16.extractLane(a, 4) >> bits;
-    var s5 = SIMD.Int8x16.extractLane(a, 5) >> bits;
-    var s6 = SIMD.Int8x16.extractLane(a, 6) >> bits;
-    var s7 = SIMD.Int8x16.extractLane(a, 7) >> bits;
-    var s8 = SIMD.Int8x16.extractLane(a, 8) >> bits;
-    var s9 = SIMD.Int8x16.extractLane(a, 9) >> bits;
-    var s10 = SIMD.Int8x16.extractLane(a, 10) >> bits;
-    var s11 = SIMD.Int8x16.extractLane(a, 11) >> bits;
-    var s12 = SIMD.Int8x16.extractLane(a, 12) >> bits;
-    var s13 = SIMD.Int8x16.extractLane(a, 13) >> bits;
-    var s14 = SIMD.Int8x16.extractLane(a, 14) >> bits;
-    var s15 = SIMD.Int8x16.extractLane(a, 15) >> bits;
-    return SIMD.Int8x16(s0, s1, s2, s3, s4, s5, s6, s7,
-                        s8, s9, s10, s11, s12, s13, s14, s15);
-  }
-}
-
-if (typeof SIMD.Int8x16.load === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @return {Int8x16} New instance of Int8x16.
-    */
-  SIMD.Int8x16.load = function(tarray, index) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    var i8temp = _i8x16;
-    var array = bpe == 1 ? i8temp :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      array[i] = tarray[index + i];
-    return SIMD.Int8x16(i8temp[0], i8temp[1], i8temp[2], i8temp[3],
-                        i8temp[4], i8temp[5], i8temp[6], i8temp[7],
-                        i8temp[8], i8temp[9], i8temp[10], i8temp[11],
-                        i8temp[12], i8temp[13], i8temp[14], i8temp[15]);
-  }
-}
-
-if (typeof SIMD.Int8x16.store === "undefined") {
-  /**
-    * @param {Typed array} tarray An instance of a typed array.
-    * @param {Number} index An instance of Number.
-    * @param {Int8x16} value An instance of Int8x16.
-    * @return {Int8x16} value
-    */
-  SIMD.Int8x16.store = function(tarray, index, value) {
-    if (!isTypedArray(tarray))
-      throw new TypeError("The 1st argument must be a typed array.");
-    if (!isInt32(index))
-      throw new TypeError("The 2nd argument must be an Int32.");
-    var bpe = tarray.BYTES_PER_ELEMENT;
-    if (index < 0 || (index * bpe + 16) > tarray.byteLength)
-      throw new RangeError("The value of index is invalid.");
-    value = SIMD.Int8x16.check(value);
-    _i8x16[0] = SIMD.Int8x16.extractLane(value, 0);
-    _i8x16[1] = SIMD.Int8x16.extractLane(value, 1);
-    _i8x16[2] = SIMD.Int8x16.extractLane(value, 2);
-    _i8x16[3] = SIMD.Int8x16.extractLane(value, 3);
-    _i8x16[4] = SIMD.Int8x16.extractLane(value, 4);
-    _i8x16[5] = SIMD.Int8x16.extractLane(value, 5);
-    _i8x16[6] = SIMD.Int8x16.extractLane(value, 6);
-    _i8x16[7] = SIMD.Int8x16.extractLane(value, 7);
-    _i8x16[8] = SIMD.Int8x16.extractLane(value, 8);
-    _i8x16[9] = SIMD.Int8x16.extractLane(value, 9);
-    _i8x16[10] = SIMD.Int8x16.extractLane(value, 10);
-    _i8x16[11] = SIMD.Int8x16.extractLane(value, 11);
-    _i8x16[12] = SIMD.Int8x16.extractLane(value, 12);
-    _i8x16[13] = SIMD.Int8x16.extractLane(value, 13);
-    _i8x16[14] = SIMD.Int8x16.extractLane(value, 14);
-    _i8x16[15] = SIMD.Int8x16.extractLane(value, 15);
-    var array = bpe == 1 ? _i8x16 :
-                bpe == 2 ? _i16x8 :
-                bpe == 4 ? (tarray instanceof Float32Array ? _f32x4 : _i32x4) :
-                _f64x2;
-    var n = 16 / bpe;
-    for (var i = 0; i < n; ++i)
-      tarray[index + i] = array[i];
-    return value;
-  }
-}
-
-};
-
-},{}],216:[function(require,module,exports){
+},{"./polyfill":133,"define-properties":109}],135:[function(require,module,exports){
 'use strict';
 
 var define = require('define-properties');
@@ -14456,53 +8635,55 @@ define(at, {
 
 module.exports = at;
 
-},{"define-properties":217,"es-abstract/es7":223,"function-bind":239}],217:[function(require,module,exports){
+},{"define-properties":136,"es-abstract/es7":143,"function-bind":159}],136:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26,"foreach":137,"object-keys":138}],137:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],138:[function(require,module,exports){
+arguments[4][28][0].apply(exports,arguments)
+},{"./isArguments":139,"dup":28}],139:[function(require,module,exports){
+arguments[4][29][0].apply(exports,arguments)
+},{"dup":29}],140:[function(require,module,exports){
+arguments[4][30][0].apply(exports,arguments)
+},{"./es5":142,"./helpers/assign":144,"./helpers/isFinite":145,"./helpers/isNaN":146,"./helpers/isPrimitive":147,"./helpers/mod":148,"./helpers/sign":149,"dup":30,"es-to-primitive/es6":151,"function-bind":159,"has":155,"is-regex":157}],141:[function(require,module,exports){
+arguments[4][58][0].apply(exports,arguments)
+},{"./es2015":140,"./helpers/assign":144,"dup":58}],142:[function(require,module,exports){
+arguments[4][31][0].apply(exports,arguments)
+},{"./helpers/isFinite":145,"./helpers/isNaN":146,"./helpers/mod":148,"./helpers/sign":149,"dup":31,"es-to-primitive/es5":150,"has":155,"is-callable":156}],143:[function(require,module,exports){
+arguments[4][60][0].apply(exports,arguments)
+},{"./es2016":141,"dup":60}],144:[function(require,module,exports){
+arguments[4][33][0].apply(exports,arguments)
+},{"dup":33}],145:[function(require,module,exports){
+arguments[4][34][0].apply(exports,arguments)
+},{"dup":34}],146:[function(require,module,exports){
 arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":218,"object-keys":219}],218:[function(require,module,exports){
+},{"dup":35}],147:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],219:[function(require,module,exports){
+},{"dup":36}],148:[function(require,module,exports){
 arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":220,"dup":37}],220:[function(require,module,exports){
+},{"dup":37}],149:[function(require,module,exports){
 arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],221:[function(require,module,exports){
+},{"dup":38}],150:[function(require,module,exports){
 arguments[4][39][0].apply(exports,arguments)
-},{"./helpers/isFinite":225,"./helpers/isNaN":226,"./helpers/mod":228,"./helpers/sign":229,"dup":39,"es-to-primitive/es5":230,"is-callable":235}],222:[function(require,module,exports){
+},{"./helpers/isPrimitive":152,"dup":39,"is-callable":156}],151:[function(require,module,exports){
 arguments[4][40][0].apply(exports,arguments)
-},{"./es5":221,"./helpers/assign":224,"./helpers/isFinite":225,"./helpers/isNaN":226,"./helpers/isPrimitive":227,"./helpers/mod":228,"./helpers/sign":229,"dup":40,"es-to-primitive/es6":231,"function-bind":239,"is-regex":236}],223:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"./es6":222,"./helpers/assign":224,"dup":66}],224:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],225:[function(require,module,exports){
+},{"./helpers/isPrimitive":152,"dup":40,"is-callable":156,"is-date-object":153,"is-symbol":154}],152:[function(require,module,exports){
+arguments[4][36][0].apply(exports,arguments)
+},{"dup":36}],153:[function(require,module,exports){
 arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],226:[function(require,module,exports){
+},{"dup":42}],154:[function(require,module,exports){
 arguments[4][43][0].apply(exports,arguments)
-},{"dup":43}],227:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],228:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],229:[function(require,module,exports){
+},{"dup":43}],155:[function(require,module,exports){
 arguments[4][46][0].apply(exports,arguments)
-},{"dup":46}],230:[function(require,module,exports){
+},{"dup":46,"function-bind":159}],156:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":232,"dup":47,"is-callable":235}],231:[function(require,module,exports){
+},{"dup":47}],157:[function(require,module,exports){
 arguments[4][48][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":232,"dup":48,"is-callable":235,"is-date-object":233,"is-symbol":234}],232:[function(require,module,exports){
+},{"dup":48,"has":155}],158:[function(require,module,exports){
 arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],233:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],234:[function(require,module,exports){
-arguments[4][51][0].apply(exports,arguments)
-},{"dup":51}],235:[function(require,module,exports){
-arguments[4][54][0].apply(exports,arguments)
-},{"dup":54}],236:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55,"has":237}],237:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"dup":56,"function-bind":239}],238:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],239:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":238,"dup":53}],240:[function(require,module,exports){
+},{"dup":44}],159:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"./implementation":158,"dup":45}],160:[function(require,module,exports){
 'use strict';
 
 var bind = require('function-bind');
@@ -14536,7 +8717,7 @@ module.exports = function padEnd(maxLength) {
 	return S + truncatedStringFiller;
 };
 
-},{"es-abstract/es7":248,"function-bind":264}],241:[function(require,module,exports){
+},{"es-abstract/es7":169,"function-bind":185}],161:[function(require,module,exports){
 'use strict';
 
 var bind = require('function-bind');
@@ -14566,53 +8747,55 @@ define(boundPadEnd, {
 
 module.exports = boundPadEnd;
 
-},{"./implementation":240,"./polyfill":265,"./shim":266,"define-properties":242,"es-abstract/es7":248,"function-bind":264}],242:[function(require,module,exports){
+},{"./implementation":160,"./polyfill":186,"./shim":187,"define-properties":162,"es-abstract/es7":169,"function-bind":185}],162:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26,"foreach":163,"object-keys":164}],163:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],164:[function(require,module,exports){
+arguments[4][28][0].apply(exports,arguments)
+},{"./isArguments":165,"dup":28}],165:[function(require,module,exports){
+arguments[4][29][0].apply(exports,arguments)
+},{"dup":29}],166:[function(require,module,exports){
+arguments[4][30][0].apply(exports,arguments)
+},{"./es5":168,"./helpers/assign":170,"./helpers/isFinite":171,"./helpers/isNaN":172,"./helpers/isPrimitive":173,"./helpers/mod":174,"./helpers/sign":175,"dup":30,"es-to-primitive/es6":177,"function-bind":185,"has":181,"is-regex":183}],167:[function(require,module,exports){
+arguments[4][58][0].apply(exports,arguments)
+},{"./es2015":166,"./helpers/assign":170,"dup":58}],168:[function(require,module,exports){
+arguments[4][31][0].apply(exports,arguments)
+},{"./helpers/isFinite":171,"./helpers/isNaN":172,"./helpers/mod":174,"./helpers/sign":175,"dup":31,"es-to-primitive/es5":176,"has":181,"is-callable":182}],169:[function(require,module,exports){
+arguments[4][60][0].apply(exports,arguments)
+},{"./es2016":167,"dup":60}],170:[function(require,module,exports){
+arguments[4][33][0].apply(exports,arguments)
+},{"dup":33}],171:[function(require,module,exports){
+arguments[4][34][0].apply(exports,arguments)
+},{"dup":34}],172:[function(require,module,exports){
 arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":243,"object-keys":244}],243:[function(require,module,exports){
+},{"dup":35}],173:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],244:[function(require,module,exports){
+},{"dup":36}],174:[function(require,module,exports){
 arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":245,"dup":37}],245:[function(require,module,exports){
+},{"dup":37}],175:[function(require,module,exports){
 arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],246:[function(require,module,exports){
+},{"dup":38}],176:[function(require,module,exports){
 arguments[4][39][0].apply(exports,arguments)
-},{"./helpers/isFinite":250,"./helpers/isNaN":251,"./helpers/mod":253,"./helpers/sign":254,"dup":39,"es-to-primitive/es5":255,"is-callable":260}],247:[function(require,module,exports){
+},{"./helpers/isPrimitive":178,"dup":39,"is-callable":182}],177:[function(require,module,exports){
 arguments[4][40][0].apply(exports,arguments)
-},{"./es5":246,"./helpers/assign":249,"./helpers/isFinite":250,"./helpers/isNaN":251,"./helpers/isPrimitive":252,"./helpers/mod":253,"./helpers/sign":254,"dup":40,"es-to-primitive/es6":256,"function-bind":264,"is-regex":261}],248:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"./es6":247,"./helpers/assign":249,"dup":66}],249:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],250:[function(require,module,exports){
+},{"./helpers/isPrimitive":178,"dup":40,"is-callable":182,"is-date-object":179,"is-symbol":180}],178:[function(require,module,exports){
+arguments[4][36][0].apply(exports,arguments)
+},{"dup":36}],179:[function(require,module,exports){
 arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],251:[function(require,module,exports){
+},{"dup":42}],180:[function(require,module,exports){
 arguments[4][43][0].apply(exports,arguments)
-},{"dup":43}],252:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],253:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],254:[function(require,module,exports){
+},{"dup":43}],181:[function(require,module,exports){
 arguments[4][46][0].apply(exports,arguments)
-},{"dup":46}],255:[function(require,module,exports){
+},{"dup":46,"function-bind":185}],182:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":257,"dup":47,"is-callable":260}],256:[function(require,module,exports){
+},{"dup":47}],183:[function(require,module,exports){
 arguments[4][48][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":257,"dup":48,"is-callable":260,"is-date-object":258,"is-symbol":259}],257:[function(require,module,exports){
+},{"dup":48,"has":181}],184:[function(require,module,exports){
 arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],258:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],259:[function(require,module,exports){
-arguments[4][51][0].apply(exports,arguments)
-},{"dup":51}],260:[function(require,module,exports){
-arguments[4][54][0].apply(exports,arguments)
-},{"dup":54}],261:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55,"has":262}],262:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"dup":56,"function-bind":264}],263:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],264:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":263,"dup":53}],265:[function(require,module,exports){
+},{"dup":44}],185:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"./implementation":184,"dup":45}],186:[function(require,module,exports){
 'use strict';
 
 var implementation = require('./implementation');
@@ -14621,7 +8804,7 @@ module.exports = function getPolyfill() {
 	return typeof String.prototype.padEnd === 'function' ? String.prototype.padEnd : implementation;
 };
 
-},{"./implementation":240}],266:[function(require,module,exports){
+},{"./implementation":160}],187:[function(require,module,exports){
 'use strict';
 
 var getPolyfill = require('./polyfill');
@@ -14633,7 +8816,7 @@ module.exports = function shimPadEnd() {
 	return polyfill;
 };
 
-},{"./polyfill":265,"define-properties":242}],267:[function(require,module,exports){
+},{"./polyfill":186,"define-properties":162}],188:[function(require,module,exports){
 'use strict';
 
 var bind = require('function-bind');
@@ -14667,7 +8850,7 @@ module.exports = function padStart(maxLength) {
 	return truncatedStringFiller + S;
 };
 
-},{"es-abstract/es7":275,"function-bind":291}],268:[function(require,module,exports){
+},{"es-abstract/es7":197,"function-bind":213}],189:[function(require,module,exports){
 'use strict';
 
 var bind = require('function-bind');
@@ -14697,53 +8880,55 @@ define(boundPadStart, {
 
 module.exports = boundPadStart;
 
-},{"./implementation":267,"./polyfill":292,"./shim":293,"define-properties":269,"es-abstract/es7":275,"function-bind":291}],269:[function(require,module,exports){
+},{"./implementation":188,"./polyfill":214,"./shim":215,"define-properties":190,"es-abstract/es7":197,"function-bind":213}],190:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26,"foreach":191,"object-keys":192}],191:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],192:[function(require,module,exports){
+arguments[4][28][0].apply(exports,arguments)
+},{"./isArguments":193,"dup":28}],193:[function(require,module,exports){
+arguments[4][29][0].apply(exports,arguments)
+},{"dup":29}],194:[function(require,module,exports){
+arguments[4][30][0].apply(exports,arguments)
+},{"./es5":196,"./helpers/assign":198,"./helpers/isFinite":199,"./helpers/isNaN":200,"./helpers/isPrimitive":201,"./helpers/mod":202,"./helpers/sign":203,"dup":30,"es-to-primitive/es6":205,"function-bind":213,"has":209,"is-regex":211}],195:[function(require,module,exports){
+arguments[4][58][0].apply(exports,arguments)
+},{"./es2015":194,"./helpers/assign":198,"dup":58}],196:[function(require,module,exports){
+arguments[4][31][0].apply(exports,arguments)
+},{"./helpers/isFinite":199,"./helpers/isNaN":200,"./helpers/mod":202,"./helpers/sign":203,"dup":31,"es-to-primitive/es5":204,"has":209,"is-callable":210}],197:[function(require,module,exports){
+arguments[4][60][0].apply(exports,arguments)
+},{"./es2016":195,"dup":60}],198:[function(require,module,exports){
+arguments[4][33][0].apply(exports,arguments)
+},{"dup":33}],199:[function(require,module,exports){
+arguments[4][34][0].apply(exports,arguments)
+},{"dup":34}],200:[function(require,module,exports){
 arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":270,"object-keys":271}],270:[function(require,module,exports){
+},{"dup":35}],201:[function(require,module,exports){
 arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],271:[function(require,module,exports){
+},{"dup":36}],202:[function(require,module,exports){
 arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":272,"dup":37}],272:[function(require,module,exports){
+},{"dup":37}],203:[function(require,module,exports){
 arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],273:[function(require,module,exports){
+},{"dup":38}],204:[function(require,module,exports){
 arguments[4][39][0].apply(exports,arguments)
-},{"./helpers/isFinite":277,"./helpers/isNaN":278,"./helpers/mod":280,"./helpers/sign":281,"dup":39,"es-to-primitive/es5":282,"is-callable":287}],274:[function(require,module,exports){
+},{"./helpers/isPrimitive":206,"dup":39,"is-callable":210}],205:[function(require,module,exports){
 arguments[4][40][0].apply(exports,arguments)
-},{"./es5":273,"./helpers/assign":276,"./helpers/isFinite":277,"./helpers/isNaN":278,"./helpers/isPrimitive":279,"./helpers/mod":280,"./helpers/sign":281,"dup":40,"es-to-primitive/es6":283,"function-bind":291,"is-regex":288}],275:[function(require,module,exports){
-arguments[4][66][0].apply(exports,arguments)
-},{"./es6":274,"./helpers/assign":276,"dup":66}],276:[function(require,module,exports){
-arguments[4][41][0].apply(exports,arguments)
-},{"dup":41}],277:[function(require,module,exports){
+},{"./helpers/isPrimitive":206,"dup":40,"is-callable":210,"is-date-object":207,"is-symbol":208}],206:[function(require,module,exports){
+arguments[4][36][0].apply(exports,arguments)
+},{"dup":36}],207:[function(require,module,exports){
 arguments[4][42][0].apply(exports,arguments)
-},{"dup":42}],278:[function(require,module,exports){
+},{"dup":42}],208:[function(require,module,exports){
 arguments[4][43][0].apply(exports,arguments)
-},{"dup":43}],279:[function(require,module,exports){
-arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],280:[function(require,module,exports){
-arguments[4][45][0].apply(exports,arguments)
-},{"dup":45}],281:[function(require,module,exports){
+},{"dup":43}],209:[function(require,module,exports){
 arguments[4][46][0].apply(exports,arguments)
-},{"dup":46}],282:[function(require,module,exports){
+},{"dup":46,"function-bind":213}],210:[function(require,module,exports){
 arguments[4][47][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":284,"dup":47,"is-callable":287}],283:[function(require,module,exports){
+},{"dup":47}],211:[function(require,module,exports){
 arguments[4][48][0].apply(exports,arguments)
-},{"./helpers/isPrimitive":284,"dup":48,"is-callable":287,"is-date-object":285,"is-symbol":286}],284:[function(require,module,exports){
+},{"dup":48,"has":209}],212:[function(require,module,exports){
 arguments[4][44][0].apply(exports,arguments)
-},{"dup":44}],285:[function(require,module,exports){
-arguments[4][50][0].apply(exports,arguments)
-},{"dup":50}],286:[function(require,module,exports){
-arguments[4][51][0].apply(exports,arguments)
-},{"dup":51}],287:[function(require,module,exports){
-arguments[4][54][0].apply(exports,arguments)
-},{"dup":54}],288:[function(require,module,exports){
-arguments[4][55][0].apply(exports,arguments)
-},{"dup":55,"has":289}],289:[function(require,module,exports){
-arguments[4][56][0].apply(exports,arguments)
-},{"dup":56,"function-bind":291}],290:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],291:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":290,"dup":53}],292:[function(require,module,exports){
+},{"dup":44}],213:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"./implementation":212,"dup":45}],214:[function(require,module,exports){
 'use strict';
 
 var implementation = require('./implementation');
@@ -14752,7 +8937,7 @@ module.exports = function getPolyfill() {
 	return typeof String.prototype.padStart === 'function' ? String.prototype.padStart : implementation;
 };
 
-},{"./implementation":267}],293:[function(require,module,exports){
+},{"./implementation":188}],215:[function(require,module,exports){
 'use strict';
 
 var getPolyfill = require('./polyfill');
@@ -14764,87 +8949,141 @@ module.exports = function shimPadStart() {
 	return polyfill;
 };
 
-},{"./polyfill":292,"define-properties":269}],294:[function(require,module,exports){
+},{"./polyfill":214,"define-properties":190}],216:[function(require,module,exports){
 'use strict';
 
 var bind = require('function-bind');
-var define = require('define-properties');
 var replace = bind.call(Function.call, String.prototype.replace);
 
 var leftWhitespace = /^[\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF]*/;
 
-var trimLeft = function trimLeft() {
+module.exports = function trimLeft() {
 	return replace(this, leftWhitespace, '');
 };
 
-var boundTrimLeft = bind.call(Function.call, trimLeft);
-define(boundTrimLeft, {
-	shim: function shimTrimLeft() {
-		var zeroWidthSpace = '\u200b';
-		define(String.prototype, { trimLeft: trimLeft }, {
-			trimLeft: function () {
-				return zeroWidthSpace.trimLeft() !== zeroWidthSpace;
-			}
-		});
-		return String.prototype.trimLeft;
-	}
-});
-
-module.exports = boundTrimLeft;
-
-},{"define-properties":295,"function-bind":300}],295:[function(require,module,exports){
-arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":296,"object-keys":297}],296:[function(require,module,exports){
-arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],297:[function(require,module,exports){
-arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":298,"dup":37}],298:[function(require,module,exports){
-arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],299:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],300:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":299,"dup":53}],301:[function(require,module,exports){
+},{"function-bind":223}],217:[function(require,module,exports){
 'use strict';
 
 var bind = require('function-bind');
 var define = require('define-properties');
+
+var implementation = require('./implementation');
+var getPolyfill = require('./polyfill');
+var shim = require('./shim');
+
+var bound = bind.call(Function.call, getPolyfill());
+
+define(bound, {
+	getPolyfill: getPolyfill,
+	implementation: implementation,
+	shim: shim
+});
+
+module.exports = bound;
+
+},{"./implementation":216,"./polyfill":224,"./shim":225,"define-properties":218,"function-bind":223}],218:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26,"foreach":219,"object-keys":220}],219:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],220:[function(require,module,exports){
+arguments[4][28][0].apply(exports,arguments)
+},{"./isArguments":221,"dup":28}],221:[function(require,module,exports){
+arguments[4][29][0].apply(exports,arguments)
+},{"dup":29}],222:[function(require,module,exports){
+arguments[4][44][0].apply(exports,arguments)
+},{"dup":44}],223:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"./implementation":222,"dup":45}],224:[function(require,module,exports){
+'use strict';
+
+var implementation = require('./implementation');
+
+module.exports = function getPolyfill() {
+	if (!String.prototype.trimLeft) {
+		return implementation;
+	}
+	var zeroWidthSpace = '\u200b';
+	if (zeroWidthSpace.trimLeft() !== zeroWidthSpace) {
+		return implementation;
+	}
+	return String.prototype.trimLeft;
+};
+
+},{"./implementation":216}],225:[function(require,module,exports){
+'use strict';
+
+var define = require('define-properties');
+var getPolyfill = require('./polyfill');
+
+module.exports = function shimTrimLeft() {
+	var polyfill = getPolyfill();
+	define(
+		String.prototype,
+		{ trimLeft: polyfill },
+		{ trimLeft: function () { return String.prototype.trimLeft !== polyfill; } }
+	);
+	return polyfill;
+};
+
+},{"./polyfill":224,"define-properties":218}],226:[function(require,module,exports){
+'use strict';
+
+var bind = require('function-bind');
 var replace = bind.call(Function.call, String.prototype.replace);
 
 var rightWhitespace = /[\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF]*$/;
 
-var trimRight = function trimRight() {
+module.exports = function trimRight() {
 	return replace(this, rightWhitespace, '');
 };
 
-var boundTrimRight = bind.call(Function.call, trimRight);
-define(boundTrimRight, {
-	shim: function shimTrimRight() {
-		var zeroWidthSpace = '\u200b';
-		define(String.prototype, { trimRight: trimRight }, {
-			trimRight: function () {
-				return zeroWidthSpace.trimRight() !== zeroWidthSpace;
-			}
-		});
-		return String.prototype.trimRight;
+},{"function-bind":233}],227:[function(require,module,exports){
+arguments[4][217][0].apply(exports,arguments)
+},{"./implementation":226,"./polyfill":234,"./shim":235,"define-properties":228,"dup":217,"function-bind":233}],228:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26,"foreach":229,"object-keys":230}],229:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],230:[function(require,module,exports){
+arguments[4][28][0].apply(exports,arguments)
+},{"./isArguments":231,"dup":28}],231:[function(require,module,exports){
+arguments[4][29][0].apply(exports,arguments)
+},{"dup":29}],232:[function(require,module,exports){
+arguments[4][44][0].apply(exports,arguments)
+},{"dup":44}],233:[function(require,module,exports){
+arguments[4][45][0].apply(exports,arguments)
+},{"./implementation":232,"dup":45}],234:[function(require,module,exports){
+'use strict';
+
+var implementation = require('./implementation');
+
+module.exports = function getPolyfill() {
+	if (!String.prototype.trimRight) {
+		return implementation;
 	}
-});
+	var zeroWidthSpace = '\u200b';
+	if (zeroWidthSpace.trimRight() !== zeroWidthSpace) {
+		return implementation;
+	}
+	return String.prototype.trimRight;
+};
 
-module.exports = boundTrimRight;
+},{"./implementation":226}],235:[function(require,module,exports){
+'use strict';
 
-},{"define-properties":302,"function-bind":307}],302:[function(require,module,exports){
-arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":303,"object-keys":304}],303:[function(require,module,exports){
-arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],304:[function(require,module,exports){
-arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":305,"dup":37}],305:[function(require,module,exports){
-arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],306:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],307:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":306,"dup":53}],308:[function(require,module,exports){
+var define = require('define-properties');
+var getPolyfill = require('./polyfill');
+
+module.exports = function shimTrimRight() {
+	var polyfill = getPolyfill();
+	define(
+		String.prototype,
+		{ trimRight: polyfill },
+		{ trimRight: function () { return String.prototype.trimRight !== polyfill; } }
+	);
+	return polyfill;
+};
+
+},{"./polyfill":234,"define-properties":228}],236:[function(require,module,exports){
 (function (global){
 var topLevel = typeof global !== 'undefined' ? global :
     typeof window !== 'undefined' ? window : {}
@@ -14865,7 +9104,7 @@ if (typeof document !== 'undefined') {
 module.exports = doccy;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"min-document":310}],309:[function(require,module,exports){
+},{"min-document":238}],237:[function(require,module,exports){
 (function (global){
 var win;
 
@@ -14882,9 +9121,9 @@ if (typeof window !== "undefined") {
 module.exports = win;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],310:[function(require,module,exports){
+},{}],238:[function(require,module,exports){
 
-},{}],311:[function(require,module,exports){
+},{}],239:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -15070,12 +9309,12 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],312:[function(require,module,exports){
+},{}],240:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/ReactDOM');
 
-},{"./lib/ReactDOM":342}],313:[function(require,module,exports){
+},{"./lib/ReactDOM":270}],241:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -15149,7 +9388,7 @@ var ARIADOMPropertyConfig = {
 };
 
 module.exports = ARIADOMPropertyConfig;
-},{}],314:[function(require,module,exports){
+},{}],242:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -15173,7 +9412,7 @@ var AutoFocusUtils = {
 };
 
 module.exports = AutoFocusUtils;
-},{"./ReactDOMComponentTree":345,"fbjs/lib/focusNode":448}],315:[function(require,module,exports){
+},{"./ReactDOMComponentTree":273,"fbjs/lib/focusNode":376}],243:[function(require,module,exports){
 /**
  * Copyright 2013-present Facebook, Inc.
  * All rights reserved.
@@ -15557,7 +9796,7 @@ var BeforeInputEventPlugin = {
 };
 
 module.exports = BeforeInputEventPlugin;
-},{"./EventPropagators":331,"./FallbackCompositionState":332,"./SyntheticCompositionEvent":396,"./SyntheticInputEvent":400,"fbjs/lib/ExecutionEnvironment":440}],316:[function(require,module,exports){
+},{"./EventPropagators":259,"./FallbackCompositionState":260,"./SyntheticCompositionEvent":324,"./SyntheticInputEvent":328,"fbjs/lib/ExecutionEnvironment":368}],244:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -15711,7 +9950,7 @@ var CSSProperty = {
 };
 
 module.exports = CSSProperty;
-},{}],317:[function(require,module,exports){
+},{}],245:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -15928,7 +10167,7 @@ var CSSPropertyOperations = {
 
 module.exports = CSSPropertyOperations;
 }).call(this,require('_process'))
-},{"./CSSProperty":316,"./ReactInstrumentation":374,"./dangerousStyleValue":413,"_process":311,"fbjs/lib/ExecutionEnvironment":440,"fbjs/lib/camelizeStyleName":442,"fbjs/lib/hyphenateStyleName":453,"fbjs/lib/memoizeStringOnly":457,"fbjs/lib/warning":461}],318:[function(require,module,exports){
+},{"./CSSProperty":244,"./ReactInstrumentation":302,"./dangerousStyleValue":341,"_process":239,"fbjs/lib/ExecutionEnvironment":368,"fbjs/lib/camelizeStyleName":370,"fbjs/lib/hyphenateStyleName":381,"fbjs/lib/memoizeStringOnly":385,"fbjs/lib/warning":389}],246:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -16049,7 +10288,7 @@ var CallbackQueue = function () {
 
 module.exports = PooledClass.addPoolingTo(CallbackQueue);
 }).call(this,require('_process'))
-},{"./PooledClass":336,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],319:[function(require,module,exports){
+},{"./PooledClass":264,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],247:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -16361,7 +10600,7 @@ var ChangeEventPlugin = {
 };
 
 module.exports = ChangeEventPlugin;
-},{"./EventPluginHub":328,"./EventPropagators":331,"./ReactDOMComponentTree":345,"./ReactUpdates":389,"./SyntheticEvent":398,"./getEventTarget":421,"./inputValueTracking":427,"./isEventSupported":429,"./isTextInputElement":430,"fbjs/lib/ExecutionEnvironment":440}],320:[function(require,module,exports){
+},{"./EventPluginHub":256,"./EventPropagators":259,"./ReactDOMComponentTree":273,"./ReactUpdates":317,"./SyntheticEvent":326,"./getEventTarget":349,"./inputValueTracking":355,"./isEventSupported":357,"./isTextInputElement":358,"fbjs/lib/ExecutionEnvironment":368}],248:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -16589,7 +10828,7 @@ var DOMChildrenOperations = {
 
 module.exports = DOMChildrenOperations;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":321,"./Danger":325,"./ReactDOMComponentTree":345,"./ReactInstrumentation":374,"./createMicrosoftUnsafeLocalFunction":412,"./setInnerHTML":434,"./setTextContent":435,"_process":311}],321:[function(require,module,exports){
+},{"./DOMLazyTree":249,"./Danger":253,"./ReactDOMComponentTree":273,"./ReactInstrumentation":302,"./createMicrosoftUnsafeLocalFunction":340,"./setInnerHTML":362,"./setTextContent":363,"_process":239}],249:[function(require,module,exports){
 /**
  * Copyright 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -16707,7 +10946,7 @@ DOMLazyTree.queueHTML = queueHTML;
 DOMLazyTree.queueText = queueText;
 
 module.exports = DOMLazyTree;
-},{"./DOMNamespaces":322,"./createMicrosoftUnsafeLocalFunction":412,"./setInnerHTML":434,"./setTextContent":435}],322:[function(require,module,exports){
+},{"./DOMNamespaces":250,"./createMicrosoftUnsafeLocalFunction":340,"./setInnerHTML":362,"./setTextContent":363}],250:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -16727,7 +10966,7 @@ var DOMNamespaces = {
 };
 
 module.exports = DOMNamespaces;
-},{}],323:[function(require,module,exports){
+},{}],251:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -16938,7 +11177,7 @@ var DOMProperty = {
 
 module.exports = DOMProperty;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],324:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],252:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -17175,7 +11414,7 @@ var DOMPropertyOperations = {
 
 module.exports = DOMPropertyOperations;
 }).call(this,require('_process'))
-},{"./DOMProperty":323,"./ReactDOMComponentTree":345,"./ReactInstrumentation":374,"./quoteAttributeValueForBrowser":431,"_process":311,"fbjs/lib/warning":461}],325:[function(require,module,exports){
+},{"./DOMProperty":251,"./ReactDOMComponentTree":273,"./ReactInstrumentation":302,"./quoteAttributeValueForBrowser":359,"_process":239,"fbjs/lib/warning":389}],253:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -17223,7 +11462,7 @@ var Danger = {
 
 module.exports = Danger;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":321,"./reactProdInvariant":432,"_process":311,"fbjs/lib/ExecutionEnvironment":440,"fbjs/lib/createNodesFromMarkup":445,"fbjs/lib/emptyFunction":446,"fbjs/lib/invariant":454}],326:[function(require,module,exports){
+},{"./DOMLazyTree":249,"./reactProdInvariant":360,"_process":239,"fbjs/lib/ExecutionEnvironment":368,"fbjs/lib/createNodesFromMarkup":373,"fbjs/lib/emptyFunction":374,"fbjs/lib/invariant":382}],254:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -17249,7 +11488,7 @@ module.exports = Danger;
 var DefaultEventPluginOrder = ['ResponderEventPlugin', 'SimpleEventPlugin', 'TapEventPlugin', 'EnterLeaveEventPlugin', 'ChangeEventPlugin', 'SelectEventPlugin', 'BeforeInputEventPlugin'];
 
 module.exports = DefaultEventPluginOrder;
-},{}],327:[function(require,module,exports){
+},{}],255:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -17347,7 +11586,7 @@ var EnterLeaveEventPlugin = {
 };
 
 module.exports = EnterLeaveEventPlugin;
-},{"./EventPropagators":331,"./ReactDOMComponentTree":345,"./SyntheticMouseEvent":402}],328:[function(require,module,exports){
+},{"./EventPropagators":259,"./ReactDOMComponentTree":273,"./SyntheticMouseEvent":330}],256:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -17623,7 +11862,7 @@ var EventPluginHub = {
 
 module.exports = EventPluginHub;
 }).call(this,require('_process'))
-},{"./EventPluginRegistry":329,"./EventPluginUtils":330,"./ReactErrorUtils":365,"./accumulateInto":409,"./forEachAccumulated":417,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],329:[function(require,module,exports){
+},{"./EventPluginRegistry":257,"./EventPluginUtils":258,"./ReactErrorUtils":293,"./accumulateInto":337,"./forEachAccumulated":345,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],257:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -17878,7 +12117,7 @@ var EventPluginRegistry = {
 
 module.exports = EventPluginRegistry;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],330:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],258:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -18106,7 +12345,7 @@ var EventPluginUtils = {
 
 module.exports = EventPluginUtils;
 }).call(this,require('_process'))
-},{"./ReactErrorUtils":365,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461}],331:[function(require,module,exports){
+},{"./ReactErrorUtils":293,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389}],259:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -18242,7 +12481,7 @@ var EventPropagators = {
 
 module.exports = EventPropagators;
 }).call(this,require('_process'))
-},{"./EventPluginHub":328,"./EventPluginUtils":330,"./accumulateInto":409,"./forEachAccumulated":417,"_process":311,"fbjs/lib/warning":461}],332:[function(require,module,exports){
+},{"./EventPluginHub":256,"./EventPluginUtils":258,"./accumulateInto":337,"./forEachAccumulated":345,"_process":239,"fbjs/lib/warning":389}],260:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -18337,7 +12576,7 @@ _assign(FallbackCompositionState.prototype, {
 PooledClass.addPoolingTo(FallbackCompositionState);
 
 module.exports = FallbackCompositionState;
-},{"./PooledClass":336,"./getTextContentAccessor":425,"object-assign":462}],333:[function(require,module,exports){
+},{"./PooledClass":264,"./getTextContentAccessor":353,"object-assign":390}],261:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -18573,7 +12812,7 @@ var HTMLDOMPropertyConfig = {
 };
 
 module.exports = HTMLDOMPropertyConfig;
-},{"./DOMProperty":323}],334:[function(require,module,exports){
+},{"./DOMProperty":251}],262:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -18632,7 +12871,7 @@ var KeyEscapeUtils = {
 };
 
 module.exports = KeyEscapeUtils;
-},{}],335:[function(require,module,exports){
+},{}],263:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -18772,7 +13011,7 @@ var LinkedValueUtils = {
 
 module.exports = LinkedValueUtils;
 }).call(this,require('_process'))
-},{"./ReactPropTypesSecret":382,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461,"prop-types/factory":464,"react/lib/React":469}],336:[function(require,module,exports){
+},{"./ReactPropTypesSecret":310,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389,"prop-types/factory":392,"react/lib/React":397}],264:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -18886,7 +13125,7 @@ var PooledClass = {
 
 module.exports = PooledClass;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],337:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],265:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -19210,7 +13449,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 });
 
 module.exports = ReactBrowserEventEmitter;
-},{"./EventPluginRegistry":329,"./ReactEventEmitterMixin":366,"./ViewportMetrics":408,"./getVendorPrefixedEventName":426,"./isEventSupported":429,"object-assign":462}],338:[function(require,module,exports){
+},{"./EventPluginRegistry":257,"./ReactEventEmitterMixin":294,"./ViewportMetrics":336,"./getVendorPrefixedEventName":354,"./isEventSupported":357,"object-assign":390}],266:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -19365,7 +13604,7 @@ var ReactChildReconciler = {
 
 module.exports = ReactChildReconciler;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":334,"./ReactReconciler":384,"./instantiateReactComponent":428,"./shouldUpdateReactComponent":436,"./traverseAllChildren":437,"_process":311,"fbjs/lib/warning":461,"react/lib/ReactComponentTreeHook":472}],339:[function(require,module,exports){
+},{"./KeyEscapeUtils":262,"./ReactReconciler":312,"./instantiateReactComponent":356,"./shouldUpdateReactComponent":364,"./traverseAllChildren":365,"_process":239,"fbjs/lib/warning":389,"react/lib/ReactComponentTreeHook":400}],267:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -19393,7 +13632,7 @@ var ReactComponentBrowserEnvironment = {
 };
 
 module.exports = ReactComponentBrowserEnvironment;
-},{"./DOMChildrenOperations":320,"./ReactDOMIDOperations":349}],340:[function(require,module,exports){
+},{"./DOMChildrenOperations":248,"./ReactDOMIDOperations":277}],268:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -19439,7 +13678,7 @@ var ReactComponentEnvironment = {
 
 module.exports = ReactComponentEnvironment;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],341:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],269:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -20341,7 +14580,7 @@ var ReactCompositeComponent = {
 
 module.exports = ReactCompositeComponent;
 }).call(this,require('_process'))
-},{"./ReactComponentEnvironment":340,"./ReactErrorUtils":365,"./ReactInstanceMap":373,"./ReactInstrumentation":374,"./ReactNodeTypes":379,"./ReactReconciler":384,"./checkReactTypeSpec":411,"./reactProdInvariant":432,"./shouldUpdateReactComponent":436,"_process":311,"fbjs/lib/emptyObject":447,"fbjs/lib/invariant":454,"fbjs/lib/shallowEqual":460,"fbjs/lib/warning":461,"object-assign":462,"react/lib/React":469,"react/lib/ReactCurrentOwner":473}],342:[function(require,module,exports){
+},{"./ReactComponentEnvironment":268,"./ReactErrorUtils":293,"./ReactInstanceMap":301,"./ReactInstrumentation":302,"./ReactNodeTypes":307,"./ReactReconciler":312,"./checkReactTypeSpec":339,"./reactProdInvariant":360,"./shouldUpdateReactComponent":364,"_process":239,"fbjs/lib/emptyObject":375,"fbjs/lib/invariant":382,"fbjs/lib/shallowEqual":388,"fbjs/lib/warning":389,"object-assign":390,"react/lib/React":397,"react/lib/ReactCurrentOwner":401}],270:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -20454,7 +14693,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactDOM;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":345,"./ReactDOMInvalidARIAHook":351,"./ReactDOMNullInputValuePropHook":352,"./ReactDOMUnknownPropertyHook":359,"./ReactDefaultInjection":362,"./ReactInstrumentation":374,"./ReactMount":377,"./ReactReconciler":384,"./ReactUpdates":389,"./ReactVersion":390,"./findDOMNode":415,"./getHostComponentFromComposite":422,"./renderSubtreeIntoContainer":433,"_process":311,"fbjs/lib/ExecutionEnvironment":440,"fbjs/lib/warning":461}],343:[function(require,module,exports){
+},{"./ReactDOMComponentTree":273,"./ReactDOMInvalidARIAHook":279,"./ReactDOMNullInputValuePropHook":280,"./ReactDOMUnknownPropertyHook":287,"./ReactDefaultInjection":290,"./ReactInstrumentation":302,"./ReactMount":305,"./ReactReconciler":312,"./ReactUpdates":317,"./ReactVersion":318,"./findDOMNode":343,"./getHostComponentFromComposite":350,"./renderSubtreeIntoContainer":361,"_process":239,"fbjs/lib/ExecutionEnvironment":368,"fbjs/lib/warning":389}],271:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -21466,7 +15705,7 @@ _assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mi
 
 module.exports = ReactDOMComponent;
 }).call(this,require('_process'))
-},{"./AutoFocusUtils":314,"./CSSPropertyOperations":317,"./DOMLazyTree":321,"./DOMNamespaces":322,"./DOMProperty":323,"./DOMPropertyOperations":324,"./EventPluginHub":328,"./EventPluginRegistry":329,"./ReactBrowserEventEmitter":337,"./ReactDOMComponentFlags":344,"./ReactDOMComponentTree":345,"./ReactDOMInput":350,"./ReactDOMOption":353,"./ReactDOMSelect":354,"./ReactDOMTextarea":357,"./ReactInstrumentation":374,"./ReactMultiChild":378,"./ReactServerRenderingTransaction":386,"./escapeTextContentForBrowser":414,"./inputValueTracking":427,"./isEventSupported":429,"./reactProdInvariant":432,"./validateDOMNesting":438,"_process":311,"fbjs/lib/emptyFunction":446,"fbjs/lib/invariant":454,"fbjs/lib/shallowEqual":460,"fbjs/lib/warning":461,"object-assign":462}],344:[function(require,module,exports){
+},{"./AutoFocusUtils":242,"./CSSPropertyOperations":245,"./DOMLazyTree":249,"./DOMNamespaces":250,"./DOMProperty":251,"./DOMPropertyOperations":252,"./EventPluginHub":256,"./EventPluginRegistry":257,"./ReactBrowserEventEmitter":265,"./ReactDOMComponentFlags":272,"./ReactDOMComponentTree":273,"./ReactDOMInput":278,"./ReactDOMOption":281,"./ReactDOMSelect":282,"./ReactDOMTextarea":285,"./ReactInstrumentation":302,"./ReactMultiChild":306,"./ReactServerRenderingTransaction":314,"./escapeTextContentForBrowser":342,"./inputValueTracking":355,"./isEventSupported":357,"./reactProdInvariant":360,"./validateDOMNesting":366,"_process":239,"fbjs/lib/emptyFunction":374,"fbjs/lib/invariant":382,"fbjs/lib/shallowEqual":388,"fbjs/lib/warning":389,"object-assign":390}],272:[function(require,module,exports){
 /**
  * Copyright 2015-present, Facebook, Inc.
  * All rights reserved.
@@ -21484,7 +15723,7 @@ var ReactDOMComponentFlags = {
 };
 
 module.exports = ReactDOMComponentFlags;
-},{}],345:[function(require,module,exports){
+},{}],273:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -21681,7 +15920,7 @@ var ReactDOMComponentTree = {
 
 module.exports = ReactDOMComponentTree;
 }).call(this,require('_process'))
-},{"./DOMProperty":323,"./ReactDOMComponentFlags":344,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],346:[function(require,module,exports){
+},{"./DOMProperty":251,"./ReactDOMComponentFlags":272,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],274:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -21716,7 +15955,7 @@ function ReactDOMContainerInfo(topLevelWrapper, node) {
 
 module.exports = ReactDOMContainerInfo;
 }).call(this,require('_process'))
-},{"./validateDOMNesting":438,"_process":311}],347:[function(require,module,exports){
+},{"./validateDOMNesting":366,"_process":239}],275:[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -21776,7 +16015,7 @@ _assign(ReactDOMEmptyComponent.prototype, {
 });
 
 module.exports = ReactDOMEmptyComponent;
-},{"./DOMLazyTree":321,"./ReactDOMComponentTree":345,"object-assign":462}],348:[function(require,module,exports){
+},{"./DOMLazyTree":249,"./ReactDOMComponentTree":273,"object-assign":390}],276:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -21795,7 +16034,7 @@ var ReactDOMFeatureFlags = {
 };
 
 module.exports = ReactDOMFeatureFlags;
-},{}],349:[function(require,module,exports){
+},{}],277:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -21828,7 +16067,7 @@ var ReactDOMIDOperations = {
 };
 
 module.exports = ReactDOMIDOperations;
-},{"./DOMChildrenOperations":320,"./ReactDOMComponentTree":345}],350:[function(require,module,exports){
+},{"./DOMChildrenOperations":248,"./ReactDOMComponentTree":273}],278:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -22117,7 +16356,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMInput;
 }).call(this,require('_process'))
-},{"./DOMPropertyOperations":324,"./LinkedValueUtils":335,"./ReactDOMComponentTree":345,"./ReactUpdates":389,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461,"object-assign":462}],351:[function(require,module,exports){
+},{"./DOMPropertyOperations":252,"./LinkedValueUtils":263,"./ReactDOMComponentTree":273,"./ReactUpdates":317,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389,"object-assign":390}],279:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -22212,7 +16451,7 @@ var ReactDOMInvalidARIAHook = {
 
 module.exports = ReactDOMInvalidARIAHook;
 }).call(this,require('_process'))
-},{"./DOMProperty":323,"_process":311,"fbjs/lib/warning":461,"react/lib/ReactComponentTreeHook":472}],352:[function(require,module,exports){
+},{"./DOMProperty":251,"_process":239,"fbjs/lib/warning":389,"react/lib/ReactComponentTreeHook":400}],280:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -22257,7 +16496,7 @@ var ReactDOMNullInputValuePropHook = {
 
 module.exports = ReactDOMNullInputValuePropHook;
 }).call(this,require('_process'))
-},{"_process":311,"fbjs/lib/warning":461,"react/lib/ReactComponentTreeHook":472}],353:[function(require,module,exports){
+},{"_process":239,"fbjs/lib/warning":389,"react/lib/ReactComponentTreeHook":400}],281:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -22381,7 +16620,7 @@ var ReactDOMOption = {
 
 module.exports = ReactDOMOption;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":345,"./ReactDOMSelect":354,"_process":311,"fbjs/lib/warning":461,"object-assign":462,"react/lib/React":469}],354:[function(require,module,exports){
+},{"./ReactDOMComponentTree":273,"./ReactDOMSelect":282,"_process":239,"fbjs/lib/warning":389,"object-assign":390,"react/lib/React":397}],282:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -22583,7 +16822,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMSelect;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":335,"./ReactDOMComponentTree":345,"./ReactUpdates":389,"_process":311,"fbjs/lib/warning":461,"object-assign":462}],355:[function(require,module,exports){
+},{"./LinkedValueUtils":263,"./ReactDOMComponentTree":273,"./ReactUpdates":317,"_process":239,"fbjs/lib/warning":389,"object-assign":390}],283:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -22795,7 +17034,7 @@ var ReactDOMSelection = {
 };
 
 module.exports = ReactDOMSelection;
-},{"./getNodeForCharacterOffset":424,"./getTextContentAccessor":425,"fbjs/lib/ExecutionEnvironment":440}],356:[function(require,module,exports){
+},{"./getNodeForCharacterOffset":352,"./getTextContentAccessor":353,"fbjs/lib/ExecutionEnvironment":368}],284:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -22959,7 +17198,7 @@ _assign(ReactDOMTextComponent.prototype, {
 
 module.exports = ReactDOMTextComponent;
 }).call(this,require('_process'))
-},{"./DOMChildrenOperations":320,"./DOMLazyTree":321,"./ReactDOMComponentTree":345,"./escapeTextContentForBrowser":414,"./reactProdInvariant":432,"./validateDOMNesting":438,"_process":311,"fbjs/lib/invariant":454,"object-assign":462}],357:[function(require,module,exports){
+},{"./DOMChildrenOperations":248,"./DOMLazyTree":249,"./ReactDOMComponentTree":273,"./escapeTextContentForBrowser":342,"./reactProdInvariant":360,"./validateDOMNesting":366,"_process":239,"fbjs/lib/invariant":382,"object-assign":390}],285:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -23121,7 +17360,7 @@ function _handleChange(event) {
 
 module.exports = ReactDOMTextarea;
 }).call(this,require('_process'))
-},{"./LinkedValueUtils":335,"./ReactDOMComponentTree":345,"./ReactUpdates":389,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461,"object-assign":462}],358:[function(require,module,exports){
+},{"./LinkedValueUtils":263,"./ReactDOMComponentTree":273,"./ReactUpdates":317,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389,"object-assign":390}],286:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -23259,7 +17498,7 @@ module.exports = {
   traverseEnterLeave: traverseEnterLeave
 };
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],359:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],287:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -23373,7 +17612,7 @@ var ReactDOMUnknownPropertyHook = {
 
 module.exports = ReactDOMUnknownPropertyHook;
 }).call(this,require('_process'))
-},{"./DOMProperty":323,"./EventPluginRegistry":329,"_process":311,"fbjs/lib/warning":461,"react/lib/ReactComponentTreeHook":472}],360:[function(require,module,exports){
+},{"./DOMProperty":251,"./EventPluginRegistry":257,"_process":239,"fbjs/lib/warning":389,"react/lib/ReactComponentTreeHook":400}],288:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -23736,7 +17975,7 @@ if (/[?&]react_perf\b/.test(url)) {
 
 module.exports = ReactDebugTool;
 }).call(this,require('_process'))
-},{"./ReactHostOperationHistoryHook":370,"./ReactInvalidSetStateWarningHook":375,"_process":311,"fbjs/lib/ExecutionEnvironment":440,"fbjs/lib/performanceNow":459,"fbjs/lib/warning":461,"react/lib/ReactComponentTreeHook":472}],361:[function(require,module,exports){
+},{"./ReactHostOperationHistoryHook":298,"./ReactInvalidSetStateWarningHook":303,"_process":239,"fbjs/lib/ExecutionEnvironment":368,"fbjs/lib/performanceNow":387,"fbjs/lib/warning":389,"react/lib/ReactComponentTreeHook":400}],289:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -23804,7 +18043,7 @@ var ReactDefaultBatchingStrategy = {
 };
 
 module.exports = ReactDefaultBatchingStrategy;
-},{"./ReactUpdates":389,"./Transaction":407,"fbjs/lib/emptyFunction":446,"object-assign":462}],362:[function(require,module,exports){
+},{"./ReactUpdates":317,"./Transaction":335,"fbjs/lib/emptyFunction":374,"object-assign":390}],290:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -23890,7 +18129,7 @@ function inject() {
 module.exports = {
   inject: inject
 };
-},{"./ARIADOMPropertyConfig":313,"./BeforeInputEventPlugin":315,"./ChangeEventPlugin":319,"./DefaultEventPluginOrder":326,"./EnterLeaveEventPlugin":327,"./HTMLDOMPropertyConfig":333,"./ReactComponentBrowserEnvironment":339,"./ReactDOMComponent":343,"./ReactDOMComponentTree":345,"./ReactDOMEmptyComponent":347,"./ReactDOMTextComponent":356,"./ReactDOMTreeTraversal":358,"./ReactDefaultBatchingStrategy":361,"./ReactEventListener":367,"./ReactInjection":371,"./ReactReconcileTransaction":383,"./SVGDOMPropertyConfig":391,"./SelectEventPlugin":392,"./SimpleEventPlugin":393}],363:[function(require,module,exports){
+},{"./ARIADOMPropertyConfig":241,"./BeforeInputEventPlugin":243,"./ChangeEventPlugin":247,"./DefaultEventPluginOrder":254,"./EnterLeaveEventPlugin":255,"./HTMLDOMPropertyConfig":261,"./ReactComponentBrowserEnvironment":267,"./ReactDOMComponent":271,"./ReactDOMComponentTree":273,"./ReactDOMEmptyComponent":275,"./ReactDOMTextComponent":284,"./ReactDOMTreeTraversal":286,"./ReactDefaultBatchingStrategy":289,"./ReactEventListener":295,"./ReactInjection":299,"./ReactReconcileTransaction":311,"./SVGDOMPropertyConfig":319,"./SelectEventPlugin":320,"./SimpleEventPlugin":321}],291:[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -23910,7 +18149,7 @@ module.exports = {
 var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 0xeac7;
 
 module.exports = REACT_ELEMENT_TYPE;
-},{}],364:[function(require,module,exports){
+},{}],292:[function(require,module,exports){
 /**
  * Copyright 2014-present, Facebook, Inc.
  * All rights reserved.
@@ -23940,7 +18179,7 @@ var ReactEmptyComponent = {
 ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 
 module.exports = ReactEmptyComponent;
-},{}],365:[function(require,module,exports){
+},{}],293:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -24018,7 +18257,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactErrorUtils;
 }).call(this,require('_process'))
-},{"_process":311}],366:[function(require,module,exports){
+},{"_process":239}],294:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -24050,7 +18289,7 @@ var ReactEventEmitterMixin = {
 };
 
 module.exports = ReactEventEmitterMixin;
-},{"./EventPluginHub":328}],367:[function(require,module,exports){
+},{"./EventPluginHub":256}],295:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -24205,7 +18444,7 @@ var ReactEventListener = {
 };
 
 module.exports = ReactEventListener;
-},{"./PooledClass":336,"./ReactDOMComponentTree":345,"./ReactUpdates":389,"./getEventTarget":421,"fbjs/lib/EventListener":439,"fbjs/lib/ExecutionEnvironment":440,"fbjs/lib/getUnboundedScrollPosition":451,"object-assign":462}],368:[function(require,module,exports){
+},{"./PooledClass":264,"./ReactDOMComponentTree":273,"./ReactUpdates":317,"./getEventTarget":349,"fbjs/lib/EventListener":367,"fbjs/lib/ExecutionEnvironment":368,"fbjs/lib/getUnboundedScrollPosition":379,"object-assign":390}],296:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -24227,7 +18466,7 @@ var ReactFeatureFlags = {
 };
 
 module.exports = ReactFeatureFlags;
-},{}],369:[function(require,module,exports){
+},{}],297:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -24297,7 +18536,7 @@ var ReactHostComponent = {
 
 module.exports = ReactHostComponent;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],370:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],298:[function(require,module,exports){
 /**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -24331,7 +18570,7 @@ var ReactHostOperationHistoryHook = {
 };
 
 module.exports = ReactHostOperationHistoryHook;
-},{}],371:[function(require,module,exports){
+},{}],299:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -24365,7 +18604,7 @@ var ReactInjection = {
 };
 
 module.exports = ReactInjection;
-},{"./DOMProperty":323,"./EventPluginHub":328,"./EventPluginUtils":330,"./ReactBrowserEventEmitter":337,"./ReactComponentEnvironment":340,"./ReactEmptyComponent":364,"./ReactHostComponent":369,"./ReactUpdates":389}],372:[function(require,module,exports){
+},{"./DOMProperty":251,"./EventPluginHub":256,"./EventPluginUtils":258,"./ReactBrowserEventEmitter":265,"./ReactComponentEnvironment":268,"./ReactEmptyComponent":292,"./ReactHostComponent":297,"./ReactUpdates":317}],300:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -24488,7 +18727,7 @@ var ReactInputSelection = {
 };
 
 module.exports = ReactInputSelection;
-},{"./ReactDOMSelection":355,"fbjs/lib/containsNode":443,"fbjs/lib/focusNode":448,"fbjs/lib/getActiveElement":449}],373:[function(require,module,exports){
+},{"./ReactDOMSelection":283,"fbjs/lib/containsNode":371,"fbjs/lib/focusNode":376,"fbjs/lib/getActiveElement":377}],301:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -24534,7 +18773,7 @@ var ReactInstanceMap = {
 };
 
 module.exports = ReactInstanceMap;
-},{}],374:[function(require,module,exports){
+},{}],302:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -24560,7 +18799,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = { debugTool: debugTool };
 }).call(this,require('_process'))
-},{"./ReactDebugTool":360,"_process":311}],375:[function(require,module,exports){
+},{"./ReactDebugTool":288,"_process":239}],303:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -24599,7 +18838,7 @@ var ReactInvalidSetStateWarningHook = {
 
 module.exports = ReactInvalidSetStateWarningHook;
 }).call(this,require('_process'))
-},{"_process":311,"fbjs/lib/warning":461}],376:[function(require,module,exports){
+},{"_process":239,"fbjs/lib/warning":389}],304:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -24649,7 +18888,7 @@ var ReactMarkupChecksum = {
 };
 
 module.exports = ReactMarkupChecksum;
-},{"./adler32":410}],377:[function(require,module,exports){
+},{"./adler32":338}],305:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -25189,7 +19428,7 @@ var ReactMount = {
 
 module.exports = ReactMount;
 }).call(this,require('_process'))
-},{"./DOMLazyTree":321,"./DOMProperty":323,"./ReactBrowserEventEmitter":337,"./ReactDOMComponentTree":345,"./ReactDOMContainerInfo":346,"./ReactDOMFeatureFlags":348,"./ReactFeatureFlags":368,"./ReactInstanceMap":373,"./ReactInstrumentation":374,"./ReactMarkupChecksum":376,"./ReactReconciler":384,"./ReactUpdateQueue":388,"./ReactUpdates":389,"./instantiateReactComponent":428,"./reactProdInvariant":432,"./setInnerHTML":434,"./shouldUpdateReactComponent":436,"_process":311,"fbjs/lib/emptyObject":447,"fbjs/lib/invariant":454,"fbjs/lib/warning":461,"react/lib/React":469,"react/lib/ReactCurrentOwner":473}],378:[function(require,module,exports){
+},{"./DOMLazyTree":249,"./DOMProperty":251,"./ReactBrowserEventEmitter":265,"./ReactDOMComponentTree":273,"./ReactDOMContainerInfo":274,"./ReactDOMFeatureFlags":276,"./ReactFeatureFlags":296,"./ReactInstanceMap":301,"./ReactInstrumentation":302,"./ReactMarkupChecksum":304,"./ReactReconciler":312,"./ReactUpdateQueue":316,"./ReactUpdates":317,"./instantiateReactComponent":356,"./reactProdInvariant":360,"./setInnerHTML":362,"./shouldUpdateReactComponent":364,"_process":239,"fbjs/lib/emptyObject":375,"fbjs/lib/invariant":382,"fbjs/lib/warning":389,"react/lib/React":397,"react/lib/ReactCurrentOwner":401}],306:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -25637,7 +19876,7 @@ var ReactMultiChild = {
 
 module.exports = ReactMultiChild;
 }).call(this,require('_process'))
-},{"./ReactChildReconciler":338,"./ReactComponentEnvironment":340,"./ReactInstanceMap":373,"./ReactInstrumentation":374,"./ReactReconciler":384,"./flattenChildren":416,"./reactProdInvariant":432,"_process":311,"fbjs/lib/emptyFunction":446,"fbjs/lib/invariant":454,"react/lib/ReactCurrentOwner":473}],379:[function(require,module,exports){
+},{"./ReactChildReconciler":266,"./ReactComponentEnvironment":268,"./ReactInstanceMap":301,"./ReactInstrumentation":302,"./ReactReconciler":312,"./flattenChildren":344,"./reactProdInvariant":360,"_process":239,"fbjs/lib/emptyFunction":374,"fbjs/lib/invariant":382,"react/lib/ReactCurrentOwner":401}],307:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -25679,7 +19918,7 @@ var ReactNodeTypes = {
 
 module.exports = ReactNodeTypes;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"react/lib/React":469}],380:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"react/lib/React":397}],308:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -25774,7 +20013,7 @@ var ReactOwner = {
 
 module.exports = ReactOwner;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],381:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],309:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -25801,7 +20040,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = ReactPropTypeLocationNames;
 }).call(this,require('_process'))
-},{"_process":311}],382:[function(require,module,exports){
+},{"_process":239}],310:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -25818,7 +20057,7 @@ module.exports = ReactPropTypeLocationNames;
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
-},{}],383:[function(require,module,exports){
+},{}],311:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -25998,7 +20237,7 @@ PooledClass.addPoolingTo(ReactReconcileTransaction);
 
 module.exports = ReactReconcileTransaction;
 }).call(this,require('_process'))
-},{"./CallbackQueue":318,"./PooledClass":336,"./ReactBrowserEventEmitter":337,"./ReactInputSelection":372,"./ReactInstrumentation":374,"./ReactUpdateQueue":388,"./Transaction":407,"_process":311,"object-assign":462}],384:[function(require,module,exports){
+},{"./CallbackQueue":246,"./PooledClass":264,"./ReactBrowserEventEmitter":265,"./ReactInputSelection":300,"./ReactInstrumentation":302,"./ReactUpdateQueue":316,"./Transaction":335,"_process":239,"object-assign":390}],312:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -26166,7 +20405,7 @@ var ReactReconciler = {
 
 module.exports = ReactReconciler;
 }).call(this,require('_process'))
-},{"./ReactInstrumentation":374,"./ReactRef":385,"_process":311,"fbjs/lib/warning":461}],385:[function(require,module,exports){
+},{"./ReactInstrumentation":302,"./ReactRef":313,"_process":239,"fbjs/lib/warning":389}],313:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -26255,7 +20494,7 @@ ReactRef.detachRefs = function (instance, element) {
 };
 
 module.exports = ReactRef;
-},{"./ReactOwner":380}],386:[function(require,module,exports){
+},{"./ReactOwner":308}],314:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -26347,7 +20586,7 @@ PooledClass.addPoolingTo(ReactServerRenderingTransaction);
 
 module.exports = ReactServerRenderingTransaction;
 }).call(this,require('_process'))
-},{"./PooledClass":336,"./ReactInstrumentation":374,"./ReactServerUpdateQueue":387,"./Transaction":407,"_process":311,"object-assign":462}],387:[function(require,module,exports){
+},{"./PooledClass":264,"./ReactInstrumentation":302,"./ReactServerUpdateQueue":315,"./Transaction":335,"_process":239,"object-assign":390}],315:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -26488,7 +20727,7 @@ var ReactServerUpdateQueue = function () {
 
 module.exports = ReactServerUpdateQueue;
 }).call(this,require('_process'))
-},{"./ReactUpdateQueue":388,"_process":311,"fbjs/lib/warning":461}],388:[function(require,module,exports){
+},{"./ReactUpdateQueue":316,"_process":239,"fbjs/lib/warning":389}],316:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -26724,7 +20963,7 @@ var ReactUpdateQueue = {
 
 module.exports = ReactUpdateQueue;
 }).call(this,require('_process'))
-},{"./ReactInstanceMap":373,"./ReactInstrumentation":374,"./ReactUpdates":389,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461,"react/lib/ReactCurrentOwner":473}],389:[function(require,module,exports){
+},{"./ReactInstanceMap":301,"./ReactInstrumentation":302,"./ReactUpdates":317,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389,"react/lib/ReactCurrentOwner":401}],317:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -26977,7 +21216,7 @@ var ReactUpdates = {
 
 module.exports = ReactUpdates;
 }).call(this,require('_process'))
-},{"./CallbackQueue":318,"./PooledClass":336,"./ReactFeatureFlags":368,"./ReactReconciler":384,"./Transaction":407,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"object-assign":462}],390:[function(require,module,exports){
+},{"./CallbackQueue":246,"./PooledClass":264,"./ReactFeatureFlags":296,"./ReactReconciler":312,"./Transaction":335,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"object-assign":390}],318:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -26991,7 +21230,7 @@ module.exports = ReactUpdates;
 'use strict';
 
 module.exports = '15.6.1';
-},{}],391:[function(require,module,exports){
+},{}],319:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -27293,7 +21532,7 @@ Object.keys(ATTRS).forEach(function (key) {
 });
 
 module.exports = SVGDOMPropertyConfig;
-},{}],392:[function(require,module,exports){
+},{}],320:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -27481,7 +21720,7 @@ var SelectEventPlugin = {
 };
 
 module.exports = SelectEventPlugin;
-},{"./EventPropagators":331,"./ReactDOMComponentTree":345,"./ReactInputSelection":372,"./SyntheticEvent":398,"./isTextInputElement":430,"fbjs/lib/ExecutionEnvironment":440,"fbjs/lib/getActiveElement":449,"fbjs/lib/shallowEqual":460}],393:[function(require,module,exports){
+},{"./EventPropagators":259,"./ReactDOMComponentTree":273,"./ReactInputSelection":300,"./SyntheticEvent":326,"./isTextInputElement":358,"fbjs/lib/ExecutionEnvironment":368,"fbjs/lib/getActiveElement":377,"fbjs/lib/shallowEqual":388}],321:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -27709,7 +21948,7 @@ var SimpleEventPlugin = {
 
 module.exports = SimpleEventPlugin;
 }).call(this,require('_process'))
-},{"./EventPropagators":331,"./ReactDOMComponentTree":345,"./SyntheticAnimationEvent":394,"./SyntheticClipboardEvent":395,"./SyntheticDragEvent":397,"./SyntheticEvent":398,"./SyntheticFocusEvent":399,"./SyntheticKeyboardEvent":401,"./SyntheticMouseEvent":402,"./SyntheticTouchEvent":403,"./SyntheticTransitionEvent":404,"./SyntheticUIEvent":405,"./SyntheticWheelEvent":406,"./getEventCharCode":418,"./reactProdInvariant":432,"_process":311,"fbjs/lib/EventListener":439,"fbjs/lib/emptyFunction":446,"fbjs/lib/invariant":454}],394:[function(require,module,exports){
+},{"./EventPropagators":259,"./ReactDOMComponentTree":273,"./SyntheticAnimationEvent":322,"./SyntheticClipboardEvent":323,"./SyntheticDragEvent":325,"./SyntheticEvent":326,"./SyntheticFocusEvent":327,"./SyntheticKeyboardEvent":329,"./SyntheticMouseEvent":330,"./SyntheticTouchEvent":331,"./SyntheticTransitionEvent":332,"./SyntheticUIEvent":333,"./SyntheticWheelEvent":334,"./getEventCharCode":346,"./reactProdInvariant":360,"_process":239,"fbjs/lib/EventListener":367,"fbjs/lib/emptyFunction":374,"fbjs/lib/invariant":382}],322:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -27748,7 +21987,7 @@ function SyntheticAnimationEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 
 module.exports = SyntheticAnimationEvent;
-},{"./SyntheticEvent":398}],395:[function(require,module,exports){
+},{"./SyntheticEvent":326}],323:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -27786,7 +22025,7 @@ function SyntheticClipboardEvent(dispatchConfig, dispatchMarker, nativeEvent, na
 SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 
 module.exports = SyntheticClipboardEvent;
-},{"./SyntheticEvent":398}],396:[function(require,module,exports){
+},{"./SyntheticEvent":326}],324:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -27822,7 +22061,7 @@ function SyntheticCompositionEvent(dispatchConfig, dispatchMarker, nativeEvent, 
 SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface);
 
 module.exports = SyntheticCompositionEvent;
-},{"./SyntheticEvent":398}],397:[function(require,module,exports){
+},{"./SyntheticEvent":326}],325:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -27858,7 +22097,7 @@ function SyntheticDragEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeE
 SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 
 module.exports = SyntheticDragEvent;
-},{"./SyntheticMouseEvent":402}],398:[function(require,module,exports){
+},{"./SyntheticMouseEvent":330}],326:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -28126,7 +22365,7 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
   }
 }
 }).call(this,require('_process'))
-},{"./PooledClass":336,"_process":311,"fbjs/lib/emptyFunction":446,"fbjs/lib/warning":461,"object-assign":462}],399:[function(require,module,exports){
+},{"./PooledClass":264,"_process":239,"fbjs/lib/emptyFunction":374,"fbjs/lib/warning":389,"object-assign":390}],327:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28162,7 +22401,7 @@ function SyntheticFocusEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 
 module.exports = SyntheticFocusEvent;
-},{"./SyntheticUIEvent":405}],400:[function(require,module,exports){
+},{"./SyntheticUIEvent":333}],328:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28199,7 +22438,7 @@ function SyntheticInputEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 
 module.exports = SyntheticInputEvent;
-},{"./SyntheticEvent":398}],401:[function(require,module,exports){
+},{"./SyntheticEvent":326}],329:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28283,7 +22522,7 @@ function SyntheticKeyboardEvent(dispatchConfig, dispatchMarker, nativeEvent, nat
 SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 
 module.exports = SyntheticKeyboardEvent;
-},{"./SyntheticUIEvent":405,"./getEventCharCode":418,"./getEventKey":419,"./getEventModifierState":420}],402:[function(require,module,exports){
+},{"./SyntheticUIEvent":333,"./getEventCharCode":346,"./getEventKey":347,"./getEventModifierState":348}],330:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28355,7 +22594,7 @@ function SyntheticMouseEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 
 module.exports = SyntheticMouseEvent;
-},{"./SyntheticUIEvent":405,"./ViewportMetrics":408,"./getEventModifierState":420}],403:[function(require,module,exports){
+},{"./SyntheticUIEvent":333,"./ViewportMetrics":336,"./getEventModifierState":348}],331:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28400,7 +22639,7 @@ function SyntheticTouchEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 
 module.exports = SyntheticTouchEvent;
-},{"./SyntheticUIEvent":405,"./getEventModifierState":420}],404:[function(require,module,exports){
+},{"./SyntheticUIEvent":333,"./getEventModifierState":348}],332:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28439,7 +22678,7 @@ function SyntheticTransitionEvent(dispatchConfig, dispatchMarker, nativeEvent, n
 SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 
 module.exports = SyntheticTransitionEvent;
-},{"./SyntheticEvent":398}],405:[function(require,module,exports){
+},{"./SyntheticEvent":326}],333:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28498,7 +22737,7 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent, nativeEve
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 module.exports = SyntheticUIEvent;
-},{"./SyntheticEvent":398,"./getEventTarget":421}],406:[function(require,module,exports){
+},{"./SyntheticEvent":326,"./getEventTarget":349}],334:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28549,7 +22788,7 @@ function SyntheticWheelEvent(dispatchConfig, dispatchMarker, nativeEvent, native
 SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 
 module.exports = SyntheticWheelEvent;
-},{"./SyntheticMouseEvent":402}],407:[function(require,module,exports){
+},{"./SyntheticMouseEvent":330}],335:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -28779,7 +23018,7 @@ var TransactionImpl = {
 
 module.exports = TransactionImpl;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],408:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],336:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28804,7 +23043,7 @@ var ViewportMetrics = {
 };
 
 module.exports = ViewportMetrics;
-},{}],409:[function(require,module,exports){
+},{}],337:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -28864,7 +23103,7 @@ function accumulateInto(current, next) {
 
 module.exports = accumulateInto;
 }).call(this,require('_process'))
-},{"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454}],410:[function(require,module,exports){
+},{"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382}],338:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -28908,7 +23147,7 @@ function adler32(data) {
 }
 
 module.exports = adler32;
-},{}],411:[function(require,module,exports){
+},{}],339:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -28997,7 +23236,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
-},{"./ReactPropTypeLocationNames":381,"./ReactPropTypesSecret":382,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461,"react/lib/ReactComponentTreeHook":472}],412:[function(require,module,exports){
+},{"./ReactPropTypeLocationNames":309,"./ReactPropTypesSecret":310,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389,"react/lib/ReactComponentTreeHook":400}],340:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29029,7 +23268,7 @@ var createMicrosoftUnsafeLocalFunction = function (func) {
 };
 
 module.exports = createMicrosoftUnsafeLocalFunction;
-},{}],413:[function(require,module,exports){
+},{}],341:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -29110,7 +23349,7 @@ function dangerousStyleValue(name, value, component, isCustomProperty) {
 
 module.exports = dangerousStyleValue;
 }).call(this,require('_process'))
-},{"./CSSProperty":316,"_process":311,"fbjs/lib/warning":461}],414:[function(require,module,exports){
+},{"./CSSProperty":244,"_process":239,"fbjs/lib/warning":389}],342:[function(require,module,exports){
 /**
  * Copyright 2016-present, Facebook, Inc.
  * All rights reserved.
@@ -29232,7 +23471,7 @@ function escapeTextContentForBrowser(text) {
 }
 
 module.exports = escapeTextContentForBrowser;
-},{}],415:[function(require,module,exports){
+},{}],343:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -29294,7 +23533,7 @@ function findDOMNode(componentOrElement) {
 
 module.exports = findDOMNode;
 }).call(this,require('_process'))
-},{"./ReactDOMComponentTree":345,"./ReactInstanceMap":373,"./getHostComponentFromComposite":422,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461,"react/lib/ReactCurrentOwner":473}],416:[function(require,module,exports){
+},{"./ReactDOMComponentTree":273,"./ReactInstanceMap":301,"./getHostComponentFromComposite":350,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389,"react/lib/ReactCurrentOwner":401}],344:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -29372,7 +23611,7 @@ function flattenChildren(children, selfDebugID) {
 
 module.exports = flattenChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":334,"./traverseAllChildren":437,"_process":311,"fbjs/lib/warning":461,"react/lib/ReactComponentTreeHook":472}],417:[function(require,module,exports){
+},{"./KeyEscapeUtils":262,"./traverseAllChildren":365,"_process":239,"fbjs/lib/warning":389,"react/lib/ReactComponentTreeHook":400}],345:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29403,7 +23642,7 @@ function forEachAccumulated(arr, cb, scope) {
 }
 
 module.exports = forEachAccumulated;
-},{}],418:[function(require,module,exports){
+},{}],346:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29453,7 +23692,7 @@ function getEventCharCode(nativeEvent) {
 }
 
 module.exports = getEventCharCode;
-},{}],419:[function(require,module,exports){
+},{}],347:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29565,7 +23804,7 @@ function getEventKey(nativeEvent) {
 }
 
 module.exports = getEventKey;
-},{"./getEventCharCode":418}],420:[function(require,module,exports){
+},{"./getEventCharCode":346}],348:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29608,7 +23847,7 @@ function getEventModifierState(nativeEvent) {
 }
 
 module.exports = getEventModifierState;
-},{}],421:[function(require,module,exports){
+},{}],349:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29643,7 +23882,7 @@ function getEventTarget(nativeEvent) {
 }
 
 module.exports = getEventTarget;
-},{}],422:[function(require,module,exports){
+},{}],350:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29673,7 +23912,7 @@ function getHostComponentFromComposite(inst) {
 }
 
 module.exports = getHostComponentFromComposite;
-},{"./ReactNodeTypes":379}],423:[function(require,module,exports){
+},{"./ReactNodeTypes":307}],351:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29714,7 +23953,7 @@ function getIteratorFn(maybeIterable) {
 }
 
 module.exports = getIteratorFn;
-},{}],424:[function(require,module,exports){
+},{}],352:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29788,7 +24027,7 @@ function getNodeForCharacterOffset(root, offset) {
 }
 
 module.exports = getNodeForCharacterOffset;
-},{}],425:[function(require,module,exports){
+},{}],353:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29821,7 +24060,7 @@ function getTextContentAccessor() {
 }
 
 module.exports = getTextContentAccessor;
-},{"fbjs/lib/ExecutionEnvironment":440}],426:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":368}],354:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -29922,7 +24161,7 @@ function getVendorPrefixedEventName(eventName) {
 }
 
 module.exports = getVendorPrefixedEventName;
-},{"fbjs/lib/ExecutionEnvironment":440}],427:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":368}],355:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30045,7 +24284,7 @@ var inputValueTracking = {
 };
 
 module.exports = inputValueTracking;
-},{"./ReactDOMComponentTree":345}],428:[function(require,module,exports){
+},{"./ReactDOMComponentTree":273}],356:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -30176,7 +24415,7 @@ _assign(ReactCompositeComponentWrapper.prototype, ReactCompositeComponent, {
 
 module.exports = instantiateReactComponent;
 }).call(this,require('_process'))
-},{"./ReactCompositeComponent":341,"./ReactEmptyComponent":364,"./ReactHostComponent":369,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461,"object-assign":462,"react/lib/getNextDebugID":487}],429:[function(require,module,exports){
+},{"./ReactCompositeComponent":269,"./ReactEmptyComponent":292,"./ReactHostComponent":297,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389,"object-assign":390,"react/lib/getNextDebugID":415}],357:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30236,7 +24475,7 @@ function isEventSupported(eventNameSuffix, capture) {
 }
 
 module.exports = isEventSupported;
-},{"fbjs/lib/ExecutionEnvironment":440}],430:[function(require,module,exports){
+},{"fbjs/lib/ExecutionEnvironment":368}],358:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30287,7 +24526,7 @@ function isTextInputElement(elem) {
 }
 
 module.exports = isTextInputElement;
-},{}],431:[function(require,module,exports){
+},{}],359:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30313,7 +24552,7 @@ function quoteAttributeValueForBrowser(value) {
 }
 
 module.exports = quoteAttributeValueForBrowser;
-},{"./escapeTextContentForBrowser":414}],432:[function(require,module,exports){
+},{"./escapeTextContentForBrowser":342}],360:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30352,7 +24591,7 @@ function reactProdInvariant(code) {
 }
 
 module.exports = reactProdInvariant;
-},{}],433:[function(require,module,exports){
+},{}],361:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30368,7 +24607,7 @@ module.exports = reactProdInvariant;
 var ReactMount = require('./ReactMount');
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
-},{"./ReactMount":377}],434:[function(require,module,exports){
+},{"./ReactMount":305}],362:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30466,7 +24705,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setInnerHTML;
-},{"./DOMNamespaces":322,"./createMicrosoftUnsafeLocalFunction":412,"fbjs/lib/ExecutionEnvironment":440}],435:[function(require,module,exports){
+},{"./DOMNamespaces":250,"./createMicrosoftUnsafeLocalFunction":340,"fbjs/lib/ExecutionEnvironment":368}],363:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30518,7 +24757,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = setTextContent;
-},{"./escapeTextContentForBrowser":414,"./setInnerHTML":434,"fbjs/lib/ExecutionEnvironment":440}],436:[function(require,module,exports){
+},{"./escapeTextContentForBrowser":342,"./setInnerHTML":362,"fbjs/lib/ExecutionEnvironment":368}],364:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -30560,7 +24799,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 }
 
 module.exports = shouldUpdateReactComponent;
-},{}],437:[function(require,module,exports){
+},{}],365:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -30738,7 +24977,7 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":334,"./ReactElementSymbol":363,"./getIteratorFn":423,"./reactProdInvariant":432,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461,"react/lib/ReactCurrentOwner":473}],438:[function(require,module,exports){
+},{"./KeyEscapeUtils":262,"./ReactElementSymbol":291,"./getIteratorFn":351,"./reactProdInvariant":360,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389,"react/lib/ReactCurrentOwner":401}],366:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -31111,7 +25350,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = validateDOMNesting;
 }).call(this,require('_process'))
-},{"_process":311,"fbjs/lib/emptyFunction":446,"fbjs/lib/warning":461,"object-assign":462}],439:[function(require,module,exports){
+},{"_process":239,"fbjs/lib/emptyFunction":374,"fbjs/lib/warning":389,"object-assign":390}],367:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -31197,7 +25436,7 @@ var EventListener = {
 
 module.exports = EventListener;
 }).call(this,require('_process'))
-},{"./emptyFunction":446,"_process":311}],440:[function(require,module,exports){
+},{"./emptyFunction":374,"_process":239}],368:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31233,7 +25472,7 @@ var ExecutionEnvironment = {
 };
 
 module.exports = ExecutionEnvironment;
-},{}],441:[function(require,module,exports){
+},{}],369:[function(require,module,exports){
 "use strict";
 
 /**
@@ -31265,7 +25504,7 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-},{}],442:[function(require,module,exports){
+},{}],370:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31305,7 +25544,7 @@ function camelizeStyleName(string) {
 }
 
 module.exports = camelizeStyleName;
-},{"./camelize":441}],443:[function(require,module,exports){
+},{"./camelize":369}],371:[function(require,module,exports){
 'use strict';
 
 /**
@@ -31345,7 +25584,7 @@ function containsNode(outerNode, innerNode) {
 }
 
 module.exports = containsNode;
-},{"./isTextNode":456}],444:[function(require,module,exports){
+},{"./isTextNode":384}],372:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -31474,7 +25713,7 @@ function createArrayFromMixed(obj) {
 
 module.exports = createArrayFromMixed;
 }).call(this,require('_process'))
-},{"./invariant":454,"_process":311}],445:[function(require,module,exports){
+},{"./invariant":382,"_process":239}],373:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -31560,7 +25799,7 @@ function createNodesFromMarkup(markup, handleScript) {
 
 module.exports = createNodesFromMarkup;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":440,"./createArrayFromMixed":444,"./getMarkupWrap":450,"./invariant":454,"_process":311}],446:[function(require,module,exports){
+},{"./ExecutionEnvironment":368,"./createArrayFromMixed":372,"./getMarkupWrap":378,"./invariant":382,"_process":239}],374:[function(require,module,exports){
 "use strict";
 
 /**
@@ -31599,7 +25838,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-},{}],447:[function(require,module,exports){
+},{}],375:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -31621,7 +25860,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = emptyObject;
 }).call(this,require('_process'))
-},{"_process":311}],448:[function(require,module,exports){
+},{"_process":239}],376:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31648,7 +25887,7 @@ function focusNode(node) {
 }
 
 module.exports = focusNode;
-},{}],449:[function(require,module,exports){
+},{}],377:[function(require,module,exports){
 'use strict';
 
 /**
@@ -31687,7 +25926,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 }
 
 module.exports = getActiveElement;
-},{}],450:[function(require,module,exports){
+},{}],378:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -31784,7 +26023,7 @@ function getMarkupWrap(nodeName) {
 
 module.exports = getMarkupWrap;
 }).call(this,require('_process'))
-},{"./ExecutionEnvironment":440,"./invariant":454,"_process":311}],451:[function(require,module,exports){
+},{"./ExecutionEnvironment":368,"./invariant":382,"_process":239}],379:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31823,7 +26062,7 @@ function getUnboundedScrollPosition(scrollable) {
 }
 
 module.exports = getUnboundedScrollPosition;
-},{}],452:[function(require,module,exports){
+},{}],380:[function(require,module,exports){
 'use strict';
 
 /**
@@ -31856,7 +26095,7 @@ function hyphenate(string) {
 }
 
 module.exports = hyphenate;
-},{}],453:[function(require,module,exports){
+},{}],381:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -31895,7 +26134,7 @@ function hyphenateStyleName(string) {
 }
 
 module.exports = hyphenateStyleName;
-},{"./hyphenate":452}],454:[function(require,module,exports){
+},{"./hyphenate":380}],382:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -31953,7 +26192,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 }).call(this,require('_process'))
-},{"_process":311}],455:[function(require,module,exports){
+},{"_process":239}],383:[function(require,module,exports){
 'use strict';
 
 /**
@@ -31978,7 +26217,7 @@ function isNode(object) {
 }
 
 module.exports = isNode;
-},{}],456:[function(require,module,exports){
+},{}],384:[function(require,module,exports){
 'use strict';
 
 /**
@@ -32003,7 +26242,7 @@ function isTextNode(object) {
 }
 
 module.exports = isTextNode;
-},{"./isNode":455}],457:[function(require,module,exports){
+},{"./isNode":383}],385:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -32033,7 +26272,7 @@ function memoizeStringOnly(callback) {
 }
 
 module.exports = memoizeStringOnly;
-},{}],458:[function(require,module,exports){
+},{}],386:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -32056,7 +26295,7 @@ if (ExecutionEnvironment.canUseDOM) {
 }
 
 module.exports = performance || {};
-},{"./ExecutionEnvironment":440}],459:[function(require,module,exports){
+},{"./ExecutionEnvironment":368}],387:[function(require,module,exports){
 'use strict';
 
 /**
@@ -32090,7 +26329,7 @@ if (performance.now) {
 }
 
 module.exports = performanceNow;
-},{"./performance":458}],460:[function(require,module,exports){
+},{"./performance":386}],388:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -32158,7 +26397,7 @@ function shallowEqual(objA, objB) {
 }
 
 module.exports = shallowEqual;
-},{}],461:[function(require,module,exports){
+},{}],389:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -32227,7 +26466,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = warning;
 }).call(this,require('_process'))
-},{"./emptyFunction":446,"_process":311}],462:[function(require,module,exports){
+},{"./emptyFunction":374,"_process":239}],390:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -32319,7 +26558,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],463:[function(require,module,exports){
+},{}],391:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -32384,7 +26623,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":466,"_process":311,"fbjs/lib/invariant":454,"fbjs/lib/warning":461}],464:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":394,"_process":239,"fbjs/lib/invariant":382,"fbjs/lib/warning":389}],392:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -32407,7 +26646,7 @@ module.exports = function(isValidElement) {
   return factory(isValidElement, throwOnDirectAccess);
 };
 
-},{"./factoryWithTypeCheckers":465}],465:[function(require,module,exports){
+},{"./factoryWithTypeCheckers":393}],393:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -32923,7 +27162,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
 };
 
 }).call(this,require('_process'))
-},{"./checkPropTypes":463,"./lib/ReactPropTypesSecret":466,"_process":311,"fbjs/lib/emptyFunction":446,"fbjs/lib/invariant":454,"fbjs/lib/warning":461}],466:[function(require,module,exports){
+},{"./checkPropTypes":391,"./lib/ReactPropTypesSecret":394,"_process":239,"fbjs/lib/emptyFunction":374,"fbjs/lib/invariant":382,"fbjs/lib/warning":389}],394:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -32939,11 +27178,11 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],467:[function(require,module,exports){
-arguments[4][334][0].apply(exports,arguments)
-},{"dup":334}],468:[function(require,module,exports){
-arguments[4][336][0].apply(exports,arguments)
-},{"./reactProdInvariant":490,"_process":311,"dup":336,"fbjs/lib/invariant":495}],469:[function(require,module,exports){
+},{}],395:[function(require,module,exports){
+arguments[4][262][0].apply(exports,arguments)
+},{"dup":262}],396:[function(require,module,exports){
+arguments[4][264][0].apply(exports,arguments)
+},{"./reactProdInvariant":418,"_process":239,"dup":264,"fbjs/lib/invariant":423}],397:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -33077,7 +27316,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = React;
 }).call(this,require('_process'))
-},{"./ReactBaseClasses":470,"./ReactChildren":471,"./ReactDOMFactories":474,"./ReactElement":475,"./ReactElementValidator":477,"./ReactPropTypes":480,"./ReactVersion":482,"./canDefineProperty":483,"./createClass":485,"./lowPriorityWarning":488,"./onlyChild":489,"_process":311,"object-assign":497}],470:[function(require,module,exports){
+},{"./ReactBaseClasses":398,"./ReactChildren":399,"./ReactDOMFactories":402,"./ReactElement":403,"./ReactElementValidator":405,"./ReactPropTypes":408,"./ReactVersion":410,"./canDefineProperty":411,"./createClass":413,"./lowPriorityWarning":416,"./onlyChild":417,"_process":239,"object-assign":425}],398:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -33222,7 +27461,7 @@ module.exports = {
   PureComponent: ReactPureComponent
 };
 }).call(this,require('_process'))
-},{"./ReactNoopUpdateQueue":478,"./canDefineProperty":483,"./lowPriorityWarning":488,"./reactProdInvariant":490,"_process":311,"fbjs/lib/emptyObject":494,"fbjs/lib/invariant":495,"object-assign":497}],471:[function(require,module,exports){
+},{"./ReactNoopUpdateQueue":406,"./canDefineProperty":411,"./lowPriorityWarning":416,"./reactProdInvariant":418,"_process":239,"fbjs/lib/emptyObject":422,"fbjs/lib/invariant":423,"object-assign":425}],399:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -33413,7 +27652,7 @@ var ReactChildren = {
 };
 
 module.exports = ReactChildren;
-},{"./PooledClass":468,"./ReactElement":475,"./traverseAllChildren":491,"fbjs/lib/emptyFunction":493}],472:[function(require,module,exports){
+},{"./PooledClass":396,"./ReactElement":403,"./traverseAllChildren":419,"fbjs/lib/emptyFunction":421}],400:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2016-present, Facebook, Inc.
@@ -33794,7 +28033,7 @@ var ReactComponentTreeHook = {
 
 module.exports = ReactComponentTreeHook;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":473,"./reactProdInvariant":490,"_process":311,"fbjs/lib/invariant":495,"fbjs/lib/warning":496}],473:[function(require,module,exports){
+},{"./ReactCurrentOwner":401,"./reactProdInvariant":418,"_process":239,"fbjs/lib/invariant":423,"fbjs/lib/warning":424}],401:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -33823,7 +28062,7 @@ var ReactCurrentOwner = {
 };
 
 module.exports = ReactCurrentOwner;
-},{}],474:[function(require,module,exports){
+},{}],402:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -33994,7 +28233,7 @@ var ReactDOMFactories = {
 
 module.exports = ReactDOMFactories;
 }).call(this,require('_process'))
-},{"./ReactElement":475,"./ReactElementValidator":477,"_process":311}],475:[function(require,module,exports){
+},{"./ReactElement":403,"./ReactElementValidator":405,"_process":239}],403:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -34337,9 +28576,9 @@ ReactElement.isValidElement = function (object) {
 
 module.exports = ReactElement;
 }).call(this,require('_process'))
-},{"./ReactCurrentOwner":473,"./ReactElementSymbol":476,"./canDefineProperty":483,"_process":311,"fbjs/lib/warning":496,"object-assign":497}],476:[function(require,module,exports){
-arguments[4][363][0].apply(exports,arguments)
-},{"dup":363}],477:[function(require,module,exports){
+},{"./ReactCurrentOwner":401,"./ReactElementSymbol":404,"./canDefineProperty":411,"_process":239,"fbjs/lib/warning":424,"object-assign":425}],404:[function(require,module,exports){
+arguments[4][291][0].apply(exports,arguments)
+},{"dup":291}],405:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-present, Facebook, Inc.
@@ -34596,7 +28835,7 @@ var ReactElementValidator = {
 
 module.exports = ReactElementValidator;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":472,"./ReactCurrentOwner":473,"./ReactElement":475,"./canDefineProperty":483,"./checkReactTypeSpec":484,"./getIteratorFn":486,"./lowPriorityWarning":488,"_process":311,"fbjs/lib/warning":496}],478:[function(require,module,exports){
+},{"./ReactComponentTreeHook":400,"./ReactCurrentOwner":401,"./ReactElement":403,"./canDefineProperty":411,"./checkReactTypeSpec":412,"./getIteratorFn":414,"./lowPriorityWarning":416,"_process":239,"fbjs/lib/warning":424}],406:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2015-present, Facebook, Inc.
@@ -34693,9 +28932,9 @@ var ReactNoopUpdateQueue = {
 
 module.exports = ReactNoopUpdateQueue;
 }).call(this,require('_process'))
-},{"_process":311,"fbjs/lib/warning":496}],479:[function(require,module,exports){
-arguments[4][381][0].apply(exports,arguments)
-},{"_process":311,"dup":381}],480:[function(require,module,exports){
+},{"_process":239,"fbjs/lib/warning":424}],407:[function(require,module,exports){
+arguments[4][309][0].apply(exports,arguments)
+},{"_process":239,"dup":309}],408:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -34714,11 +28953,11 @@ var _require = require('./ReactElement'),
 var factory = require('prop-types/factory');
 
 module.exports = factory(isValidElement);
-},{"./ReactElement":475,"prop-types/factory":499}],481:[function(require,module,exports){
-arguments[4][382][0].apply(exports,arguments)
-},{"dup":382}],482:[function(require,module,exports){
-arguments[4][390][0].apply(exports,arguments)
-},{"dup":390}],483:[function(require,module,exports){
+},{"./ReactElement":403,"prop-types/factory":427}],409:[function(require,module,exports){
+arguments[4][310][0].apply(exports,arguments)
+},{"dup":310}],410:[function(require,module,exports){
+arguments[4][318][0].apply(exports,arguments)
+},{"dup":318}],411:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -34746,7 +28985,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = canDefineProperty;
 }).call(this,require('_process'))
-},{"_process":311}],484:[function(require,module,exports){
+},{"_process":239}],412:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -34835,7 +29074,7 @@ function checkReactTypeSpec(typeSpecs, values, location, componentName, element,
 
 module.exports = checkReactTypeSpec;
 }).call(this,require('_process'))
-},{"./ReactComponentTreeHook":472,"./ReactPropTypeLocationNames":479,"./ReactPropTypesSecret":481,"./reactProdInvariant":490,"_process":311,"fbjs/lib/invariant":495,"fbjs/lib/warning":496}],485:[function(require,module,exports){
+},{"./ReactComponentTreeHook":400,"./ReactPropTypeLocationNames":407,"./ReactPropTypesSecret":409,"./reactProdInvariant":418,"_process":239,"fbjs/lib/invariant":423,"fbjs/lib/warning":424}],413:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -34858,9 +29097,9 @@ var ReactNoopUpdateQueue = require('./ReactNoopUpdateQueue');
 var factory = require('create-react-class/factory');
 
 module.exports = factory(Component, isValidElement, ReactNoopUpdateQueue);
-},{"./ReactBaseClasses":470,"./ReactElement":475,"./ReactNoopUpdateQueue":478,"create-react-class/factory":492}],486:[function(require,module,exports){
-arguments[4][423][0].apply(exports,arguments)
-},{"dup":423}],487:[function(require,module,exports){
+},{"./ReactBaseClasses":398,"./ReactElement":403,"./ReactNoopUpdateQueue":406,"create-react-class/factory":420}],414:[function(require,module,exports){
+arguments[4][351][0].apply(exports,arguments)
+},{"dup":351}],415:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -34881,7 +29120,7 @@ function getNextDebugID() {
 }
 
 module.exports = getNextDebugID;
-},{}],488:[function(require,module,exports){
+},{}],416:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -34948,7 +29187,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 module.exports = lowPriorityWarning;
 }).call(this,require('_process'))
-},{"_process":311}],489:[function(require,module,exports){
+},{"_process":239}],417:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -34988,9 +29227,9 @@ function onlyChild(children) {
 
 module.exports = onlyChild;
 }).call(this,require('_process'))
-},{"./ReactElement":475,"./reactProdInvariant":490,"_process":311,"fbjs/lib/invariant":495}],490:[function(require,module,exports){
-arguments[4][432][0].apply(exports,arguments)
-},{"dup":432}],491:[function(require,module,exports){
+},{"./ReactElement":403,"./reactProdInvariant":418,"_process":239,"fbjs/lib/invariant":423}],418:[function(require,module,exports){
+arguments[4][360][0].apply(exports,arguments)
+},{"dup":360}],419:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -35168,7 +29407,7 @@ function traverseAllChildren(children, callback, traverseContext) {
 
 module.exports = traverseAllChildren;
 }).call(this,require('_process'))
-},{"./KeyEscapeUtils":467,"./ReactCurrentOwner":473,"./ReactElementSymbol":476,"./getIteratorFn":486,"./reactProdInvariant":490,"_process":311,"fbjs/lib/invariant":495,"fbjs/lib/warning":496}],492:[function(require,module,exports){
+},{"./KeyEscapeUtils":395,"./ReactCurrentOwner":401,"./ReactElementSymbol":404,"./getIteratorFn":414,"./reactProdInvariant":418,"_process":239,"fbjs/lib/invariant":423,"fbjs/lib/warning":424}],420:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -36044,34 +30283,34 @@ function factory(ReactComponent, isValidElement, ReactNoopUpdateQueue) {
 module.exports = factory;
 
 }).call(this,require('_process'))
-},{"_process":311,"fbjs/lib/emptyObject":494,"fbjs/lib/invariant":495,"fbjs/lib/warning":496,"object-assign":497}],493:[function(require,module,exports){
-arguments[4][446][0].apply(exports,arguments)
-},{"dup":446}],494:[function(require,module,exports){
-arguments[4][447][0].apply(exports,arguments)
-},{"_process":311,"dup":447}],495:[function(require,module,exports){
-arguments[4][454][0].apply(exports,arguments)
-},{"_process":311,"dup":454}],496:[function(require,module,exports){
-arguments[4][461][0].apply(exports,arguments)
-},{"./emptyFunction":493,"_process":311,"dup":461}],497:[function(require,module,exports){
-arguments[4][462][0].apply(exports,arguments)
-},{"dup":462}],498:[function(require,module,exports){
-arguments[4][463][0].apply(exports,arguments)
-},{"./lib/ReactPropTypesSecret":501,"_process":311,"dup":463,"fbjs/lib/invariant":495,"fbjs/lib/warning":496}],499:[function(require,module,exports){
-arguments[4][464][0].apply(exports,arguments)
-},{"./factoryWithTypeCheckers":500,"dup":464}],500:[function(require,module,exports){
-arguments[4][465][0].apply(exports,arguments)
-},{"./checkPropTypes":498,"./lib/ReactPropTypesSecret":501,"_process":311,"dup":465,"fbjs/lib/emptyFunction":493,"fbjs/lib/invariant":495,"fbjs/lib/warning":496}],501:[function(require,module,exports){
-arguments[4][466][0].apply(exports,arguments)
-},{"dup":466}],502:[function(require,module,exports){
+},{"_process":239,"fbjs/lib/emptyObject":422,"fbjs/lib/invariant":423,"fbjs/lib/warning":424,"object-assign":425}],421:[function(require,module,exports){
+arguments[4][374][0].apply(exports,arguments)
+},{"dup":374}],422:[function(require,module,exports){
+arguments[4][375][0].apply(exports,arguments)
+},{"_process":239,"dup":375}],423:[function(require,module,exports){
+arguments[4][382][0].apply(exports,arguments)
+},{"_process":239,"dup":382}],424:[function(require,module,exports){
+arguments[4][389][0].apply(exports,arguments)
+},{"./emptyFunction":421,"_process":239,"dup":389}],425:[function(require,module,exports){
+arguments[4][390][0].apply(exports,arguments)
+},{"dup":390}],426:[function(require,module,exports){
+arguments[4][391][0].apply(exports,arguments)
+},{"./lib/ReactPropTypesSecret":429,"_process":239,"dup":391,"fbjs/lib/invariant":423,"fbjs/lib/warning":424}],427:[function(require,module,exports){
+arguments[4][392][0].apply(exports,arguments)
+},{"./factoryWithTypeCheckers":428,"dup":392}],428:[function(require,module,exports){
+arguments[4][393][0].apply(exports,arguments)
+},{"./checkPropTypes":426,"./lib/ReactPropTypesSecret":429,"_process":239,"dup":393,"fbjs/lib/emptyFunction":421,"fbjs/lib/invariant":423,"fbjs/lib/warning":424}],429:[function(require,module,exports){
+arguments[4][394][0].apply(exports,arguments)
+},{"dup":394}],430:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./lib/React');
 
-},{"./lib/React":469}],503:[function(require,module,exports){
+},{"./lib/React":397}],431:[function(require,module,exports){
 'use strict';
 module.exports = require('./lib/index');
 
-},{"./lib/index":508}],504:[function(require,module,exports){
+},{"./lib/index":436}],432:[function(require,module,exports){
 'use strict';
 
 var randomFromSeed = require('./random/random-from-seed');
@@ -36171,7 +30410,7 @@ module.exports = {
     shuffled: getShuffled
 };
 
-},{"./random/random-from-seed":511}],505:[function(require,module,exports){
+},{"./random/random-from-seed":439}],433:[function(require,module,exports){
 'use strict';
 
 var encode = require('./encode');
@@ -36221,7 +30460,7 @@ function build(clusterWorkerId) {
 
 module.exports = build;
 
-},{"./alphabet":504,"./encode":507}],506:[function(require,module,exports){
+},{"./alphabet":432,"./encode":435}],434:[function(require,module,exports){
 'use strict';
 var alphabet = require('./alphabet');
 
@@ -36240,7 +30479,7 @@ function decode(id) {
 
 module.exports = decode;
 
-},{"./alphabet":504}],507:[function(require,module,exports){
+},{"./alphabet":432}],435:[function(require,module,exports){
 'use strict';
 
 var randomByte = require('./random/random-byte');
@@ -36261,7 +30500,7 @@ function encode(lookup, number) {
 
 module.exports = encode;
 
-},{"./random/random-byte":510}],508:[function(require,module,exports){
+},{"./random/random-byte":438}],436:[function(require,module,exports){
 'use strict';
 
 var alphabet = require('./alphabet');
@@ -36328,7 +30567,7 @@ module.exports.characters = characters;
 module.exports.decode = decode;
 module.exports.isValid = isValid;
 
-},{"./alphabet":504,"./build":505,"./decode":506,"./encode":507,"./is-valid":509,"./util/cluster-worker-id":512}],509:[function(require,module,exports){
+},{"./alphabet":432,"./build":433,"./decode":434,"./encode":435,"./is-valid":437,"./util/cluster-worker-id":440}],437:[function(require,module,exports){
 'use strict';
 var alphabet = require('./alphabet');
 
@@ -36349,7 +30588,7 @@ function isShortId(id) {
 
 module.exports = isShortId;
 
-},{"./alphabet":504}],510:[function(require,module,exports){
+},{"./alphabet":432}],438:[function(require,module,exports){
 'use strict';
 
 var crypto = typeof window === 'object' && (window.crypto || window.msCrypto); // IE 11 uses window.msCrypto
@@ -36365,7 +30604,7 @@ function randomByte() {
 
 module.exports = randomByte;
 
-},{}],511:[function(require,module,exports){
+},{}],439:[function(require,module,exports){
 'use strict';
 
 // Found this seed-based random generator somewhere
@@ -36392,12 +30631,12 @@ module.exports = {
     seed: setSeed
 };
 
-},{}],512:[function(require,module,exports){
+},{}],440:[function(require,module,exports){
 'use strict';
 
 module.exports = 0;
 
-},{}],513:[function(require,module,exports){
+},{}],441:[function(require,module,exports){
 /**
  * @file ad-cue-tags.js
  */
@@ -36510,7 +30749,7 @@ exports['default'] = {
   findAdCue: findAdCue
 };
 module.exports = exports['default'];
-},{"global/window":309}],514:[function(require,module,exports){
+},{"global/window":237}],442:[function(require,module,exports){
 /**
  * @file bin-utils.js
  */
@@ -36582,7 +30821,7 @@ var utils = {
 
 exports['default'] = utils;
 module.exports = exports['default'];
-},{}],515:[function(require,module,exports){
+},{}],443:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36592,7 +30831,7 @@ exports["default"] = {
   GOAL_BUFFER_LENGTH: 30
 };
 module.exports = exports["default"];
-},{}],516:[function(require,module,exports){
+},{}],444:[function(require,module,exports){
 /**
  * @file master-playlist-controller.js
  */
@@ -37694,7 +31933,7 @@ var MasterPlaylistController = (function (_videojs$EventTarget) {
 })(_videoJs2['default'].EventTarget);
 
 exports.MasterPlaylistController = MasterPlaylistController;
-},{"./ad-cue-tags":513,"./playlist-loader":518,"./ranges":520,"./segment-loader":524}],517:[function(require,module,exports){
+},{"./ad-cue-tags":441,"./playlist-loader":446,"./ranges":448,"./segment-loader":452}],445:[function(require,module,exports){
 /**
  * @file playback-watcher.js
  */
@@ -37997,7 +32236,7 @@ var PlaybackWatcher = (function () {
 
 exports['default'] = PlaybackWatcher;
 module.exports = exports['default'];
-},{"./ranges":520}],518:[function(require,module,exports){
+},{"./ranges":448}],446:[function(require,module,exports){
 /**
  * @file playlist-loader.js
  *
@@ -38620,7 +32859,7 @@ PlaylistLoader.prototype.updateMediaPlaylist_ = function (update) {
 
 exports['default'] = PlaylistLoader;
 module.exports = exports['default'];
-},{"./resolve-url":523,"./stream":526,"global/window":309,"m3u8-parser":537}],519:[function(require,module,exports){
+},{"./resolve-url":451,"./stream":454,"global/window":237,"m3u8-parser":465}],447:[function(require,module,exports){
 /**
  * @file playlist.js
  *
@@ -38995,7 +33234,7 @@ Playlist.getMediaIndexForTime_ = getMediaIndexForTime_;
 
 // exports
 exports['default'] = Playlist;
-},{"global/window":309}],520:[function(require,module,exports){
+},{"global/window":237}],448:[function(require,module,exports){
 /**
  * ranges
  *
@@ -39324,7 +33563,7 @@ exports['default'] = {
   TIME_FUDGE_FACTOR: TIME_FUDGE_FACTOR
 };
 module.exports = exports['default'];
-},{}],521:[function(require,module,exports){
+},{}],449:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -39453,7 +33692,7 @@ var reloadSourceOnError = function reloadSourceOnError(options) {
 
 exports['default'] = reloadSourceOnError;
 module.exports = exports['default'];
-},{}],522:[function(require,module,exports){
+},{}],450:[function(require,module,exports){
 /**
  * Enable/disable playlist function. It is intended to have the first two
  * arguments partially-applied in order to create the final per-playlist
@@ -39555,7 +33794,7 @@ var renditionSelectionMixin = function renditionSelectionMixin(hlsHandler) {
 
 exports['default'] = renditionSelectionMixin;
 module.exports = exports['default'];
-},{}],523:[function(require,module,exports){
+},{}],451:[function(require,module,exports){
 /**
  * @file resolve-url.js
  */
@@ -39592,7 +33831,7 @@ var resolveUrl = function resolveUrl(baseURL, relativeURL) {
 
 exports['default'] = resolveUrl;
 module.exports = exports['default'];
-},{"global/window":309,"url-toolkit":579}],524:[function(require,module,exports){
+},{"global/window":237,"url-toolkit":507}],452:[function(require,module,exports){
 /**
  * @file segment-loader.js
  */
@@ -40700,7 +34939,7 @@ var SegmentLoader = (function (_videojs$EventTarget) {
 
 exports['default'] = SegmentLoader;
 module.exports = exports['default'];
-},{"./config":515,"./playlist":519,"./ranges":520,"./source-updater":525,"aes-decrypter":532,"global/window":309,"mux.js/lib/mp4/probe":578}],525:[function(require,module,exports){
+},{"./config":443,"./playlist":447,"./ranges":448,"./source-updater":453,"aes-decrypter":460,"global/window":237,"mux.js/lib/mp4/probe":506}],453:[function(require,module,exports){
 /**
  * @file source-updater.js
  */
@@ -40927,7 +35166,7 @@ var SourceUpdater = (function () {
 
 exports['default'] = SourceUpdater;
 module.exports = exports['default'];
-},{}],526:[function(require,module,exports){
+},{}],454:[function(require,module,exports){
 /**
  * @file stream.js
  */
@@ -41058,7 +35297,7 @@ var Stream = (function () {
 
 exports['default'] = Stream;
 module.exports = exports['default'];
-},{}],527:[function(require,module,exports){
+},{}],455:[function(require,module,exports){
 /**
  * @file videojs-contrib-hls.js
  *
@@ -41828,7 +36067,7 @@ module.exports = {
   HlsHandler: HlsHandler,
   HlsSourceHandler: HlsSourceHandler
 };
-},{"./bin-utils":514,"./config":515,"./master-playlist-controller":516,"./playback-watcher":517,"./playlist":519,"./playlist-loader":518,"./reload-source-on-error":521,"./rendition-mixin":522,"./xhr":528,"aes-decrypter":532,"global/document":308,"global/window":309,"m3u8-parser":537,"videojs-contrib-media-sources":591}],528:[function(require,module,exports){
+},{"./bin-utils":442,"./config":443,"./master-playlist-controller":444,"./playback-watcher":445,"./playlist":447,"./playlist-loader":446,"./reload-source-on-error":449,"./rendition-mixin":450,"./xhr":456,"aes-decrypter":460,"global/document":236,"global/window":237,"m3u8-parser":465,"videojs-contrib-media-sources":519}],456:[function(require,module,exports){
 /**
  * @file xhr.js
  */
@@ -41903,7 +36142,7 @@ var xhrFactory = function xhrFactory() {
 
 exports['default'] = xhrFactory;
 module.exports = exports['default'];
-},{}],529:[function(require,module,exports){
+},{}],457:[function(require,module,exports){
 /**
  * @file aes.js
  *
@@ -42149,7 +36388,7 @@ var AES = (function () {
 
 exports['default'] = AES;
 module.exports = exports['default'];
-},{}],530:[function(require,module,exports){
+},{}],458:[function(require,module,exports){
 /**
  * @file async-stream.js
  */
@@ -42230,7 +36469,7 @@ var AsyncStream = (function (_Stream) {
 
 exports['default'] = AsyncStream;
 module.exports = exports['default'];
-},{"./stream":533}],531:[function(require,module,exports){
+},{"./stream":461}],459:[function(require,module,exports){
 /**
  * @file decrypter.js
  *
@@ -42414,7 +36653,7 @@ exports['default'] = {
   Decrypter: Decrypter,
   decrypt: decrypt
 };
-},{"./aes":529,"./async-stream":530,"pkcs7":535}],532:[function(require,module,exports){
+},{"./aes":457,"./async-stream":458,"pkcs7":463}],460:[function(require,module,exports){
 /**
  * @file index.js
  *
@@ -42445,9 +36684,9 @@ exports['default'] = {
   AsyncStream: _asyncStream2['default']
 };
 module.exports = exports['default'];
-},{"./async-stream":530,"./decrypter":531}],533:[function(require,module,exports){
-arguments[4][526][0].apply(exports,arguments)
-},{"dup":526}],534:[function(require,module,exports){
+},{"./async-stream":458,"./decrypter":459}],461:[function(require,module,exports){
+arguments[4][454][0].apply(exports,arguments)
+},{"dup":454}],462:[function(require,module,exports){
 /*
  * pkcs7.pad
  * https://github.com/brightcove/pkcs7
@@ -42533,7 +36772,7 @@ PADDING = [
   [1]
 ];
 
-},{}],535:[function(require,module,exports){
+},{}],463:[function(require,module,exports){
 /*
  * pkcs7
  * https://github.com/brightcove/pkcs7
@@ -42547,7 +36786,7 @@ PADDING = [
 exports.pad = require('./pad.js');
 exports.unpad = require('./unpad.js');
 
-},{"./pad.js":534,"./unpad.js":536}],536:[function(require,module,exports){
+},{"./pad.js":462,"./unpad.js":464}],464:[function(require,module,exports){
 /*
  * pkcs7.unpad
  * https://github.com/brightcove/pkcs7
@@ -42568,7 +36807,7 @@ module.exports = function unpad(padded) {
   return padded.subarray(0, padded.byteLength - padded[padded.byteLength - 1]);
 };
 
-},{}],537:[function(require,module,exports){
+},{}],465:[function(require,module,exports){
 /**
  * @file m3u8/index.js
  *
@@ -42605,7 +36844,7 @@ exports['default'] = {
   Parser: _parser2['default']
 };
 module.exports = exports['default'];
-},{"./line-stream":538,"./parse-stream":539,"./parser":540}],538:[function(require,module,exports){
+},{"./line-stream":466,"./parse-stream":467,"./parser":468}],466:[function(require,module,exports){
 /**
  * @file m3u8/line-stream.js
  */
@@ -42673,7 +36912,7 @@ var LineStream = (function (_Stream) {
 
 exports['default'] = LineStream;
 module.exports = exports['default'];
-},{"./stream":541}],539:[function(require,module,exports){
+},{"./stream":469}],467:[function(require,module,exports){
 /**
  * @file m3u8/parse-stream.js
  */
@@ -43128,7 +37367,7 @@ var ParseStream = (function (_Stream) {
 
 exports['default'] = ParseStream;
 module.exports = exports['default'];
-},{"./stream":541}],540:[function(require,module,exports){
+},{"./stream":469}],468:[function(require,module,exports){
 /**
  * @file m3u8/parser.js
  */
@@ -43511,9 +37750,9 @@ var Parser = (function (_Stream) {
 
 exports['default'] = Parser;
 module.exports = exports['default'];
-},{"./line-stream":538,"./parse-stream":539,"./stream":541,"lodash-compat/object/merge":575}],541:[function(require,module,exports){
-arguments[4][526][0].apply(exports,arguments)
-},{"dup":526}],542:[function(require,module,exports){
+},{"./line-stream":466,"./parse-stream":467,"./stream":469,"lodash-compat/object/merge":503}],469:[function(require,module,exports){
+arguments[4][454][0].apply(exports,arguments)
+},{"dup":454}],470:[function(require,module,exports){
 /** Used as the `TypeError` message for "Functions" methods. */
 var FUNC_ERROR_TEXT = 'Expected a function';
 
@@ -43573,7 +37812,7 @@ function restParam(func, start) {
 
 module.exports = restParam;
 
-},{}],543:[function(require,module,exports){
+},{}],471:[function(require,module,exports){
 /**
  * Copies the values of `source` to `array`.
  *
@@ -43595,7 +37834,7 @@ function arrayCopy(source, array) {
 
 module.exports = arrayCopy;
 
-},{}],544:[function(require,module,exports){
+},{}],472:[function(require,module,exports){
 /**
  * A specialized version of `_.forEach` for arrays without support for callback
  * shorthands and `this` binding.
@@ -43619,7 +37858,7 @@ function arrayEach(array, iteratee) {
 
 module.exports = arrayEach;
 
-},{}],545:[function(require,module,exports){
+},{}],473:[function(require,module,exports){
 /**
  * Copies properties of `source` to `object`.
  *
@@ -43644,7 +37883,7 @@ function baseCopy(source, props, object) {
 
 module.exports = baseCopy;
 
-},{}],546:[function(require,module,exports){
+},{}],474:[function(require,module,exports){
 var createBaseFor = require('./createBaseFor');
 
 /**
@@ -43663,7 +37902,7 @@ var baseFor = createBaseFor();
 
 module.exports = baseFor;
 
-},{"./createBaseFor":553}],547:[function(require,module,exports){
+},{"./createBaseFor":481}],475:[function(require,module,exports){
 var baseFor = require('./baseFor'),
     keysIn = require('../object/keysIn');
 
@@ -43682,7 +37921,7 @@ function baseForIn(object, iteratee) {
 
 module.exports = baseForIn;
 
-},{"../object/keysIn":574,"./baseFor":546}],548:[function(require,module,exports){
+},{"../object/keysIn":502,"./baseFor":474}],476:[function(require,module,exports){
 var arrayEach = require('./arrayEach'),
     baseMergeDeep = require('./baseMergeDeep'),
     isArray = require('../lang/isArray'),
@@ -43740,7 +37979,7 @@ function baseMerge(object, source, customizer, stackA, stackB) {
 
 module.exports = baseMerge;
 
-},{"../lang/isArray":565,"../lang/isObject":568,"../lang/isTypedArray":571,"../object/keys":573,"./arrayEach":544,"./baseMergeDeep":549,"./isArrayLike":556,"./isObjectLike":561}],549:[function(require,module,exports){
+},{"../lang/isArray":493,"../lang/isObject":496,"../lang/isTypedArray":499,"../object/keys":501,"./arrayEach":472,"./baseMergeDeep":477,"./isArrayLike":484,"./isObjectLike":489}],477:[function(require,module,exports){
 var arrayCopy = require('./arrayCopy'),
     isArguments = require('../lang/isArguments'),
     isArray = require('../lang/isArray'),
@@ -43809,7 +38048,7 @@ function baseMergeDeep(object, source, key, mergeFunc, customizer, stackA, stack
 
 module.exports = baseMergeDeep;
 
-},{"../lang/isArguments":564,"../lang/isArray":565,"../lang/isPlainObject":569,"../lang/isTypedArray":571,"../lang/toPlainObject":572,"./arrayCopy":543,"./isArrayLike":556}],550:[function(require,module,exports){
+},{"../lang/isArguments":492,"../lang/isArray":493,"../lang/isPlainObject":497,"../lang/isTypedArray":499,"../lang/toPlainObject":500,"./arrayCopy":471,"./isArrayLike":484}],478:[function(require,module,exports){
 var toObject = require('./toObject');
 
 /**
@@ -43827,7 +38066,7 @@ function baseProperty(key) {
 
 module.exports = baseProperty;
 
-},{"./toObject":563}],551:[function(require,module,exports){
+},{"./toObject":491}],479:[function(require,module,exports){
 var identity = require('../utility/identity');
 
 /**
@@ -43868,7 +38107,7 @@ function bindCallback(func, thisArg, argCount) {
 
 module.exports = bindCallback;
 
-},{"../utility/identity":577}],552:[function(require,module,exports){
+},{"../utility/identity":505}],480:[function(require,module,exports){
 var bindCallback = require('./bindCallback'),
     isIterateeCall = require('./isIterateeCall'),
     restParam = require('../function/restParam');
@@ -43911,7 +38150,7 @@ function createAssigner(assigner) {
 
 module.exports = createAssigner;
 
-},{"../function/restParam":542,"./bindCallback":551,"./isIterateeCall":559}],553:[function(require,module,exports){
+},{"../function/restParam":470,"./bindCallback":479,"./isIterateeCall":487}],481:[function(require,module,exports){
 var toObject = require('./toObject');
 
 /**
@@ -43940,7 +38179,7 @@ function createBaseFor(fromRight) {
 
 module.exports = createBaseFor;
 
-},{"./toObject":563}],554:[function(require,module,exports){
+},{"./toObject":491}],482:[function(require,module,exports){
 var baseProperty = require('./baseProperty');
 
 /**
@@ -43957,7 +38196,7 @@ var getLength = baseProperty('length');
 
 module.exports = getLength;
 
-},{"./baseProperty":550}],555:[function(require,module,exports){
+},{"./baseProperty":478}],483:[function(require,module,exports){
 var isNative = require('../lang/isNative');
 
 /**
@@ -43975,7 +38214,7 @@ function getNative(object, key) {
 
 module.exports = getNative;
 
-},{"../lang/isNative":567}],556:[function(require,module,exports){
+},{"../lang/isNative":495}],484:[function(require,module,exports){
 var getLength = require('./getLength'),
     isLength = require('./isLength');
 
@@ -43992,7 +38231,7 @@ function isArrayLike(value) {
 
 module.exports = isArrayLike;
 
-},{"./getLength":554,"./isLength":560}],557:[function(require,module,exports){
+},{"./getLength":482,"./isLength":488}],485:[function(require,module,exports){
 /**
  * Checks if `value` is a host object in IE < 9.
  *
@@ -44015,7 +38254,7 @@ var isHostObject = (function() {
 
 module.exports = isHostObject;
 
-},{}],558:[function(require,module,exports){
+},{}],486:[function(require,module,exports){
 /** Used to detect unsigned integer values. */
 var reIsUint = /^\d+$/;
 
@@ -44041,7 +38280,7 @@ function isIndex(value, length) {
 
 module.exports = isIndex;
 
-},{}],559:[function(require,module,exports){
+},{}],487:[function(require,module,exports){
 var isArrayLike = require('./isArrayLike'),
     isIndex = require('./isIndex'),
     isObject = require('../lang/isObject');
@@ -44071,7 +38310,7 @@ function isIterateeCall(value, index, object) {
 
 module.exports = isIterateeCall;
 
-},{"../lang/isObject":568,"./isArrayLike":556,"./isIndex":558}],560:[function(require,module,exports){
+},{"../lang/isObject":496,"./isArrayLike":484,"./isIndex":486}],488:[function(require,module,exports){
 /**
  * Used as the [maximum length](http://ecma-international.org/ecma-262/6.0/#sec-number.max_safe_integer)
  * of an array-like value.
@@ -44093,7 +38332,7 @@ function isLength(value) {
 
 module.exports = isLength;
 
-},{}],561:[function(require,module,exports){
+},{}],489:[function(require,module,exports){
 /**
  * Checks if `value` is object-like.
  *
@@ -44107,7 +38346,7 @@ function isObjectLike(value) {
 
 module.exports = isObjectLike;
 
-},{}],562:[function(require,module,exports){
+},{}],490:[function(require,module,exports){
 var isArguments = require('../lang/isArguments'),
     isArray = require('../lang/isArray'),
     isIndex = require('./isIndex'),
@@ -44151,7 +38390,7 @@ function shimKeys(object) {
 
 module.exports = shimKeys;
 
-},{"../lang/isArguments":564,"../lang/isArray":565,"../lang/isString":570,"../object/keysIn":574,"./isIndex":558,"./isLength":560}],563:[function(require,module,exports){
+},{"../lang/isArguments":492,"../lang/isArray":493,"../lang/isString":498,"../object/keysIn":502,"./isIndex":486,"./isLength":488}],491:[function(require,module,exports){
 var isObject = require('../lang/isObject'),
     isString = require('../lang/isString'),
     support = require('../support');
@@ -44179,7 +38418,7 @@ function toObject(value) {
 
 module.exports = toObject;
 
-},{"../lang/isObject":568,"../lang/isString":570,"../support":576}],564:[function(require,module,exports){
+},{"../lang/isObject":496,"../lang/isString":498,"../support":504}],492:[function(require,module,exports){
 var isArrayLike = require('../internal/isArrayLike'),
     isObjectLike = require('../internal/isObjectLike');
 
@@ -44215,7 +38454,7 @@ function isArguments(value) {
 
 module.exports = isArguments;
 
-},{"../internal/isArrayLike":556,"../internal/isObjectLike":561}],565:[function(require,module,exports){
+},{"../internal/isArrayLike":484,"../internal/isObjectLike":489}],493:[function(require,module,exports){
 var getNative = require('../internal/getNative'),
     isLength = require('../internal/isLength'),
     isObjectLike = require('../internal/isObjectLike');
@@ -44257,7 +38496,7 @@ var isArray = nativeIsArray || function(value) {
 
 module.exports = isArray;
 
-},{"../internal/getNative":555,"../internal/isLength":560,"../internal/isObjectLike":561}],566:[function(require,module,exports){
+},{"../internal/getNative":483,"../internal/isLength":488,"../internal/isObjectLike":489}],494:[function(require,module,exports){
 var isObject = require('./isObject');
 
 /** `Object#toString` result references. */
@@ -44297,7 +38536,7 @@ function isFunction(value) {
 
 module.exports = isFunction;
 
-},{"./isObject":568}],567:[function(require,module,exports){
+},{"./isObject":496}],495:[function(require,module,exports){
 var isFunction = require('./isFunction'),
     isHostObject = require('../internal/isHostObject'),
     isObjectLike = require('../internal/isObjectLike');
@@ -44348,7 +38587,7 @@ function isNative(value) {
 
 module.exports = isNative;
 
-},{"../internal/isHostObject":557,"../internal/isObjectLike":561,"./isFunction":566}],568:[function(require,module,exports){
+},{"../internal/isHostObject":485,"../internal/isObjectLike":489,"./isFunction":494}],496:[function(require,module,exports){
 /**
  * Checks if `value` is the [language type](https://es5.github.io/#x8) of `Object`.
  * (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
@@ -44378,7 +38617,7 @@ function isObject(value) {
 
 module.exports = isObject;
 
-},{}],569:[function(require,module,exports){
+},{}],497:[function(require,module,exports){
 var baseForIn = require('../internal/baseForIn'),
     isArguments = require('./isArguments'),
     isHostObject = require('../internal/isHostObject'),
@@ -44460,7 +38699,7 @@ function isPlainObject(value) {
 
 module.exports = isPlainObject;
 
-},{"../internal/baseForIn":547,"../internal/isHostObject":557,"../internal/isObjectLike":561,"../support":576,"./isArguments":564}],570:[function(require,module,exports){
+},{"../internal/baseForIn":475,"../internal/isHostObject":485,"../internal/isObjectLike":489,"../support":504,"./isArguments":492}],498:[function(require,module,exports){
 var isObjectLike = require('../internal/isObjectLike');
 
 /** `Object#toString` result references. */
@@ -44497,7 +38736,7 @@ function isString(value) {
 
 module.exports = isString;
 
-},{"../internal/isObjectLike":561}],571:[function(require,module,exports){
+},{"../internal/isObjectLike":489}],499:[function(require,module,exports){
 var isLength = require('../internal/isLength'),
     isObjectLike = require('../internal/isObjectLike');
 
@@ -44573,7 +38812,7 @@ function isTypedArray(value) {
 
 module.exports = isTypedArray;
 
-},{"../internal/isLength":560,"../internal/isObjectLike":561}],572:[function(require,module,exports){
+},{"../internal/isLength":488,"../internal/isObjectLike":489}],500:[function(require,module,exports){
 var baseCopy = require('../internal/baseCopy'),
     keysIn = require('../object/keysIn');
 
@@ -44606,7 +38845,7 @@ function toPlainObject(value) {
 
 module.exports = toPlainObject;
 
-},{"../internal/baseCopy":545,"../object/keysIn":574}],573:[function(require,module,exports){
+},{"../internal/baseCopy":473,"../object/keysIn":502}],501:[function(require,module,exports){
 var getNative = require('../internal/getNative'),
     isArrayLike = require('../internal/isArrayLike'),
     isObject = require('../lang/isObject'),
@@ -44654,7 +38893,7 @@ var keys = !nativeKeys ? shimKeys : function(object) {
 
 module.exports = keys;
 
-},{"../internal/getNative":555,"../internal/isArrayLike":556,"../internal/shimKeys":562,"../lang/isObject":568,"../support":576}],574:[function(require,module,exports){
+},{"../internal/getNative":483,"../internal/isArrayLike":484,"../internal/shimKeys":490,"../lang/isObject":496,"../support":504}],502:[function(require,module,exports){
 var arrayEach = require('../internal/arrayEach'),
     isArguments = require('../lang/isArguments'),
     isArray = require('../lang/isArray'),
@@ -44792,7 +39031,7 @@ function keysIn(object) {
 
 module.exports = keysIn;
 
-},{"../internal/arrayEach":544,"../internal/isIndex":558,"../internal/isLength":560,"../lang/isArguments":564,"../lang/isArray":565,"../lang/isFunction":566,"../lang/isObject":568,"../lang/isString":570,"../support":576}],575:[function(require,module,exports){
+},{"../internal/arrayEach":472,"../internal/isIndex":486,"../internal/isLength":488,"../lang/isArguments":492,"../lang/isArray":493,"../lang/isFunction":494,"../lang/isObject":496,"../lang/isString":498,"../support":504}],503:[function(require,module,exports){
 var baseMerge = require('../internal/baseMerge'),
     createAssigner = require('../internal/createAssigner');
 
@@ -44848,7 +39087,7 @@ var merge = createAssigner(baseMerge);
 
 module.exports = merge;
 
-},{"../internal/baseMerge":548,"../internal/createAssigner":552}],576:[function(require,module,exports){
+},{"../internal/baseMerge":476,"../internal/createAssigner":480}],504:[function(require,module,exports){
 /** Used for native method references. */
 var arrayProto = Array.prototype,
     errorProto = Error.prototype,
@@ -44946,7 +39185,7 @@ var support = {};
 
 module.exports = support;
 
-},{}],577:[function(require,module,exports){
+},{}],505:[function(require,module,exports){
 /**
  * This method returns the first argument provided to it.
  *
@@ -44968,7 +39207,7 @@ function identity(value) {
 
 module.exports = identity;
 
-},{}],578:[function(require,module,exports){
+},{}],506:[function(require,module,exports){
 /**
  * mux.js
  *
@@ -45158,7 +39397,7 @@ module.exports = {
   startTime: startTime
 };
 
-},{}],579:[function(require,module,exports){
+},{}],507:[function(require,module,exports){
 /* jshint ignore:start */
 (function(root) { 
 /* jshint ignore:end */
@@ -45266,7 +39505,7 @@ module.exports = {
 })(this);
 /* jshint ignore:end */
 
-},{}],580:[function(require,module,exports){
+},{}],508:[function(require,module,exports){
 /**
  * @file add-text-track-data.js
  */
@@ -45415,7 +39654,7 @@ exports['default'] = {
   durationOfVideo: durationOfVideo
 };
 module.exports = exports['default'];
-},{"global/window":309}],581:[function(require,module,exports){
+},{"global/window":237}],509:[function(require,module,exports){
 /**
  * Remove the text track from the player if one with matching kind and
  * label properties already exists on the player
@@ -45454,7 +39693,7 @@ var cleanupTextTracks = function cleanupTextTracks(player) {
   removeExistingTrack(player, 'metadata', 'Timed Metadata');
 };
 exports.cleanupTextTracks = cleanupTextTracks;
-},{}],582:[function(require,module,exports){
+},{}],510:[function(require,module,exports){
 /**
  * @file codec-utils.js
  */
@@ -45542,7 +39781,7 @@ exports['default'] = {
   translateLegacyCodecs: translateLegacyCodecs
 };
 module.exports = exports['default'];
-},{}],583:[function(require,module,exports){
+},{}],511:[function(require,module,exports){
 /**
  * @file create-text-tracks-if-necessary.js
  */
@@ -45587,7 +39826,7 @@ var createTextTracksIfNecessary = function createTextTracksIfNecessary(sourceBuf
 
 exports['default'] = createTextTracksIfNecessary;
 module.exports = exports['default'];
-},{"./cleanup-text-tracks":581}],584:[function(require,module,exports){
+},{"./cleanup-text-tracks":509}],512:[function(require,module,exports){
 /**
  * @file flash-constants.js
  */
@@ -45614,7 +39853,7 @@ var flashConstants = {
 
 exports["default"] = flashConstants;
 module.exports = exports["default"];
-},{}],585:[function(require,module,exports){
+},{}],513:[function(require,module,exports){
 /**
  * @file flash-media-source.js
  */
@@ -45738,7 +39977,7 @@ var FlashMediaSource = (function (_videojs$EventTarget) {
       var sourceBuffer = undefined;
 
       // if this is an FLV type, we'll push data to flash
-      if (parsedType.type === 'video/mp2t') {
+      if (parsedType.type === 'video/mp2t' || parsedType.type === 'audio/mp2t') {
         // Flash source buffers
         sourceBuffer = new _flashSourceBuffer2['default'](this);
       } else {
@@ -45828,7 +40067,7 @@ for (var property in _flashConstants2['default']) {
   FlashMediaSource[property] = _flashConstants2['default'][property];
 }
 module.exports = exports['default'];
-},{"./cleanup-text-tracks":581,"./codec-utils":582,"./flash-constants":584,"./flash-source-buffer":586,"global/document":308}],586:[function(require,module,exports){
+},{"./cleanup-text-tracks":509,"./codec-utils":510,"./flash-constants":512,"./flash-source-buffer":514,"global/document":236}],514:[function(require,module,exports){
 /**
  * @file flash-source-buffer.js
  */
@@ -46428,7 +40667,7 @@ var FlashSourceBuffer = (function (_videojs$EventTarget) {
 
 exports['default'] = FlashSourceBuffer;
 module.exports = exports['default'];
-},{"./add-text-track-data":580,"./create-text-tracks-if-necessary":583,"./flash-constants":584,"./flash-transmuxer-worker":587,"./remove-cues-from-track":589,"global/window":309,"mux.js/lib/flv":600,"webworkify":614}],587:[function(require,module,exports){
+},{"./add-text-track-data":508,"./create-text-tracks-if-necessary":511,"./flash-constants":512,"./flash-transmuxer-worker":515,"./remove-cues-from-track":517,"global/window":237,"mux.js/lib/flv":528,"webworkify":542}],515:[function(require,module,exports){
 /**
  * @file flash-transmuxer-worker.js
  */
@@ -46573,7 +40812,7 @@ exports['default'] = function (self) {
 };
 
 module.exports = exports['default'];
-},{"global/window":309,"mux.js/lib/flv":600}],588:[function(require,module,exports){
+},{"global/window":237,"mux.js/lib/flv":528}],516:[function(require,module,exports){
 /**
  * @file html-media-source.js
  */
@@ -46699,10 +40938,23 @@ var HtmlMediaSource = (function (_videojs$EventTarget) {
       // Retain the reference but empty the array
       _this.activeSourceBuffers_.length = 0;
 
+      // If there is only one source buffer, then it will always be active and audio will
+      // be disabled based on the codec of the source buffer
+      if (_this.sourceBuffers.length === 1) {
+        var sourceBuffer = _this.sourceBuffers[0];
+
+        sourceBuffer.appendAudioInitSegment_ = true;
+        sourceBuffer.audioDisabled_ = !sourceBuffer.audioCodec_;
+        _this.activeSourceBuffers_.push(sourceBuffer);
+        return;
+      }
+
+      // There are 2 source buffers, a combined (possibly video only) source buffer and
+      // and an audio only source buffer.
       // By default, the audio in the combined virtual source buffer is enabled
       // and the audio-only source buffer (if it exists) is disabled.
-      var combined = false;
-      var audioOnly = true;
+      var disableCombined = false;
+      var disableAudioOnly = true;
 
       // TODO: maybe we can store the sourcebuffers on the track objects?
       // safari may do something like this
@@ -46712,14 +40964,12 @@ var HtmlMediaSource = (function (_videojs$EventTarget) {
         if (track.enabled && track.kind !== 'main') {
           // The enabled track is an alternate audio track so disable the audio in
           // the combined source buffer and enable the audio-only source buffer.
-          combined = true;
-          audioOnly = false;
+          disableCombined = true;
+          disableAudioOnly = false;
           break;
         }
       }
 
-      // Since we currently support a max of two source buffers, add all of the source
-      // buffers (in order).
       _this.sourceBuffers.forEach(function (sourceBuffer) {
         /* eslinst-disable */
         // TODO once codecs are required, we can switch to using the codecs to determine
@@ -46730,17 +40980,17 @@ var HtmlMediaSource = (function (_videojs$EventTarget) {
 
         if (sourceBuffer.videoCodec_ && sourceBuffer.audioCodec_) {
           // combined
-          sourceBuffer.audioDisabled_ = combined;
+          sourceBuffer.audioDisabled_ = disableCombined;
         } else if (sourceBuffer.videoCodec_ && !sourceBuffer.audioCodec_) {
           // If the "combined" source buffer is video only, then we do not want
           // disable the audio-only source buffer (this is mostly for demuxed
           // audio and video hls)
           sourceBuffer.audioDisabled_ = true;
-          audioOnly = false;
+          disableAudioOnly = false;
         } else if (!sourceBuffer.videoCodec_ && sourceBuffer.audioCodec_) {
           // audio only
-          sourceBuffer.audioDisabled_ = audioOnly;
-          if (audioOnly) {
+          sourceBuffer.audioDisabled_ = disableAudioOnly;
+          if (disableAudioOnly) {
             return;
           }
         }
@@ -46911,7 +41161,7 @@ var HtmlMediaSource = (function (_videojs$EventTarget) {
 
 exports['default'] = HtmlMediaSource;
 module.exports = exports['default'];
-},{"./add-text-track-data":580,"./cleanup-text-tracks":581,"./codec-utils":582,"./virtual-source-buffer":592,"global/document":308,"global/window":309}],589:[function(require,module,exports){
+},{"./add-text-track-data":508,"./cleanup-text-tracks":509,"./codec-utils":510,"./virtual-source-buffer":520,"global/document":236,"global/window":237}],517:[function(require,module,exports){
 /**
  * @file remove-cues-from-track.js
  */
@@ -46955,7 +41205,7 @@ var removeCuesFromTrack = function removeCuesFromTrack(start, end, track) {
 
 exports["default"] = removeCuesFromTrack;
 module.exports = exports["default"];
-},{}],590:[function(require,module,exports){
+},{}],518:[function(require,module,exports){
 /**
  * @file transmuxer-worker.js
  */
@@ -47159,7 +41409,7 @@ exports['default'] = function (self) {
 };
 
 module.exports = exports['default'];
-},{"global/window":309,"mux.js/lib/mp4":608}],591:[function(require,module,exports){
+},{"global/window":237,"mux.js/lib/mp4":536}],519:[function(require,module,exports){
 /**
  * @file videojs-contrib-media-sources.js
  */
@@ -47316,7 +41566,7 @@ var URL = {
 exports.URL = URL;
 _videoJs2['default'].MediaSource = MediaSource;
 _videoJs2['default'].URL = URL;
-},{"./flash-media-source":585,"./html-media-source":588,"global/window":309}],592:[function(require,module,exports){
+},{"./flash-media-source":513,"./html-media-source":516,"global/window":237}],520:[function(require,module,exports){
 /**
  * @file virtual-source-buffer.js
  */
@@ -47625,6 +41875,12 @@ var VirtualSourceBuffer = (function (_videojs$EventTarget) {
   }, {
     key: 'done_',
     value: function done_(event) {
+      // Don't process and append data if the mediaSource is closed
+      if (this.mediaSource_.readyState === 'closed') {
+        this.pendingBuffers_.length = 0;
+        return;
+      }
+
       // All buffers should have been flushed from the muxer
       // start processing anything we have received
       this.processPendingSegments_();
@@ -47953,7 +42209,7 @@ var VirtualSourceBuffer = (function (_videojs$EventTarget) {
 
 exports['default'] = VirtualSourceBuffer;
 module.exports = exports['default'];
-},{"./add-text-track-data":580,"./codec-utils":582,"./create-text-tracks-if-necessary":583,"./remove-cues-from-track":589,"./transmuxer-worker":590,"webworkify":614}],593:[function(require,module,exports){
+},{"./add-text-track-data":508,"./codec-utils":510,"./create-text-tracks-if-necessary":511,"./remove-cues-from-track":517,"./transmuxer-worker":518,"webworkify":542}],521:[function(require,module,exports){
 /**
  * mux.js
  *
@@ -48098,7 +42354,7 @@ AacStream.prototype = new Stream();
 
 module.exports = AacStream;
 
-},{"../utils/stream.js":613}],594:[function(require,module,exports){
+},{"../utils/stream.js":541}],522:[function(require,module,exports){
 'use strict';
 
 var Stream = require('../utils/stream.js');
@@ -48232,7 +42488,7 @@ AdtsStream.prototype = new Stream();
 
 module.exports = AdtsStream;
 
-},{"../utils/stream.js":613}],595:[function(require,module,exports){
+},{"../utils/stream.js":541}],523:[function(require,module,exports){
 'use strict';
 
 var Stream = require('../utils/stream.js');
@@ -48652,7 +42908,7 @@ module.exports = {
   NalByteStream: NalByteStream
 };
 
-},{"../utils/exp-golomb.js":612,"../utils/stream.js":613}],596:[function(require,module,exports){
+},{"../utils/exp-golomb.js":540,"../utils/stream.js":541}],524:[function(require,module,exports){
 var highPrefix = [33, 16, 5, 32, 164, 27];
 var lowPrefix = [33, 65, 108, 84, 1, 2, 4, 8, 168, 2, 4, 8, 17, 191, 252];
 var zeroFill = function(count) {
@@ -48689,7 +42945,7 @@ var coneOfSilence = {
 
 module.exports = makeTable(coneOfSilence);
 
-},{}],597:[function(require,module,exports){
+},{}],525:[function(require,module,exports){
 'use strict';
 
 var Stream = require('../utils/stream.js');
@@ -48834,7 +43090,7 @@ CoalesceStream.prototype.flush = function(flushSource) {
 
 module.exports = CoalesceStream;
 
-},{"../utils/stream.js":613}],598:[function(require,module,exports){
+},{"../utils/stream.js":541}],526:[function(require,module,exports){
 'use strict';
 
 var FlvTag = require('./flv-tag.js');
@@ -48896,7 +43152,7 @@ var getFlvHeader = function(duration, audio, video) { // :ByteArray {
 
 module.exports = getFlvHeader;
 
-},{"./flv-tag.js":599}],599:[function(require,module,exports){
+},{"./flv-tag.js":527}],527:[function(require,module,exports){
 /**
  * An object that stores the bytes of an FLV tag and methods for
  * querying and manipulating that data.
@@ -49270,14 +43526,14 @@ FlvTag.frameTime = function(tag) {
 
 module.exports = FlvTag;
 
-},{}],600:[function(require,module,exports){
+},{}],528:[function(require,module,exports){
 module.exports = {
   tag: require('./flv-tag'),
   Transmuxer: require('./transmuxer'),
   getFlvHeader: require('./flv-header')
 };
 
-},{"./flv-header":598,"./flv-tag":599,"./transmuxer":602}],601:[function(require,module,exports){
+},{"./flv-header":526,"./flv-tag":527,"./transmuxer":530}],529:[function(require,module,exports){
 'use strict';
 
 var TagList = function() {
@@ -49304,7 +43560,7 @@ var TagList = function() {
 
 module.exports = TagList;
 
-},{}],602:[function(require,module,exports){
+},{}],530:[function(require,module,exports){
 'use strict';
 
 var Stream = require('../utils/stream.js');
@@ -49722,7 +43978,7 @@ Transmuxer.prototype = new Stream();
 // forward compatibility
 module.exports = Transmuxer;
 
-},{"../codecs/adts.js":594,"../codecs/h264":595,"../m2ts/m2ts.js":604,"../utils/stream.js":613,"./coalesce-stream.js":597,"./flv-tag.js":599,"./tag-list.js":601}],603:[function(require,module,exports){
+},{"../codecs/adts.js":522,"../codecs/h264":523,"../m2ts/m2ts.js":532,"../utils/stream.js":541,"./coalesce-stream.js":525,"./flv-tag.js":527,"./tag-list.js":529}],531:[function(require,module,exports){
 /**
  * mux.js
  *
@@ -50188,7 +44444,7 @@ module.exports = {
   Cea608Stream: Cea608Stream
 };
 
-},{"../utils/stream":613}],604:[function(require,module,exports){
+},{"../utils/stream":541}],532:[function(require,module,exports){
 /**
  * mux.js
  *
@@ -50667,7 +44923,7 @@ for (var type in StreamTypes) {
 
 module.exports = m2ts;
 
-},{"../utils/stream.js":613,"./caption-stream":603,"./metadata-stream":605,"./stream-types":606,"./stream-types.js":606,"./timestamp-rollover-stream":607}],605:[function(require,module,exports){
+},{"../utils/stream.js":541,"./caption-stream":531,"./metadata-stream":533,"./stream-types":534,"./stream-types.js":534,"./timestamp-rollover-stream":535}],533:[function(require,module,exports){
 /**
  * Accepts program elementary stream (PES) data events and parses out
  * ID3 metadata from them, if present.
@@ -50917,7 +45173,7 @@ MetadataStream.prototype = new Stream();
 
 module.exports = MetadataStream;
 
-},{"../utils/stream":613,"./stream-types":606}],606:[function(require,module,exports){
+},{"../utils/stream":541,"./stream-types":534}],534:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -50926,7 +45182,7 @@ module.exports = {
   METADATA_STREAM_TYPE: 0x15
 };
 
-},{}],607:[function(require,module,exports){
+},{}],535:[function(require,module,exports){
 /**
  * mux.js
  *
@@ -51012,7 +45268,7 @@ module.exports = {
   handleRollover: handleRollover
 };
 
-},{"../utils/stream":613}],608:[function(require,module,exports){
+},{"../utils/stream":541}],536:[function(require,module,exports){
 module.exports = {
   generator: require('./mp4-generator'),
   Transmuxer: require('./transmuxer').Transmuxer,
@@ -51020,7 +45276,7 @@ module.exports = {
   VideoSegmentStream: require('./transmuxer').VideoSegmentStream
 };
 
-},{"./mp4-generator":609,"./transmuxer":610}],609:[function(require,module,exports){
+},{"./mp4-generator":537,"./transmuxer":538}],537:[function(require,module,exports){
 /**
  * mux.js
  *
@@ -51792,7 +46048,7 @@ module.exports = {
   }
 };
 
-},{}],610:[function(require,module,exports){
+},{}],538:[function(require,module,exports){
 /**
  * mux.js
  *
@@ -53052,7 +47308,7 @@ module.exports = {
   VIDEO_PROPERTIES: VIDEO_PROPERTIES
 };
 
-},{"../aac":593,"../codecs/adts.js":594,"../codecs/h264":595,"../data/silence":596,"../m2ts/m2ts.js":604,"../utils/clock":611,"../utils/stream.js":613,"./mp4-generator.js":609}],611:[function(require,module,exports){
+},{"../aac":521,"../codecs/adts.js":522,"../codecs/h264":523,"../data/silence":524,"../m2ts/m2ts.js":532,"../utils/clock":539,"../utils/stream.js":541,"./mp4-generator.js":537}],539:[function(require,module,exports){
 var
   ONE_SECOND_IN_TS = 90000, // 90kHz clock
   secondsToVideoTs,
@@ -53095,7 +47351,7 @@ module.exports = {
   videoTsToAudioTs: videoTsToAudioTs
 };
 
-},{}],612:[function(require,module,exports){
+},{}],540:[function(require,module,exports){
 'use strict';
 
 var ExpGolomb;
@@ -53244,7 +47500,7 @@ ExpGolomb = function(workingData) {
 
 module.exports = ExpGolomb;
 
-},{}],613:[function(require,module,exports){
+},{}],541:[function(require,module,exports){
 /**
  * mux.js
  *
@@ -53363,7 +47619,7 @@ Stream.prototype.flush = function(flushSource) {
 
 module.exports = Stream;
 
-},{}],614:[function(require,module,exports){
+},{}],542:[function(require,module,exports){
 var bundleFn = arguments[3];
 var sources = arguments[4];
 var cache = arguments[5];
@@ -53420,7 +47676,7 @@ module.exports = function (fn) {
     ));
 };
 
-},{}],615:[function(require,module,exports){
+},{}],543:[function(require,module,exports){
 'use strict';
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
@@ -53860,7 +48116,7 @@ videojs.registerComponent('PlaylistMenuItem', PlaylistMenuItem);
 // register the plugin
 registerPlugin('playlistUi', playlistUi);
 
-},{"global/document":308,"global/window":309}],616:[function(require,module,exports){
+},{"global/document":236,"global/window":237}],544:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -53930,7 +48186,7 @@ var setup = function setup(player, delay) {
 
 exports.reset = reset;
 exports.setup = setup;
-},{"global/window":309}],617:[function(require,module,exports){
+},{"global/window":237}],545:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54007,7 +48263,7 @@ var playItem = function playItem(player, delay, item) {
 
 exports['default'] = playItem;
 exports.clearTracks = clearTracks;
-},{"./auto-advance.js":616,"global/window":309}],618:[function(require,module,exports){
+},{"./auto-advance.js":544,"global/window":237}],546:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54309,7 +48565,7 @@ var factory = function factory(player, initialList) {
 
 exports['default'] = factory;
 module.exports = exports['default'];
-},{"./auto-advance":616,"./play-item":617,"global/window":309,"object.assign":622}],619:[function(require,module,exports){
+},{"./auto-advance":544,"./play-item":545,"global/window":237,"object.assign":550}],547:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -54340,7 +48596,7 @@ _videoJs2['default'].plugin('playlist', plugin);
 
 exports['default'] = plugin;
 module.exports = exports['default'];
-},{"./playlist-maker":618}],620:[function(require,module,exports){
+},{"./playlist-maker":546}],548:[function(require,module,exports){
 'use strict';
 
 var keys = require('object-keys');
@@ -54383,7 +48639,7 @@ module.exports = function hasSymbols() {
 	return true;
 };
 
-},{"object-keys":627}],621:[function(require,module,exports){
+},{"object-keys":555}],549:[function(require,module,exports){
 'use strict';
 
 // modified from https://github.com/es-shims/es6-shim
@@ -54426,7 +48682,7 @@ module.exports = function assign(target, source1) {
 	return objTarget;
 };
 
-},{"./hasSymbols":620,"function-bind":626,"object-keys":627}],622:[function(require,module,exports){
+},{"./hasSymbols":548,"function-bind":554,"object-keys":555}],550:[function(require,module,exports){
 'use strict';
 
 var defineProperties = require('define-properties');
@@ -54445,19 +48701,70 @@ defineProperties(polyfill, {
 
 module.exports = polyfill;
 
-},{"./implementation":621,"./polyfill":629,"./shim":630,"define-properties":623}],623:[function(require,module,exports){
-arguments[4][35][0].apply(exports,arguments)
-},{"dup":35,"foreach":624,"object-keys":627}],624:[function(require,module,exports){
-arguments[4][36][0].apply(exports,arguments)
-},{"dup":36}],625:[function(require,module,exports){
-arguments[4][52][0].apply(exports,arguments)
-},{"dup":52}],626:[function(require,module,exports){
-arguments[4][53][0].apply(exports,arguments)
-},{"./implementation":625,"dup":53}],627:[function(require,module,exports){
-arguments[4][37][0].apply(exports,arguments)
-},{"./isArguments":628,"dup":37}],628:[function(require,module,exports){
-arguments[4][38][0].apply(exports,arguments)
-},{"dup":38}],629:[function(require,module,exports){
+},{"./implementation":549,"./polyfill":557,"./shim":558,"define-properties":551}],551:[function(require,module,exports){
+arguments[4][26][0].apply(exports,arguments)
+},{"dup":26,"foreach":552,"object-keys":555}],552:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"dup":27}],553:[function(require,module,exports){
+var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+var slice = Array.prototype.slice;
+var toStr = Object.prototype.toString;
+var funcType = '[object Function]';
+
+module.exports = function bind(that) {
+    var target = this;
+    if (typeof target !== 'function' || toStr.call(target) !== funcType) {
+        throw new TypeError(ERROR_MESSAGE + target);
+    }
+    var args = slice.call(arguments, 1);
+
+    var bound;
+    var binder = function () {
+        if (this instanceof bound) {
+            var result = target.apply(
+                this,
+                args.concat(slice.call(arguments))
+            );
+            if (Object(result) === result) {
+                return result;
+            }
+            return this;
+        } else {
+            return target.apply(
+                that,
+                args.concat(slice.call(arguments))
+            );
+        }
+    };
+
+    var boundLength = Math.max(0, target.length - args.length);
+    var boundArgs = [];
+    for (var i = 0; i < boundLength; i++) {
+        boundArgs.push('$' + i);
+    }
+
+    bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
+
+    if (target.prototype) {
+        var Empty = function Empty() {};
+        Empty.prototype = target.prototype;
+        bound.prototype = new Empty();
+        Empty.prototype = null;
+    }
+
+    return bound;
+};
+
+},{}],554:[function(require,module,exports){
+var implementation = require('./implementation');
+
+module.exports = Function.prototype.bind || implementation;
+
+},{"./implementation":553}],555:[function(require,module,exports){
+arguments[4][28][0].apply(exports,arguments)
+},{"./isArguments":556,"dup":28}],556:[function(require,module,exports){
+arguments[4][29][0].apply(exports,arguments)
+},{"dup":29}],557:[function(require,module,exports){
 'use strict';
 
 var implementation = require('./implementation');
@@ -54510,7 +48817,7 @@ module.exports = function getPolyfill() {
 	return Object.assign;
 };
 
-},{"./implementation":621}],630:[function(require,module,exports){
+},{"./implementation":549}],558:[function(require,module,exports){
 'use strict';
 
 var define = require('define-properties');
@@ -54526,4 +48833,4 @@ module.exports = function shimAssign() {
 	return polyfill;
 };
 
-},{"./polyfill":629,"define-properties":623}]},{},[1]);
+},{"./polyfill":557,"define-properties":551}]},{},[1]);
