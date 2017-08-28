@@ -17,7 +17,7 @@
     "browserify-global-shim": "^1.0.3",
     "es5-shim": "^4.5.8",
     "es6-shim": "^0.35.0",
-    "es7-shim": "^5.0.0",
+    "es7-shim": "^6.0.0",
     "font-awesome": "^4.3.0",
     "globals": "^8.2.0",
     "grunt": "^0.4.5",
