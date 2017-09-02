@@ -7,7 +7,7 @@ let pkgUrl = {
 };
 
 const defaults = {
-  version: "5.8.8",
+  version: "5.12.3",
   dependencies: {
     "videojs-ie8": "1.1.2"
   }
