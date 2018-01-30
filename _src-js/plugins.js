@@ -27,7 +27,8 @@ function displayPlugins(plugins) {
 }
 
 $(function() {
-  $.getJSON('https://s3-us-west-2.amazonaws.com/videojs-extensions/extensions.json', (plugins) => {
+  // $.getJSON('https://s3-us-west-2.amazonaws.com/videojs-extensions/extensions.json', (plugins) => {
+  $.getJSON('./extensions.json', (plugins) => {
     displayPlugins(plugins);
   });
 });
