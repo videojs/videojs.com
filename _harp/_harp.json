@@ -5,7 +5,7 @@
     "description": "",
     "javascripts": [],
     "globalstyles": [
-      "https://vjs.zencdn.net/5-unsafe/video-js.css",
+      "https://vjs.zencdn.net/6-unsafe/video-js.css",
       "https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext"
     ],
     "styles": ["/css/main.css"]
