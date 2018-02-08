@@ -7,7 +7,7 @@ let pkgUrl = {
 };
 
 const defaults = {
-  version: "5.8.8",
+  version: "$LATEST_VERSION$",
   dependencies: {
     "videojs-ie8": "1.1.2"
   }
@@ -15,6 +15,7 @@ const defaults = {
 
 
 function getPackage(cb) {
+  return cb(null, defaults);
   http.get({host: pkgUrl.host, path: pkgUrl.path, withCredentials: false}, function(res) {
     var body = '';
     res.on('data', function(d) {
