@@ -15,7 +15,6 @@ const defaults = {
 
 
 function getPackage(cb) {
-  return cb(null, defaults);
   http.get({host: pkgUrl.host, path: pkgUrl.path, withCredentials: false}, function(res) {
     var body = '';
     res.on('data', function(d) {
