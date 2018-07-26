@@ -4,7 +4,7 @@
     "description": "Video.js is a JavaScript and CSS library that makes it easier to work with and build on HTML5 video. This is also known as an HTML5 Video Player.",
     "javascripts": [
       "//vjs.zencdn.net/6-unsafe/video.js",
-      "https://mux-sdks-test.s3.amazonaws.com/videojs/0/videojs-mux.js",
+      "//src.litix.io/videojs/2/videojs-mux.js",
       "/js/advanced.js"
     ],
     "styles": [
