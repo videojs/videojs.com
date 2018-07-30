@@ -4,19 +4,17 @@ import $ from 'jquery';
 import videojs from 'video.js';
 
 const player = window.player = videojs('preview-player', {
-  fluid: true,
-  plugins: {
-    mux: {
+  fluid: true
+}, function() {
+  if (player.hasPlugin('mux')) {
+    player.mux({
       data: {
         property_key: 'VJSISBEST',
         video_title: 'Disney\'s Oceans',
         video_id: 1
       }
-    }
-  }
-});
-
-player.on('ready', function() {
+    })
+  };
   player.removeClass('placeholder');
 });
 

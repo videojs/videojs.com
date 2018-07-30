@@ -15,13 +15,14 @@ if (typeof Uint8Array !== 'undefined') {
 }
 
 const player = window.player = videojs('preview-player', {
-  fluid: true,
-  plugins: {
-    mux: {
+  fluid: true
+}, function() {
+  if (player.hasPlugin('mux')) {
+    player.mux({
       data: {
         property_key: 'VJSISBEST',
       }
-    }
+    });
   }
 });
 
