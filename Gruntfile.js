@@ -158,6 +158,6 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('default', ['vjsversion', 'copy:fontawesome', 'copy:vendor', 'copy:stylevjs', 'copy:fontvjs', 'browserify:dist', 'vjsversion:js', 'harp:dist', 'vjsversion:html']);
   grunt.registerTask('dist', ['default', 'copy:dist']);
-  grunt.registerTask('dev', ['concurrent']);
+  grunt.registerTask('dev', ['default', 'concurrent']);
 
 };

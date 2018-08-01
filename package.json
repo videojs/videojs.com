@@ -42,7 +42,7 @@
     "react-dom": "^15.0.2",
     "shortid": "^2.2.6",
     "videojs-contrib-hls": "^5.12.2",
-    "videojs-playlist": "^2.4.1",
-    "videojs-playlist-ui": "^2.3.4"
+    "videojs-playlist": "^4.2.2",
+    "videojs-playlist-ui": "^3.0.8"
   }
 }
