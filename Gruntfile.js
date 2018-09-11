@@ -135,7 +135,7 @@ module.exports = function(grunt) {
   });
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-harp');
+  grunt.loadNpmTasks('@gkatsev/grunt-harp');
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
