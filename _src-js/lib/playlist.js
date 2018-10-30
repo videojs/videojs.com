@@ -56,51 +56,15 @@ export default [{
     }
   ]
 }, {
-  name: "Elephant's Dream",
+  name: "Elephant's Dream (HLS with captions, audio description and chapters)",
   description: 'The film features two men, Proog, who is older and more experienced, and Emo, who is young and nervous, living in a miraculous construction referred to only as "The Machine".',
   sources: [
+    { src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8', type: 'application/x-mpegurl' },
     { src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/ed_hd.mp4', type: 'video/mp4' },
     { src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/ed_hd.ogg', type: 'video/ogg' }
   ],
   duration: 653,
   textTracks: [
-    {
-      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.en.vtt',
-      kind: 'captions',
-      srclang: 'en',
-      label: 'English',
-      default: true
-    },
-    {
-      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.ar.vtt',
-      kind: 'captions',
-      srclang: 'ar',
-      label: 'Arabic'
-    },
-    {
-      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.sv.vtt',
-      kind: 'captions',
-      srclang: 'sv',
-      label: 'Swedish'
-    },
-    {
-      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.ru.vtt',
-      kind: 'captions',
-      srclang: 'ru',
-      label: 'Russian'
-    },
-    {
-      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.ja.vtt',
-      kind: 'captions',
-      srclang: 'ja',
-      label: 'Japanese'
-    },
-    {
-      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/descriptions.en.vtt',
-      kind: 'descriptions',
-      srclang: 'en',
-      label: 'English'
-    },
     {
       src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/chapters.en.vtt',
       kind: 'chapters',
