@@ -10,6 +10,7 @@ export default [{
     'fugiat nulla pariatur. Excepteur sint occaecat cupidatat non ' +
     'proident, sunt in culpa qui officia deserunt mollit anim id est ' +
     'laborum.',
+    id: 'disneys-oceans',
   duration: 45,
   sources: [
     { src: '//vjs.zencdn.net/v/oceans.mp4', type: 'video/mp4' },
@@ -30,6 +31,7 @@ export default [{
 }, {
   name: 'Sintel',
   description: 'The film follows a girl named Sintel who is searching for a baby dragon she calls Scales.',
+  id: 'sintel',
   sources: [
     { src: '//d2zihajmogu5jn.cloudfront.net/sintel/master.m3u8', type: 'application/x-mpegurl' },
     { src: '//d2zihajmogu5jn.cloudfront.net/sintel/sintel.mp4', type: 'video/mp4' },
@@ -49,6 +51,7 @@ export default [{
 }, {
   name: 'Advanced Bip Bop',
   description: "Apple's test HLS stream",
+  id: 'bipbop-advanced',
   sources: [
     {
       src: '//d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8',
@@ -58,6 +61,7 @@ export default [{
 }, {
   name: "Elephant's Dream (HLS with captions, audio description and chapters)",
   description: 'The film features two men, Proog, who is older and more experienced, and Emo, who is young and nervous, living in a miraculous construction referred to only as "The Machine".',
+  id: 'elephantsdream',
   sources: [
     { src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8', type: 'application/x-mpegurl' },
     { src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/ed_hd.mp4', type: 'video/mp4' },
@@ -85,6 +89,7 @@ export default [{
   ]
 }, {
   name: 'Tears of Steel',
+  id: 'tears-of-steel',
   sources: [
     { src: '//d2zihajmogu5jn.cloudfront.net/tears-of-steel/playlist.m3u8', type: 'application/x-mpegurl' },
     { src: '//d2zihajmogu5jn.cloudfront.net/tears-of-steel/tears_of_steel_720p.mp4', type: 'video/mp4' }
@@ -104,6 +109,7 @@ export default [{
 }, {
   name: 'Big Buck Bunny',
   description: 'The plot follows a day of the life of Big Buck Bunny when he meets three bullying rodents, Frank (the leader of the rodents), Rinky and Gimera.',
+  id: 'big-buck-bunny',
   sources: [
     { src: '//d2zihajmogu5jn.cloudfront.net/big-buck-bunny/master.m3u8', type: 'application/x-mpegurl' },
     { src: '//d2zihajmogu5jn.cloudfront.net/big-buck-bunny/bbb.mp4', type: 'video/mp4' },
