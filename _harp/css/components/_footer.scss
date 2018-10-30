@@ -25,9 +25,14 @@ footer .button {
   @extend .btn-xs
 }
 
-footer .copyright {
+footer .copyright,
+footer .netlify-sponsor {
   float: left;
-  width: 50%;
+  padding-right: 10px;
+}
+
+footer a:not(.button) {
+  text-decoration: underline;
 }
 
 footer .other-links {
