@@ -2,6 +2,7 @@ import window from 'global/window';
 import document from 'global/document';
 import $ from 'jquery';
 import videojs from 'video.js';
+import { getPackage } from './lib/vjs-version.js';
 
 const player = window.player = videojs('preview-player', {
   fluid: true
@@ -24,6 +25,13 @@ player.on(['play', 'playing'], function() {
 });
 player.on(['pause'], function() {
   overlay.removeClass('transparent');
+});
+
+// Get the package information for setting the version on the NPM shield/badge
+getPackage(function(e, pkg) {
+  if (e) console.error(e);
+
+  $('.vjs-version').text(pkg.version);
 });
 
 // Poor man's lazy loading the iframe content to speed up homeage loading

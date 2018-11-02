@@ -129,7 +129,7 @@ module.exports = function(grunt) {
         src: ['_harp/js/index.js']
       },
       html: {
-        src: ['_www/getting-started/index.html']
+        src: ['_www/index.html', '_www/getting-started/index.html']
       }
     }
   });
