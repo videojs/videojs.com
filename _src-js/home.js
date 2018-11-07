@@ -31,7 +31,7 @@ player.on(['pause'], function() {
 getPackage(function(e, pkg) {
   if (e) console.error(e);
 
-  $('.vjs-version').text(pkg.version);
+  $('.vjs-version').text('v' + pkg.version);
 });
 
 // Poor man's lazy loading the iframe content to speed up homeage loading
