@@ -1,5 +1,5 @@
 {
 	"index": {
-		"javascripts": ["/js/support.js"]
+		"javascripts": ["/vendor/modernizr.js", "/js/support.js"]
 	}
 }
