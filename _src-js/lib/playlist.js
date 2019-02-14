@@ -64,11 +64,73 @@ export default [{
   id: 'elephantsdream',
   sources: [
     { src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/hls/ed_hd.m3u8', type: 'application/x-mpegurl' },
+  ],
+  duration: 653,
+  textTracks: [
+    {
+      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/chapters.en.vtt',
+      kind: 'chapters',
+      srclang: 'en',
+      label: 'English'
+    }
+  ],
+  poster: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/poster.png',
+  thumbnail: [
+    {
+      srcset: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/poster.png',
+      type: 'image/png',
+      media: '(min-width: 400px;)'
+    },
+    {
+      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/poster.png'
+    }
+  ]
+}, {
+  name: "Elephant's Dream (mp4 with separate text track audio description, captions, and chapters)",
+  description: 'The film features two men, Proog, who is older and more experienced, and Emo, who is young and nervous, living in a miraculous construction referred to only as "The Machine".',
+  id: 'elephantsdreammp4',
+  sources: [
     { src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/ed_hd.mp4', type: 'video/mp4' },
     { src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/ed_hd.ogg', type: 'video/ogg' }
   ],
   duration: 653,
   textTracks: [
+    {
+      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.en.vtt',
+      kind: 'captions',
+      srclang: 'en',
+      label: 'English'
+    },
+    {
+      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.ar.vtt',
+      kind: 'captions',
+      srclang: 'ar',
+      label: 'Arabic'
+    },
+    {
+      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.sv.vtt',
+      kind: 'captions',
+      srclang: 'sv',
+      label: 'Swedish'
+    },
+    {
+      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.ru.vtt',
+      kind: 'captions',
+      srclang: 'ru',
+      label: 'Russian'
+    },
+    {
+      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.ja.vtt',
+      kind: 'captions',
+      srclang: 'ja',
+      label: 'Japanese'
+    },
+    {
+      src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/descriptions.en.vtt',
+      kind: 'descriptions',
+      srclang: 'en',
+      label: 'English'
+    },
     {
       src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/chapters.en.vtt',
       kind: 'chapters',
