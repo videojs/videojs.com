@@ -57,7 +57,8 @@ export default [{
       src: '//d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8',
       type: 'application/x-mpegurl'
     }
-  ]
+  ],
+  duration: 1800
 }, {
   name: "Elephant's Dream (HLS with captions, audio description and chapters)",
   description: 'The film features two men, Proog, who is older and more experienced, and Emo, who is young and nervous, living in a miraculous construction referred to only as "The Machine".',
@@ -99,8 +100,7 @@ export default [{
       src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.en.vtt',
       kind: 'captions',
       srclang: 'en',
-      label: 'English',
-      default: true
+      label: 'English'
     },
     {
       src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/captions.ar.vtt',
