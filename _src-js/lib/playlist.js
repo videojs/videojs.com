@@ -86,7 +86,7 @@ export default [{
     }
   ]
 }, {
-  name: "Elephant's Dream (mp4 with sidecar captions, audio description and chapters)",
+  name: "Elephant's Dream (mp4 with separate text track audio description, captions, and chapters)",
   description: 'The film features two men, Proog, who is older and more experienced, and Emo, who is young and nervous, living in a miraculous construction referred to only as "The Machine".',
   id: 'elephantsdreammp4',
   sources: [
