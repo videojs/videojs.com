@@ -24,6 +24,7 @@ function getPackage(cb) {
     res.on('end', function(e) {
       try {
         body = JSON.parse(body);
+        body.dependencies['videojs-ie8'] = body.dependencies['videojs-ie8'] || defaults.dependencies['videojs-ie8'];
       } catch (e) {
         body = defaults;
       }
