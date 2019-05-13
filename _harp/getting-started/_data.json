@@ -1,7 +1,0 @@
-{
-  "index": {
-    "title": "Getting Started with Video.js",
-    "description": "Video.js is a JavaScript and CSS library that makes it easier to work with and build on HTML5 video. This is also known as an HTML5 Video Player.",
-    "javascripts": ["/js/index.js"]
-  }
-}
