@@ -3,11 +3,11 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const StyledLink = styled.a`
-  color: orange;
+  color: pink;
 `;
 
 const CustomLink = (props) => (
   <StyledLink as={props.href ? 'a' : Link} {...props} />
 );
 
-export default CustomLink;
+export default styled(CustomLink)``;

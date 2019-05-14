@@ -20,6 +20,10 @@ const Navigation = styled.div`
   & > * {
     padding-left: 1em;
   }
+
+  ${Link} {
+    color: white;
+  }
 `;
 
 const Header = ({ siteTitle }) => (
@@ -31,10 +35,10 @@ const Header = ({ siteTitle }) => (
     </Logo>
 
     <Navigation>
-      <Link to="#get-started">Get Started</Link>
-      <Link to="#customize">Customize</Link>
-      <Link to="#docs">Docs</Link>
-      <Link to="#blog">Blog</Link>
+      <Link href="#get-started">Get Started</Link>
+      <Link href="#customize">Customize</Link>
+      <Link href="#docs">Docs</Link>
+      <Link href="#blog">Blog</Link>
       <Link href="https://github.com/videojs/video.js">Github</Link>
     </Navigation>
   </HeaderContainer>
