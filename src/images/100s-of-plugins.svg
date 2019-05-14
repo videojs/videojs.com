@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="170px" height="170px"
+	 viewBox="0 0 170 170" style="enable-background:new 0 0 170 170;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#B0CFEE;}
+	.st1{fill:#375F93;}
+	.st2{fill:#5785C2;}
+	.st3{fill:none;stroke:#B0CFEE;stroke-width:2;stroke-miterlimit:10;}
+</style>
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  bottomLeftOrigin="true" height="155.2" width="150" x="15" y="7.4"></sliceSourceBounds>
+	</sfw>
+</metadata>
+<g>
+	<circle class="st0" cx="90" cy="87.6" r="75"/>
+	<g>
+		<path class="st1" d="M85.2,142.2c3.2,5.2,8.9,8.7,15.5,8.7s12.3-3.5,15.5-8.7H85.2z"/>
+		<path class="st1" d="M16.2,142.2c3.2,5.2,8.9,8.7,15.5,8.7s12.3-3.5,15.5-8.7H16.2z"/>
+		<path class="st1" d="M50.7,142.2c3.2,5.2,8.9,8.7,15.5,8.7s12.3-3.5,15.5-8.7H50.7z"/>
+	</g>
+	<g>
+		<rect x="41" y="52.1" class="st1" width="20" height="20"/>
+		<rect x="67" y="52.1" class="st2" width="20" height="20"/>
+		<rect x="93" y="52.1" class="st1" width="20" height="20"/>
+		<rect x="119" y="52.1" class="st2" width="20" height="20"/>
+		<rect x="41" y="78.1" class="st2" width="20" height="20"/>
+		<rect x="67" y="78.1" class="st2" width="20" height="20"/>
+		<rect x="93" y="78.1" class="st2" width="20" height="20"/>
+		<rect x="119" y="78.1" class="st1" width="20" height="20"/>
+		<rect x="41" y="103.1" class="st1" width="20" height="20"/>
+		<rect x="67" y="103.1" class="st2" width="20" height="20"/>
+		<rect x="93" y="103.1" class="st1" width="20" height="20"/>
+		<rect x="119" y="103.1" class="st2" width="20" height="20"/>
+	</g>
+	<polyline class="st3" points="108,58.2 101.1,65.1 98,62 	"/>
+	<polyline class="st3" points="56.1,58.2 49.2,65.1 46.1,62 	"/>
+	<polyline class="st3" points="134,84.6 127.1,91.5 124,88.4 	"/>
+	<polyline class="st3" points="108,109.6 101.1,116.5 98,113.4 	"/>
+	<polyline class="st3" points="56,109.6 49.1,116.5 46,113.4 	"/>
+	<rect x="92.7" y="7.4" class="st2" width="5" height="29.3"/>
+	<rect x="106.7" y="7.4" class="st2" width="5" height="29.3"/>
+	<rect x="120.7" y="7.4" class="st2" width="5" height="29.3"/>
+	<rect x="134.7" y="7.4" class="st2" width="5" height="29.3"/>
+</g>
+</svg>
