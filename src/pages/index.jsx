@@ -1,62 +1,41 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import styled from 'styled-components';
 
+import { heroThemes } from '../utils/styles';
 import Layout from '../components/Layout';
 import Image from '../components/Image';
 import SEO from '../components/SEO';
 
-import cityBg from '../images/city-hero.svg';
-import fantasyBg from '../images/fantasy-hero.svg';
-import forrestBg from '../images/forrest-hero.svg';
-import seaBg from '../images/sea-hero.svg';
-
-const THEMES = {
-  city: {
-    image: cityBg,
-    color: '#be3d50',
-  },
-  fantasy: {
-    image: fantasyBg,
-    color: '#9d49b3',
-  },
-  forrest: {
-    image: forrestBg,
-    color: '#70b050',
-  },
-  sea: {
-    image: seaBg,
-    color: '#4378be',
-  },
-};
-
-const Hero = styled.div`
-  background-color: ${props => props.theme.color};
-  background-image: url(${props => props.theme.image});
-  width: 100%;
-  padding-top: 64.4886364%;
-  position: absolute;
-  top: 0;
-  z-index: 0;
-`;
+import Hero from '../components/HomeComponents/Hero';
+import Features from '../components/HomeComponents/Features';
+import UsedBy from '../components/HomeComponents/UsedBy';
+import Sponsors from '../components/HomeComponents/Sponsors';
+import Implementation from '../components/HomeComponents/Implementation';
 
 class IndexPage extends React.Component {
   constructor(props) {
     super(props);
 
-    const themeKeys = Object.keys(THEMES)
-    const randomTheme = themeKeys[Math.floor(Math.random()*themeKeys.length)];
-    this.theme = THEMES[randomTheme];
+    const themeKeys = Object.keys(heroThemes);
+    this.themeName = themeKeys[Math.floor(Math.random() * themeKeys.length)];
+    // this.themeName = 'forrest';
   }
 
   render() {
     return (
-      <Layout>
+      <Layout themeName={this.themeName}>
         <SEO
           title="Make your player yours"
           keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
         />
-        <Hero theme={this.theme} />
+        <Hero themeName={this.themeName}>
+          <h1>Make your player yours</h1>
+        </Hero>
+        <Features />
+        <UsedBy />
+        <Sponsors />
+        <Implementation />
+
         <h1>Hi people</h1>
         <p>Welcome to your new Gatsby site.</p>
         <p>Now go build something great.</p>
