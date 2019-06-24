@@ -5,6 +5,7 @@ import { H1, H2 } from './Typography';
 
 const SectionHeaderContainer = styled.div`
   position: relative;
+  margin: 0 auto;
 `;
 
 const SectionHeaderTitle = styled(H1)`
@@ -32,6 +33,7 @@ const SectionHeaderTagline = styled(H2)`
   margin-bottom: 1em;
   text-align: center;
   position: relative;
+  color: ${props => (props.darkMode ? '#fff' : 'inherit')};
 
   &:after {
     height: 3px;

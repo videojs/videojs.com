@@ -5,6 +5,7 @@ import Container from '../Container';
 import SectionHeader from '../SectionHeader';
 import { P } from '../Typography';
 import Image from '../Image';
+import TitleBox from '../TitleBox';
 
 import triangles from '../../images/background-triangles.svg';
 import vine from '../../images/background-vine.svg';
@@ -64,37 +65,11 @@ const SponsorList = styled.div`
   flex: 1 0 22%;
 `;
 
-const SponsorImage = styled.div`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding: 4em;
-`;
-
-const Sponsor = styled(props => (
-  <div className={props.className}>
-    <SponsorImage>
-      <Image filename={props.image} alt={props.name} />
-    </SponsorImage>
-    <div className="title">{props.title}</div>
-  </div>
-))`
-  border: solid 2px #ebebeb;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 100%;
-  margin: 0 1em 100px 1em;
-
-  .title {
-    border-top: solid 2px #ebebeb;
-    padding: 1.9em;
-    text-align: center;
-    letter-spacing: 1.4px;
-    color: rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
-  }
-`;
+const Sponsor = props => (
+  <TitleBox title={props.title} url={props.url}>
+    <Image filename={props.image} alt={props.name} />
+  </TitleBox>
+);
 
 const Sponsors = props => (
   <SponsorsWrapper>
@@ -123,21 +98,34 @@ const Sponsors = props => (
           title="Corporate Shepherd"
           image="logos/brightcove.svg"
           name="Brightcove"
+          url="https://brightcove.com"
         />
       </PrimaryContainer>
 
       <SponsorList>
-        <Sponsor title="CDN" image="logos/fastly.svg" name="Fastly" />
-        <Sponsor title="Website" image="logos/mux.svg" name="Mux" />
+        <Sponsor
+          title="CDN"
+          image="logos/fastly.svg"
+          name="Fastly"
+          url="https://fastly.com"
+        />
+        <Sponsor
+          title="Website"
+          image="logos/mux.svg"
+          name="Mux"
+          url="https://mux.com"
+        />
         <Sponsor
           title="Device Testing"
           image="logos/browserstack.svg"
           name="BrowserStack"
+          url="https://browserstack.com"
         />
         <Sponsor
           title="Static Hosting"
           image="logos/netlify.svg"
           name="Netlify"
+          url="https://netlify.com"
         />
       </SponsorList>
     </SponsorsContainer>
