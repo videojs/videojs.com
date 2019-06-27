@@ -6,6 +6,11 @@ import 'videojs-playlist-ui';
 import 'videojs-mux';
 
 import Container from '../Container'
+import MediaItems from './MediaItems';
+import MediaPropertyItem from './MediaPropertyItem';
+import MediaEventItem from './MediaEventItem';
+import MediaProperties from './mediaProperties';
+import MediaEvents from './mediaEvents';
 import playlist from './playlist';
 import rectangles from '../../images/footer-rectangles.svg';
 
@@ -48,6 +53,11 @@ const PlaylistWrapper = styled.div`
 `;
 
 class AdvancedExample extends React.Component {
+  constructor (...args) {
+    super(...args);
+    this.state = { isPlayerInitialized: false };
+  }
+
   componentDidMount () {
     this.player = videojs(this.videoEl, {}, () => {
       if (this.player.hasPlugin('mux')) {
@@ -70,6 +80,8 @@ class AdvancedExample extends React.Component {
 
     this.player.playlist(playlist);
     this.player.playlistUi();
+
+    this.setState({ isPlayerInitialized: true });
   }
 
   componentWillUnmount () {
@@ -95,6 +107,20 @@ class AdvancedExample extends React.Component {
               <div className="vjs-playlist vjs-fluid" />
             </PlaylistWrapper>
           </VideoWrapper>
+          {this.state.isPlayerInitialized && (
+            <>
+              <MediaItems
+                player={this.player}
+                items={MediaProperties}
+                itemComponent={MediaPropertyItem}
+              />
+              <MediaItems
+                player={this.player}
+                items={MediaEvents}
+                itemComponent={MediaEventItem}
+              />
+            </>
+          )}
         </Container>
       </AdvancedExampleWrapper>
     );
