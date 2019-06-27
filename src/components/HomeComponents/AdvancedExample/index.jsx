@@ -5,14 +5,14 @@ import 'videojs-playlist';
 import 'videojs-playlist-ui';
 import 'videojs-mux';
 
-import Container from '../Container'
+import Container from '../../Container'
 import MediaItems from './MediaItems';
 import MediaPropertyItem from './MediaPropertyItem';
 import MediaEventItem from './MediaEventItem';
 import MediaProperties from './mediaProperties';
 import MediaEvents from './mediaEvents';
 import playlist from './playlist';
-import rectangles from '../../images/footer-rectangles.svg';
+import rectangles from '../../../images/footer-rectangles.svg';
 
 import 'video.js/dist/video-js.css';
 import 'videojs-playlist-ui/dist/videojs-playlist-ui.css';
