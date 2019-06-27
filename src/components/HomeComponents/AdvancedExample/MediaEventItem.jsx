@@ -1,4 +1,28 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Li = styled.li`
+  background-color: #232323;
+  border: 2px solid #000;
+  border-top: none;
+  color: #fff;
+  font-size: 13px;
+  line-height: 3.85;
+  padding: 0 32px;
+
+  > span {
+    display: inline-block;
+
+    &:nth-child(1) {
+      width: 80%;
+    }
+
+    &:nth-child(2) {
+      width: 20%; 
+      text-align: right;
+    }
+  }
+`;
 
 class MediaEventItem extends React.Component {
   constructor (...args) {
@@ -19,10 +43,10 @@ class MediaEventItem extends React.Component {
     const { calls } = this.state;
 
     return (
-      <li className="list-item">
-        <span className="list-item-name">{item}</span>
-        <span className="list-item-value">{calls}</span>
-      </li>
+      <Li>
+        <span>{item}</span>
+        <span>{calls}</span>
+      </Li>
     );
   }
 }
