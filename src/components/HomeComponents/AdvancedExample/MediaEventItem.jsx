@@ -34,7 +34,7 @@ class MediaEventItem extends React.Component {
     const { item: name, player } = this.props;
 
     player.on(name, () => this.setState((prevState) => ({
-      calls: prevState.calls + 1
+      calls: prevState.calls + 1,
     })));
   }
 

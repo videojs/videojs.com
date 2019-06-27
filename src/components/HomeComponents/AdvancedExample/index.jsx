@@ -5,7 +5,7 @@ import 'videojs-playlist';
 import 'videojs-playlist-ui';
 import 'videojs-mux';
 
-import Container from '../../Container'
+import Container from '../../Container';
 import MediaItems from './MediaItems';
 import MediaPropertyItem from './MediaPropertyItem';
 import MediaEventItem from './MediaEventItem';
@@ -75,7 +75,7 @@ class AdvancedExample extends React.Component {
     this.player = videojs(this.videoEl, {}, () => {
       if (this.player.hasPlugin('mux')) {
         this.player.mux({ data: {
-          property_key: 'VJSISBEST' 
+          property_key: 'VJSISBEST',
         }});
       }
     });
@@ -87,7 +87,7 @@ class AdvancedExample extends React.Component {
       this.player.mux.emit('videochange', {
         video_id: plItem.id,
         video_title: plItem.name,
-        video_duration: plItem.duration
+        video_duration: plItem.duration,
       });
     });
 
@@ -117,7 +117,7 @@ class AdvancedExample extends React.Component {
               id="preview-player"
               preload="auto"
               crossOrigin="anonymous"
-              className='video-js vjs-fluid'
+              className="video-js vjs-fluid"
             />
             <PlaylistWrapper> 
               <div className="vjs-playlist vjs-fluid" />

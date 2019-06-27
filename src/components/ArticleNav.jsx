@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import { joinUrls } from '../utils/url'
+import { joinUrls } from '../utils/url';
 
 const renderNavItems = (path, items) => (
   <ul>
@@ -13,7 +13,7 @@ const renderNavItems = (path, items) => (
           getProps={({ location }) => {
             return (location.hash === item.url) && (location.pathname === path)
               ? { className: 'active' }
-              : null
+              : null;
           }}
           to={`/${joinUrls(path, item.url)}`}
         >

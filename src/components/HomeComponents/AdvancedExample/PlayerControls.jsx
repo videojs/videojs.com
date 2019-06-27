@@ -13,7 +13,7 @@ class PlayerControls extends React.Component {
       controls: true,
       fluid: true,
       muted: false,
-      loop: false
+      loop: false,
     };
   }
 
@@ -23,17 +23,17 @@ class PlayerControls extends React.Component {
 
     player.on(events.concat('volumechange'), () => this.setState({
       volume: player.volume() * 100,
-      muted: player.muted()
+      muted: player.muted(),
     }));
 
     player.on(events.concat('ratechange'), () => this.setState({
-      playbackRate: player.playbackRate()
+      playbackRate: player.playbackRate(),
     }));
 
     player.on(events, () => this.setState({
       loop: player.loop(),
       fluid: player.fluid(),
-      controls: player.controls()
+      controls: player.controls(),
     }));
 
     player.on('controlsenabled', () => this.setState({ controls: true }));

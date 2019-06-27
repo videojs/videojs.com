@@ -3,7 +3,7 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-const path = require('path')
+const path = require('path');
 
 const createGettingStartedPage = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -24,10 +24,10 @@ const createGettingStartedPage = async ({ graphql, actions }) => {
     createPage({
       path: '/getting-started',
       component: path.resolve(path.join('src', 'templates', 'GettingStarted', 'index.jsx')),
-      context: { id: node.id }
-    })
+      context: { id: node.id },
+    });
   });
-}
+};
 
 exports.createPages = async (ctx) => {
   await createGettingStartedPage(ctx);

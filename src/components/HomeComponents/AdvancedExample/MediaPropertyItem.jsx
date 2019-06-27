@@ -14,9 +14,9 @@ const getter = (item, player) => {
     value = item.getter(player);
   } else {
     const prop = player[item.name];
-    value = typeof prop === 'function' ?
-      prop.call(player) :
-      prop;
+    value = typeof prop === 'function'
+      ? prop.call(player)
+      : prop;
   }
 
   return value;
