@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Hero from '../Hero';
-import Container from '../Container';
-import { H1, H2 } from '../Typography';
+import Hero from '../../components/Hero';
+import Container from '../../components/Container';
+import { H1, H2 } from '../../components/Typography';
 
 const GettingStartedHero = () => (
   <Hero themeName="fantasy">

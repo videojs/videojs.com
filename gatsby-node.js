@@ -23,7 +23,7 @@ const createGettingStartedPage = async ({ graphql, actions }) => {
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: '/getting-started',
-      component: path.resolve(path.join('src', 'templates', 'GettingStarted.jsx')),
+      component: path.resolve(path.join('src', 'templates', 'GettingStarted', 'index.jsx')),
       context: { id: node.id }
     })
   });

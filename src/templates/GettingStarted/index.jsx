@@ -3,12 +3,12 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/Layout';
-import SEO from '../components/SEO';
-import Container from '../components/Container';
-import GettingStartedHero from '../components/GettingStartedComponents/Hero';
-import ArticleNav from '../components/ArticleNav';
-import WithAutoLinkHeaders from '../components/WithAutoLinkHeaders';
+import Layout from '../../components/Layout';
+import SEO from '../../components/SEO';
+import Container from '../../components/Container';
+import ArticleNav from '../../components/ArticleNav';
+import WithAutoLinkHeaders from '../../components/WithAutoLinkHeaders';
+import GettingStartedHero from './GettingStartedHero';
 
 const MainContentWrapper = styled.div`
   display: flex;
