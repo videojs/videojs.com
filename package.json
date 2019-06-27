@@ -27,7 +27,11 @@
     "react-burger-menu": "^2.6.10",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "styled-components": "^4.2.0"
+    "styled-components": "^4.2.0",
+    "video.js": "^7.5.5",
+    "videojs-mux": "^2.5.0",
+    "videojs-playlist": "^4.3.1",
+    "videojs-playlist-ui": "^3.5.2"
   },
   "devDependencies": {
     "prettier": "^1.17.0"

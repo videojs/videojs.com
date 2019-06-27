@@ -11,6 +11,7 @@ import Features from '../components/HomeComponents/Features';
 import UsedBy from '../components/HomeComponents/UsedBy';
 import Sponsors from '../components/HomeComponents/Sponsors';
 import Implementation from '../components/HomeComponents/Implementation';
+import AdvancedExample from '../components/HomeComponents/AdvancedExample';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class IndexPage extends React.Component {
         </Hero>
         <Features />
         <UsedBy />
+        <AdvancedExample />
         <Sponsors />
         <Implementation />
 
