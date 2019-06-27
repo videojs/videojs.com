@@ -1,12 +1,19 @@
 import React from 'react';
 import shortid from 'shortid';
+import styled from 'styled-components';
 
-const MediaItems = ({ player, items, itemComponent: Item }) => (
-  <ul className="list">
+const Ul = styled.ul`
+  list-style-type: none; 
+  margin: 0;
+  padding: 0;
+`;
+
+const MediaItems = ({ className, player, items, itemComponent: Item }) => (
+  <Ul className={className}>
     {items.map((item) => (
       <Item key={shortid.generate()} item={item} player={player} />
     ))}
-  </ul>
+  </Ul>
 );
 
 export default MediaItems;

@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const timerangePropertyNames = [
   'buffered',
@@ -41,6 +42,28 @@ const urlMinifier = (val) => {
   return val.slice(0, start) + '(…)' + val.slice(-end);
 };
 
+const Li = styled.li`
+  background-color: #232323;
+  border: 2px solid #000;
+  border-top: none;
+  color: #fff;
+  font-size: 13px;
+  line-height: 3.85;
+  padding: 0 32px;
+
+  > span {
+    display: inline-block;
+
+    &:nth-child(1) {
+      width: 30%;
+    }
+
+    &:nth-child(2) {
+      width: 70%;
+    }
+  }
+`;
+
 class MediaPropertyItem extends React.Component {
   constructor (...args) {
     super(...args);
@@ -78,10 +101,10 @@ class MediaPropertyItem extends React.Component {
     const { value } = this.state;
 
     return (
-      <li className="list-item">
-        <span className="list-item-name">{item.name}</span>
-        <span className="list-item-value">{value}</span>
-      </li>
+      <Li>
+        <span>{item.name}</span>
+        <span>{value}</span>
+      </Li>
     );
   }
 }

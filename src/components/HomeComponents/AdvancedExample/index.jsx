@@ -11,6 +11,7 @@ import MediaPropertyItem from './MediaPropertyItem';
 import MediaEventItem from './MediaEventItem';
 import MediaProperties from './mediaProperties';
 import MediaEvents from './mediaEvents';
+import PlayerControls from './PlayerControls';
 import playlist from './playlist';
 import rectangles from '../../../images/footer-rectangles.svg';
 
@@ -20,13 +21,13 @@ import 'videojs-playlist-ui/dist/videojs-playlist-ui.css';
 const AdvancedExampleWrapper = styled.div`
   width: 100%;
   background-image: url(${rectangles});
-  background-repeat: no-repeat;
 `;
 
 const VideoWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 20px;
 `;
 
 const Video = styled.video`
@@ -50,6 +51,18 @@ const PlaylistWrapper = styled.div`
     margin: 0;
     height: 100%;
   }
+`;
+
+const MediaInfoWrapper = styled.div`
+  display: flex;
+`;
+
+const MediaPropertiesItems = styled(MediaItems)`
+  flex: 3 1 70%;
+`;
+
+const MediaEventsItems = styled(MediaItems)`
+  flex: 1 1 30%;
 `;
 
 class AdvancedExample extends React.Component {
@@ -94,6 +107,9 @@ class AdvancedExample extends React.Component {
     return (
       <AdvancedExampleWrapper>
         <Container>
+          {this.state.isPlayerInitialized && (
+            <PlayerControls player={this.player} />
+          )}
           <VideoWrapper>
             <Video
               ref={(el) => { this.videoEl = el }}
@@ -108,18 +124,18 @@ class AdvancedExample extends React.Component {
             </PlaylistWrapper>
           </VideoWrapper>
           {this.state.isPlayerInitialized && (
-            <>
-              <MediaItems
+            <MediaInfoWrapper>
+              <MediaPropertiesItems
                 player={this.player}
                 items={MediaProperties}
                 itemComponent={MediaPropertyItem}
               />
-              <MediaItems
+              <MediaEventsItems
                 player={this.player}
                 items={MediaEvents}
                 itemComponent={MediaEventItem}
               />
-            </>
+            </MediaInfoWrapper>
           )}
         </Container>
       </AdvancedExampleWrapper>
