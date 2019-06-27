@@ -4,4 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-require('prismjs/themes/prism.css')
+require('prismjs/themes/prism.css');

@@ -27,7 +27,7 @@ export default [{
     {
       src: '//vjs.zencdn.net/v/oceans.png'
     }
-  ]
+  ],
 }, {
   name: 'Sintel',
   description: 'The film follows a girl named Sintel who is searching for a baby dragon she calls Scales.',
@@ -47,7 +47,7 @@ export default [{
     {
       src: '//d2zihajmogu5jn.cloudfront.net/sintel/poster.png'
     }
-  ]
+  ],
 }, {
   name: 'Advanced Bip Bop',
   description: "Apple's test HLS stream",
@@ -69,7 +69,7 @@ export default [{
       src: '//d2zihajmogu5jn.cloudfront.net/bipbop-advanced/poster.png'
     }
   ],
-  duration: 1800
+  duration: 1800,
 }, {
   name: "Elephant's Dream (HLS with captions, audio description and chapters)",
   description: 'The film features two men, Proog, who is older and more experienced, and Emo, who is young and nervous, living in a miraculous construction referred to only as "The Machine".',
@@ -96,7 +96,7 @@ export default [{
     {
       src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/poster.png'
     }
-  ]
+  ],
 }, {
   name: "Elephant's Dream (mp4 with separate text track audio description, captions, and chapters)",
   description: 'The film features two men, Proog, who is older and more experienced, and Emo, who is young and nervous, living in a miraculous construction referred to only as "The Machine".',
@@ -148,7 +148,7 @@ export default [{
       kind: 'chapters',
       srclang: 'en',
       label: 'English'
-    }
+    },
   ],
   poster: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/poster.png',
   thumbnail: [
@@ -159,8 +159,8 @@ export default [{
     },
     {
       src: '//d2zihajmogu5jn.cloudfront.net/elephantsdream/poster.png'
-    }
-  ]
+    },
+  ],
 }, {
   name: 'Tears of Steel',
   id: 'tears-of-steel',
@@ -178,8 +178,8 @@ export default [{
     },
     {
       src: '//d2zihajmogu5jn.cloudfront.net/tears-of-steel/tears_of_steel.jpg'
-    }
-  ]
+    },
+  ],
 }, {
   name: 'Big Buck Bunny',
   description: 'The plot follows a day of the life of Big Buck Bunny when he meets three bullying rodents, Frank (the leader of the rodents), Rinky and Gimera.',
@@ -198,6 +198,6 @@ export default [{
     },
     {
       src: '//d2zihajmogu5jn.cloudfront.net/big-buck-bunny/bbb.png'
-    }
-  ]
+    },
+  ],
 }];

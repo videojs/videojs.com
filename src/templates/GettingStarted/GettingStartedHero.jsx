@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import Hero from '../../components/Hero';
 import Container from '../../components/Container';
@@ -14,6 +14,6 @@ const GettingStartedHero = () => (
       </H2>
     </Container>
   </Hero>
-)
+);
 
-export default GettingStartedHero
+export default GettingStartedHero;
