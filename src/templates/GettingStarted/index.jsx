@@ -27,38 +27,45 @@ const MainContentWrapper = styled.div`
 `;
 
 const StyledArticleNav = styled(ArticleNav)`
-  width: 25%;
-  padding-right: 40px;
+  width: 24%;
+  padding-right: 2.5em;
 
-  ${media.medLarge`
-    padding-right: 140px;
-  `}
+  > ul {
+    margin-left: -3.5em;
+
+    ${media.medLarge`
+      margin-left: -6.25em;
+    `}
+  }
 
   ul {
     list-style-type: none;
-    margin: 0;
     padding: 0;
 
     ul {
-      padding-left: 25px;
+      li:last-child {
+        margin-bottom: 1.3em;
+      }
 
       a {
         color: #6b6b6b;
         font-weight: normal;
-        padding: 0;
-
-        &.active {
-          background: none;
-          color: #d291e2;
-        }
+        padding: 0.4em 0.625em 0.4em 5.375em;
+        margin: 0;
       }
     }
 
     a {
-      display:inline-block;
+      display: inline-block;
       color: #000;
       font-weight: bold;
-      padding: 10px;
+      line-height: 1;
+      padding: 0.875em 1em 0.875em 3.5em;
+      margin-bottom: 0.3em;
+
+      &:hover {
+        color: #a043b6;
+      }
 
       &.active {
         background: #f3e5f7;
@@ -69,7 +76,7 @@ const StyledArticleNav = styled(ArticleNav)`
 `;
 
 const ArticleWrapper = styled.div`
-  width: 75%;
+  width: 76%;
 
   h2, h3 {
     font-size: 28px;
