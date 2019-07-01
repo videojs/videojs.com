@@ -1,18 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Li = styled.li`
-  background-color: #232323;
-  border: 2px solid #000;
-  border-top: none;
-  color: #fff;
-  font-size: 13px;
-  line-height: 3.85;
-  padding: 0 32px;
+import MediaItem from './MediaItem';
+
+const StyledMediaItem = styled(MediaItem)`
+  border-right: none;
 
   > span {
-    display: inline-block;
-
     &:nth-child(1) {
       width: 80%;
     }
@@ -43,10 +37,10 @@ class MediaEventItem extends React.Component {
     const { calls } = this.state;
 
     return (
-      <Li>
+      <StyledMediaItem>
         <span>{item}</span>
         <span>{calls}</span>
-      </Li>
+      </StyledMediaItem>
     );
   }
 }

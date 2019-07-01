@@ -27,7 +27,7 @@ const VideoWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
 `;
 
 const Video = styled.video`

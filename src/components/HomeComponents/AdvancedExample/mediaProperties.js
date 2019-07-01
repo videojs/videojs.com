@@ -91,7 +91,6 @@ const MediaProperties = [
     name: "height",
     updater: "resize",
   }, {
-  }, {
     name: "currentWidth",
     updater: "resize",
   }, {
