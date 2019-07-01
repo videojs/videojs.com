@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import MediaItem from './MediaItem';
+
 const timerangePropertyNames = [
   'buffered',
   'seekable',
@@ -42,24 +44,14 @@ const urlMinifier = (val) => {
   return val.slice(0, start) + '(…)' + val.slice(-end);
 };
 
-const Li = styled.li`
-  background-color: #232323;
-  border: 2px solid #000;
-  border-top: none;
-  color: #fff;
-  font-size: 13px;
-  line-height: 3.85;
-  padding: 0 32px;
-
+const StyledMediaItem = styled(MediaItem)`
   > span {
-    display: inline-block;
-
     &:nth-child(1) {
-      width: 30%;
+      width: 26%;
     }
 
     &:nth-child(2) {
-      width: 70%;
+      width: 74%;
     }
   }
 `;
@@ -101,10 +93,10 @@ class MediaPropertyItem extends React.Component {
     const { value } = this.state;
 
     return (
-      <Li>
+      <StyledMediaItem>
         <span>{item.name}</span>
         <span>{value}</span>
-      </Li>
+      </StyledMediaItem>
     );
   }
 }

@@ -14,7 +14,16 @@ import { theme } from '../utils/styles';
 import Header from './Header';
 import './normalize.css';
 
+import ocrExtendedFont from '../../static/fonts/OCRAEXT.woff'
+
 const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'OCR A Extended';
+    font-style: normal;
+    font-weight: normal;
+    src: local('OCR A Extended'), url(${ocrExtendedFont}) format('woff');
+  }
+
   html{
     font-family: ${props => props.theme.defaultSerif};
     font-size: 100%;
