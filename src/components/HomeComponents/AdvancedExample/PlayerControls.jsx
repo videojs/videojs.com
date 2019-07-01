@@ -1,5 +1,14 @@
 import React from 'react';
 import shortid from 'shortid';
+import styled, { css } from 'styled-components';
+
+import Checkbox from '../../Checkbox';
+
+const Form = styled.form`
+  background-color: #fff;
+  position: absolute;
+  z-index: 1;
+`;
 
 const buildInputId = (name, id) => `${name}_${id}`; 
 
@@ -52,10 +61,11 @@ class PlayerControls extends React.Component {
     this.props.player.playbackRate(playbackRate);
   }
 
-  handleControlsChange = (e) => {
-    const controls = e.target.checked;
-    this.setState({ controls });
-    this.props.player.controls(controls);
+  handleControlsChange = () => {
+    this.setState((prevState) => {
+      this.props.player.controls(!prevState.controls);
+      return { controls: !prevState.controls };
+    });
   }
 
   handleFluidChange = (e) => {
@@ -92,55 +102,45 @@ class PlayerControls extends React.Component {
     const loopInputId = buildInputId('loop', id);
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <fieldset>
+      <Form onSubmit={this.handleSubmit}>
+        <Checkbox checked={this.state.controls} onCheck={this.handleControlsChange} label="Controls" />
+
           <label htmlFor={volumeInputId}>Volume</label>
           <span>{this.state.volume}</span>
           <input id={volumeInputId} type="range"
                  min="0" max="100" step="1" value={this.state.volume}
                  onChange={this.handleVolumeChange} />
-        </fieldset>
 
-        <fieldset>
           <label htmlFor={playbackRateInputId}>Playback Rate</label>
           <span>{this.state.playbackRate}</span>
           <input id={playbackRateInputId} type="range"
                  min="0" max="3" step="0.25" value={this.state.playbackRate}
                  onChange={this.handlePlaybackRateChange} />
-        </fieldset>
 
-        <fieldset>
           <label htmlFor={controlsInputId}>
             <input id={controlsInputId} type="checkbox" checked={this.state.controls}
                    onChange={this.handleControlsChange} />
             Controls
           </label>
-        </fieldset>
 
-        <fieldset>
           <label htmlFor={fluidInputId}>
             <input id={fluidInputId} type="checkbox" checked={this.state.fluid}
                    onChange={this.handleFluidChange} />
             Fluid
           </label>
-        </fieldset>
 
-        <fieldset>
           <label htmlFor={mutedInputId}>
             <input id={mutedInputId} type="checkbox" checked={this.state.muted}
                    onChange={this.handleMuteChange} />
             Mute
           </label>
-        </fieldset>
 
-        <fieldset>
           <label htmlFor={loopInputId}>
             <input id={loopInputId} type="checkbox" checked={this.state.loop}
                    onChange={this.handleLoopChange} />
             Loop
           </label>
-        </fieldset>
-      </form>
+      </Form>
     );
   }
 }
