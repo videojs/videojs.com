@@ -3,33 +3,37 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
-import { media } from '../../utils/styles';
 import Layout from '../../components/Layout';
 import SEO from '../../components/SEO';
 import Container from '../../components/Container';
 import ArticleNav from '../../components/ArticleNav';
 import WithAutoLinkHeaders from '../../components/WithAutoLinkHeaders';
 import GettingStartedHero from './GettingStartedHero';
+import { media } from '../../utils/styles';
 
-const ContainerStyled = styled(Container)`
+const StyledContainer = styled(Container)`
   width: 100%;
   padding: 2em;
+
   ${media.medLarge`
     padding: 6em;
   `}
 `
+
 const MainContentWrapper = styled.div`
   display: flex;
-  margin-top: 100px;
+  margin-top: 2em;
   width: 100%;
 `;
 
 const StyledArticleNav = styled(ArticleNav)`
   width: 25%;
   padding-right: 40px;
+
   ${media.medLarge`
     padding-right: 140px;
   `}
+
   ul {
     list-style-type: none;
     margin: 0;
@@ -67,27 +71,24 @@ const StyledArticleNav = styled(ArticleNav)`
 const ArticleWrapper = styled.div`
   width: 75%;
 
-  h2, h3, p, pre {
-    margin-bottom: 20px;
+  h2, h3 {
+    font-size: 28px;
+    margin-bottom: 0.4em;
   }
   
   p {
     color: #424242;
-    font-size: 16px;
-    line-height: 1.78;
     font-size: 18px;
-    color: #424242;
-    margin-bottom: 68px;
+    line-height: 1.78;
+    margin-bottom: 2.8em;
   }
 
-  h2 {
-    margin-bottom: 24px;
-    font-size: 28px;
+  a {
+    color: #a043b6;
   }
 
   .gatsby-highlight {
-    margin-top: 13px;
-    margin-bottom: 68px;
+    margin-bottom: 3.5em;
   }
 `;
 
@@ -97,7 +98,7 @@ const GettingStartedPageTemplate = ({ data: { mdx }, location }) => (
       title="Getting Started with Video.js - Video.js: The Player Framework"
     />
     <GettingStartedHero />
-    <ContainerStyled>
+    <StyledContainer>
       <MainContentWrapper>
         <StyledArticleNav
           path={location.pathname}
@@ -109,7 +110,7 @@ const GettingStartedPageTemplate = ({ data: { mdx }, location }) => (
           </WithAutoLinkHeaders>
         </ArticleWrapper> 
       </MainContentWrapper>
-    </ContainerStyled>
+    </StyledContainer>
   </Layout>
 );
 

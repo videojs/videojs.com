@@ -7,6 +7,7 @@ const HeadingBase = css`
 
 export const H1 = styled.h1`
   ${props => HeadingBase}
+  font-weight: 500;
 `;
 
 export const H2 = styled.h2`
