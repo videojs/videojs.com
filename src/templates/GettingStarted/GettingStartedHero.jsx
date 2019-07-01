@@ -1,11 +1,12 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Hero from '../../components/Hero';
 import Container from '../../components/Container';
 import { H1, H2 } from '../../components/Typography';
-import styled from 'styled-components';
+import { media } from '../../utils/styles';
 
-const H2Styled = styled(H2)`
+const StyledH2 = styled(H2)`
   letter-spacing: -0.24px;
   font-size: 24px;
   line-height: 1.5;
@@ -13,16 +14,27 @@ const H2Styled = styled(H2)`
   margin: 0 auto;
 `
 
+const StyledHero = styled(Hero)`
+  background-position: center -425px;
+
+  ${Container} {
+    ${media.xlLarge`
+      padding-top: 10em;
+      padding-bottom: 10em;
+    `}
+  }
+`;
+
 const GettingStartedHero = () => (
-  <Hero themeName="fantasy">
+  <StyledHero themeName="fantasy">
     <Container>
       <H1>Getting Started</H1>
-      <H2Styled>
+      <StyledH2>
         An overview of how to get started using Video.js, from basic CDN
         usage to Browserify, along with examples.
-      </H2Styled>
+      </StyledH2>
     </Container>
-  </Hero>
+  </StyledHero>
 );
 
 export default GettingStartedHero;
