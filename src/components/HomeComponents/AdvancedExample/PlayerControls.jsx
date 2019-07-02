@@ -1,17 +1,31 @@
 import React from 'react';
-import shortid from 'shortid';
 import styled from 'styled-components';
 
 import CheckboxInput from '../../CheckboxInput';
 import RangeInput from '../../RangeInput';
+import { media } from '../../../utils/styles';
 
 const Form = styled.form`
   background-color: #fff;
+  border: 2px solid #ebebeb;
   position: absolute;
+  top: 0;
+  left: 0;
+  height: 14.57em;
+  width: 19.94em;
+  padding: 1.5em;
   z-index: 1;
+
+  ${media.wide`
+    top: -1em;
+    left: -4.57em;
+  `}
 `;
 
-const buildInputId = (name, id) => `${name}_${id}`; 
+const CheckboxGroup = styled.span`
+  display: inline-block;
+  margin-right: 2em;
+`;
 
 class PlayerControls extends React.Component {
   constructor (...args) {
@@ -56,10 +70,10 @@ class PlayerControls extends React.Component {
     });
   }
 
-  handlePlaybackRateChange = (e) => {
-    const playbackRate = e.target.value;
-    this.setState({ playbackRate });
-    this.props.player.playbackRate(playbackRate);
+  handlePlaybackRateChange = (playbackRate) => {
+    this.setState({ playbackRate }, () => {
+      this.props.player.playbackRate(playbackRate);
+    });
   }
 
   handleControlsChange = () => {
@@ -69,22 +83,25 @@ class PlayerControls extends React.Component {
     );
   }
 
-  handleFluidChange = (e) => {
-    const fluid = e.target.checked;
-    this.setState({ fluid });
-    this.props.player.fluid(fluid);
+  handleFluidChange = () => {
+    this.setState(
+      prevState => ({ fluid: !prevState.fluid }),
+      () => this.props.player.fluid(this.state.fluid),
+    );
   }
 
-  handleMuteChange = (e) => {
-    const muted = e.target.checked;
-    this.setState({muted});
-    this.props.player.muted(muted);
+  handleMuteChange = () => {
+    this.setState(
+      prevState => ({ muted: !prevState.muted }),
+      () => this.props.player.muted(this.state.muted),
+    );
   }
 
-  handleLoopChange = (e) => {
-    const loop = e.target.checked;
-    this.setState({ loop });
-    this.props.player.loop(loop);
+  handleLoopChange = () => {
+    this.setState(
+      prevState => ({ loop: !prevState.loop }),
+      () => this.props.player.loop(this.state.loop),
+    );
   }
 
   handleSubmit = (e) => {
@@ -94,63 +111,53 @@ class PlayerControls extends React.Component {
   }
 
   render () {
-    const id = shortid.generate();
-    const volumeInputId = buildInputId('volume', id);
-    const playbackRateInputId = buildInputId('playbackrate', id);
-    const controlsInputId = buildInputId('controls', id);
-    const fluidInputId = buildInputId('fluid', id);
-    const mutedInputId = buildInputId('muted', id);
-    const loopInputId = buildInputId('loop', id);
-
     return (
       <Form onSubmit={this.handleSubmit}>
-        <CheckboxInput
-          label="Controls"
-          checked={this.state.controls}
-          onChange={this.handleControlsChange}
-        />
-
         <RangeInput
           label="Volume"
+          min={0}
+          max={100}
+          step={1}
           value={this.state.volume}
           onChange={this.handleVolumeChange}
         />
 
-          <label htmlFor={volumeInputId}>Volume</label>
-          <span>{this.state.volume}</span>
-          <input id={volumeInputId} type="range"
-                 min="0" max="100" step="1" value={this.state.volume}
-                 onChange={this.handleVolumeChange} />
+        <RangeInput
+          label="Playback Rate"
+          min={0}
+          max={3}
+          step={0.25}
+          value={this.state.playbackRate}
+          onChange={this.handlePlaybackRateChange}
+        />
 
-          <label htmlFor={playbackRateInputId}>Playback Rate</label>
-          <span>{this.state.playbackRate}</span>
-          <input id={playbackRateInputId} type="range"
-                 min="0" max="3" step="0.25" value={this.state.playbackRate}
-                 onChange={this.handlePlaybackRateChange} />
+        <CheckboxGroup>
+          <CheckboxInput
+            label="Controls"
+            checked={this.state.controls}
+            onChange={this.handleControlsChange}
+          />
 
-          <label htmlFor={controlsInputId}>
-            <input id={controlsInputId} type="checkbox" checked={this.state.controls}
-                   onChange={this.handleControlsChange} />
-            Controls
-          </label>
+          <CheckboxInput
+            label="Fluid"
+            checked={this.state.fluid}
+            onChange={this.handleFluidChange}
+          />
+        </CheckboxGroup>
 
-          <label htmlFor={fluidInputId}>
-            <input id={fluidInputId} type="checkbox" checked={this.state.fluid}
-                   onChange={this.handleFluidChange} />
-            Fluid
-          </label>
+        <CheckboxGroup>
+          <CheckboxInput
+            label="Mute"
+            checked={this.state.muted}
+            onChange={this.handleMuteChange}
+          />
 
-          <label htmlFor={mutedInputId}>
-            <input id={mutedInputId} type="checkbox" checked={this.state.muted}
-                   onChange={this.handleMuteChange} />
-            Mute
-          </label>
-
-          <label htmlFor={loopInputId}>
-            <input id={loopInputId} type="checkbox" checked={this.state.loop}
-                   onChange={this.handleLoopChange} />
-            Loop
-          </label>
+          <CheckboxInput
+            label="Loop"
+            checked={this.state.loop}
+            onChange={this.handleLoopChange}
+          />
+        </CheckboxGroup>
       </Form>
     );
   }

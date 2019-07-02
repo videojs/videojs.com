@@ -5,6 +5,7 @@ import TickIcon from './TickIcon';
 
 const Wrapper = styled.div`
   position: relative;  
+  margin-bottom: 0.5em;
 `;
 
 const Input = styled.input`
