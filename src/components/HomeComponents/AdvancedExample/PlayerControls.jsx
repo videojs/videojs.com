@@ -50,10 +50,10 @@ class PlayerControls extends React.Component {
     player.on('controlsdisabled', () => this.setState({ controls: false }));
   }
 
-  handleVolumeChange = (e) => {
-    const volume = e.target.value;
-    this.setState({ volume });
-    this.props.player.volume(volume / 100);
+  handleVolumeChange = (volume) => {
+    this.setState({ volume }, () => {
+      this.props.player.volume(volume / 100);
+    });
   }
 
   handlePlaybackRateChange = (e) => {
