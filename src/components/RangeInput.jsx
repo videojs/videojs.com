@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Slider from 'react-input-slider';
 
 const Labels = styled.div`
   display: flex;
@@ -9,45 +10,32 @@ const Labels = styled.div`
   margin-bottom: 0.7em;
 `;
 
-const Input = styled.input`
-  -webkit-appearance: none;
-  display: block;
-  width: 100%;
+const sliderStyles = {
+  track: {
+    backgroundColor: '#ededed',
+    width: '100%',
+  },
+  active: {
+    backgroundColor: '#4677ba',
+  },
+  thumb: {
+    width: 20,
+    height: 20,
+  },
+};
 
-  &:focus {
-    outline: none;
-  }
-
-  &::-webkit-slider-runnable-track {
-    width: 100%;
-    heigth: 0.625em;
-    cursor: pointer;
-    background: #3071a9;
-    border-radius: 0.3125em;
-  }
-
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    cursor: poiner;
-    background: #fff;
-    border-radius: 6px;
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-  }
-
-  &:focus::-webkit-slider-runnable-track {
-    background: #367ebd;
-  }
-`;
-
-const Range = ({ className, label, value, ...props }) => (
+const Range = ({ className, label, value, onChange, ...props }) => (
   <div className={className}>
     <Labels>
       <span>{label}</span>
       <span>{value}</span>
     </Labels>
-    <Input type="range" value={value} {...props} />
+    <Slider
+      axis="x"
+      x={value}
+      styles={sliderStyles}
+      onChange={({ x }) => onChange(x)}
+    />
   </div>
 );
 
