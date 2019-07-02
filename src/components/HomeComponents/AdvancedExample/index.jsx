@@ -6,6 +6,7 @@ import 'videojs-playlist-ui';
 import 'videojs-mux';
 
 import Container from '../../Container';
+import SectionHeader from '../../SectionHeader';
 import MediaItems from './MediaItems';
 import MediaPropertyItem from './MediaPropertyItem';
 import MediaEventItem from './MediaEventItem';
@@ -14,13 +15,64 @@ import MediaEvents from './mediaEvents';
 import PlayerControls from './PlayerControls';
 import playlist from './playlist';
 import rectangles from '../../../images/footer-rectangles.svg';
+import { media } from '../../../utils/styles';
 
 import 'video.js/dist/video-js.css';
 import 'videojs-playlist-ui/dist/videojs-playlist-ui.css';
 
+const Description = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+`;
+
+const TestItOutWrapper = styled.div`
+  position: relative;
+  flex-basis: 67%;
+  display: flex;
+  align-items: flex-end;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  p {
+    position: absolute;
+    left: 0;
+
+    ${media.medLarge`
+      left: -2.6em;
+    `}
+
+    ${media.wide`
+      left: -8.2em;
+    `}
+  }
+`;
+
+const SectionHeaderWrapper = styled.div`
+  flex-basis: 33%;
+`;
+
+const P = styled.p`
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2.14;
+  opacity: 0.6;
+  margin-bottom: 1em;
+`;
+
 const Wrapper = styled.div`
   width: 100%;
   background-image: url(${rectangles});
+`;
+
+const StyledContainer = styled(Container)`
+  ${media.medLarge`
+    padding-top: 0;
+    padding-bottom: 0;
+  `}
 `;
 
 const ControlsWrapper = styled.div`
@@ -128,11 +180,11 @@ const MediaInfoWrapper = styled.div`
 `;
 
 const MediaPropertiesItems = styled(MediaItems)`
-  flex: 3 1 70%;
+  flex: 3 1 75%;
 `;
 
 const MediaEventsItems = styled(MediaItems)`
-  flex: 1 1 30%;
+  flex: 1 1 25%;
 `;
 
 class AdvancedExample extends React.Component {
@@ -175,42 +227,55 @@ class AdvancedExample extends React.Component {
 
   render () {
     return (
-      <Wrapper>
+      <div>
         <Container>
-          <ControlsWrapper>
-            {this.state.isPlayerInitialized && (
-              <PlayerControls player={this.player} />
-            )}
-            <PlayerWrapper>
-              <Video
-                ref={(el) => { this.videoEl = el }}
-                controls
-                id="preview-player"
-                preload="auto"
-                crossOrigin="anonymous"
-                className="video-js vjs-fluid"
-              />
-              <PlaylistWrapper>
-                <div className="vjs-playlist vjs-fluid" />
-              </PlaylistWrapper>
-            </PlayerWrapper>
-          </ControlsWrapper>
-          {this.state.isPlayerInitialized && (
-            <MediaInfoWrapper>
-              <MediaPropertiesItems
-                player={this.player}
-                items={MediaProperties}
-                itemComponent={MediaPropertyItem}
-              />
-              <MediaEventsItems
-                player={this.player}
-                items={MediaEvents}
-                itemComponent={MediaEventItem}
-              />
-            </MediaInfoWrapper>
-          )}
+          <Description>
+            <TestItOutWrapper><p>test it out</p></TestItOutWrapper>
+            <SectionHeaderWrapper>
+              <SectionHeader left title="Example" tagline="Playlist plugin" />
+              <P>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </P>
+            </SectionHeaderWrapper>
+          </Description>
         </Container>
-      </Wrapper>
+        <Wrapper>
+          <StyledContainer>
+            <ControlsWrapper>
+              {this.state.isPlayerInitialized && (
+                <PlayerControls player={this.player} />
+              )}
+              <PlayerWrapper>
+                <Video
+                  ref={(el) => { this.videoEl = el }}
+                  controls
+                  id="preview-player"
+                  preload="auto"
+                  crossOrigin="anonymous"
+                  className="video-js vjs-fluid"
+                />
+                <PlaylistWrapper>
+                  <div className="vjs-playlist vjs-fluid" />
+                </PlaylistWrapper>
+              </PlayerWrapper>
+            </ControlsWrapper>
+            {this.state.isPlayerInitialized && (
+              <MediaInfoWrapper>
+                <MediaPropertiesItems
+                  player={this.player}
+                  items={MediaProperties}
+                  itemComponent={MediaPropertyItem}
+                />
+                <MediaEventsItems
+                  player={this.player}
+                  items={MediaEvents}
+                  itemComponent={MediaEventItem}
+                />
+              </MediaInfoWrapper>
+            )}
+          </StyledContainer>
+        </Wrapper>
+      </div>
     );
   }
 }

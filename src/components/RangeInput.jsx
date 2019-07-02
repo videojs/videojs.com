@@ -18,13 +18,16 @@ const sliderStyles = {
   track: {
     backgroundColor: '#ededed',
     width: '100%',
+    cursor: 'pointer',
   },
   active: {
     backgroundColor: '#4677ba',
+    cursor: 'pointer',
   },
   thumb: {
     width: 20,
     height: 20,
+    cursor: 'pointer',
   },
 };
 
