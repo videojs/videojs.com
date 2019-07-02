@@ -45,8 +45,8 @@ const Video = styled.video`
 const PlaylistWrapper = styled.div`
   flex: 1 1 30%;
   position: relative;
-
-  .vjs-playlist {
+.vjs-playlist {
+    background: transparent;
     position: absolute;
     top: 0;
     right: 0;
@@ -54,6 +54,53 @@ const PlaylistWrapper = styled.div`
     left: 0;
     margin: 0;
     height: 100%;
+
+    .vjs-playlist-item {
+      padding-left: 1em;
+
+      &:not(:first-child) {
+        padding-top: 1em;
+      }
+
+      &.vjs-selected {
+        background: transparent;
+
+        img {
+          opacity: 1;
+        }
+
+        .vjs-playlist-now-playing-text {
+          background-color: #000;
+          border-radius: 0.5em;
+          color: #fff;
+          font-size: 13px;
+          font-weight: bold;
+          left: 1.5em;
+          padding: 0.2em 0.8em;
+        }
+      }
+
+      .vjs-up-next-text,
+      .vjs-playlist-name {
+        font-size: 13px;
+        font-weight: bold;
+      }
+
+      .vjs-up-next-text {
+        text-transform: none;
+      }
+
+      .vjs-playlist-duration {
+        top: 2.3em;
+        left: 2.3em;
+        background-color: #fff;
+        border-radius: 0.5em;
+        color: #000;
+        font-size: 13px;
+        font-weight: bold;
+        padding: 0.2em 0.8em;
+      }
+    }
   }
 `;
 
