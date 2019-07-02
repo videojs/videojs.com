@@ -10,11 +10,12 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-import { theme } from '../utils/styles';
 import Header from './Header';
-import './normalize.css';
+import Footer from './Footer';
+import { theme } from '../utils/styles';
 
 import ocrExtendedFont from '../../static/fonts/OCRAEXT.woff'
+import './normalize.css';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -148,11 +149,7 @@ const Layout = ({ children, themeName }) => (
           <GlobalStyles />
           <Header siteTitle={data.site.siteMetadata.title} />
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+          <Footer />
         </>
       </ThemeProvider>
     )}
