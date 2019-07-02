@@ -16,9 +16,14 @@ const Form = styled.form`
   padding: 1.5em;
   z-index: 1;
 
+  ${media.medLarge`
+    top: -2em;
+    left: -2em;
+  `}
+
   ${media.wide`
-    top: -1em;
-    left: -4.57em;
+    top: -3.4em;
+    left: -6.2em;
   `}
 `;
 
