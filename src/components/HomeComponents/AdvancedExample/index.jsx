@@ -35,7 +35,7 @@ const PlayerWrapper = styled.div`
 `;
 
 const Video = styled.video`
-  flex: 3 1 70%;
+  flex: 3 1 75%;
   min-width: 300px;
   min-height: 150px;
   height: 0;
@@ -43,9 +43,10 @@ const Video = styled.video`
 `;
 
 const PlaylistWrapper = styled.div`
-  flex: 1 1 30%;
+  flex: 1 1 25%;
   position: relative;
-.vjs-playlist {
+
+  .vjs-playlist {
     background: transparent;
     position: absolute;
     top: 0;
@@ -56,10 +57,12 @@ const PlaylistWrapper = styled.div`
     height: 100%;
 
     .vjs-playlist-item {
-      padding-left: 1em;
+      margin-left: 1em;
+      height: 9em;
+      outline: none;
 
       &:not(:first-child) {
-        padding-top: 1em;
+        margin-top: 1em;
       }
 
       &.vjs-selected {
@@ -75,15 +78,22 @@ const PlaylistWrapper = styled.div`
           color: #fff;
           font-size: 13px;
           font-weight: bold;
+          top: 1em;
           left: 1.5em;
+          margin: 0;
           padding: 0.2em 0.8em;
         }
+      }
+
+      .vjs-playlist-title-container {
+        padding: 1em 1.2em;
       }
 
       .vjs-up-next-text,
       .vjs-playlist-name {
         font-size: 13px;
         font-weight: bold;
+        padding: 0;
       }
 
       .vjs-up-next-text {
@@ -91,14 +101,23 @@ const PlaylistWrapper = styled.div`
       }
 
       .vjs-playlist-duration {
-        top: 2.3em;
-        left: 2.3em;
+        top: 1em;
+        left: 1.5em;
         background-color: #fff;
         border-radius: 0.5em;
         color: #000;
         font-size: 13px;
         font-weight: bold;
         padding: 0.2em 0.8em;
+      }
+
+      picture {
+        height: 100%;
+      }
+
+      img {
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
