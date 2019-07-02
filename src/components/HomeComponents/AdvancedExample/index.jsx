@@ -18,12 +18,16 @@ import rectangles from '../../../images/footer-rectangles.svg';
 import 'video.js/dist/video-js.css';
 import 'videojs-playlist-ui/dist/videojs-playlist-ui.css';
 
-const AdvancedExampleWrapper = styled.div`
+const Wrapper = styled.div`
   width: 100%;
   background-image: url(${rectangles});
 `;
 
-const VideoWrapper = styled.div`
+const ControlsWrapper = styled.div`
+  position: relative;
+`;
+
+const PlayerWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -105,24 +109,26 @@ class AdvancedExample extends React.Component {
 
   render () {
     return (
-      <AdvancedExampleWrapper>
+      <Wrapper>
         <Container>
-          {this.state.isPlayerInitialized && (
-            <PlayerControls player={this.player} />
-          )}
-          <VideoWrapper>
-            <Video
-              ref={(el) => { this.videoEl = el }}
-              controls
-              id="preview-player"
-              preload="auto"
-              crossOrigin="anonymous"
-              className="video-js vjs-fluid"
-            />
-            <PlaylistWrapper> 
-              <div className="vjs-playlist vjs-fluid" />
-            </PlaylistWrapper>
-          </VideoWrapper>
+          <ControlsWrapper>
+            {this.state.isPlayerInitialized && (
+              <PlayerControls player={this.player} />
+            )}
+            <PlayerWrapper>
+              <Video
+                ref={(el) => { this.videoEl = el }}
+                controls
+                id="preview-player"
+                preload="auto"
+                crossOrigin="anonymous"
+                className="video-js vjs-fluid"
+              />
+              <PlaylistWrapper>
+                <div className="vjs-playlist vjs-fluid" />
+              </PlaylistWrapper>
+            </PlayerWrapper>
+          </ControlsWrapper>
           {this.state.isPlayerInitialized && (
             <MediaInfoWrapper>
               <MediaPropertiesItems
@@ -138,7 +144,7 @@ class AdvancedExample extends React.Component {
             </MediaInfoWrapper>
           )}
         </Container>
-      </AdvancedExampleWrapper>
+      </Wrapper>
     );
   }
 }
