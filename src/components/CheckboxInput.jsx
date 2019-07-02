@@ -48,13 +48,13 @@ const Label = styled.label`
   user-select: none;
 `;
 
-const Checkbox = ({ label, checked, onCheck }) => (
+const Checkbox = ({ label, checked, onChange }) => (
   <Wrapper>
-    <Input />
-    <Box checked={checked} onClick={onCheck}>
+    <Input readOnly value={checked} />
+    <Box checked={checked} onClick={onChange}>
       {checked && <StyledTickIcon />}
     </Box>
-    <Label>{label}</Label>
+    {label && <Label>{label}</Label>}
   </Wrapper>
 );
 
