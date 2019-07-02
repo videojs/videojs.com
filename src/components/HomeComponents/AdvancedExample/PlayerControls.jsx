@@ -1,8 +1,9 @@
 import React from 'react';
 import shortid from 'shortid';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import Checkbox from '../../Checkbox';
+import CheckboxInput from '../../CheckboxInput';
+import RangeInput from '../../RangeInput';
 
 const Form = styled.form`
   background-color: #fff;
@@ -62,10 +63,10 @@ class PlayerControls extends React.Component {
   }
 
   handleControlsChange = () => {
-    this.setState((prevState) => {
-      this.props.player.controls(!prevState.controls);
-      return { controls: !prevState.controls };
-    });
+    this.setState(
+      prevState => ({ controls: !prevState.controls }),
+      () => this.props.player.controls(this.state.controls),
+    );
   }
 
   handleFluidChange = (e) => {
@@ -103,7 +104,17 @@ class PlayerControls extends React.Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Checkbox checked={this.state.controls} onCheck={this.handleControlsChange} label="Controls" />
+        <CheckboxInput
+          label="Controls"
+          checked={this.state.controls}
+          onChange={this.handleControlsChange}
+        />
+
+        <RangeInput
+          label="Volume"
+          value={this.state.volume}
+          onChange={this.handleVolumeChange}
+        />
 
           <label htmlFor={volumeInputId}>Volume</label>
           <span>{this.state.volume}</span>
