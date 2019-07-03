@@ -29,6 +29,43 @@ const createGettingStartedPage = async ({ graphql, actions }) => {
   });
 };
 
+const createBlogPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    {
+      allMdx (
+        filter: { fileAbsolutePath: { regex: "/blog/" } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+  `);
+
+  const articles = result.data.allMdx.edges;
+  const articlesPerPage = 10;
+  const numPages = Math.ceil(articles.length / articlesPerPage);
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? '/blog' : `/blog/${i + 1}`,
+      component: path.resolve(path.join('src', 'templates', 'BlogList.jsx')),
+      context: {
+        limit: articlesPerPage,
+        skip: i * articlesPerPage,
+        currentPage: i + 1,
+        numPages,
+      },
+    });
+  });
+};
+
 exports.createPages = async (ctx) => {
   await createGettingStartedPage(ctx);
+  await createBlogPages(ctx);
 };
