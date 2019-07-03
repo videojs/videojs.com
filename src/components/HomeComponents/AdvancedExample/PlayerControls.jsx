@@ -7,7 +7,7 @@ import { media } from '../../../utils/styles';
 
 const Form = styled.form`
   background-color: #fff;
-  border: 2px solid #ebebeb;
+  border: 0.125em solid #ebebeb;
   position: absolute;
   top: 0;
   left: 0;

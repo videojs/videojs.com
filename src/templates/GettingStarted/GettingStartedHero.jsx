@@ -7,10 +7,10 @@ import { H1, H2 } from '../../components/Typography';
 import { media } from '../../utils/styles';
 
 const StyledH2 = styled(H2)`
-  letter-spacing: -0.24px;
+  letter-spacing: -0.01em;
   font-size: 24px;
   line-height: 1.5;
-  max-width: 750px;
+  max-width: 33em;
   margin: 0 auto;
 `
 
