@@ -9,7 +9,7 @@ const VideoJsLogoWrapper = styled.div`
   margin-bottom: 2.4em;
 `;
 
-const Menu = styled.ul`
+const Nav = styled.ul`
   color: #000;
   font-size: 14px;
   font-weight: bold;
@@ -21,7 +21,7 @@ const Menu = styled.ul`
   text-transform: uppercase;
 `;
 
-const MenuItem = styled.li`
+const NavItem = styled.li`
   display: inline-block;
 
   &:not(:last-child) {
@@ -53,13 +53,13 @@ const Footer = styled(({ className }) => (
     <VideoJsLogoWrapper>
       <Link to="/"><Image filename="logo-black.svg" /></Link>
     </VideoJsLogoWrapper>
-    <Menu>
-      <MenuItem><Link to="/getting-started">Get Started</Link></MenuItem>
-      <MenuItem><Link to="/plugins">Customize</Link></MenuItem>
-      <MenuItem><Link to="/docs">Docs</Link></MenuItem>
-      <MenuItem><Link to="/blog">Blog</Link></MenuItem>
-      <MenuItem><Link to="/github">Github</Link></MenuItem>
-    </Menu>
+    <Nav>
+      <NavItem><Link to="/getting-started">Get Started</Link></NavItem>
+      <NavItem><Link to="/plugins">Customize</Link></NavItem>
+      <NavItem><Link to="/docs">Docs</Link></NavItem>
+      <NavItem><Link to="/blog">Blog</Link></NavItem>
+      <NavItem><Link to="/github">Github</Link></NavItem>
+    </Nav>
     <Copyright>
       <p>Video.js is a free and open source HTML5 video player.</p>
       <p>&copy; Brightcove, Inc.</p>
