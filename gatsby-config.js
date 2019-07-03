@@ -21,8 +21,16 @@ module.exports = {
         name: 'mdx-pages',
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/data`,
+        name: 'data',
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    'gatsby-transformer-json',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
