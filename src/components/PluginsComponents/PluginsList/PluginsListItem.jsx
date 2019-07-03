@@ -5,13 +5,13 @@ import Image from '../../Image';
 
 const Wrapper = styled.div`
   display: block;
-  border: 2px solid #ebebeb;
+  border: 0.125em solid #ebebeb;
   margin-bottom: 2.5em;
 `;
 
 const Heading = styled.div`
   background-color: #f9f9f9;
-  border-bottom: 2px solid #ebebeb;
+  border-bottom: 0.125em solid #ebebeb;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,7 +50,7 @@ const PluginStatInfo = styled.span`
     color: rgba(0, 0, 0, 0.3);
     font-size: 16px;
     font-weight: bold;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.05em;
   }
 `;
 

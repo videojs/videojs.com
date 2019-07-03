@@ -14,7 +14,7 @@ const Nav = styled.ul`
   font-size: 14px;
   font-weight: bold;
   line-height: 1.85;
-  letter-spacing: 1.05px;
+  letter-spacing: 0.075em;
   list-style-type: none;
   padding: 0;
   margin: 0 0 1.5em 0;
@@ -38,7 +38,7 @@ const Copyright = styled.div`
   font-size: 13px;
   font-weight: 300;
   line-height: 1.85;
-  letter-spacing: -0.13px;
+  letter-spacing: -0.01em;
   margin-bottom: 3em;
 `;
 
