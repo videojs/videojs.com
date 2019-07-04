@@ -1,10 +1,12 @@
 import React from 'react';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
-import { H1 } from '../Typography';
 
-const getAvatarLink = githubUsername =>
-  `https://github.com/${githubUsername}.png?size=50`;
+const getAuthorProfile = githubUsername =>
+  `https://github.com/${githubUsername}`;
+
+const getAuthorAvatar = githubUsername =>
+  `${getAuthorProfile(githubUsername)}.png?size=50`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,7 +15,6 @@ const Wrapper = styled.div`
 
 const AvatarCol = styled.div`
   flex-grow: 0;
-  margin-right: 1.25em;
 `;
 
 const Avatar = styled.img`
@@ -77,20 +78,25 @@ const Text = styled.div`
   }
 `;
 
-const BlogArticle = ({ article }) => (
+const BlogArticle = ({ article: { frontmatter, code  } }) => (
   <Wrapper>
-    {console.log('article', article)}
     <AvatarCol>
-      <Avatar src={getAvatarLink(article.frontmatter.author.github)} />
+      <a
+        href={getAuthorProfile(frontmatter.author.github)}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Avatar src={getAuthorAvatar(frontmatter.author.github)} />
+      </a>
     </AvatarCol>
     <TextCol>
       <Meta>
-        <span>{article.frontmatter.author.name}</span>
-        <span>{article.frontmatter.date}</span>
+        <span>{frontmatter.author.name}</span>
+        <span>{frontmatter.date}</span>
       </Meta>
       <Text>
-        <h1>{article.frontmatter.title}</h1>
-        <MDXRenderer>{article.code.body}</MDXRenderer>
+        <h1>{frontmatter.title}</h1>
+        <MDXRenderer>{code.body}</MDXRenderer>
       </Text>
     </TextCol>
   </Wrapper>
