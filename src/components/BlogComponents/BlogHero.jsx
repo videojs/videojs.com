@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Hero from '../../components/Hero';
 import Container from '../../components/Container';
-import { H1, H2 } from '../../components/Typography';
+import { H1 } from '../../components/Typography';
 import { media } from '../../utils/styles';
 
 const StyledHero = styled(Hero)`

@@ -82,7 +82,7 @@ const ArticleWrapper = styled.div`
     font-size: 28px;
     margin-bottom: 0.4em;
   }
-  
+
   p {
     color: #424242;
     font-size: 18px;
@@ -115,7 +115,7 @@ const GettingStartedPageTemplate = ({ data: { mdx }, location }) => (
           <WithAutoLinkHeaders>
             <MDXRenderer>{mdx.code.body}</MDXRenderer>
           </WithAutoLinkHeaders>
-        </ArticleWrapper> 
+        </ArticleWrapper>
       </MainContentWrapper>
     </StyledContainer>
   </Layout>
