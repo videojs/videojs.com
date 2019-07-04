@@ -20,8 +20,11 @@ const ArticlesWrapper = styled.div`
   width: 71%;
 `;
 
-const BlogList = ({ data: { allMdx } }) => {
-  const articles = extractNodes(allMdx);
+const Sidebar = styled.div`
+  width: 29%;
+`;
+
+const BlogArticleTemplate = ({ data: { mdx } }) => {
 
   return (
     <Layout>
@@ -29,40 +32,31 @@ const BlogList = ({ data: { allMdx } }) => {
       <BlogHero />
       <StyledContainer>
         <ArticlesWrapper>
-          {articles.map((article) => (
-            <BlogArticle key={shortid.generate()} article={article} />
-          ))}
-          <BlogRecentPosts />
+          <BlogArticle key={shortid.generate()} article={mdx} />
         </ArticlesWrapper>
+        <Sidebar>
+          <BlogRecentPosts />
+        </Sidebar>
       </StyledContainer>
     </Layout>
   );
 };
 
-export default BlogList;
+export default BlogArticleTemplate;
 
-export const blogListQuery = graphql`
-  query blogListQuery ($skip: Int!, $limit: Int!) {
-    allMdx (
-      filter: { fileAbsolutePath: { regex: "/blog/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date (formatString: "YYYY-MM-DD")
-            author {
-              name
-              github
-            }
-          }
-          code {
-            body
-          }
+export const blogArticleQuery = graphql`
+  query blogArticleQuery ($id: String!) {
+    mdx (id: { eq: $id }) {
+      frontmatter {
+        title
+        date (formatString: "YYYY-MM-DD")
+        author {
+          name
+          github
         }
+      }
+      code {
+        body
       }
     }
   }

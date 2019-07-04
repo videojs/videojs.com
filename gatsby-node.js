@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 const path = require('path');
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 const createGettingStartedPage = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -41,6 +42,9 @@ const createBlogPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
+            fields {
+              slug
+            }
           }
         }
       }
@@ -48,6 +52,16 @@ const createBlogPages = async ({ graphql, actions }) => {
   `);
 
   const articles = result.data.allMdx.edges;
+
+  articles.forEach((article) => {
+    console.log('a', article);
+    createPage({
+      path: article.node.fields.slug,
+      component: path.resolve(path.join('src', 'templates', 'BlogArticle.jsx')),
+      context: { id: article.node.id },
+    });
+  });
+
   const articlesPerPage = 10;
   const numPages = Math.ceil(articles.length / articlesPerPage);
 
@@ -68,4 +82,18 @@ const createBlogPages = async ({ graphql, actions }) => {
 exports.createPages = async (ctx) => {
   await createGettingStartedPage(ctx);
   await createBlogPages(ctx);
+};
+
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === 'Mdx') {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: 'slug',
+      node,
+      value
+    });
+  }
 };
