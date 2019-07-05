@@ -27,8 +27,13 @@ const Links = styled.div`
   padding: 2em;
 
   a {
+    display: block;
     color: inherit;
     text-decoration: underline;
+
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
   }
 `;
 

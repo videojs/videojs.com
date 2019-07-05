@@ -30,6 +30,9 @@ export const blogListQuery = graphql`
     ) {
       edges {
         node {
+          fields {
+            slug
+          }
           frontmatter {
             title
             date (formatString: "YYYY-MM-DD")
