@@ -15,6 +15,9 @@ const createGettingStartedPage = async ({ graphql, actions }) => {
         edges {
           node {
             id
+            fields {
+              slug
+            }
           }
         }
       }
@@ -23,8 +26,8 @@ const createGettingStartedPage = async ({ graphql, actions }) => {
 
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
-      path: '/getting-started',
-      component: path.resolve(path.join('src', 'templates', 'GettingStarted', 'index.jsx')),
+      path: node.fields.slug,
+      component: path.resolve(path.join('src', 'templates', 'GettingStartedTemplate.jsx')),
       context: { id: node.id },
     });
   });
@@ -51,27 +54,26 @@ const createBlogPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const articles = result.data.allMdx.edges;
+  const posts = result.data.allMdx.edges;
 
-  articles.forEach((article) => {
-    console.log('a', article);
+  posts.forEach(({ node }) => {
     createPage({
-      path: article.node.fields.slug,
-      component: path.resolve(path.join('src', 'templates', 'BlogArticle.jsx')),
-      context: { id: article.node.id },
+      path: node.fields.slug,
+      component: path.resolve(path.join('src', 'templates', 'BlogPostTemplate.jsx')),
+      context: { id: node.id },
     });
   });
 
-  const articlesPerPage = 10;
-  const numPages = Math.ceil(articles.length / articlesPerPage);
+  const postsPerPage = 10;
+  const numPages = Math.ceil(posts.length / postsPerPage);
 
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? '/blog' : `/blog/${i + 1}`,
-      component: path.resolve(path.join('src', 'templates', 'BlogList.jsx')),
+      component: path.resolve(path.join('src', 'templates', 'BlogListTemplate.jsx')),
       context: {
-        limit: articlesPerPage,
-        skip: i * articlesPerPage,
+        limit: postsPerPage,
+        skip: i * postsPerPage,
         currentPage: i + 1,
         numPages,
       },
@@ -84,12 +86,12 @@ exports.createPages = async (ctx) => {
   await createBlogPages(ctx);
 };
 
-
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode });
+
     createNodeField({
       name: 'slug',
       node,

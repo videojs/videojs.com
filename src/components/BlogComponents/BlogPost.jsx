@@ -15,6 +15,7 @@ const Wrapper = styled.div`
 
 const AvatarCol = styled.div`
   flex-grow: 0;
+  margin-right: 1.25em;
 `;
 
 const Avatar = styled.img`
@@ -78,7 +79,7 @@ const Text = styled.div`
   }
 `;
 
-const BlogArticle = ({ article: { frontmatter, code  } }) => (
+const BlogPost = ({ post: { frontmatter, code  } }) => (
   <Wrapper>
     <AvatarCol>
       <a
@@ -102,4 +103,4 @@ const BlogArticle = ({ article: { frontmatter, code  } }) => (
   </Wrapper>
 );
 
-export default BlogArticle;
+export default BlogPost;
