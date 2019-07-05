@@ -1,6 +1,7 @@
 import React from 'react';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const getAuthorProfile = githubUsername =>
   `https://github.com/${githubUsername}`;
@@ -11,10 +12,11 @@ const getAuthorAvatar = githubUsername =>
 const Wrapper = styled.div`
   display: flex;
   margin-bottom: 6em;
+  width: 100%;
 `;
 
 const AvatarCol = styled.div`
-  flex-grow: 0;
+  flex: 0 1 auto;
   margin-right: 1.25em;
 `;
 
@@ -28,7 +30,8 @@ const Avatar = styled.img`
 `;
 
 const TextCol = styled.div`
-  flex-grow: 1;
+  flex: 1 1 auto;
+  max-width: calc(100% - 4.375em);
 `;
 
 const Meta = styled.div`
@@ -51,12 +54,17 @@ const Text = styled.div`
     margin-bottom: 1em;
   }
 
-  p {
+  p, ul {
     color: #424242;
     font-size: 18px;
     font-weight: 300;
     line-height: 1.78;
     margin-bottom: 2em;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
   }
 
   .gatsby-highlight {
@@ -79,7 +87,11 @@ const Text = styled.div`
   }
 `;
 
-const BlogPost = ({ post: { frontmatter, code  } }) => (
+const TitleLink = styled(Link)`
+  color: #000;
+`;
+
+const BlogPost = ({ post: { frontmatter, code, fields } }) => (
   <Wrapper>
     <AvatarCol>
       <a
@@ -96,7 +108,7 @@ const BlogPost = ({ post: { frontmatter, code  } }) => (
         <span>{frontmatter.date}</span>
       </Meta>
       <Text>
-        <h1>{frontmatter.title}</h1>
+        <TitleLink to={fields.slug}><h1>{frontmatter.title}</h1></TitleLink>
         <MDXRenderer>{code.body}</MDXRenderer>
       </Text>
     </TextCol>

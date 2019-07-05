@@ -15,6 +15,9 @@ export default BlogPostTemplate;
 export const blogPostQuery = graphql`
   query blogPostQuery ($id: String!) {
     mdx (id: { eq: $id }) {
+      fields {
+        slug
+      }
       frontmatter {
         title
         date (formatString: "YYYY-MM-DD")
