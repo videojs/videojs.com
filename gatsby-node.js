@@ -4,6 +4,7 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 const path = require('path');
+const _ = require('lodash');
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 const createGettingStartedPage = async ({ graphql, actions }) => {
@@ -48,6 +49,9 @@ const createBlogPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+              tags
+            }
           }
         }
       }
@@ -78,6 +82,19 @@ const createBlogPages = async ({ graphql, actions }) => {
         numPages,
       },
     });
+  });
+
+  const tags = _.uniq(posts.reduce((acc, post) => ([
+    ...acc,
+    ...post.node.frontmatter.tags,
+  ]), []));
+
+  tags.forEach((tag) => {
+    createPage({
+      path: `/tags/${tag}`,
+      component: path.resolve(path.join('src', 'templates', 'BlogTagTemplate.jsx')),
+      context: { tag },
+    })
   });
 };
 

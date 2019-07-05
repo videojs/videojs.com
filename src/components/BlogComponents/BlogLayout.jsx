@@ -5,6 +5,7 @@ import Layout from '../Layout';
 import SEO from '../SEO';
 import Container from '../Container';
 import BlogHero from './BlogHero';
+import BlogTags from './BlogTags';
 import BlogRecentPosts from './BlogRecentPosts';
 
 const StyledContainer = styled(Container)`
@@ -31,6 +32,7 @@ const BlogLayout = ({ children, seo }) => (
         {children}
       </PostWrapper>
       <Sidebar>
+        <BlogTags />
         <BlogRecentPosts />
       </Sidebar>
     </StyledContainer>
