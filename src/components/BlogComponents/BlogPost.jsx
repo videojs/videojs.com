@@ -3,6 +3,8 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
+import WithAutoLinkHeaders from '../WithAutoLinkHeaders';
+
 const getAuthorProfile = githubUsername =>
   `https://github.com/${githubUsername}`;
 
@@ -109,7 +111,9 @@ const BlogPost = ({ post: { frontmatter, code, fields } }) => (
       </Meta>
       <Text>
         <TitleLink to={fields.slug}><h1>{frontmatter.title}</h1></TitleLink>
-        <MDXRenderer>{code.body}</MDXRenderer>
+        <WithAutoLinkHeaders basePath={fields.slug}>
+          <MDXRenderer>{code.body}</MDXRenderer>
+        </WithAutoLinkHeaders>
       </Text>
     </TextCol>
   </Wrapper>

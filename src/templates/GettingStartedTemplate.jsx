@@ -112,7 +112,7 @@ const GettingStartedPageTemplate = ({ data: { mdx }, location }) => (
           items={mdx.tableOfContents.items}
         />
         <ArticleWrapper>
-          <WithAutoLinkHeaders>
+          <WithAutoLinkHeaders basePath={mdx.fields.slug}>
             <MDXRenderer>{mdx.code.body}</MDXRenderer>
           </WithAutoLinkHeaders>
         </ArticleWrapper>
@@ -126,6 +126,9 @@ export default GettingStartedPageTemplate;
 export const pageQuery = graphql`
   query GettingStartedPage($id: String!) {
     mdx(id: { eq: $id }) {
+      fields {
+        slug
+      }
       code {
         body
       }
