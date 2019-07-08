@@ -1,0 +1,77 @@
+---
+title: 'Video.js 7.3: Responsive Layout, Fill Mode, createLogger'
+author:
+  name: Gary Katsevman
+  github: gkatsev
+date: 2018-10-29 17:44:42
+tags:
+  - responsive
+  - log
+  - fill
+  - fluid
+  - playerresize
+---
+
+Another month, another Video.js release: <a href="https://github.com/videojs/video.js/releases/tag/v7.3.0" target="_blank" rel="noopener noreferrer">v7.3.0</a>. This release brings a long wanted feature: Responsive Layout.
+In addition, Fill Mode has been promoted to a first-class feature and createLogger was added to make debugging and logging easier.
+
+This is currently out as a pre-release and will be promoted to latest in about a week. Please try it out and <a href="https://github.com/videojs/video.js/issues/new" target="_blank" rel="noopener noreferrer">report any issues you find</a>.
+
+## Thanks
+I'd like to thank everyone that was involved in making changes that landed in this release. Any and all changes are really appreciated.
+
+- <a href="https://github.com/BrandonOCasey" target="_blank" rel="noopener noreferrer">@BrandonOCasey</a>
+- <a href="https://github.com/chrisrng" target="_blank" rel="noopener noreferrer">@chrisrng</a>
+- <a href="https://github.com/syranez" target="_blank" rel="noopener noreferrer">@syranez</a>
+- <a href="https://github.com/misteroneill" target="_blank" rel="noopener noreferrer">@misteroneill</a>
+- <a href="https://github.com/OwenEdwards" target="_blank" rel="noopener noreferrer">@OwenEdwards</a>
+
+## Responsive Mode
+<a href="https://docs.videojs.com/tutorial-layout.html#responsive-mode" target="_blank" rel="noopener noreferrer">Responsive Mode</a> will make the player adjust UI components to the size of the player. It uses the <a href="https://github.com/videojs/video.js/pull/4864" target="_blank" rel="noopener noreferrer"><code>playerresize</code></a> event that was added in <a href="https://github.com/videojs/video.js/releases/tag/v6.7.0" target="_blank" rel="noopener noreferrer">v6.7.0</a> of Video.js, which allows us to know when the player changes sizes.
+
+Responsive mode will set and change certain breakpoint classes like `vjs-layout-small` when the player size changed. These can be <a href="https://docs.videojs.com/tutorial-layout.html#customizing-breakpoints" target="_blank" rel="noopener noreferrer">configured</a>. Depending on which class is currently on the player, the control bar and other UI elements can adapt. For example, with `vjs-layout-small`, the time controls will not show because the time tooltips on the progress bar are available and the captions button is more important. At a larger size, both can be shown without a problem.
+
+You can find out how to enable <a href="https://docs.videojs.com/tutorial-layout.html#responsive-mode" target="_blank" rel="noopener noreferrer">Responsive Mode</a> and more in our <a href="https://docs.videojs.com/tutorial-layout.html#responsive-mode" target="_blank" rel="noopener noreferrer">docs page</a>. There is also an example playground in the <a href="https://github.com/videojs/video.js/blob/master/sandbox/responsive.html.example" target="_blank" rel="noopener noreferrer">sandbox folder in the repo</a>.
+
+## Fill Mode
+<a href="https://docs.videojs.com/tutorial-layout.html#fill-mode" target="_blank" rel="noopener noreferrer">Fill Mode</a> allows the Video.js player to resize dynamically, but stay contained within the bounds of the parent container. This is analogous to <a href="https://docs.videojs.com/tutorial-layout.html#fluid-mode" target="_blank" rel="noopener noreferrer">Fluid Mode</a>, but sometimes you the container is already being sized properly.
+
+Fill Mode is not a brand new mode, the class `vjs-fill` has been available in Video.js for quite <a href="https://github.com/videojs/video.js/commit/2fc8968002cf2f40128c39699c3ffbaac73fc9ed#diff-6be43b1f61c2cbcb90c6cb4a762ad527R64" target="_blank" rel="noopener noreferrer">a while</a>. This finally makes it a first-class feature to go along with Fluid Mode.
+
+## createLogger
+This is a new method on `videojs.log` that allows you to create a new logger with a specific name. It then creates a chain of names to make it easier to track which component logged this particular message. In particular, this can help plugin authors to log messages and then filter out only the messages that are associated with their plugin.
+
+`createLogger` returns a function with the same API as `videojs.log`. You can see it in action below.
+
+### Examples
+A new method, `player.log` was added which uses createLogger behind the scenes. It logs the player ID in addition to `VIDEOJS`:
+
+```js
+var player = videojs('myid');
+
+player.log('foo');
+// VIDEOJS: myid: foo
+```
+
+You can also go further and create a sub logger:
+
+```js
+var player = videojs('myid');
+var mylog = player.log.createLogger('my-plugin');
+
+mylog.log('foo');
+// VIDEOJS: myid: my-plugin: foo
+```
+
+If you want to log a warning or error for your custom plugin:
+
+```js
+var player = videojs('myid');
+var mylog = player.log.createLogger('my-plugin');
+
+mylog.log.warn('foo');
+// VIDEOJS: myid: my-plugin: WARN: foo
+
+mylog.log.error('bar');
+// VIDEOJS: vid1: my-plugin: ERROR: bar
+```
