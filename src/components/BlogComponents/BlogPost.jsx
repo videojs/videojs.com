@@ -74,9 +74,7 @@ const Text = styled.div`
     padding: 0 1em;
   }
 
-  .gatsby-highlight,
-  .gatsby-image-wrapper,
-  img {
+  .gatsby-highlight {
     margin-bottom: 2.25em;
   }
 
