@@ -6,6 +6,7 @@ const BlogPaginationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding-left: 4.375em;
+  margin-bottom: 3em;
 `;
 
 const BlogPaginationButton = ({ className, children, to, ...props }) => {
