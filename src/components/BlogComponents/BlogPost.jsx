@@ -69,7 +69,14 @@ const Text = styled.div`
     padding: 0;
   }
 
-  .gatsby-highlight {
+  blockquote {
+    border-left: 0.25em solid #dfe2e5;
+    padding: 0 1em;
+  }
+
+  .gatsby-highlight,
+  .gatsby-image-wrapper,
+  img {
     margin-bottom: 2.25em;
   }
 

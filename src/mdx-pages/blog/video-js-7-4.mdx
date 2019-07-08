@@ -12,6 +12,7 @@ author:
 date: 2019-01-11 16:24:34
 ---
 
+import Image from '../../components/Image'
 
 It's time to have an overview of Video.js 7.4, first released early December. The big new feature for this release is a UI that allows you to seek during live streams. We updated focus-visible to work with our Menus, added more translations, added a replay option to the Play/Pause button, and many, many fixes, multiple of which are accessibility related.
 
@@ -46,7 +47,7 @@ Before continuing, I'd like to thank everyone that was involved, we really appre
 ## Live UI
 Video.js has supported live streams for a while, either natively, or via [videojs-http-streaming (VHS)](https://github.com/videojs/http-streaming). However, this UI was very minimal, it disabled the progress bar and basically only allowed pausing, though, there was an indicator that this was a live stream.
 
-![Video.js, with the new Live UI, playing a live stream](../../images/blog/live-ui.png)
+<Image filename="blog/live-ui.png" />
 
 The new UI looks pretty similar to the previous live UI and the regular control bar. The "live" indicator moves to the right side of the progress bar and also indicates whether we are playing back live or we are behind live. Clicking this button will seek to the "live point". The time displays and tooltips will show time with respect to the live point; so, current time at the live point will be `0` and if you seek back 30 seconds it'll show `-00:30`.
 
