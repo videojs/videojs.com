@@ -34,6 +34,11 @@ const createGettingStartedPage = async ({ graphql, actions }) => {
   });
 };
 
+const getBlogPagePath = (pageNum) => {
+  const blogPath = '/blog';
+  return pageNum ? `${blogPath}/${pageNum}` : blogPath;
+};
+
 const createBlogPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -60,29 +65,38 @@ const createBlogPages = async ({ graphql, actions }) => {
 
   const posts = result.data.allMdx.edges;
 
-  posts.forEach(({ node }) => {
+  posts.forEach(({ node }, i) => {
+    const prevPost = (i > 0) ? posts[i - 1].node : null;
+    const nextPost = (i < (posts.length - 1)) ? posts[i + 1].node : null;
+
     createPage({
       path: node.fields.slug,
       component: path.resolve(path.join('src', 'templates', 'BlogPostTemplate.jsx')),
-      context: { id: node.id },
+      context: {
+        id: node.id,
+        prevPost: prevPost && prevPost.fields.slug,
+        nextPost: nextPost && nextPost.fields.slug,
+      },
     });
   });
 
   const postsPerPage = 10;
   const numPages = Math.ceil(posts.length / postsPerPage);
 
-  Array.from({ length: numPages }).forEach((_, i) => {
+  for (let i = 1; i <= numPages; i++) {
     createPage({
-      path: i === 0 ? '/blog' : `/blog/${i + 1}`,
+      path: i === 1 ? getBlogPagePath() : getBlogPagePath(i),
       component: path.resolve(path.join('src', 'templates', 'BlogListTemplate.jsx')),
       context: {
         limit: postsPerPage,
-        skip: i * postsPerPage,
-        currentPage: i + 1,
+        skip: (i - 1) * postsPerPage,
+        currentPage: i,
+        prevPage: (i > 1) ? getBlogPagePath(i - 1) : null,
+        nextPage: (i < numPages) ? getBlogPagePath(i + 1) : null,
         numPages,
       },
     });
-  });
+  }
 
   const tags = _.uniq(posts.reduce((acc, post) => ([
     ...acc,

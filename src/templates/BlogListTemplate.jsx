@@ -4,9 +4,13 @@ import { graphql } from 'gatsby';
 
 import BlogLayout from '../components/BlogComponents/BlogLayout';
 import BlogPost from '../components/BlogComponents/BlogPost';
+import BlogPagination from '../components/BlogComponents/BlogPagination';
 import { extractNodes } from '../utils/graphql';
 
-const BlogListTemplate = ({ data: { allMdx } }) => {
+const BlogListTemplate = ({
+  data: { allMdx },
+  pageContext: { prevPage, nextPage }
+}) => {
   const posts = extractNodes(allMdx);
 
   return (
@@ -14,6 +18,12 @@ const BlogListTemplate = ({ data: { allMdx } }) => {
       {posts.map((post) => (
         <BlogPost key={shortid.generate()} post={post} />
       ))}
+      <BlogPagination
+        prevLink={prevPage}
+        prevLinkCaption='Prev page'
+        nextLink={nextPage}
+        nextLinkCaption='Next page'
+      />
     </BlogLayout>
   );
 };
