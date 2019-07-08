@@ -15,7 +15,7 @@ const renderNavItems = (path, items) => (
               ? { className: 'active' }
               : null;
           }}
-          to={`/${joinUrls(path, item.url)}`}
+          to={joinUrls(path, item.url)}
         >
           {item.title}
         </Link>

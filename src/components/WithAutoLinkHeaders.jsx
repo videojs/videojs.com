@@ -51,7 +51,7 @@ const AutoLinkHeader = ({ as, className, children, ...props }) => (
 
       return (
         <StyledHeader as={as} id={id} {...props}>
-          <StyledLink to={`/${joinUrls(basePath, `#${id}`)}`}>
+          <StyledLink to={joinUrls(basePath, `#${id}`)}>
             <StyledLinkIcon />
           </StyledLink>
           {children}

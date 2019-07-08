@@ -73,7 +73,7 @@ const Footer = styled(({ className }) => (
 ))`
   background-image: url(${rectangles});
   height: 50em;
-  padding: 2em;
+  padding: 4em 2em;
   text-align: center;
 `;
 
