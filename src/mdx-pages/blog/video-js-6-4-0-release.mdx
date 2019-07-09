@@ -1,0 +1,100 @@
+---
+title: Video.js 6.4.0 Release
+author:
+  name: Gary Katsevman
+  github: gkatsev
+date: 2017-11-02 16:01:38
+tags:
+---
+
+import Link from '../../components/Link'
+
+Hello everyone, it's been a while! Yesterday, I pre-released Video.js 6.4.0. It's a pretty big release with 27 merged Pull Requests from 13 authors and 7 of them were contributors!
+I'd like to thank everyone who contributed but particularly those seven. Six of them made their first PRs with Video.js: <Link href="https://github.com/estim" target="_blank" rel="noopener noreferrer">@estim</Link>, <Link href="https://github.com/seggev319" target="_blank" rel="noopener noreferrer">@seggev319</Link>, <Link href="https://github.com/nicolaslevy" target="_blank" rel="noopener noreferrer">@nicolaslevy</Link>, <Link href="https://github.com/MarcAMo" target="_blank" rel="noopener noreferrer">@MarcAMo</Link>, <Link href="https://github.com/knilob" target="_blank" rel="noopener noreferrer">@knilob</Link>, <Link href="https://github.com/odisei369" target="_blank" rel="noopener noreferrer">@odisei369</Link>. And <Link href="https://github.com/kocoten1992" target="_blank" rel="noopener noreferrer">@kocoten1992</Link> returned with some great PRs to refactor things.
+
+In this release, we fixed a bunch of bugs, refactored some things, updated some tests. We also added some new features.
+
+As with other releases, this is released as `next` for a short while before being promoted to `latest`.
+You can get these releases on <Link href="https://github.com/videojs/video.js/releases/tag/v6.4.0" target="_blank" rel="noopener noreferrer">GitHub Releases</Link> or from <Link href="https://www.npmjs.com/package/video.js" target="_blank" rel="noopener noreferrer">npm</Link>
+
+## Notable Changes
+- Hebrew translations are now available. Russian and Polish translations were updated as well.
+- The Progress Control can now be disabled. This is useful for when you don't want users to be able to interact with it but still want to show play progress.
+  - The Progress Control will also be fully filled out when the video ends so that we aren't slightly short or long due to weirdnesses in duration and currentTime.
+- It's now possible to add a `hook` that gets automatically removed once called with `hookOnce`. This mirrors our `on` and `once` event methods.
+- If controls are disabled before the modal dialog is opened, the controls stay closed when the dialog is closed.
+- `player.src()` will now return an empty string when no source is set to match `player.currentSrc()` and the native video element.
+- Video.js will now warn when the element it is given isn't in the DOM. This was done as part of a "first-timers-only" issue which we hope to do more off in the future.
+
+## Google Analytics note
+We've updated the <Link href="https://github.com/videojs/video.js#quick-start" target="_blank" rel="noopener noreferrer">README</Link> of the project to be explicit about our usage of Google Analytics on the `vjs.zencdn.net` hosted version of Video.js. It is a stripped down version of the <Link href="https://github.com/videojs/cdn/blob/master/src/analytics.js" target="_blank" rel="noopener noreferrer">Google Analytics pixel</Link> and sends data on 1% of those loads.
+It can be opted out of by adding the following to the page before the `zencdn`-hosted version of Video.js is loaded
+```html
+<script>window.HELP_IMPROVE_VIDEOJS = false;</script>
+```
+Our GitHub releases and npm releases *do not* include Google Analytics. Neither do 3rd-party CDNs like unpkg or CDNjs.
+
+## Committers
+- Gary Katsevman <Link href="https://github.com/gkatsev" target="_blank" rel="noopener noreferrer">@gkatsev</Link>
+- Pat O'Neill <Link href="https://github.com/misteroneill" target="_blank" rel="noopener noreferrer">@misteroneill</Link>
+- Brandon Casey <Link href="https://github.com/BrandonOCasey" target="_blank" rel="noopener noreferrer">@BrandonOCasey</Link>
+- <Link href="https://github.com/estim" target="_blank" rel="noopener noreferrer">@estim</Link> First PR
+- <Link href="https://github.com/seggev319" target="_blank" rel="noopener noreferrer">@seggev319</Link> First PR
+- <Link href="https://github.com/mister-ben" target="_blank" rel="noopener noreferrer">@mister-ben</Link>
+- Chuong <Link href="kocoten1992" target="_blank" rel="noopener noreferrer">@kocoten1992</Link>
+- Nicolas Levy <Link href="https://github.com/nicolaslevy" target="_blank" rel="noopener noreferrer">@nicolaslevy</Link> First PR
+- Marc A. Modrow <Link href="https://github.com/MarcAMo" target="_blank" rel="noopener noreferrer">@MarcAMo</Link> First two PRs
+- Matt McClure <Link href="https://github.com/mmcc" target="_blank" rel="noopener noreferrer">@mmcc</Link>
+- Bo Link <Link href="https://github.com/knilob" target="_blank" rel="noopener noreferrer">@knilob</Link> First PR
+- Joe Forbes <Link href="https://github.com/forbesjo" target="_blank" rel="noopener noreferrer">@forbesjo</Link>
+- Ilya Piatrenka <Link href="https://github.com/odisei369" target="_blank" rel="noopener noreferrer">@odisei369</Link> First PR
+
+
+## Full Changelog
+<a name="6.4.0"></a>
+### <Link href="https://github.com/videojs/video.js/compare/v6.3.3...v6.4.0" target="_blank" rel="noopener noreferrer">6.4.0</Link> (2017-11-01)
+
+### Features
+
+* **lang:** add Hebrew translation (<Link href="https://github.com/videojs/video.js/issues/4675" target="_blank" rel="noopener noreferrer">#4675</Link>) (<Link href="https://github.com/videojs/video.js/commit/32caf35" target="_blank" rel="noopener noreferrer">32caf35</Link>)
+* **lang:** Update for Russian translation (<Link href="https://github.com/videojs/video.js/issues/4663" target="_blank" rel="noopener noreferrer">#4663</Link>) (<Link href="https://github.com/videojs/video.js/commit/45e21fd" target="_blank" rel="noopener noreferrer">45e21fd</Link>)
+* Add videojs.hookOnce method to allow single-run hooks. (<Link href="https://github.com/videojs/video.js/issues/4672" target="_blank" rel="noopener noreferrer">#4672</Link>) (<Link href="https://github.com/videojs/video.js/commit/85fe685" target="_blank" rel="noopener noreferrer">85fe685</Link>)
+* add warning if the element given to Video.js is not in the DOM (<Link href="https://github.com/videojs/video.js/issues/4698" target="_blank" rel="noopener noreferrer">#4698</Link>) (<Link href="https://github.com/videojs/video.js/commit/6f713ca" target="_blank" rel="noopener noreferrer">6f713ca</Link>)
+* allow progress controls to be disabled (<Link href="https://github.com/videojs/video.js/issues/4649" target="_blank" rel="noopener noreferrer">#4649</Link>) (<Link href="https://github.com/videojs/video.js/commit/a3c254e" target="_blank" rel="noopener noreferrer">a3c254e</Link>)
+* set the play progress seek bar to 100% on ended (<Link href="https://github.com/videojs/video.js/issues/4648" target="_blank" rel="noopener noreferrer">#4648</Link>) (<Link href="https://github.com/videojs/video.js/commit/5e9655f" target="_blank" rel="noopener noreferrer">5e9655f</Link>)
+
+### Bug Fixes
+
+* **css:** update user-select none (<Link href="https://github.com/videojs/video.js/issues/4678" target="_blank" rel="noopener noreferrer">#4678</Link>) (<Link href="https://github.com/videojs/video.js/commit/43ddc72" target="_blank" rel="noopener noreferrer">43ddc72</Link>)
+* aria-labelledby attribute has an extra space (<Link href="https://github.com/videojs/video.js/issues/4708" target="_blank" rel="noopener noreferrer">#4708</Link>) (<Link href="https://github.com/videojs/video.js/commit/855adf3" target="_blank" rel="noopener noreferrer">855adf3</Link>), closes <Link href="https://github.com/videojs/video.js/issues/4688" target="_blank" rel="noopener noreferrer">#4688</Link>
+* Don't enable player controls if they where disabled when ModalDialog closes. (<Link href="https://github.com/videojs/video.js/issues/4690" target="_blank" rel="noopener noreferrer">#4690</Link>) (<Link href="https://github.com/videojs/video.js/commit/afea980" target="_blank" rel="noopener noreferrer">afea980</Link>)
+* don't throttle duration change updates (<Link href="https://github.com/videojs/video.js/issues/4635" target="_blank" rel="noopener noreferrer">#4635</Link>) (<Link href="https://github.com/videojs/video.js/commit/9cf9800" target="_blank" rel="noopener noreferrer">9cf9800</Link>)
+* Events#off threw if Object.prototype had extra enumerable properties, don't remove all events if off receives a falsey value (<Link href="https://github.com/videojs/video.js/issues/4669" target="_blank" rel="noopener noreferrer">#4669</Link>) (<Link href="https://github.com/videojs/video.js/commit/7963913" target="_blank" rel="noopener noreferrer">7963913</Link>)
+* make parseUrl helper always have a protocl (<Link href="https://github.com/videojs/video.js/issues/4673" target="_blank" rel="noopener noreferrer">#4673</Link>) (<Link href="https://github.com/videojs/video.js/commit/bebca9c" target="_blank" rel="noopener noreferrer">bebca9c</Link>), closes <Link href="https://github.com/videojs/video.js/issues/3100" target="_blank" rel="noopener noreferrer">#3100</Link>
+* Make sure we remove vjs-ended from the play toggle in all appropriate cases. (<Link href="https://github.com/videojs/video.js/issues/4661" target="_blank" rel="noopener noreferrer">#4661</Link>) (<Link href="https://github.com/videojs/video.js/commit/0287f6e" target="_blank" rel="noopener noreferrer">0287f6e</Link>)
+* player.src() should return empty string if no source is set (<Link href="https://github.com/videojs/video.js/issues/4711" target="_blank" rel="noopener noreferrer">#4711</Link>) (<Link href="https://github.com/videojs/video.js/commit/9acbcd8" target="_blank" rel="noopener noreferrer">9acbcd8</Link>)
+
+### Chores
+
+* **gh-release:** no console log on success (<Link href="https://github.com/videojs/video.js/issues/4657" target="_blank" rel="noopener noreferrer">#4657</Link>) (<Link href="https://github.com/videojs/video.js/commit/e8511a5" target="_blank" rel="noopener noreferrer">e8511a5</Link>)
+* **lang:** Update Polish (<Link href="https://github.com/videojs/video.js/issues/4686" target="_blank" rel="noopener noreferrer">#4686</Link>) (<Link href="https://github.com/videojs/video.js/commit/ee2a49c" target="_blank" rel="noopener noreferrer">ee2a49c</Link>)
+* **package:** update babelify to version 8.0.0 (<Link href="https://github.com/videojs/video.js/issues/4684" target="_blank" rel="noopener noreferrer">#4684</Link>) (<Link href="https://github.com/videojs/video.js/commit/db2f14c" target="_blank" rel="noopener noreferrer">db2f14c</Link>)
+* add comment about avoiding helvetica font (<Link href="https://github.com/videojs/video.js/issues/4679" target="_blank" rel="noopener noreferrer">#4679</Link>) (<Link href="https://github.com/videojs/video.js/commit/cb638d0" target="_blank" rel="noopener noreferrer">cb638d0</Link>)
+* add GA note to primary readme (<Link href="https://github.com/videojs/video.js/issues/4481" target="_blank" rel="noopener noreferrer">#4481</Link>) (<Link href="https://github.com/videojs/video.js/commit/e2af322" target="_blank" rel="noopener noreferrer">e2af322</Link>)
+* Add package-lock.json file. (<Link href="https://github.com/videojs/video.js/issues/4641" target="_blank" rel="noopener noreferrer">#4641</Link>) (<Link href="https://github.com/videojs/video.js/commit/ec5b603" target="_blank" rel="noopener noreferrer">ec5b603</Link>)
+
+### Code Refactoring
+
+* component.ready() (<Link href="https://github.com/videojs/video.js/issues/4693" target="_blank" rel="noopener noreferrer">#4693</Link>) (<Link href="https://github.com/videojs/video.js/commit/b40858b" target="_blank" rel="noopener noreferrer">b40858b</Link>)
+* player.dimension() (<Link href="https://github.com/videojs/video.js/issues/4704" target="_blank" rel="noopener noreferrer">#4704</Link>) (<Link href="https://github.com/videojs/video.js/commit/ad1b47b" target="_blank" rel="noopener noreferrer">ad1b47b</Link>)
+* player.hasStarted() (<Link href="https://github.com/videojs/video.js/issues/4680" target="_blank" rel="noopener noreferrer">#4680</Link>) (<Link href="https://github.com/videojs/video.js/commit/cde8335" target="_blank" rel="noopener noreferrer">cde8335</Link>)
+* player.techGet_() (<Link href="https://github.com/videojs/video.js/issues/4687" target="_blank" rel="noopener noreferrer">#4687</Link>) (<Link href="https://github.com/videojs/video.js/commit/a1748aa" target="_blank" rel="noopener noreferrer">a1748aa</Link>)
+
+### Documentation
+
+* **lang:** update translations needed doc (<Link href="https://github.com/videojs/video.js/issues/4702" target="_blank" rel="noopener noreferrer">#4702</Link>) (<Link href="https://github.com/videojs/video.js/commit/93e7670" target="_blank" rel="noopener noreferrer">93e7670</Link>)
+
+### Tests
+
+* fix modal dialog test for showing controls (<Link href="https://github.com/videojs/video.js/issues/4707" target="_blank" rel="noopener noreferrer">#4707</Link>) (<Link href="https://github.com/videojs/video.js/commit/45a6b30" target="_blank" rel="noopener noreferrer">45a6b30</Link>), closes <Link href="https://github.com/videojs/video.js/issues/4706" target="_blank" rel="noopener noreferrer">#4706</Link>
+* get rid of redundant test logging (<Link href="https://github.com/videojs/video.js/issues/4682" target="_blank" rel="noopener noreferrer">#4682</Link>) (<Link href="https://github.com/videojs/video.js/commit/983a573" target="_blank" rel="noopener noreferrer">983a573</Link>)
