@@ -1,0 +1,83 @@
+---
+title: Video.js 6.5.0 Release
+author:
+  name: Gary Katsevman
+  github: gkatsev
+date: 2017-11-27 17:16:06
+tags:
+---
+
+import Link from '../../components/Link'
+import BlogImage from '../../components/BlogComponents/BlogImage'
+
+November 17th marked the pre-release of Video.js 6.5.0. It comes shortly after the <Link href="https://blog.videojs.com/video-js-6-4-0-release/" target="_blank" rel="noopener noreferrer">release of 6.4.0</Link>, which has now been promoted to latest! This is a pretty exciting release because we finally got our own element! I like to call it the I Can't Believe It's Not Custom Elements because it isn't an actual custom element but it's not a standard HTML element either. Also, a nice and smooth progress bar thanks to a first time contributor; thanks <Link href="https://github.com/vhmth" target="_blank" rel="noopener noreferrer">@vhmth</Link>!. A pretty major memory leak fix, and many code refactors and bug fixes.
+I'd like to thank everyone who contributed and the four first time contributors to Video.js: <Link href="https://github.com/vhmth" target="_blank" rel="noopener noreferrer">@vhmth</Link>, <Link href="https://github.com/FirefoxMetzger" target="_blank" rel="noopener noreferrer">@FirefoxMetzger</Link>, <Link href="https://github.com/EhsanCh" target="_blank" rel="noopener noreferrer">@EhsanCh</Link>, and <Link href="https://github.com/shahlabs" target="_blank" rel="noopener noreferrer">@shahlabs</Link>.
+This post comes a week late because it was Thanksgiving week in the US after release and I was on break, if you celebrate Turkey day 🦃, hope you had a good one!
+
+
+## Notable Changes
+* I Can't Believe It's Not Custom Elements with a `<video-js>` element. It works exactly like the `<video>` embed but without requiring you to use the `<video>` element and the benefits and drawbacks that come with it. It also adds the `video-js` class name automatically for you, so, there's no need to add it.
+* A smooth progress bar!
+<BlogImage alt="before the change" filename="blog/video-js-6-5-0-release/before.gif" />
+<BlogImage alt="after the change" filename="blog/video-js-6-5-0-release/after.gif" />
+
+* After much spelunking in the code base and developer tools, we've plugged most of the memory leaks with retained DOM elements in Video.js!
+* Many code refactorings from our old code style to the new one by <Link href="https://github.com/kocoten1992" target="_blank" rel="noopener noreferrer">@kocoten1992</Link>!
+* Previously, you could accidentally seek or toggle playback using the middle or right clicks. Now, just go ahead and try it!
+* An accessibility fix with regards to title tooltips and menu items.
+* Better handling of `play()` in our new asynchronous world, especially immediately after changing the source.
+
+## Committers
+* Vinay <Link href="https://github.com/vhmth" target="_blank" rel="noopener noreferrer">@vhmth</Link> First PR
+* Ilya Piatrenka <Link href="https://github.com/odisei369" target="_blank" rel="noopener noreferrer">@odisei369</Link>
+* Brandon Casey <Link href="https://github.com/brandonocasey" target="_blank" rel="noopener noreferrer">@brandonocasey</Link>
+* <Link href="https://github.com/FirefoxMetzger" target="_blank" rel="noopener noreferrer">@FirefoxMetzger</Link> First PR
+* Ehsan Chavoshi <Link href="https://github.com/EhsanCh" target="_blank" rel="noopener noreferrer">@EhsanCh</Link> First PR
+* Chuong <Link href="https://github.com/kocoten1992" target="_blank" rel="noopener noreferrer">@kocoten1992</Link>
+* Martin Bachwerk <Link href="https://github.com/arski" target="_blank" rel="noopener noreferrer">@arski</Link>
+* Pat O'Neill <Link href="https://github.com/misteroneill" target="_blank" rel="noopener noreferrer">@misteroneill</Link>
+* Labdhi Shah <Link href="https://github.com/shahlabs" target="_blank" rel="noopener noreferrer">@shahlabs</Link> First PR
+
+## Raw Changelog
+<a name="6.5.0"></a>
+### <Link href="https://github.com/videojs/video.js/compare/v6.4.0...v6.5.0" target="_blank" rel="noopener noreferrer">6.5.0</Link> (2017-11-17)
+
+### Features
+
+* add a version method to all advanced plugin instances (<Link href="https://github.com/videojs/video.js/issues/4714" target="_blank" rel="noopener noreferrer">#4714</Link>) (<Link href="https://github.com/videojs/video.js/commit/acf4153" target="_blank" rel="noopener noreferrer">acf4153</Link>)
+* allow embeds via `<video-js>` element (<Link href="https://github.com/videojs/video.js/issues/4640" target="_blank" rel="noopener noreferrer">#4640</Link>) (<Link href="https://github.com/videojs/video.js/commit/d8aadd5" target="_blank" rel="noopener noreferrer">d8aadd5</Link>)
+
+### Bug Fixes
+
+* Avoid empty but shown title attribute with menu items and clickable components (<Link href="https://github.com/videojs/video.js/issues/4746" target="_blank" rel="noopener noreferrer">#4746</Link>) (<Link href="https://github.com/videojs/video.js/commit/dc588dd" target="_blank" rel="noopener noreferrer">dc588dd</Link>)
+* **Player#play:** Wait for loadstart in play() when changing sources instead of just ready. (<Link href="https://github.com/videojs/video.js/issues/4743" target="_blank" rel="noopener noreferrer">#4743</Link>) (<Link href="https://github.com/videojs/video.js/commit/26b0d2c" target="_blank" rel="noopener noreferrer">26b0d2c</Link>)
+* being able to toggle playback with middle click (<Link href="https://github.com/videojs/video.js/issues/4756" target="_blank" rel="noopener noreferrer">#4756</Link>) (<Link href="https://github.com/videojs/video.js/commit/7a776ee" target="_blank" rel="noopener noreferrer">7a776ee</Link>), closes <Link href="https://github.com/videojs/video.js/issues/4689" target="_blank" rel="noopener noreferrer">#4689</Link>
+* make the progress bar progress smoothly (<Link href="https://github.com/videojs/video.js/issues/4591" target="_blank" rel="noopener noreferrer">#4591</Link>) (<Link href="https://github.com/videojs/video.js/commit/acc641a" target="_blank" rel="noopener noreferrer">acc641a</Link>)
+* only allow left click dragging on progress bar and volume control (<Link href="https://github.com/videojs/video.js/issues/4613" target="_blank" rel="noopener noreferrer">#4613</Link>) (<Link href="https://github.com/videojs/video.js/commit/79b4355" target="_blank" rel="noopener noreferrer">79b4355</Link>)
+* only print element not in DOM warning on player creation (<Link href="https://github.com/videojs/video.js/issues/4755" target="_blank" rel="noopener noreferrer">#4755</Link>) (<Link href="https://github.com/videojs/video.js/commit/bbea5cc" target="_blank" rel="noopener noreferrer">bbea5cc</Link>)
+* trigger timeupdate during seek (<Link href="https://github.com/videojs/video.js/issues/4754" target="_blank" rel="noopener noreferrer">#4754</Link>) (<Link href="https://github.com/videojs/video.js/commit/1fcd5ae" target="_blank" rel="noopener noreferrer">1fcd5ae</Link>)
+
+### Chores
+
+* **lang:** update Persian translations (<Link href="https://github.com/videojs/video.js/issues/4741" target="_blank" rel="noopener noreferrer">#4741</Link>) (<Link href="https://github.com/videojs/video.js/commit/95d7832" target="_blank" rel="noopener noreferrer">95d7832</Link>)
+
+### Code Refactoring
+
+* player.controls() (<Link href="https://github.com/videojs/video.js/issues/4731" target="_blank" rel="noopener noreferrer">#4731</Link>) (<Link href="https://github.com/videojs/video.js/commit/d447e9f" target="_blank" rel="noopener noreferrer">d447e9f</Link>)
+* player.listenForUserActivity (<Link href="https://github.com/videojs/video.js/issues/4719" target="_blank" rel="noopener noreferrer">#4719</Link>) (<Link href="https://github.com/videojs/video.js/commit/c16fedf" target="_blank" rel="noopener noreferrer">c16fedf</Link>)
+* player.userActive() (<Link href="https://github.com/videojs/video.js/issues/4716" target="_blank" rel="noopener noreferrer">#4716</Link>) (<Link href="https://github.com/videojs/video.js/commit/6cbe3ed" target="_blank" rel="noopener noreferrer">6cbe3ed</Link>)
+* player.usingNativeControls() (<Link href="https://github.com/videojs/video.js/issues/4749" target="_blank" rel="noopener noreferrer">#4749</Link>) (<Link href="https://github.com/videojs/video.js/commit/eb909f0" target="_blank" rel="noopener noreferrer">eb909f0</Link>)
+
+### Documentation
+
+* **readme:** fixed a typo (<Link href="https://github.com/videojs/video.js/issues/4730" target="_blank" rel="noopener noreferrer">#4730</Link>) (<Link href="https://github.com/videojs/video.js/commit/46a7df2" target="_blank" rel="noopener noreferrer">46a7df2</Link>)
+
+### Performance Improvements
+
+* null out els on dispose to minimize detached els (<Link href="https://github.com/videojs/video.js/issues/4745" target="_blank" rel="noopener noreferrer">#4745</Link>) (<Link href="https://github.com/videojs/video.js/commit/2da7af1" target="_blank" rel="noopener noreferrer">2da7af1</Link>)
+
+### Tests
+
+* clean up test warnings (<Link href="https://github.com/videojs/video.js/issues/4752" target="_blank" rel="noopener noreferrer">#4752</Link>) (<Link href="https://github.com/videojs/video.js/commit/3aae4b2" target="_blank" rel="noopener noreferrer">3aae4b2</Link>)
+* update tests to use qunit 2 assert format (<Link href="https://github.com/videojs/video.js/issues/4753" target="_blank" rel="noopener noreferrer">#4753</Link>) (<Link href="https://github.com/videojs/video.js/commit/06641e8" target="_blank" rel="noopener noreferrer">06641e8</Link>)
+* warning, if the element is not in the DOM (<Link href="https://github.com/videojs/video.js/issues/4723" target="_blank" rel="noopener noreferrer">#4723</Link>) (<Link href="https://github.com/videojs/video.js/commit/c213737" target="_blank" rel="noopener noreferrer">c213737</Link>)
