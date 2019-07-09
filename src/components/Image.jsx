@@ -35,7 +35,7 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
       // If there's no childImageSharp, we can assume it's an SVG and just pass it right on through
       if (!image.node.childImageSharp) {
         return (
-          <img src={image.node.publicURL} alt={alt} />
+          <img src={image.node.publicURL} alt={alt} style={{ display: 'block', margin: '0 auto' }} />
         )
       }
 
