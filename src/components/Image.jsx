@@ -13,10 +13,10 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
               name
               publicURL
               childImageSharp {
-                sizes(maxWidth: 600) {
+                sizes(maxWidth: 1200) {
                   ...GatsbyImageSharpSizes
                 }
-                fluid(maxWidth: 600) {
+                fluid(maxWidth: 1200) {
                   ...GatsbyImageSharpFluid
                 }
               }
