@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
+import Link from './Link';
 import Image from './Image';
 import rectangles from '../images/footer-rectangles.svg';
 
@@ -55,19 +55,19 @@ const Footer = styled(({ className }) => (
     </VideoJsLogoWrapper>
     <Nav>
       <NavItem><Link to="/getting-started">Get Started</Link></NavItem>
-      <NavItem><Link to="/plugins">Customize</Link></NavItem>
-      <NavItem><Link to="/docs">Docs</Link></NavItem>
-      <NavItem><Link to="/blog">Blog</Link></NavItem>
-      <NavItem><Link to="/github">Github</Link></NavItem>
+      <NavItem><Link to="/getting-started/#customize">Customize</Link></NavItem>
+      <NavItem><Link href="#docs">Docs</Link></NavItem>
+      <NavItem><Link href="#blog">Blog</Link></NavItem>
+      <NavItem><Link href="https://github.com/videojs/video.js">Github</Link></NavItem>
     </Nav>
     <Copyright>
       <p>Video.js is a free and open source HTML5 video player.</p>
       <p>&copy; Brightcove, Inc.</p>
     </Copyright>
     <Logos>
-      <a href="https://twitter.com"><Image filename="twitter.svg" /></a>
-      <a href="https://mail.com"><Image filename="newsletter.svg" /></a>
-      <a href="https://github.com"><Image filename="github.svg" /></a>
+      <Link href="https://twitter.com"><Image filename="twitter.svg" /></Link>
+      <Link href="https://mail.com"><Image filename="newsletter.svg" /></Link>
+      <Link href="https://github.com"><Image filename="github.svg" /></Link>
     </Logos>
   </footer>
 ))`

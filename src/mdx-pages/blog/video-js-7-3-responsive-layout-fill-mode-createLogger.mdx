@@ -12,31 +12,37 @@ tags:
   - playerresize
 ---
 
-Another month, another Video.js release: <a href="https://github.com/videojs/video.js/releases/tag/v7.3.0" target="_blank" rel="noopener noreferrer">v7.3.0</a>. This release brings a long wanted feature: Responsive Layout.
+import Link from '../../components/Link'
+
+Another month, another Video.js release: <Link href="https://github.com/videojs/video.js/releases/tag/v7.3.0" target="_blank" rel="noopener noreferrer">v7.3.0</Link>. This release brings a long wanted feature: Responsive Layout.
 In addition, Fill Mode has been promoted to a first-class feature and createLogger was added to make debugging and logging easier.
 
-This is currently out as a pre-release and will be promoted to latest in about a week. Please try it out and <a href="https://github.com/videojs/video.js/issues/new" target="_blank" rel="noopener noreferrer">report any issues you find</a>.
+This is currently out as a pre-release and will be promoted to latest in about a week. Please try it out and <Link href="https://github.com/videojs/video.js/issues/new" target="_blank" rel="noopener noreferrer">report any issues you find</Link>.
 
 ## Thanks
 I'd like to thank everyone that was involved in making changes that landed in this release. Any and all changes are really appreciated.
 
-- <a href="https://github.com/BrandonOCasey" target="_blank" rel="noopener noreferrer">@BrandonOCasey</a>
-- <a href="https://github.com/chrisrng" target="_blank" rel="noopener noreferrer">@chrisrng</a>
-- <a href="https://github.com/syranez" target="_blank" rel="noopener noreferrer">@syranez</a>
-- <a href="https://github.com/misteroneill" target="_blank" rel="noopener noreferrer">@misteroneill</a>
-- <a href="https://github.com/OwenEdwards" target="_blank" rel="noopener noreferrer">@OwenEdwards</a>
+- <Link href="https://github.com/BrandonOCasey" target="_blank" rel="noopener noreferrer">@BrandonOCasey</Link>
+- <Link href="https://github.com/chrisrng" target="_blank" rel="noopener noreferrer">@chrisrng</Link>
+- <Link href="https://github.com/syranez" target="_blank" rel="noopener noreferrer">@syranez</Link>
+- <Link href="https://github.com/misteroneill" target="_blank" rel="noopener noreferrer">@misteroneill</Link>
+- <Link href="https://github.com/OwenEdwards" target="_blank" rel="noopener noreferrer">@OwenEdwards</Link>
 
 ## Responsive Mode
-<a href="https://docs.videojs.com/tutorial-layout.html#responsive-mode" target="_blank" rel="noopener noreferrer">Responsive Mode</a> will make the player adjust UI components to the size of the player. It uses the <a href="https://github.com/videojs/video.js/pull/4864" target="_blank" rel="noopener noreferrer"><code>playerresize</code></a> event that was added in <a href="https://github.com/videojs/video.js/releases/tag/v6.7.0" target="_blank" rel="noopener noreferrer">v6.7.0</a> of Video.js, which allows us to know when the player changes sizes.
+<p>
+  <Link href="https://docs.videojs.com/tutorial-layout.html#responsive-mode" target="_blank" rel="noopener noreferrer">Responsive Mode</Link> will make the player adjust UI components to the size of the player. It uses the <Link href="https://github.com/videojs/video.js/pull/4864" target="_blank" rel="noopener noreferrer"><code>playerresize</code></Link> event that was added in <Link href="https://github.com/videojs/video.js/releases/tag/v6.7.0" target="_blank" rel="noopener noreferrer">v6.7.0</Link> of Video.js, which allows us to know when the player changes sizes.
+</p>
 
-Responsive mode will set and change certain breakpoint classes like `vjs-layout-small` when the player size changed. These can be <a href="https://docs.videojs.com/tutorial-layout.html#customizing-breakpoints" target="_blank" rel="noopener noreferrer">configured</a>. Depending on which class is currently on the player, the control bar and other UI elements can adapt. For example, with `vjs-layout-small`, the time controls will not show because the time tooltips on the progress bar are available and the captions button is more important. At a larger size, both can be shown without a problem.
+Responsive mode will set and change certain breakpoint classes like `vjs-layout-small` when the player size changed. These can be <Link href="https://docs.videojs.com/tutorial-layout.html#customizing-breakpoints" target="_blank" rel="noopener noreferrer">configured</Link>. Depending on which class is currently on the player, the control bar and other UI elements can adapt. For example, with `vjs-layout-small`, the time controls will not show because the time tooltips on the progress bar are available and the captions button is more important. At a larger size, both can be shown without a problem.
 
-You can find out how to enable <a href="https://docs.videojs.com/tutorial-layout.html#responsive-mode" target="_blank" rel="noopener noreferrer">Responsive Mode</a> and more in our <a href="https://docs.videojs.com/tutorial-layout.html#responsive-mode" target="_blank" rel="noopener noreferrer">docs page</a>. There is also an example playground in the <a href="https://github.com/videojs/video.js/blob/master/sandbox/responsive.html.example" target="_blank" rel="noopener noreferrer">sandbox folder in the repo</a>.
+You can find out how to enable <Link href="https://docs.videojs.com/tutorial-layout.html#responsive-mode" target="_blank" rel="noopener noreferrer">Responsive Mode</Link> and more in our <Link href="https://docs.videojs.com/tutorial-layout.html#responsive-mode" target="_blank" rel="noopener noreferrer">docs page</Link>. There is also an example playground in the <Link href="https://github.com/videojs/video.js/blob/master/sandbox/responsive.html.example" target="_blank" rel="noopener noreferrer">sandbox folder in the repo</Link>.
 
 ## Fill Mode
-<a href="https://docs.videojs.com/tutorial-layout.html#fill-mode" target="_blank" rel="noopener noreferrer">Fill Mode</a> allows the Video.js player to resize dynamically, but stay contained within the bounds of the parent container. This is analogous to <a href="https://docs.videojs.com/tutorial-layout.html#fluid-mode" target="_blank" rel="noopener noreferrer">Fluid Mode</a>, but sometimes you the container is already being sized properly.
+<p>
+  <Link href="https://docs.videojs.com/tutorial-layout.html#fill-mode" target="_blank" rel="noopener noreferrer">Fill Mode</Link> allows the Video.js player to resize dynamically, but stay contained within the bounds of the parent container. This is analogous to <Link href="https://docs.videojs.com/tutorial-layout.html#fluid-mode" target="_blank" rel="noopener noreferrer">Fluid Mode</Link>, but sometimes you the container is already being sized properly.
+</p>
 
-Fill Mode is not a brand new mode, the class `vjs-fill` has been available in Video.js for quite <a href="https://github.com/videojs/video.js/commit/2fc8968002cf2f40128c39699c3ffbaac73fc9ed#diff-6be43b1f61c2cbcb90c6cb4a762ad527R64" target="_blank" rel="noopener noreferrer">a while</a>. This finally makes it a first-class feature to go along with Fluid Mode.
+Fill Mode is not a brand new mode, the class `vjs-fill` has been available in Video.js for quite <Link href="https://github.com/videojs/video.js/commit/2fc8968002cf2f40128c39699c3ffbaac73fc9ed#diff-6be43b1f61c2cbcb90c6cb4a762ad527R64" target="_blank" rel="noopener noreferrer">a while</Link>. This finally makes it a first-class feature to go along with Fluid Mode.
 
 ## createLogger
 This is a new method on `videojs.log` that allows you to create a new logger with a specific name. It then creates a chain of names to make it easier to track which component logged this particular message. In particular, this can help plugin authors to log messages and then filter out only the messages that are associated with their plugin.
