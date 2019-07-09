@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+
+import Link from '../Link';
 
 const BlogPaginationWrapper = styled.div`
   display: flex;

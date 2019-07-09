@@ -2,8 +2,8 @@ import React from 'react';
 import Slugger from 'github-slugger';
 import styled from 'styled-components';
 import { MDXProvider } from '@mdx-js/react';
-import { Link } from 'gatsby';
 
+import Link from './Link';
 import { joinUrls } from '../utils/url';
 
 const AutoLinkContext = React.createContext();
@@ -44,16 +44,35 @@ const StyledHeader = styled(({ as: Component, className, children, ...props }) =
   }
 `;
 
+const getStringChild = (children) => {
+  if (typeof children === 'string') {
+    return children;
+  } else if (Array.isArray(children)) {
+    for (let child of children) {
+      const strChild = getStringChild(child);
+      if (strChild) {
+        return strChild;
+      }
+    }
+  } else if ('props' in children) {
+    return getStringChild(children.props.children);
+  }
+};
+
 const AutoLinkHeader = ({ as, className, children, ...props }) => (
   <AutoLinkContext.Consumer>
     {({ slugger, basePath }) => {
-      const id = slugger.slug(children);
+      const id = slugger.slug(getStringChild(children));
 
-      return (
+      return id ? (
         <StyledHeader as={as} id={id} {...props}>
           <StyledLink to={joinUrls(basePath, `#${id}`)}>
             <StyledLinkIcon />
           </StyledLink>
+          {children}
+        </StyledHeader>
+      ) : (
+        <StyledHeader as={as} {...props}>
           {children}
         </StyledHeader>
       );

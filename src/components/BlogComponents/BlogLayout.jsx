@@ -19,7 +19,7 @@ const PostWrapper = styled.div`
   padding-right: 3em;
 `;
 
-const Sidebar = styled.div`
+const Sidebar = styled.aside`
   width: 19%;
 `;
 

@@ -3,6 +3,8 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import BlogSidebarBlock from './BlogSidebarBlock';
 
+const TAGS_NUM = 7;
+
 const extractTags = tagGroups =>
   tagGroups.map(({ fieldValue }) => fieldValue)
 
@@ -28,7 +30,7 @@ const BlogTags = () => (
       return (
         <BlogSidebarBlock
           heading="Tags"
-          items={tags.map(tag => ({
+          items={tags.slice(0, TAGS_NUM).map(tag => ({
             url: `/tags/${tag}`,
             label: tag
           }))}

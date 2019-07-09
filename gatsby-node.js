@@ -100,7 +100,7 @@ const createBlogPages = async ({ graphql, actions }) => {
 
   const tags = _.uniq(posts.reduce((acc, post) => ([
     ...acc,
-    ...post.node.frontmatter.tags,
+    ...(post.node.frontmatter.tags || []),
   ]), []));
 
   tags.forEach((tag) => {

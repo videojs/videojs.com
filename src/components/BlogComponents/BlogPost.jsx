@@ -1,8 +1,8 @@
 import React from 'react';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
+import Link from '../Link';
 import WithAutoLinkHeaders from '../WithAutoLinkHeaders';
 
 const getAuthorProfile = githubUsername =>
@@ -11,7 +11,7 @@ const getAuthorProfile = githubUsername =>
 const getAuthorAvatar = githubUsername =>
   `${getAuthorProfile(githubUsername)}.png?size=50`;
 
-const Wrapper = styled.div`
+const Wrapper = styled.article`
   display: flex;
   margin-bottom: 6em;
   width: 100%;
@@ -77,21 +77,6 @@ const Text = styled.div`
   .gatsby-highlight {
     margin-bottom: 2.25em;
   }
-
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    margin-bottom: 4em;
-
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
 `;
 
 const TitleLink = styled(Link)`
@@ -101,13 +86,13 @@ const TitleLink = styled(Link)`
 const BlogPost = ({ post: { frontmatter, code, fields } }) => (
   <Wrapper>
     <AvatarCol>
-      <a
+      <Link
         href={getAuthorProfile(frontmatter.author.github)}
         target="_blank"
         rel="noopener noreferrer"
       >
         <Avatar src={getAuthorAvatar(frontmatter.author.github)} />
-      </a>
+      </Link>
     </AvatarCol>
     <TextCol>
       <Meta>

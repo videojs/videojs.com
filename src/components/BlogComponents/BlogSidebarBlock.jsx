@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import shortid from 'shortid';
-import { Link } from 'gatsby';
+
+import Link from '../Link';
 
 const Wrapper = styled.div`
   border: 2px solid #ebebeb;
