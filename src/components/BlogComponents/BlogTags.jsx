@@ -6,12 +6,12 @@ import BlogSidebarBlock from './BlogSidebarBlock';
 const TAGS_NUM = 7;
 
 const extractTags = tagGroups =>
-  tagGroups.map(({ fieldValue }) => fieldValue)
+  tagGroups.map(({ fieldValue }) => fieldValue);
 
 const BlogTags = () => (
   <StaticQuery
     query={graphql`
-      query BlogTags {
+      query blogTags {
         allMdx(
           filter: { fileAbsolutePath: { regex: "/blog/" } }
           sort: { fields: [frontmatter___date], order: DESC }
@@ -25,7 +25,7 @@ const BlogTags = () => (
       }
     `}
     render={(data) => {
-      const tags = extractTags(data.allMdx.group)
+      const tags = extractTags(data.allMdx.group);
 
       return (
         <BlogSidebarBlock

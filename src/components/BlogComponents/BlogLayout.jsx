@@ -25,7 +25,7 @@ const Sidebar = styled.aside`
 
 const BlogLayout = ({ children, seo }) => (
   <Layout>
-    <SEO {...seo } />
+    <SEO {...seo} />
     <BlogHero />
     <StyledContainer>
       <PostWrapper>

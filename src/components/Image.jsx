@@ -42,7 +42,7 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
       const imageSizes = image.node.childImageSharp.sizes;
       const imageFluid = image.node.childImageSharp.fluid;
 
-      const imgProps = { alt, style: { margin: '0 auto', width: 'auto' } };
+      const imgProps = { alt };
 
       if (fluid) {
         Object.assign(imgProps, { fluid: imageFluid });

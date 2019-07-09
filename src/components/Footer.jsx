@@ -5,6 +5,13 @@ import Link from './Link';
 import Image from './Image';
 import rectangles from '../images/footer-rectangles.svg';
 
+const Wrapper = styled.footer`
+  background-image: url(${rectangles});
+  height: 50em;
+  padding: 4em 2em;
+  text-align: center;
+`;
+
 const VideoJsLogoWrapper = styled.div`
   margin-bottom: 2.4em;
 `;
@@ -48,8 +55,8 @@ const Logos = styled.div`
   }
 `;
 
-const Footer = styled(({ className }) => (
-  <footer className={className}>
+const Footer = ({ className }) => (
+  <Wrapper>
     <VideoJsLogoWrapper>
       <Link to="/"><Image filename="logo-black.svg" /></Link>
     </VideoJsLogoWrapper>
@@ -69,12 +76,7 @@ const Footer = styled(({ className }) => (
       <Link href="https://mail.com"><Image filename="newsletter.svg" /></Link>
       <Link href="https://github.com"><Image filename="github.svg" /></Link>
     </Logos>
-  </footer>
-))`
-  background-image: url(${rectangles});
-  height: 50em;
-  padding: 4em 2em;
-  text-align: center;
-`;
+  </Wrapper>
+);
 
 export default Footer;

@@ -76,8 +76,8 @@ const renderNavItems = (path, items) => (
   </ul>
 );
 
-const GettingStartedNav = ({ className, path, items }) => (
-  <Wrapper className={className}>
+const GettingStartedNav = ({ path, items }) => (
+  <Wrapper>
     {renderNavItems(path, items)}
   </Wrapper>
 );

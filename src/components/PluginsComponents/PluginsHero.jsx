@@ -12,7 +12,7 @@ const StyledH2 = styled(H2)`
   line-height: 1.5;
   max-width: 33em;
   margin: 0 auto;
-`
+`;
 
 const StyledHero = styled(Hero)`
   background-position: center -520px;
