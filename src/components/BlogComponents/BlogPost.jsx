@@ -64,9 +64,8 @@ const Text = styled.div`
     margin-bottom: 2em;
   }
 
-  ul {
-    list-style-type: none;
-    padding: 0;
+  ul, ol {
+    margin-left: 1em;
   }
 
   blockquote {
