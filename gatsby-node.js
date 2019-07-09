@@ -5,7 +5,7 @@
  */
 const path = require('path');
 const _ = require('lodash');
-const { createFilePath } = require(`gatsby-source-filesystem`);
+const { createFilePath } = require('gatsby-source-filesystem');
 
 const createGettingStartedPage = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -108,7 +108,7 @@ const createBlogPages = async ({ graphql, actions }) => {
       path: `/tags/${tag}`,
       component: path.resolve(path.join('src', 'templates', 'BlogTagTemplate.jsx')),
       context: { tag },
-    })
+    });
   });
 };
 

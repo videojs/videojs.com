@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import TickIcon from './TickIcon';
 
 const Wrapper = styled.div`
-  position: relative;  
+  position: relative;
   margin-bottom: 0.5em;
 `;
 
@@ -49,7 +49,7 @@ const Label = styled.label`
   user-select: none;
 `;
 
-const Checkbox = ({ label, checked, onChange }) => (
+const CheckboxInput = ({ label, checked, onChange }) => (
   <Wrapper>
     <Input readOnly value={checked} />
     <Box checked={checked} onClick={onChange}>
@@ -59,4 +59,4 @@ const Checkbox = ({ label, checked, onChange }) => (
   </Wrapper>
 );
 
-export default Checkbox;
+export default CheckboxInput;

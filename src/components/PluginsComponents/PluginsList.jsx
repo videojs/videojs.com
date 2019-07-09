@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   margin: 3.5em 0 10em;
 `;
 
-const PluginsListContainer = () => (
+const PluginsList = () => (
   <StaticQuery
     query={graphql`
       query {
@@ -28,7 +28,7 @@ const PluginsListContainer = () => (
       }
     `}
     render={(data) => {
-      const plugins = extractNodes(data.allPluginsJson)
+      const plugins = extractNodes(data.allPluginsJson);
 
       return (
         <Container>
@@ -43,4 +43,4 @@ const PluginsListContainer = () => (
   />
 );
 
-export default PluginsListContainer;
+export default PluginsList;
