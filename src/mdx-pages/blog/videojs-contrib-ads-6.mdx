@@ -7,14 +7,13 @@ date: 2018-03-13 15:22:57
 tags:
 ---
 
-import Link from '../../components/Link'
 import BlogImage from '../../components/BlogComponents/BlogImage'
 
-A major update to <Link href="https://github.com/videojs/videojs-contrib-ads/" target="_blank" rel="noopener noreferrer">videojs-contrib-ads</Link> has been released. In this post, we'll take a look at what videojs-contrib-ads offers and what has improved in version 6.
+A major update to [videojs-contrib-ads](https://github.com/videojs/videojs-contrib-ads/) has been released. In this post, we'll take a look at what videojs-contrib-ads offers and what has improved in version 6.
 
 ## What is contrib-ads?
 
-Videojs-contrib-ads is a framework for creating Video.js ad plugins. Seamlessly integrating ad support into a video player can be a daunting task, especially if you have other plugins that may be effected. For example, playing ads may result in additional <Link href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events" target="_blank" rel="noopener noreferrer">media events</Link>. Imagine an analytics system that listens to "loadstart" events: it would start seeing double when extra `loadstart` events result from preroll ads. contrib-ads has a feature called <Link href="https://github.com/videojs/videojs-contrib-ads#redispatch" target="_blank" rel="noopener noreferrer">Redispatch</Link> that makes sure ads do not trigger extra media events. This keeps things as simple as possible without breaking other plugins. <Link href="https://github.com/videojs/videojs-contrib-ads#benefits" target="_blank" rel="noopener noreferrer">Additional benefits of using contrib-ads are listed in the readme</Link>.
+Videojs-contrib-ads is a framework for creating Video.js ad plugins. Seamlessly integrating ad support into a video player can be a daunting task, especially if you have other plugins that may be effected. For example, playing ads may result in additional [media events](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Media_events). Imagine an analytics system that listens to "loadstart" events: it would start seeing double when extra `loadstart` events result from preroll ads. contrib-ads has a feature called [Redispatch](https://github.com/videojs/videojs-contrib-ads#redispatch) that makes sure ads do not trigger extra media events. This keeps things as simple as possible without breaking other plugins. [Additional benefits of using contrib-ads are listed in the readme](https://github.com/videojs/videojs-contrib-ads#benefits).
 
 ## Version 6
 
@@ -22,9 +21,9 @@ Version 6 of contrib-ads is a maintenance release that includes a major code ref
 
 ## How it works
 
-> Ad mode is <Link href="https://github.com/videojs/videojs-contrib-ads#ad-mode-definition" target="_blank" rel="noopener noreferrer">strictly defined</Link> as _if content playback is blocked by the ad plugin_.
+> Ad mode is [strictly defined](https://github.com/videojs/videojs-contrib-ads#ad-mode-definition) as _if content playback is blocked by the ad plugin_.
 
-contrib-ads has a concept called _ad mode_. Ad mode is <Link href="https://github.com/videojs/videojs-contrib-ads#ad-mode-definition" target="_blank" rel="noopener noreferrer">strictly defined</Link> as _if content playback is blocked by the ad plugin_. This does not necessarily mean that an ad is playing. For example, if there is a preroll ad, after a play request we show a loading spinner until ad playback begins. This is considered part of ad mode. The public method `player.ads.isInAdMode()` can be used to check if we are in ad mode.
+contrib-ads has a concept called _ad mode_. Ad mode is [strictly defined](https://github.com/videojs/videojs-contrib-ads#ad-mode-definition) as _if content playback is blocked by the ad plugin_. This does not necessarily mean that an ad is playing. For example, if there is a preroll ad, after a play request we show a loading spinner until ad playback begins. This is considered part of ad mode. The public method `player.ads.isInAdMode()` can be used to check if we are in ad mode.
 
 In version 6, the state machine was refactored to match this strict definition of ad mode. There are two types of states: content states and ad states. If contrib-ads is in an ad state, it is in ad mode.
 
@@ -32,7 +31,7 @@ Here is a diagram of the new states. Blue states are content states and yellow s
 
 <BlogImage filename="blog/videojs-contrib-ads-6/ad-states.png" />
 
-For a history of how the state machine has evolved over time, <Link href="https://github.com/videojs/videojs-contrib-ads/issues/320" target="_blank" rel="noopener noreferrer">there is detailed information in this Github issue</Link>. In this article we're going to focus on how it works in version 6.
+For a history of how the state machine has evolved over time, [there is detailed information in this Github issue](https://github.com/videojs/videojs-contrib-ads/issues/320). In this article we're going to focus on how it works in version 6.
 
 Let's walk through the states for a simple preroll scenario. contrib-ads begins in the BeforePreroll state. This is considered a content state because content playback hasn't been requested yet and so ads are not blocking playback. The ad plugin can asynchronously request ads from an ad server during this time, even though the plugin is in content mode. The ad plugin triggers the `adsready` event when it's ready. Contrib-ads knows that once the play button is pressed, ads are already prepared.
 
@@ -46,4 +45,4 @@ Finally, since content has ended for the first time, we now transition to the Ad
 
 ## Conclusion
 
-Ads may not be your favorite part of watching video online, but contrib-ads makes sure that they don't break your site and that content plays even if ads fail. If you're interested in learning more or contributing to the project, <Link href="https://github.com/videojs/videojs-contrib-ads" target="_blank" rel="noopener noreferrer">check it out on Github</Link>!
+Ads may not be your favorite part of watching video online, but contrib-ads makes sure that they don't break your site and that content plays even if ads fail. If you're interested in learning more or contributing to the project, [check it out on Github](https://github.com/videojs/videojs-contrib-ads)!

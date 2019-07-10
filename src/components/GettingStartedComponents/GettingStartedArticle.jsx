@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
-import WithAutoLinkHeaders from '../WithAutoLinkHeaders';
+import WithMdxComponents from '../WithMdxComponents';
 
 const Wrapper = styled.article`
   width: 76%;
@@ -27,9 +27,9 @@ const Wrapper = styled.article`
 
 const GettingStartedArticle = ({ mdxData }) => (
   <Wrapper>
-    <WithAutoLinkHeaders basePath={mdxData.fields.slug}>
+    <WithMdxComponents contentSlug={mdxData.fields.slug}>
       <MDXRenderer>{mdxData.code.body}</MDXRenderer>
-    </WithAutoLinkHeaders>
+    </WithMdxComponents>
   </Wrapper>
 );
 

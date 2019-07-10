@@ -12,8 +12,6 @@ author:
 date: 2018-12-17 15:00:44
 ---
 
-import Link from '../../components/Link'
-
 In my old apartment, whenever I nuked a bowl of oats in the microwave, my WIFI cut out. It was an annoyance, but I was hungry, the apartment was too small to move the router further from the microwave, and I didn’t want to buy anything that operated on a different frequency. So I’d start the microwave, watch whatever video was streaming on my laptop until the buffer ran out, then watch the loading spinner until the microwave gave the triple ding.
 
 Thankfully, video players are usually pretty robust against such issues as network connectivity (and rogue microwaves), and the video resumed after the network recovered. But recently, we found that for some content played in Video.js, the video didn’t resume. Even worse, the loading spinner simply disappeared, leaving a frozen frame on screen.
@@ -24,7 +22,7 @@ Here’s a quick tour of what happened and how we fixed it.
 
 ## The Loading Spinner
 
-To approach the bug, we started with the most glaring problem, the disappearance of the loading spinner. The spinner is managed by Video.js. In <Link href="https://github.com/videojs/video.js/blob/v7.3.0/src/js/player.js#L1598" target="_blank" rel="noopener noreferrer">the code</Link>, the `vjs-waiting` class is added to the HTML element when the tech triggers a `waiting` event, and is removed on the next `timeupdate` event.
+To approach the bug, we started with the most glaring problem, the disappearance of the loading spinner. The spinner is managed by Video.js. In [the code](https://github.com/videojs/video.js/blob/v7.3.0/src/js/player.js#L1598), the `vjs-waiting` class is added to the HTML element when the tech triggers a `waiting` event, and is removed on the next `timeupdate` event.
 
 ```
 /**
@@ -60,7 +58,7 @@ So `timeupdate` events themselves were not reliable, but what else could be used
 
 The fix was pretty easy. Simply record the player's time when it gets the `waiting` event, and instead of removing the `vjs-waiting` class on the next `timeupdate`, remove the `vjs-waiting` class on the next `timeupdate` that has a different time from the one we recorded.
 
-You can see the PR for that <Link href="https://github.com/videojs/video.js/pull/5533" target="_blank" rel="noopener noreferrer">here</Link>, and it is available in Video.js 7.4.0.
+You can see the PR for that [here](https://github.com/videojs/video.js/pull/5533), and it is available in Video.js 7.4.0.
 
 ## Resuming Playback after Disconnecting
 
@@ -76,9 +74,9 @@ VIDEOJS: WARN: Problem encountered with the current HLS playlist. Trying again s
 
 When your console freezes, debugging can be tough. It's like trying to watch a video when the microwave is on. So we tackled that issue first.
 
-Looking at the error message, we were repeatedly retrying the last rendition. That is expected behavior, as we added it <Link href="https://github.com/videojs/videojs-contrib-hls/pull/1039" target="_blank" rel="noopener noreferrer">a long time ago</Link> to our HLS playlist loader. However, when we added DASH support, we created a different playlist loader, and we never added the same logic for reloading the final DASH playlist.
+Looking at the error message, we were repeatedly retrying the last rendition. That is expected behavior, as we added it [a long time ago](https://github.com/videojs/videojs-contrib-hls/pull/1039) to our HLS playlist loader. However, when we added DASH support, we created a different playlist loader, and we never added the same logic for reloading the final DASH playlist.
 
-After <Link href="https://github.com/videojs/http-streaming/pull/277" target="_blank" rel="noopener noreferrer">adding the throttle</Link>, debugging became much easier, and we were able to use the console once again and dig into why DASH didn't reconnect while HLS did.
+After [adding the throttle](https://github.com/videojs/http-streaming/pull/277), debugging became much easier, and we were able to use the console once again and dig into why DASH didn't reconnect while HLS did.
 
 ### Multiple Requests Multiple Problems
 
@@ -88,14 +86,14 @@ By examining Chrome's network log, the DASH content, after a certain point, stop
 
 Requests in VHS are managed by a module called `media-segment-request`, which is responsible for requesting everything required for a segment, whether it be the key, the init segment, the media data, or all of them, before letting the segment loader know that its requests are done. And for the video requests, the `media-segment-request` never called the done callback after the disconnect.
 
-It turned out that if we received one error, we aborted the other requests in that group, and waited to call the `done` callback until those requests reported that they were aborted. However, according to the <Link href="https://xhr.spec.whatwg.org/#the-abort%28%29-method" target="_blank" rel="noopener noreferrer">XHR standard</Link>, the abort algorithm may not be run if the request was unsent. In this case, when the network disconnected, the first request reported an error before the second had a chance to be sent. After we aborted the second request, we were stuck waiting for an error that would never come.
+It turned out that if we received one error, we aborted the other requests in that group, and waited to call the `done` callback until those requests reported that they were aborted. However, according to the [XHR standard](https://xhr.spec.whatwg.org/#the-abort%28%29-method), the abort algorithm may not be run if the request was unsent. In this case, when the network disconnected, the first request reported an error before the second had a chance to be sent. After we aborted the second request, we were stuck waiting for an error that would never come.
 
-We fixed that by <Link href="https://github.com/videojs/http-streaming/pull/286" target="_blank" rel="noopener noreferrer">immediately calling back with an error on the first error we encounter</Link> instead of waiting for each subsequent request to finish.
+We fixed that by [immediately calling back with an error on the first error we encounter](https://github.com/videojs/http-streaming/pull/286) instead of waiting for each subsequent request to finish.
 
 The problem should also have existed in HLS, but only in cases where the segments had an EXT-X-KEY or EXT-X-MAP tag to go along with the media request. In the content we tried, neither of those was present, so it appeared to be isolated to DASH content.
 
 ## Bug Solved
 
-We hope that was somewhat useful in describing some of the bugs we encounter, how we go about investigation, and what the resolutions look like. We'd be happy to hear from you as well. You can find us on the #playback channel in the <Link href="http://slack.videojs.com/" target="_blank" rel="noopener noreferrer">Video.js Slack</Link>, or navigating Issues and PRs at https://github.com/videojs/http-streaming.
+We hope that was somewhat useful in describing some of the bugs we encounter, how we go about investigation, and what the resolutions look like. We'd be happy to hear from you as well. You can find us on the #playback channel in the [Video.js Slack](http://slack.videojs.com/), or navigating Issues and PRs at https://github.com/videojs/http-streaming.
 
 Now to enjoy my oats and video, without any concerns about the playback resuming.

@@ -7,8 +7,6 @@ date: 2018-04-17 14:49:43
 tags:
 ---
 
-import Link from '../../components/Link'
-
 ## tl;dr
 * Never assume autoplay will work.
 * Using the `muted` attribute/option will improve the chances that autoplay will succeed.
@@ -25,13 +23,13 @@ This post is not about ways to circumvent autoplay policies. That's not possible
 I'm not going to go into exhaustive detail on each browser's specific algorithms because they are subject to change and it would defeat the core point of this post: **never assume autoplay will work.**
 
 ### Safari
-As of Safari 11, which shipped in September 2017, Apple has <Link href="https://webkit.org/blog/7734/auto-play-policy-changes-for-macos/" target="_blank" rel="noopener noreferrer">updated their autoplay policies</Link> to prevent autoplay with sound on most websites.
+As of Safari 11, which shipped in September 2017, Apple has [updated their autoplay policies](https://webkit.org/blog/7734/auto-play-policy-changes-for-macos/) to prevent autoplay with sound on most websites.
 
 ### Chrome
-Back in September 2017, Google announced that <Link href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes" target="_blank" rel="noopener noreferrer">Chrome's autoplay policy would change in April 2018 with Chrome 66</Link>, subject to a series of rules you can read about in the linked article.
+Back in September 2017, Google announced that [Chrome's autoplay policy would change in April 2018 with Chrome 66](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes), subject to a series of rules you can read about in the linked article.
 
 ### Firefox
-With Firefox, Mozilla has taken the position of not having a firm autoplay policy for the time being. That may change in the future. That said, Firefox today <Link href="https://support.mozilla.org/en-US/questions/1150702" target="_blank" rel="noopener noreferrer">does allow users to disable autoplay</Link> with a few configuration changes.
+With Firefox, Mozilla has taken the position of not having a firm autoplay policy for the time being. That may change in the future. That said, Firefox today [does allow users to disable autoplay](https://support.mozilla.org/en-US/questions/1150702) with a few configuration changes.
 
 ### IE11 and Edge
 Microsoft's browsers have no specific/known autoplay policy - at the time of writing, autoplay just works in IE11 and Edge.
@@ -66,7 +64,7 @@ If that works for you, your job is done!
 Beyond that, there are some general practices that may be useful when dealing with autoplay: detecting whether autoplay is supported at all, or detecting whether autoplay succeeds or fails.
 
 ### Detecting Autoplay Support
-Similar to detecting successful or failed autoplay requests, it may be useful to perform autoplay feature detection on the browser before creating a player at all. In these cases, the <Link href="https://github.com/video-dev/can-autoplay" target="_blank" rel="noopener noreferrer">can-autoplay</Link> library is the best solution. It provides a similar `Promise`-based API to the native `player.play()` method:
+Similar to detecting successful or failed autoplay requests, it may be useful to perform autoplay feature detection on the browser before creating a player at all. In these cases, the [can-autoplay](https://github.com/video-dev/can-autoplay) library is the best solution. It provides a similar `Promise`-based API to the native `player.play()` method:
 
 ```js
 canAutoplay.video().then(function(obj) {
@@ -117,7 +115,7 @@ Still, if you have full control, **we recommend avoiding the `autoplay` attribut
 #### Example Use-Case
 At Brightcove, one thing we've done to improve the user experience of our Video.js-based player is to hide the "big play button" for players requesting autoplay until the autoplay either succeeds or fails. This prevents a periodic situation where the "big play button" flashes on the player for a moment before autoplay kicks in.
 
-While our actual implementation has more complexity due to specific circumstances with our player, the gist of it is the same as <Link href="https://jsbin.com/quqodek/edit?html,js,output" target="_blank" rel="noopener noreferrer">this functional JSBin demonstration.</Link>
+While our actual implementation has more complexity due to specific circumstances with our player, the gist of it is the same as [this functional JSBin demonstration.](https://jsbin.com/quqodek/edit?html,js,output)
 
 ## Conclusion
 There may be decision points in your code related to whether autoplay succeeds or not; however, the practical reality is that all the paragraphs before this boil down to a single, essential concept:
