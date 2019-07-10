@@ -1,12 +1,10 @@
-import Link from '../components/Link'
-
 ## Download
 
 There are a few ways to get started using Video.js (currently v7.5.5), but you should select the one that best fits your particular use case.
 
 ### Video.js CDN
 
-Our friends at <Link href="http://fastly.com" target="_blank">Fastly</Link> are nice enough to provide hosting for all the necessary files for Video.js on their content delivery network. Using these hosted files is probably the easiest way to get started using Video.js, you simply need to include the following links in your page.
+Our friends at [Fastly](http://fastly.com) are nice enough to provide hosting for all the necessary files for Video.js on their content delivery network. Using these hosted files is probably the easiest way to get started using Video.js, you simply need to include the following links in your page.
 
 ```html
 <head>
@@ -23,7 +21,7 @@ Our friends at <Link href="http://fastly.com" target="_blank">Fastly</Link> are 
     <source src='MY_VIDEO.webm' type='video/webm'>
     <p class='vjs-no-js'>
       To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <Link href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</Link>
+      <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
     </p>
   </video>
 
@@ -33,7 +31,7 @@ Our friends at <Link href="http://fastly.com" target="_blank">Fastly</Link> are 
 
 ### Install via npm
 
-For more advanced workflows, installing via <Link href="http://npmjs.com" target="_blank">npm</Link> is recommended
+For more advanced workflows, installing via [npm](http://npmjs.com) is recommended
 
 ```
 $ npm install --save-dev video.js
@@ -57,7 +55,7 @@ window.HELP_IMPROVE_VIDEOJS = false;
 
 ## What's in the box?
 
-If you've downloaded one of the <Link href="https://github.com/videojs/Video.js/releases" target="_blank">releases</Link> or installed via a package manager, you've probably noticed that the contents are slightly different from the source code available on Github. The former includes just the compiled files necessary to use Video.js, and the latter includes the source used to create those files.
+If you've downloaded one of the [releases](https://github.com/videojs/Video.js/releases) or installed via a package manager, you've probably noticed that the contents are slightly different from the source code available on Github. The former includes just the compiled files necessary to use Video.js, and the latter includes the source used to create those files.
 
 ### Distributions
 
@@ -87,7 +85,7 @@ Video.js/
 └── video.min.js
 ```
 
-This package includes everything you'll need to use Video.js on a production site. By default, we bundle Video.js with Mozilla's excellent <Link href="https://github.com/mozilla/vtt.js" target="_blank">VTT.js</Link>. If you don't need VTT.js functionality for whatever reason, you can use one of the Video.js copies that don't include VTT.js. These have <code>novtt</code> in the name and can be found in the <code>alt/</code> directory. <code>font/</code> includes all the generated icon font files from the <Link href="https://github.com/videojs/font" target="_blank">Videojs Font project</Link>. <code>lang/</code> contains all the generated translation files.
+This package includes everything you'll need to use Video.js on a production site. By default, we bundle Video.js with Mozilla's excellent [VTT.js](https://github.com/mozilla/vtt.js). If you don't need VTT.js functionality for whatever reason, you can use one of the Video.js copies that don't include VTT.js. These have <code>novtt</code> in the name and can be found in the <code>alt/</code> directory. <code>font/</code> includes all the generated icon font files from the [Videojs Font project](https://github.com/videojs/font). <code>lang/</code> contains all the generated translation files.
 
 ### Source Code
 
@@ -97,7 +95,7 @@ A lot of the root source directory is JSON configs for various package managers 
 
 ## Build Tools
 
-Before getting started, you'll need <Link href="https://nodejs.org/" target="_blank">Node.js</Link> installed. See <Link href="https://github.com/videojs/video.js/blob/master/CONTRIBUTING.md#contributing-code" target="_blank">CONTRIBUTING.md</Link> for more details.
+Before getting started, you'll need [Node.js](https://nodejs.org/) installed. See [CONTRIBUTING.md](https://github.com/videojs/video.js/blob/master/CONTRIBUTING.md#contributing-code) for more details.
 
 ## Customize
 
@@ -109,9 +107,7 @@ The player skin is completely built from HTML and CSS, including when Flash and 
 
 Skin changes can be as simple as centering the play button (you can just add the 'vjs-big-play-centered' class to your video tag), or as complex as creating entirely new layouts. We've built a codepen project where you can explore different changes.
 
-<p>
-  <Link href="https://codepen.io/heff/pen/EarCt" target="_blank">Video.js Skin Designer</Link>
-</p>
+[Video.js Skin Designer](https://codepen.io/heff/pen/EarCt)
 
 And if you know CSS, you can always just open your Chrome dev tools and hack away!
 
@@ -119,6 +115,4 @@ And if you know CSS, you can always just open your Chrome dev tools and hack awa
 
 Video.js by itself is purposefully very simple. It supports the basic video and audio playback features and ensures they work the same across different playback technologies ("techs"). Any more advanced features are built as plugins, including playlists, analytics, advertising, and support for advanced formats like HLS and DASH. Check out the plugins page to see what's available.
 
-<p>
-  <Link to="/plugins">Video.js Plugins</Link>
-</p>
+[Video.js Plugins](/plugins)

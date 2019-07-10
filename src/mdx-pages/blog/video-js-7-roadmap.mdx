@@ -15,7 +15,6 @@ author:
 date: 2018-03-09 16:33:56
 ---
 
-import Link from '../../components/Link'
 import BlogImage from '../../components/BlogComponents/BlogImage'
 
 <BlogImage filename="blog/video-js-7-roadmap/woodland-road-falling-leaf-natural-38537.jpeg" />
@@ -41,7 +40,7 @@ According to the data we’ve gathered, IE in total has a share of about 4%. Of 
 In addition to the statistics, our tests currently take between 5 and 10 minutes to run on IE8. Removing this will allow us to greatly decrease the duration of our test suite. Even worse, sometimes the tests timeout and retry for up to 40 minutes but when they restart they pass on the first try. Not having to deal with these types of issues will allow us to increase our testing infrastructure and provide a better product.
 
 > <BlogImage filename="blog/video-js-7-roadmap/browserstack logo small.png" presentationWidth={200} />
-> <p>Thanks <Link href="https://www.browserstack.com/" target="_blank" rel="noopener noreferrer">Browserstack</Link> for sponsoring browser-based testing for Video.js!</p>
+> Thanks [Browserstack](https://www.browserstack.com/) for sponsoring browser-based testing for Video.js!
 
 ## Video.js 5.x
 
@@ -50,17 +49,17 @@ When Video.js 7 is released it’ll be the end-of-life for Video.js 5.x from a s
 ## Google Analytics
 
 > <BlogImage filename="blog/video-js-7-roadmap/fastly small.png" presentationWidth={140} />
-> <p>Thanks <Link href="https://www.fastly.com/" target="_blank" rel="noopener noreferrer">Fastly</Link> for sponsoring vjs.zencdn.net</p>
+> Thanks [Fastly](https://www.fastly.com/) for sponsoring vjs.zencdn.net
 
-Video.js provides CDN hosted files for Video.js, sponsored by <Link href="https://www.fastly.com/" target="_blank" rel="noopener noreferrer">Fastly</Link> -- thanks Fastly! These files currently have a stripped down pixel tracking for Google Analytics (GA) that sends limited information to a GA account we own. We did a terrible job communicating that this is happening and how users can opt out -- set window.HELP_IMPROVE_VIDEOJS to false before loading in Video.js -- or use another CDN like unpkg or CDNJS. Recently we made a change that makes this tracking pixel honor the Do Not Track flag set by users in the browser, however, this isn’t going to affect previously released versions of Video.js
+Video.js provides CDN hosted files for Video.js, sponsored by [Fastly](https://www.fastly.com/) -- thanks Fastly! These files currently have a stripped down pixel tracking for Google Analytics (GA) that sends limited information to a GA account we own. We did a terrible job communicating that this is happening and how users can opt out -- set window.HELP_IMPROVE_VIDEOJS to false before loading in Video.js -- or use another CDN like unpkg or CDNJS. Recently we made a change that makes this tracking pixel honor the Do Not Track flag set by users in the browser, however, this isn’t going to affect previously released versions of Video.js
 <BlogImage filename="blog/video-js-7-roadmap/remove GA.png" presentationWidth={120} />
-<p>In addition, starting with Video.js 7.0 (and probably back ported to newer versions of 6.x) we will *no longer* include this tracking pixel in our CDN builds. Instead, we are investigating our options for using the CDN logs via Fastly. We expect to share more details as we get closer to the Video.js 7 release date and have a better idea of what we will be doing.</p>
+In addition, starting with Video.js 7.0 (and probably back ported to newer versions of 6.x) we will *no longer* include this tracking pixel in our CDN builds. Instead, we are investigating our options for using the CDN logs via Fastly. We expect to share more details as we get closer to the Video.js 7 release date and have a better idea of what we will be doing.
 
 ## Build Tools
 
 <BlogImage filename="blog/video-js-7-roadmap/rollup to webpack.png" presentationWidth={460} />
 
-Currently, Video.js uses rollup to combine all the Video.js files into two files for different build systems. One that excludes dependencies, for use in bundlers, and another that includes dependencies for a UMD file that can be used on a page as a `<script>`. We are looking to transition our build and test tooling from rollup and browserify to Webpack 4.0 to provide more flexibility in our builds and to do a better job at being able to build with VHS (as many people remember <Link href="https://github.com/videojs/videojs-contrib-hls/issues/600" target="_blank" rel="noopener noreferrer">the infamous issue 600 on the contrib-hls repo</Link>).
+Currently, Video.js uses rollup to combine all the Video.js files into two files for different build systems. One that excludes dependencies, for use in bundlers, and another that includes dependencies for a UMD file that can be used on a page as a `<script>`. We are looking to transition our build and test tooling from rollup and browserify to Webpack 4.0 to provide more flexibility in our builds and to do a better job at being able to build with VHS (as many people remember [the infamous issue 600 on the contrib-hls repo](https://github.com/videojs/videojs-contrib-hls/issues/600)).
 In addition, we’ll be looking into allowing custom builds when bundling Video.js. For example, if one doesn’t want VHS or doesn’t want visible controls, a surprisingly large part of the player, they can set `VJS_VHS=false` `VJS_CONTROLS=false` when they’re bundling their application to keep these pieces out of the build.
 
 ## Timeline

@@ -6,7 +6,7 @@ import { MDXProvider } from '@mdx-js/react';
 import Link from './Link';
 import { joinUrls } from '../utils/url';
 
-const AutoLinkContext = React.createContext();
+const Context = React.createContext();
 
 const StyledLinkIcon = styled(({ className }) => (
   <svg
@@ -60,13 +60,13 @@ const getStringChild = (children) => {
 };
 
 const AutoLinkHeader = ({ as, className, children, ...props }) => (
-  <AutoLinkContext.Consumer>
-    {({ slugger, basePath }) => {
+  <Context.Consumer>
+    {({ slugger, contentSlug }) => {
       const id = slugger.slug(getStringChild(children));
 
       return id ? (
         <StyledHeader as={as} id={id} {...props}>
-          <StyledLink to={joinUrls(basePath, `#${id}`)}>
+          <StyledLink to={joinUrls(contentSlug, `#${id}`)}>
             <StyledLinkIcon />
           </StyledLink>
           {children}
@@ -77,7 +77,7 @@ const AutoLinkHeader = ({ as, className, children, ...props }) => (
         </StyledHeader>
       );
     }}
-  </AutoLinkContext.Consumer>
+  </Context.Consumer>
 );
 
 const buildHeaderComponent = tag => props =>
@@ -93,7 +93,7 @@ const AutoLinkH6 = buildHeaderComponent('h6');
 const isExternalUrl = url =>
   /^(?:(?:https?)|(?:mailto)|(?:ftp)|(?:tel)):/.test(url);
 
-const AutoLink = ({ children, href, ...props }) => {
+const MdxLink = ({ children, href, ...props }) => {
   const linkProps = { ...props };
 
   if (isExternalUrl(href)) {
@@ -111,22 +111,22 @@ const AutoLink = ({ children, href, ...props }) => {
   );
 };
 
-const tagsToReplaceWithAutoLinks = {
+const componentsToReplace = {
   h1: AutoLinkH1,
   h2: AutoLinkH2,
   h3: AutoLinkH3,
   h4: AutoLinkH4,
   h5: AutoLinkH5,
   h6: AutoLinkH6,
-  a: AutoLink,
+  a: MdxLink,
 };
 
-const WithAutoLinkHeaders = ({ basePath, children }) => (
-  <AutoLinkContext.Provider value={{ slugger: new Slugger(), basePath }}>
-    <MDXProvider components={tagsToReplaceWithAutoLinks}>
+const WithMdxComponents = ({ contentSlug, children }) => (
+  <Context.Provider value={{ slugger: new Slugger(), contentSlug }}>
+    <MDXProvider components={componentsToReplace}>
       {children}
     </MDXProvider>
-  </AutoLinkContext.Provider>
+  </Context.Provider>
 )
 
-export default WithAutoLinkHeaders;
+export default WithMdxComponents;

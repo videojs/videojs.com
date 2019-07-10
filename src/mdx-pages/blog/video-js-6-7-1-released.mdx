@@ -7,9 +7,7 @@ date: 2018-02-01 15:40:55
 tags:
 ---
 
-import Link from '../../components/Link'
-
-Video.js 6.7.1 was released this week. This comes a month and a half since the first <Link href="https://github.com/videojs/video.js/releases/tag/v6.6.0" target="_blank" rel="noopener noreferrer">6.6.0 release</Link> (which we forgot to blog about) and only a week since the latest patch release (<Link href="https://github.com/videojs/video.js/releases/tag/v6.6.3" target="_blank" rel="noopener noreferrer">6.6.3</Link>, which is now latest).
+Video.js 6.7.1 was released this week. This comes a month and a half since the first [6.6.0 release](https://github.com/videojs/video.js/releases/tag/v6.6.0) (which we forgot to blog about) and only a week since the latest patch release ([6.6.3](https://github.com/videojs/video.js/releases/tag/v6.6.3), which is now latest).
 
 6.7 has two awesome new features and a couple helpers:
 - a working `playerresize` event
@@ -18,13 +16,13 @@ Video.js 6.7.1 was released this week. This comes a month and a half since the f
 
 ## Netlify
 
-Recently, we also switched over all our online properties to run on <Link href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">Netlify</Link>. This is great because it gives us HTTPS via <Link href="https://letsencrypt.org/" target="_blank" rel="noopener noreferrer">Let's Encrypt</Link> but also allows us much better automation for the website, docs website, and blog. Since the docs website is tied to the main Video.js repo and has a build per PR, we also had Netlify generate an example page for the PR based on the sandbox examples. <Link href="https://deploy-preview-4916--videojs-docs.netlify.com/test-example/" target="_blank" rel="noopener noreferrer">Here's the example page</Link> for a <Link href="https://github.com/videojs/video.js/pull/4916" target="_blank" rel="noopener noreferrer">recent PR</Link>.
+Recently, we also switched over all our online properties to run on [Netlify](https://www.netlify.com/). This is great because it gives us HTTPS via [Let's Encrypt](https://letsencrypt.org/) but also allows us much better automation for the website, docs website, and blog. Since the docs website is tied to the main Video.js repo and has a build per PR, we also had Netlify generate an example page for the PR based on the sandbox examples. [Here's the example page](https://deploy-preview-4916--videojs-docs.netlify.com/test-example/) for a [recent PR](https://github.com/videojs/video.js/pull/4916).
 
 ## `playerresize`
 
 This new event will fire each time the player is resized. It will fire when going fullscreen and when exiting fullscreen and when resizing the player via the dimension methods or if the player is in fluid mode and the window is resized.
-It uses the new <Link href="https://github.com/WICG/ResizeObserver" target="_blank" rel="noopener noreferrer">ResizeObserver</Link> in Chrome 64 and wherever it is available. If it isn't available, a polyfill can be passed in or it will use its fallback. The fallback uses an absolutely positioned, hidden iframe that's the size of the player and then retriggers the iframe's `resize` event on a debounced handler.
-Also, I wanted to note that the `resize` player event does not refer to the size of the player itself but rather to the native <Link href="https://html.spec.whatwg.org/multipage/media.html#event-media-resize" target="_blank" rel="noopener noreferrer">`resize` event</Link>, which is triggered when the videoHeight or videoWidth has changed.
+It uses the new [ResizeObserver](https://github.com/WICG/ResizeObserver) in Chrome 64 and wherever it is available. If it isn't available, a polyfill can be passed in or it will use its fallback. The fallback uses an absolutely positioned, hidden iframe that's the size of the player and then retriggers the iframe's `resize` event on a debounced handler.
+Also, I wanted to note that the `resize` player event does not refer to the size of the player itself but rather to the native [`resize` event](https://html.spec.whatwg.org/multipage/media.html#event-media-resize), which is triggered when the videoHeight or videoWidth has changed.
 
 ## Mediator type for middleware
 
@@ -61,42 +59,42 @@ These are to make it easier to manage your players and reduce unintended side-ef
 `videojs.getAllPlayers()` is just a nice way of getting a list of all the players that are currently available on the page.
 
 ## Committers
-* Gary Katsevman <Link href="https://github.com/gkatsev" target="_blank" rel="noopener noreferrer">@gkatsev</Link>
-* Pat O'Neill <Link href="https://github.com/misteroneill" target="_blank" rel="noopener noreferrer">@misteroneill</Link>
-* <Link href="https://github.com/ldayananda" target="_blank" rel="noopener noreferrer">@ldayananda</Link>
-* <Link href="https://github.com/mister-ben" target="_blank" rel="noopener noreferrer">@mister-ben</Link>
+* Gary Katsevman [@gkatsev](https://github.com/gkatsev)
+* Pat O'Neill [@misteroneill](https://github.com/misteroneill)
+* [@ldayananda](https://github.com/ldayananda)
+* [@mister-ben](https://github.com/mister-ben)
 
 ## Raw CHANGELOG
 
 <a name="6.7.1"></a>
-## <Link href="https://github.com/videojs/video.js/compare/v6.7.0...v6.7.1" target="_blank" rel="noopener noreferrer">6.7.1</Link> (2018-01-31)
+## [6.7.1](https://github.com/videojs/video.js/compare/v6.7.0...v6.7.1) (2018-01-31)
 
 ### Bug Fixes
-* **middleware**: do a null check in mediator methods (<Link href="https://github.com/videojs/video.js/issues/4913" target="_blank" rel="noopener noreferrer">#4913</Link>) (<Link href="https://github.com/videojs/video.js/commit/7670db6" target="_blank" rel="noopener noreferrer">7670db6</Link>)
+* **middleware**: do a null check in mediator methods ([#4913](https://github.com/videojs/video.js/issues/4913)) ([7670db6](https://github.com/videojs/video.js/commit/7670db6))
 
 <a name="6.7.0"></a>
-# <Link href="https://github.com/videojs/video.js/compare/v6.6.3...v6.7.0" target="_blank" rel="noopener noreferrer">6.7.0</Link> (2018-01-30)
+# [6.7.0](https://github.com/videojs/video.js/compare/v6.6.3...v6.7.0) (2018-01-30)
 
 ### Features
 
-* Add `getPlayer` method to Video.js. (<Link href="https://github.com/videojs/video.js/issues/4836" target="_blank" rel="noopener noreferrer">#4836</Link>) (<Link href="https://github.com/videojs/video.js/commit/a15e616" target="_blank" rel="noopener noreferrer">a15e616</Link>)
-* Add `videojs.getAllPlayers` to get an array of players. (<Link href="https://github.com/videojs/video.js/issues/4842" target="_blank" rel="noopener noreferrer">#4842</Link>) (<Link href="https://github.com/videojs/video.js/commit/6a00577" target="_blank" rel="noopener noreferrer">6a00577</Link>)
-* add mediator middleware type for play() (<Link href="https://github.com/videojs/video.js/issues/4868" target="_blank" rel="noopener noreferrer">#4868</Link>) (<Link href="https://github.com/videojs/video.js/commit/bf3eb45" target="_blank" rel="noopener noreferrer">bf3eb45</Link>)
-* playerresize event in all cases (<Link href="https://github.com/videojs/video.js/issues/4864" target="_blank" rel="noopener noreferrer">#4864</Link>) (<Link href="https://github.com/videojs/video.js/commit/9ceb4e4" target="_blank" rel="noopener noreferrer">9ceb4e4</Link>)
+* Add `getPlayer` method to Video.js. ([#4836](https://github.com/videojs/video.js/issues/4836)) ([a15e616](https://github.com/videojs/video.js/commit/a15e616))
+* Add `videojs.getAllPlayers` to get an array of players. ([#4842](https://github.com/videojs/video.js/issues/4842)) ([6a00577](https://github.com/videojs/video.js/commit/6a00577))
+* add mediator middleware type for play() ([#4868](https://github.com/videojs/video.js/issues/4868)) ([bf3eb45](https://github.com/videojs/video.js/commit/bf3eb45))
+* playerresize event in all cases ([#4864](https://github.com/videojs/video.js/issues/4864)) ([9ceb4e4](https://github.com/videojs/video.js/commit/9ceb4e4))
 
 ### Bug Fixes
 
-* do not patch canplaytype on android chrome (<Link href="https://github.com/videojs/video.js/issues/4885" target="_blank" rel="noopener noreferrer">#4885</Link>) (<Link href="https://github.com/videojs/video.js/commit/f03ac5e" target="_blank" rel="noopener noreferrer">f03ac5e</Link>)
+* do not patch canplaytype on android chrome ([#4885](https://github.com/videojs/video.js/issues/4885)) ([f03ac5e](https://github.com/videojs/video.js/commit/f03ac5e))
 
 ### Chores
 
-* generate a test example on netlify for PRs (<Link href="https://github.com/videojs/video.js/issues/4912" target="_blank" rel="noopener noreferrer">#4912</Link>) (<Link href="https://github.com/videojs/video.js/commit/8b54737" target="_blank" rel="noopener noreferrer">8b54737</Link>)
-* **package:** update dependencies (<Link href="https://github.com/videojs/video.js/issues/4908" target="_blank" rel="noopener noreferrer">#4908</Link>) (<Link href="https://github.com/videojs/video.js/commit/dcab42e" target="_blank" rel="noopener noreferrer">dcab42e</Link>)
+* generate a test example on netlify for PRs ([#4912](https://github.com/videojs/video.js/issues/4912)) ([8b54737](https://github.com/videojs/video.js/commit/8b54737))
+* **package:** update dependencies ([#4908](https://github.com/videojs/video.js/issues/4908)) ([dcab42e](https://github.com/videojs/video.js/commit/dcab42e))
 
 ### Documentation
 
-* Update COLLABORATOR_GUIDE.md and CONTRIBUTING.md to include label meanings (<Link href="https://github.com/videojs/video.js/issues/4874" target="_blank" rel="noopener noreferrer">#4874</Link>) (<Link href="https://github.com/videojs/video.js/commit/a345971" target="_blank" rel="noopener noreferrer">a345971</Link>)
+* Update COLLABORATOR_GUIDE.md and CONTRIBUTING.md to include label meanings ([#4874](https://github.com/videojs/video.js/issues/4874)) ([a345971](https://github.com/videojs/video.js/commit/a345971))
 
 ### Tests
 
-* add project and build names to browserstack (<Link href="https://github.com/videojs/video.js/issues/4903" target="_blank" rel="noopener noreferrer">#4903</Link>) (<Link href="https://github.com/videojs/video.js/commit/41fd5cb" target="_blank" rel="noopener noreferrer">41fd5cb</Link>)
+* add project and build names to browserstack ([#4903](https://github.com/videojs/video.js/issues/4903)) ([41fd5cb](https://github.com/videojs/video.js/commit/41fd5cb))
