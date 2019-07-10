@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import shortid from 'shortid';
 
@@ -49,5 +50,13 @@ const BlogSidebarBlock = ({ heading, items }) => (
     </Links>
   </Wrapper>
 );
+
+BlogSidebarBlock.propTypes = {
+  heading: PropTypes.node.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+  })).isRequired,
+};
 
 export default BlogSidebarBlock;

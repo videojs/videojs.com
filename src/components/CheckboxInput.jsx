@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 import TickIcon from './TickIcon';
@@ -58,5 +59,11 @@ const CheckboxInput = ({ label, checked, onChange }) => (
     {label && <Label>{label}</Label>}
   </Wrapper>
 );
+
+CheckboxInput.propTypes = {
+  label: PropTypes.node,
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default CheckboxInput;

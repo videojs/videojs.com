@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Layout from '../Layout';
@@ -38,5 +39,14 @@ const BlogLayout = ({ children, seo }) => (
     </StyledContainer>
   </Layout>
 );
+
+BlogLayout.defaultProps = {
+  seo: {},
+};
+
+BlogLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+  seo: PropTypes.object,
+};
 
 export default BlogLayout;

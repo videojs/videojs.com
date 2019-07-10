@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Image from '../Image';
@@ -21,5 +22,9 @@ const BlogImage = (props) => (
     {props.alt && <ImageDesc>{props.alt}</ImageDesc>}
   </Wrapper>
 );
+
+BlogImage.propTypes = {
+  alt: PropTypes.string,
+};
 
 export default BlogImage;
