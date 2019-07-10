@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Link from '../Link';
@@ -81,5 +82,14 @@ const GettingStartedNav = ({ path, items }) => (
     {renderNavItems(path, items)}
   </Wrapper>
 );
+
+GettingStartedNav.propTypes = {
+  path: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    items: PropTypes.array,
+  })).isRequired,
+};
 
 export default GettingStartedNav;

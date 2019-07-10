@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Slider from 'react-input-slider';
 
@@ -31,7 +32,7 @@ const sliderStyles = {
   },
 };
 
-const Range = ({ className, label, min, max, step, value, onChange }) => (
+const RangeInput = ({ className, label, min, max, step, value, onChange }) => (
   <Wrapper className={className}>
     <Labels>
       <span>{label}</span>
@@ -49,4 +50,14 @@ const Range = ({ className, label, min, max, step, value, onChange }) => (
   </Wrapper>
 );
 
-export default Range;
+RangeInput.propTypes = {
+  className: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  min: PropTypes.number.isRequired,
+  max: PropTypes.number.isRequired,
+  step: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+export default RangeInput;

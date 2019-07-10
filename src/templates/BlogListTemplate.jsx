@@ -20,9 +20,9 @@ const BlogListTemplate = ({
       ))}
       <BlogPagination
         prevLink={prevPage}
-        prevLinkCaption='Prev page'
+        prevLinkCaption="Prev page"
         nextLink={nextPage}
-        nextLinkCaption='Next page'
+        nextLinkCaption="Next page"
       />
     </BlogLayout>
   );

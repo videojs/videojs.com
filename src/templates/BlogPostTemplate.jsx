@@ -13,9 +13,9 @@ const BlogPostTemplate = ({
     <BlogPost post={mdx} />
     <BlogPagination
       prevLink={prevPost}
-      prevLinkCaption='Prev post'
+      prevLinkCaption="Prev post"
       nextLink={nextPost}
-      nextLinkCaption='Next post'
+      nextLinkCaption="Next post"
     />
   </BlogLayout>
 );

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
@@ -32,5 +33,16 @@ const GettingStartedArticle = ({ mdxData }) => (
     </WithMdxComponents>
   </Wrapper>
 );
+
+GettingStartedArticle.propTypes = {
+  mdxData: PropTypes.shape({
+    code: PropTypes.shape({
+      body: PropTypes.string.isRequired,
+    }).isRequired,
+    fields: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default GettingStartedArticle;

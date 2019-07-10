@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import styled from 'styled-components';
 
@@ -107,5 +108,24 @@ const BlogPost = ({ post: { frontmatter, code, fields } }) => (
     </TextCol>
   </Wrapper>
 );
+
+BlogPost.propTypes = {
+  post: PropTypes.shape({
+    frontmatter: PropTypes.shape({
+      author: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        github: PropTypes.string.isRequired,
+      }).isRequired,
+      date: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired,
+    code: PropTypes.shape({
+      body: PropTypes.string.isRequired,
+    }).isRequired,
+    fields: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default BlogPost;

@@ -55,7 +55,7 @@ const Logos = styled.div`
   }
 `;
 
-const Footer = ({ className }) => (
+const Footer = () => (
   <Wrapper>
     <VideoJsLogoWrapper>
       <Link to="/"><Image filename="logo-black.svg" /></Link>

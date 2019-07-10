@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Image from '../Image';
@@ -78,5 +79,12 @@ const PluginsListItem = ({ name, version, downloads, description }) => (
     <PluginDescription>{description}</PluginDescription>
   </Wrapper>
 );
+
+PluginsListItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  version: PropTypes.string.isRequired,
+  downloads: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default PluginsListItem;

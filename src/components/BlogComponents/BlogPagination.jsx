@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Link from '../Link';
@@ -24,6 +25,12 @@ const BlogPaginationButton = ({ className, children, to, ...props }) => {
       {children}
     </button>
   );
+};
+
+BlogPaginationButton.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  to: PropTypes.string,
 };
 
 const StyledBlogPaginationButton = styled(BlogPaginationButton)`
@@ -70,5 +77,12 @@ const BlogPagination = ({
     </StyledBlogPaginationButton>
   </BlogPaginationWrapper>
 );
+
+BlogPagination.propTypes = {
+  prevLink: PropTypes.string,
+  prevLinkCaption: PropTypes.string,
+  nextLink: PropTypes.string,
+  nextLinkCaption: PropTypes.string,
+};
 
 export default BlogPagination;
