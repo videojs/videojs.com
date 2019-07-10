@@ -90,6 +90,27 @@ const AutoLinkH4 = buildHeaderComponent('h4');
 const AutoLinkH5 = buildHeaderComponent('h5');
 const AutoLinkH6 = buildHeaderComponent('h6');
 
+const isExternalUrl = url =>
+  /^(?:(?:https?)|(?:mailto)|(?:ftp)|(?:tel)):/.test(url);
+
+const AutoLink = ({ children, href, ...props }) => {
+  const linkProps = { ...props };
+
+  if (isExternalUrl(href)) {
+    Object.assign(linkProps, {
+      href,
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    });
+  } else {
+    Object.assign(linkProps, { to: href });
+  }
+
+  return (
+    <Link {...linkProps}>{children}</Link>
+  );
+};
+
 const tagsToReplaceWithAutoLinks = {
   h1: AutoLinkH1,
   h2: AutoLinkH2,
@@ -97,6 +118,7 @@ const tagsToReplaceWithAutoLinks = {
   h4: AutoLinkH4,
   h5: AutoLinkH5,
   h6: AutoLinkH6,
+  a: AutoLink,
 };
 
 const WithAutoLinkHeaders = ({ basePath, children }) => (
