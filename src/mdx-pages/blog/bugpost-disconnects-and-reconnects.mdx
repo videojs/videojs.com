@@ -24,7 +24,7 @@ Here’s a quick tour of what happened and how we fixed it.
 
 To approach the bug, we started with the most glaring problem, the disappearance of the loading spinner. The spinner is managed by Video.js. In [the code](https://github.com/videojs/video.js/blob/v7.3.0/src/js/player.js#L1598), the `vjs-waiting` class is added to the HTML element when the tech triggers a `waiting` event, and is removed on the next `timeupdate` event.
 
-```
+```javascript
 /**
  * Retrigger the `waiting` event that was triggered by the {@link Tech}.
  *
