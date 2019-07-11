@@ -64,7 +64,7 @@ const Footer = () => (
       <NavItem><Link to="/getting-started">Get Started</Link></NavItem>
       <NavItem><Link to="/getting-started/#customize">Customize</Link></NavItem>
       <NavItem><Link href="#docs">Docs</Link></NavItem>
-      <NavItem><Link href="#blog">Blog</Link></NavItem>
+      <NavItem><Link to="/blog">Blog</Link></NavItem>
       <NavItem><Link href="https://github.com/videojs/video.js">Github</Link></NavItem>
     </Nav>
     <Copyright>

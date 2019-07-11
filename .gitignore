@@ -71,3 +71,6 @@ yarn-error.log
 # IDE
 *.swp
 .tags
+
+# Now
+now.json

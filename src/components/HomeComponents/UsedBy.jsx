@@ -30,7 +30,7 @@ const UsedByWrapper = styled.div`
 const IGNPlayer = () => (
   <iframe
     title="IGN Example Player"
-    src="http://widgets.ign.com/video/embed/content.html?url=https://www.ign.com/videos/2019/06/12/cyberpunk-2077-our-thoughts-after-seeing-50-minutes-of-new-gameplay-e3-2019"
+    src="https://widgets.ign.com/video/embed/content.html?url=https://www.ign.com/videos/2019/06/12/cyberpunk-2077-our-thoughts-after-seeing-50-minutes-of-new-gameplay-e3-2019"
     scrolling="no"
     frameBorder="0"
     allowFullScreen
