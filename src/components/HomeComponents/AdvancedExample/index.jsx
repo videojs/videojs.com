@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import videojs from 'video.js';
-import 'videojs-playlist';
-import 'videojs-playlist-ui';
-import 'videojs-mux';
 
 import Container from '../../Container';
 import SectionHeader from '../../SectionHeader';
@@ -17,9 +14,6 @@ import PlayerPlaylist from './PlayerPlaylist';
 import playlist from './playlist';
 import rectangles from '../../../images/footer-rectangles.svg';
 import { media } from '../../../utils/styles';
-
-import 'video.js/dist/video-js.css';
-import 'videojs-playlist-ui/dist/videojs-playlist-ui.css';
 
 const PlaylistPluginDescContainer = styled(Container)`
   display: flex;
