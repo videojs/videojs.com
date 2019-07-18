@@ -1,0 +1,8 @@
+language: node_js
+node_js: 'lts/carbon'
+branches:
+  except:
+  - gh-pages
+script:
+  - npm run build
+  - bash <(curl -s https://peek.run/ci)
