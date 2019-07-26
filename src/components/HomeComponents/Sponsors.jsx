@@ -56,7 +56,7 @@ const Sponsor = styled(props => (
 ))`
   flex: 0 0 48%;
 
-  ${media.medium`
+  ${media.medLarge`
     flex: 0 0 22%;
   `}
 `;
@@ -68,7 +68,7 @@ const PrimaryContainer = styled.div`
   ${Sponsor} {
     flex: 0 0 100%;
 
-    ${media.large`
+    ${media.xLarge`
       flex: 0 0 50%;
     `}
   }
@@ -78,7 +78,7 @@ const PrimaryText = styled.div`
   flex: 0 0 100%;
   padding-right: 156px;
 
-  ${media.large`
+  ${media.xLarge`
     flex: 0 0 50%;
   `}
 

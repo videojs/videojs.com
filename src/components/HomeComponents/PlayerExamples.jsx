@@ -18,13 +18,14 @@ const ExampleEmbed = styled.div`
     margin: 0 auto;
     width: 650px;
     height: 365.625px;
+    max-width: 100%;
 
-    ${media.large`
+    ${media.xLarge`
       margin: 0;
     `}
   }
 
-  ${media.large`
+  ${media.xLarge`
     flex: 3;
   `}
 `;
@@ -35,7 +36,7 @@ const ExampleSelector = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
-  ${media.large`
+  ${media.xLarge`
     flex: 2;
   `}
 `;
@@ -61,11 +62,11 @@ const ExampleBlock = styled(props => (
     margin: auto;
   }
 
-  ${media.medium`
+  ${media.medLarge`
     flex: 0 0 20%;
   `}
 
-  ${media.large`
+  ${media.xLarge`
     flex: 1 0 40%;
   `}
 `;

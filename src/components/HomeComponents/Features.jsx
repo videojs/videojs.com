@@ -31,7 +31,7 @@ const FeaturesContainer = styled(Container)`
 const PrimaryText = styled.div`
   flex: 0 0 100%;
 
-  ${media.large`
+  ${media.xLarge`
     flex-basis: 50%;
     padding-right: 156px;
   `}
@@ -47,7 +47,7 @@ const FeatureList = styled.div`
   flex-flow: wrap;
   justify-content: space-between;
 
-  ${media.large`
+  ${media.xLarge`
     flex-basis: 50%;
   `}
 `;
@@ -71,7 +71,7 @@ const Feature = styled(props => (
     text-align: center;
   }
 
-  ${media.medium`
+  ${media.medLarge`
     flex-basis: 50%;
   `}
 

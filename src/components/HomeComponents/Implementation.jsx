@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Container from '../Container';
 import SectionHeader from '../SectionHeader';
 import Code from '../Code';
+import { media } from '../../utils/styles';
 
 import lines from '../../images/background-lines.svg';
 import circles from '../../images/background-circles.svg';
@@ -47,35 +48,78 @@ const ImplementationWrapper = styled.div`
 `;
 
 const ImplementationContainer = styled(Container)`
-  width: 75%;
+  width: 92%;
+
+  ${media.medLarge`
+    width: 80%;
+  `}
+
+  ${media.xLarge`
+    width: 75%;
+  `}
 `;
 
 const Table = styled.table`
   background-color: #fff;
   margin-top: 6em;
+  width: 100%;
 `;
 
 const TableRow = styled.tr``;
 const TableCell = styled.td`
-  padding: 40px 60px;
   border: 2px solid #f5f5f5;
+  padding: 40px 10px;
+
+  &:first-child {
+    padding-left: 60px;
+  }
+
+  &:last-child {
+    padding-right: 60px;
+  }
+
+  ${media.xLarge`
+    padding: 40px 60px;
+  `}
 
   font-weight: ${props => props.header && 'bold'};
 `;
 
-const SupportCellContent = styled.div`
+const SupportCellContent = styled((props) => (
+  <div className={props.className}>
+    <span>{props.children}</span>
+  </div>
+))`
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > span {
+    display: none;
+
+    ${media.xLarge`
+      display: inline-block;
+    `}
+  }
 
   &::before {
     height: 28px;
     width: 28px;
     display: block;
-    padding-right: 2em;
+    flex-shrink: 0;
 
     content: '';
     background-image: url(${props => (props.supported ? tick : cross)});
     background-repeat: no-repeat;
+
+    ${media.xLarge`
+      padding-right: 2em;
+    `}
   }
+
+  ${media.xLarge`
+    justify-content: flex-start;
+  `}
 `;
 
 const SupportCell = props => (
@@ -89,7 +133,24 @@ const TableHead = styled.thead`
   font-weight: bold;
 
   ${TableCell} {
-    padding: 60px;
+    padding: 60px 10px;
+    max-width: 84px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:first-child {
+      padding-left: 60px;
+    }
+
+    &:last-child {
+      padding-right: 60px;
+    }
+
+    ${media.xLarge`
+      max-width: unset;
+      padding: 60px;
+    `}
   }
 `;
 

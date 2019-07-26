@@ -18,7 +18,7 @@ import { media } from '../../../utils/styles';
 const AdvancedExampleContainer = styled.div`
   display: none;
 
-  ${media.large`
+  ${media.xLarge`
     display: block;
   `}
 `;
