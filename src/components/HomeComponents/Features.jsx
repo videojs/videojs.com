@@ -3,8 +3,9 @@ import styled from 'styled-components';
 
 import Container from '../Container';
 import SectionHeader from '../SectionHeader';
-import { P, H3 } from '../Typography';
 import Image from '../Image';
+import { P, H3 } from '../Typography';
+import { media } from '../../utils/styles';
 
 import diamonds from '../../images/background-diamonds.svg';
 
@@ -23,12 +24,17 @@ const FeaturesContainer = styled(Container)`
   }
 
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
 `;
 
 const PrimaryText = styled.div`
-  flex: 0 0 50%;
-  padding-right: 156px;
+  flex: 0 0 100%;
+
+  ${media.large`
+    flex-basis: 50%;
+    padding-right: 156px;
+  `}
 
   ${P} {
     line-height: 2.14;
@@ -36,23 +42,38 @@ const PrimaryText = styled.div`
 `;
 
 const FeatureList = styled.div`
-  padding-left: 20px;
-
   display: flex;
-  flex: 0 0 50%;
+  flex: 0 0 100%;
   flex-flow: wrap;
   justify-content: space-between;
+
+  ${media.large`
+    flex-basis: 50%;
+  `}
 `;
 
 const Feature = styled(props => (
   <div className={props.className}>
-    <Image filename={props.image} />
-    <H3>{props.title}</H3>
-    <P>{props.text}</P>
+    <span>
+      <Image filename={props.image} />
+      <H3>{props.title}</H3>
+      <P>{props.text}</P>
+    </span>
   </div>
 ))`
-  width: 250px;
+  flex: 0 0 100%;
   margin-top: 84px;
+
+  > span {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    text-align: center;
+  }
+
+  ${media.medium`
+    flex-basis: 50%;
+  `}
 
   ${H3} {
     padding-top: 53px;
@@ -62,6 +83,7 @@ const Feature = styled(props => (
   ${P} {
     font-size: 13px;
     margin-bottom: 0;
+    text-align: center;
   }
 `;
 

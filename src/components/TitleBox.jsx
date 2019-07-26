@@ -16,7 +16,7 @@ const TitleBoxContainer = styled.div`
   flex-direction: column;
   justify-content: space-around;
   width: 100%;
-  margin: 0 1em 100px 1em;
+  margin-bottom: 100px;
 
   &:hover {
     border-color: ${props => props.theme.currentTheme.color};

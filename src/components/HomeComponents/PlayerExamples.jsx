@@ -1,25 +1,43 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { media } from '../../utils/styles';
+
 const ExampleContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
 `;
 
 const ExampleEmbed = styled.div`
-  flex: 3;
+  flex: 100%;
   padding: 1em;
 
   & > * {
+    display: block;
+    margin: 0 auto;
     width: 650px;
     height: 365.625px;
+
+    ${media.large`
+      margin: 0;
+    `}
   }
+
+  ${media.large`
+    flex: 3;
+  `}
 `;
 
 const ExampleSelector = styled.div`
-  flex: 2;
+  flex: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
+  ${media.large`
+    flex: 2;
+  `}
 `;
 
 const ExampleBlock = styled(props => (
@@ -29,9 +47,10 @@ const ExampleBlock = styled(props => (
 ))`
   border: solid 2px #ebebeb;
   margin: 1em;
-  flex: 1 0 40%;
   display: flex;
+  flex: 0 0 40%;
   cursor: pointer;
+  min-height: 10em;
 
   &:hover {
     border-color: ${props => props.theme.currentTheme.color};
@@ -41,6 +60,14 @@ const ExampleBlock = styled(props => (
     width: 75%;
     margin: auto;
   }
+
+  ${media.medium`
+    flex: 0 0 20%;
+  `}
+
+  ${media.large`
+    flex: 1 0 40%;
+  `}
 `;
 
 class PlayerExamples extends React.Component {

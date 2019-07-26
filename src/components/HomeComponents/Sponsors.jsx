@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 import Container from '../Container';
 import SectionHeader from '../SectionHeader';
-import { P } from '../Typography';
 import Image from '../Image';
 import TitleBox from '../TitleBox';
+import { P } from '../Typography';
+import { media } from '../../utils/styles'
 
 import triangles from '../../images/background-triangles.svg';
 import vine from '../../images/background-vine.svg';
@@ -46,13 +47,40 @@ const SponsorsContainer = styled(Container)`
   width: 100%;
 `;
 
+const Sponsor = styled(props => (
+  <div className={props.className}>
+    <TitleBox className={props.className} title={props.title} url={props.url}>
+      <Image filename={props.image} alt={props.name} />
+    </TitleBox>
+  </div>
+))`
+  flex: 0 0 48%;
+
+  ${media.medium`
+    flex: 0 0 22%;
+  `}
+`;
+
 const PrimaryContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
+
+  ${Sponsor} {
+    flex: 0 0 100%;
+
+    ${media.large`
+      flex: 0 0 50%;
+    `}
+  }
 `;
 
 const PrimaryText = styled.div`
-  flex: 0 0 50%;
+  flex: 0 0 100%;
   padding-right: 156px;
+
+  ${media.large`
+    flex: 0 0 50%;
+  `}
 
   ${P} {
     font-size: 16px;
@@ -62,14 +90,10 @@ const PrimaryText = styled.div`
 
 const SponsorList = styled.div`
   display: flex;
-  flex: 1 0 22%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 `;
-
-const Sponsor = props => (
-  <TitleBox title={props.title} url={props.url}>
-    <Image filename={props.image} alt={props.name} />
-  </TitleBox>
-);
 
 const Sponsors = props => (
   <SponsorsWrapper>

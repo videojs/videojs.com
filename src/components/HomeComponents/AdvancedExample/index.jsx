@@ -15,6 +15,14 @@ import playlist from './playlist';
 import rectangles from '../../../images/footer-rectangles.svg';
 import { media } from '../../../utils/styles';
 
+const AdvancedExampleContainer = styled.div`
+  display: none;
+
+  ${media.large`
+    display: block;
+  `}
+`;
+
 const PlaylistPluginDescContainer = styled(Container)`
   display: flex;
   flex-direction: column;
@@ -125,7 +133,7 @@ class AdvancedExample extends React.Component {
 
   render () {
     return (
-      <>
+      <AdvancedExampleContainer>
         <PlaylistPluginDescContainer>
           <StyledSectionHeader left title="Example" tagline="Playlist plugin" />
           <PlaylistPluginDesc>
@@ -169,7 +177,7 @@ class AdvancedExample extends React.Component {
             )}
           </PlayerContainer>
         </PlayerBackground>
-      </>
+      </AdvancedExampleContainer>
     );
   }
 }
