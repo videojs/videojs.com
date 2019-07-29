@@ -12,10 +12,12 @@ import diamonds from '../../images/background-diamonds.svg';
 const FeaturesWrapper = styled.div`
   width: 100%;
 
-  background-image: url(${diamonds});
-  background-repeat: no-repeat;
-  background-position: -266px 80%;
-  background-size: auto 160px;
+  ${media.xLarge`
+    background-image: url(${diamonds});
+    background-repeat: no-repeat;
+    background-position: -266px 80%;
+    background-size: auto 160px;
+  `}
 `;
 
 const FeaturesContainer = styled(Container)`
@@ -29,7 +31,8 @@ const FeaturesContainer = styled(Container)`
 `;
 
 const PrimaryText = styled.div`
-  flex: 0 0 100%;
+  flex: 0 0 65%;
+  margin: 0 auto;
 
   ${media.xLarge`
     flex-basis: 50%;
@@ -69,6 +72,10 @@ const Feature = styled(props => (
     margin: 0 auto;
     width: 250px;
     text-align: center;
+
+    ${media.xLarge`
+      text-align: left;
+    `}
   }
 
   ${media.medLarge`
@@ -84,6 +91,10 @@ const Feature = styled(props => (
     font-size: 13px;
     margin-bottom: 0;
     text-align: center;
+
+    ${media.xLarge`
+      text-align: left;
+    `}
   }
 `;
 
@@ -91,7 +102,7 @@ const Features = props => (
   <FeaturesWrapper>
     <FeaturesContainer>
       <PrimaryText>
-        <SectionHeader left title="Features" tagline="Why Video.js?" />
+        <SectionHeader leftText leftLine="medLarge" title="Features" tagline="Why Video.js?" />
         <P>
           Video.js is a web video player built from the ground up for an HTML5
           world. It supports HTML5 video and modern streaming formats, as well

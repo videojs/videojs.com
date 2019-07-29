@@ -15,26 +15,28 @@ const SponsorsWrapper = styled.div`
   width: 100%;
   position: relative;
 
-  background-image: url(${triangles});
-  background-repeat: no-repeat;
-  background-position: 0px 132px;
-  background-size: auto 126px;
-
-  &::after {
-    content: '';
-    height: 390px;
-    width: 390px;
-    display: block;
-
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    background-image: url(${vine});
+  ${media.xLarge`
+    background-image: url(${triangles});
     background-repeat: no-repeat;
-    background-position: 0px 0px;
-    background-size: auto;
-  }
+    background-position: 0px 132px;
+    background-size: auto 126px;
+
+    &::after {
+      content: '';
+      height: 390px;
+      width: 390px;
+      display: block;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      background-image: url(${vine});
+      background-repeat: no-repeat;
+      background-position: 0px 0px;
+      background-size: auto;
+    }
+  `}
 `;
 
 const SponsorsContainer = styled(Container)`
@@ -66,7 +68,12 @@ const PrimaryContainer = styled.div`
   flex-wrap: wrap;
 
   ${Sponsor} {
-    flex: 0 0 100%;
+    flex: 0 0 90%;
+    margin: 0 auto;
+
+    ${media.medLarge`
+      flex: 0 0 60%;
+    `}
 
     ${media.xLarge`
       flex: 0 0 50%;
@@ -75,11 +82,16 @@ const PrimaryContainer = styled.div`
 `;
 
 const PrimaryText = styled.div`
-  flex: 0 0 100%;
-  padding-right: 156px;
+  flex: 0 0 70%;
+  margin: 0 auto;
+
+  ${media.medLarge`
+    flex: 0 0 60%;
+  `}
 
   ${media.xLarge`
     flex: 0 0 50%;
+    padding-right: 156px;
   `}
 
   ${P} {
@@ -92,7 +104,8 @@ const SponsorList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
 `;
 
 const Sponsors = props => (
@@ -101,7 +114,8 @@ const Sponsors = props => (
       <PrimaryContainer>
         <PrimaryText>
           <SectionHeader
-            left
+            leftText
+            leftLine="medLarge"
             title="Sponsors"
             tagline="The folks who help make this happen"
           />

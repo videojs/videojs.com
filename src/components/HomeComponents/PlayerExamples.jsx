@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import VideoWrapper from '../VideoWrapper';
 import { media } from '../../utils/styles';
 
 const ExampleContainer = styled.div`
@@ -10,20 +11,14 @@ const ExampleContainer = styled.div`
 `;
 
 const ExampleEmbed = styled.div`
-  flex: 100%;
-  padding: 1em;
+  flex: 0 0 100%;
+  padding: 0 0 2em 0;
 
-  & > * {
-    display: block;
+  ${media.medLarge`
+    flex: 0 0 70%;
     margin: 0 auto;
-    width: 650px;
-    height: 365.625px;
-    max-width: 100%;
-
-    ${media.xLarge`
-      margin: 0;
-    `}
-  }
+    padding: 1em;
+  `}
 
   ${media.xLarge`
     flex: 3;
@@ -51,7 +46,7 @@ const ExampleBlock = styled(props => (
   display: flex;
   flex: 0 0 40%;
   cursor: pointer;
-  min-height: 10em;
+  padding: 3em 1em;
 
   &:hover {
     border-color: ${props => props.theme.currentTheme.color};
@@ -94,7 +89,9 @@ class PlayerExamples extends React.Component {
     return (
       <ExampleContainer>
         <ExampleEmbed>
-          <Embed />
+          <VideoWrapper>
+            <Embed />
+          </VideoWrapper>
         </ExampleEmbed>
         <ExampleSelector>
           {this.props.examples.map(({ logo: Logo, name }, i) => (

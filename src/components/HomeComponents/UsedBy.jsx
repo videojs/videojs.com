@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Container from '../Container';
 import SectionHeader from '../SectionHeader';
 import Image from '../Image';
+import { media } from '../../utils/styles';
 
 import PlayerExamples from './PlayerExamples';
 
@@ -21,10 +22,12 @@ const GuardianLogo = () => <img src={GuardianSvg} alt="Guardian" />;
 const UsedByWrapper = styled.div`
   width: 100%;
 
-  background-image: url(${zigZag});
-  background-repeat: no-repeat;
-  background-position: calc(100% + 78px) 20%;
-  background-size: auto 100px;
+  ${media.xLarge`
+    background-image: url(${zigZag});
+    background-repeat: no-repeat;
+    background-position: calc(100% + 78px) 20%;
+    background-size: auto 100px;
+  `}
 `;
 
 const IGNPlayer = () => (
@@ -89,13 +92,23 @@ const GuardianPlayer = () => (
 const UsedByContainer = styled(Container)`
   & {
     padding-top: 300px;
+    margin-bottom: 3em;
   }
+`;
+
+const StyledSectionHeader = styled(SectionHeader)`
+  width: 90%;
+  margin: 0 auto 3.5em;
+
+  ${media.medLarge`
+    width: 100%;
+  `}
 `;
 
 const UsedBy = props => (
   <UsedByWrapper>
     <UsedByContainer>
-      <SectionHeader
+      <StyledSectionHeader
         title="Used By"
         tagline="Built by the community, used by the professionals"
       />

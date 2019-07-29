@@ -2,6 +2,15 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { H1, H2 } from './Typography';
+import { media } from '../utils/styles';
+
+const cssForProp = (prop, styles) => {
+  if (!prop) return;
+
+  return typeof prop === 'string'
+    ? css`${media[prop]`${styles}`}`
+    : css`${styles}`;
+}
 
 const SectionHeaderContainer = styled.div`
   position: relative;
@@ -19,11 +28,9 @@ const SectionHeaderTitle = styled(H1)`
   color: ${props => props.theme.brand.lightGrey};
   text-align: center;
 
-  ${props =>
-    props.left &&
-    css`
-      text-align: left;
-    `}
+  ${({ leftText }) => cssForProp(leftText, `
+    text-align: left;
+  `)}
 `;
 
 const SectionHeaderTagline = styled(H2)`
@@ -45,24 +52,34 @@ const SectionHeaderTagline = styled(H2)`
     opacity: 0.5;
   }
 
-  ${props =>
-    props.left &&
-    css`
-      text-align: left;
+  ${({ leftText }) => cssForProp(leftText, `
+    text-align: left;
 
-      &:after {
-        position: absolute;
-        left: -100px;
-        top: 0;
-      }
-    `};
+    &:after {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  `)}
+
+  ${({ leftLine }) => cssForProp(leftLine, `
+    &:after {
+      position: absolute;
+      left: -100px;
+      top: 0;
+    }
+  `)}
 `;
 
-const SectionHeader = props => (
-  <SectionHeaderContainer {...props}>
+const SectionHeader = ({ className, ...props }) => (
+  <SectionHeaderContainer className={className} {...props}>
     <SectionHeaderTitle {...props}>{props.title}</SectionHeaderTitle>
     <SectionHeaderTagline {...props}>{props.tagline}</SectionHeaderTagline>
   </SectionHeaderContainer>
 );
+
+SectionHeader.defaultProps = {
+  leftText: false,
+  leftLine: false
+}
 
 export default SectionHeader;

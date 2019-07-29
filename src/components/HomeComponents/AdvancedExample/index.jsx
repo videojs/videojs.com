@@ -31,10 +31,6 @@ const PlaylistPluginDescContainer = styled(Container)`
 
   > * {
     width: 33%;
-
-    &:not(:last-child) {
-      margin-bottom: 1.5em;
-    }
   }
 `;
 
@@ -135,7 +131,7 @@ class AdvancedExample extends React.Component {
     return (
       <AdvancedExampleContainer>
         <PlaylistPluginDescContainer>
-          <StyledSectionHeader left title="Example" tagline="Playlist plugin" />
+          <StyledSectionHeader leftText leftLine title="Example" tagline="Playlist plugin" />
           <PlaylistPluginDesc>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

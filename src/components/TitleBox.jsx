@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Title = styled.div`
   border-top: solid 2px #ebebeb;
-  padding: 1.9em;
+  padding: 1em;
   text-align: center;
   letter-spacing: 1.4px;
   color: rgba(0, 0, 0, 0.3);
@@ -31,7 +31,7 @@ const TitleBoxContent = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
-  padding: 4em;
+  padding: 4em 2em;
   min-height: 225px;
 `;
 

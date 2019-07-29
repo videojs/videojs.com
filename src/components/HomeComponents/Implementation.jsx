@@ -18,33 +18,35 @@ const ImplementationWrapper = styled.div`
   padding-top: 110px;
   padding-bottom: 207px;
 
-  &::before {
-    content: '';
-    display: block;
-    height: 525px;
-    width: 110px;
-    opacity: 0.2;
-    position: absolute;
+  ${media.xLarge`
+    &::before {
+      content: '';
+      display: block;
+      height: 525px;
+      width: 110px;
+      opacity: 0.2;
+      position: absolute;
 
-    background-image: url(${lines});
-    background-repeat: no-repeat;
-    background-position: 0px 110px;
-    background-size: 110px 525px;
-  }
+      background-image: url(${lines});
+      background-repeat: no-repeat;
+      background-position: 0px 110px;
+      background-size: 110px 525px;
+    }
 
-  &::after {
-    content: '';
-    height: 620px;
-    width: 235px;
-    display: block;
-    opacity: 0.2;
+    &::after {
+      content: '';
+      height: 620px;
+      width: 235px;
+      display: block;
+      opacity: 0.2;
 
-    position: absolute;
-    top: -227px;
-    right: 0;
+      position: absolute;
+      top: -227px;
+      right: 0;
 
-    background-image: url(${circles});
-  }
+      background-image: url(${circles});
+    }
+  `}
 `;
 
 const ImplementationContainer = styled(Container)`
