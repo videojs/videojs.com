@@ -40,13 +40,17 @@ const SponsorsWrapper = styled.div`
 `;
 
 const SponsorsContainer = styled(Container)`
-  & {
-    padding-top: 410px;
-  }
-
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+
+  & {
+    padding-top: 8.125em;
+
+    ${media.xLarge`
+      padding-top: 25.625em;
+    `}
+  }
 `;
 
 const Sponsor = styled(props => (

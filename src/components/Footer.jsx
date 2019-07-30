@@ -3,13 +3,18 @@ import styled from 'styled-components';
 
 import Link from './Link';
 import Image from './Image';
+import { media } from '../utils/styles';
+
 import rectangles from '../images/footer-rectangles.svg';
 
 const Wrapper = styled.footer`
-  background-image: url(${rectangles});
-  height: 50em;
-  padding: 4em 2em;
+  padding: 6em 2em 8em;
   text-align: center;
+
+  ${media.medLarge`
+    background-image: url(${rectangles});
+    height: 50em;
+  `}
 `;
 
 const VideoJsLogoWrapper = styled.div`
@@ -26,6 +31,11 @@ const Nav = styled.ul`
   padding: 0;
   margin: 0 0 1.5em 0;
   text-transform: uppercase;
+  display: none;
+
+  ${media.medLarge`
+    display: block;
+  `}
 `;
 
 const NavItem = styled.li`

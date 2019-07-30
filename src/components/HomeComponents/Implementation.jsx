@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Container from '../Container';
 import SectionHeader from '../SectionHeader';
-import Code from '../Code';
 import { media } from '../../utils/styles';
 
 import lines from '../../images/background-lines.svg';
@@ -69,22 +68,23 @@ const Table = styled.table`
 
 const TableRow = styled.tr``;
 const TableCell = styled.td`
-  border: 2px solid #f5f5f5;
-  padding: 40px 10px;
+  border-top: 2px solid #f5f5f5;
+  border-bottom: 2px solid #f5f5f5;
+  font-weight: ${props => props.header && 'bold'};
+  padding: 10px 5px;
 
-  &:first-child {
-    padding-left: 60px;
-  }
+  ${media.small`
+    padding: 20px;
+  `}
 
-  &:last-child {
-    padding-right: 60px;
-  }
-
-  ${media.xLarge`
+  ${media.medium`
     padding: 40px 60px;
   `}
 
-  font-weight: ${props => props.header && 'bold'};
+  ${media.xLarge`
+    border-left: 2px solid #f5f5f5;
+    border-right: 2px solid #f5f5f5;
+  `}
 `;
 
 const SupportCellContent = styled((props) => (
@@ -131,29 +131,25 @@ const SupportCell = props => (
 );
 
 const TableHead = styled.thead`
+  background-color: #e5e4e5;
   font-size: 18px;
   font-weight: bold;
 
   ${TableCell} {
-    padding: 60px 10px;
-    max-width: 84px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    padding: 10px 5px;
 
-    &:first-child {
-      padding-left: 60px;
-    }
+    ${media.small`
+      padding: 20px;
+    `}
 
-    &:last-child {
-      padding-right: 60px;
-    }
-
-    ${media.xLarge`
-      max-width: unset;
+    ${media.medium`
       padding: 60px;
     `}
   }
+
+  ${media.xLarge`
+    background-color: #fff;
+  `}
 `;
 
 const TableBody = styled.tbody`
@@ -174,48 +170,46 @@ const Implementation = () => (
         <TableHead>
           <TableRow>
             <TableCell>Feature</TableCell>
-            <TableCell>
-              <Code>video</Code> Element
-            </TableCell>
             <TableCell>Video.js</TableCell>
+            <TableCell>HTML5</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           <TableRow>
             <TableCell header>Cross-browser "Skins"</TableCell>
-            <SupportCell>Looks different in every browser</SupportCell>
             <SupportCell supported>
               Looks good everywhere with CSS-based Skins
             </SupportCell>
+            <SupportCell>Looks different in every browser</SupportCell>
           </TableRow>
           <TableRow>
             <TableCell header>
               Adaptive Streaming (adjusting to the viewer’s bandwidth)
             </TableCell>
-            <SupportCell>
-              HLS and DASH not playable in Chrome or Firefox by default.
-            </SupportCell>
             <SupportCell supported>
               HLS supported everywhere. DASH supported everywhere but iOS
               Safari.
             </SupportCell>
-          </TableRow>
-          <TableRow>
-            <TableCell header>Social Video Platforms</TableCell>
-            <SupportCell>Not supported</SupportCell>
-            <SupportCell supported>
-              Play Youtube, Vimeo, and more with added plugins.
+            <SupportCell>
+              HLS and DASH not playable in Chrome or Firefox by default.
             </SupportCell>
           </TableRow>
           <TableRow>
+            <TableCell header>Social Video Platforms</TableCell>
+            <SupportCell supported>
+              Play Youtube, Vimeo, and more with added plugins.
+            </SupportCell>
+            <SupportCell>Not supported</SupportCell>
+          </TableRow>
+          <TableRow>
             <TableCell header>Community-built Plugins</TableCell>
-            <SupportCell supported>Probably?</SupportCell>
             <SupportCell supported>Hundreds!</SupportCell>
+            <SupportCell supported>Probably?</SupportCell>
           </TableRow>
           <TableRow>
             <TableCell header>Browser API Inconsistencies</TableCell>
-            <SupportCell>Many</SupportCell>
             <SupportCell supported>Makes them disappear</SupportCell>
+            <SupportCell>Many</SupportCell>
           </TableRow>
         </TableBody>
       </Table>

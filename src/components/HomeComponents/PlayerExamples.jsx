@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import VideoWrapper from '../VideoWrapper';
 import { media } from '../../utils/styles';
 
 const ExampleContainer = styled.div`
@@ -89,9 +88,7 @@ class PlayerExamples extends React.Component {
     return (
       <ExampleContainer>
         <ExampleEmbed>
-          <VideoWrapper>
-            <Embed />
-          </VideoWrapper>
+          <Embed />
         </ExampleEmbed>
         <ExampleSelector>
           {this.props.examples.map(({ logo: Logo, name }, i) => (

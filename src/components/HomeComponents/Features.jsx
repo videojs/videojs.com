@@ -21,13 +21,17 @@ const FeaturesWrapper = styled.div`
 `;
 
 const FeaturesContainer = styled(Container)`
-  & {
-    padding-top: 185px;
-  }
-
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+
+  & {
+    padding-top: 4.8em;
+
+    ${media.xLarge`
+      padding-top: 11.57em;
+    `}
+  }
 `;
 
 const PrimaryText = styled.div`

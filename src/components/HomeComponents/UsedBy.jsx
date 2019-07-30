@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Container from '../Container';
 import SectionHeader from '../SectionHeader';
 import Image from '../Image';
+import VideoWrapper from '../VideoWrapper';
 import { media } from '../../utils/styles';
 
 import PlayerExamples from './PlayerExamples';
@@ -31,14 +32,22 @@ const UsedByWrapper = styled.div`
 `;
 
 const IGNPlayer = () => (
-  <iframe
-    title="IGN Example Player"
-    src="http://widgets.ign.com/video/embed/content.html?url=https://www.ign.com/videos/2019/06/12/cyberpunk-2077-our-thoughts-after-seeing-50-minutes-of-new-gameplay-e3-2019"
-    scrolling="no"
-    frameBorder="0"
-    allowFullScreen
-  />
+  <VideoWrapper>
+    <iframe
+      title="IGN Example Player"
+      src="http://widgets.ign.com/video/embed/content.html?url=https://www.ign.com/videos/2019/06/12/cyberpunk-2077-our-thoughts-after-seeing-50-minutes-of-new-gameplay-e3-2019"
+      scrolling="no"
+      frameBorder="0"
+      allowFullScreen
+    />
+  </VideoWrapper>
 );
+
+const TumblrVideoWrapper = styled.div`
+  > iframe {
+    margin: 0 auto !important;
+  }
+`;
 
 class TumblrPlayer extends React.Component {
   componentDidMount() {
@@ -56,7 +65,7 @@ class TumblrPlayer extends React.Component {
 
   render() {
     return (
-      <div>
+      <TumblrVideoWrapper>
         <div
           className="tumblr-post"
           data-href="https://embed.tumblr.com/embed/post/XKYAwvd4SV0X6wvYA1JHIg/185698909902"
@@ -66,33 +75,41 @@ class TumblrPlayer extends React.Component {
             https://video-js.tumblr.com/post/185698909902/just-a-good-ol-big-buck-bunny-so-we-can-have-a
           </a>
         </div>
-      </div>
+      </TumblrVideoWrapper>
     );
   }
 }
 
 const LinkedInPlayer = () => (
-  <iframe
-    src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6545287331673366528?compact=1"
-    allowFullScreen=""
-    title="Embedded post"
-    frameBorder="0"
-  />
+  <VideoWrapper>
+    <iframe
+      src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6545287331673366528?compact=1"
+      allowFullScreen=""
+      title="Embedded post"
+      frameBorder="0"
+    />
+  </VideoWrapper>
 );
 
 const GuardianPlayer = () => (
-  <iframe
-    src="https://embed.theguardian.com/embed/video/news/video/2015/jul/20/california-drought-eat-beef-wash-video"
-    frameBorder="0"
-    title="Guardian Embed"
-    allowFullScreen
-  />
+  <VideoWrapper>
+    <iframe
+      src="https://embed.theguardian.com/embed/video/news/video/2015/jul/20/california-drought-eat-beef-wash-video"
+      frameBorder="0"
+      title="Guardian Embed"
+      allowFullScreen
+    />
+  </VideoWrapper>
 );
+
 
 const UsedByContainer = styled(Container)`
   & {
-    padding-top: 300px;
-    margin-bottom: 3em;
+    padding-top: 10em;
+
+    ${media.xLarge`
+      padding-top: 18.75em;
+    `}
   }
 `;
 

@@ -32,6 +32,12 @@ const PlaylistPluginDescContainer = styled(Container)`
   > * {
     width: 33%;
   }
+
+  & {
+    ${media.xLarge`
+      padding-top: 12.5em;
+    `}
+  }
 `;
 
 const StyledSectionHeader = styled(SectionHeader)`
