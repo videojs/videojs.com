@@ -7,10 +7,13 @@ import { media } from '../utils/styles';
 const Hero = styled.div`
   text-align: center;
   background-color: ${props => props.theme[props.themeName].color};
-  background-image: url(${props => props.theme[props.themeName].image});
-  background-repeat: no-repeat;
-  background-position: center top;
   color: #fff;
+
+  ${({ theme }) => theme.media.medLarge`
+    background-image: url(${props => props.theme[props.themeName].image});
+    background-repeat: no-repeat;
+    background-position: center top;
+  `}
 
   ${H1} {
     font-size: 34px;

@@ -21,11 +21,20 @@ const Player = styled.div`
   height: 377px;
 `;
 
+const StyledThemeSelector = styled(ThemeSelector)`
+  && {
+    ${({ theme }) => theme.media.medium`
+      margin-left: 4em;
+    `}
+  }
+`;
+
 const DemoControls = styled.div`
   background-color: #fff;
-  padding: 2em;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 
   ${media.medium`
     padding: 2.5em 2em;
@@ -37,8 +46,9 @@ const DemoControls = styled.div`
 
   ${Button} {
     font-size: 14px;
-    margin-bottom: 1em;
+    margin: 1em;
     padding: 1em 1.5em;
+    flex: 0 0 50%;
 
     &:last-child {
       margin-bottom: 0;
@@ -46,11 +56,20 @@ const DemoControls = styled.div`
 
     ${media.medium`
       margin: 0 0.6em;
+      flex: 1;
     `}
   }
 
-  ${ThemeSelector} {
-    padding: 0;
+  ${StyledThemeSelector} {
+    border-radius: 0;
+    flex: 0 0 100%;
+    margin: 0;
+
+    ${({ theme }) => theme.media.medium`
+      margin: 0 0.6em 0 4em;
+      padding: 0;
+      flex: 1;
+    `}
   }
 `;
 
@@ -65,9 +84,9 @@ const HomeHero = props => (
         <DemoControls>
           <Button>Get Started</Button>
           <Button>Demos</Button>
-          <ThemeSelector style={{ marginLeft: '4em' }}>
+          <StyledThemeSelector>
             Swap Theme
-          </ThemeSelector>
+          </StyledThemeSelector>
         </DemoControls>
       </DemoContainer>
     </Container>

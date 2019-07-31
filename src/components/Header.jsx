@@ -12,6 +12,12 @@ const Logo = styled.h1`
   width: 158px;
   height: 37px;
   background: center / contain no-repeat url(${LogoImg});
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+
+  ${({ theme }) => theme.media.medLarge`
+    margin: 0;
+  `}
 `;
 
 const HeaderWrapper = styled.div`
@@ -35,17 +41,28 @@ const MobileMenu = styled.div`
     position: absolute;
     width: 36px;
     height: 30px;
-    right: 0;
+    top: 1em;
+    right: 1em;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      top: -25%;
+      left: -25%;
+      background-color: #000;
+      opacity: 0.2;
+    }
   }
 
   /* Color/shape of burger icon bars */
   .bm-burger-bars {
-    background: #373a47;
+    background: #fff;
   }
 
   /* Color/shape of burger icon bars on hover*/
   .bm-burger-bars-hover {
-    background: #a90000;
   }
 
   /* Position and sizing of clickable cross button */
