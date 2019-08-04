@@ -21,18 +21,30 @@ export const heroThemes = {
   city: {
     image: cityBg,
     color: brand.red,
+    video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
+    poster:
+      'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
   fantasy: {
     image: fantasyBg,
     color: brand.purple,
+    video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
+    poster:
+      'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
   forrest: {
     image: forrestBg,
     color: brand.green,
+    video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
+    poster:
+      'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
   sea: {
     image: seaBg,
     color: brand.blue,
+    video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
+    poster:
+      'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
 };
 
