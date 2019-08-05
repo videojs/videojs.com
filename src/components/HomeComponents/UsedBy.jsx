@@ -5,6 +5,7 @@ import Container from '../Container';
 import SectionHeader from '../SectionHeader';
 import Image from '../Image';
 import VideoWrapper from '../VideoWrapper';
+import CustomerLogos from './CustomerLogos';
 import { media } from '../../utils/styles';
 
 import PlayerExamples from './PlayerExamples';
@@ -123,22 +124,25 @@ const StyledSectionHeader = styled(SectionHeader)`
 `;
 
 const UsedBy = props => (
-  <UsedByWrapper>
-    <UsedByContainer>
-      <StyledSectionHeader
-        title="Used By"
-        tagline="Built by the community, used by the professionals"
-      />
-      <PlayerExamples
-        examples={[
-          { name: 'IGN', embed: IGNPlayer, logo: IGNLogo },
-          { name: 'Tumblr', embed: TumblrPlayer, logo: TumblrLogo },
-          { name: 'LinkedIn', embed: LinkedInPlayer, logo: LinkedInLogo },
-          { name: 'The Guardian', embed: GuardianPlayer, logo: GuardianLogo },
-        ]}
-      />
-    </UsedByContainer>
-  </UsedByWrapper>
+  <>
+    <UsedByWrapper>
+      <UsedByContainer>
+        <StyledSectionHeader
+          title="Used By"
+          tagline="Built by the community, used by the professionals"
+        />
+        <PlayerExamples
+          examples={[
+            { name: 'IGN', embed: IGNPlayer, logo: IGNLogo },
+            { name: 'Tumblr', embed: TumblrPlayer, logo: TumblrLogo },
+            { name: 'LinkedIn', embed: LinkedInPlayer, logo: LinkedInLogo },
+            { name: 'The Guardian', embed: GuardianPlayer, logo: GuardianLogo },
+          ]}
+        />
+      </UsedByContainer>
+    </UsedByWrapper>
+    <CustomerLogos />
+  </>
 );
 
 export default UsedBy;
