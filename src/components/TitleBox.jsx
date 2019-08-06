@@ -5,7 +5,7 @@ const Title = styled.div`
   border-top-color: ${({ borderColor }) => borderColor || '#ebebeb'};
   border-top-width: 2px;
   border-top-style: solid;
-  padding: 1em;
+  padding: 1em 0.5em;
   text-align: center;
   letter-spacing: 1.4px;
   color: ${({ color }) => color || 'rgba(0, 0, 0, 0.3)'};

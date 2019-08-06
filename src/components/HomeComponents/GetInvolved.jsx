@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Container from '../Container';
 import Image from '../Image';
@@ -43,6 +43,10 @@ const Wrapper = styled.div`
 const StyledContainer = styled(Container)`
   padding-top: 6em;
 
+  ${({ theme }) => theme.media.medLarge`
+    padding-top: 6em
+  `}
+
   ${({ theme }) => theme.media.xLarge`
     padding-top: 11em;
     padding-bottom: 11em;
@@ -54,9 +58,21 @@ const HeaderWrapper = styled.div`
   flex-direction: row-reverse;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  ${({ theme }) => css`
+    ${theme.media.medLarge`
+      width: 90%;
+      margin: 0 auto;
+    `}
+
+    ${theme.media.xLarge`
+      width: 100%;
+      margin: 0;
+    `}
+  `}
 `;
 
-const SlackBox = styled(({ className }) => (
+const SlackCard = styled(({ className }) => (
   <div className={className}>
     <TitleBox
       title="video js slack"
@@ -72,9 +88,33 @@ const SlackBox = styled(({ className }) => (
   flex: 0 0 90%;
   margin: 0 auto;
 
+  ${({ theme }) => theme.media.medLarge`
+    flex: 0 0 46%;
+    margin: 0;
+  `}
+
   ${({ theme }) => theme.media.xLarge`
     flex: 0 0 40%;
-    margin: 0;
+  `}
+`;
+
+const DemuxedCard = styled(({ className }) => (
+  <div className={className}>
+    <DemuxedBox />
+  </div>
+))`
+  display: none;
+  flex: 0 0 46%;
+  margin: 0;
+
+  ${({ theme }) => css`
+    ${theme.media.medLarge`
+      display: block;
+    `}
+
+    ${theme.media.xLarge`
+      display: none;
+    `}
   `}
 `;
 
@@ -82,6 +122,10 @@ const DemuxedLogoWrapper = styled.span`
   display: flex;
   align-items: center;
   height: 170px;
+
+  ${({ theme }) => theme.media.medLarge`
+    height: 150px;
+  `}
 
   ${({ theme }) => theme.media.xLarge`
     height: 270px;
@@ -141,10 +185,26 @@ const BoxWrapper = styled.div`
     flex: 0 0 48%;
   `}
 
+  ${({ theme }) => theme.media.medLarge`
+    flex: 0 0 30%;
+  `}
+
   ${({ theme }) => theme.media.xLarge`
     flex: 0 0 40%;
     margin: 0 1.5em;
     position: relative;
+  `}
+`;
+
+const DemuxedBoxWrapper = styled(BoxWrapper)`
+  display: block;
+
+  ${({ theme }) => theme.media.medLarge`
+    display: none;
+  `}
+
+  ${({ theme }) => theme.media.xLarge`
+    display: block;
   `}
 `;
 
@@ -159,7 +219,8 @@ const GetInvolved = () => (
           title="Get involved"
           tagline="We make it easy for anyone to jump in and be a part of the Video.js community."
         />
-        <SlackBox />
+        <DemuxedCard />
+        <SlackCard />
       </HeaderWrapper>
       <Boxes>
         <BoxWrapper>
@@ -177,9 +238,9 @@ const GetInvolved = () => (
             <Image filename="code-of-conduct.svg" alt="code of conduct logo"/>
           </TitleBox>
         </BoxWrapper>
-        <BoxWrapper>
+        <DemuxedBoxWrapper>
           <DemuxedBox />
-        </BoxWrapper>
+        </DemuxedBoxWrapper>
       </Boxes>
     </StyledContainer>
   </Wrapper>
