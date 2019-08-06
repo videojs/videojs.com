@@ -121,6 +121,7 @@ const CustomerLogos = styled(({ className }) => (
     </div>
   </div>
 ))`
+  margin-top: 5em;
   overflow: hidden;
 
   > div {
