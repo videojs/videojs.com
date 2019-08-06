@@ -14,14 +14,14 @@ const StyledH2 = styled(H2)`
 `;
 
 const StyledHero = styled(Hero)`
-  background-position: center -520px;
+  ${({ theme }) => theme.media.xlLarge`
+    background-position: center -520px;
 
-  ${Container} {
-    ${({ theme }) => theme.media.xlLarge`
+    ${Container} {
       padding-top: 10em;
       padding-bottom: 10em;
-    `}
-  }
+    }
+  `}
 `;
 
 const PluginsHero = () => (

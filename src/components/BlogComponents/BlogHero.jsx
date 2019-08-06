@@ -6,14 +6,14 @@ import Container from '../../components/Container';
 import { H1 } from '../../components/Typography';
 
 const StyledHero = styled(Hero)`
-  background-position: center -670px;
+  ${({ theme }) => theme.media.xlLarge`
+    background-position: center -670px;
 
-  ${Container} {
-    ${({ theme }) => theme.media.xlLarge`
+    ${Container} {
       padding-top: 12em;
       padding-bottom: 12em;
-    `}
-  }
+    }
+  `}
 `;
 
 const BlogHero = () => (
