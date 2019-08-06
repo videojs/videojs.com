@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Container from '../Container';
 import SectionHeader from '../SectionHeader';
-import Code from '../Code';
 
 import lines from '../../images/background-lines.svg';
 import circles from '../../images/background-circles.svg';
@@ -17,65 +16,111 @@ const ImplementationWrapper = styled.div`
   padding-top: 110px;
   padding-bottom: 207px;
 
-  &::before {
-    content: '';
-    display: block;
-    height: 525px;
-    width: 110px;
-    opacity: 0.2;
-    position: absolute;
+  ${({ theme }) => theme.media.xLarge`
+    &::before {
+      content: '';
+      display: block;
+      height: 525px;
+      width: 110px;
+      opacity: 0.2;
+      position: absolute;
 
-    background-image: url(${lines});
-    background-repeat: no-repeat;
-    background-position: 0px 110px;
-    background-size: 110px 525px;
-  }
+      background-image: url(${lines});
+      background-repeat: no-repeat;
+      background-position: 0px 110px;
+      background-size: 110px 525px;
+    }
 
-  &::after {
-    content: '';
-    height: 620px;
-    width: 235px;
-    display: block;
-    opacity: 0.2;
+    &::after {
+      content: '';
+      height: 620px;
+      width: 235px;
+      display: block;
+      opacity: 0.2;
 
-    position: absolute;
-    top: -227px;
-    right: 0;
+      position: absolute;
+      top: -227px;
+      right: 0;
 
-    background-image: url(${circles});
-  }
+      background-image: url(${circles});
+    }
+  `}
 `;
 
 const ImplementationContainer = styled(Container)`
-  width: 75%;
+  width: 92%;
+
+  ${({ theme }) => theme.media.medLarge`
+    width: 80%;
+  `}
+
+  ${({ theme }) => theme.media.xLarge`
+    width: 75%;
+  `}
 `;
 
 const Table = styled.table`
   background-color: #fff;
   margin-top: 6em;
+  width: 100%;
 `;
 
 const TableRow = styled.tr``;
 const TableCell = styled.td`
-  padding: 40px 60px;
-  border: 2px solid #f5f5f5;
-
+  border-top: 2px solid #f5f5f5;
+  border-bottom: 2px solid #f5f5f5;
   font-weight: ${props => props.header && 'bold'};
+  padding: 10px 5px;
+
+  ${({ theme }) => theme.media.small`
+    padding: 20px;
+  `}
+
+  ${({ theme }) => theme.media.medium`
+    padding: 40px 60px;
+  `}
+
+  ${({ theme }) => theme.media.xLarge`
+    border-left: 2px solid #f5f5f5;
+    border-right: 2px solid #f5f5f5;
+  `}
 `;
 
-const SupportCellContent = styled.div`
+const SupportCellContent = styled((props) => (
+  <div className={props.className}>
+    <span>{props.children}</span>
+  </div>
+))`
   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > span {
+    display: none;
+
+    ${({ theme }) => theme.media.xLarge`
+      display: inline-block;
+    `}
+  }
 
   &::before {
     height: 28px;
     width: 28px;
     display: block;
-    padding-right: 2em;
+    flex-shrink: 0;
 
     content: '';
     background-image: url(${props => (props.supported ? tick : cross)});
     background-repeat: no-repeat;
+
+    ${({ theme }) => theme.media.xLarge`
+      padding-right: 2em;
+    `}
   }
+
+  ${({ theme }) => theme.media.xLarge`
+    justify-content: flex-start;
+  `}
 `;
 
 const SupportCell = props => (
@@ -85,12 +130,25 @@ const SupportCell = props => (
 );
 
 const TableHead = styled.thead`
+  background-color: #e5e4e5;
   font-size: 18px;
   font-weight: bold;
 
   ${TableCell} {
-    padding: 60px;
+    padding: 10px 5px;
+
+    ${({ theme }) => theme.media.small`
+      padding: 20px;
+    `}
+
+    ${({ theme }) => theme.media.medium`
+      padding: 60px;
+    `}
   }
+
+  ${({ theme }) => theme.media.xLarge`
+    background-color: #fff;
+  `}
 `;
 
 const TableBody = styled.tbody`
@@ -111,48 +169,46 @@ const Implementation = () => (
         <TableHead>
           <TableRow>
             <TableCell>Feature</TableCell>
-            <TableCell>
-              <Code>video</Code> Element
-            </TableCell>
             <TableCell>Video.js</TableCell>
+            <TableCell>HTML5</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           <TableRow>
             <TableCell header>Cross-browser "Skins"</TableCell>
-            <SupportCell>Looks different in every browser</SupportCell>
             <SupportCell supported>
               Looks good everywhere with CSS-based Skins
             </SupportCell>
+            <SupportCell>Looks different in every browser</SupportCell>
           </TableRow>
           <TableRow>
             <TableCell header>
               Adaptive Streaming (adjusting to the viewer’s bandwidth)
             </TableCell>
-            <SupportCell>
-              HLS and DASH not playable in Chrome or Firefox by default.
-            </SupportCell>
             <SupportCell supported>
               HLS supported everywhere. DASH supported everywhere but iOS
               Safari.
             </SupportCell>
-          </TableRow>
-          <TableRow>
-            <TableCell header>Social Video Platforms</TableCell>
-            <SupportCell>Not supported</SupportCell>
-            <SupportCell supported>
-              Play Youtube, Vimeo, and more with added plugins.
+            <SupportCell>
+              HLS and DASH not playable in Chrome or Firefox by default.
             </SupportCell>
           </TableRow>
           <TableRow>
+            <TableCell header>Social Video Platforms</TableCell>
+            <SupportCell supported>
+              Play Youtube, Vimeo, and more with added plugins.
+            </SupportCell>
+            <SupportCell>Not supported</SupportCell>
+          </TableRow>
+          <TableRow>
             <TableCell header>Community-built Plugins</TableCell>
-            <SupportCell supported>Probably?</SupportCell>
             <SupportCell supported>Hundreds!</SupportCell>
+            <SupportCell supported>Probably?</SupportCell>
           </TableRow>
           <TableRow>
             <TableCell header>Browser API Inconsistencies</TableCell>
-            <SupportCell>Many</SupportCell>
             <SupportCell supported>Makes them disappear</SupportCell>
+            <SupportCell>Many</SupportCell>
           </TableRow>
         </TableBody>
       </Table>

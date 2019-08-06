@@ -4,9 +4,8 @@ const VideoWrapper = styled.div`
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
-  margin-bottom: 3em;
 
-  iframe {
+  > iframe {
     position: absolute;
     top: 0;
     left: 0;

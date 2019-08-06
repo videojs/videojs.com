@@ -3,32 +3,44 @@ import styled from 'styled-components';
 
 import Container from '../Container';
 import SectionHeader from '../SectionHeader';
-import { P, H3 } from '../Typography';
 import Image from '../Image';
+import { P, H3 } from '../Typography';
 
 import diamonds from '../../images/background-diamonds.svg';
 
 const FeaturesWrapper = styled.div`
   width: 100%;
 
-  background-image: url(${diamonds});
-  background-repeat: no-repeat;
-  background-position: -266px 80%;
-  background-size: auto 160px;
+  ${({ theme }) => theme.media.xLarge`
+    background-image: url(${diamonds});
+    background-repeat: no-repeat;
+    background-position: -266px 80%;
+    background-size: auto 160px;
+  `}
 `;
 
 const FeaturesContainer = styled(Container)`
-  & {
-    padding-top: 185px;
-  }
-
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
+
+  & {
+    padding-top: 4.8em;
+
+    ${({ theme }) => theme.media.xLarge`
+      padding-top: 11.57em;
+    `}
+  }
 `;
 
 const PrimaryText = styled.div`
-  flex: 0 0 50%;
-  padding-right: 156px;
+  flex: 0 0 65%;
+  margin: 0 auto;
+
+  ${({ theme }) => theme.media.xLarge`
+    flex-basis: 50%;
+    padding-right: 156px;
+  `}
 
   ${P} {
     line-height: 2.14;
@@ -36,23 +48,42 @@ const PrimaryText = styled.div`
 `;
 
 const FeatureList = styled.div`
-  padding-left: 20px;
-
   display: flex;
-  flex: 0 0 50%;
+  flex: 0 0 100%;
   flex-flow: wrap;
   justify-content: space-between;
+
+  ${({ theme }) => theme.media.xLarge`
+    flex-basis: 50%;
+  `}
 `;
 
 const Feature = styled(props => (
   <div className={props.className}>
-    <Image filename={props.image} />
-    <H3>{props.title}</H3>
-    <P>{props.text}</P>
+    <span>
+      <Image filename={props.image} />
+      <H3>{props.title}</H3>
+      <P>{props.text}</P>
+    </span>
   </div>
 ))`
-  width: 250px;
+  flex: 0 0 100%;
   margin-top: 84px;
+
+  > span {
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    text-align: center;
+
+    ${({ theme }) => theme.media.xLarge`
+      text-align: left;
+    `}
+  }
+
+  ${({ theme }) => theme.media.medLarge`
+    flex-basis: 50%;
+  `}
 
   ${H3} {
     padding-top: 53px;
@@ -62,6 +93,11 @@ const Feature = styled(props => (
   ${P} {
     font-size: 13px;
     margin-bottom: 0;
+    text-align: center;
+
+    ${({ theme }) => theme.media.xLarge`
+      text-align: left;
+    `}
   }
 `;
 
@@ -69,7 +105,13 @@ const Features = props => (
   <FeaturesWrapper>
     <FeaturesContainer>
       <PrimaryText>
-        <SectionHeader left title="Features" tagline="Why Video.js?" />
+        <SectionHeader
+          mobileAlign="left"
+          tabletAlign="left"
+          desktopAlign="left"
+          title="Features"
+          tagline="Why Video.js?"
+        />
         <P>
           Video.js is a web video player built from the ground up for an HTML5
           world. It supports HTML5 video and modern streaming formats, as well

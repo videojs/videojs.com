@@ -25,6 +25,12 @@ const GlobalStyles = createGlobalStyle`
     src: local('OCR A Extended'), url(${ocrExtendedFont}) format('woff');
   }
 
+  @keyframes rotate {
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
   html{
     font-family: ${props => props.theme.defaultSerif};
     font-size: 100%;

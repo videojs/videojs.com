@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import Link from '../Link';
 import { joinUrls } from '../../utils/url';
-import { media } from '../../utils/styles';
 
 const Wrapper = styled.aside`
   width: 24%;
@@ -13,7 +12,7 @@ const Wrapper = styled.aside`
   > ul {
     margin-left: -3.5em;
 
-    ${media.medLarge`
+    ${({ theme }) => theme.media.medLarge`
       margin-left: -6.25em;
     `}
   }
