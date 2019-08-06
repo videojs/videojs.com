@@ -2,15 +2,6 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 import { H1, H2 } from './Typography';
-import { media } from '../utils/styles';
-
-const cssForProp = (prop, styles) => {
-  if (!prop) return;
-
-  return typeof prop === 'string'
-    ? css`${media[prop]`${styles}`}`
-    : css`${styles}`;
-}
 
 const SectionHeaderContainer = styled.div`
   position: relative;
@@ -26,19 +17,27 @@ const SectionHeaderTitle = styled(H1)`
   font-size: 16px;
   margin-bottom: 0.6em;
   color: ${props => props.theme.brand.lightGrey};
-  text-align: center;
 
-  ${({ leftText }) => cssForProp(leftText, `
-    text-align: left;
-  `)}
+  ${({ theme, mobileAlign, tabletAlign, desktopAlign }) => css`
+    text-align: ${mobileAlign};
+
+    ${theme.media.medLarge`
+      text-align: ${tabletAlign};
+    `}
+
+    ${theme.media.xLarge`
+      text-align: ${desktopAlign};
+    `}
+  `}
 `;
+
+const getLineMarginLeft = align => align === 'left' ? '0' : 'auto';
 
 const SectionHeaderTagline = styled(H2)`
   font-weight: bold;
   font-size: 30px;
   line-height: 1.4em;
   margin-bottom: 1em;
-  text-align: center;
   position: relative;
   color: ${props => (props.darkMode ? '#fff' : 'inherit')};
 
@@ -52,22 +51,65 @@ const SectionHeaderTagline = styled(H2)`
     opacity: 0.5;
   }
 
-  ${({ leftText }) => cssForProp(leftText, `
-    text-align: left;
+  ${({ theme, mobileAlign, tabletAlign, desktopAlign }) => {
+    let styles = css`
+      text-align: ${mobileAlign};
 
-    &:after {
-      margin-left: 0;
-      margin-right: 0;
-    }
-  `)}
+      ${theme.media.medLarge`
+        text-align: ${tabletAlign};
+      `}
 
-  ${({ leftLine }) => cssForProp(leftLine, `
-    &:after {
+      ${theme.media.xLarge`
+        text-align: ${desktopAlign};
+      `}
+
+      &::after {
+        margin-left: ${getLineMarginLeft(mobileAlign)};
+
+        ${theme.media.medLarge`
+          margin-left: ${getLineMarginLeft(tabletAlign)};
+        `}
+
+        ${theme.media.xLarge`
+          margin-left: ${getLineMarginLeft(desktopAlign)};
+        `}
+      }
+    `;
+
+    const leftAlignedLine = css`
       position: absolute;
       left: -100px;
       top: 0;
+    `;
+
+    if (desktopAlign === 'left') {
+      styles = css`
+        ${styles}
+
+        &::after {
+          ${theme.media.xLarge`
+            ${leftAlignedLine}
+          `}
+        }
+      `;
+    } else if (tabletAlign === 'left') {
+      styles = css`
+        ${styles}
+
+        &::after {
+          ${theme.media.medLarge`
+            ${leftAlignedLine}
+          `}
+
+          ${theme.media.xLarge`
+            position: static;
+          `}
+        }
+      `;
     }
-  `)}
+
+    return css`${styles}`;
+  }}
 `;
 
 const SectionHeader = ({ className, ...props }) => (
@@ -78,8 +120,9 @@ const SectionHeader = ({ className, ...props }) => (
 );
 
 SectionHeader.defaultProps = {
-  leftText: false,
-  leftLine: false
-}
+  mobileAlign: 'center',
+  tabletAlign: 'center',
+  desktopAlign: 'center'
+};
 
 export default SectionHeader;

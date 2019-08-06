@@ -73,7 +73,8 @@ const PrimaryContainer = styled.div`
 
   ${Sponsor} {
     flex: 0 0 90%;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 
     ${media.medLarge`
       flex: 0 0 60%;
@@ -118,10 +119,11 @@ const Sponsors = props => (
       <PrimaryContainer>
         <PrimaryText>
           <SectionHeader
-            leftText
-            leftLine="medLarge"
             title="Sponsors"
             tagline="The folks who help make this happen"
+            mobileAlign="left"
+            tabletAlign="left"
+            desktopAlign="left"
           />
           <P>
             Brightcove is the main sponsor of the project, employing many of the

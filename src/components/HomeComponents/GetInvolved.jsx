@@ -41,6 +41,8 @@ const Wrapper = styled.div`
 `;
 
 const StyledContainer = styled(Container)`
+  padding-top: 6em;
+
   ${({ theme }) => theme.media.xLarge`
     padding-top: 11em;
     padding-bottom: 11em;
@@ -50,22 +52,30 @@ const StyledContainer = styled(Container)`
 const HeaderWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
+  flex-wrap: wrap;
   justify-content: space-between;
 `;
 
 const SlackBox = styled(({ className }) => (
-  <TitleBox
-    className={className}
-    title="video js slack"
-    bgColor="#4a154b"
-    borderColor="#4a154b"
-    textColor="#fff"
-    textBorderColor="#000"
-  >
-    <Image filename="logos/slack.svg" alt="slack logo" />
-  </TitleBox>
+  <div className={className}>
+    <TitleBox
+      title="video js slack"
+      bgColor="#4a154b"
+      borderColor="#4a154b"
+      textColor="#fff"
+      textBorderColor="#000"
+    >
+      <Image filename="logos/slack.svg" alt="slack logo" />
+    </TitleBox>
+  </div>
 ))`
-  flex: 0 0 40%;
+  flex: 0 0 90%;
+  margin: 0 auto;
+
+  ${({ theme }) => theme.media.xLarge`
+    flex: 0 0 40%;
+    margin: 0;
+  `}
 `;
 
 const DemuxedLogoWrapper = styled.span`
@@ -102,22 +112,40 @@ const DemuxedBox = styled(({ className }) => (
 `;
 
 const StyledSectionHeader = styled(SectionHeader)`
-  flex: 0 0 40%;
-  margin: 0;
+  margin: 0 auto 6em;
+  flex: 0 0 70%;
+
+  ${({ theme }) => theme.media.xLarge`
+    flex: 0 0 40%;
+    margin: 0;
+  `}
 `;
 
 const Boxes = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  width: 60%;
+  justify-content: space-between;
   margin: 0 auto;
+  width: 90%;
+
+  ${({ theme }) => theme.media.xLarge`
+    justify-content: center;
+    width: 60%;
+  `}
 `;
 
 const BoxWrapper = styled.div`
-  flex: 0 0 40%;
-  margin: 0 1.5em;
-  position: relative;
+  flex: 0 0 100%;
+
+  ${({ theme }) => theme.media.medium`
+    flex: 0 0 48%;
+  `}
+
+  ${({ theme }) => theme.media.xLarge`
+    flex: 0 0 40%;
+    margin: 0 1.5em;
+    position: relative;
+  `}
 `;
 
 const GetInvolved = () => (
@@ -125,8 +153,9 @@ const GetInvolved = () => (
     <StyledContainer>
       <HeaderWrapper>
         <StyledSectionHeader
-          leftText
-          leftLine
+          mobileAlign="left"
+          tabletAlign="center"
+          desktopAlign="left"
           title="Get involved"
           tagline="We make it easy for anyone to jump in and be a part of the Video.js community."
         />

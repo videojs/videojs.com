@@ -137,7 +137,7 @@ class AdvancedExample extends React.Component {
     return (
       <AdvancedExampleContainer>
         <PlaylistPluginDescContainer>
-          <StyledSectionHeader leftText leftLine title="Example" tagline="Playlist plugin" />
+          <StyledSectionHeader desktopAlign="left" title="Example" tagline="Playlist plugin" />
           <PlaylistPluginDesc>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

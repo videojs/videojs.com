@@ -106,7 +106,13 @@ const Features = props => (
   <FeaturesWrapper>
     <FeaturesContainer>
       <PrimaryText>
-        <SectionHeader leftText leftLine="medLarge" title="Features" tagline="Why Video.js?" />
+        <SectionHeader
+          mobileAlign="left"
+          tabletAlign="left"
+          desktopAlign="left"
+          title="Features"
+          tagline="Why Video.js?"
+        />
         <P>
           Video.js is a web video player built from the ground up for an HTML5
           world. It supports HTML5 video and modern streaming formats, as well
