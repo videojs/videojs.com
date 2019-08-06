@@ -6,7 +6,6 @@ import SectionHeader from '../SectionHeader';
 import Image from '../Image';
 import VideoWrapper from '../VideoWrapper';
 import CustomerLogos from './CustomerLogos';
-import { media } from '../../utils/styles';
 
 import PlayerExamples from './PlayerExamples';
 
@@ -24,7 +23,7 @@ const GuardianLogo = () => <img src={GuardianSvg} alt="Guardian" />;
 const UsedByWrapper = styled.div`
   width: 100%;
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     background-image: url(${zigZag});
     background-repeat: no-repeat;
     background-position: calc(100% + 78px) 20%;
@@ -108,7 +107,7 @@ const UsedByContainer = styled(Container)`
   & {
     padding-top: 10em;
 
-    ${media.xLarge`
+    ${({ theme }) => theme.media.xLarge`
       padding-top: 18.75em;
     `}
   }
@@ -118,7 +117,7 @@ const StyledSectionHeader = styled(SectionHeader)`
   width: 90%;
   margin: 0 auto 3.5em;
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     width: 100%;
   `}
 `;

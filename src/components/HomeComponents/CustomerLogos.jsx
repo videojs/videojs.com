@@ -1,8 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { media } from '../../utils/styles';
-
 import FutureLearnLogo from '../../images/logos/futureLearn';
 import LinkedinLogo from '../../images/logos/linkedin';
 import PBSKidsLogo from '../../images/logos/pbsKids';
@@ -33,7 +31,7 @@ const LogosRow = styled.div`
   }
 
   ${({ mobileOnly }) => mobileOnly && css`
-    ${media.medLarge`
+    ${({ theme }) => theme.media.medLarge`
       display: none;
     `}
   `}
@@ -49,22 +47,22 @@ const LogoWrapper = styled.div`
     max-width: 100%;
   }
 
-  ${media.small`
+  ${({ theme }) => theme.media.small`
     flex: 0 0 5em;
   `}
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     flex: 0 0 7em;
   `}
 
-  ${media.wide`
+  ${({ theme }) => theme.media.wide`
     flex: 0 0 10em;
   `}
 
   ${({ desktopOnly }) => desktopOnly && css`
     display: none;
 
-    ${media.medLarge`
+    ${({ theme }) => theme.media.medLarge`
       display: flex;
     `}
   `}

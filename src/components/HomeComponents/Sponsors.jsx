@@ -6,7 +6,6 @@ import SectionHeader from '../SectionHeader';
 import Image from '../Image';
 import TitleBox from '../TitleBox';
 import { P } from '../Typography';
-import { media } from '../../utils/styles'
 
 import triangles from '../../images/background-triangles.svg';
 import vine from '../../images/background-vine.svg';
@@ -15,7 +14,7 @@ const SponsorsWrapper = styled.div`
   width: 100%;
   position: relative;
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     background-image: url(${triangles});
     background-repeat: no-repeat;
     background-position: 0px 132px;
@@ -47,7 +46,7 @@ const SponsorsContainer = styled(Container)`
   & {
     padding-top: 8.125em;
 
-    ${media.xLarge`
+    ${({ theme }) => theme.media.xLarge`
       padding-top: 25.625em;
     `}
   }
@@ -62,7 +61,7 @@ const Sponsor = styled(props => (
 ))`
   flex: 0 0 48%;
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     flex: 0 0 22%;
   `}
 `;
@@ -76,11 +75,11 @@ const PrimaryContainer = styled.div`
     margin-left: auto;
     margin-right: auto;
 
-    ${media.medLarge`
+    ${({ theme }) => theme.media.medLarge`
       flex: 0 0 60%;
     `}
 
-    ${media.xLarge`
+    ${({ theme }) => theme.media.xLarge`
       flex: 0 0 50%;
     `}
   }
@@ -90,11 +89,11 @@ const PrimaryText = styled.div`
   flex: 0 0 70%;
   margin: 0 auto;
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     flex: 0 0 60%;
   `}
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     flex: 0 0 50%;
     padding-right: 156px;
   `}

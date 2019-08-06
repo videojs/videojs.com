@@ -7,7 +7,6 @@ import Container from '../Container';
 import Hero from '../Hero';
 import ThemeSelector from '../ThemeSelector';
 import { H1, H2 } from '../Typography';
-import { media } from '../../utils/styles';
 
 const DemoContainer = styled.div`
   max-width: 710px;
@@ -36,7 +35,7 @@ const DemoControls = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
 
-  ${media.medium`
+  ${({ theme }) => theme.media.medium`
     padding: 2.5em 2em;
   `}
 
@@ -54,7 +53,7 @@ const DemoControls = styled.div`
       margin-bottom: 0;
     }
 
-    ${media.medium`
+    ${({ theme }) => theme.media.medium`
       margin: 0 0.6em;
       flex: 1;
     `}

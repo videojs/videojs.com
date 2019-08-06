@@ -13,12 +13,11 @@ import PlayerControls from './PlayerControls';
 import PlayerPlaylist from './PlayerPlaylist';
 import playlist from './playlist';
 import rectangles from '../../../images/footer-rectangles.svg';
-import { media } from '../../../utils/styles';
 
 const AdvancedExampleContainer = styled.div`
   display: none;
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     display: block;
   `}
 `;
@@ -34,7 +33,7 @@ const PlaylistPluginDescContainer = styled(Container)`
   }
 
   & {
-    ${media.xLarge`
+    ${({ theme }) => theme.media.xLarge`
       padding-top: 12.5em;
     `}
   }
@@ -58,7 +57,7 @@ const PlayerBackground = styled.div`
 `;
 
 const PlayerContainer = styled(Container)`
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     padding-top: 0;
     padding-bottom: 0;
   `}

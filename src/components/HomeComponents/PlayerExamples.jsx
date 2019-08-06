@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { media } from '../../utils/styles';
-
 const ExampleContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -13,13 +11,13 @@ const ExampleEmbed = styled.div`
   flex: 0 0 100%;
   padding: 0 0 2em 0;
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     flex: 0 0 70%;
     margin: 0 auto;
     padding: 1em;
   `}
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     flex: 3;
   `}
 `;
@@ -30,7 +28,7 @@ const ExampleSelector = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     flex: 2;
   `}
 `;
@@ -56,11 +54,11 @@ const ExampleBlock = styled(props => (
     margin: auto;
   }
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     flex: 0 0 20%;
   `}
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     flex: 1 0 40%;
   `}
 `;

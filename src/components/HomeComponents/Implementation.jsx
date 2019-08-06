@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Container from '../Container';
 import SectionHeader from '../SectionHeader';
-import { media } from '../../utils/styles';
 
 import lines from '../../images/background-lines.svg';
 import circles from '../../images/background-circles.svg';
@@ -17,7 +16,7 @@ const ImplementationWrapper = styled.div`
   padding-top: 110px;
   padding-bottom: 207px;
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     &::before {
       content: '';
       display: block;
@@ -51,11 +50,11 @@ const ImplementationWrapper = styled.div`
 const ImplementationContainer = styled(Container)`
   width: 92%;
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     width: 80%;
   `}
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     width: 75%;
   `}
 `;
@@ -73,15 +72,15 @@ const TableCell = styled.td`
   font-weight: ${props => props.header && 'bold'};
   padding: 10px 5px;
 
-  ${media.small`
+  ${({ theme }) => theme.media.small`
     padding: 20px;
   `}
 
-  ${media.medium`
+  ${({ theme }) => theme.media.medium`
     padding: 40px 60px;
   `}
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     border-left: 2px solid #f5f5f5;
     border-right: 2px solid #f5f5f5;
   `}
@@ -99,7 +98,7 @@ const SupportCellContent = styled((props) => (
   > span {
     display: none;
 
-    ${media.xLarge`
+    ${({ theme }) => theme.media.xLarge`
       display: inline-block;
     `}
   }
@@ -114,12 +113,12 @@ const SupportCellContent = styled((props) => (
     background-image: url(${props => (props.supported ? tick : cross)});
     background-repeat: no-repeat;
 
-    ${media.xLarge`
+    ${({ theme }) => theme.media.xLarge`
       padding-right: 2em;
     `}
   }
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     justify-content: flex-start;
   `}
 `;
@@ -138,16 +137,16 @@ const TableHead = styled.thead`
   ${TableCell} {
     padding: 10px 5px;
 
-    ${media.small`
+    ${({ theme }) => theme.media.small`
       padding: 20px;
     `}
 
-    ${media.medium`
+    ${({ theme }) => theme.media.medium`
       padding: 60px;
     `}
   }
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     background-color: #fff;
   `}
 `;

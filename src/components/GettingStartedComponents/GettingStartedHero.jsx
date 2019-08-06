@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Hero from '../../components/Hero';
 import Container from '../../components/Container';
 import { H1, H2 } from '../../components/Typography';
-import { media } from '../../utils/styles';
 
 const StyledH2 = styled(H2)`
   letter-spacing: -0.01em;
@@ -18,7 +17,7 @@ const StyledHero = styled(Hero)`
   background-position: center -425px;
 
   ${Container} {
-    ${media.xlLarge`
+    ${({ theme }) => theme.media.xlLarge`
       padding-top: 10em;
       padding-bottom: 10em;
     `}

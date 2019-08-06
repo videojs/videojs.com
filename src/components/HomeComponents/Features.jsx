@@ -5,14 +5,13 @@ import Container from '../Container';
 import SectionHeader from '../SectionHeader';
 import Image from '../Image';
 import { P, H3 } from '../Typography';
-import { media } from '../../utils/styles';
 
 import diamonds from '../../images/background-diamonds.svg';
 
 const FeaturesWrapper = styled.div`
   width: 100%;
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     background-image: url(${diamonds});
     background-repeat: no-repeat;
     background-position: -266px 80%;
@@ -28,7 +27,7 @@ const FeaturesContainer = styled(Container)`
   & {
     padding-top: 4.8em;
 
-    ${media.xLarge`
+    ${({ theme }) => theme.media.xLarge`
       padding-top: 11.57em;
     `}
   }
@@ -38,7 +37,7 @@ const PrimaryText = styled.div`
   flex: 0 0 65%;
   margin: 0 auto;
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     flex-basis: 50%;
     padding-right: 156px;
   `}
@@ -54,7 +53,7 @@ const FeatureList = styled.div`
   flex-flow: wrap;
   justify-content: space-between;
 
-  ${media.xLarge`
+  ${({ theme }) => theme.media.xLarge`
     flex-basis: 50%;
   `}
 `;
@@ -77,12 +76,12 @@ const Feature = styled(props => (
     width: 250px;
     text-align: center;
 
-    ${media.xLarge`
+    ${({ theme }) => theme.media.xLarge`
       text-align: left;
     `}
   }
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     flex-basis: 50%;
   `}
 
@@ -96,7 +95,7 @@ const Feature = styled(props => (
     margin-bottom: 0;
     text-align: center;
 
-    ${media.xLarge`
+    ${({ theme }) => theme.media.xLarge`
       text-align: left;
     `}
   }

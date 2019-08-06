@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Link from './Link';
 import Image from './Image';
-import { media } from '../utils/styles';
 
 import rectangles from '../images/footer-rectangles.svg';
 
@@ -11,7 +10,7 @@ const Wrapper = styled.footer`
   padding: 6em 2em 8em;
   text-align: center;
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     background-image: url(${rectangles});
     height: 50em;
   `}
@@ -33,7 +32,7 @@ const Nav = styled.ul`
   text-transform: uppercase;
   display: none;
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     display: block;
   `}
 `;

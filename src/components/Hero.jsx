@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import Container from './Container';
 import { H1, H2 } from './Typography';
-import { media } from '../utils/styles';
 
 const Hero = styled.div`
   text-align: center;
@@ -21,13 +20,13 @@ const Hero = styled.div`
     margin-bottom: 0.3em;
     text-align: center;
 
-    ${media.medium`
+    ${({ theme }) => theme.media.medium`
       font-size: 56px;
       line-height: 1em;
       margin-bottom: 0.3em;
     `}
 
-    ${media.medLarge`
+    ${({ theme }) => theme.media.medLarge`
       font-size: 56px;
       line-height: 1em;
       margin-bottom: 0.3em;
@@ -41,13 +40,13 @@ const Hero = styled.div`
     margin-bottom: 0.8em;
     text-align: center;
 
-    ${media.small`
+    ${({ theme }) => theme.media.small`
       font-size: 22px;
       margin-bottom: 1.2em;
       line-height: 1.4em;
     `}
 
-    ${media.large`
+    ${({ theme }) => theme.media.large`
       margin-bottom: 2.4em;
     `}
   }
@@ -55,11 +54,11 @@ const Hero = styled.div`
   ${Container} {
     padding-top: 6em;
 
-    ${media.medLarge`
+    ${({ theme }) => theme.media.medLarge`
       padding-top: 8em;
     `}
 
-    ${media.xlLarge`
+    ${({ theme }) => theme.media.xlLarge`
       padding-top: 10em;
       padding-bottom: 20em;
     `}
