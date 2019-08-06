@@ -85,7 +85,7 @@ const Feature = styled(props => (
     flex-basis: 50%;
   `}
 
-  ${H3} {
+ ${H3} {
     padding-top: 53px;
     padding-bottom: 26px;
   }
