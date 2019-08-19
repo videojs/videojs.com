@@ -57,6 +57,7 @@ const HomeHero = props => (
         <Player
           controls
           fluid
+          themeName={props.themeName}
           sources={[{ src: props.video, type: 'application/x-mpegurl' }]}
           poster={props.poster}
         />

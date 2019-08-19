@@ -17,7 +17,7 @@ class IndexPage extends React.Component {
 
     const themeKeys = Object.keys(heroThemes);
     this.themeName = themeKeys[Math.floor(Math.random() * themeKeys.length)];
-    // this.themeName = 'forrest';
+    // this.themeName = 'sea';
   }
 
   render() {

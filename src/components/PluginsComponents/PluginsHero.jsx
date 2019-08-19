@@ -26,13 +26,13 @@ const StyledHero = styled(Hero)`
 `;
 
 const PluginsHero = () => (
-  <StyledHero themeName="forrest">
+  <StyledHero themeName="forest">
     <Container>
       <H1>Plugins and Skins</H1>
       <StyledH2>
         You can customize Video.js using 3rd party plugins and skins. For more
-        information about creating and using Video.js extensions, please see
-        the documentation.
+        information about creating and using Video.js extensions, please see the
+        documentation.
       </StyledH2>
     </Container>
   </StyledHero>
