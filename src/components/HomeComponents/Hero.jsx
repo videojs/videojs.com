@@ -41,36 +41,45 @@ const DemoControls = styled.div`
       margin: 0 0.6em;
     `}
   }
-
-  ${ThemeSelector} {
-    padding: 0;
-  }
 `;
 
-const HomeHero = props => (
-  <Hero themeName={props.themeName}>
-    <Container>
-      <H1>Make your player yours</H1>
-      <H2>with the worlds most popular open source HTML5 player</H2>
 
-      <DemoContainer>
-        <Player
-          controls
-          fluid
-          themeName={props.themeName}
-          sources={[{ src: props.video, type: 'application/x-mpegurl' }]}
-          poster={props.poster}
-        />
-        <DemoControls>
-          <Button>Get Started</Button>
-          <Button>Demos</Button>
-          <ThemeSelector style={{ marginLeft: '4em' }}>
-            Swap Theme
-          </ThemeSelector>
-        </DemoControls>
-      </DemoContainer>
-    </Container>
-  </Hero>
-);
+class HomeHero extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {showDropdown: false};
+  }
+
+  toggleThemeDropdown () {
+    this.setState({ showDropdown: !this.state.showDropdown });
+  }
+
+  render () {
+    const props = this.props;
+    return (
+      <Hero themeName={props.themeName}>
+        <Container>
+          <H1>Make your player yours</H1>
+          <H2>with the worlds most popular open source HTML5 player</H2>
+
+          <DemoContainer>
+            <Player
+              controls
+              fluid
+              themeName={props.themeName}
+              sources={[{ src: props.video, type: 'application/x-mpegurl' }]}
+              poster={props.poster}
+            />
+            <DemoControls>
+              <Button>Get Started</Button>
+              <Button>Demos</Button>
+              <ThemeSelector />
+            </DemoControls>
+          </DemoContainer>
+        </Container>
+      </Hero>
+    );
+  }
+}
 
 export default styled(HomeHero)``;

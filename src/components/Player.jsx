@@ -1,9 +1,5 @@
 import videojs from 'video.js';
 import React from 'react';
-import Helmet from 'react-helmet';
-
-import { heroThemes } from '../utils/styles';
-
 import 'video.js/dist/video-js.css';
 
 class Player extends React.Component {
@@ -33,13 +29,6 @@ class Player extends React.Component {
             className={`video-js vjs-theme-${this.props.themeName}`}
           />
         </div>
-
-        <Helmet>
-          <link
-            href={heroThemes[this.props.themeName].style}
-            rel="stylesheet"
-          />
-        </Helmet>
       </div>
     );
   }

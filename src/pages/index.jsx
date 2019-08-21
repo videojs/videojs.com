@@ -1,4 +1,5 @@
 import React from 'react';
+import queryString from 'query-string';
 
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
@@ -16,8 +17,12 @@ class IndexPage extends React.Component {
     super(props);
 
     const themeKeys = Object.keys(heroThemes);
-    this.themeName = themeKeys[Math.floor(Math.random() * themeKeys.length)];
-    // this.themeName = 'sea';
+    const themeFromQuery = queryString.parse(window.location.search).theme;
+    if (themeKeys.includes(themeFromQuery)) {
+      this.themeName = themeFromQuery;
+    } else {
+      this.themeName = themeKeys[Math.floor(Math.random() * themeKeys.length)];
+    }
   }
 
   render() {
@@ -31,6 +36,7 @@ class IndexPage extends React.Component {
           themeName={this.themeName}
           video={heroThemes[this.themeName].video}
           poster={heroThemes[this.themeName].poster}
+          heroThemes={heroThemes}
         >
           <h1>Make your player yours</h1>
         </Hero>

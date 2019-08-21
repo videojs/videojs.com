@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
@@ -132,8 +133,9 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children, themeName }) => (
-  <StaticQuery
+const Layout = ({ children, themeName }) => {
+  const currentTheme = theme[themeName];
+  return <StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {
@@ -144,9 +146,19 @@ const Layout = ({ children, themeName }) => (
       }
     `}
     render={data => (
-      <ThemeProvider theme={{ ...theme, currentTheme: theme[themeName] }}>
+      <ThemeProvider theme={{ ...theme, currentTheme }}>
         <>
           <GlobalStyles />
+          {
+            currentTheme ?
+            <Helmet>
+              <link
+                href={currentTheme.style}
+                rel="stylesheet"
+              />
+            </Helmet> :
+            null
+          }
           <Header siteTitle={data.site.siteMetadata.title} />
           <main>{children}</main>
           <Footer />
@@ -154,7 +166,7 @@ const Layout = ({ children, themeName }) => (
       </ThemeProvider>
     )}
   />
-);
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
