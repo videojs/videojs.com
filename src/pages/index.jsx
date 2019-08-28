@@ -1,3 +1,4 @@
+/* globals window */
 import React from 'react';
 import queryString from 'query-string';
 
@@ -18,7 +19,10 @@ class IndexPage extends React.Component {
     super(props);
 
     const themeKeys = Object.keys(heroThemes);
-    const themeFromQuery = queryString.parse(window.location.search).theme;
+    let themeFromQuery = '';
+    if (typeof window !== 'undefined') {
+      themeFromQuery = queryString.parse(window.location.search).theme;
+    }
     if (themeKeys.includes(themeFromQuery)) {
       this.themeName = themeFromQuery;
     } else {
