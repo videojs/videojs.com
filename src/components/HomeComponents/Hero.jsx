@@ -1,23 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { lighten } from 'polished';
 
 import Button from '../Button';
 import Container from '../Container';
 import Hero from '../Hero';
+import Player from '../Player';
 import ThemeSelector from '../ThemeSelector';
 import { H1, H2 } from '../Typography';
 
 const DemoContainer = styled.div`
   max-width: 710px;
   margin: 0 auto;
-`;
-
-// Player placeholder
-const Player = styled.div`
-  background-color: ${props => lighten(0.15, props.theme.currentTheme.color)};
-  width: 100%;
-  height: 377px;
 `;
 
 const StyledThemeSelector = styled(ThemeSelector)`
@@ -79,7 +72,13 @@ const HomeHero = props => (
       <H2>with the worlds most popular open source HTML5 player</H2>
 
       <DemoContainer>
-        <Player />
+        <Player
+          controls
+          fluid
+          themeName={props.themeName}
+          sources={[{ src: props.video, type: 'application/x-mpegurl' }]}
+          poster={props.poster}
+        />
         <DemoControls>
           <Button>Get Started</Button>
           <Button>Demos</Button>

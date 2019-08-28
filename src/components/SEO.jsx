@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ description, lang, meta, keywords, title, ...props }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -41,8 +41,9 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,600',
-        }
+          href:
+            'https://fonts.googleapis.com/css?family=Montserrat:300,400,600',
+        },
       ]}
       meta={[
         {
@@ -87,6 +88,7 @@ function SEO({ description, lang, meta, keywords, title }) {
             : []
         )
         .concat(meta)}
+      {...props}
     />
   );
 }

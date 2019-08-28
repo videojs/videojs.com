@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 
 import cityBg from '../images/city-hero.svg';
 import fantasyBg from '../images/fantasy-hero.svg';
-import forrestBg from '../images/forrest-hero.svg';
+import forestBg from '../images/forrest-hero.svg';
 import seaBg from '../images/sea-hero.svg';
 
 const brand = {
@@ -17,22 +17,40 @@ const brand = {
   lightGrey: '#b2b2b2',
 };
 
+const styleHost = 'https://videojs-themes.mmcc.now.sh';
+
 export const heroThemes = {
   city: {
     image: cityBg,
     color: brand.red,
+    style: `${styleHost}/city/city.css`,
+    video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
+    poster:
+      'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
   fantasy: {
     image: fantasyBg,
     color: brand.purple,
+    style: `${styleHost}/fantasy/fantasy.css`,
+    video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
+    poster:
+      'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
-  forrest: {
-    image: forrestBg,
+  forest: {
+    image: forestBg,
     color: brand.green,
+    style: `${styleHost}/forest/forest.css`,
+    video: 'https://stream.mux.com/lcCItlgNmRvWG3S5Mz8FAX6uURp6mUrn.m3u8',
+    poster:
+      'https://image.mux.com/lcCItlgNmRvWG3S5Mz8FAX6uURp6mUrn/thumbnail.jpg',
   },
   sea: {
     image: seaBg,
     color: brand.blue,
+    style: `${styleHost}/sea/sea.css`,
+    video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
+    poster:
+      'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
 };
 

@@ -18,7 +18,7 @@ class IndexPage extends React.Component {
 
     const themeKeys = Object.keys(heroThemes);
     this.themeName = themeKeys[Math.floor(Math.random() * themeKeys.length)];
-    // this.themeName = 'forrest';
+    // this.themeName = 'sea';
   }
 
   render() {
@@ -28,7 +28,11 @@ class IndexPage extends React.Component {
           title="Make your player yours"
           keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
         />
-        <Hero themeName={this.themeName}>
+        <Hero
+          themeName={this.themeName}
+          video={heroThemes[this.themeName].video}
+          poster={heroThemes[this.themeName].poster}
+        >
           <h1>Make your player yours</h1>
         </Hero>
         <Features />
