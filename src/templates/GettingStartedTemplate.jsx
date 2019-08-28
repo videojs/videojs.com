@@ -8,13 +8,12 @@ import Container from '../components/Container';
 import GettingStartedHero from '../components/GettingStartedComponents/GettingStartedHero';
 import GettingStartedNav from '../components/GettingStartedComponents/GettingStartedNav';
 import GettingStartedArticle from '../components/GettingStartedComponents/GettingStartedArticle';
-import { media } from '../utils/styles';
 
 const StyledContainer = styled(Container)`
   width: 100%;
   padding: 2em;
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     padding: 6em;
   `}
 `

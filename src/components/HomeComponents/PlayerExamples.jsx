@@ -3,23 +3,34 @@ import styled from 'styled-components';
 
 const ExampleContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
 `;
 
 const ExampleEmbed = styled.div`
-  flex: 3;
-  padding: 1em;
+  flex: 0 0 100%;
+  padding: 0 0 2em 0;
 
-  & > * {
-    width: 650px;
-    height: 365.625px;
-  }
+  ${({ theme }) => theme.media.medLarge`
+    flex: 0 0 70%;
+    margin: 0 auto;
+    padding: 1em;
+  `}
+
+  ${({ theme }) => theme.media.xLarge`
+    flex: 3;
+  `}
 `;
 
 const ExampleSelector = styled.div`
-  flex: 2;
+  flex: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+
+  ${({ theme }) => theme.media.xLarge`
+    flex: 2;
+  `}
 `;
 
 const ExampleBlock = styled(props => (
@@ -29,9 +40,10 @@ const ExampleBlock = styled(props => (
 ))`
   border: solid 2px #ebebeb;
   margin: 1em;
-  flex: 1 0 40%;
   display: flex;
+  flex: 0 0 40%;
   cursor: pointer;
+  padding: 3em 1em;
 
   &:hover {
     border-color: ${props => props.theme.currentTheme.color};
@@ -41,6 +53,14 @@ const ExampleBlock = styled(props => (
     width: 75%;
     margin: auto;
   }
+
+  ${({ theme }) => theme.media.medLarge`
+    flex: 0 0 20%;
+  `}
+
+  ${({ theme }) => theme.media.xLarge`
+    flex: 1 0 40%;
+  `}
 `;
 
 class PlayerExamples extends React.Component {

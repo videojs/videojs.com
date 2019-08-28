@@ -1,59 +1,65 @@
 import React from 'react';
+import { heroThemes } from '../utils/styles';
 import styled from 'styled-components';
 import Button from './Button';
 
 import UpArrow from '../images/up-arrow.svg';
-import DownArrow from '../images/down-arrow.svg';
-import { heroThemes } from '../utils/styles';
 
-const ThemeSwapButton = styled(Button)`
+const StyledButton = styled(Button)`
   border: none;
   max-width: none;
-  padding: 0;
-  marginLeft: 4em;
+  background-color: ${props => props.theme.currentTheme.color};
+  color: #fff;
+  padding: 1em;
 
   ${props => props.theme.media.medium`
     margin-left: 5em;
+    background-color: #fff;
+    color: ${props.theme.currentTheme.color};
+    padding: 0;
   `}
 
-  &:after {
-    display: inline-block;
-    vertical-align: middle;
-    border-radius: 100px;
-    margin-left: 0.6em;
-    width: 40px;
-    height: 40px;
-    content: '';
-    background-color: ${props => props.theme.currentTheme.color};
-    background-image: url(${UpArrow});
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
-  &.open:after {
-    background-image: url(${DownArrow});
-  }
-
   &:hover {
-    background-color: #fff;
-    color: ${props => props.theme.currentTheme.color};
-    opacity: 0.5;
+    ${({ theme }) => theme.media.medium`
+      background-color: #fff;
+      color: ${props => props.theme.currentTheme.color};
+      opacity: 0.5;
+    `}
   }
 `;
 
-const Wrapper = styled.div`
+const Circle = styled.span`
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 100px;
+  margin-left: 0.6em;
+  width: 40px;
+  height: 40px;
+  content: '';
+  background-image: url(${UpArrow});
+  background-repeat: no-repeat;
+  background-position: center;
   position: relative;
-  .arrow-up {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #fff;
-    margin: 0 auto;
+
+  &::before {
+    content: '';
     position: absolute;
-    top: -8px;
-    right: 42%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.2;
+    border-radius: 50%;
   }
+
+  ${({ theme }) => theme.media.medium`
+    background-color: ${props => props.theme.currentTheme.color};
+
+    &::before {
+      display: none;
+    }
+  `}
 `;
 
 const Dropdown = styled.div`
@@ -71,13 +77,11 @@ const Dropdown = styled.div`
   transform-origin: top;
   opacity: 0;
   display: block;
-
   &.showing {
     opacity: 1;
     transform: rotateX(0deg);
     transform-origin: top;
   }
-
   ul {
     list-style: none;
     text-align: center;
@@ -89,7 +93,7 @@ const Dropdown = styled.div`
     font-weight: bold;
     text-transform: uppercase;
   }
-`
+`;
 
 const ThemeItem = styled.li`
   padding: 6px 0;
@@ -97,7 +101,11 @@ const ThemeItem = styled.li`
     color: ${props => props.color};
     font-weight: bold;
   }
-`
+`;
+
+const Wrapper = styled.div`
+  position: relative;
+`;
 
 class ThemeSelector extends React.Component {
   constructor (props) {
@@ -111,11 +119,20 @@ class ThemeSelector extends React.Component {
 
   render () {
     const { showDropdown } = this.state;
+    const { className, children } = this.props;
     return (
-      <Wrapper>
-        <ThemeSwapButton className={showDropdown ? 'open' : ''} onClick={() => this.toggleDropdown() }>
-          Swap Theme
-        </ThemeSwapButton>
+      /**
+        <StyledButton className={className} onClick={() => this.toggleDropdown()}>
+          {children}
+          <Circle />
+        </StyledButton>
+      **/
+      
+      <Wrapper className={className}>
+        <StyledButton className={showDropdown ? 'open' : ''} onClick={() => this.toggleDropdown()}>
+          {children}
+          <Circle />
+        </StyledButton>
         <Dropdown className={showDropdown ? 'showing' : ''}>
           <div className='arrow-up'></div>
           <ul>
@@ -129,8 +146,8 @@ class ThemeSelector extends React.Component {
           </ul>
         </Dropdown>
       </Wrapper>
-    );
+    )
   }
-};
+}
 
 export default ThemeSelector;

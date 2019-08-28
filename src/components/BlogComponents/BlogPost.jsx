@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import Link from '../Link';
 import WithMdxComponents from '../WithMdxComponents';
+import VideoWrapper from '../VideoWrapper';
 
 const getAuthorProfile = githubUsername =>
   `https://github.com/${githubUsername}`;
@@ -76,6 +77,10 @@ const Text = styled.div`
 
   .gatsby-highlight {
     margin-bottom: 2.25em;
+  }
+
+  ${VideoWrapper} {
+    margin-bottom: 3em;
   }
 `;
 

@@ -9,13 +9,13 @@ tags:
 
 import BlogImage from '../../components/BlogComponents/BlogImage'
 
-<BlogImage filename="blog/video-js-7-is-here/vjs 7 small.png" presentationWidth={150} />
+<BlogImage filename="blog/video-js-7-is-here/vjs 7 small.png" presentationWidth={141} />
 
 I'm happy to announce that Video.js 7 is now out! It brings to Video.js support for HLS and experimental DASH support via the [Video.js HTTP Streaming (VHS)](https://github.com/videojs/http-streaming) project. Video.js 7 also drops support for some older Internet Explorer browsers only keeping support for IE11.
 
 While it's out, it's still in pre-release for a short while and only available under the `next` tag on npm. Some time next week, we'll flip the switch and make it latest.
 
-<BlogImage alt="changes for removing IE8 code" filename="blog/video-js-7-is-here/changes.png" presentationWidth={340} />
+<BlogImage alt="changes for removing IE8 code" filename="blog/video-js-7-is-here/changes.png" presentationWidth={338} />
 
 This release is pretty exciting because it means we were able to [remove a bunch of code](https://github.com/videojs/video.js/pull/5041) for old browsers and we can now start using newer web platform features that we had previously been avoiding like the `:not()` css selector. It'll also free us to look forward at new features and not be held back by needing to support old browsers like IE8.
 

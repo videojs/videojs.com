@@ -7,20 +7,28 @@ import Hero from '../Hero';
 import Player from '../Player';
 import ThemeSelector from '../ThemeSelector';
 import { H1, H2 } from '../Typography';
-import { media } from '../../utils/styles';
 
 const DemoContainer = styled.div`
   max-width: 710px;
   margin: 0 auto;
 `;
 
+const StyledThemeSelector = styled(ThemeSelector)`
+  && {
+    ${({ theme }) => theme.media.medium`
+      margin-left: 4em;
+    `}
+  }
+`;
+
 const DemoControls = styled.div`
   background-color: #fff;
-  padding: 2em;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 
-  ${media.medium`
+  ${({ theme }) => theme.media.medium`
     padding: 2.5em 2em;
   `}
 
@@ -30,56 +38,56 @@ const DemoControls = styled.div`
 
   ${Button} {
     font-size: 14px;
-    margin-bottom: 1em;
+    margin: 1em;
     padding: 1em 1.5em;
+    flex: 0 0 50%;
 
     &:last-child {
       margin-bottom: 0;
     }
 
-    ${media.medium`
+    ${({ theme }) => theme.media.medium`
       margin: 0 0.6em;
+      flex: 1;
+    `}
+  }
+
+  ${StyledThemeSelector} {
+    border-radius: 0;
+    flex: 0 0 100%;
+    margin: 0;
+
+    ${({ theme }) => theme.media.medium`
+      padding: 0;
+      flex: 1;
     `}
   }
 `;
 
+const HomeHero = props => (
+  <Hero themeName={props.themeName}>
+    <Container>
+      <H1>Make your player yours</H1>
+      <H2>with the worlds most popular open source HTML5 player</H2>
 
-class HomeHero extends React.Component {
-  constructor (props) {
-    super(props);
-    this.state = {showDropdown: false};
-  }
-
-  toggleThemeDropdown () {
-    this.setState({ showDropdown: !this.state.showDropdown });
-  }
-
-  render () {
-    const props = this.props;
-    return (
-      <Hero themeName={props.themeName}>
-        <Container>
-          <H1>Make your player yours</H1>
-          <H2>with the worlds most popular open source HTML5 player</H2>
-
-          <DemoContainer>
-            <Player
-              controls
-              fluid
-              themeName={props.themeName}
-              sources={[{ src: props.video, type: 'application/x-mpegurl' }]}
-              poster={props.poster}
-            />
-            <DemoControls>
-              <Button>Get Started</Button>
-              <Button>Demos</Button>
-              <ThemeSelector />
-            </DemoControls>
-          </DemoContainer>
-        </Container>
-      </Hero>
-    );
-  }
-}
+      <DemoContainer>
+        <Player
+          controls
+          fluid
+          themeName={props.themeName}
+          sources={[{ src: props.video, type: 'application/x-mpegurl' }]}
+          poster={props.poster}
+        />
+        <DemoControls>
+          <Button>Get Started</Button>
+          <Button>Demos</Button>
+          <StyledThemeSelector>
+            Swap Theme
+          </StyledThemeSelector>
+        </DemoControls>
+      </DemoContainer>
+    </Container>
+  </Hero>
+);
 
 export default styled(HomeHero)``;

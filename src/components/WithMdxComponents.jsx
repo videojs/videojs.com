@@ -94,21 +94,23 @@ const isExternalUrl = url =>
   /^(?:(?:https?)|(?:mailto)|(?:ftp)|(?:tel)):/.test(url);
 
 const MdxLink = ({ children, href, ...props }) => {
-  const linkProps = { ...props };
-
-  if (isExternalUrl(href)) {
-    Object.assign(linkProps, {
-      href,
-      target: '_blank',
-      rel: 'noopener noreferrer',
-    });
+  if (!href || !href.length) {
+    return (
+      <a {...props}>{children}</a>
+    );
+  } else if (isExternalUrl(href)) {
+    return (
+      <Link href={href} target="_blank" rel="noopener noreferrer" {...props}>
+        {children}
+      </Link>
+    );
   } else {
-    Object.assign(linkProps, { to: href });
+    return (
+      <Link to={href} {...props}>
+        {children}
+      </Link>
+    );
   }
-
-  return (
-    <Link {...linkProps}>{children}</Link>
-  );
 };
 
 const componentsToReplace = {

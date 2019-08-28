@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import CheckboxInput from '../../CheckboxInput';
 import RangeInput from '../../RangeInput';
-import { media } from '../../../utils/styles';
 
 const Form = styled.form`
   background-color: #fff;
@@ -16,12 +15,12 @@ const Form = styled.form`
   padding: 1.5em;
   z-index: 1;
 
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     top: -2em;
     left: -2em;
   `}
 
-  ${media.wide`
+  ${({ theme }) => theme.media.wide`
     top: -3.4em;
     left: -6.2em;
   `}
