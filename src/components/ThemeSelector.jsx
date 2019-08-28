@@ -99,6 +99,9 @@ const Dropdown = styled.div`
 
 const ThemeItem = styled.li`
   padding: 12px 0;
+  ${({ theme }) => theme.media.medium`
+    padding: 6px 0;
+  `}
   a {
     color: ${props => props.color};
     font-weight: bold;
