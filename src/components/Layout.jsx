@@ -13,7 +13,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import Header from './Header';
 import Footer from './Footer';
-import { theme } from '../utils/styles';
+import { theme, defaultTheme } from '../utils/styles';
 
 import ocrExtendedFont from '../../static/fonts/OCRAEXT.woff';
 import './normalize.css';
@@ -139,8 +139,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children, themeName }) => {
-  const currentTheme = theme[themeName];
+const Layout = ({ children, heroTheme }) => {
   return (
     <StaticQuery
       query={graphql`
@@ -153,14 +152,16 @@ const Layout = ({ children, themeName }) => {
         }
       `}
       render={data => (
-        <ThemeProvider theme={{ ...theme, currentTheme }}>
+        <ThemeProvider theme={{ ...theme, currentTheme: (heroTheme || {})}}>
           <>
             <GlobalStyles />
-            {currentTheme ? (
+            {
+              heroTheme ?
               <Helmet>
-                <link href={currentTheme.style} rel="stylesheet" />
-              </Helmet>
-            ) : null}
+                <link href={heroTheme.style} rel="stylesheet" />
+              </Helmet> :
+              null
+            }
             <Header siteTitle={data.site.siteMetadata.title} />
             <main>{children}</main>
             <Footer />

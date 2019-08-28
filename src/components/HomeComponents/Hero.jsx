@@ -71,19 +71,23 @@ const DemoControls = styled.div`
 `;
 
 const HomeHero = props => (
-  <Hero themeName={props.themeName}>
+  <Hero>
     <Container>
       <H1>Make your player yours</H1>
       <H2>with the worlds most popular open source HTML5 player</H2>
 
       <DemoContainer>
-        <Player
-          controls
-          fluid
-          themeName={props.themeName}
-          sources={[{ src: props.video, type: 'application/x-mpegurl' }]}
-          poster={props.poster}
-        />
+        {
+          props.heroTheme ?
+          <Player
+            controls
+            fluid
+            themeName={props.heroTheme.name}
+            sources={[{ src: props.heroTheme.video, type: 'application/x-mpegurl' }]}
+            poster={props.heroTheme.poster}
+          /> :
+          null
+        }
         <DemoControls>
           <Button>Get Started</Button>
           <Button>Demos</Button>
