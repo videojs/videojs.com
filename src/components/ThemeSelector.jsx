@@ -37,7 +37,8 @@ const Circle = styled.span`
   width: 40px;
   height: 40px;
   content: '';
-  background-image: ${props => props.open ? `url(${DownArrow})` : `url(${UpArrow})`};
+  background-image: ${props =>
+    props.open ? `url(${DownArrow})` : `url(${UpArrow})`};
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
@@ -71,8 +72,8 @@ const Dropdown = styled.div`
   padding: 20px;
   width: 100%;
   box-shadow: 0px 5px 32px 0 rgba(0, 0, 0, 0.4);
-  -webkit-transition: all .5s ease-out;
-  transition: all .3s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.3s ease-out;
   transform: rotateX(90deg);
   transform-origin: top;
   opacity: 0;
@@ -124,16 +125,16 @@ const DropdownCaret = styled.div`
 `;
 
 class ThemeSelector extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
-    this.state = {showDropdown: false};
+    this.state = { showDropdown: false };
   }
 
-  toggleDropdown () {
+  toggleDropdown() {
     this.setState({ showDropdown: !this.state.showDropdown });
   }
 
-  render () {
+  render() {
     const { showDropdown } = this.state;
     const { className, children } = this.props;
     return (
@@ -145,17 +146,17 @@ class ThemeSelector extends React.Component {
         <Dropdown className={showDropdown ? 'showing' : ''}>
           <DropdownCaret />
           <ul>
-            {Object.keys(heroThemes).map((key) => {
+            {Object.keys(heroThemes).map(key => {
               return (
                 <ThemeItem key={key} color={heroThemes[key].color}>
                   <a href={`/?theme=${key}`}>{key}</a>
                 </ThemeItem>
-              )
+              );
             })}
           </ul>
         </Dropdown>
       </Wrapper>
-    )
+    );
   }
 }
 

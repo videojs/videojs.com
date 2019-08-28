@@ -6,7 +6,7 @@ const StyledLink = styled.a`
   color: pink;
 `;
 
-const CustomLink = (props) => (
+const CustomLink = props => (
   <StyledLink as={props.href ? 'a' : Link} {...props} />
 );
 

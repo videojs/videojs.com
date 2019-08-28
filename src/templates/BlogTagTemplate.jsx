@@ -11,7 +11,7 @@ const BlogTagTemplate = ({ data: { allMdx } }) => {
 
   return (
     <BlogLayout seo={{ title: 'Video.js Blog' }}>
-      {posts.map((post) => (
+      {posts.map(post => (
         <BlogPost key={shortid.generate()} post={post} />
       ))}
     </BlogLayout>
@@ -21,10 +21,10 @@ const BlogTagTemplate = ({ data: { allMdx } }) => {
 export default BlogTagTemplate;
 
 export const blogTagQuery = graphql`
-  query blogTagQuery ($tag: String!) {
-    allMdx (
+  query blogTagQuery($tag: String!) {
+    allMdx(
       filter: {
-        fileAbsolutePath: { regex: "/blog/" },
+        fileAbsolutePath: { regex: "/blog/" }
         frontmatter: { tags: { in: [$tag] } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
@@ -36,7 +36,7 @@ export const blogTagQuery = graphql`
           }
           frontmatter {
             title
-            date (formatString: "YYYY-MM-DD")
+            date(formatString: "YYYY-MM-DD")
             author {
               name
               github

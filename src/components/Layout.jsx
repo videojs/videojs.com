@@ -15,7 +15,7 @@ import Header from './Header';
 import Footer from './Footer';
 import { theme } from '../utils/styles';
 
-import ocrExtendedFont from '../../static/fonts/OCRAEXT.woff'
+import ocrExtendedFont from '../../static/fonts/OCRAEXT.woff';
 import './normalize.css';
 
 const GlobalStyles = createGlobalStyle`
@@ -141,37 +141,34 @@ const GlobalStyles = createGlobalStyle`
 
 const Layout = ({ children, themeName }) => {
   const currentTheme = theme[themeName];
-  return <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <ThemeProvider theme={{ ...theme, currentTheme }}>
-        <>
-          <GlobalStyles />
-          {
-            currentTheme ?
-            <Helmet>
-              <link
-                href={currentTheme.style}
-                rel="stylesheet"
-              />
-            </Helmet> :
-            null
-          }
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <main>{children}</main>
-          <Footer />
-        </>
-      </ThemeProvider>
-    )}
-  />
+      `}
+      render={data => (
+        <ThemeProvider theme={{ ...theme, currentTheme }}>
+          <>
+            <GlobalStyles />
+            {currentTheme ? (
+              <Helmet>
+                <link href={currentTheme.style} rel="stylesheet" />
+              </Helmet>
+            ) : null}
+            <Header siteTitle={data.site.siteMetadata.title} />
+            <main>{children}</main>
+            <Footer />
+          </>
+        </ThemeProvider>
+      )}
+    />
+  );
 };
 
 Layout.propTypes = {

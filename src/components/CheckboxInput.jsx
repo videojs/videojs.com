@@ -28,10 +28,12 @@ const Box = styled.span`
   width: 1.25em;
   vertical-align: middle;
 
-  ${props => props.checked && css`
-    background-color: #4677ba;
-    color: #fff;
-  `}
+  ${props =>
+    props.checked &&
+    css`
+      background-color: #4677ba;
+      color: #fff;
+    `}
 `;
 
 const StyledTickIcon = styled(TickIcon)`

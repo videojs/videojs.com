@@ -67,23 +67,41 @@ const Logos = styled.div`
 const Footer = () => (
   <Wrapper>
     <VideoJsLogoWrapper>
-      <Link to="/"><Image filename="logo-black.svg" /></Link>
+      <Link to="/">
+        <Image filename="logo-black.svg" />
+      </Link>
     </VideoJsLogoWrapper>
     <Nav>
-      <NavItem><Link to="/getting-started">Get Started</Link></NavItem>
-      <NavItem><Link to="/getting-started/#customize">Customize</Link></NavItem>
-      <NavItem><Link href="#docs">Docs</Link></NavItem>
-      <NavItem><Link to="/blog">Blog</Link></NavItem>
-      <NavItem><Link href="https://github.com/videojs/video.js">Github</Link></NavItem>
+      <NavItem>
+        <Link to="/getting-started">Get Started</Link>
+      </NavItem>
+      <NavItem>
+        <Link to="/getting-started/#customize">Customize</Link>
+      </NavItem>
+      <NavItem>
+        <Link href="#docs">Docs</Link>
+      </NavItem>
+      <NavItem>
+        <Link to="/blog">Blog</Link>
+      </NavItem>
+      <NavItem>
+        <Link href="https://github.com/videojs/video.js">Github</Link>
+      </NavItem>
     </Nav>
     <Copyright>
       <p>Video.js is a free and open source HTML5 video player.</p>
       <p>&copy; Brightcove, Inc.</p>
     </Copyright>
     <Logos>
-      <Link href="https://twitter.com"><Image filename="twitter.svg" /></Link>
-      <Link href="https://mail.com"><Image filename="newsletter.svg" /></Link>
-      <Link href="https://github.com"><Image filename="github.svg" /></Link>
+      <Link href="https://twitter.com">
+        <Image filename="twitter.svg" />
+      </Link>
+      <Link href="https://mail.com">
+        <Image filename="newsletter.svg" />
+      </Link>
+      <Link href="https://github.com">
+        <Image filename="github.svg" />
+      </Link>
     </Logos>
   </Wrapper>
 );

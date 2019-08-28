@@ -48,7 +48,7 @@ const TitleBox = ({
   bgColor,
   borderColor,
   textBorderColor,
-  textColor
+  textColor,
 }) => (
   <TitleBoxContainer
     className={className}

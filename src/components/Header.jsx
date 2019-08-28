@@ -133,11 +133,21 @@ const DesktopMenu = styled.div`
 
 const NavigationLinks = styled(props => (
   <ul className={props.className}>
-    <li><Link to="/getting-started">Get Started</Link></li>
-    <li><Link to="/getting-started/#customize">Customize</Link></li>
-    <li><Link href="#docs">Docs</Link></li>
-    <li><Link to="/blog">Blog</Link></li>
-    <li><Link href="https://github.com/videojs/video.js">Github</Link></li>
+    <li>
+      <Link to="/getting-started">Get Started</Link>
+    </li>
+    <li>
+      <Link to="/getting-started/#customize">Customize</Link>
+    </li>
+    <li>
+      <Link href="#docs">Docs</Link>
+    </li>
+    <li>
+      <Link to="/blog">Blog</Link>
+    </li>
+    <li>
+      <Link href="https://github.com/videojs/video.js">Github</Link>
+    </li>
   </ul>
 ))`
   display: flex;
@@ -189,7 +199,9 @@ const NavigationLinks = styled(props => (
 const Header = ({ siteTitle }) => (
   <HeaderWrapper>
     <Container>
-      <Link to="/"><Logo /></Link>
+      <Link to="/">
+        <Logo />
+      </Link>
 
       <DesktopMenu>
         <NavigationLinks />

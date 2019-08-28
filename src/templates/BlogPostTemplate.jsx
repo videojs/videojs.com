@@ -7,7 +7,7 @@ import BlogPagination from '../components/BlogComponents/BlogPagination';
 
 const BlogPostTemplate = ({
   data: { mdx },
-  pageContext: { prevPost, nextPost }
+  pageContext: { prevPost, nextPost },
 }) => (
   <BlogLayout seo={{ title: 'Video.js Blog' }}>
     <BlogPost post={mdx} />
@@ -23,14 +23,14 @@ const BlogPostTemplate = ({
 export default BlogPostTemplate;
 
 export const blogPostQuery = graphql`
-  query blogPostQuery ($id: String!) {
-    mdx (id: { eq: $id }) {
+  query blogPostQuery($id: String!) {
+    mdx(id: { eq: $id }) {
       fields {
         slug
       }
       frontmatter {
         title
-        date (formatString: "YYYY-MM-DD")
+        date(formatString: "YYYY-MM-DD")
         author {
           name
           github
