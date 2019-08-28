@@ -57,6 +57,12 @@ const DemoControls = styled.div`
     flex: 0 0 100%;
     margin: 0;
 
+    ${Button} {
+      border-radius: 0;
+      width: 100%;
+      margin: 0;
+    }
+
     ${({ theme }) => theme.media.medium`
       padding: 0;
       flex: 1;

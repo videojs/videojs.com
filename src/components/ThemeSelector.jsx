@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Button from './Button';
 
 import UpArrow from '../images/up-arrow.svg';
+import DownArrow from '../images/down-arrow.svg';
 
 const StyledButton = styled(Button)`
   border: none;
@@ -36,7 +37,7 @@ const Circle = styled.span`
   width: 40px;
   height: 40px;
   content: '';
-  background-image: url(${UpArrow});
+  background-image: ${props => props.open ? `url(${DownArrow})` : `url(${UpArrow})`};
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
@@ -65,11 +66,10 @@ const Circle = styled.span`
 const Dropdown = styled.div`
   z-index: 100;
   position: absolute;
-  right: 4em;
-  top: 5em;
   background-color: #fff;
-  width: 150px;
+  top: 5em;
   padding: 20px;
+  width: 100%;
   box-shadow: 0px 5px 32px 0 rgba(0, 0, 0, 0.4);
   -webkit-transition: all .5s ease-out;
   transition: all .3s ease-out;
@@ -77,6 +77,10 @@ const Dropdown = styled.div`
   transform-origin: top;
   opacity: 0;
   display: block;
+  ${({ theme }) => theme.media.medium`
+    width: 150px;
+    right: 4em;
+  `}
   &.showing {
     opacity: 1;
     transform: rotateX(0deg);
@@ -86,9 +90,6 @@ const Dropdown = styled.div`
     list-style: none;
     text-align: center;
   }
-  li {
-    padding: 6px 0;
-  }
   a {
     font-weight: bold;
     text-transform: uppercase;
@@ -96,7 +97,7 @@ const Dropdown = styled.div`
 `;
 
 const ThemeItem = styled.li`
-  padding: 6px 0;
+  padding: 12px 0;
   a {
     color: ${props => props.color};
     font-weight: bold;
@@ -105,6 +106,21 @@ const ThemeItem = styled.li`
 
 const Wrapper = styled.div`
   position: relative;
+`;
+
+const DropdownCaret = styled.div`
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  margin: 0 auto;
+  position: absolute;
+  top: -0.5em;
+  right: 48vw;
+  ${({ theme }) => theme.media.medium`
+    right: 4em;
+  `}
 `;
 
 class ThemeSelector extends React.Component {
@@ -121,20 +137,13 @@ class ThemeSelector extends React.Component {
     const { showDropdown } = this.state;
     const { className, children } = this.props;
     return (
-      /**
-        <StyledButton className={className} onClick={() => this.toggleDropdown()}>
-          {children}
-          <Circle />
-        </StyledButton>
-      **/
-      
       <Wrapper className={className}>
-        <StyledButton className={showDropdown ? 'open' : ''} onClick={() => this.toggleDropdown()}>
+        <StyledButton onClick={() => this.toggleDropdown()}>
           {children}
-          <Circle />
+          <Circle open={showDropdown} />
         </StyledButton>
         <Dropdown className={showDropdown ? 'showing' : ''}>
-          <div className='arrow-up'></div>
+          <DropdownCaret />
           <ul>
             {Object.keys(heroThemes).map((key) => {
               return (
