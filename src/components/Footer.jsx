@@ -3,13 +3,17 @@ import styled from 'styled-components';
 
 import Link from './Link';
 import Image from './Image';
+
 import rectangles from '../images/footer-rectangles.svg';
 
 const Wrapper = styled.footer`
-  background-image: url(${rectangles});
-  height: 50em;
-  padding: 4em 2em;
+  padding: 6em 2em 8em;
   text-align: center;
+
+  ${({ theme }) => theme.media.medLarge`
+    background-image: url(${rectangles});
+    height: 50em;
+  `}
 `;
 
 const VideoJsLogoWrapper = styled.div`
@@ -26,6 +30,11 @@ const Nav = styled.ul`
   padding: 0;
   margin: 0 0 1.5em 0;
   text-transform: uppercase;
+  display: none;
+
+  ${({ theme }) => theme.media.medLarge`
+    display: block;
+  `}
 `;
 
 const NavItem = styled.li`
@@ -64,7 +73,7 @@ const Footer = () => (
       <NavItem><Link to="/getting-started">Get Started</Link></NavItem>
       <NavItem><Link to="/getting-started/#customize">Customize</Link></NavItem>
       <NavItem><Link href="#docs">Docs</Link></NavItem>
-      <NavItem><Link href="#blog">Blog</Link></NavItem>
+      <NavItem><Link to="/blog">Blog</Link></NavItem>
       <NavItem><Link href="https://github.com/videojs/video.js">Github</Link></NavItem>
     </Nav>
     <Copyright>

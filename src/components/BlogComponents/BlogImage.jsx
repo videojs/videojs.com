@@ -6,6 +6,11 @@ import Image from '../Image';
 
 const Wrapper = styled.div`
   margin-bottom: 3em;
+
+  > img {
+    display: block;
+    margin: 0 auto;
+  }
 `;
 
 const ImageDesc = styled.span`

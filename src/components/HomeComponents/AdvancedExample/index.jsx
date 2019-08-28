@@ -13,7 +13,14 @@ import PlayerControls from './PlayerControls';
 import PlayerPlaylist from './PlayerPlaylist';
 import playlist from './playlist';
 import rectangles from '../../../images/footer-rectangles.svg';
-import { media } from '../../../utils/styles';
+
+const AdvancedExampleContainer = styled.div`
+  display: none;
+
+  ${({ theme }) => theme.media.xLarge`
+    display: block;
+  `}
+`;
 
 const PlaylistPluginDescContainer = styled(Container)`
   display: flex;
@@ -23,10 +30,12 @@ const PlaylistPluginDescContainer = styled(Container)`
 
   > * {
     width: 33%;
+  }
 
-    &:not(:last-child) {
-      margin-bottom: 1.5em;
-    }
+  & {
+    ${({ theme }) => theme.media.xLarge`
+      padding-top: 12.5em;
+    `}
   }
 `;
 
@@ -48,7 +57,7 @@ const PlayerBackground = styled.div`
 `;
 
 const PlayerContainer = styled(Container)`
-  ${media.medLarge`
+  ${({ theme }) => theme.media.medLarge`
     padding-top: 0;
     padding-bottom: 0;
   `}
@@ -125,14 +134,14 @@ class AdvancedExample extends React.Component {
 
   render () {
     return (
-      <>
+      <AdvancedExampleContainer>
         <PlaylistPluginDescContainer>
-          <StyledSectionHeader left title="Example" tagline="Playlist plugin" />
+          <StyledSectionHeader desktopAlign="left" title="Example" tagline="Playlist plugin" />
           <PlaylistPluginDesc>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
           </PlaylistPluginDesc>
         </PlaylistPluginDescContainer>
         <PlayerBackground>
@@ -169,7 +178,7 @@ class AdvancedExample extends React.Component {
             )}
           </PlayerContainer>
         </PlayerBackground>
-      </>
+      </AdvancedExampleContainer>
     );
   }
 }

@@ -10,6 +10,7 @@ import UsedBy from '../components/HomeComponents/UsedBy';
 import Sponsors from '../components/HomeComponents/Sponsors';
 import Implementation from '../components/HomeComponents/Implementation';
 import AdvancedExample from '../components/HomeComponents/AdvancedExample';
+import GetInvolved from '../components/HomeComponents/GetInvolved';
 
 class IndexPage extends React.Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class IndexPage extends React.Component {
         <AdvancedExample />
         <Sponsors />
         <Implementation />
+        <GetInvolved />
       </Layout>
     );
   }

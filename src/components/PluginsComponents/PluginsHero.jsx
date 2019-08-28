@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Hero from '../../components/Hero';
 import Container from '../../components/Container';
 import { H1, H2 } from '../../components/Typography';
-import { media } from '../../utils/styles';
 
 const StyledH2 = styled(H2)`
   letter-spacing: -0.01em;
@@ -15,14 +14,14 @@ const StyledH2 = styled(H2)`
 `;
 
 const StyledHero = styled(Hero)`
-  background-position: center -520px;
+  ${({ theme }) => theme.media.xlLarge`
+    background-position: center -520px;
 
-  ${Container} {
-    ${media.xlLarge`
+    ${Container} {
       padding-top: 10em;
       padding-bottom: 10em;
-    `}
-  }
+    }
+  `}
 `;
 
 const PluginsHero = () => (
