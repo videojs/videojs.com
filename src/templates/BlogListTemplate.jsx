@@ -9,13 +9,13 @@ import { extractNodes } from '../utils/graphql';
 
 const BlogListTemplate = ({
   data: { allMdx },
-  pageContext: { prevPage, nextPage }
+  pageContext: { prevPage, nextPage },
 }) => {
   const posts = extractNodes(allMdx);
 
   return (
     <BlogLayout seo={{ title: 'Video.js Blog' }}>
-      {posts.map((post) => (
+      {posts.map(post => (
         <BlogPost key={shortid.generate()} post={post} />
       ))}
       <BlogPagination
@@ -31,8 +31,8 @@ const BlogListTemplate = ({
 export default BlogListTemplate;
 
 export const blogListQuery = graphql`
-  query blogListQuery ($skip: Int!, $limit: Int!) {
-    allMdx (
+  query blogListQuery($skip: Int!, $limit: Int!) {
+    allMdx(
       filter: { fileAbsolutePath: { regex: "/blog/" } }
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
@@ -45,7 +45,7 @@ export const blogListQuery = graphql`
           }
           frontmatter {
             title
-            date (formatString: "YYYY-MM-DD")
+            date(formatString: "YYYY-MM-DD")
             author {
               name
               github

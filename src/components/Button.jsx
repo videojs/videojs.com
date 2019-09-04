@@ -20,6 +20,10 @@ const Button = styled.button`
     background-color: ${props => props.theme.currentTheme.color};
     color: #fff;
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export default Button;

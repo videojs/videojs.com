@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const HeadingBase = css`
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 100;
 `;
 
@@ -22,7 +22,7 @@ export const H3 = styled.h3`
 `;
 
 export const P = styled.p`
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   font-size: 14px;
   font-style: normal;

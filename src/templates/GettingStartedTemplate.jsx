@@ -16,7 +16,7 @@ const StyledContainer = styled(Container)`
   ${({ theme }) => theme.media.medLarge`
     padding: 6em;
   `}
-`
+`;
 
 const MainContentWrapper = styled.div`
   display: flex;
@@ -26,9 +26,7 @@ const MainContentWrapper = styled.div`
 
 const GettingStartedPageTemplate = ({ data: { mdx }, location }) => (
   <Layout>
-    <SEO
-      title="Getting Started with Video.js - Video.js: The Player Framework"
-    />
+    <SEO title="Getting Started with Video.js - Video.js: The Player Framework" />
     <GettingStartedHero />
     <StyledContainer>
       <MainContentWrapper>

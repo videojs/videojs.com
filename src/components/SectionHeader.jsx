@@ -31,7 +31,7 @@ const SectionHeaderTitle = styled(H1)`
   `}
 `;
 
-const getLineMarginLeft = align => align === 'left' ? '0' : 'auto';
+const getLineMarginLeft = align => (align === 'left' ? '0' : 'auto');
 
 const SectionHeaderTagline = styled(H2)`
   font-weight: bold;
@@ -108,7 +108,9 @@ const SectionHeaderTagline = styled(H2)`
       `;
     }
 
-    return css`${styles}`;
+    return css`
+      ${styles}
+    `;
   }}
 `;
 
@@ -122,7 +124,7 @@ const SectionHeader = ({ className, ...props }) => (
 SectionHeader.defaultProps = {
   mobileAlign: 'center',
   tabletAlign: 'center',
-  desktopAlign: 'center'
+  desktopAlign: 'center',
 };
 
 export default SectionHeader;

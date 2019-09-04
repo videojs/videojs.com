@@ -1,6 +1,6 @@
 import React from 'react';
-import Img from 'gatsby-image'
-import { StaticQuery, graphql } from "gatsby"
+import Img from 'gatsby-image';
+import { StaticQuery, graphql } from 'gatsby';
 
 const Image = ({ filename, alt, fluid, presentationWidth }) => (
   <StaticQuery
@@ -25,18 +25,17 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
         }
       }
     `}
-
-    render={(data) => {
+    render={data => {
       const image = data.images.edges.find(n => {
         return n.node.relativePath.includes(filename);
       });
-      if (!image) { return null; }
+      if (!image) {
+        return null;
+      }
 
       // If there's no childImageSharp, we can assume it's an SVG and just pass it right on through
       if (!image.node.childImageSharp) {
-        return (
-          <img src={image.node.publicURL} alt={alt} />
-        )
+        return <img src={image.node.publicURL} alt={alt} />;
       }
 
       const imageSizes = image.node.childImageSharp.sizes;
@@ -51,17 +50,17 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
       }
 
       if (presentationWidth) {
-        Object.assign(imgProps, { style: {
-          margin: '0 auto',
-          maxWidth: presentationWidth,
-        } });
+        Object.assign(imgProps, {
+          style: {
+            margin: '0 auto',
+            maxWidth: presentationWidth,
+          },
+        });
       }
 
-      return (
-        <Img {...imgProps} />
-      );
+      return <Img {...imgProps} />;
     }}
   />
-)
+);
 
 export default Image;

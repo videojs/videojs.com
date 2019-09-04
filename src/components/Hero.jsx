@@ -5,11 +5,11 @@ import { H1, H2 } from './Typography';
 
 const Hero = styled.div`
   text-align: center;
-  background-color: ${props => props.theme[props.themeName].color};
+  background-color: ${props => props.theme.currentTheme.color};
   color: #fff;
 
   ${({ theme }) => theme.media.medLarge`
-    background-image: url(${props => props.theme[props.themeName].image});
+    background-image: url(${props => props.theme.currentTheme.image});
     background-repeat: no-repeat;
     background-position: center top;
   `}
@@ -34,7 +34,7 @@ const Hero = styled.div`
   }
 
   ${H2} {
-    font-family: ${props => props.theme.defaultSans};
+    font-family: ${props => props.theme.currentTheme.defaultSans};
     font-size: 20px;
     line-height: 1.4em;
     margin-bottom: 0.8em;

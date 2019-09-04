@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TickIcon = (props) => (
+const TickIcon = props => (
   <svg width="2em" height="2em" viewBox="0 0 28 28" {...props}>
     <path
       fill="none"

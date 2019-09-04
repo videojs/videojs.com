@@ -21,6 +21,7 @@ const styleHost = 'https://videojs-themes.mmcc.now.sh';
 
 export const heroThemes = {
   city: {
+    name: 'city',
     image: cityBg,
     color: brand.red,
     style: `${styleHost}/city/city.css`,
@@ -29,6 +30,7 @@ export const heroThemes = {
       'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
   fantasy: {
+    name: 'fantasy',
     image: fantasyBg,
     color: brand.purple,
     style: `${styleHost}/fantasy/fantasy.css`,
@@ -37,6 +39,7 @@ export const heroThemes = {
       'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
   forest: {
+    name: 'forest',
     image: forestBg,
     color: brand.green,
     style: `${styleHost}/forest/forest.css`,
@@ -45,6 +48,7 @@ export const heroThemes = {
       'https://image.mux.com/lcCItlgNmRvWG3S5Mz8FAX6uURp6mUrn/thumbnail.jpg',
   },
   sea: {
+    name: 'sea',
     image: seaBg,
     color: brand.blue,
     style: `${styleHost}/sea/sea.css`,
@@ -53,6 +57,8 @@ export const heroThemes = {
       'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
   },
 };
+
+export const defaultTheme = heroThemes.sea;
 
 export const breakpoints = {
   tiny: 320,

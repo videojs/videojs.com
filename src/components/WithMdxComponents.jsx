@@ -34,17 +34,19 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const StyledHeader = styled(({ as: Component, className, children, ...props }) => (
-  <Component className={className} {...props}>
-    {children}
-  </Component>
-))`
+const StyledHeader = styled(
+  ({ as: Component, className, children, ...props }) => (
+    <Component className={className} {...props}>
+      {children}
+    </Component>
+  )
+)`
   &:hover ${StyledLinkIcon} {
     visibility: visible;
   }
 `;
 
-const getStringChild = (children) => {
+const getStringChild = children => {
   if (typeof children === 'string') {
     return children;
   } else if (Array.isArray(children)) {
@@ -80,8 +82,9 @@ const AutoLinkHeader = ({ as, className, children, ...props }) => (
   </Context.Consumer>
 );
 
-const buildHeaderComponent = tag => props =>
-  <AutoLinkHeader as={tag} {...props} />;
+const buildHeaderComponent = tag => props => (
+  <AutoLinkHeader as={tag} {...props} />
+);
 
 const AutoLinkH1 = buildHeaderComponent('h1');
 const AutoLinkH2 = buildHeaderComponent('h2');
@@ -95,9 +98,7 @@ const isExternalUrl = url =>
 
 const MdxLink = ({ children, href, ...props }) => {
   if (!href || !href.length) {
-    return (
-      <a {...props}>{children}</a>
-    );
+    return <a {...props}>{children}</a>;
   } else if (isExternalUrl(href)) {
     return (
       <Link href={href} target="_blank" rel="noopener noreferrer" {...props}>
@@ -125,10 +126,8 @@ const componentsToReplace = {
 
 const WithMdxComponents = ({ contentSlug, children }) => (
   <Context.Provider value={{ slugger: new Slugger(), contentSlug }}>
-    <MDXProvider components={componentsToReplace}>
-      {children}
-    </MDXProvider>
+    <MDXProvider components={componentsToReplace}>{children}</MDXProvider>
   </Context.Provider>
-)
+);
 
 export default WithMdxComponents;
