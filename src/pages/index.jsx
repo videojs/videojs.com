@@ -17,12 +17,12 @@ import GetInvolved from '../components/HomeComponents/GetInvolved';
 const themeKeys = Object.keys(heroThemes);
 
 class IndexPage extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {};
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (typeof window !== 'undefined') {
       let themeName = '';
       const themeFromQuery = queryString.parse(window.location.search).theme;

@@ -13,7 +13,7 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import Header from './Header';
 import Footer from './Footer';
-import { theme, defaultTheme } from '../utils/styles';
+import { theme } from '../utils/styles';
 
 import ocrExtendedFont from '../../static/fonts/OCRAEXT.woff';
 import './normalize.css';
@@ -152,16 +152,14 @@ const Layout = ({ children, heroTheme }) => {
         }
       `}
       render={data => (
-        <ThemeProvider theme={{ ...theme, currentTheme: (heroTheme || {})}}>
+        <ThemeProvider theme={{ ...theme, currentTheme: heroTheme || {} }}>
           <>
             <GlobalStyles />
-            {
-              heroTheme ?
+            {heroTheme ? (
               <Helmet>
                 <link href={heroTheme.style} rel="stylesheet" />
-              </Helmet> :
-              null
-            }
+              </Helmet>
+            ) : null}
             <Header siteTitle={data.site.siteMetadata.title} />
             <main>{children}</main>
             <Footer />
