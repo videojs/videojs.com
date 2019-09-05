@@ -35,6 +35,19 @@ class IndexPage extends React.Component {
     }
   }
 
+  changeTheme = themeName => {
+    console.log(themeName);
+    this.setState({ themeName });
+    const params = new URLSearchParams(window.location.search);
+    params.set('theme', themeName);
+    console.log(params, params.toString());
+    window.history.replaceState(
+      {},
+      '',
+      `${window.location.pathname}?${params.toString()}`
+    );
+  };
+
   render() {
     const { themeName } = this.state;
     const heroTheme = themeName ? heroThemes[themeName] : null;
@@ -44,7 +57,7 @@ class IndexPage extends React.Component {
           title="Make your player yours"
           keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
         />
-        <Hero heroTheme={heroTheme}>
+        <Hero heroTheme={heroTheme} changeTheme={this.changeTheme}>
           <h1>Make your player yours</h1>
         </Hero>
         <Features />

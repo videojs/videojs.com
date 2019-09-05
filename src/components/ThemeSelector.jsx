@@ -102,9 +102,12 @@ const ThemeItem = styled.li`
   ${({ theme }) => theme.media.medium`
     padding: 6px 0;
   `}
-  a {
+
+  button {
     color: ${props => props.color};
     font-weight: bold;
+    border: none;
+    background-color: transparent;
   }
 `;
 
@@ -152,7 +155,9 @@ class ThemeSelector extends React.Component {
             {Object.keys(heroThemes).map(key => {
               return (
                 <ThemeItem key={key} color={heroThemes[key].color}>
-                  <a href={`/?theme=${key}`}>{key}</a>
+                  <button onClick={() => this.props.changeTheme(key)}>
+                    {key}
+                  </button>
                 </ThemeItem>
               );
             })}
