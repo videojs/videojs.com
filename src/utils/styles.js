@@ -25,9 +25,9 @@ export const heroThemes = {
     image: cityBg,
     color: brand.red,
     style: `${styleHost}/city/city.css`,
-    video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
+    video: 'https://stream.mux.com/ru7KMy3qxOzidq00a4n7rMkZe9tbgIpAu.m3u8',
     poster:
-      'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
+      'https://image.mux.com/ru7KMy3qxOzidq00a4n7rMkZe9tbgIpAu/thumbnail.jpg?time=11',
   },
   fantasy: {
     name: 'fantasy',
@@ -43,18 +43,18 @@ export const heroThemes = {
     image: forestBg,
     color: brand.green,
     style: `${styleHost}/forest/forest.css`,
-    video: 'https://stream.mux.com/lcCItlgNmRvWG3S5Mz8FAX6uURp6mUrn.m3u8',
+    video: 'https://stream.mux.com/dt7i6WNyYd8ns4V2AeJHWNKaw00aiChpR.m3u8',
     poster:
-      'https://image.mux.com/lcCItlgNmRvWG3S5Mz8FAX6uURp6mUrn/thumbnail.jpg',
+      'https://image.mux.com/dt7i6WNyYd8ns4V2AeJHWNKaw00aiChpR/thumbnail.jpg',
   },
   sea: {
     name: 'sea',
     image: seaBg,
     color: brand.blue,
     style: `${styleHost}/sea/sea.css`,
-    video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
+    video: 'https://stream.mux.com/TCGCMQS8XH01lxPZldTnveL8tpVXVNYxe.m3u8',
     poster:
-      'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
+      'https://image.mux.com/TCGCMQS8XH01lxPZldTnveL8tpVXVNYxe/thumbnail.jpg',
   },
 };
 

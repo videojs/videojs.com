@@ -80,6 +80,7 @@ const SlackCard = styled(({ className }) => (
       borderColor="#4a154b"
       textColor="#fff"
       textBorderColor="#000"
+      url="https://slack.videojs.com"
     >
       <Image filename="logos/slack.svg" alt="slack logo" />
     </TitleBox>
@@ -140,9 +141,10 @@ const DemuxedBox = styled(({ className }) => (
     borderColor="#2d1c46"
     textColor="#fff"
     textBorderColor="#000"
+    url="https://demuxed.com"
   >
     <DemuxedLogoWrapper>
-      <Image filename="logos/demuxed.svg" alt="demuxed logo"/>
+      <Image filename="logos/demuxed.svg" alt="demuxed logo" />
     </DemuxedLogoWrapper>
   </TitleBox>
 ))`
@@ -224,18 +226,21 @@ const GetInvolved = () => (
       </HeaderWrapper>
       <Boxes>
         <BoxWrapper>
-          <TitleBox title="Video-dev / #Videojs">
-            <Image filename="video-dev.svg" alt="video-dev logo"/>
+          <TitleBox title="Video-dev / #Videojs" url="https://video-dev.org">
+            <Image filename="video-dev.svg" alt="video-dev logo" />
           </TitleBox>
         </BoxWrapper>
         <BoxWrapper>
-          <TitleBox title="Video js twitter">
-            <Image filename="videojs-twitter.svg" alt="videojs twitter logo"/>
+          <TitleBox title="Video js twitter" url="https://twitter.com/videojs">
+            <Image filename="videojs-twitter.svg" alt="videojs twitter logo" />
           </TitleBox>
         </BoxWrapper>
         <BoxWrapper>
-          <TitleBox title="Code of conduct">
-            <Image filename="code-of-conduct.svg" alt="code of conduct logo"/>
+          <TitleBox
+            title="Code of conduct"
+            url="https://github.com/videojs/video.js/blob/master/CODE_OF_CONDUCT.md"
+          >
+            <Image filename="code-of-conduct.svg" alt="code of conduct logo" />
           </TitleBox>
         </BoxWrapper>
         <DemuxedBoxWrapper>
