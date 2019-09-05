@@ -36,11 +36,9 @@ class IndexPage extends React.Component {
   }
 
   changeTheme = themeName => {
-    console.log(themeName);
     this.setState({ themeName });
     const params = new URLSearchParams(window.location.search);
     params.set('theme', themeName);
-    console.log(params, params.toString());
     window.history.replaceState(
       {},
       '',
