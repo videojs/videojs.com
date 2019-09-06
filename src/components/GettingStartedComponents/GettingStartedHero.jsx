@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Hero from '../../components/Hero';
 import Container from '../../components/Container';
 import { H1, H2 } from '../../components/Typography';
+import { theme } from '../../utils/styles';
 
 const StyledH2 = styled(H2)`
   letter-spacing: -0.01em;
@@ -25,7 +26,7 @@ const StyledHero = styled(Hero)`
 `;
 
 const GettingStartedHero = () => (
-  <StyledHero themeName="fantasy">
+  <StyledHero theme={{...theme, currentTheme: theme.fantasy}}>
     <Container>
       <H1>Getting Started</H1>
       <StyledH2>
