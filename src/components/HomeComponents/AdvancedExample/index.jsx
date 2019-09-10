@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import videojs from 'video.js';
+import queryString from 'query-string';
 
 import Container from '../../Container';
 import SectionHeader from '../../SectionHeader';
@@ -100,6 +101,17 @@ class AdvancedExample extends React.Component {
     this.state = { isPlayerInitialized: false };
   }
 
+  setQueryParam (plItemId) {
+    if (!this.props.enableThemeQueryParam) return
+    const params = new URLSearchParams(window.location.search);
+    params.set('video', plItemId);
+    window.history.replaceState(
+      {},
+      '',
+      `${window.location.pathname}?${params.toString()}`
+    )
+  }
+
   componentDidMount () {
     this.player = videojs(this.videoEl, {}, () => {
       if (this.player.hasPlugin('mux')) {
@@ -112,7 +124,7 @@ class AdvancedExample extends React.Component {
     this.player.on('loadstart', () => {
       const pl = this.player.playlist();
       const plItem = pl[this.player.playlist.currentItem()];
-
+      this.setQueryParam(plItem.id);
       this.player.mux.emit('videochange', {
         video_id: plItem.id,
         video_title: plItem.name,
@@ -120,7 +132,14 @@ class AdvancedExample extends React.Component {
       });
     });
 
-    this.player.playlist(playlist);
+    const videoParam = queryString.parse(window.location.search).video;
+    let currentVideo;
+    if (this.props.enableThemeQueryParam) {
+      const index = playlist.findIndex((plItem) => plItem.id === videoParam);
+      if (index !== -1) currentVideo = index;
+    }
+
+    this.player.playlist(playlist, currentVideo);
     this.player.playlistUi();
 
     this.setState({ isPlayerInitialized: true });
