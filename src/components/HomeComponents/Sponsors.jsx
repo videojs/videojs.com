@@ -140,7 +140,7 @@ const Sponsors = props => (
         <Sponsor
           title="Corporate Shepherd"
           image="logos/brightcove.svg"
-          name="Brightcove"
+          name="Brightcove - Video Hosting"
           url="https://brightcove.com"
         />
       </PrimaryContainer>
@@ -149,25 +149,25 @@ const Sponsors = props => (
         <Sponsor
           title="CDN"
           image="logos/fastly.svg"
-          name="Fastly"
+          name="Fastly - CDN"
           url="https://fastly.com"
         />
         <Sponsor
           title="Website"
           image="logos/mux.svg"
-          name="Mux"
+          name="Mux - Video API"
           url="https://mux.com"
         />
         <Sponsor
           title="Device Testing"
           image="logos/browserstack.svg"
-          name="BrowserStack"
+          name="BrowserStack - Browser Testing"
           url="https://browserstack.com"
         />
         <Sponsor
           title="Static Hosting"
           image="logos/netlify.svg"
-          name="Netlify"
+          name="Netlify - Website Hosting"
           url="https://netlify.com"
         />
       </SponsorList>
