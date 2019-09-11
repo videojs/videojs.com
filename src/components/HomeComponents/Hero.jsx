@@ -91,7 +91,10 @@ const HomeHero = props => (
         <DemoControls>
           <Button>Get Started</Button>
           <Button>Demos</Button>
-          <StyledThemeSelector changeTheme={props.changeTheme}>
+          <StyledThemeSelector
+            changeTheme={props.changeTheme}
+            currentTheme={props.heroTheme.name}
+          >
             Swap Theme
           </StyledThemeSelector>
         </DemoControls>
