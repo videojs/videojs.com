@@ -93,7 +93,7 @@ const HomeHero = props => (
           <Button>Demos</Button>
           <StyledThemeSelector
             changeTheme={props.changeTheme}
-            currentTheme={props.heroTheme.name}
+            currentTheme={props.heroTheme && props.heroTheme.name}
           >
             Swap Theme
           </StyledThemeSelector>
