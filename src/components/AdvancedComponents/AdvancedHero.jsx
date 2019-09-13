@@ -25,17 +25,15 @@ const StyledHero = styled(Hero)`
   `}
 `;
 
-const PluginsHero = () => (
-  <StyledHero theme={{...theme, currentTheme: theme.forest}}>
+const AdvancedHero = () => (
+  <StyledHero theme={{...theme, currentTheme: theme.city}}>
     <Container>
-      <H1>Plugins and Skins</H1>
+      <H1>Advanced Example</H1>
       <StyledH2>
-        You can customize Video.js using 3rd party plugins and skins. For more
-        information about creating and using Video.js extensions, please see the
-        documentation.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       </StyledH2>
     </Container>
   </StyledHero>
 );
 
-export default PluginsHero;
+export default AdvancedHero;

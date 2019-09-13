@@ -102,9 +102,15 @@ const ThemeItem = styled.li`
   ${({ theme }) => theme.media.medium`
     padding: 6px 0;
   `}
-  a {
+
+  button {
     color: ${props => props.color};
     font-weight: bold;
+    border: none;
+    background-color: transparent;
+
+    text-decoration: ${({ active }) => active && 'underline'};
+    cursor: ${({ active }) => active && 'default'};
   }
 `;
 
@@ -137,6 +143,11 @@ class ThemeSelector extends React.Component {
     this.setState({ showDropdown: !this.state.showDropdown });
   }
 
+  onThemeClick = key => () => {
+    this.props.changeTheme(key);
+    this.toggleDropdown();
+  };
+
   render() {
     const { showDropdown } = this.state;
     const { className, children } = this.props;
@@ -151,8 +162,12 @@ class ThemeSelector extends React.Component {
           <ul>
             {Object.keys(heroThemes).map(key => {
               return (
-                <ThemeItem key={key} color={heroThemes[key].color}>
-                  <a href={`/?theme=${key}`}>{key}</a>
+                <ThemeItem
+                  key={key}
+                  color={heroThemes[key].color}
+                  active={this.props.currentTheme === key}
+                >
+                  <button onClick={this.onThemeClick(key)}>{key}</button>
                 </ThemeItem>
               );
             })}

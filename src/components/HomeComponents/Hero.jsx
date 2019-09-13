@@ -77,21 +77,24 @@ const HomeHero = props => (
       <H2>with the worlds most popular open source HTML5 player</H2>
 
       <DemoContainer>
-        {
-          props.heroTheme ?
+        {props.heroTheme && (
           <Player
             controls
             fluid
             themeName={props.heroTheme.name}
-            sources={[{ src: props.heroTheme.video, type: 'application/x-mpegurl' }]}
+            sources={[
+              { src: props.heroTheme.video, type: 'application/x-mpegurl' },
+            ]}
             poster={props.heroTheme.poster}
-          /> :
-          null
-        }
+          />
+        )}
         <DemoControls>
           <Button>Get Started</Button>
           <Button>Demos</Button>
-          <StyledThemeSelector>
+          <StyledThemeSelector
+            changeTheme={props.changeTheme}
+            currentTheme={props.heroTheme && props.heroTheme.name}
+          >
             Swap Theme
           </StyledThemeSelector>
         </DemoControls>
