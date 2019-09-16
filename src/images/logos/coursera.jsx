@@ -1,13 +1,7 @@
 import React from 'react';
 
-const CourseraLogo = (props) => (
-  <svg
-    id="coursera-logo"
-    viewBox="0 0 108 17"
-    width="108"
-    height="17"
-    {...props}
-  >
+const CourseraLogo = props => (
+  <svg viewBox="0 0 108 17" width="108" height="17" {...props}>
     <style>{'.coursera-logo__st0{fill:#b2b2b2}'}</style>
     <path
       className="coursera-logo__st0"

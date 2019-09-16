@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from '../Link';
 
 import Button from '../Button';
 import Container from '../Container';
@@ -89,8 +90,12 @@ const HomeHero = props => (
           />
         )}
         <DemoControls>
-          <Button>Get Started</Button>
-          <Button>Demos</Button>
+          <Button as={Link} to="/getting-started">
+            Get Started
+          </Button>
+          <Button as={Link} to="/advanced">
+            Demos
+          </Button>
           <StyledThemeSelector
             changeTheme={props.changeTheme}
             currentTheme={props.heroTheme && props.heroTheme.name}

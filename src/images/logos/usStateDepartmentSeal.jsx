@@ -1,13 +1,7 @@
 import React from 'react';
 
-const USStateDepartmentSealLogo = (props) => (
-  <svg
-    id="us-state-department-seal-logo"
-    viewBox="0 0 60 60"
-    width="55"
-    height="55"
-    {...props}
-  >
+const USStateDepartmentSealLogo = props => (
+  <svg viewBox="0 0 60 60" width="55" height="55" {...props}>
     <style>
       {
         '.us-state-department-seal-logo__st0{fill:#b2b2b2}.us-state-department-seal-logo__st1{fill:#fff}.us-state-department-seal-logo__st2{fill:none;stroke:#b2b2b2;stroke-width:.2542;stroke-miterlimit:10}'
@@ -421,7 +415,10 @@ const USStateDepartmentSealLogo = (props) => (
         className="us-state-department-seal-logo__st2"
         d="M40.1 45l.1.5-1 1.3-.1-.7h-.7l1.2-1.1h.5M42.6 45.8l.3.4-.3 1.6-.4-.6-.6.3.6-1.5.4-.2M41.3 45.1l.2.4-.6 1.4-.3-.6-.6.1.8-1.3h.5M40.1 45l1.8-1.5"
       />
-      <path className="us-state-department-seal-logo__st2" d="M40.7 46.4l-.4.7h.6M41.5 45.6l.2.3" />
+      <path
+        className="us-state-department-seal-logo__st2"
+        d="M40.7 46.4l-.4.7h.6M41.5 45.6l.2.3"
+      />
       <path
         className="us-state-department-seal-logo__st2"
         d="M42 45.8l.3.4-.5 1.5-.3-.6-.7.2.7-1.4.5-.1M25.2 13.1c-.4-1 .4-1.9 1.5-1.6-.2-.8.8-1.8 1.9-1 .2-1 1.4-1.5 2.1-.5.5-.9 2-.8 2.1.4.4-.5 2.1-.5 1.9 1.1.5-.4 2.1.1 1.5 1.6 1.1-.1 1.7 1.2.9 2 .7.1 1.5 1.5.2 2.2 1.1.9.3 2.1-.5 2.2.6 1.1-.3 2-1.3 1.8.1 1.1-.8 1.8-1.8 1.3-.1 1.1-1.3 1.5-2.1.7-.5 1.1-1.8.9-2.2-.1-.7.8-2 .4-2.1-.7-.9.4-2-.1-1.7-1.4-1 .2-1.8-.8-1.2-1.8-.8-.1-1.5-1.3-.5-2.1-.8-.4-1-1.7.1-2.2-.4-.8.1-1.9 1.2-1.9z"

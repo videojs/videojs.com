@@ -1,13 +1,7 @@
 import React from 'react';
 
-const AWGELogo = (props) => (
-  <svg
-    id="awge-logo"
-    viewBox="0 0 300 80"
-    width="107"
-    height="29"
-    {...props}
-  >
+const AWGELogo = props => (
+  <svg viewBox="0 0 300 80" width="107" height="29" {...props}>
     <style>{'.awge-logo__st0{fill:#b2b2b2}'}</style>
     <path
       className="awge-logo__st0"

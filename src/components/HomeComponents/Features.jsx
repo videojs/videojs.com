@@ -61,7 +61,7 @@ const FeatureList = styled.div`
 const Feature = styled(props => (
   <div className={props.className}>
     <span>
-      <Image filename={props.image} />
+      <Image filename={props.image} alt={props.alt} />
       <H3>{props.title}</H3>
       <P>{props.text}</P>
     </span>
@@ -129,21 +129,25 @@ const Features = props => (
       <FeatureList>
         <Feature
           title="Plays anything"
+          alt="abstract player illustration"
           image="plays-everything.svg"
           text="Plays “traditional” file formats such as MP4 and WebM, but also supports adaptive streaming formats such as HLS and DASH. There’s even a special UI for live streams!"
         />
         <Feature
           title="Easy to style"
+          alt="stylized abstract pencil"
           image="easy-to-style.svg"
           text="Video.js is designed to be a reliable and consistent base to build on top of. The player looks great out of the box, but can be easily styled with a little bit of extra CSS."
         />
         <Feature
           title="100s of plugins"
+          alt="abstract collection of checkboxes"
           image="100s-of-plugins.svg"
           text="When you need to add additional functionality, a well-documented plugin architecture has your back. The community has already built hundreds of skins and plugins that you can install, such as Chromecast, IMA, even VR."
         />
         <Feature
           title="Supported everywhere"
+          alt="abstract players of various sizes"
           image="supported-everywhere.svg"
           text="Your video should work everywhere your app does. The team makes an effort to support every modern browser we can, including desktop and mobile."
         />

@@ -1,15 +1,11 @@
 import React from 'react';
 
-const SouthernLivingLogo = (props) => (
-  <svg
-    id="southern-living-logo"
-    viewBox="0 0 200 43"
-    width="120"
-    height="25"
-    {...props}
-  >
+const SouthernLivingLogo = props => (
+  <svg viewBox="0 0 200 43" width="120" height="25" {...props}>
     <style>
-      {'.southern-living-logo__st0{fill-rule:evenodd;clip-rule:evenodd;fill:#b2b2b2}'}
+      {
+        '.southern-living-logo__st0{fill-rule:evenodd;clip-rule:evenodd;fill:#b2b2b2}'
+      }
     </style>
     <path
       className="southern-living-logo__st0"

@@ -68,7 +68,7 @@ const Footer = () => (
   <Wrapper>
     <VideoJsLogoWrapper>
       <Link to="/">
-        <Image filename="logo-black.svg" />
+        <Image filename="logo-black.svg" alt="Video.js logo" />
       </Link>
     </VideoJsLogoWrapper>
     <Nav>
@@ -95,14 +95,14 @@ const Footer = () => (
       </p>
     </Copyright>
     <Logos>
-      <Link href="https://twitter.com">
-        <Image filename="twitter.svg" />
+      <Link href="https://twitter.com/@videojs">
+        <Image filename="twitter.svg" alt="Twitter logo" />
       </Link>
       <Link href="https://mail.com">
-        <Image filename="newsletter.svg" />
+        <Image filename="newsletter.svg" alt="Envelope" />
       </Link>
-      <Link href="https://github.com">
-        <Image filename="github.svg" />
+      <Link href="https://github.com/videojs/video.js">
+        <Image filename="github.svg" alt="Github logo" />
       </Link>
     </Logos>
   </Wrapper>

@@ -15,6 +15,7 @@ const Button = styled.button`
   font-family: ${props => props.theme.buttonFont};
   font-weight: 600;
   transition: ${props => props.theme.transitionSpeed};
+  line-height: 2.5em;
 
   &:hover {
     background-color: ${props => props.theme.currentTheme.color};

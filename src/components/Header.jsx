@@ -199,7 +199,7 @@ const NavigationLinks = styled(props => (
 const Header = ({ siteTitle }) => (
   <HeaderWrapper>
     <Container>
-      <Link to="/">
+      <Link to="/" aria-label="Videojs.com homepage">
         <Logo />
       </Link>
 

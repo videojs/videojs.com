@@ -5,7 +5,7 @@ import 'video.js/dist/video-js.css';
 class Player extends React.Component {
   componentDidMount() {
     this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
-      console.log('onPlayerReady', this);
+      // console.log('onPlayerReady', this);
     });
 
     this.player.addClass(`vjs-theme-${this.props.themeName}`);

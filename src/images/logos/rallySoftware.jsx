@@ -1,13 +1,7 @@
 import React from 'react';
 
-const RallySoftwareLogo = (props) => (
-  <svg
-    id="rally-software-logo"
-    viewBox="0 0 338 218"
-    width="90"
-    height="58"
-    {...props}
-  >
+const RallySoftwareLogo = props => (
+  <svg viewBox="0 0 338 218" width="90" height="58" {...props}>
     <style>{'.rally-software-logo__st0{fill:#b2b2b2}'}</style>
     <path
       className="rally-software-logo__st0"

@@ -1,13 +1,7 @@
 import React from 'react';
 
-const SeriousEatsLogo = (props) => (
-  <svg
-    id="serious-eats-logo"
-    viewBox="0 0 241 195"
-    width="56"
-    height="46"
-    {...props}
-  >
+const SeriousEatsLogo = props => (
+  <svg viewBox="0 0 241 195" width="56" height="46" {...props}>
     <style>{'.serious-eats-logo__st0{fill:#b2b2b2}'}</style>
     <path
       className="serious-eats-logo__st0"

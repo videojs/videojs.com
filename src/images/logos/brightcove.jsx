@@ -1,13 +1,7 @@
 import React from 'react';
 
-const BrightcoveLogo = (props) => (
-  <svg
-    id="brightcove-logo"
-    viewBox="0 0 220 55"
-    width="130"
-    height="33"
-    {...props}
-  >
+const BrightcoveLogo = props => (
+  <svg viewBox="0 0 220 55" width="130" height="33" {...props}>
     <style>{'.brightcove-logo__st0{fill:#b2b2b2}'}</style>
     <path
       className="brightcove-logo__st0"

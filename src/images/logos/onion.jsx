@@ -1,13 +1,7 @@
 import React from 'react';
 
-const OnionLogo = (props) => (
-  <svg
-    id="onion-logo"
-    viewBox="0 0 600 91"
-    width="134"
-    height="22"
-    {...props}
-  >
+const OnionLogo = props => (
+  <svg viewBox="0 0 600 91" width="134" height="22" {...props}>
     <style>{'.onion-logo__st0{fill:#b2b2b2}'}</style>
     <path
       className="onion-logo__st0"

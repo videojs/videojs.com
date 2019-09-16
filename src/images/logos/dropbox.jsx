@@ -1,13 +1,7 @@
 import React from 'react';
 
-const DropboxLogo = (props) => (
-  <svg
-    id="dropbox-logo"
-    viewBox="0 0 324 63.8"
-    width="120"
-    height="24"
-    {...props}
-  >
+const DropboxLogo = props => (
+  <svg viewBox="0 0 324 63.8" width="120" height="24" {...props}>
     <style>{'.dropbox-logo__st0{fill:#b2b2b2}'}</style>
     <path
       className="dropbox-logo__st0"

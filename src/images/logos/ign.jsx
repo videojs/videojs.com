@@ -1,13 +1,7 @@
 import React from 'react';
 
-const IGNLogo = (props) => (
-  <svg
-    id="ign-logo"
-    viewBox="0 0 400 122"
-    width="90"
-    height="27"
-    {...props}
-  >
+const IGNLogo = props => (
+  <svg viewBox="0 0 400 122" width="90" height="27" {...props}>
     <style>{'.ign-logo__st0{fill:#b2b2b2}'}</style>
     <path
       className="ign-logo__st0"
