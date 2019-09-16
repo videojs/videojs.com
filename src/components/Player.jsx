@@ -7,6 +7,8 @@ class Player extends React.Component {
     this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
       console.log('onPlayerReady', this);
     });
+
+    this.player.addClass(`vjs-theme-${this.props.themeName}`);
   }
 
   componentWillUnmount() {
@@ -17,7 +19,6 @@ class Player extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.themeName !== this.props.themeName) {
-      console.log(nextProps.themeName);
       this.player.removeClass(`vjs-theme-${this.props.themeName}`);
       this.player.addClass(`vjs-theme-${nextProps.themeName}`);
 
