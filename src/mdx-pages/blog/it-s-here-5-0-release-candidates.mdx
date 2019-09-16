@@ -1,5 +1,5 @@
 ---
-title: 'It''s here: 5.0 release candidates!'
+title: "It's here: 5.0 release candidates!"
 tags:
   - release
   - videojs
@@ -27,15 +27,13 @@ The most obvious difference you&rsquo;ll see when you load up the release candid
 
 There are elements in the control bar that aren&rsquo;t shown by default, but can be by simply overriding a little CSS. For example, if you&rsquo;d rather use an inline volume control instead of the popup menu, you could make these changes:
 
-`css
-.video-js .vjs-volume-menu-button { display: none; }
-.video-js .vjs-mute-control, .video-js .vjs-volume-control { display: flex; }`
+`css .video-js .vjs-volume-menu-button { display: none; } .video-js .vjs-mute-control, .video-js .vjs-volume-control { display: flex; }`
 
 This just hides the `.vjs-volume-menu-button` control, and unhides the mute control / inline volume control. Other things that are available but hidden by default are a time divider (`.vjs-time-devider`), total duration (`.vjs-duration`), and a spacer (`.vjs-custom-control-spacer`).
 
 ### ES6
 
-Thanks to the incredible [Babel project](http://babeljs.io), we&rsquo;re able to write ES2015 and have it transpiled to ES5\. It&rsquo;s fantastic, and means we get glorious things such as string interpolation, so reading our codebase ``just got a whole lot ${_.sample(['better', 'awesomer', 'more fantastic', 'less plus-y'])}``.
+Thanks to the incredible [Babel project](http://babeljs.io), we&rsquo;re able to write ES2015 and have it transpiled to ES5\. It&rsquo;s fantastic, and means we get glorious things such as string interpolation, so reading our codebase `just got a whole lot ${_.sample(['better', 'awesomer', 'more fantastic', 'less plus-y'])}`.
 
 On our Wiki we have a page devoted to [ES6 features we use extensively](https://github.com/videojs/video.js/wiki/ES6-Features-used-in-the-source). There are probably a few little things missing, but if you familiarize yourself with those features you should feel comfortable reading the Video.js source.
 
@@ -52,4 +50,4 @@ You can find more information on our [5.0 change details](https://github.com/vid
 # Want to be helpful?
 
 Use it! We&rsquo;ve spent months using this player in very specific ways while development, but there&rsquo;s always the issue of &ldquo;not being able to [see the forest for the trees](http://en.wiktionary.org/wiki/see_the_forest_for_the_trees)&rdquo;. If you find issues while testing the player, please let us know on the [issue tracker](https://github.com/videojs/video.js/issues).
-![](http://feeds.feedburner.com/~r/video-js/~4/lLH3vkDw9AY)
+![](https://feeds.feedburner.com/~r/video-js/~4/lLH3vkDw9AY)

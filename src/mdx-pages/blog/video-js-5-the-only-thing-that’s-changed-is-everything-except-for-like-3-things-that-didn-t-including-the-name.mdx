@@ -16,25 +16,25 @@ First and foremost, **THANK YOU** to the 25 contributors who completed and merge
 
 For 5.0 we have some interesting new features, and we made A LOT of new technology choices. This will include an exhaustive dive into those choices, because... why not?
 
-*   Redesigned and rebuilt the UI
-    *   Using a flex-box-based controls layout for easier add-ons
-    *   Improved accessibility of the controls
-    *   Switched from LESS to SASS
-    *   Switched to Material Icons
-*   Rebuilt the library in ES6/Babel/Browserify including Modules and Classes
-*   Added support for responsive layouts including auto-sizing to the video content
-*   Added support for HLS in desktop browsers **without Flash**
-*   Improved audio-only support
-*   Added 6 more language translations bringing the total to 25
-*   Switched from Closure Compiler to UglifyJS (we STOPPED mangling object properties)
-*   Switched to JSDoc for documentation
-*   Switched to BrowserStack for automated browser testing
-*   Switched to Fastly for our CDN
-*   New definition around plugins
-*   New [player skin designer](http://codepen.io/heff/pen/EarCt/left/?editors=010) on Codepen
-*   New definition around playback technologies ("techs")
-*   New project governance model
-*   New Website and Logo!
+- Redesigned and rebuilt the UI
+  - Using a flex-box-based controls layout for easier add-ons
+  - Improved accessibility of the controls
+  - Switched from LESS to SASS
+  - Switched to Material Icons
+- Rebuilt the library in ES6/Babel/Browserify including Modules and Classes
+- Added support for responsive layouts including auto-sizing to the video content
+- Added support for HLS in desktop browsers **without Flash**
+- Improved audio-only support
+- Added 6 more language translations bringing the total to 25
+- Switched from Closure Compiler to UglifyJS (we STOPPED mangling object properties)
+- Switched to JSDoc for documentation
+- Switched to BrowserStack for automated browser testing
+- Switched to Fastly for our CDN
+- New definition around plugins
+- New [player skin designer](http://codepen.io/heff/pen/EarCt/left/?editors=010) on Codepen
+- New definition around playback technologies ("techs")
+- New project governance model
+- New Website and Logo!
 
 If you're a Video.js user or lover of [semver](http://semver.org/), you're probably looking at the [changelog](https://github.com/videojs/video.js/blob/872459837b21c1e3d05fa86df4022f5a2b17ea1c/CHANGELOG.md#500-2015-09-29) and dying inside (or out). You're probably already thinking about how little you want to do the mega-upgrade dance every time the major version is bumped. To be clear, there will be at least _some_ upgrade cost between major versions because that's just how things go. **However**, from 5.0 on, we plan on being a lot more liberal with major versions to avoid stop-the-world mega releases like this.
 
@@ -42,7 +42,7 @@ The fact is, this release [cleaned up a lot of technical debt](https://github.co
 
 ## Redesigned and rebuilt UI
 
-[![](http://66.media.tumblr.com/7936bfddeddf68058784eb6d815cd631/tumblr_inline_nveuwhsdFu1qzc111_540.png)](http://www.videojs.com)
+[![](https://66.media.tumblr.com/7936bfddeddf68058784eb6d815cd631/tumblr_inline_nveuwhsdFu1qzc111_540.png)](http://www.videojs.com)
 
 Video.js has had an all-CSS skin (including for Flash) since it was created in 2010 (the [first version](http://videojs.github.io/video.js/) was _literally_ all CSS, no images, fonts, or svgs. And still works today!) Over those years we've seen some very creative customizations and learned a lot about what users are hoping to do with player design when they're able to use native web techologies. For 5.0 we've both simplified the default layout and added more flexibility than ever before.
 
@@ -60,19 +60,19 @@ The original decision to use [Less](http://lesscss.org/) over [Sass](http://sass
 
 Since then, thanks to [Emscripten](https://github.com/kripken/emscripten), Sass has joined Less in the browser. This meant that we were free to use whichever of the two we liked, so all the contributors put on Less or Sass branded boxing gloves and fought until two gloves were still standing, which turned out to be Sass. Aside from the battle royale, there were a few reasons we decided to go with Sass for the new base skin in version 5.
 
-*   **Familiarity**. Core contributors that started working on the new base skin were a little more experienced with Sass and simply preferred it.
-*   **Speed**. On top of allowing us to use Sass without requiring Ruby, [LibSass](https://github.com/sass/libsass) is _fast_.
-*   **Popularity**. Your parents are right, not everything's a popularity contest... but it is when you want to pick between two basically equivalent* tools. We wanted to pick something that more devs would be familiar with, and that seems to be Sass. On that note, it was also requested fairly often on the issue tracker.
-*   **Community**. This goes hand in hand with popularity, but the Sass community is large and growing, with currently popular projects using it (and [switching to it](http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/)) and new tooling popping up every day along side industry standards such as [Compass](http://compass-style.org/) and [Bourbon](http://bourbon.io).
+- **Familiarity**. Core contributors that started working on the new base skin were a little more experienced with Sass and simply preferred it.
+- **Speed**. On top of allowing us to use Sass without requiring Ruby, [LibSass](https://github.com/sass/libsass) is _fast_.
+- **Popularity**. Your parents are right, not everything's a popularity contest... but it is when you want to pick between two basically equivalent\* tools. We wanted to pick something that more devs would be familiar with, and that seems to be Sass. On that note, it was also requested fairly often on the issue tracker.
+- **Community**. This goes hand in hand with popularity, but the Sass community is large and growing, with currently popular projects using it (and [switching to it](http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/)) and new tooling popping up every day along side industry standards such as [Compass](http://compass-style.org/) and [Bourbon](http://bourbon.io).
 
 Big changes that we made during the switch that are unrelated to the tooling:
 
-*   We broke apart the source files.
-*   As mentioned above, we switched to a Flexbox-based layout. "What about IE8," you say again? Tables. [Srsly](https://github.com/videojs/video.js/blob/a5dad5ade29a0ae33e0b80c600f1a06c953aff52/src/css/components/_control-bar.scss#L55-L58).
-*   Improved support for responsive layouts.
-*   We simplified the amount of customization we explicitly allow in the source to encourage people to build _on top_ of the base skin, not edit it directly.
-*   On the simplification note, we tried to simplify the base skin as much as possible. Our goal was to allow designers to build _anything_ on top of the base without having to entirely start from scratch.
-*   And more!
+- We broke apart the source files.
+- As mentioned above, we switched to a Flexbox-based layout. "What about IE8," you say again? Tables. [Srsly](https://github.com/videojs/video.js/blob/a5dad5ade29a0ae33e0b80c600f1a06c953aff52/src/css/components/_control-bar.scss#L55-L58).
+- Improved support for responsive layouts.
+- We simplified the amount of customization we explicitly allow in the source to encourage people to build _on top_ of the base skin, not edit it directly.
+- On the simplification note, we tried to simplify the base skin as much as possible. Our goal was to allow designers to build _anything_ on top of the base without having to entirely start from scratch.
+- And more!
 
 ### Switched to Material Icons
 
@@ -120,7 +120,7 @@ player.thumbnail(myThumbnailConfig);
 
 ## Added support for responsive layouts including auto-sizing to the video content
 
-[Check out this video from the SF Vid Tech meetup for quick overview.](https://www.youtube.com/watch?v=0AEFvF2bHtw&amp;feature=youtu.be&amp;t=50m37s)
+[Check out this video from the SF Vid Tech meetup for quick overview.](https://www.youtube.com/watch?v=0AEFvF2bHtw&feature=youtu.be&t=50m37s)
 
 _Proper_ support for responsive layouts has been a long time request. We've had tips and guides for how to make it work in the old version, but now it's seamlessly built into the player. First we have two easy CSS classes you can just add to the embed code, `vjs-16-9` and `vjs-4-3`.
 
@@ -163,8 +163,8 @@ else not support instantiation via the player config. Ex:
 ```js
 videojs('my-video', {
   plugins: {
-    playlists: {}
-  }
+    playlists: {},
+  },
 });
 ```
 
@@ -208,7 +208,7 @@ The CDN-hosted version of Video.js at vjs.zencdn.net is downloaded over 2 BILLIO
 
 ## New Website and Logo!
 
-![Video.js Logo](http://67.media.tumblr.com/cb1841277ee68c248443e42c0391e286/tumblr_inline_nvf06qcRca1qzc111_540.png)
+![Video.js Logo](https://67.media.tumblr.com/cb1841277ee68c248443e42c0391e286/tumblr_inline_nvf06qcRca1qzc111_540.png)
 
 We simplified it a bit. What do you think?
 
@@ -221,10 +221,24 @@ It's our community that keeps Video.js actually decent and **truly free** (Apach
 In conclusion, it's been a good year of a lot of good work. Thanks!
 
 <span class="no-fancybox">
-  <a href="https://news.ycombinator.com/item?id=10298267" target="_blank" rel="noopener noreferrer">
-    <img width={18} src="http://66.media.tumblr.com/1e6ec3eacf62a57d0543b01cb4454527/tumblr_inline_nvesinCDHy1qzc111_500.gif" />
+  <a
+    href="https://news.ycombinator.com/item?id=10298267"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      width={18}
+      src="http://66.media.tumblr.com/1e6ec3eacf62a57d0543b01cb4454527/tumblr_inline_nvesinCDHy1qzc111_500.gif"
+    />
   </a>
-  <a href="https://twitter.com/videojs/status/648921250882977792" target="_blank" rel="noopener noreferrer">
-    <img width={18} src="http://66.media.tumblr.com/2872e2376c584d2abe4293d442e367e2/tumblr_inline_nvesehMSl91qzc111_540.png" />
+  <a
+    href="https://twitter.com/videojs/status/648921250882977792"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <img
+      width={18}
+      src="http://66.media.tumblr.com/2872e2376c584d2abe4293d442e367e2/tumblr_inline_nvesehMSl91qzc111_540.png"
+    />
   </a>
 </span>

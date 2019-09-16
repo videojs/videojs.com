@@ -21,29 +21,29 @@ One of the expected behaviors of the player&rsquo;s control bar is that it will 
   opacity: 0;
 
   -webkit-transition: visibility 1.5s, opacity 1.5s;
-     -moz-transition: visibility 1.5s, opacity 1.5s;
-      -ms-transition: visibility 1.5s, opacity 1.5s;
-       -o-transition: visibility 1.5s, opacity 1.5s;
-          transition: visibility 1.5s, opacity 1.5s;
+  -moz-transition: visibility 1.5s, opacity 1.5s;
+  -ms-transition: visibility 1.5s, opacity 1.5s;
+  -o-transition: visibility 1.5s, opacity 1.5s;
+  transition: visibility 1.5s, opacity 1.5s;
 
   /* Wait a moment before fading out the control bar */
   -webkit-transition-delay: 2s;
-     -moz-transition-delay: 2s;
-      -ms-transition-delay: 2s;
-       -o-transition-delay: 2s;
-          transition-delay: 2s;
+  -moz-transition-delay: 2s;
+  -ms-transition-delay: 2s;
+  -o-transition-delay: 2s;
+  transition-delay: 2s;
 }
 ```
 
 When the user&rsquo;s mouse moved back over the player, the class would be removed, canceling any delayed fade-out. This provided a similar experience to how you might expect the controls fading to work, and only took a few lines of javascript to add/remove the class.
 
 ```javascript
-player.on('mouseout', function(){ 
-  controlBar.addClass('vjs-fade-out'); 
+player.on('mouseout', function() {
+  controlBar.addClass('vjs-fade-out');
 });
 
-player.on('mouseover', function(){ 
-  controlBar.removeClass('vjs-fade-out'); 
+player.on('mouseover', function() {
+  controlBar.removeClass('vjs-fade-out');
 });
 ```
 
@@ -62,10 +62,10 @@ One of the first things that is being added is a `userActive` property on the pl
 That actual property is `player.userActive()` and returns either `true` or `false`. When this value is changed, it triggers an event on the player.
 
 ```javascript
-player.userActive(true)
-    // -&gt; 'useractive' event triggered
-player.userActive(false)
-    // -&gt; 'userinactive' event triggered
+player.userActive(true);
+// -&gt; 'useractive' event triggered
+player.userActive(false);
+// -&gt; 'userinactive' event triggered
 ```
 
 A CSS classname of either `vjs-user-active` or `vjs-user-inactive` is also added to the player element. The classname is what&rsquo;s actually used now to hide and show the control bar.
@@ -77,10 +77,10 @@ A CSS classname of either `vjs-user-active` or `vjs-user-inactive` is also added
   opacity: 0;
 
   -webkit-transition: visibility 1.5s, opacity 1.5s;
-     -moz-transition: visibility 1.5s, opacity 1.5s;
-      -ms-transition: visibility 1.5s, opacity 1.5s;
-       -o-transition: visibility 1.5s, opacity 1.5s;
-          transition: visibility 1.5s, opacity 1.5s;
+  -moz-transition: visibility 1.5s, opacity 1.5s;
+  -ms-transition: visibility 1.5s, opacity 1.5s;
+  -o-transition: visibility 1.5s, opacity 1.5s;
+  transition: visibility 1.5s, opacity 1.5s;
 }
 ```
 
@@ -89,16 +89,16 @@ The 2 second delay has been removed from the CSS, and instead will be built into
 ```javascript
 var resetDelay, inactivityTimeout;
 
-resetDelay = function(){
-    clearTimeout(inactivityTimeout);
-    inactivityTimeout = setTimeout(function(){
-        player.userActive(false);
-    }, 2000);
+resetDelay = function() {
+  clearTimeout(inactivityTimeout);
+  inactivityTimeout = setTimeout(function() {
+    player.userActive(false);
+  }, 2000);
 };
 
-player.on('mousemove', function(){
-    resetDelay();
-})
+player.on('mousemove', function() {
+  resetDelay();
+});
 ```
 
 The mousemove event is called very rapidly while the mouse is moving, and we want to bog down the player process as little as possible during this action, so we&rsquo;re using a technique [written about by John Resig](http://ejohn.org/blog/learning-from-twitter/).
@@ -108,15 +108,13 @@ Instead of resetting the timeout for every `mousemove`, the `mousemove` event wi
 ```javascript
 var userActivity, activityCheck;
 
-player.on('mousemove', function(){
-    userActivity = true;
+player.on('mousemove', function() {
+  userActivity = true;
 });
 
 activityCheck = setInterval(function() {
-
   // Check to see if the mouse has been moved
   if (userActivity) {
-
     // Reset the activity tracker
     userActivity = false;
 
@@ -128,11 +126,11 @@ activityCheck = setInterval(function() {
     // Clear any existing inactivity timeout to start the timer over
     clearTimeout(inactivityTimeout);
 
-    // In X seconds, if no more activity has occurred 
+    // In X seconds, if no more activity has occurred
     // the user will be considered inactive
     inactivityTimeout = setTimeout(function() {
       // Protect against the case where the inactivity timeout can trigger
-      // before the next user activity is picked up  by the 
+      // before the next user activity is picked up  by the
       // activityCheck loop.
       if (!userActivity) {
         this.userActive(false);
@@ -161,7 +159,7 @@ The expected behavior on touch devices is a little different than in desktop bro
 Luckily the framework we&rsquo;ve set up around userActive has made this last part easy enough to set up.
 
 ```javascript
-video.on('tap', function(){
+video.on('tap', function() {
   if (player.userActive() === true) {
     player.userActive(false);
   } else {
@@ -181,4 +179,4 @@ I hope this has given some insight into how that piece of the controls operate i
 Cheers,
 
 -heff
-![](http://feeds.feedburner.com/~r/video-js/~4/70tJSFYIq9Y)
+![](https://feeds.feedburner.com/~r/video-js/~4/70tJSFYIq9Y)

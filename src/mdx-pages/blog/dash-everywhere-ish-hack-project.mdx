@@ -26,12 +26,12 @@ Using a combination of DASH.AS and DASH.JS will give us the following browser/de
 
 #### DASH.JS (media source extensions support)
 
-*   Internet Explorer: 11+
-*   Chrome: 23+
-*   FireFox: 25+ (upcoming version)
-*   Safari (Desktop): 8+ (OSX Yosemite - Fall 2014)
-*   iOS: No
-*   Android: 4.2+ (Chrome)
+- Internet Explorer: 11+
+- Chrome: 23+
+- FireFox: 25+ (upcoming version)
+- Safari (Desktop): 8+ (OSX Yosemite - Fall 2014)
+- iOS: No
+- Android: 4.2+ (Chrome)
 
 #### DASH.AS
 
@@ -53,43 +53,43 @@ The demo shows that for environments which support [Media Source Extensions](htt
 
 #### Player
 
-*   Environment must support Flash Player 10.3+
-*   Video.js OSMF Tech ([videojs-osmf](https://github.com/seniorflexdeveloper/videojs-osmf))
-*   CastLabs Dash.AS plugin for OSMF ([dash.as](https://github.com/castlabs/dashas))
+- Environment must support Flash Player 10.3+
+- Video.js OSMF Tech ([videojs-osmf](https://github.com/seniorflexdeveloper/videojs-osmf))
+- CastLabs Dash.AS plugin for OSMF ([dash.as](https://github.com/castlabs/dashas))
 
 #### Server/Host
 
-*   Since the requests are fired from within Flash, a crossdomain.xml file is required.*   Ability to serve byte range requests via query string (myFile.mp4?range=0-1000 || myFile.m4s?bytes=0-1000) is necessary because Flash Player restricts use of the ‘Range’ request header. Castlabs has an .htaccess file which uses mod_rewrite to achieve this. Akamai edge servers accept the bytes query string var as well.
+- Since the requests are fired from within Flash, a crossdomain.xml file is required.\* Ability to serve byte range requests via query string (myFile.mp4?range=0-1000 || myFile.m4s?bytes=0-1000) is necessary because Flash Player restricts use of the ‘Range’ request header. Castlabs has an .htaccess file which uses mod_rewrite to achieve this. Akamai edge servers accept the bytes query string var as well.
 
 #### Notes
 
-*   Something we may want to modify is handling the request/response portions of the workload outside of the Flash Player similar to the Video.js HLS solution. This would remove the need for having a crossdomain.xml, which cannot be normally expected to exist in a DASH focused environment.
-*   Akamai edgesuite appear to be an exception to the above rule, as those domains do in fact have the crossdomain from it’s use as a serving platform under Akamai HD. The Akamai param syntax is ‘myFile.m4s?bytes=XXXX-YYYY’.
-*   In it’s current form the Dash.AS manifest parser is very rigid. We may want to look into implementing a version of the DASH.JS manifest parsing on the AS side, as it is a lot more flexible in terms of structure recognition.
-*   Deeper class inspection shows that the Dash.AS plugin is based on using Netstream in data generation mode, similar to our HLS solution. There may be better way to share the codebase between the two to reduce code duplication.
+- Something we may want to modify is handling the request/response portions of the workload outside of the Flash Player similar to the Video.js HLS solution. This would remove the need for having a crossdomain.xml, which cannot be normally expected to exist in a DASH focused environment.
+- Akamai edgesuite appear to be an exception to the above rule, as those domains do in fact have the crossdomain from it’s use as a serving platform under Akamai HD. The Akamai param syntax is ‘myFile.m4s?bytes=XXXX-YYYY’.
+- In it’s current form the Dash.AS manifest parser is very rigid. We may want to look into implementing a version of the DASH.JS manifest parsing on the AS side, as it is a lot more flexible in terms of structure recognition.
+- Deeper class inspection shows that the Dash.AS plugin is based on using Netstream in data generation mode, similar to our HLS solution. There may be better way to share the codebase between the two to reduce code duplication.
 
 ### DASH.JS Requirements
 
 #### Player
 
-*   Environment must support [Media Source Extensions](https://developer.mozilla.org/en-US/docs/Web/API/MediaSource)
-*   DASH Industry Forum DASH.JS library ([dash.js](https://github.com/Dash-Industry-Forum/dash.js))
-*   Video.js Dash.js Tech ([videojs-tech-dashjs](https://github.com/Dash-Industry-Forum/dash.js/blob/development/contrib/videojs/videojs-tech-dashjs.js))
+- Environment must support [Media Source Extensions](https://developer.mozilla.org/en-US/docs/Web/API/MediaSource)
+- DASH Industry Forum DASH.JS library ([dash.js](https://github.com/Dash-Industry-Forum/dash.js))
+- Video.js Dash.js Tech ([videojs-tech-dashjs](https://github.com/Dash-Industry-Forum/dash.js/blob/development/contrib/videojs/videojs-tech-dashjs.js))
 
 #### Server/Host
 
-*   Open CORS headers: Access-Control-Allow-Origin: *
-*   Accept use of the Range request header: Access-Control-Allow-Headers:Range, Options
+- Open CORS headers: Access-Control-Allow-Origin: \*
+- Accept use of the Range request header: Access-Control-Allow-Headers:Range, Options
 
 #### Notes
 
-*   Dash.js MPD parsing is significantly more robust in comparison to the Dash.AS solution.
-*   Most streams tested are Akamai based, we should probably try more local and non-Akamai hosted options moving forward.*   In my testing I did see a Youtube DASH/MSE example, and those streams were confirmed to work within Dash.JS as well.
-*   Dash.JS streaming lifecycle and segment loading lifecycle tend to be directly coupled and don’t necessarily fire the element media events at the time expected. For example is duration. While known at the parse complete stage of the manifest load cycle, is not reported to the player until the first of the segments is received.
+- Dash.js MPD parsing is significantly more robust in comparison to the Dash.AS solution.
+- Most streams tested are Akamai based, we should probably try more local and non-Akamai hosted options moving forward.\* In my testing I did see a Youtube DASH/MSE example, and those streams were confirmed to work within Dash.JS as well.
+- Dash.JS streaming lifecycle and segment loading lifecycle tend to be directly coupled and don’t necessarily fire the element media events at the time expected. For example is duration. While known at the parse complete stage of the manifest load cycle, is not reported to the player until the first of the segments is received.
 
 ### Tech Compatibility
 
 The independant techs work well together. A slight modification had to be made to the Dash.AS library to insure that it only checked for resources which 1\. had a URL and 2\. url contained the file extension of either ‘mpd’ or ‘m4s’ for DASH manifests/segments.
 
 **NOTE:** Dash.JS tech should be loaded into DOM prior to OSMF tech to insure the OSMF tech is the fallback scenario for DASH playback.
-![](http://feeds.feedburner.com/~r/video-js/~4/Wn1NGaDuYmo)
+![](https://feeds.feedburner.com/~r/video-js/~4/Wn1NGaDuYmo)
