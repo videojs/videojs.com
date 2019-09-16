@@ -8,7 +8,7 @@ const Title = styled.div`
   padding: 1em 0.5em;
   text-align: center;
   letter-spacing: 1.4px;
-  color: ${({ color }) => color || 'rgba(0, 0, 0, 0.3)'};
+  color: ${({ color, theme }) => color || theme.brand.lightGreyText};
   text-transform: uppercase;
 `;
 

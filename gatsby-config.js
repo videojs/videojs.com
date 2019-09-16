@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Video.js`,
-    description: `Make your player yours with the internet's most popular video player`,
+    description: `Make your player yours with the internet's most popular open source video player framework`,
     author: `@videojs`,
   },
   plugins: [
@@ -48,7 +48,7 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
-            resolve: 'gatsby-remark-prismjs'
+            resolve: 'gatsby-remark-prismjs',
           },
         ],
       },
@@ -57,4 +57,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

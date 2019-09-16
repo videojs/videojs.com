@@ -23,7 +23,7 @@ export const H3 = styled.h3`
 
 export const P = styled.p`
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 14px;
   font-style: normal;
   font-stretch: normal;

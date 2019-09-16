@@ -16,7 +16,7 @@ const SectionHeaderTitle = styled(H1)`
   text-transform: uppercase;
   font-size: 16px;
   margin-bottom: 0.6em;
-  color: ${props => props.theme.brand.lightGrey};
+  color: ${props => props.theme.brand.lightGreyText};
 
   ${({ theme, mobileAlign, tabletAlign, desktopAlign }) => css`
     text-align: ${mobileAlign};
