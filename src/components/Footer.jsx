@@ -90,7 +90,9 @@ const Footer = () => (
     </Nav>
     <Copyright>
       <p>Video.js is a free and open source HTML5 video player.</p>
-      <p>&copy; Brightcove, Inc.</p>
+      <p>
+        &copy; <a href="https://brightcove.com">Brightcove, Inc.</a>
+      </p>
     </Copyright>
     <Logos>
       <Link href="https://twitter.com">

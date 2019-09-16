@@ -9,7 +9,7 @@ const AdvancedPage = () => (
   <Layout>
     <SEO title="advanced/index - Video.js: The Player Framework" />
     <AdvancedHero />
-    <AdvancedExample enableThemeQueryParam />
+    <AdvancedExample enableThemeQueryParam hideDescription />
   </Layout>
 );
 

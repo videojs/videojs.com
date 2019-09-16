@@ -96,28 +96,30 @@ const MediaEventsItems = styled(MediaItems)`
 `;
 
 class AdvancedExample extends React.Component {
-  constructor (...args) {
+  constructor(...args) {
     super(...args);
     this.state = { isPlayerInitialized: false };
   }
 
-  setQueryParam (plItemId) {
-    if (!this.props.enableThemeQueryParam) return
+  setQueryParam(plItemId) {
+    if (!this.props.enableThemeQueryParam) return;
     const params = new URLSearchParams(window.location.search);
     params.set('video', plItemId);
     window.history.replaceState(
       {},
       '',
       `${window.location.pathname}?${params.toString()}`
-    )
+    );
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.player = videojs(this.videoEl, {}, () => {
       if (this.player.hasPlugin('mux')) {
-        this.player.mux({ data: {
-          property_key: 'VJSISBEST',
-        }});
+        this.player.mux({
+          data: {
+            property_key: 'VJSISBEST',
+          },
+        });
       }
     });
 
@@ -135,7 +137,7 @@ class AdvancedExample extends React.Component {
     const videoParam = queryString.parse(window.location.search).video;
     let currentVideo;
     if (this.props.enableThemeQueryParam) {
-      const index = playlist.findIndex((plItem) => plItem.id === videoParam);
+      const index = playlist.findIndex(plItem => plItem.id === videoParam);
       if (index !== -1) currentVideo = index;
     }
 
@@ -145,23 +147,30 @@ class AdvancedExample extends React.Component {
     this.setState({ isPlayerInitialized: true });
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     if (this.player) {
       this.player.dispose();
     }
   }
 
-  render () {
+  render() {
     return (
       <AdvancedExampleContainer>
         <PlaylistPluginDescContainer>
-          <StyledSectionHeader desktopAlign="left" title="Example" tagline="Playlist plugin" />
-          <PlaylistPluginDesc>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-            enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat.
-          </PlaylistPluginDesc>
+          {!this.props.hideDescription && (
+            <>
+              <StyledSectionHeader
+                desktopAlign="left"
+                title="Example"
+                tagline="Playlist plugin"
+              />
+              <PlaylistPluginDesc>
+                The advanced example includes the playlist plugin, along with
+                some useful details such as what all of the player properties
+                are, and what events have fired and how often.
+              </PlaylistPluginDesc>
+            </>
+          )}
         </PlaylistPluginDescContainer>
         <PlayerBackground>
           <PlayerContainer>
@@ -171,7 +180,9 @@ class AdvancedExample extends React.Component {
               )}
               <VideoWrapper>
                 <Video
-                  ref={(el) => { this.videoEl = el }}
+                  ref={el => {
+                    this.videoEl = el;
+                  }}
                   controls
                   id="preview-player"
                   preload="auto"

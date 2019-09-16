@@ -26,11 +26,13 @@ const StyledHero = styled(Hero)`
 `;
 
 const AdvancedHero = () => (
-  <StyledHero theme={{...theme, currentTheme: theme.city}}>
+  <StyledHero theme={{ ...theme, currentTheme: theme.city }}>
     <Container>
       <H1>Advanced Example</H1>
       <StyledH2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        The advanced example includes the playlist plugin, along with some
+        useful details such as what all of the player properties are, and what
+        events have fired and how often.
       </StyledH2>
     </Container>
   </StyledHero>
