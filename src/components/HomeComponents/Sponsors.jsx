@@ -140,7 +140,7 @@ const Sponsors = props => (
         <Sponsor
           title="Corporate Shepherd"
           image="logos/brightcove.svg"
-          name="Brightcove - Video Hosting"
+          name="Brightcove - Online Video Platform | Video Hosting"
           url="https://brightcove.com"
         />
       </PrimaryContainer>
