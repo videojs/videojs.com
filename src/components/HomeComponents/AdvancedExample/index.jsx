@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import videojs from 'video.js';
 import queryString from 'query-string';
 
+import { P } from '../../Typography';
 import Container from '../../Container';
 import SectionHeader from '../../SectionHeader';
 import MediaItems from './MediaItems';
@@ -13,6 +14,7 @@ import MediaEvents from './mediaEvents';
 import PlayerControls from './PlayerControls';
 import PlayerPlaylist from './PlayerPlaylist';
 import playlist from './playlist';
+
 import rectangles from '../../../images/footer-rectangles.svg';
 
 const AdvancedExampleContainer = styled.div`
@@ -42,14 +44,6 @@ const PlaylistPluginDescContainer = styled(Container)`
 
 const StyledSectionHeader = styled(SectionHeader)`
   margin: 0;
-`;
-
-const PlaylistPluginDesc = styled.p`
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 2.14;
-  opacity: 0.6;
 `;
 
 const PlayerBackground = styled.div`
@@ -164,11 +158,11 @@ class AdvancedExample extends React.Component {
                 title="Example"
                 tagline="Playlist plugin"
               />
-              <PlaylistPluginDesc>
+              <P>
                 The advanced example includes the playlist plugin, along with
                 some useful details such as what all of the player properties
                 are, and what events have fired and how often.
-              </PlaylistPluginDesc>
+              </P>
             </>
           )}
         </PlaylistPluginDescContainer>

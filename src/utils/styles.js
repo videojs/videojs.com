@@ -2,12 +2,12 @@ import { css } from 'styled-components';
 
 import cityBg from '../images/city-hero.svg';
 import fantasyBg from '../images/fantasy-hero.svg';
-import forestBg from '../images/forrest-hero.svg';
+import forestBg from '../images/forest-hero.svg';
 import seaBg from '../images/sea-hero.svg';
 
 const brand = {
   blue: '#4276b9',
-  green: '#70af56',
+  green: '#5f8749',
   red: '#bf3d4f',
   purple: '#9F43B5',
 
