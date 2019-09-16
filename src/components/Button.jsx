@@ -8,7 +8,7 @@ const Button = styled.button`
   padding: 0.7em;
   max-width: 12em;
   margin: 0.3em;
-  color: ${props => props.theme.currentTheme.color};
+  color: ${props => props.theme.currentTheme.colorText};
   border: solid 3px ${props => props.theme.currentTheme.color};
   border-radius: 100px;
   letter-spacing: 0.1em;

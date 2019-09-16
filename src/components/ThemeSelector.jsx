@@ -16,14 +16,14 @@ const StyledButton = styled(Button)`
   ${props => props.theme.media.medium`
     margin-left: 5em;
     background-color: #fff;
-    color: ${props.theme.currentTheme.color};
+    color: ${props.theme.currentTheme.colorText};
     padding: 0;
   `}
 
   &:hover {
     ${({ theme }) => theme.media.medium`
       background-color: #fff;
-      color: ${props => props.theme.currentTheme.color};
+      color: ${props => props.theme.currentTheme.colorText};
       opacity: 0.5;
     `}
   }

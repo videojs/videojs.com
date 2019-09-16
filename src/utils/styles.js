@@ -25,6 +25,7 @@ export const heroThemes = {
     name: 'city',
     image: cityBg,
     color: brand.red,
+    colorText: brand.red,
     style: `${styleHost}/city/city.css`,
     video: 'https://stream.mux.com/ru7KMy3qxOzidq00a4n7rMkZe9tbgIpAu.m3u8',
     poster:
@@ -34,6 +35,7 @@ export const heroThemes = {
     name: 'fantasy',
     image: fantasyBg,
     color: brand.purple,
+    colorText: brand.purple,
     style: `${styleHost}/fantasy/fantasy.css`,
     video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
     poster:
@@ -43,6 +45,7 @@ export const heroThemes = {
     name: 'forest',
     image: forestBg,
     color: brand.green,
+    colorText: '#4d7838', // We need a darker green just for the buttons on white
     style: `${styleHost}/forest/forest.css`,
     video: 'https://stream.mux.com/dt7i6WNyYd8ns4V2AeJHWNKaw00aiChpR.m3u8',
     poster:
@@ -52,6 +55,7 @@ export const heroThemes = {
     name: 'sea',
     image: seaBg,
     color: brand.blue,
+    colorText: brand.blue,
     style: `${styleHost}/sea/sea.css`,
     video: 'https://stream.mux.com/TCGCMQS8XH01lxPZldTnveL8tpVXVNYxe.m3u8',
     poster:
