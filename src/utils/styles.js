@@ -15,7 +15,7 @@ const brand = {
   orange: '#f49f4d',
   grey: '#232323',
   lightGrey: '#b2b2b2',
-  lightGreyText: '#777777',
+  lightGreyText: '#666',
 };
 
 const styleHost = 'https://videojs-themes.mmcc.now.sh';
