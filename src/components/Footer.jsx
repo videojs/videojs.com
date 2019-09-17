@@ -98,7 +98,7 @@ const Footer = () => (
       <Link href="https://twitter.com/@videojs">
         <Image filename="twitter.svg" alt="Twitter logo" />
       </Link>
-      <Link href="https://mail.com">
+      <Link href="https://example.com/we-need-the-updated-thing">
         <Image filename="newsletter.svg" alt="Envelope" />
       </Link>
       <Link href="https://github.com/videojs/video.js">
