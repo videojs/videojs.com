@@ -1,48 +1,63 @@
 {
-  "name": "harp-starter-app",
-  "version": "1.0.0",
-  "description": "Just some boiler plate for a harp application",
-  "main": "Gruntfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "grunt": "grunt",
-    "dev": "grunt dev",
-    "build": "grunt dist"
-  },
-  "author": "Matthew McClure <matt@mmcc.io>",
-  "license": "MIT",
-  "devDependencies": {
-    "@gkatsev/grunt-harp": "^0.19.0",
-    "babelify": "^6.0.2",
-    "bootstrap": "^3.3.6",
-    "bootstrap-sass": "^3.3.4",
-    "browserify-global-shim": "^1.0.3",
-    "es5-shim": "^4.5.8",
-    "es6-shim": "^0.35.0",
-    "es7-shim": "^6.0.0",
-    "font-awesome": "^4.3.0",
-    "globals": "^8.2.0",
-    "grunt": "^0.4.5",
-    "grunt-browserify": "^5.0.0",
-    "grunt-cli": "^1.2.0",
-    "grunt-concurrent": "^1.0.0",
-    "grunt-contrib-copy": "^0.8.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "highlight.js": "^8.5.0",
-    "jquery": "^2.1.3",
-    "shelljs": "^0.8.1"
-  },
+  "name": "gatsby-starter-default",
+  "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-react": "^6.5.0",
-    "babelify": "^7.3.0",
-    "global": "^4.3.0",
-    "marked": "^0.3.3",
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2",
-    "shortid": "^2.2.6",
-    "videojs-contrib-hls": "^5.12.2",
-    "videojs-playlist": "^4.2.2",
-    "videojs-playlist-ui": "^3.0.8"
+    "@mdx-js/mdx": "^1.0.21",
+    "@mdx-js/react": "^1.0.21",
+    "babel-plugin-styled-components": "^1.10.0",
+    "gatsby": "^2.4.3",
+    "gatsby-image": "^2.0.41",
+    "gatsby-mdx": "^0.6.3",
+    "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-offline": "^2.1.0",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sharp": "^2.0.37",
+    "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-remark-prismjs": "^3.3.0",
+    "gatsby-source-filesystem": "^2.0.33",
+    "gatsby-transformer-json": "^2.2.0",
+    "gatsby-transformer-sharp": "^2.1.19",
+    "github-slugger": "^1.2.1",
+    "lodash": "^4.17.11",
+    "polished": "^3.4.1",
+    "prismjs": "^1.16.0",
+    "prop-types": "^15.7.2",
+    "query-string": "^6.8.2",
+    "react": "^16.8.6",
+    "react-burger-menu": "^2.6.10",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "react-input-slider": "^5.0.15",
+    "shortid": "^2.2.14",
+    "styled-components": "^4.2.0",
+    "video.js": "^7.6.0",
+    "videojs-mux": "^2.5.0",
+    "videojs-playlist": "^4.3.1",
+    "videojs-playlist-ui": "^3.5.2"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
