@@ -75,7 +75,7 @@ const HomeHero = props => (
   <Hero>
     <Container>
       <H1>Make your player yours</H1>
-      <H2>with the worlds most popular open source HTML5 player</H2>
+      <H2>with the world's most popular open source HTML5 player framework</H2>
 
       <DemoContainer>
         {props.heroTheme && (
