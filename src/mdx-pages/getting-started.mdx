@@ -1,0 +1,118 @@
+## Download
+
+There are a few ways to get started using Video.js (currently v7.5.5), but you should select the one that best fits your particular use case.
+
+### Video.js CDN
+
+Our friends at [Fastly](http://fastly.com) are nice enough to provide hosting for all the necessary files for Video.js on their content delivery network. Using these hosted files is probably the easiest way to get started using Video.js, you simply need to include the following links in your page.
+
+```html
+<head>
+  <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet">
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+</head>
+
+<body>
+  <video id='my-video' class='video-js' controls preload='auto' width='640' height='264'
+  poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
+    <source src='MY_VIDEO.mp4' type='video/mp4'>
+    <source src='MY_VIDEO.webm' type='video/webm'>
+    <p class='vjs-no-js'>
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+    </p>
+  </video>
+
+  <script src='https://vjs.zencdn.net/7.5.5/video.js'></script>
+</body>
+```
+
+### Install via npm
+
+For more advanced workflows, installing via [npm](http://npmjs.com) is recommended
+
+```
+$ npm install --save-dev video.js
+```
+
+### Internet Explorer Support
+
+Beginning with v7, we will no longer support Microsoft Internet Explorer versions prior to IE 11, including IE 8, 9, and 10. Microsoft dropped support for these versions over two years ago, they are widely considered out of compliance with modern security standards, and they comprise less than 0.1% of Video.js browser usage. 
+
+For versions of Video.js prior to v7, there are a few common things you should keep in mind regardless of how you end up including Video.js in your project. The core codebase uses a few modern features of Javascript (ES5), so if you'd like to support IE8 you'll need to include an ES5 shim. To make things easier, we created a single file you can include for IE8 support. No matter where the core Video.js library is placed, this file needs to be located in the <code>&lt;head&gt;</code> of the document.
+
+### Google Analytics
+
+We include a stripped down Google Analytics pixel that tracks a random percentage (currently 1%) of players loaded from the CDN. This allows us to see (roughly) what browsers are in use in the wild, along with other useful metrics such as OS and device. If you'd like to disable analytics, you can simply include the following global before including Video.js via the free CDN:
+
+Note: v7 will not send any data, and v6.8 and up respect the browser's do not track flag.
+
+```javascript
+window.HELP_IMPROVE_VIDEOJS = false;
+```
+
+## What's in the box?
+
+If you've downloaded one of the [releases](https://github.com/videojs/Video.js/releases) or installed via a package manager, you've probably noticed that the contents are slightly different from the source code available on Github. The former includes just the compiled files necessary to use Video.js, and the latter includes the source used to create those files.
+
+### Distributions
+
+A Video.js distribution is what you'll find if you've downloaded a release or installed via a package manager.
+
+```
+Video.js/
+├── alt
+│   ├── video.core.js
+│   ├── video.core.min.js
+│   ├── video.core.novtt.js
+│   ├── video.core.novtt.min.js
+│   ├── video.novtt.js
+│   └── video.novtt.min.js
+├── examples/
+├── font
+│   ├── VideoJS.svg
+│   ├── VideoJS.ttf
+│   └── VideoJS.woff
+├── lang/
+├── video-js-<span class="vjs-version">$LATEST_VERSION$</span>.zip
+├── video-js.css
+├── video-js.min.css
+├── video.cjs.js
+├── Video.es.js
+├── Video.js
+└── video.min.js
+```
+
+This package includes everything you'll need to use Video.js on a production site. By default, we bundle Video.js with Mozilla's excellent [VTT.js](https://github.com/mozilla/vtt.js). If you don't need VTT.js functionality for whatever reason, you can use one of the Video.js copies that don't include VTT.js. These have <code>novtt</code> in the name and can be found in the <code>alt/</code> directory. <code>font/</code> includes all the generated icon font files from the [Videojs Font project](https://github.com/videojs/font). <code>lang/</code> contains all the generated translation files.
+
+### Source Code
+
+The source code is everything you'll find when checking out the Video.js git repository. This includes all the source files and any tooling necessary to build a production ready version of Video.js, as well as useful development tools such as sandboxed examples.
+
+A lot of the root source directory is JSON configs for various package managers because, Internet. Most likely the important things you're looking for will be in <code>src/</code> and <code>build/</code>. <code>src/</code> contains all of the source files for both the player JS and the base skin, while the <code>build/</code> directory contains various grunt tasks as well as the primary build file, <code>grunt.js</code>.
+
+## Build Tools
+
+Before getting started, you'll need [Node.js](https://nodejs.org/) installed. See [CONTRIBUTING.md](https://github.com/videojs/video.js/blob/master/CONTRIBUTING.md#contributing-code) for more details.
+
+## Customize
+
+Using Video.js straight out of the box is fine, but we think it's better if you make it your own. Plugins and skins make it possible to completely customize your player.
+
+### Skinning
+
+The player skin is completely built from HTML and CSS, including when Flash and other players like YouTube are used.
+
+Skin changes can be as simple as centering the play button (you can just add the 'vjs-big-play-centered' class to your video tag), or as complex as creating entirely new layouts. We've built a codepen project where you can explore different changes.
+
+[Video.js Skin Designer](https://codepen.io/heff/pen/EarCt)
+
+And if you know CSS, you can always just open your Chrome dev tools and hack away!
+
+### Plugins
+
+Video.js by itself is purposefully very simple. It supports the basic video and audio playback features and ensures they work the same across different playback technologies ("techs"). Any more advanced features are built as plugins, including playlists, analytics, advertising, and support for advanced formats like HLS and DASH. Check out the plugins page to see what's available.
+
+[Video.js Plugins](/plugins)
