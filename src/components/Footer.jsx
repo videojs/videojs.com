@@ -98,7 +98,7 @@ const Footer = () => (
       <Link href="https://twitter.com/@videojs">
         <Image filename="twitter.svg" alt="Twitter logo" />
       </Link>
-      <Link href="https://example.com/we-need-the-updated-thing">
+      <Link href="https://us2.list-manage.com/subscribe?u=36f130c3d3fadb2a21d2983b7&id=0f35b0535c">
         <Image filename="newsletter.svg" alt="Envelope" />
       </Link>
       <Link href="https://github.com/videojs/video.js">

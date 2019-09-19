@@ -27,9 +27,9 @@ export const heroThemes = {
     color: brand.red,
     colorText: brand.red,
     style: `${styleHost}/city/city.css`,
-    video: 'https://stream.mux.com/ru7KMy3qxOzidq00a4n7rMkZe9tbgIpAu.m3u8',
+    video: 'https://stream.mux.com/UZMwOY6MgmhFNXLbSFXAuPKlRPss5XNA.m3u8',
     poster:
-      'https://image.mux.com/ru7KMy3qxOzidq00a4n7rMkZe9tbgIpAu/thumbnail.jpg?time=11',
+      'https://image.mux.com/UZMwOY6MgmhFNXLbSFXAuPKlRPss5XNA/thumbnail.jpg?time=11',
   },
   fantasy: {
     name: 'fantasy',
