@@ -1,6 +1,8 @@
 import React from 'react';
 import { heroThemes } from '../utils/styles';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
+
 import Button from './Button';
 
 import UpArrow from '../images/up-arrow.svg';
@@ -103,7 +105,7 @@ const ThemeItem = styled.li`
     padding: 6px 0;
   `}
 
-  button {
+  a {
     color: ${props => props.color};
     font-weight: bold;
     border: none;
@@ -167,7 +169,7 @@ class ThemeSelector extends React.Component {
                   color={heroThemes[key].color}
                   active={this.props.currentTheme === key}
                 >
-                  <button onClick={this.onThemeClick(key)}>{key}</button>
+                  <Link to={`/${key}`}>{key}</Link>
                 </ThemeItem>
               );
             })}

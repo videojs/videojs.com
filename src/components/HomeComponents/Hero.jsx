@@ -71,6 +71,12 @@ const DemoControls = styled.div`
   }
 `;
 
+const PlayerPlaceholder = styled.div`
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-color: #a9a9a9;
+`;
+
 const HomeHero = props => (
   <Hero>
     <Container>
@@ -78,7 +84,7 @@ const HomeHero = props => (
       <H2>with the world's most popular open source HTML5 player framework</H2>
 
       <DemoContainer>
-        {props.heroTheme && (
+        {props.heroTheme.video ? (
           <Player
             controls
             fluid
@@ -88,6 +94,8 @@ const HomeHero = props => (
             ]}
             poster={props.heroTheme.poster}
           />
+        ) : (
+          <PlayerPlaceholder />
         )}
         <DemoControls>
           <Button as={Link} to="/getting-started">

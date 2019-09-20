@@ -18,7 +18,12 @@ const brand = {
   lightGreyText: '#666',
 };
 
-const styleHost = 'https://videojs-themes.mmcc.now.sh';
+export const blankTheme = {
+  name: 'blank',
+  image: undefined,
+  color: '#999',
+  colorText: '#000',
+};
 
 export const heroThemes = {
   city: {
@@ -26,7 +31,6 @@ export const heroThemes = {
     image: cityBg,
     color: brand.red,
     colorText: brand.red,
-    style: `${styleHost}/city/city.css`,
     video: 'https://stream.mux.com/UZMwOY6MgmhFNXLbSFXAuPKlRPss5XNA.m3u8',
     poster:
       'https://image.mux.com/UZMwOY6MgmhFNXLbSFXAuPKlRPss5XNA/thumbnail.jpg?time=11',
@@ -36,7 +40,6 @@ export const heroThemes = {
     image: fantasyBg,
     color: brand.purple,
     colorText: brand.purple,
-    style: `${styleHost}/fantasy/fantasy.css`,
     video: 'https://stream.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3.m3u8',
     poster:
       'https://image.mux.com/FGZHQaIg7cjVNS2dgTrnMYSdCkXohOl3/thumbnail.jpg',
@@ -46,7 +49,6 @@ export const heroThemes = {
     image: forestBg,
     color: brand.green,
     colorText: '#4d7838', // We need a darker green just for the buttons on white
-    style: `${styleHost}/forest/forest.css`,
     video: 'https://stream.mux.com/dt7i6WNyYd8ns4V2AeJHWNKaw00aiChpR.m3u8',
     poster:
       'https://image.mux.com/dt7i6WNyYd8ns4V2AeJHWNKaw00aiChpR/thumbnail.jpg',
@@ -56,7 +58,6 @@ export const heroThemes = {
     image: seaBg,
     color: brand.blue,
     colorText: brand.blue,
-    style: `${styleHost}/sea/sea.css`,
     video: 'https://stream.mux.com/TCGCMQS8XH01lxPZldTnveL8tpVXVNYxe.m3u8',
     poster:
       'https://image.mux.com/TCGCMQS8XH01lxPZldTnveL8tpVXVNYxe/thumbnail.jpg',

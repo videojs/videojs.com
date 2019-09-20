@@ -181,7 +181,7 @@ class AdvancedExample extends React.Component {
                   id="preview-player"
                   preload="auto"
                   crossOrigin="anonymous"
-                  className="video-js vjs-fluid"
+                  className="video-js vjs-fluid vjs-big-play-centered"
                 />
                 <PlayerPlaylist />
               </VideoWrapper>

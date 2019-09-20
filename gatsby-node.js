@@ -7,12 +7,26 @@ const path = require('path');
 const _ = require('lodash');
 const { createFilePath } = require('gatsby-source-filesystem');
 
+const createHomePages = async ({ actions }) => {
+  ['city', 'fantasy', 'forest', 'sea'].forEach(theme => {
+    actions.createPage({
+      path: theme,
+      component: path.resolve(
+        path.join('src', 'templates', 'HomeTemplate.jsx')
+      ),
+      context: {
+        theme,
+      },
+    });
+  });
+};
+
 const createGettingStartedPage = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const result = await graphql(`
     {
-      allMdx (filter: { fileAbsolutePath: { regex: "/getting-started.md/" } }) {
+      allMdx(filter: { fileAbsolutePath: { regex: "/getting-started.md/" } }) {
         edges {
           node {
             id
@@ -28,13 +42,15 @@ const createGettingStartedPage = async ({ graphql, actions }) => {
   result.data.allMdx.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
-      component: path.resolve(path.join('src', 'templates', 'GettingStartedTemplate.jsx')),
+      component: path.resolve(
+        path.join('src', 'templates', 'GettingStartedTemplate.jsx')
+      ),
       context: { id: node.id },
     });
   });
 };
 
-const getBlogPagePath = (pageNum) => {
+const getBlogPagePath = pageNum => {
   const blogPath = '/blog';
   return pageNum ? `${blogPath}/${pageNum}` : blogPath;
 };
@@ -44,7 +60,7 @@ const createBlogPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
-      allMdx (
+      allMdx(
         filter: { fileAbsolutePath: { regex: "/blog/" } }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
@@ -66,12 +82,14 @@ const createBlogPages = async ({ graphql, actions }) => {
   const posts = result.data.allMdx.edges;
 
   posts.forEach(({ node }, i) => {
-    const prevPost = (i > 0) ? posts[i - 1].node : null;
-    const nextPost = (i < (posts.length - 1)) ? posts[i + 1].node : null;
+    const prevPost = i > 0 ? posts[i - 1].node : null;
+    const nextPost = i < posts.length - 1 ? posts[i + 1].node : null;
 
     createPage({
       path: node.fields.slug,
-      component: path.resolve(path.join('src', 'templates', 'BlogPostTemplate.jsx')),
+      component: path.resolve(
+        path.join('src', 'templates', 'BlogPostTemplate.jsx')
+      ),
       context: {
         id: node.id,
         prevPost: prevPost && prevPost.fields.slug,
@@ -86,33 +104,40 @@ const createBlogPages = async ({ graphql, actions }) => {
   for (let i = 1; i <= numPages; i++) {
     createPage({
       path: i === 1 ? getBlogPagePath() : getBlogPagePath(i),
-      component: path.resolve(path.join('src', 'templates', 'BlogListTemplate.jsx')),
+      component: path.resolve(
+        path.join('src', 'templates', 'BlogListTemplate.jsx')
+      ),
       context: {
         limit: postsPerPage,
         skip: (i - 1) * postsPerPage,
         currentPage: i,
-        prevPage: (i > 1) ? getBlogPagePath(i - 1) : null,
-        nextPage: (i < numPages) ? getBlogPagePath(i + 1) : null,
+        prevPage: i > 1 ? getBlogPagePath(i - 1) : null,
+        nextPage: i < numPages ? getBlogPagePath(i + 1) : null,
         numPages,
       },
     });
   }
 
-  const tags = _.uniq(posts.reduce((acc, post) => ([
-    ...acc,
-    ...(post.node.frontmatter.tags || []),
-  ]), []));
+  const tags = _.uniq(
+    posts.reduce(
+      (acc, post) => [...acc, ...(post.node.frontmatter.tags || [])],
+      []
+    )
+  );
 
-  tags.forEach((tag) => {
+  tags.forEach(tag => {
     createPage({
       path: `/tags/${tag}`,
-      component: path.resolve(path.join('src', 'templates', 'BlogTagTemplate.jsx')),
+      component: path.resolve(
+        path.join('src', 'templates', 'BlogTagTemplate.jsx')
+      ),
       context: { tag },
     });
   });
 };
 
-exports.createPages = async (ctx) => {
+exports.createPages = async ctx => {
+  await createHomePages(ctx);
   await createGettingStartedPage(ctx);
   await createBlogPages(ctx);
 };
@@ -126,7 +151,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: 'slug',
       node,
-      value
+      value,
     });
   }
 };

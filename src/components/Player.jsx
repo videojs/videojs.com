@@ -1,6 +1,13 @@
 import videojs from 'video.js';
 import React from 'react';
+
 import 'video.js/dist/video-js.css';
+
+import { heroThemes } from '../utils/styles';
+
+Object.keys(heroThemes).map(theme =>
+  require(`@videojs/themes/dist/${theme}/${theme}.css`)
+);
 
 class Player extends React.Component {
   componentDidMount() {

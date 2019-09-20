@@ -58,7 +58,7 @@ const CheckboxInput = ({ label, checked, onChange }) => (
     <Box checked={checked} onClick={onChange}>
       {checked && <StyledTickIcon />}
     </Box>
-    {label && <Label for={label}>{label}</Label>}
+    {label && <Label htmlFor={label}>{label}</Label>}
   </Wrapper>
 );
 
