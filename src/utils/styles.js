@@ -50,6 +50,10 @@ export const heroThemes = {
     color: brand.green,
     colorText: '#4d7838', // We need a darker green just for the buttons on white
     video: 'https://stream.mux.com/dt7i6WNyYd8ns4V2AeJHWNKaw00aiChpR.m3u8',
+    videoDetails: {
+      attribution: 'Planet Earth II Official Trailer - © BBC Studios',
+      link: 'https://www.bbcearth.com/planetearth2/',
+    },
     poster:
       'https://image.mux.com/dt7i6WNyYd8ns4V2AeJHWNKaw00aiChpR/thumbnail.jpg',
   },
@@ -58,9 +62,13 @@ export const heroThemes = {
     image: seaBg,
     color: brand.blue,
     colorText: brand.blue,
-    video: 'https://stream.mux.com/TCGCMQS8XH01lxPZldTnveL8tpVXVNYxe.m3u8',
+    video: 'https://stream.mux.com/5g1hMA6dKAe8DCgBB901DYB200U65ev2y00.m3u8',
+    videoDetails: {
+      attribution: 'Blue Planet II Official Trailer - © BBC Studios',
+      link: 'https://www.bbcearth.com/blueplanet2/',
+    },
     poster:
-      'https://image.mux.com/TCGCMQS8XH01lxPZldTnveL8tpVXVNYxe/thumbnail.jpg',
+      'https://image.mux.com/5g1hMA6dKAe8DCgBB901DYB200U65ev2y00/thumbnail.jpg?time=43',
   },
 };
 

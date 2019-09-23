@@ -162,7 +162,7 @@ const Layout = ({ children, heroTheme }) => {
             ) : null}
             <Header siteTitle={data.site.siteMetadata.title} />
             <main>{children}</main>
-            <Footer />
+            <Footer heroVideoDetails={heroTheme.videoDetails} />
           </>
         </ThemeProvider>
       )}

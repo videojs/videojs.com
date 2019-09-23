@@ -64,7 +64,7 @@ const Logos = styled.div`
   }
 `;
 
-const Footer = () => (
+const Footer = props => (
   <Wrapper>
     <VideoJsLogoWrapper>
       <Link to="/">
@@ -93,6 +93,14 @@ const Footer = () => (
       <p>
         &copy; <a href="https://brightcove.com">Brightcove, Inc.</a>
       </p>
+      {props.heroVideoDetails && (
+        <p>
+          Example video:{' '}
+          <a href={props.heroVideoDetails.link}>
+            {props.heroVideoDetails.attribution}
+          </a>
+        </p>
+      )}
     </Copyright>
     <Logos>
       <Link href="https://twitter.com/@videojs">
