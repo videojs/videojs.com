@@ -89,10 +89,6 @@ const Footer = props => (
       </NavItem>
     </Nav>
     <Copyright>
-      <p>Video.js is a free and open source HTML5 video player framework.</p>
-      <p>
-        &copy; <a href="https://brightcove.com">Brightcove, Inc.</a>
-      </p>
       {props.heroVideoDetails && (
         <p>
           Example video:{' '}
@@ -101,6 +97,10 @@ const Footer = props => (
           </a>
         </p>
       )}
+      <p>Video.js is a free and open source HTML5 video player framework.</p>
+      <p>
+        &copy; <a href="https://brightcove.com">Brightcove, Inc.</a>
+      </p>
     </Copyright>
     <Logos>
       <Link href="https://twitter.com/@videojs">
