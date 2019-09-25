@@ -7,7 +7,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.0.21",
     "@mdx-js/react": "^1.0.21",
-    "@videojs/themes": "^1.0.0-beta.3",
+    "@videojs/themes": "^1.0",
     "babel-plugin-styled-components": "^1.10.0",
     "gatsby": "^2.4.3",
     "gatsby-image": "^2.0.41",

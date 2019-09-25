@@ -8,24 +8,35 @@ Our friends at [Fastly](http://fastly.com) are nice enough to provide hosting fo
 
 ```html
 <head>
-  <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet">
+  <link href="https://vjs.zencdn.net/7.5.5/video-js.css" rel="stylesheet" />
 
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 </head>
 
 <body>
-  <video id='my-video' class='video-js' controls preload='auto' width='640' height='264'
-  poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
-    <source src='MY_VIDEO.mp4' type='video/mp4'>
-    <source src='MY_VIDEO.webm' type='video/webm'>
-    <p class='vjs-no-js'>
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+  <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    poster="MY_VIDEO_POSTER.jpg"
+    data-setup="{}"
+  >
+    <source src="MY_VIDEO.mp4" type="video/mp4" />
+    <source src="MY_VIDEO.webm" type="video/webm" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
     </p>
   </video>
 
-  <script src='https://vjs.zencdn.net/7.5.5/video.js'></script>
+  <script src="https://vjs.zencdn.net/7.5.5/video.js"></script>
 </body>
 ```
 
@@ -39,7 +50,7 @@ $ npm install --save-dev video.js
 
 ### Internet Explorer Support
 
-Beginning with v7, we will no longer support Microsoft Internet Explorer versions prior to IE 11, including IE 8, 9, and 10. Microsoft dropped support for these versions over two years ago, they are widely considered out of compliance with modern security standards, and they comprise less than 0.1% of Video.js browser usage. 
+Beginning with v7, we will no longer support Microsoft Internet Explorer versions prior to IE 11, including IE 8, 9, and 10. Microsoft dropped support for these versions over two years ago, they are widely considered out of compliance with modern security standards, and they comprise less than 0.1% of Video.js browser usage.
 
 For versions of Video.js prior to v7, there are a few common things you should keep in mind regardless of how you end up including Video.js in your project. The core codebase uses a few modern features of Javascript (ES5), so if you'd like to support IE8 you'll need to include an ES5 shim. To make things easier, we created a single file you can include for IE8 support. No matter where the core Video.js library is placed, this file needs to be located in the <code>&lt;head&gt;</code> of the document.
 
@@ -107,9 +118,31 @@ The player skin is completely built from HTML and CSS, including when Flash and 
 
 Skin changes can be as simple as centering the play button (you can just add the 'vjs-big-play-centered' class to your video tag), or as complex as creating entirely new layouts. We've built a codepen project where you can explore different changes.
 
-[Video.js Skin Designer](https://codepen.io/heff/pen/EarCt)
+#### Home Page Themes
 
-And if you know CSS, you can always just open your Chrome dev tools and hack away!
+The themes in the home page come from the [Videojs Themes library](https://github.com/videojs/themes). To use them in your player, import the CSS, then add the relevant class to your video tag. For example, if you want to use the [City](/city) theme, you could set up your HTML like so:
+
+```html
+<!-- In the head of your document with your other CSS includes... -->
+<!-- Video.js base CSS -->
+<link
+  href="https://unpkg.com/video.js@7/dist/video-js.min.css"
+  rel="stylesheet"
+/>
+
+<!-- City -->
+<link
+  href="https://unpkg.com/@videojs/themes@1/dist/city/index.css"
+  rel="stylesheet"
+/>
+
+<!-- Then, in the player -->
+<video class="video-js vjs-theme-city" ...></video>
+```
+
+#### Designing your own
+
+A great place to start is the [Video.js Skin Designer](https://codepen.io/heff/pen/EarCt), but at the end of the day we suggest using the cascading aspect of CSS to simply override the parts of the design you want to customize.
 
 ### Plugins
 
