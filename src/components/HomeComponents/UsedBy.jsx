@@ -5,7 +5,7 @@ import Container from '../Container';
 import SectionHeader from '../SectionHeader';
 import Image from '../Image';
 import VideoWrapper from '../VideoWrapper';
-import CustomerLogos from './CustomerLogos';
+import UsedByLogos from './UsedByLogos';
 
 import PlayerExamples from './PlayerExamples';
 
@@ -102,7 +102,6 @@ const GuardianPlayer = () => (
   </VideoWrapper>
 );
 
-
 const UsedByContainer = styled(Container)`
   & {
     padding-top: 10em;
@@ -140,7 +139,7 @@ const UsedBy = props => (
         />
       </UsedByContainer>
     </UsedByWrapper>
-    <CustomerLogos />
+    <UsedByLogos />
   </>
 );
 
