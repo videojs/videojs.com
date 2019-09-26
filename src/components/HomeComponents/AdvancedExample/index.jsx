@@ -17,29 +17,33 @@ import playlist from './playlist';
 
 import rectangles from '../../../images/footer-rectangles.svg';
 
-const AdvancedExampleContainer = styled.div`
-  display: none;
-
-  ${({ theme }) => theme.media.xLarge`
-    display: block;
-  `}
-`;
+const AdvancedExampleContainer = styled.div``;
 
 const PlaylistPluginDescContainer = styled(Container)`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-bottom: 2.2em;
-
-  > * {
-    width: 33%;
+  margin-top: 1.5em;
+  p {
+    padding: 0 2.5em;
   }
+  ${({ theme }) => theme.media.medLarge`
+    margin-top: 0;
+    p {
+      padding: 0;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 2.2em;
 
-  & {
-    ${({ theme }) => theme.media.xLarge`
-      padding-top: 12.5em;
-    `}
-  }
+    > * {
+      width: 33%;
+    }
+
+    & {
+      ${({ theme }) => theme.media.xLarge`
+        padding-top: 12.5em;
+      `}
+    }
+ `}
 `;
 
 const StyledSectionHeader = styled(SectionHeader)`
@@ -63,10 +67,12 @@ const ControlsWrapper = styled.div`
 `;
 
 const VideoWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   margin-bottom: 1.25em;
+  ${({ theme }) => theme.media.medLarge`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  `}
 `;
 
 const Video = styled.video`

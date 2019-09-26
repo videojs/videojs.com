@@ -7,13 +7,19 @@ import RangeInput from '../../RangeInput';
 const Form = styled.form`
   background-color: #fff;
   border: 0.125em solid #ebebeb;
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 14.57em;
-  width: 19.94em;
+  width: 90%;
   padding: 1.5em;
+  margin: 0 auto 1.5em auto;
   z-index: 1;
+
+  ${({ theme }) => theme.media.medLarge`
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 19.94em;
+  `}
 
   ${({ theme }) => theme.media.medLarge`
     top: -2em;

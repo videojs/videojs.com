@@ -2,8 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PlaylistWrapper = styled.div`
-  flex: 1 1 25%;
+  height: 25em;
   position: relative;
+  margin: 3.5em;
+
+  ${({ theme }) => theme.media.medLarge`
+    flex: 1 1 25%;
+    margin: 0;
+  `}
 
   .vjs-playlist {
     background: transparent;
