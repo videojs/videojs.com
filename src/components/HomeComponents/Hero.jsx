@@ -84,10 +84,9 @@ const HomeHero = props => (
       <H2>with the world's most popular open source HTML5 player framework</H2>
 
       <DemoContainer>
-        {typeof window !== 'undefined' && props.heroTheme.video ? (
+        {props.heroTheme.video ? (
           <Player
             controls
-            fluid
             themeName={props.heroTheme.name}
             sources={[
               { src: props.heroTheme.video, type: 'application/x-mpegurl' },

@@ -37,7 +37,10 @@ class Player extends React.Component {
     return (
       <div>
         <div data-vjs-player>
-          <video ref={node => (this.videoNode = node)} className="video-js" />
+          <video
+            ref={node => (this.videoNode = node)}
+            className="video-js vjs-16-9"
+          />
         </div>
       </div>
     );
