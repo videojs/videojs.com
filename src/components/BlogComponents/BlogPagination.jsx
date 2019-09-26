@@ -7,7 +7,9 @@ import Link from '../Link';
 const BlogPaginationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-left: 4.375em;
+  ${({ theme }) => theme.media.medLarge`
+    padding-left: 4.375em;
+  `}
   margin-bottom: 3em;
 `;
 

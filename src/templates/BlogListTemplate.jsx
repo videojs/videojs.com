@@ -1,11 +1,20 @@
 import React from 'react';
 import shortid from 'shortid';
+import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 import BlogLayout from '../components/BlogComponents/BlogLayout';
 import BlogPost from '../components/BlogComponents/BlogPost';
 import BlogPagination from '../components/BlogComponents/BlogPagination';
+import BlogTags from '../components/BlogComponents/BlogTags';
+import BlogRecentPosts from '../components/BlogComponents/BlogRecentPosts';
 import { extractNodes } from '../utils/graphql';
+
+const BottomPanels = styled.div`
+  ${({ theme }) => theme.media.medLarge`
+    display: none;
+  `}
+`
 
 const BlogListTemplate = ({
   data: { allMdx },
@@ -18,6 +27,10 @@ const BlogListTemplate = ({
       {posts.map(post => (
         <BlogPost key={shortid.generate()} post={post} />
       ))}
+      <BottomPanels>
+        <BlogTags />
+        <BlogRecentPosts />
+      </BottomPanels>
       <BlogPagination
         prevLink={prevPage}
         prevLinkCaption="Prev page"

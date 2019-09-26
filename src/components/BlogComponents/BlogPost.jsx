@@ -20,8 +20,12 @@ const Wrapper = styled.article`
 `;
 
 const AvatarCol = styled.div`
-  flex: 0 1 auto;
-  margin-right: 1.25em;
+  display: none;
+  ${({ theme }) => theme.media.medLarge`
+    display: block;
+    flex: 0 1 auto;
+    margin-right: 1.25em;
+  `}
 `;
 
 const Avatar = styled.img`
@@ -35,7 +39,10 @@ const Avatar = styled.img`
 
 const TextCol = styled.div`
   flex: 1 1 auto;
-  max-width: calc(100% - 4.375em);
+  max-width: 100%;
+  ${({ theme }) => theme.media.medLarge`
+    max-width: calc(100% - 4.375em);
+  `}
 `;
 
 const Meta = styled.div`
@@ -47,6 +54,12 @@ const Meta = styled.div`
   font-weight: 300;
   height: 2.78em;
   margin-bottom: 1.5em;
+  ${Link} {
+   display: block;
+   ${({ theme }) => theme.media.medLarge`
+      display: none;
+   `}
+  }
 `;
 
 const Text = styled.div`
@@ -88,19 +101,24 @@ const TitleLink = styled(Link)`
   color: #000;
 `;
 
+const AvatarLink = ({ github }) => (
+  <Link
+    href={getAuthorProfile(github)}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Avatar src={getAuthorAvatar(github)} />
+  </Link>
+)
+
 const BlogPost = ({ post: { frontmatter, code, fields } }) => (
   <Wrapper>
     <AvatarCol>
-      <Link
-        href={getAuthorProfile(frontmatter.author.github)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Avatar src={getAuthorAvatar(frontmatter.author.github)} />
-      </Link>
+      <AvatarLink github={frontmatter.author.github} />
     </AvatarCol>
     <TextCol>
       <Meta>
+        <AvatarLink github={frontmatter.author.github} />
         <span>{frontmatter.author.name}</span>
         <span>{frontmatter.date}</span>
       </Meta>

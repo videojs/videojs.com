@@ -10,18 +10,30 @@ import BlogTags from './BlogTags';
 import BlogRecentPosts from './BlogRecentPosts';
 
 const StyledContainer = styled(Container)`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 7em;
+  margin-top: 2em;
+  ${({ theme }) => theme.media.medLarge`
+    margin: 7em 0 0 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  `}
 `;
 
 const PostWrapper = styled.div`
-  width: 74%;
-  padding-right: 3em;
+  margin: 0 2em;
+  ${({ theme }) => theme.media.medLarge`
+    padding-right: 3em;
+    margin: 0;
+    width: 74%;
+  `}
 `;
 
 const Sidebar = styled.aside`
-  width: 19%;
+  display: none;
+  ${({ theme }) => theme.media.medLarge`
+    display: block;
+    width: 19%;
+  `}
 `;
 
 const BlogLayout = ({ children, seo }) => (
@@ -29,13 +41,13 @@ const BlogLayout = ({ children, seo }) => (
     <SEO {...seo} />
     <BlogHero />
     <StyledContainer>
-      <PostWrapper>
-        {children}
-      </PostWrapper>
       <Sidebar>
         <BlogTags />
         <BlogRecentPosts />
       </Sidebar>
+      <PostWrapper>
+        {children}
+      </PostWrapper>
     </StyledContainer>
   </Layout>
 );
