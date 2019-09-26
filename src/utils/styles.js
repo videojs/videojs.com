@@ -40,9 +40,9 @@ export const heroThemes = {
     image: fantasyBg,
     color: brand.purple,
     colorText: brand.purple,
-    video: 'https://stream.mux.com/Gmf5eKeNSARTRr8X02RRHKac02tLd1Tks3.m3u8',
+    video: 'https://stream.mux.com/9V2DYex7h8lpXWB64vh8yiEAdHti8VOG.m3u8',
     poster:
-      'https://image.mux.com/Gmf5eKeNSARTRr8X02RRHKac02tLd1Tks3/thumbnail.jpg?time=10',
+      'https://image.mux.com/9V2DYex7h8lpXWB64vh8yiEAdHti8VOG/thumbnail.jpg?time=10',
   },
   forest: {
     name: 'forest',
