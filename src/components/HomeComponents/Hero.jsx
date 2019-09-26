@@ -84,7 +84,7 @@ const HomeHero = props => (
       <H2>with the world's most popular open source HTML5 player framework</H2>
 
       <DemoContainer>
-        {props.heroTheme.video ? (
+        {typeof window !== 'undefined' && props.heroTheme.video ? (
           <Player
             controls
             fluid

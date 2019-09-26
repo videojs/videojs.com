@@ -19,7 +19,7 @@ const IndexPage = props => {
   return (
     <Layout heroTheme={heroTheme}>
       <SEO
-        title="Make your player yours"
+        title="Video.js - Make your player yours"
         keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
       />
       <Hero heroTheme={heroTheme}>
