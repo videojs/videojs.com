@@ -7,7 +7,7 @@ import AdvancedHero from '../components/AdvancedComponents/AdvancedHero';
 
 const AdvancedPage = () => (
   <Layout>
-    <SEO title="advanced/index - Video.js: The Player Framework" />
+    <SEO title="Video.js - Make your player yours" />
     <AdvancedHero />
     <AdvancedExample enableThemeQueryParam hideDescription />
   </Layout>
