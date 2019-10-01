@@ -12,6 +12,10 @@ const StyledH2 = styled(H2)`
   line-height: 1.5;
   max-width: 33em;
   margin: 0 auto;
+  padding: 2em 1em;
+  ${({ theme }) => theme.media.medLarge`
+    padding: 0;
+  `}
 `;
 
 const StyledHero = styled(Hero)`
