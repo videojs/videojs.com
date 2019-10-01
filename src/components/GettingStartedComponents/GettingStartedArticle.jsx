@@ -6,7 +6,10 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 import WithMdxComponents from '../WithMdxComponents';
 
 const Wrapper = styled.article`
-  width: 76%;
+  width: 100%;
+  ${({ theme }) => theme.media.medLarge`
+    width: 76%;
+  `}
 
   h2, h3 {
     font-size: 28px;
