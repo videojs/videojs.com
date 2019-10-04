@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Link from '../Link';
 
 import Button from '../Button';
@@ -22,12 +22,23 @@ const StyledThemeSelector = styled(ThemeSelector)`
   }
 `;
 
+const growingBar = keyframes`
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(100%);
+  }
+`;
+
 const DemoControls = styled.div`
   background-color: #fff;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  position: relative;
 
   ${({ theme }) => theme.media.medium`
     padding: 2.5em 2em;
@@ -69,6 +80,18 @@ const DemoControls = styled.div`
       flex: 1;
     `}
   }
+
+  &:before {
+    content: '';
+    display: ${props => (props.transitionDuration ? 'block' : 'none')};
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: ${props => props.theme.currentTheme.color};
+    animation: ${growingBar} ${props => props.transitionDuration}s;
+  }
 `;
 
 const PlayerPlaceholder = styled.div`
@@ -96,7 +119,10 @@ const HomeHero = props => (
         ) : (
           <PlayerPlaceholder />
         )}
-        <DemoControls>
+        <DemoControls
+          key={props.heroTheme.name}
+          transitionDuration={props.transitionDuration}
+        >
           <Button as={Link} to="/getting-started">
             Get Started
           </Button>

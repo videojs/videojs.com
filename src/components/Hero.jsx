@@ -60,7 +60,7 @@ const Hero = styled.div`
 
     ${({ theme }) => theme.media.xlLarge`
       padding-top: 10em;
-      padding-bottom: 20em;
+      padding-bottom: 17em;
     `}
   }
 `;

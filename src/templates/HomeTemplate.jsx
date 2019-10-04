@@ -22,7 +22,7 @@ const IndexPage = props => {
         title="Video.js - Make your player yours"
         keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
       />
-      <Hero heroTheme={heroTheme}>
+      <Hero heroTheme={heroTheme} transitionDuration={props.transitionDuration}>
         <h1>Make your player yours</h1>
       </Hero>
       <Features />
