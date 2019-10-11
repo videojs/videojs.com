@@ -1,5 +1,6 @@
 import videojs from 'video.js';
 import React from 'react';
+import { navigate } from 'gatsby';
 
 import 'video.js/dist/video-js.css';
 
@@ -16,6 +17,10 @@ class Player extends React.Component {
     });
 
     this.player.addClass(`vjs-theme-${this.props.themeName}`);
+
+    this.player.on('play', () =>
+      navigate(`/${this.props.themeName}`, { replace: true })
+    );
   }
 
   componentWillUnmount() {
