@@ -13,7 +13,7 @@ class IndexPage extends React.Component {
     this.state = {
       themeName: themeKeys[0],
       currentThemeIndex: 0,
-      themePercentage: 0,
+      transitionDuration: THEME_TIME_SECONDS,
     };
   }
 
@@ -39,6 +39,16 @@ class IndexPage extends React.Component {
     this.changeTheme();
   }
 
+  onPlay = () => {
+    window.history.pushState(
+      {},
+      this.state.themeName,
+      `/${this.state.themeName}`
+    );
+    this.setState({ transitionDuration: false });
+    this.cancelThemeChange();
+  };
+
   cancelThemeChange = () => {
     clearTimeout(this.timer);
   };
@@ -51,7 +61,8 @@ class IndexPage extends React.Component {
     return (
       <HomeTemplate
         pageContext={{ theme: this.state.themeName }}
-        transitionDuration={THEME_TIME_SECONDS}
+        transitionDuration={this.state.transitionDuration}
+        onPlay={this.onPlay}
       />
     );
   }

@@ -22,7 +22,11 @@ const IndexPage = props => {
         title="Video.js - Make your player yours"
         keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
       />
-      <Hero heroTheme={heroTheme} transitionDuration={props.transitionDuration}>
+      <Hero
+        heroTheme={heroTheme}
+        transitionDuration={props.transitionDuration}
+        onPlay={props.onPlay}
+      >
         <h1>Make your player yours</h1>
       </Hero>
       <Features />
@@ -33,6 +37,10 @@ const IndexPage = props => {
       <GetInvolved />
     </Layout>
   );
+};
+
+IndexPage.defaultProps = {
+  onPlay: () => {},
 };
 
 export default IndexPage;
