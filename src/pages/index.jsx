@@ -3,7 +3,7 @@ import React from 'react';
 import { heroThemes } from '../utils/styles';
 import HomeTemplate from '../templates/HomeTemplate';
 
-const THEME_TIME_SECONDS = 15;
+const THEME_TIME_SECONDS = 45;
 const themeKeys = Object.keys(heroThemes);
 
 class IndexPage extends React.Component {
