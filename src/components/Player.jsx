@@ -11,7 +11,16 @@ Object.keys(heroThemes).map(theme =>
 
 class Player extends React.Component {
   componentDidMount() {
-    this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
+    // Extend the options with some defaults.
+    const options = {
+      html5: {
+        hls: {
+          overrideNative: !videojs.browser.IS_SAFARI,
+        },
+      },
+      ...this.props,
+    };
+    this.player = videojs(this.videoNode, options, function onPlayerReady() {
       // console.log('onPlayerReady', this);
     });
 
