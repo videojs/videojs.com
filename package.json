@@ -29,7 +29,7 @@
     "prop-types": "^15.7.2",
     "query-string": "^6.8.2",
     "react": "^16.8.6",
-    "react-burger-menu": "^2.6.10",
+    "react-burger-menu": "^2.6.11",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-input-slider": "^5.0.15",
