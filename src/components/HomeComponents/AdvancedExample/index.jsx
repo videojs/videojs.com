@@ -89,10 +89,12 @@ const MediaInfoWrapper = styled.div`
 
 const MediaPropertiesItems = styled(MediaItems)`
   flex: 3 1 75%;
+  overflow-x: hidden;
 `;
 
 const MediaEventsItems = styled(MediaItems)`
   flex: 1 1 25%;
+  overflow-x: hidden;
 `;
 
 class AdvancedExample extends React.Component {
