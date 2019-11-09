@@ -36,8 +36,6 @@ class Player extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('we have received props', nextProps);
-
     if (nextProps.themeName !== this.props.themeName) {
       this.player.removeClass(`vjs-theme-${this.props.themeName}`);
       this.player.addClass(`vjs-theme-${nextProps.themeName}`);
