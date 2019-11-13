@@ -21,7 +21,7 @@ const ImageDesc = styled.span`
   text-align: center;
 `;
 
-const BlogImage = (props) => (
+const BlogImage = props => (
   <Wrapper>
     <Image {...props} />
     {props.alt && <ImageDesc>{props.alt}</ImageDesc>}
