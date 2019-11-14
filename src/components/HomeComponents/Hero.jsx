@@ -116,6 +116,7 @@ const HomeHero = props => (
             ]}
             poster={props.heroTheme.poster}
             onPlay={props.onPlay}
+            playsInline
           />
         ) : (
           <PlayerPlaceholder />
