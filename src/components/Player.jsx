@@ -51,6 +51,7 @@ class Player extends React.Component {
           <video
             ref={node => (this.videoNode = node)}
             className="video-js vjs-16-9"
+            playsInline={this.props.playsInline}
           />
         </div>
       </div>
