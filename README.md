@@ -1,52 +1,37 @@
-# videojs.com (the [video.js](https://github.com/videojs/video.js) website)
+# Videojs.com
 
-The site uses [Harp](http://harpjs.com) as the main framework. It also uses [Browserify](http://browserify.com) and [Babel](https://github.com/babel/babelify) for ES2015 (javascript) modules.
+This is the repo for the videojs.com website, including our blog. It uses the [Gatsby framework](https://gatsbyjs.org), so if you have questions about how things like the static rendering work, their documentation is a great place to start
 
+## Blog
 
-### Setup
+Blog posts are written using [mdx](https://mdxjs.com/), a flavor of Markdown that allows you to include React components. Writing a new blog post is done by adding a new `.mdx` file in [src/mdx-pages/blog](src/mdx-pages/blog) with the correct metadata at the top. Moving forward, consider naming the file starting with the date to make organization a little easier long term.
 
-1. Install the dependencies
+```markdown
+---
+title: This is an awesome post
+tags:
+  - news
+  - stats
+author:
+  name: Matt McClure
+  github: mmcc
+alias:
+  - post/wow-neat-what-a-post
+date: 2040-01-01 00:00:00
+---
 
-  ```
-  $ npm install
-  ```
+Wow this is a really great post. Such thought leadership.
+```
 
-2. Run the grunt dev task to generate the files and run a server. Once it's running you can start working. A local preview is running on port 9000.
+## Running it locally
 
-> Note: I sometimes get errors here and have to downgrade to node v4 - @heff
+Check out the repo locally, then npm install and off you go!
 
-  ```
-  $ grunt dev
-  ```
+```
+$ git checkout https://github.com/videojs/videojs.com
+$ cd videojs.com
+$ npm install
+$ npm run develop
+```
 
-### Deploy
-
-We use github pages for site hosting. The site files live in the `master` branch and then are moved to the `gh-pages` branch to be deployed. The file structure is changed during the deploy process so gh-pages is **never** merged back into master.
-
-1. Make sure the `master` branch is up to date.
-
-    ```
-    git pull master
-    ```
-
-2. Checkout the gh-pages branch and make sure it's up to date, then merge master into it.
-
-    ```
-    git checkout gh-pages
-    git pull gh-pages
-    git merge master
-    ```
-
-3. Generate the dist files.
-
-    ```
-    grunt dist
-    ```
-
-4. Push the changes.
-
-    ```
-    git push
-    ```
-
-> **If you accidently run `grunt dist` in the master branch you need to reset your branch. Don't push dist files to master.
+If all went according to plan, you should now be able to visit the website at http://localhost:8000
