@@ -20,6 +20,7 @@ const PluginsList = () => (
             node {
               name
               version
+              downloads
               description
             }
           }
