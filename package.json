@@ -41,6 +41,7 @@
     "videojs-playlist-ui": "^3.5.2"
   },
   "devDependencies": {
+    "bluebird": "^3.7.2",
     "prettier": "^1.17.0"
   },
   "keywords": [

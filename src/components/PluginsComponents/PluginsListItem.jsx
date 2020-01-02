@@ -48,14 +48,14 @@ const PluginStatInfo = styled.span`
   }
 
   span {
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 0.05em;
   }
 `;
 
-const PluginsListItem = ({ name, version, description}) => (
+const PluginsListItem = ({ name, version, downloads, description}) => (
   <Wrapper>
     <Heading>
       <a
@@ -66,6 +66,12 @@ const PluginsListItem = ({ name, version, description}) => (
         <PluginName>{name}</PluginName>
       </a>
       <PluginStats>
+        {downloads &&
+          <PluginStatInfo>
+            <Image filename="download-solid.svg" />
+            <span>{downloads}</span>
+          </PluginStatInfo>
+        }
         <PluginStatInfo>
           <Image filename="tag-solid.svg" />
           <span>{version}</span>
@@ -79,6 +85,7 @@ const PluginsListItem = ({ name, version, description}) => (
 PluginsListItem.propTypes = {
   name: PropTypes.string.isRequired,
   version: PropTypes.string.isRequired,
+  downloads: PropTypes.number,
   description: PropTypes.string,
 };
 
