@@ -5,6 +5,8 @@ import MDXRenderer from 'gatsby-mdx/mdx-renderer';
 
 import WithMdxComponents from '../WithMdxComponents';
 
+import {version} from '../../data/videojs-version.json';
+
 const Wrapper = styled.article`
   width: 100%;
   ${({ theme }) => theme.media.medLarge`
@@ -32,7 +34,7 @@ const Wrapper = styled.article`
 const GettingStartedArticle = ({ mdxData }) => (
   <Wrapper>
     <WithMdxComponents contentSlug={mdxData.fields.slug}>
-      <MDXRenderer>{mdxData.code.body}</MDXRenderer>
+      <MDXRenderer>{mdxData.code.body.replace(/\$\{VJS_VERSION\}/g, version)}</MDXRenderer>
     </WithMdxComponents>
   </Wrapper>
 );
