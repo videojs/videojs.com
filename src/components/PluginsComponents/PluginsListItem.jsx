@@ -55,7 +55,7 @@ const PluginStatInfo = styled.span`
   }
 `;
 
-const PluginsListItem = ({ name, version, downloads, description }) => (
+const PluginsListItem = ({ name, version, description}) => (
   <Wrapper>
     <Heading>
       <a
@@ -67,24 +67,19 @@ const PluginsListItem = ({ name, version, downloads, description }) => (
       </a>
       <PluginStats>
         <PluginStatInfo>
-          <Image filename="download-solid.svg" />
-          <span>{downloads}</span>
-        </PluginStatInfo>
-        <PluginStatInfo>
           <Image filename="tag-solid.svg" />
           <span>{version}</span>
         </PluginStatInfo>
       </PluginStats>
     </Heading>
-    <PluginDescription>{description}</PluginDescription>
+    <PluginDescription>{description || "No description provided. Please Check README."}</PluginDescription>
   </Wrapper>
 );
 
 PluginsListItem.propTypes = {
   name: PropTypes.string.isRequired,
   version: PropTypes.string.isRequired,
-  downloads: PropTypes.number.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.string,
 };
 
 export default PluginsListItem;
