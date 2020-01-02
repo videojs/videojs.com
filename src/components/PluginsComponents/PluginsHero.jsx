@@ -25,10 +25,15 @@ const StyledHero = styled(Hero)`
   `}
 `;
 
+const StyledCode = styled.code`
+  white-space: nowrap;
+`
+
 const PluginsHero = () => (
   <StyledHero theme={{...theme, currentTheme: theme.forest}}>
     <Container>
       <H1>Plugins and Skins</H1>
+      <StyledH2>To show up here, mark your plugin or your skin with the <StyledCode>videojs-plugin</StyledCode> or <StyledCode>videojs-skin</StyledCode> keywords</StyledH2>
       <StyledH2>
         You can customize Video.js using 3rd party plugins and skins. For more
         information about creating and using Video.js extensions, please see the

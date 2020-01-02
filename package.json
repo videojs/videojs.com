@@ -48,6 +48,8 @@
   ],
   "license": "MIT",
   "scripts": {
+    "dlplugins": "node ./download-plugins.js",
+    "prebuild": "npm run dlplugins",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
