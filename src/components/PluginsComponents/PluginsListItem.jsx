@@ -48,7 +48,7 @@ const PluginStatInfo = styled.span`
   }
 
   span {
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.6);
     font-size: 16px;
     font-weight: bold;
     letter-spacing: 0.05em;
