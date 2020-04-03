@@ -3,7 +3,8 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const StyledLink = styled.a`
-  color: pink;
+  color: #750075;
+  font-weight: 400; 
 `;
 
 const CustomLink = props => (
