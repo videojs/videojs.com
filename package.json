@@ -35,7 +35,7 @@
     "react-input-slider": "^5.0.15",
     "shortid": "^2.2.14",
     "styled-components": "^4.2.0",
-    "video.js": "^7.6.0",
+    "video.js": "^7.8.3",
     "videojs-mux": "^2.5.0",
     "videojs-playlist": "^4.3.1",
     "videojs-playlist-ui": "^3.5.2"
