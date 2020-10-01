@@ -1,6 +1,6 @@
 # Videojs.com
 
-This is the repo for the videojs.com website, including our blog. It uses the [Gatsby framework](https://gatsbyjs.org), so if you have questions about how things like the static rendering work, their documentation is a great place to start
+This is the repo for the videojs.com website, including our blog. It uses the [Gatsby framework](https://gatsbyjs.org), so if you have questions about how things like the static rendering work, their documentation is a great place to start ,and you guys will love it.
 
 ## Blog
 
@@ -35,3 +35,4 @@ $ npm run develop
 ```
 
 If all went according to plan, you should now be able to visit the website at http://localhost:8000
+Thank you 
