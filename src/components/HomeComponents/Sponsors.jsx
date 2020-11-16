@@ -61,6 +61,10 @@ const Sponsor = styled(props => (
 ))`
   flex: 0 0 48%;
 
+  & img {
+    max-height: 97px;
+  }
+
   ${({ theme }) => theme.media.medLarge`
     flex: 0 0 22%;
   `}
