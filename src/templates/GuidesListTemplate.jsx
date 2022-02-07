@@ -1,42 +1,28 @@
 import React from 'react';
 import shortid from 'shortid';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
+import styled from 'styled-components';
 
 import GuidesLayout from '../components/GuidesComponents/GuidesLayout';
-import GuidesPost from '../components/GuidesComponents/GuidesPost';
-import GuidesPagination from '../components/GuidesComponents/GuidesPagination';
-import GuidesTags from '../components/GuidesComponents/GuidesTags';
-import GuidesRecentPosts from '../components/GuidesComponents/GuidesRecentPosts';
+import GuidesListItem from '../components/GuidesComponents/GuidesListItem';
 import { extractNodes } from '../utils/graphql';
 
-const BottomPanels = styled.div`
-  ${({ theme }) => theme.media.medLarge`
-    display: none;
-  `}
-`
+const GuidesList = styled.ul`
+  list-style: none;
+`;
 
 const GuidesListTemplate = ({
   data: { allMdx },
-  pageContext: { prevPage, nextPage },
 }) => {
-  const posts = extractNodes(allMdx);
+  const guides = extractNodes(allMdx);
 
   return (
     <GuidesLayout seo={{ title: 'Video.js Guides' }}>
-      {posts.map(post => (
-        <GuidesPost key={shortid.generate()} post={post} />
-      ))}
-      <BottomPanels>
-        <GuidesTags />
-        <GuidesRecentPosts />
-      </BottomPanels>
-      <GuidesPagination
-        prevLink={prevPage}
-        prevLinkCaption="Prev page"
-        nextLink={nextPage}
-        nextLinkCaption="Next page"
-      />
+      <GuidesList>
+        {guides.map(guide => (
+          <GuidesListItem key={shortid.generate()} guide={guide} />
+        ))}
+      </GuidesList>
     </GuidesLayout>
   );
 };
@@ -44,12 +30,10 @@ const GuidesListTemplate = ({
 export default GuidesListTemplate;
 
 export const guidesListQuery = graphql`
-  query guidesListQuery($skip: Int!, $limit: Int!) {
+  query guidesListQuery {
     allMdx(
       filter: { fileAbsolutePath: { regex: "/guides/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: $limit
-      skip: $skip
+      sort: { fields: [frontmatter___title], order: ASC }
     ) {
       edges {
         node {
@@ -58,11 +42,6 @@ export const guidesListQuery = graphql`
           }
           frontmatter {
             title
-            date(formatString: "YYYY-MM-DD")
-            author {
-              name
-              github
-            }
           }
           code {
             body

@@ -3,20 +3,12 @@ import { graphql } from 'gatsby';
 
 import GuidesLayout from '../components/GuidesComponents/GuidesLayout';
 import GuidesPost from '../components/GuidesComponents/GuidesPost';
-import GuidesPagination from '../components/GuidesComponents/GuidesPagination';
 
 const GuidesPostTemplate = ({
-  data: { mdx },
-  pageContext: { prevPost, nextPost },
+  data: { mdx }
 }) => (
   <GuidesLayout seo={{ title: 'Video.js Guides' }}>
     <GuidesPost post={mdx} />
-    <GuidesPagination
-      prevLink={prevPost}
-      prevLinkCaption="Prev post"
-      nextLink={nextPost}
-      nextLinkCaption="Next post"
-    />
   </GuidesLayout>
 );
 

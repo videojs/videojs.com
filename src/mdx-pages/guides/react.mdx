@@ -1,8 +1,8 @@
 ---
-title: Video.js and ReactJS integration
+title: Using Video.js with React
 ---
 
-Here are a couple ReactJS player implementations.
+Here are a couple React player implementations.
 
 ## React Functional Component and useEffect Example
 
@@ -168,7 +168,7 @@ return <VideoPlayer { ...videoJsOptions } />
 
 [options]: /docs/guides/options.md
 
-## Using a React Component as a Video JS Component
+## Using a React Component as a Video.js Component
 
 ```jsx
 /**
@@ -194,7 +194,7 @@ class EpisodeList extends Component {
 /**
  * vjsEpisodeList.js
  *
- * Here is where we register a Video JS Component and
+ * Here is where we register a Video.js Component and
  * mount the React component to it when the player is ready.
  */
 import EpisodeList from './EpisodeList';
@@ -235,7 +235,7 @@ class vjsEpisodeList extends vjsComponent {
 }
 
 /**
- * Make sure to register the vjsComponent so Video JS knows it exists
+ * Make sure to register the vjsComponent so Video.js knows it exists
  */
 vjsComponent.registerComponent('vjsEpisodeList', vjsEpisodeList);
 

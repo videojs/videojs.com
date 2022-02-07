@@ -23,7 +23,7 @@ const StyledHero = styled(Hero)`
 const GuidesHero = () => (
   <StyledHero theme={{...theme, currentTheme: theme.sea}}>
     <Container>
-      <H1>Video JS Guides</H1>
+      <H1>Video.js Guides</H1>
     </Container>
   </StyledHero>
 );

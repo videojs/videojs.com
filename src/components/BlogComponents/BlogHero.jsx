@@ -23,7 +23,7 @@ const StyledHero = styled(Hero)`
 const BlogHero = () => (
   <StyledHero theme={{...theme, currentTheme: theme.sea}}>
     <Container>
-      <H1>Video JS Blog</H1>
+      <H1>Video.js Blog</H1>
     </Container>
   </StyledHero>
 );
