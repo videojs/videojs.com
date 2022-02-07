@@ -137,10 +137,10 @@ const NavigationLinks = styled(props => (
       <Link to="/getting-started">Get Started</Link>
     </li>
     <li>
-      <Link to="/getting-started/#customize">Customize</Link>
+      <Link href="/guides">Guides</Link>
     </li>
     <li>
-      <Link href="https://docs.videojs.com">Docs</Link>
+      <Link href="https://docs.videojs.com">API Docs</Link>
     </li>
     <li>
       <Link to="/blog">Blog</Link>
