@@ -36,7 +36,7 @@ Each of these files can be included in a web page to provide support for that la
 
 ## Contributing to Video.js Translations
 
-We welcome new translations and improvements to existing ones! Please see the [contributing document](../../CONTRIBUTING.md) to get started contributing to Video.js and continue reading for specifics on how to contribute to translations of Video.js.
+We welcome new translations and improvements to existing ones! Please see the [contributing document](https://github.com/videojs/video.js/blob/main/CONTRIBUTING.md) to get started contributing to Video.js and continue reading for specifics on how to contribute to translations of Video.js.
 
 ### JSON Format
 
@@ -60,12 +60,12 @@ Each file's name should be the [standard language code][lang-codes] that is most
 
 ### Updating an Existing Translation
 
-If there is a [missing translation](/docs/translations-needed.md), mistake, or room for improvement in an existing translation, don't hesitate to open a pull request!
+If there is a [missing translation](https://github.com/videojs/video.js/blob/main/docs/translations-needed.md), mistake, or room for improvement in an existing translation, don't hesitate to open a pull request!
 
 1. Edit the relevant JSON file and make the necessary changes.
 1. Verify the language compiles by running the language specific build `npm run build:lang` or the full build `npm run build`.
 1. Verify the translation appears properly in the player UI.
-1. Run `npm run docs:lang` to update the [missing translation document](/docs/translations-needed.md).
+1. Run `npm run docs:lang` to update the [missing translation document](https://github.com/videojs/video.js/blob/main/docs/translations-needed.md).
 1. Commit and open a pull request on GitHub.
 
 ### Writing a New Translation
@@ -101,7 +101,7 @@ videojs.addLanguage('es', {
 
 ### Per-Player Translations
 
-In addition to providing languages to Video.js itself, individual `Player` instances can be provided custom language support via [the `languages` option](/docs/guides/options.md#languages):
+In addition to providing languages to Video.js itself, individual `Player` instances can be provided custom language support via [the `languages` option](/guides/options#languages):
 
 ```js
 // Provide a custom definition of Spanish to this player.
@@ -116,7 +116,7 @@ videojs('my-player', {
 
 ### Setting Player Language
 
-The language used by a player instance may be set via [the `language` option](/docs/guides/options.md#language):
+The language used by a player instance may be set via [the `language` option](/guides/options#language):
 
 ```js
 // Set the language to Spanish for this player.
@@ -144,7 +144,7 @@ The player language is set to one of the following in descending priority:
 
 ## References
 
-For information on translation/localization in plugins, see [the plugins guide](/docs/guides/plugins.md).
+For information on translation/localization in plugins, see [the plugins guide](/guides/plugins).
 
 Standard languages codes [are defined by the IANA][lang-codes].
 

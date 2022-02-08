@@ -238,7 +238,7 @@ const GetInvolved = () => (
         <BoxWrapper>
           <TitleBox
             title="Code of conduct"
-            url="https://github.com/videojs/video.js/blob/master/CODE_OF_CONDUCT.md"
+            url="https://github.com/videojs/video.js/blob/main/CODE_OF_CONDUCT.md"
           >
             <Image filename="code-of-conduct.svg" alt="code of conduct logo" />
           </TitleBox>
