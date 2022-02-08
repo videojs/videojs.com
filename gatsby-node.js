@@ -136,11 +136,6 @@ const createBlogPages = async ({ graphql, actions }) => {
   });
 };
 
-const getGuidesPagePath = pageNum => {
-  const guidesPath = '/guides';
-  return pageNum ? `${guidesPath}/${pageNum}` : guidesPath;
-};
-
 const createGuidesPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
@@ -148,7 +143,7 @@ const createGuidesPages = async ({ graphql, actions }) => {
     {
       allMdx(
         filter: { fileAbsolutePath: { regex: "/guides/" } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___title], order: ASC }
       ) {
         edges {
           node {
@@ -168,57 +163,22 @@ const createGuidesPages = async ({ graphql, actions }) => {
   const posts = result.data.allMdx.edges;
 
   posts.forEach(({ node }, i) => {
-    const prevPost = i > 0 ? posts[i - 1].node : null;
-    const nextPost = i < posts.length - 1 ? posts[i + 1].node : null;
-
     createPage({
       path: node.fields.slug,
       component: path.resolve(
-        path.join('src', 'templates', 'GuidesPostTemplate.jsx')
+        path.join('src', 'templates', 'GuidesViewTemplate.jsx')
       ),
       context: {
         id: node.id,
-        prevPost: prevPost && prevPost.fields.slug,
-        nextPost: nextPost && nextPost.fields.slug,
       },
     });
   });
 
-  const postsPerPage = 10;
-  const numPages = Math.ceil(posts.length / postsPerPage);
-
-  for (let i = 1; i <= numPages; i++) {
-    createPage({
-      path: i === 1 ? getGuidesPagePath() : getGuidesPagePath(i),
-      component: path.resolve(
-        path.join('src', 'templates', 'GuidesListTemplate.jsx')
-      ),
-      context: {
-        limit: postsPerPage,
-        skip: (i - 1) * postsPerPage,
-        currentPage: i,
-        prevPage: i > 1 ? getGuidesPagePath(i - 1) : null,
-        nextPage: i < numPages ? getGuidesPagePath(i + 1) : null,
-        numPages,
-      },
-    });
-  }
-
-  const tags = _.uniq(
-    posts.reduce(
-      (acc, post) => [...acc, ...(post.node.frontmatter.tags || [])],
-      []
-    )
-  );
-
-  tags.forEach(tag => {
-    createPage({
-      path: `/tags/${tag}`,
-      component: path.resolve(
-        path.join('src', 'templates', 'GuidesTagTemplate.jsx')
-      ),
-      context: { tag },
-    });
+  createPage({
+    path: '/guides',
+    component: path.resolve(
+      path.join('src', 'templates', 'GuidesListTemplate.jsx')
+    ),
   });
 };
 
