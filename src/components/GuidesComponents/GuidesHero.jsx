@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Hero from '../../components/Hero';
 import Container from '../../components/Container';
-import { H1 } from '../../components/Typography';
+import { H1, H2 } from '../../components/Typography';
 import { theme } from '../../utils/styles';
 
 const StyledHero = styled(Hero)`
@@ -24,6 +24,7 @@ const GuidesHero = () => (
   <StyledHero theme={{...theme, currentTheme: theme.sea}}>
     <Container>
       <H1>Video.js Guides</H1>
+      <H2>These guides cover a range of topics for users of Video.js</H2>
     </Container>
   </StyledHero>
 );
