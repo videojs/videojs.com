@@ -24,15 +24,16 @@ const GuidesViewTemplate = ({
     <BackBox>
       <Link href="/guides">Back to Guides</Link>
     </BackBox>
-    <GuidesView post={mdx} />
+    <GuidesView guide={mdx} />
   </GuidesLayout>
 );
 
 export default GuidesViewTemplate;
 
-export const guidesPostQuery = graphql`
-  query guidesPostQuery($id: String!) {
+export const guidesViewQuery = graphql`
+  query guidesViewQuery($id: String!) {
     mdx(id: { eq: $id }) {
+      tableOfContents
       fields {
         slug
       }

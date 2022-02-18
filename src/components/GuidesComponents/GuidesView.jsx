@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 import WithMdxComponents from '../WithMdxComponents';
 import VideoWrapper from '../VideoWrapper';
+import TableOfContents from '../TableOfContents';
 
 const Text = styled.div`
   h1 {
@@ -41,17 +42,20 @@ const Text = styled.div`
   }
 `;
 
-const GuidesView = ({ post: { frontmatter, code, fields } }) => (
-  <Text>
+const GuidesView = ({ guide: { tableOfContents, frontmatter, code, fields } }) => (
+  <>
     <h1>{frontmatter.title}</h1>
-    <WithMdxComponents contentSlug={fields.slug}>
-      <MDXRenderer>{code.body}</MDXRenderer>
-    </WithMdxComponents>
-  </Text>
+    <TableOfContents contents={tableOfContents} />
+    <Text>
+      <WithMdxComponents contentSlug={fields.slug}>
+        <MDXRenderer>{code.body}</MDXRenderer>
+      </WithMdxComponents>
+    </Text>
+  </>
 );
 
 GuidesView.propTypes = {
-  post: PropTypes.shape({
+  guide: PropTypes.shape({
     frontmatter: PropTypes.shape({
       title: PropTypes.string.isRequired,
     }).isRequired,

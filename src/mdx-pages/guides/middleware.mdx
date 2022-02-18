@@ -6,18 +6,6 @@ order: 8
 
 Middleware is a Video.js feature that allows interaction with and modification of how the `Player` and `Tech` talk to each other. For more in-depth information, check out our [feature spotlight](https://videojs.com/blog/feature-spotlight-middleware/).
 
-## Table of Contents
-
-* [Understanding Middleware](#understanding-middleware)
-  * [setSource](#setsource)
-  * [setTech](#settech)
-  * [Middleware Setters](#middleware-setters)
-  * [Middleware Getters](#middleware-getters)
-  * [Middleware Mediators](#middleware-mediators)
-  * [Termination and Mediators](#termination-and-mediators)
-* [Using Middleware](#using-middleware)
-  * [Terminating Mediator Methods](#terminating-mediator-methods)
-
 ## Understanding Middleware
 
 Middleware are functions that return an object, a class instance, a prototype, etc, scoped to the Player with methods matching those on the `Tech`. There are currently a limited set of allowed methods that will be understood by middleware. These are: `buffered`, `currentTime`, `setCurrentTime`, `setMuted`, `setVolume`, `duration`, `muted`, `seekable`, `played`, `play`, `pause`, `paused` and `volume`. These allowed methods are split into three categories: [getters](#middleware-getters), [setters](#middleware-setters), and [mediators](#middleware-mediators).
