@@ -76,10 +76,10 @@ const Footer = props => (
         <Link to="/getting-started">Get Started</Link>
       </NavItem>
       <NavItem>
-        <Link to="/getting-started/#customize">Customize</Link>
+        <Link href="/guides">Guides</Link>
       </NavItem>
       <NavItem>
-        <Link href="https://docs.videojs.com">Docs</Link>
+        <Link href="https://docs.videojs.com">API Docs</Link>
       </NavItem>
       <NavItem>
         <Link to="/blog">Blog</Link>

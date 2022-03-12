@@ -5,6 +5,10 @@ import styled from 'styled-components';
 const StyledLink = styled.a`
   color: #750075;
   font-weight: 400; 
+
+  &:hover, &:active {
+    text-decoration: underline;
+  }
 `;
 
 const CustomLink = props => (

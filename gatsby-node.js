@@ -136,10 +136,57 @@ const createBlogPages = async ({ graphql, actions }) => {
   });
 };
 
+const createGuidesPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  const result = await graphql(`
+    {
+      allMdx(
+        filter: { fileAbsolutePath: { regex: "/guides/" } }
+        sort: { fields: [frontmatter___title], order: ASC }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              tags
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const posts = result.data.allMdx.edges;
+
+  posts.forEach(({ node }, i) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(
+        path.join('src', 'templates', 'GuidesViewTemplate.jsx')
+      ),
+      context: {
+        id: node.id,
+      },
+    });
+  });
+
+  createPage({
+    path: '/guides',
+    component: path.resolve(
+      path.join('src', 'templates', 'GuidesListTemplate.jsx')
+    ),
+  });
+};
+
 exports.createPages = async ctx => {
   await createHomePages(ctx);
   await createGettingStartedPage(ctx);
   await createBlogPages(ctx);
+  await createGuidesPages(ctx);
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
