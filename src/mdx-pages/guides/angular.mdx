@@ -1,15 +1,12 @@
 ---
-title: AngularJS and Video.js
+title: Angular and Video.js
 category: integrations
 ---
 
-Here's a basic Angular player implementation.
-
-It just instantiates the Video.js player on `OnInit` and destroys it on `OnDestroy`.
+This is a basic Angular and Video.js player implementation. This example component instantiates the player on `OnInit` and destroys it on `OnDestroy`:
 
 ```ts
-// vjs-player.component.ts
-import { Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import videojs from 'video.js';
 
 @Component({
@@ -22,9 +19,11 @@ import videojs from 'video.js';
   ],
   encapsulation: ViewEncapsulation.None,
 })
+
 export class VjsPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('target', {static: true}) target: ElementRef;
-  // see options: https://videojs.com/guides/options
+
+  // See options: https://videojs.com/guides/options
   @Input() options: {
       fluid: boolean,
       aspectRatio: string,
@@ -34,21 +33,22 @@ export class VjsPlayerComponent implements OnInit, OnDestroy {
           type: string,
       }[],
   };
+
   player: videojs.Player;
 
   constructor(
     private elementRef: ElementRef,
-  ) { }
+  ) {}
 
+  // Instantiate a Video.js player OnInit
   ngOnInit() {
-    // instantiate Video.js
     this.player = videojs(this.target.nativeElement, this.options, function onPlayerReady() {
       console.log('onPlayerReady', this);
     });
   }
 
+  // Dispose the player OnDestroy
   ngOnDestroy() {
-    // destroy player
     if (this.player) {
       this.player.dispose();
     }
@@ -56,15 +56,10 @@ export class VjsPlayerComponent implements OnInit, OnDestroy {
 }
 ```
 
-Don't forget to include the Video.js CSS, located at `video.js/dist/video-js.css`.
-
-```css
-/* vjs-player.component.css */
-@import '~video.js/dist/video-js.css';
-```
-
-You can then use it like this.
+Finally, use the component like this (see [Video.js Options Reference](https://videojs.com/guides/options)):
 
 ```html
-<app-vjs-player [options]="{ autoplay: true, controls: true, sources: [{ src: '/path/to/video.mp4', type: 'video/mp4' }]}"></app-vjs-player>
+<app-vjs-player [options]="{autoplay: true, controls: true, sources: [{ src: '/path/to/video.mp4', type: 'video/mp4' }]}"></app-vjs-player>
 ```
+
+Don't forget to include the Video.js CSS, located at `video.js/dist/video-js.css`!

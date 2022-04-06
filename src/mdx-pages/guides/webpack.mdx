@@ -3,45 +3,31 @@ title: Webpack and Video.js
 category: integrations
 ---
 
-Video.js, and the playback technologies such as videojs-contrib-hls all work in a Webpack based build environment. Here are several configuration changes specific to Webpack that will get you up and running.
+Video.js and official libraries and plugins all work in a Webpack-based build environment. These are several configuration changes specific to Webpack that will get you up and running.
 
 ## Video.js CSS:
 
-To add the CSS that the player requires, simply add
-`require('!style-loader!css-loader!video.js/dist/video-js.css')` to the file where the player is also included or initialized.
-
-## Handling .eot files in Webpack
-
-In addition to this, you may run into a problem where Webpack does not know how to load .eot files required for IE8 support by default. This can be solved by installing the file-loader and url-loader packages. Install them by running:
-
-```sh
-npm install --save-dev file-loader url-loader
-```
-
-With both packages installed, simply add the following to you webpack.config file in the 'loaders' section:
+To add the CSS that the player requires, add the following to the file where the player is also included or initialized:
 
 ```js
-{
-  loader: 'url-loader?limit=100000',
-  test: /\.(png|woff|woff2|eot|ttf|svg)$/
-}
+require('!style-loader!css-loader!video.js/dist/video-js.css')
 ```
 
-## Using Webpack with videojs-contrib-hls
+## Using Webpack with Video.js HTTP Streaming
 
 Import the HLS library with a line such as:
 
 ```sh
-import * as HLS from 'videojs-contrib-hls';
+import * as HLS from '@videojs/http-streaming';
 ```
 
-In order to use the tech, we must also introduce webworkers with the package 'webworkify-webpack-dropin', run:
+In order to use VHS, support for Web Workers is required. This can be done with the package 'webworkify-webpack-dropin':
 
 ```sh
 npm install --save-dev webworkify-webpack-dropin
 ```
 
-To utilize this in your page, simply create an alias in your webpack.config.js file with:
+Create an alias in your `webpack.config.js` file with:
 
 ```js
 resolve: {
@@ -51,4 +37,4 @@ resolve: {
 }
 ```
 
-Source maps that use the 'eval' tag are not compatible with webworkify, so this may need to be changed also. Source maps such as 'cheap-eval-module-source-map' should be changed to 'cheap-source-map' or anything else that fits your build without using 'eval' source maps.
+Source maps that use the `'eval'` tag are not compatible with webworkify, so this may need to be changed. Source maps such as `'cheap-eval-module-source-map'` should be changed to `'cheap-source-map'` or anything else that fits your build without using `'eval'` source maps.
