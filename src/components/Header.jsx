@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { slide as BurgerMenu } from 'react-burger-menu';
@@ -7,17 +6,36 @@ import Container from './Container';
 import Link from './Link';
 import LogoImg from '../images/logo-white.svg';
 
-const Logo = styled.h1`
+const Logo = styled(props => (
+  <div className={props.className}>
+    <h1>Videojs.com</h1>
+    <Link to="/" aria-label="Videojs.com homepage"></Link>
+  </div>
+))`
   display: inline-block;
-  width: 158px;
-  height: 37px;
-  background: center / contain no-repeat url(${LogoImg});
-  margin-top: 0.5em;
-  margin-left: 0.5em;
+  margin-top: 1em;
+  margin-left: 1em;
 
-  ${({ theme }) => theme.media.medLarge`
+  ${props => props.theme.media.medLarge`
     margin: 0;
   `}
+
+  h1 {
+    font-size: 0;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    overflow:hidden;
+    width:1px;
+    height:1px;
+  }
+
+  ${Link} {
+    display: block;
+    width: 158px;
+    height: 37px;
+    background: center / contain no-repeat url(${LogoImg});
+  }
 `;
 
 const HeaderWrapper = styled.header`
@@ -195,9 +213,7 @@ const NavigationLinks = styled(props => (
 const Header = () => (
   <HeaderWrapper>
     <Container>
-      <Link to="/" aria-label="Videojs.com homepage">
-        <Logo />
-      </Link>
+      <Logo />
 
       <DesktopMenu role="navigation">
         <NavigationLinks />

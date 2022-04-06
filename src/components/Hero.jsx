@@ -52,7 +52,7 @@ const Hero = styled.div`
   }
 
   ${Container} {
-    padding-top: 6em;
+    padding-top: 4.75em;
 
     ${({ theme }) => theme.media.medLarge`
       padding-top: 8em;
