@@ -20,7 +20,7 @@ const Logo = styled.h1`
   `}
 `;
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
   position: absolute;
   width: 100%;
   z-index: 100;
@@ -119,16 +119,12 @@ const MobileMenu = styled.div`
   }
 `;
 
-const DesktopMenu = styled.div`
+const DesktopMenu = styled.nav`
   display: none;
 
   ${props => props.theme.media.medLarge`
     display: flex;
   `};
-
-  li {
-    margin-left: 2em;
-  }
 `;
 
 const NavigationLinks = styled(props => (
@@ -151,12 +147,12 @@ const NavigationLinks = styled(props => (
   </ul>
 ))`
   display: flex;
+  column-gap: 2em;
   list-style: none;
 
   li {
     flex-direction: row;
     font-size: 16px;
-    margin-left: 2em 0 0 0;
 
     ${props => props.theme.media.medLarge`
       flex-direction: column;
@@ -196,14 +192,14 @@ const NavigationLinks = styled(props => (
   }
 `;
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <HeaderWrapper>
     <Container>
       <Link to="/" aria-label="Videojs.com homepage">
         <Logo />
       </Link>
 
-      <DesktopMenu>
+      <DesktopMenu role="navigation">
         <NavigationLinks />
       </DesktopMenu>
 
@@ -215,13 +211,5 @@ const Header = ({ siteTitle }) => (
     </Container>
   </HeaderWrapper>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
-};
 
 export default Header;
