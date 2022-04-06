@@ -17,7 +17,7 @@ import playlist from './playlist';
 
 import rectangles from '../../../images/footer-rectangles.svg';
 
-const AdvancedExampleContainer = styled.div``;
+const AdvancedExampleContainer = styled.section``;
 
 const PlaylistPluginDescContainer = styled(Container)`
   margin-top: 1.5em;
@@ -157,7 +157,7 @@ class AdvancedExample extends React.Component {
 
   render() {
     return (
-      <AdvancedExampleContainer>
+      <AdvancedExampleContainer role="contentinfo" aria-label="Advanced Example">
         <PlaylistPluginDescContainer>
           {!this.props.hideDescription && (
             <>

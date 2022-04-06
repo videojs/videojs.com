@@ -18,6 +18,7 @@ const Hero = styled.section`
     font-size: 34px;
     line-height: 1em;
     text-align: center;
+    padding: 0 .25em;
 
     ${({ theme }) => theme.media.medium`
       font-size: 56px;

@@ -20,7 +20,7 @@ const LinkedInLogo = () => <img src={LinkedInSvg} alt="LinkedIn" />;
 const TumblrLogo = () => <img src={TumblrSvg} alt="Tumblr" />;
 const GuardianLogo = () => <img src={GuardianSvg} alt="Guardian" />;
 
-const UsedByWrapper = styled.div`
+const UsedByWrapper = styled.section`
   width: 100%;
 
   ${({ theme }) => theme.media.xLarge`
@@ -123,7 +123,7 @@ const StyledSectionHeader = styled(SectionHeader)`
 
 const UsedBy = props => (
   <>
-    <UsedByWrapper>
+    <UsedByWrapper role="contentinfo" aria-label="Used By Professionals Demo">
       <UsedByContainer>
         <StyledSectionHeader
           title="Used By"
