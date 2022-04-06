@@ -23,8 +23,8 @@ const Logo = styled(props => (
   h1 {
     font-size: 0;
     position: absolute;
-    top: -9999px;
-    left: -9999px;
+    top: -99999px;
+    left: -99999px;
     overflow:hidden;
     width:1px;
     height:1px;

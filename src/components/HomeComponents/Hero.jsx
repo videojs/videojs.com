@@ -101,10 +101,10 @@ const PlayerPlaceholder = styled.div`
 `;
 
 const HomeHero = props => (
-  <Hero>
+  <Hero role="contentinfo" aria-label="Videojs hero demo">
     <Container>
-      <H1>Make your player yours</H1>
-      <H2>with the world's most popular open source HTML5 player framework</H2>
+
+      <H2>Make your player yours <span>with the world's most popular open source HTML5 player framework</span></H2>
 
       <DemoContainer>
         {props.heroTheme.video ? (
