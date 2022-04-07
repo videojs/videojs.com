@@ -7,7 +7,7 @@ import Container from '../Container';
 import Hero from '../Hero';
 import Player from '../Player';
 import ThemeSelector from '../ThemeSelector';
-import { H1, H2 } from '../Typography';
+import { H2 } from '../Typography';
 
 const DemoContainer = styled.div`
   max-width: 710px;
