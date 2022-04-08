@@ -143,4 +143,4 @@ const HomeHero = props => (
   </Hero>
 );
 
-export default styled(HomeHero)``;
+export default HomeHero;

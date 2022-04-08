@@ -17,6 +17,7 @@ const Hero = styled.section`
   ${H2} {
     font-size: 34px;
     line-height: 1em;
+    font-weight: 500;
     text-align: center;
     padding: 0 .25em;
 
@@ -33,7 +34,8 @@ const Hero = styled.section`
       font-family: ${props => props.theme.currentTheme.defaultSans};
       font-size: 20px;
       line-height: 1.4em;
-      margin-top: 0.6em;
+      font-weight: 100;
+      margin-top: 0.75em;
       margin-bottom: 0.8em;
       text-align: center;
 
