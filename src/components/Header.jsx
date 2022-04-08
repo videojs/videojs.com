@@ -13,8 +13,8 @@ const Logo = styled(props => (
   </div>
 ))`
   display: inline-block;
-  margin-top: 1em;
-  margin-left: 1em;
+  margin-top: 16px;
+  margin-left: 16px;
 
   ${props => props.theme.media.medLarge`
     margin: 0;

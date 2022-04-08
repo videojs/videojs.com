@@ -14,19 +14,37 @@ import {
 } from '../components/Table';
 import { theme } from '../utils/styles';
 import Container from '../components/Container';
-import { H1, P } from '../components/Typography';
+import { H2, P } from '../components/Typography';
 
 const StyledHero = styled(Hero)`
   ${Container} {
-    padding-bottom: 2.5em;
+    padding-bottom: 4em;
   }
-  ${({ theme }) => theme.media.xlLarge`
-    background-position: center -670px;
-
+  ${({ theme }) => theme.media.large`
     ${Container} {
-      padding-top: 12em;
-      padding-bottom: 12em;
+      padding-bottom: 6em;
     }
+  `}
+  ${({ theme }) => theme.media.xlLarge`
+    background-position: center -425px;
+    ${Container} {
+      padding-top: 10em;
+      padding-bottom: 10em;
+    }
+  `}
+`;
+
+const StyledH2 = styled(H2)`
+  font-size: 34px;
+  line-height: 1em;
+  font-weight: 500;
+  ${({ theme }) => theme.media.medium`
+    font-size: 56px;
+    padding: 0;
+  `}
+  ${({ theme }) => theme.media.medLarge`
+    font-size: 56px;
+    padding: 0;
   `}
 `;
 
@@ -35,7 +53,7 @@ const SecondPage = () => (
     <SEO title="HTML5 Video Support" />
     <StyledHero theme={{ ...theme, currentTheme: theme.fantasy }}>
       <Container>
-        <H1>HTML5 Video Support by Codec</H1>
+        <StyledH2>HTML5 Video Support by Codec</StyledH2>
       </Container>
     </StyledHero>
     <Container>
