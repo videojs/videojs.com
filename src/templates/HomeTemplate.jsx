@@ -27,7 +27,6 @@ const IndexPage = props => {
         transitionDuration={props.transitionDuration}
         onPlay={props.onPlay}
       >
-        <h1>Make your player yours</h1>
       </Hero>
       <Features />
       <UsedBy />
