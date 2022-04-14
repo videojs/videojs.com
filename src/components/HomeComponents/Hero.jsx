@@ -7,7 +7,7 @@ import Container from '../Container';
 import Hero from '../Hero';
 import Player from '../Player';
 import ThemeSelector from '../ThemeSelector';
-import { H1, H2 } from '../Typography';
+import { H2 } from '../Typography';
 
 const DemoContainer = styled.div`
   max-width: 710px;
@@ -101,10 +101,10 @@ const PlayerPlaceholder = styled.div`
 `;
 
 const HomeHero = props => (
-  <Hero>
+  <Hero role="contentinfo" aria-label="Videojs hero demo">
     <Container>
-      <H1>Make your player yours</H1>
-      <H2>with the world's most popular open source HTML5 player framework</H2>
+
+      <H2>Make your player yours <span>with the world's most popular open source HTML5 player framework</span></H2>
 
       <DemoContainer>
         {props.heroTheme.video ? (
@@ -143,4 +143,4 @@ const HomeHero = props => (
   </Hero>
 );
 
-export default styled(HomeHero)``;
+export default HomeHero;

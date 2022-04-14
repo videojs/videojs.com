@@ -170,12 +170,12 @@ const LogosBlock = styled(({ className }) => (
 `;
 
 const UsedByLogos = styled(({ className }) => (
-  <div className={className}>
+  <section className={className} role="contentinfo" aria-label="Used By Professionals Logos">
     <div>
       <LogosBlock />
       <LogosBlock />
     </div>
-  </div>
+  </section>
 ))`
   margin-top: 5em;
   overflow: hidden;

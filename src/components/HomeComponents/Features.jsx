@@ -8,7 +8,7 @@ import { P, H3 } from '../Typography';
 
 import diamonds from '../../images/background-diamonds.svg';
 
-const FeaturesWrapper = styled.div`
+const FeaturesWrapper = styled.section`
   width: 100%;
 
   ${({ theme }) => theme.media.xLarge`
@@ -102,7 +102,7 @@ const Feature = styled(props => (
 `;
 
 const Features = props => (
-  <FeaturesWrapper>
+  <FeaturesWrapper role="contentinfo" aria-label="Features">
     <FeaturesContainer>
       <PrimaryText>
         <SectionHeader

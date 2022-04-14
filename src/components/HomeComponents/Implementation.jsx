@@ -16,7 +16,7 @@ import {
 import lines from '../../images/background-lines.svg';
 import circles from '../../images/background-circles.svg';
 
-const ImplementationWrapper = styled.div`
+const ImplementationWrapper = styled.section`
   width: 100%;
   position: relative;
   background-color: #232323;
@@ -67,7 +67,7 @@ const ImplementationContainer = styled(Container)`
 `;
 
 const Implementation = () => (
-  <ImplementationWrapper>
+  <ImplementationWrapper role="contentinfo" aria-label="Implementation">
     <ImplementationContainer>
       <SectionHeader
         darkMode

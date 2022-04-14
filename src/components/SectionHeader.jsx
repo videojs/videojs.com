@@ -1,14 +1,14 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { H1, H2 } from './Typography';
+import { H2 } from './Typography';
 
 const SectionHeaderContainer = styled.div`
   position: relative;
   margin: 0 auto;
 `;
 
-const SectionHeaderTitle = styled(H1)`
+const SectionHeaderTitle = styled(H2)`
   display: block;
   font-family: ${props => props.theme.defaultSans};
   font-weight: 500;
@@ -36,7 +36,7 @@ const SectionHeaderTitle = styled(H1)`
 
 const getLineMarginLeft = align => (align === 'left' ? '0' : 'auto');
 
-const SectionHeaderTagline = styled(H2)`
+const SectionHeaderTagline = styled.p`
   font-weight: bold;
   font-size: 30px;
   line-height: 1.4em;

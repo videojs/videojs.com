@@ -10,7 +10,7 @@ import { P } from '../Typography';
 import triangles from '../../images/background-triangles.svg';
 import vine from '../../images/background-vine.svg';
 
-const SponsorsWrapper = styled.div`
+const SponsorsWrapper = styled.section`
   width: 100%;
   position: relative;
 
@@ -117,7 +117,7 @@ const SponsorList = styled.div`
 `;
 
 const Sponsors = props => (
-  <SponsorsWrapper>
+  <SponsorsWrapper role="contentinfo" aria-label="Sponsors">
     <SponsorsContainer>
       <PrimaryContainer>
         <PrimaryText>

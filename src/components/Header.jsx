@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { slide as BurgerMenu } from 'react-burger-menu';
@@ -7,20 +6,39 @@ import Container from './Container';
 import Link from './Link';
 import LogoImg from '../images/logo-white.svg';
 
-const Logo = styled.h1`
+const Logo = styled(props => (
+  <div className={props.className}>
+    <h1>Videojs.com</h1>
+    <Link to="/" aria-label="Videojs.com homepage"></Link>
+  </div>
+))`
   display: inline-block;
-  width: 158px;
-  height: 37px;
-  background: center / contain no-repeat url(${LogoImg});
-  margin-top: 0.5em;
-  margin-left: 0.5em;
+  margin-top: 16px;
+  margin-left: 16px;
 
-  ${({ theme }) => theme.media.medLarge`
+  ${props => props.theme.media.medLarge`
     margin: 0;
   `}
+
+  h1 {
+    font-size: 0;
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+    overflow:hidden;
+    width:1px;
+    height:1px;
+  }
+
+  ${Link} {
+    display: block;
+    width: 158px;
+    height: 37px;
+    background: center / contain no-repeat url(${LogoImg});
+  }
 `;
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
   position: absolute;
   width: 100%;
   z-index: 100;
@@ -119,16 +137,12 @@ const MobileMenu = styled.div`
   }
 `;
 
-const DesktopMenu = styled.div`
+const DesktopMenu = styled.nav`
   display: none;
 
   ${props => props.theme.media.medLarge`
     display: flex;
   `};
-
-  li {
-    margin-left: 2em;
-  }
 `;
 
 const NavigationLinks = styled(props => (
@@ -151,12 +165,12 @@ const NavigationLinks = styled(props => (
   </ul>
 ))`
   display: flex;
+  column-gap: 2em;
   list-style: none;
 
   li {
     flex-direction: row;
     font-size: 16px;
-    margin-left: 2em 0 0 0;
 
     ${props => props.theme.media.medLarge`
       flex-direction: column;
@@ -196,14 +210,12 @@ const NavigationLinks = styled(props => (
   }
 `;
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <HeaderWrapper>
     <Container>
-      <Link to="/" aria-label="Videojs.com homepage">
-        <Logo />
-      </Link>
+      <Logo />
 
-      <DesktopMenu>
+      <DesktopMenu role="navigation">
         <NavigationLinks />
       </DesktopMenu>
 
@@ -215,13 +227,5 @@ const Header = ({ siteTitle }) => (
     </Container>
   </HeaderWrapper>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
-};
 
 export default Header;

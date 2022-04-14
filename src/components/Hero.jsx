@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import Container from './Container';
-import { H1, H2 } from './Typography';
+import { H2 } from './Typography';
 
-const Hero = styled.div`
+const Hero = styled.section`
   text-align: center;
   background-color: ${props => props.theme.currentTheme.color};
   color: #fff;
@@ -14,41 +14,41 @@ const Hero = styled.div`
     background-position: center top;
   `}
 
-  ${H1} {
+  ${H2} {
     font-size: 34px;
     line-height: 1em;
-    margin-bottom: 0.3em;
+    font-weight: 500;
     text-align: center;
+    padding: 0 .25em;
 
     ${({ theme }) => theme.media.medium`
       font-size: 56px;
-      line-height: 1em;
-      margin-bottom: 0.3em;
     `}
 
     ${({ theme }) => theme.media.medLarge`
       font-size: 56px;
-      line-height: 1em;
-      margin-bottom: 0.3em;
     `}
-  }
 
-  ${H2} {
-    font-family: ${props => props.theme.currentTheme.defaultSans};
-    font-size: 20px;
-    line-height: 1.4em;
-    margin-bottom: 0.8em;
-    text-align: center;
-
-    ${({ theme }) => theme.media.small`
-      font-size: 22px;
-      margin-bottom: 1.2em;
+    span {
+      display: block;
+      font-family: ${props => props.theme.currentTheme.defaultSans};
+      font-size: 20px;
       line-height: 1.4em;
-    `}
+      font-weight: 100;
+      margin-top: 0.75em;
+      margin-bottom: 0.8em;
+      text-align: center;
 
-    ${({ theme }) => theme.media.large`
-      margin-bottom: 2.4em;
-    `}
+      ${({ theme }) => theme.media.small`
+        font-size: 22px;
+        margin-bottom: 1.2em;
+        line-height: 1.4em;
+      `}
+
+      ${({ theme }) => theme.media.large`
+        margin-bottom: 2.4em;
+      `}
+    }
   }
 
   ${Container} {

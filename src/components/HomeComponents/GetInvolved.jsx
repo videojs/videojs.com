@@ -9,7 +9,7 @@ import TitleBox from '../TitleBox';
 import dots from '../../images/background-dots.svg';
 import leaves from '../../images/background-leaves.svg';
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   position: relative;
 
   ${({ theme }) => theme.media.xLarge`
@@ -211,7 +211,7 @@ const DemuxedBoxWrapper = styled(BoxWrapper)`
 `;
 
 const GetInvolved = () => (
-  <Wrapper>
+  <Wrapper role="contentinfo" aria-label="Get Involved">
     <StyledContainer>
       <HeaderWrapper>
         <StyledSectionHeader
