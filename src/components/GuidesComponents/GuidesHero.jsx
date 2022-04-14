@@ -21,7 +21,7 @@ const StyledHero = styled(Hero)`
     }
   `}
   ${({ theme }) => theme.media.xlLarge`
-    background-position: center -425px;
+    background-position: center -555px;
     ${Container} {
       padding-top: 10em;
       padding-bottom: 13em;
