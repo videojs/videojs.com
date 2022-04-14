@@ -3,11 +3,13 @@ title: Webpack and Video.js
 category: integrations
 ---
 
-Video.js and official libraries and plugins all work in a Webpack-based build environment. These are several configuration changes specific to Webpack that will get you up and running.
+Video.js and official libraries and plugins all work in a Webpack-based build environment.
 
 ## Video.js CSS:
 
-To add the CSS that the player requires, add the following to the file where the player is also included or initialized:
+The only thing you may need to add to your Webpack configuration is [`style-loader`](https://webpack.js.org/loaders/style-loader/).
+
+Then add the CSS that the player requires, add the following to the file where the player is also included or initialized:
 
 ```js
 require('!style-loader!css-loader!video.js/dist/video-js.css')
