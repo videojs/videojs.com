@@ -3,84 +3,81 @@ title: Vue and Video.js
 category: integrations
 ---
 
-Here's a basic Vue player implementation.
+This is a basic Vue and Video.js player implementation. This example component instantiates the player on `mounted` and destroys it on `beforeDestroy`:
 
-It just instantiates the Video.js player on `mounted` and destroys it on `beforeDestroy`.
-
-```vue
+```jsx
 <template>
-    <div>
-        <video ref="videoPlayer" class="video-js"></video>
-    </div>
+  <div>
+    <video ref="videoPlayer" class="video-js"></video>
+  </div>
 </template>
 
 <script>
 import videojs from 'video.js';
 
 export default {
-    name: "VideoPlayer",
-    props: {
-        options: {
-            type: Object,
-            default() {
-                return {};
-            }
-        }
-    },
-    data() {
-        return {
-            player: null
-        }
-    },
-    mounted() {
-        this.player = videojs(this.$refs.videoPlayer, this.options, function onPlayerReady() {
-            console.log('onPlayerReady', this);
-        })
-    },
-    beforeDestroy() {
-        if (this.player) {
-            this.player.dispose()
-        }
+  name: 'VideoPlayer',
+  props: {
+    options: {
+      type: Object,
+      default() {
+        return {};
+      }
     }
+  },
+  data() {
+    return {
+      player: null
+    }
+  },
+  mounted() {
+    this.player = videojs(this.$refs.videoPlayer, this.options, () => {
+      this.player.log('onPlayerReady', this);
+    });
+  },
+  beforeDestroy() {
+    if (this.player) {
+      this.player.dispose();
+    }
+  }
 }
 </script>
 ```
 
-You can then use it like this: (see [options guide][options] for option information)
+Finally, use the component like this (see [Video.js Options Reference](https://videojs.com/guides/options)):
 
-```vue
+```jsx
 <template>
   <div>
-		<video-player :options="videoOptions"/>
-	</div>
+    <video-player :options="videoOptions" />
+  </div>
 </template>
 
 <script>
-import VideoPlayer from "@/components/VideoPlayer.vue";
+import VideoPlayer from '@/components/VideoPlayer.vue';
 
 export default {
-	name: "VideoExample",
-	components: {
-		VideoPlayer
-	},
-	data() {
-		return {
-			videoOptions: {
-				autoplay: true,
-				controls: true,
-				sources: [
-					{
-						src:
-							"/path/to/video.mp4",
-						  type: "video/mp4"
-					}
-				]
-			}
-		};
-	}
+  name: 'VideoExample',
+  components: {
+    VideoPlayer
+  },
+  data() {
+    return {
+      videoOptions: {
+        autoplay: true,
+        controls: true,
+        sources: [
+          {
+            src:
+              '/path/to/video.mp4',
+              type: 'video/mp4'
+          }
+        ]
+      }
+    };
+  }
 };
+</script>
 ```
 
-Don't forget to include the Video.js CSS, located at `video.js/dist/video-js.css`.
-
-[options]: /guides/options
+Don't forget to include the Video.js CSS, located at `video.js/dist/video-js.css`!
