@@ -49,33 +49,33 @@ Finally, use the component like this (see [Video.js Options Reference](https://v
 ```jsx
 <template>
   <div>
-		<video-player :options="videoOptions" />
-	</div>
+    <video-player :options="videoOptions" />
+  </div>
 </template>
 
 <script>
 import VideoPlayer from '@/components/VideoPlayer.vue';
 
 export default {
-	name: 'VideoExample',
-	components: {
-		VideoPlayer
-	},
-	data() {
-		return {
-			videoOptions: {
-				autoplay: true,
-				controls: true,
-				sources: [
-					{
-						src:
-							'/path/to/video.mp4',
-						  type: 'video/mp4'
-					}
-				]
-			}
-		};
-	}
+  name: 'VideoExample',
+  components: {
+    VideoPlayer
+  },
+  data() {
+    return {
+      videoOptions: {
+        autoplay: true,
+        controls: true,
+        sources: [
+          {
+            src:
+              '/path/to/video.mp4',
+              type: 'video/mp4'
+          }
+        ]
+      }
+    };
+  }
 };
 </script>
 ```
