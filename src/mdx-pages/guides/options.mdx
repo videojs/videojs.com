@@ -200,6 +200,26 @@ When `true`, the Video.js player will have a fluid size. In other words, it will
 
 Also, if the `<video>` element has the `"vjs-fluid"`, this option is automatically set to `true`.
 
+### `fullscreen`
+
+> Type: `Object`
+> Default: `{options: {navigationUI: 'hide'}`
+
+`fullscreen.options` can be set to pass in specific fullscreen options. At some point, it will be augmented with `element` and `handler` for more functionality.
+
+#### `options`
+
+> Type: `Object`
+> Default: `{navigationUI: 'hide'}`
+
+See [The Fullscreen API Spec](https://fullscreen.spec.whatwg.org/#dictdef-fullscreenoptions) for more details.
+
+### `id`
+
+> Type: `string`
+
+If provided, and the element does not already have an `id`, this value is used as the `id` of the player element.
+
 ### `inactivityTimeout`
 
 > Type: `number`
@@ -277,20 +297,6 @@ Allows overriding the default message that is displayed when Video.js cannot pla
 > Default: `false`
 
 Control whether UI elements have a `title` attribute. A `title` attribute is shown on mouse hover, which can be helpful for usability, but has drawbacks for accessibility. Setting `noUITitleAttributes` to `true` prevents the `title` attribute from being added to UI elements, allowing for more accessible tooltips to be added to controls by a plugin or external framework.
-
-### `fullscreen`
-
-> Type: `Object`
-> Default: `{options: {navigationUI: 'hide'}`
-
-`fullscreen.options` can be set to pass in specific fullscreen options. At some point, it will be augmented with `element` and `handler` for more functionality.
-
-#### `options`
-
-> Type: `Object`
-> Default: `{navigationUI: 'hide'}`
-
-See [The Fullscreen API Spec](https://fullscreen.spec.whatwg.org/#dictdef-fullscreenoptions) for more details.
 
 ### `playbackRates`
 
