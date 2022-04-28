@@ -82,7 +82,7 @@ const SecondPage = () => (
           <TableRow>
             <TableCell header>HEVC (H.265)</TableCell>
             <SupportCell>No</SupportCell>
-            <SupportCell supported>18</SupportCell>
+            <SupportCell>No *</SupportCell>
             <SupportCell>No</SupportCell>
             <SupportCell supported>11</SupportCell>
             <SupportCell>No</SupportCell>
@@ -113,7 +113,7 @@ const SecondPage = () => (
             <SupportCell supported>28</SupportCell>
             <SupportCell>No</SupportCell>
             <SupportCell supported>10.6</SupportCell>
-            <SupportCell>No</SupportCell>
+            <SupportCell supported>14.1</SupportCell>
           </TableRow>
           <TableRow>
             <TableCell header>Ogg Theora</TableCell>
@@ -135,6 +135,7 @@ const SecondPage = () => (
         </a>
         .
       </P>
+      <P>* Legacy Edge supported HEVC. Modern (Chromium) Edge does not.</P>
     </Container>
   </Layout>
 );
