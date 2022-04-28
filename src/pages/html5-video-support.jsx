@@ -82,7 +82,7 @@ const SecondPage = () => (
           <TableRow>
             <TableCell header>HEVC (H.265)</TableCell>
             <SupportCell>No</SupportCell>
-            <SupportCell>No *</SupportCell>
+            <SupportCell>No&nbsp;*</SupportCell>
             <SupportCell>No</SupportCell>
             <SupportCell supported>11</SupportCell>
             <SupportCell>No</SupportCell>
