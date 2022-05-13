@@ -74,7 +74,10 @@ const myButton = player.getChild('ControlBar').addChild('button', {controlText: 
 To have the control text displayed, add a `vjs-visibile-text` class to the button.
 
 ```js
-const myButton = player.getChild('ControlBar').addChild('button', {controlText: 'My button', className: 'vjs-visible-text'});
+const myButton = player.getChild('ControlBar').addChild('button', {
+  controlText: 'My button',
+  className: 'vjs-visible-text'
+});
 ```
 
 Classes and control text could also be set after a button is created.
