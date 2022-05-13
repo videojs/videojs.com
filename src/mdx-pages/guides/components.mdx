@@ -23,7 +23,7 @@ For more specifics on the programmatic interface of a component, see [the compon
 An instance of a component can be created with `new Component()`. 
 
 ```js
-// Creating a button
+// Creating an instance of a button
 var player = videojs('some-video-id');
 var Button = videojs.getComponent('Button');
 var button = new Button(player, {
@@ -53,7 +53,7 @@ player.getChild('ControlBar').addChild(button);
 Alternatively by passing the name of a component to `addChild`, a new instance of the component will be created and added in one step.
 
 ```js
-// Creating and adding a button to the player's control bar
+// Creating an instance of a button and addingit to the player's control bar
 var player = videojs('some-video-id');
 var button = player.getChild('ControlBar').addChild('button', {
   clickHandler: function(event) {
