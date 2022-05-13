@@ -18,22 +18,12 @@ A component is a JavaScript object that has the following features:
 
 For more specifics on the programmatic interface of a component, see [the component API docs][api].
 
-## Creating a Component
+## Adding a Component
 
-Video.js components can be inherited and registered with Video.js to add new features and UI to the player.
-
-For a working example, [we have a JSBin](https://jsbin.com/vobacas/edit?html,css,js,output) demonstrating the creation of a component for displaying a title across the top of the player.
-
-In addition, there are a couple methods worth recognizing:
-
-* `videojs.getComponent(String name)`: Retrieves component constructors from Video.js.
-* `videojs.registerComponent(String name, Function Comp)`: Registers component constructors with Video.js.
-* `videojs.extend(Function component, Object properties)`: Provides prototype inheritance. Can be used to extend a component's constructor, returning a new constructor with the given properties.
-
-Creation:
+An instance of a component can be created with `new Component()`. 
 
 ```js
-// adding a button to the player
+// Creating a button
 var player = videojs('some-video-id');
 var Button = videojs.getComponent('Button');
 var button = new Button(player, {
@@ -54,40 +44,58 @@ The above code will output
 </button>
 ```
 
-Adding the new button to the player
+Note that this has created the button, but not added it to the DOM. Adding it as a child of a component will add it to the DOM.
 
 ```js
-// adding a button to the player
+player.getChild('ControlBar').addChild(button);
+```
+
+Alternatively by passing the name of a component to `addChild`, a new instance of the component will be created and added in one step.
+
+```js
+// Creating and adding a button to the player's control bar
 var player = videojs('some-video-id');
-var button = player.addChild('button');
+var button = player.getChild('ControlBar').addChild('button', {
+  clickHandler: function(event) {
+    videojs.log('Clicked');
+  }
+});
 
 console.log(button.el());
 // will have the same html result as the previous example
 ```
 
-The text of the button can be set as an option:
+Buttons should have text. The default buttons don't display their text, but it is present for screenreaders and dsplayed by browsers as a tooltip. The text of the button can be set as an option:
 
 ```js
-const myButton = player.addChild('button', {controlText: 'abc'});
+const myButton = player.getChild('ControlBar').addChild('button', {controlText: 'My button'});
 ```
 
-or set later:
+To have the control text displayed, add a `vjs-visibile-text` class to the button.
 
 ```js
-myButton.controlText('def');
+const myButton = player.getChild('ControlBar').addChild('button', {controlText: 'My button', className: 'vjs-visible-text'});
 ```
 
-The control text of a button is normally not visible (but present for screen readers) as the default buttons all display only an icon. The text can be displayed by adding a `vjs-text-visible` class to the button. This or any other class may be set as a setup option, or later by API.
+Classes and control text could also be set after a button is created.
 
 ```js
-const myButton = player.addChild('button', {className: 'vjs-text-visible'});
+myButton.controlText('My button');
+myButton.addClass('vjs-visible-text');
 ```
 
-or set later:
+## Creating a Component
 
-```js
-myButton.addClass('vjs-text-visible');
-```
+Video.js components can be inherited and registered with Video.js to add new features and UI to the player.
+
+There are a few used for creating and registering components:
+
+* `videojs.getComponent(String name)`: Retrieves component constructors from Video.js.
+* `videojs.registerComponent(String name, Function Comp)`: Registers component constructors with Video.js.
+* `videojs.extend(Function component, Object properties)`: Provides prototype inheritance. Can be used to extend a component's constructor, returning a new constructor with the given properties.
+
+For a working example, [we have a JSBin](https://jsbin.com/vobacas/edit?html,css,js,output) demonstrating the creation of a component for displaying a title across the top of the player.
+
 
 ## Component Children
 
