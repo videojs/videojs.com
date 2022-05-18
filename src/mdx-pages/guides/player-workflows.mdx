@@ -34,6 +34,7 @@ Calling `dispose()` will have a few effects:
 1. Trigger a `"dispose"` event on the player, allowing for any custom cleanup tasks that need to be run by your integration.
 1. Remove all event listeners from the player.
 1. Remove the player's DOM element(s).
+1. If the [`restoreEl`](/guides/options#restoreel) option was used, then the player's DOM elements are replaced with the stored element, a copy of the original placeholder element if it were set to `true`.
 
 Additionally, these actions are recursively applied to _all_ the player's child components.
 

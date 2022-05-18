@@ -360,6 +360,14 @@ When this option is `false` (the default), responsive breakpoints will be ignore
 
 > Note this is about the responsiveness of the controls within the player, not responsive sizing of the pplayer itself. For that, see [fluid](#fluid).
 
+### `restoreEl`
+
+> Type `boolean` or `Element`, Default: false
+
+If set to `true`, a _copy_ of the placeholder element will be made before the player is initalised. If the player is disposed, the copy is put back into the DOM in the player's place.
+
+If set to an HTML Element, that element would replace the disposed player instead.
+
 ### `sources`
 
 > Type: `Array`
