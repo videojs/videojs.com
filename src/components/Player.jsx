@@ -20,6 +20,11 @@ class Player extends React.Component {
       },
       ...this.props,
     };
+    videojs.hook('beforesetup', (e, o) => {
+      console.log(e, o);
+
+      return o;
+    });
     this.player = videojs(this.videoNode, options, function onPlayerReady() {
       // console.log('onPlayerReady', this);
     });
@@ -48,9 +53,9 @@ class Player extends React.Component {
     return (
       <div>
         <div data-vjs-player>
-          <video
+          <video-js
             ref={node => (this.videoNode = node)}
-            className="video-js vjs-16-9"
+            class="vjs-16-9"
             playsInline={this.props.playsInline}
           />
         </div>

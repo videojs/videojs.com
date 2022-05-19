@@ -1,5 +1,5 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { StaticQuery, graphql } from 'gatsby';
 
 const Image = ({ filename, alt, fluid, presentationWidth }) => (
@@ -13,12 +13,7 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
               name
               publicURL
               childImageSharp {
-                sizes(maxWidth: 1200) {
-                  ...GatsbyImageSharpSizes
-                }
-                fluid(maxWidth: 1200) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData(layout: FIXED)
               }
             }
           }
@@ -58,7 +53,7 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
         });
       }
 
-      return <Img {...imgProps} />;
+      return <GatsbyImage {...imgProps} />;
     }}
   />
 );

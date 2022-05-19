@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import styled from 'styled-components';
 
 import WithMdxComponents from '../WithMdxComponents';
@@ -42,13 +42,13 @@ const Text = styled.div`
   }
 `;
 
-const GuidesView = ({ guide: { tableOfContents, frontmatter, code, fields } }) => (
+const GuidesView = ({ guide: { tableOfContents, frontmatter, body, fields } }) => (
   <>
     <h1>{frontmatter.title}</h1>
     <TableOfContents contents={tableOfContents} />
     <Text>
       <WithMdxComponents contentSlug={fields.slug}>
-        <MDXRenderer>{code.body}</MDXRenderer>
+        <MDXRenderer>{body}</MDXRenderer>
       </WithMdxComponents>
     </Text>
   </>
@@ -59,7 +59,7 @@ GuidesView.propTypes = {
     frontmatter: PropTypes.shape({
       title: PropTypes.string.isRequired,
     }).isRequired,
-    code: PropTypes.shape({
+    body: PropTypes.shape({
       body: PropTypes.string.isRequired,
     }).isRequired,
     fields: PropTypes.shape({

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import MDXRenderer from 'gatsby-plugin-mdx/mdx-renderer';
 import styled from 'styled-components';
 
 import Link from '../Link';
@@ -111,7 +111,7 @@ const AvatarLink = ({ github }) => (
   </Link>
 )
 
-const BlogPost = ({ post: { frontmatter, code, fields } }) => (
+const BlogPost = ({ post: { frontmatter, body, fields } }) => (
   <Wrapper>
     <AvatarCol>
       <AvatarLink github={frontmatter.author.github} />
@@ -125,7 +125,7 @@ const BlogPost = ({ post: { frontmatter, code, fields } }) => (
       <Text>
         <TitleLink to={fields.slug}><h1>{frontmatter.title}</h1></TitleLink>
         <WithMdxComponents contentSlug={fields.slug}>
-          <MDXRenderer>{code.body}</MDXRenderer>
+          <MDXRenderer>{body}</MDXRenderer>
         </WithMdxComponents>
       </Text>
     </TextCol>

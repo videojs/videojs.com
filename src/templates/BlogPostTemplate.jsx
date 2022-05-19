@@ -36,9 +36,6 @@ export const blogPostQuery = graphql`
           github
         }
       }
-      code {
-        body
-      }
     }
   }
 `;

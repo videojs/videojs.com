@@ -1,4 +1,4 @@
-export default [{
+const playlist = [{
   name: 'Disney\'s Oceans',
   description: 'Explore the depths of our planet\'s oceans. ' +
     'Experience the stories that connect their world to ours. ' +
@@ -201,3 +201,5 @@ export default [{
     },
   ],
 }];
+
+export default playlist;

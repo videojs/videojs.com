@@ -40,9 +40,7 @@ export const guidesViewQuery = graphql`
       frontmatter {
         title
       }
-      code {
-        body
-      }
+      body
     }
   }
 `;

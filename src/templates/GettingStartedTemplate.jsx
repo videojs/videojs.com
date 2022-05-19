@@ -48,10 +48,8 @@ export const pageQuery = graphql`
       fields {
         slug
       }
-      code {
-        body
-      }
       tableOfContents
+      body
     }
   }
 `;
