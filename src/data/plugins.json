@@ -5355,7 +5355,7 @@
     "name": "videojs-schema",
     "scope": "unscoped",
     "version": "0.4.0",
-    "description": "Injects JSON-LD metadata into the DOM for SEO",
+    "description": "Injects JSON-LD metadata into the DOM for Seo",
     "keywords": [
       "videojs",
       "videojs-plugin"

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/SEO';
 import Container from '../components/Container';
 import GettingStartedHero from '../components/GettingStartedComponents/GettingStartedHero';
 import GettingStartedNav from '../components/GettingStartedComponents/GettingStartedNav';
@@ -26,7 +26,7 @@ const MainContentWrapper = styled.div`
 
 const GettingStartedPageTemplate = ({ data: { mdx }, location }) => (
   <Layout>
-    <SEO title="Getting Started with Video.js - Video.js: The Player Framework" />
+    <Seo title="Getting Started with Video.js - Video.js: The Player Framework" />
     <GettingStartedHero />
     <StyledContainer>
       <MainContentWrapper>
