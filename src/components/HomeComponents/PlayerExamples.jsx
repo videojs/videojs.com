@@ -34,7 +34,7 @@ const ExampleSelector = styled.div`
 `;
 
 const ExampleBlock = styled(props => (
-  <div className={props.className} onClick={props.onClick}  >
+  <div className={props.className} onClick={props.onClick}>
     <div className="example-block-content">{props.children}</div>
   </div>
 ))`
