@@ -20,11 +20,6 @@ class Player extends React.Component {
       },
       ...this.props,
     };
-    videojs.hook('beforesetup', (e, o) => {
-      console.log(e, o);
-
-      return o;
-    });
     this.player = videojs(this.videoNode, options, function onPlayerReady() {
       // console.log('onPlayerReady', this);
     });

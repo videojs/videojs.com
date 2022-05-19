@@ -44,7 +44,7 @@
     "styled-components": "^5.3.5",
     "typescript": "^2.9.2",
     "video.js": "^7.18.1",
-    "videojs-mux": "^2.5.0",
+    "videojs-mux": "^4.6.6",
     "videojs-playlist": "^4.3.1",
     "videojs-playlist-ui": "^3.5.2"
   },

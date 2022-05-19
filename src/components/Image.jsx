@@ -6,7 +6,8 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
   <StaticQuery
     query={graphql`
       query {
-        images: allFile {
+        images: allFile(filter: {
+          extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
           edges {
             node {
               relativePath
