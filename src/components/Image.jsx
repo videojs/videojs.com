@@ -7,7 +7,7 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
     query={graphql`
       query {
         images: allFile(filter: {
-          extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
+          extension: {regex: "/(gif)|(jpg)|(jpeg)|(png)/"}}) {
           edges {
             node {
               relativePath
