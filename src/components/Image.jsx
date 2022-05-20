@@ -1,27 +1,38 @@
 import React from 'react';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { StaticQuery, graphql } from 'gatsby';
+
+/*
+(filter: {extension: {regex: "/(gif)|(jpg)|(jpeg)|(png)/"}})
+*/
 
 const Image = ({ filename, alt, fluid, presentationWidth }) => (
   <StaticQuery
     query={graphql`
       query {
-        images: allFile(filter: {
-          extension: {regex: "/(gif)|(jpg)|(jpeg)|(png)/"}}) {
-          edges {
-            node {
-              relativePath
-              name
-              publicURL
-              childImageSharp {
-                gatsbyImageData(layout: FIXED)
+        images:
+          allFile(filter: {extension: {regex: "/(jpg)|(jpeg)|(png)/"}}) {
+            edges {
+              node {
+                relativePath
+                name
+                publicURL
+                childImageSharp {
+                  fixed {
+                    ...GatsbyImageSharpFixed
+                  }
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
             }
           }
-        }
       }
     `}
     render={data => {
+      window.imagecount = window.imagecount || 0;
+      window.imagecount++;
       const image = data.images.edges.find(n => {
         return n.node.relativePath.includes(filename);
       });
@@ -34,15 +45,16 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
         return <img src={image.node.publicURL} alt={alt} />;
       }
 
-      const imageSizes = image.node.childImageSharp.sizes;
+      // const imageSizes = image.node.childImageSharp.sizes;
+      const imageFixed = image.node.childImageSharp.fixed;
       const imageFluid = image.node.childImageSharp.fluid;
 
-      const imgProps = { alt };
+      const imgProps = { image: getImage(image.node), alt };
 
       if (fluid) {
         Object.assign(imgProps, { fluid: imageFluid });
       } else {
-        Object.assign(imgProps, { sizes: imageSizes });
+        Object.assign(imgProps, { sizes: imageFixed });
       }
 
       if (presentationWidth) {
@@ -52,6 +64,11 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
             maxWidth: presentationWidth,
           },
         });
+      }
+
+      if (filename.toLowerCase().startsWith('ign')) {
+        console.log(imgProps);
+        debugger;
       }
 
       return <GatsbyImage {...imgProps} />;
