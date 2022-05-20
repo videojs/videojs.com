@@ -59,9 +59,7 @@ GuidesView.propTypes = {
     frontmatter: PropTypes.shape({
       title: PropTypes.string.isRequired,
     }).isRequired,
-    body: PropTypes.shape({
-      body: PropTypes.string.isRequired,
-    }).isRequired,
+    body: PropTypes.string.isRequired,
     fields: PropTypes.shape({
       slug: PropTypes.string.isRequired,
     }).isRequired,

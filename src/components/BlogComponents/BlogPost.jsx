@@ -142,9 +142,7 @@ BlogPost.propTypes = {
       date: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
     }).isRequired,
-    code: PropTypes.shape({
-      body: PropTypes.string.isRequired,
-    }).isRequired,
+    body: PropTypes.string.isRequired,
     fields: PropTypes.shape({
       slug: PropTypes.string.isRequired,
     }).isRequired,

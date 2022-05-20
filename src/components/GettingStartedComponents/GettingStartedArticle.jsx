@@ -41,9 +41,7 @@ const GettingStartedArticle = ({ mdxData }) => (
 
 GettingStartedArticle.propTypes = {
   mdxData: PropTypes.shape({
-    body: PropTypes.shape({
-      body: PropTypes.string.isRequired,
-    }).isRequired,
+    body: PropTypes.string.isRequired,
     fields: PropTypes.shape({
       slug: PropTypes.string.isRequired,
     }).isRequired,
