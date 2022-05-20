@@ -166,6 +166,81 @@
     "downloads": 350995
   },
   {
+    "name": "video.js",
+    "scope": "unscoped",
+    "version": "7.19.2",
+    "description": "An HTML5 video player that supports HLS and DASH with a common API and skin.",
+    "keywords": [
+      "dash",
+      "hls",
+      "html5",
+      "player",
+      "video",
+      "videojs"
+    ],
+    "date": "2022-04-20T19:14:04.723Z",
+    "links": {
+      "npm": "https://www.npmjs.com/package/video.js",
+      "homepage": "https://videojs.com",
+      "repository": "https://github.com/videojs/video.js",
+      "bugs": "https://github.com/videojs/video.js/issues"
+    },
+    "author": {
+      "name": "Steve Heffernan"
+    },
+    "publisher": {
+      "username": "videojs-user",
+      "email": "videojs@gkatsev.com"
+    },
+    "maintainers": [
+      {
+        "username": "videojs-user",
+        "email": "videojs@gkatsev.com"
+      },
+      {
+        "username": "heff",
+        "email": "npm@heff.me"
+      },
+      {
+        "username": "mmcclure",
+        "email": "npm@htbx.net"
+      },
+      {
+        "username": "dmlap",
+        "email": "dlapalomento@gmail.com"
+      },
+      {
+        "username": "lday",
+        "email": "ldayananda@brightcove.com"
+      },
+      {
+        "username": "brandonocasey",
+        "email": "brandonocasey@gmail.com"
+      },
+      {
+        "username": "imbcmdth",
+        "email": "jon.carlos.rivera@gmail.com"
+      },
+      {
+        "username": "misterben",
+        "email": "npm@misterben.me"
+      },
+      {
+        "username": "misteroneill",
+        "email": "pgoneill@gmail.com"
+      },
+      {
+        "username": "gkatsev",
+        "email": "me@gkatsev.com"
+      },
+      {
+        "username": "mmcc",
+        "email": "matt@mmcc.io"
+      }
+    ],
+    "downloads": 419381
+  },
+  {
     "name": "@videojs/vhs-utils",
     "scope": "videojs",
     "version": "3.0.5",
@@ -442,81 +517,6 @@
       }
     ],
     "downloads": 360301
-  },
-  {
-    "name": "video.js",
-    "scope": "unscoped",
-    "version": "7.18.1",
-    "description": "An HTML5 video player that supports HLS and DASH with a common API and skin.",
-    "keywords": [
-      "dash",
-      "hls",
-      "html5",
-      "player",
-      "video",
-      "videojs"
-    ],
-    "date": "2022-02-23T18:55:37.451Z",
-    "links": {
-      "npm": "https://www.npmjs.com/package/video.js",
-      "homepage": "https://videojs.com",
-      "repository": "https://github.com/videojs/video.js",
-      "bugs": "https://github.com/videojs/video.js/issues"
-    },
-    "author": {
-      "name": "Steve Heffernan"
-    },
-    "publisher": {
-      "username": "videojs-user",
-      "email": "videojs@gkatsev.com"
-    },
-    "maintainers": [
-      {
-        "username": "videojs-user",
-        "email": "videojs@gkatsev.com"
-      },
-      {
-        "username": "heff",
-        "email": "npm@heff.me"
-      },
-      {
-        "username": "mmcclure",
-        "email": "npm@htbx.net"
-      },
-      {
-        "username": "dmlap",
-        "email": "dlapalomento@gmail.com"
-      },
-      {
-        "username": "lday",
-        "email": "ldayananda@brightcove.com"
-      },
-      {
-        "username": "brandonocasey",
-        "email": "brandonocasey@gmail.com"
-      },
-      {
-        "username": "imbcmdth",
-        "email": "jon.carlos.rivera@gmail.com"
-      },
-      {
-        "username": "misterben",
-        "email": "npm@misterben.me"
-      },
-      {
-        "username": "misteroneill",
-        "email": "pgoneill@gmail.com"
-      },
-      {
-        "username": "gkatsev",
-        "email": "me@gkatsev.com"
-      },
-      {
-        "username": "mmcc",
-        "email": "matt@mmcc.io"
-      }
-    ],
-    "downloads": 419381
   },
   {
     "name": "videojs-playlist",
@@ -7296,6 +7296,37 @@
     "downloads": 42
   },
   {
+    "name": "@antmedia/videojs-webrtc-plugin",
+    "scope": "antmedia",
+    "version": "2.0.0",
+    "description": "streaming via WebRTC with Ant-MediaServer",
+    "keywords": [
+      "videojs",
+      "videojs-plugin"
+    ],
+    "date": "2022-04-25T14:52:05.965Z",
+    "links": {
+      "npm": "https://www.npmjs.com/package/%40antmedia%2Fvideojs-webrtc-plugin",
+      "homepage": "https://github.com/ant-media/videojs-webrtc-plugin#readme",
+      "repository": "https://github.com/ant-media/videojs-webrtc-plugin",
+      "bugs": "https://github.com/ant-media/videojs-webrtc-plugin/issues"
+    },
+    "author": {
+      "name": "AntMedia"
+    },
+    "publisher": {
+      "username": "gogletahir",
+      "email": "tahir.golge@gmail.com"
+    },
+    "maintainers": [
+      {
+        "username": "gogletahir",
+        "email": "tahir.golge@gmail.com"
+      }
+    ],
+    "downloads": 15
+  },
+  {
     "name": "@peertube/videojs-contextmenu",
     "scope": "peertube",
     "version": "5.5.0",
@@ -7894,37 +7925,6 @@
       }
     ],
     "downloads": 11
-  },
-  {
-    "name": "@antmedia/videojs-webrtc-plugin",
-    "scope": "antmedia",
-    "version": "2.0.0",
-    "description": "streaming via WebRTC with Ant-MediaServer",
-    "keywords": [
-      "videojs",
-      "videojs-plugin"
-    ],
-    "date": "2022-04-25T14:52:05.965Z",
-    "links": {
-      "npm": "https://www.npmjs.com/package/%40antmedia%2Fvideojs-webrtc-plugin",
-      "homepage": "https://github.com/ant-media/videojs-webrtc-plugin#readme",
-      "repository": "https://github.com/ant-media/videojs-webrtc-plugin",
-      "bugs": "https://github.com/ant-media/videojs-webrtc-plugin/issues"
-    },
-    "author": {
-      "name": "AntMedia"
-    },
-    "publisher": {
-      "username": "gogletahir",
-      "email": "tahir.golge@gmail.com"
-    },
-    "maintainers": [
-      {
-        "username": "gogletahir",
-        "email": "tahir.golge@gmail.com"
-      }
-    ],
-    "downloads": 15
   },
   {
     "name": "videojs-preroll-v2",
@@ -8721,6 +8721,38 @@
     "downloads": 39
   },
   {
+    "name": "videojs-schema",
+    "scope": "unscoped",
+    "version": "0.6.2",
+    "description": "Injects JSON-LD metadata into the DOM for SEO",
+    "keywords": [
+      "videojs",
+      "videojs-plugin"
+    ],
+    "date": "2022-02-09T16:30:53.309Z",
+    "links": {
+      "npm": "https://www.npmjs.com/package/videojs-schema",
+      "homepage": "https://github.com/brightcove/videojs-schema#readme",
+      "repository": "https://github.com/brightcove/videojs-schema",
+      "bugs": "https://github.com/brightcove/videojs-schema/issues"
+    },
+    "author": {
+      "name": "mister-ben",
+      "email": "git@misterben.me"
+    },
+    "publisher": {
+      "username": "misterben",
+      "email": "npm@misterben.me"
+    },
+    "maintainers": [
+      {
+        "username": "misterben",
+        "email": "npm@misterben.me"
+      }
+    ],
+    "downloads": 45
+  },
+  {
     "name": "videojs-mirror",
     "scope": "unscoped",
     "version": "0.0.2",
@@ -8868,38 +8900,6 @@
       }
     ],
     "downloads": 2
-  },
-  {
-    "name": "videojs-schema",
-    "scope": "unscoped",
-    "version": "0.6.2",
-    "description": "Injects JSON-LD metadata into the DOM for SEO",
-    "keywords": [
-      "videojs",
-      "videojs-plugin"
-    ],
-    "date": "2022-02-09T16:30:53.309Z",
-    "links": {
-      "npm": "https://www.npmjs.com/package/videojs-schema",
-      "homepage": "https://github.com/brightcove/videojs-schema#readme",
-      "repository": "https://github.com/brightcove/videojs-schema",
-      "bugs": "https://github.com/brightcove/videojs-schema/issues"
-    },
-    "author": {
-      "name": "mister-ben",
-      "email": "git@misterben.me"
-    },
-    "publisher": {
-      "username": "misterben",
-      "email": "npm@misterben.me"
-    },
-    "maintainers": [
-      {
-        "username": "misterben",
-        "email": "npm@misterben.me"
-      }
-    ],
-    "downloads": 45
   },
   {
     "name": "@curiositystream/videojs-airplay",
@@ -9333,38 +9333,6 @@
       }
     ],
     "downloads": 7
-  },
-  {
-    "name": "videojs-overlay-buttons",
-    "scope": "unscoped",
-    "version": "1.3.0",
-    "description": "Overlay buttons for videojs player",
-    "keywords": [
-      "videojs",
-      "videojs-plugin"
-    ],
-    "date": "2021-05-10T12:58:46.080Z",
-    "links": {
-      "npm": "https://www.npmjs.com/package/videojs-overlay-buttons",
-      "homepage": "https://github.com/hoangvu12/videojs-overlay-buttons#readme",
-      "repository": "https://github.com/hoangvu12/videojs-overlay-buttons",
-      "bugs": "https://github.com/hoangvu12/videojs-overlay-buttons/issues"
-    },
-    "author": {
-      "name": "hoangvu12",
-      "email": "68330291+hoangvu12@users.noreply.github.com"
-    },
-    "publisher": {
-      "username": "nguyenvuzxc1",
-      "email": "nguyenvu@hoangvumail.com"
-    },
-    "maintainers": [
-      {
-        "username": "nguyenvuzxc1",
-        "email": "nguyenvu@hoangvumail.com"
-      }
-    ],
-    "downloads": 341
   },
   {
     "name": "@mtonomy/videojs-source-selector",
@@ -12061,6 +12029,38 @@
       }
     ],
     "downloads": 168
+  },
+  {
+    "name": "videojs-overlay-buttons",
+    "scope": "unscoped",
+    "version": "1.3.0",
+    "description": "Overlay buttons for videojs player",
+    "keywords": [
+      "videojs",
+      "videojs-plugin"
+    ],
+    "date": "2021-05-10T12:58:46.080Z",
+    "links": {
+      "npm": "https://www.npmjs.com/package/videojs-overlay-buttons",
+      "homepage": "https://github.com/hoangvu12/videojs-overlay-buttons#readme",
+      "repository": "https://github.com/hoangvu12/videojs-overlay-buttons",
+      "bugs": "https://github.com/hoangvu12/videojs-overlay-buttons/issues"
+    },
+    "author": {
+      "name": "hoangvu12",
+      "email": "68330291+hoangvu12@users.noreply.github.com"
+    },
+    "publisher": {
+      "username": "nguyenvuzxc1",
+      "email": "nguyenvu@hoangvumail.com"
+    },
+    "maintainers": [
+      {
+        "username": "nguyenvuzxc1",
+        "email": "nguyenvu@hoangvumail.com"
+      }
+    ],
+    "downloads": 341
   },
   {
     "name": "@thelak/vue-videojs7",
@@ -16290,6 +16290,36 @@
     "downloads": 133
   },
   {
+    "name": "videojs-mirror-plugin",
+    "scope": "unscoped",
+    "version": "0.0.0",
+    "description": "Mirror selection for video.js",
+    "keywords": [
+      "videojs",
+      "videojs-plugin"
+    ],
+    "date": "2016-02-15T20:06:21.648Z",
+    "links": {
+      "npm": "https://www.npmjs.com/package/videojs-mirror-plugin"
+    },
+    "author": {
+      "name": "Vitaly Domnikov",
+      "email": "dotcypress@gmail.com",
+      "username": "dotcypress"
+    },
+    "publisher": {
+      "username": "dotcypress",
+      "email": "dotcypress@gmail.com"
+    },
+    "maintainers": [
+      {
+        "username": "dotcypress",
+        "email": "dotcypress@gmail.com"
+      }
+    ],
+    "downloads": 2
+  },
+  {
     "name": "videojs-logo",
     "scope": "unscoped",
     "version": "2.1.6",
@@ -16319,36 +16349,6 @@
       }
     ],
     "downloads": 1080
-  },
-  {
-    "name": "videojs-mirror-plugin",
-    "scope": "unscoped",
-    "version": "0.0.0",
-    "description": "Mirror selection for video.js",
-    "keywords": [
-      "videojs",
-      "videojs-plugin"
-    ],
-    "date": "2016-02-15T20:06:21.648Z",
-    "links": {
-      "npm": "https://www.npmjs.com/package/videojs-mirror-plugin"
-    },
-    "author": {
-      "name": "Vitaly Domnikov",
-      "email": "dotcypress@gmail.com",
-      "username": "dotcypress"
-    },
-    "publisher": {
-      "username": "dotcypress",
-      "email": "dotcypress@gmail.com"
-    },
-    "maintainers": [
-      {
-        "username": "dotcypress",
-        "email": "dotcypress@gmail.com"
-      }
-    ],
-    "downloads": 2
   },
   {
     "name": "videojs-panorama",
