@@ -15,7 +15,7 @@ import LinkedInSvg from '../../images/linkedin.svg';
 import TumblrSvg from '../../images/tumblr.svg';
 import GuardianSvg from '../../images/guardian.svg';
 
-const IGNLogo = () => <Image filename="ign.png" />;
+const IGNLogo = () => <Image filename="ign.png" alt="IGN" />;
 const LinkedInLogo = () => <img src={LinkedInSvg} alt="LinkedIn" />;
 const TumblrLogo = () => <img src={TumblrSvg} alt="Tumblr" />;
 const GuardianLogo = () => <img src={GuardianSvg} alt="Guardian" />;
