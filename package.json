@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "bluebird": "^3.7.2",
+    "deepmerge": "^4.2.2",
     "prettier": "^1.17.0"
   },
   "keywords": [
