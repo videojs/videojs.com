@@ -28,8 +28,6 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
   }
   `}
     render={data => {
-      window.imagecount = window.imagecount || 0;
-      window.imagecount++;
       const image = data.images.edges.find(n => {
         return n.node.relativePath.includes(filename);
       });
@@ -61,11 +59,6 @@ const Image = ({ filename, alt, fluid, presentationWidth }) => (
             maxWidth: presentationWidth,
           },
         });
-      }
-
-      if (filename.toLowerCase().startsWith('ign')) {
-        console.log(imgProps);
-        debugger;
       }
 
       return <GatsbyImage {...imgProps} />;

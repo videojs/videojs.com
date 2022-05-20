@@ -34,9 +34,9 @@ const ExampleSelector = styled.div`
 `;
 
 const ExampleBlock = styled(props => (
-  <div className={props.className} onClick={props.onClick} role="button">
+  <button className={props.className} onClick={props.onClick}>
     <div className="example-block-content">{props.children}</div>
-  </div>
+  </button>
 ))`
   border: solid 2px #ebebeb;
   margin: 1em;
@@ -44,8 +44,10 @@ const ExampleBlock = styled(props => (
   flex: 0 0 40%;
   cursor: pointer;
   padding: 3em 1em;
+  background-color: white;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     border-color: ${props => props.theme.currentTheme.color};
   }
 

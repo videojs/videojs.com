@@ -88,7 +88,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 370683
+    "downloads": 370982
   },
   {
     "name": "aes-decrypter",
@@ -163,7 +163,7 @@
         "email": "dlapalomento@gmail.com"
       }
     ],
-    "downloads": 349253
+    "downloads": 350995
   },
   {
     "name": "@videojs/vhs-utils",
@@ -268,7 +268,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 453181
+    "downloads": 454457
   },
   {
     "name": "videojs-contrib-dash",
@@ -350,7 +350,7 @@
         "email": "npm@heff.me"
       }
     ],
-    "downloads": 7156
+    "downloads": 7374
   },
   {
     "name": "mpd-parser",
@@ -441,7 +441,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 359850
+    "downloads": 360301
   },
   {
     "name": "video.js",
@@ -516,7 +516,7 @@
         "email": "matt@mmcc.io"
       }
     ],
-    "downloads": 417597
+    "downloads": 419381
   },
   {
     "name": "videojs-playlist",
@@ -1216,7 +1216,7 @@
         "email": "brandonocasey@gmail.com"
       }
     ],
-    "downloads": 7128
+    "downloads": 7078
   },
   {
     "name": "videojs-contrib-eme",
@@ -1318,7 +1318,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 12695
+    "downloads": 12976
   },
   {
     "name": "videojs-errors",
@@ -2029,7 +2029,7 @@
         "email": "mneilweb@gmail.com"
       }
     ],
-    "downloads": 2070
+    "downloads": 1854
   },
   {
     "name": "videojs-playlist-ui",
@@ -2721,7 +2721,7 @@
         "email": "brandonocasey@gmail.com"
       }
     ],
-    "downloads": 2144
+    "downloads": 2146
   },
   {
     "name": "videojs-contrib-ads",
@@ -2804,7 +2804,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 18322
+    "downloads": 19341
   },
   {
     "name": "videojs-contextmenu-ui",
@@ -3488,7 +3488,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 119
+    "downloads": 120
   },
   {
     "name": "@s3bubble/videojs-contrib-dash-with-quality-levels",
@@ -3526,7 +3526,7 @@
         "email": "support@s3bubble.com"
       }
     ],
-    "downloads": 8
+    "downloads": 7
   },
   {
     "name": "videojs-seek-buttons",
@@ -3558,7 +3558,7 @@
         "email": "npm@misterben.me"
       }
     ],
-    "downloads": 6526
+    "downloads": 6182
   },
   {
     "name": "bh-videojs-contrib-eme",
@@ -3587,7 +3587,7 @@
         "email": "kliment.lambevski@gmail.com"
       }
     ],
-    "downloads": 9
+    "downloads": 6
   },
   {
     "name": "@viostream/videojs-overlay",
@@ -4314,7 +4314,7 @@
         "email": "brandonocasey@gmail.com"
       }
     ],
-    "downloads": 5539
+    "downloads": 5549
   },
   {
     "name": "videojs-scene7",
@@ -4348,7 +4348,7 @@
         "email": "npm@anthonymclin.com"
       }
     ],
-    "downloads": 85
+    "downloads": 80
   },
   {
     "name": "@youon/videojs-dock",
@@ -4388,7 +4388,7 @@
         "email": "psilva@youongroup.com"
       }
     ],
-    "downloads": 18
+    "downloads": 15
   },
   {
     "name": "@straas/videojs-playlist",
@@ -4420,7 +4420,7 @@
         "email": "kiwi71728@icloud.com"
       }
     ],
-    "downloads": 2
+    "downloads": 3
   },
   {
     "name": "collectiv-tv-videojs-dock",
@@ -4452,7 +4452,7 @@
         "email": "lp@collectiv.tv"
       }
     ],
-    "downloads": 12
+    "downloads": 14
   },
   {
     "name": "@leochen1216/videojs-chromecast",
@@ -4484,7 +4484,7 @@
         "email": "leochen1216@gmail.com"
       }
     ],
-    "downloads": 33
+    "downloads": 36
   },
   {
     "name": "@bnnvara/videojs-chromecast",
@@ -4536,7 +4536,7 @@
         "email": "amandaderijk@gmail.com"
       }
     ],
-    "downloads": 9
+    "downloads": 10
   },
   {
     "name": "@toth.adam.straxus/videojs-hls-quality-selector",
@@ -4572,7 +4572,7 @@
         "email": "toth.adam@straxus.hu"
       }
     ],
-    "downloads": 9
+    "downloads": 8
   },
   {
     "name": "@mredgarp/videojs-chromecast",
@@ -5351,7 +5351,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 362165
+    "downloads": 363285
   },
   {
     "name": "@hartmflo86/videojs-hls-quality-selector",
@@ -5383,7 +5383,7 @@
         "email": "f.hartmann1986@gmail.com"
       }
     ],
-    "downloads": 5
+    "downloads": 4
   },
   {
     "name": "videojs-fetch-flv",
@@ -5414,7 +5414,7 @@
         "email": "lin557@126.com"
       }
     ],
-    "downloads": 180
+    "downloads": 200
   },
   {
     "name": "@filmgardi/videojs-markers",
@@ -5446,7 +5446,7 @@
         "email": "mohamadsaffari90@gmail.com"
       }
     ],
-    "downloads": 35
+    "downloads": 37
   },
   {
     "name": "videojs-http-source-selector-2",
@@ -5478,7 +5478,7 @@
         "email": "johnarrandale@gmail.com"
       }
     ],
-    "downloads": 29
+    "downloads": 28
   },
   {
     "name": "@filmgardi/videojs-season-playlist",
@@ -6283,7 +6283,7 @@
         "email": "dlapalomento@gmail.com"
       }
     ],
-    "downloads": 333147
+    "downloads": 335154
   },
   {
     "name": "@filmgardi/videojs-subtitle-settings",
@@ -6315,7 +6315,7 @@
         "email": "mohamadsaffari90@gmail.com"
       }
     ],
-    "downloads": 15
+    "downloads": 16
   },
   {
     "name": "@filmgardi/videojs-next-episode",
@@ -6382,7 +6382,7 @@
         "email": "mohamadsaffari90@gmail.com"
       }
     ],
-    "downloads": 12
+    "downloads": 13
   },
   {
     "name": "@samueleastdev/videojs-dash-hls-bitrate-switcher",
@@ -6411,7 +6411,7 @@
         "email": "mail@samueleast.co.uk"
       }
     ],
-    "downloads": 27
+    "downloads": 32
   },
   {
     "name": "videojs-dock",
@@ -7099,7 +7099,7 @@
         "email": "brandonocasey@gmail.com"
       }
     ],
-    "downloads": 391
+    "downloads": 453
   },
   {
     "name": "@ly-utils/videojs-flash",
@@ -7222,7 +7222,7 @@
         "email": "mneilweb@gmail.com"
       }
     ],
-    "downloads": 23605
+    "downloads": 23857
   },
   {
     "name": "@astobie/videojs-vr",
@@ -7293,7 +7293,7 @@
         "email": "psilva@youongroup.com"
       }
     ],
-    "downloads": 56
+    "downloads": 42
   },
   {
     "name": "@peertube/videojs-contextmenu",
@@ -7329,7 +7329,7 @@
         "email": "florian@cpy.re"
       }
     ],
-    "downloads": 155
+    "downloads": 162
   },
   {
     "name": "@my-videojs/videojs-contrib-hls",
@@ -7421,7 +7421,7 @@
         "email": "mail@adamoliver.net"
       }
     ],
-    "downloads": 54
+    "downloads": 25
   },
   {
     "name": "@youon/videojs-pip",
@@ -7459,7 +7459,7 @@
         "email": "psilva@youongroup.com"
       }
     ],
-    "downloads": 63
+    "downloads": 70
   },
   {
     "name": "videojs-contrib-quality-levels",
@@ -7534,7 +7534,7 @@
         "email": "dlapalomento@gmail.com"
       }
     ],
-    "downloads": 94805
+    "downloads": 95050
   },
   {
     "name": "@youon/videojs-big-replay",
@@ -7573,7 +7573,7 @@
         "email": "psilva@youongroup.com"
       }
     ],
-    "downloads": 7
+    "downloads": 5
   },
   {
     "name": "@youon/videojs-osg",
@@ -7680,7 +7680,7 @@
         "email": "psilva@youongroup.com"
       }
     ],
-    "downloads": 16
+    "downloads": 19
   },
   {
     "name": "@ptv.js/videojs-ptv",
@@ -7893,7 +7893,7 @@
         "email": "mr.bullet.sb@gmail.com"
       }
     ],
-    "downloads": 12
+    "downloads": 11
   },
   {
     "name": "@antmedia/videojs-webrtc-plugin",
@@ -7952,7 +7952,7 @@
         "email": "mr.bullet.sb@gmail.com"
       }
     ],
-    "downloads": 7
+    "downloads": 6
   },
   {
     "name": "videojs-marker-plugin",
@@ -7981,7 +7981,7 @@
         "email": "abc1310054026@163.com"
       }
     ],
-    "downloads": 53
+    "downloads": 51
   },
   {
     "name": "@vaam/videojs-offset",
@@ -8041,7 +8041,7 @@
         "email": "estebanamas@gmail.com"
       }
     ],
-    "downloads": 3
+    "downloads": 4
   },
   {
     "name": "@firescar96/videojs-quality-selector",
@@ -8073,7 +8073,7 @@
         "email": "nchinda2+npm@gmail.com"
       }
     ],
-    "downloads": 2386
+    "downloads": 2709
   },
   {
     "name": "@dminc/vhs-utils",
@@ -8140,7 +8140,7 @@
         "email": "s.podlecki@gmail.com"
       }
     ],
-    "downloads": 1061
+    "downloads": 1042
   },
   {
     "name": "@litomore/videojs-hls-quality-selector",
@@ -8172,7 +8172,7 @@
         "email": "litomore@gmail.com"
       }
     ],
-    "downloads": 78
+    "downloads": 73
   },
   {
     "name": "@s3bubble/videojs-s3bubble-bitrate-switcher",
@@ -8336,7 +8336,7 @@
         "email": "davidjherzog@gmail.com"
       }
     ],
-    "downloads": 256
+    "downloads": 279
   },
   {
     "name": "@samueleastdev/videojs-audiowaveform-player",
@@ -8465,7 +8465,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 35
+    "downloads": 45
   },
   {
     "name": "@yangkghjh/videojs-aspect-ratio-panel",
@@ -8498,39 +8498,7 @@
         "email": "yangkghjh@gmail.com"
       }
     ],
-    "downloads": 16
-  },
-  {
-    "name": "videojs-seek-buttons-google-free",
-    "scope": "unscoped",
-    "version": "1.6.1",
-    "description": "Plugin for video.js to add seek buttons to the control bar (fork without googleapis coupling)",
-    "keywords": [
-      "videojs",
-      "videojs-plugin"
-    ],
-    "date": "2021-05-10T10:48:29.652Z",
-    "links": {
-      "npm": "https://www.npmjs.com/package/videojs-seek-buttons-google-free",
-      "homepage": "https://github.com/joschahenningsen/videojs-seek-buttons#readme",
-      "repository": "https://github.com/joschahenningsen/videojs-seek-buttons",
-      "bugs": "https://github.com/joschahenningsen/videojs-seek-buttons/issues"
-    },
-    "author": {
-      "name": "mister-ben",
-      "email": "git@misterben.me"
-    },
-    "publisher": {
-      "username": "joschahenningsen",
-      "email": "joschahenn@gmail.com"
-    },
-    "maintainers": [
-      {
-        "username": "joschahenningsen",
-        "email": "joschahenn@gmail.com"
-      }
-    ],
-    "downloads": 9
+    "downloads": 15
   },
   {
     "name": "@s3bubble/videojs-s3bubble-settings-menu",
@@ -8588,7 +8556,7 @@
         "email": "estebanamas@gmail.com"
       }
     ],
-    "downloads": 3
+    "downloads": 4
   },
   {
     "name": "videojs-flash",
@@ -8632,7 +8600,7 @@
         "email": "pgoneill@gmail.com"
       }
     ],
-    "downloads": 17407
+    "downloads": 17748
   },
   {
     "name": "@samueleastdev/videojs-settings-menu",
@@ -8662,7 +8630,7 @@
         "email": "mail@samueleast.co.uk"
       }
     ],
-    "downloads": 33
+    "downloads": 35
   },
   {
     "name": "@viostream/videojs-share-menu",
@@ -8750,7 +8718,7 @@
         "email": "security@viostream.com"
       }
     ],
-    "downloads": 38
+    "downloads": 39
   },
   {
     "name": "videojs-mirror",
@@ -8870,7 +8838,7 @@
         "email": "security@viostream.com"
       }
     ],
-    "downloads": 8
+    "downloads": 7
   },
   {
     "name": "@misterben/brightcove-chapter-cues",
@@ -8931,7 +8899,7 @@
         "email": "npm@misterben.me"
       }
     ],
-    "downloads": 42
+    "downloads": 45
   },
   {
     "name": "@curiositystream/videojs-airplay",
@@ -9012,7 +8980,7 @@
         "email": "npm@misterben.me"
       }
     ],
-    "downloads": 1472
+    "downloads": 1464
   },
   {
     "name": "videojs-sprite-thumbnails",
@@ -9046,7 +9014,7 @@
         "email": "bcc@phloxic.productions"
       }
     ],
-    "downloads": 585
+    "downloads": 598
   },
   {
     "name": "@miksin/videojs-advancedcontrols",
@@ -9106,7 +9074,7 @@
         "email": "chris@forgemotion.com"
       }
     ],
-    "downloads": 18114
+    "downloads": 18605
   },
   {
     "name": "videojs-annotations",
@@ -9174,7 +9142,7 @@
         "email": "lubos.krnac@gmail.com"
       }
     ],
-    "downloads": 302
+    "downloads": 283
   },
   {
     "name": "@bnnvara/videojs-chrome-pip",
@@ -9223,7 +9191,7 @@
         "email": "amandaderijk@gmail.com"
       }
     ],
-    "downloads": 12
+    "downloads": 13
   },
   {
     "name": "@bnnvara/videojs-qualityselector",
@@ -9272,7 +9240,7 @@
         "email": "amandaderijk@gmail.com"
       }
     ],
-    "downloads": 7
+    "downloads": 8
   },
   {
     "name": "@my-videojs/videojs-sprite-thumbnails",
@@ -9396,7 +9364,7 @@
         "email": "nguyenvu@hoangvumail.com"
       }
     ],
-    "downloads": 325
+    "downloads": 341
   },
   {
     "name": "@mtonomy/videojs-source-selector",
@@ -9536,7 +9504,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 264
+    "downloads": 286
   },
   {
     "name": "@szefczuk/videojs-shaka",
@@ -10253,7 +10221,7 @@
         "email": "brandonocasey@gmail.com"
       }
     ],
-    "downloads": 2707
+    "downloads": 2735
   },
   {
     "name": "@silvermine/videojs-airplay",
@@ -10297,7 +10265,7 @@
         "email": "jeremy@thomersonfamily.com"
       }
     ],
-    "downloads": 2807
+    "downloads": 2903
   },
   {
     "name": "videojs-share",
@@ -10334,7 +10302,7 @@
         "email": "mkhazov.work@gmail.com"
       }
     ],
-    "downloads": 1670
+    "downloads": 1681
   },
   {
     "name": "videojs-hls-stream-selector",
@@ -10364,7 +10332,7 @@
         "email": "smarulanda@gmail.com"
       }
     ],
-    "downloads": 28
+    "downloads": 25
   },
   {
     "name": "fw-videojs-playlist",
@@ -10400,7 +10368,7 @@
         "email": "npm@pawkow.pl"
       }
     ],
-    "downloads": 30
+    "downloads": 31
   },
   {
     "name": "videojs-freewheel-ads",
@@ -10430,7 +10398,7 @@
         "email": "adam.tyler@utexas.edu"
       }
     ],
-    "downloads": 192
+    "downloads": 214
   },
   {
     "name": "videojs-vr",
@@ -10498,7 +10466,7 @@
         "email": "gsmith@incompl.com"
       }
     ],
-    "downloads": 2542
+    "downloads": 2506
   },
   {
     "name": "videojs-http-source-selector",
@@ -10530,7 +10498,7 @@
         "email": "justin@pivotshare.com"
       }
     ],
-    "downloads": 4026
+    "downloads": 4212
   },
   {
     "name": "videojs-replay",
@@ -10561,7 +10529,7 @@
         "email": "d.j.hartman+npm@gmail.com"
       }
     ],
-    "downloads": 333
+    "downloads": 334
   },
   {
     "name": "@misterben/videojs-langtest",
@@ -10623,7 +10591,7 @@
         "email": "noreply@noreply.com"
       }
     ],
-    "downloads": 2802
+    "downloads": 2829
   },
   {
     "name": "videojs-contrib-media-sources",
@@ -10675,7 +10643,7 @@
         "email": "mneilweb@gmail.com"
       }
     ],
-    "downloads": 21114
+    "downloads": 21252
   },
   {
     "name": "videojs-wavesurfer",
@@ -10711,7 +10679,7 @@
         "email": "info@collab.nl"
       }
     ],
-    "downloads": 6099
+    "downloads": 6178
   },
   {
     "name": "videojs-dvr",
@@ -10744,7 +10712,7 @@
         "email": "ff.fernandez.facundo@gmail.com"
       }
     ],
-    "downloads": 50
+    "downloads": 74
   },
   {
     "name": "videojs-ogvjs",
@@ -10827,7 +10795,7 @@
         "email": "jeremy@thomersonfamily.com"
       }
     ],
-    "downloads": 9144
+    "downloads": 8962
   },
   {
     "name": "@das.laboratory/videojs-persist",
@@ -10889,7 +10857,7 @@
         "email": "ff.fernandez.facundo@gmail.com"
       }
     ],
-    "downloads": 134
+    "downloads": 137
   },
   {
     "name": "videojs-persist",
@@ -10918,7 +10886,7 @@
         "email": "npm@misterben.me"
       }
     ],
-    "downloads": 20
+    "downloads": 18
   },
   {
     "name": "videojs-http-source-selector-mute",
@@ -10998,7 +10966,7 @@
         "email": "brandonocasey@gmail.com"
       }
     ],
-    "downloads": 186
+    "downloads": 181
   },
   {
     "name": "videojs-linear-tv-prototype",
@@ -11104,7 +11072,7 @@
         "email": "jeremy@thomersonfamily.com"
       }
     ],
-    "downloads": 4466
+    "downloads": 4540
   },
   {
     "name": "@skylineos/videojs-clsp",
@@ -11149,7 +11117,7 @@
         "email": "mreeping@skylinenet.net"
       }
     ],
-    "downloads": 18
+    "downloads": 17
   },
   {
     "name": "videojs-chapters-extension",
@@ -11280,7 +11248,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 163
+    "downloads": 175
   },
   {
     "name": "@brightcove/videojs-flashls-source-handler",
@@ -11948,7 +11916,7 @@
         "email": "sbarrett@brightcove.com"
       }
     ],
-    "downloads": 502
+    "downloads": 581
   },
   {
     "name": "videojs-spellbook",
@@ -12011,7 +11979,7 @@
         "email": "pott.benjamin@gmail.com"
       }
     ],
-    "downloads": 618
+    "downloads": 691
   },
   {
     "name": "@dminc/video.js",
@@ -12092,7 +12060,7 @@
         "email": "aws.cedi@gmail.com"
       }
     ],
-    "downloads": 164
+    "downloads": 168
   },
   {
     "name": "@thelak/vue-videojs7",
@@ -12158,7 +12126,7 @@
         "email": "npm@hola.org"
       }
     ],
-    "downloads": 22
+    "downloads": 19
   },
   {
     "name": "@geoshar/videojs-vast-vpaid",
@@ -12192,7 +12160,7 @@
         "email": "geoshar@mail.com"
       }
     ],
-    "downloads": 205
+    "downloads": 202
   },
   {
     "name": "@dminc/videojs",
@@ -12230,7 +12198,7 @@
         "email": "rajneeshraghav.org@gmail.com"
       }
     ],
-    "downloads": 2
+    "downloads": 1
   },
   {
     "name": "@rraghav/videojs",
@@ -12293,7 +12261,7 @@
         "email": "ff.fernandez.facundo@gmail.com"
       }
     ],
-    "downloads": 11
+    "downloads": 10
   },
   {
     "name": "videojs-record",
@@ -12344,7 +12312,7 @@
         "email": "info@collab.nl"
       }
     ],
-    "downloads": 5825
+    "downloads": 5776
   },
   {
     "name": "@guaclive/videojs-chromecast",
@@ -12411,7 +12379,7 @@
         "email": "xw5427@gmail.com"
       }
     ],
-    "downloads": 9
+    "downloads": 10
   },
   {
     "name": "@hola.org/videojs-contrib-hls",
@@ -12442,7 +12410,7 @@
         "email": "npm@hola.org"
       }
     ],
-    "downloads": 9
+    "downloads": 6
   },
   {
     "name": "videojs-contextmenu-ui-fixed",
@@ -12500,7 +12468,7 @@
         "email": "cgcladera@gmail.com"
       }
     ],
-    "downloads": 1915
+    "downloads": 1659
   },
   {
     "name": "videojs-landscape-fullscreen",
@@ -12533,7 +12501,7 @@
         "email": "prastogi34@gmail.com"
       }
     ],
-    "downloads": 1306
+    "downloads": 1254
   },
   {
     "name": "@hisolver/videojs-theater-mode",
@@ -12596,7 +12564,7 @@
         "email": "mariusz.rsky@gmail.com"
       }
     ],
-    "downloads": 209
+    "downloads": 173
   },
   {
     "name": "videojs-dynamic-overlay",
@@ -12690,7 +12658,7 @@
         "email": "sendmemail@rigelk.eu"
       }
     ],
-    "downloads": 16
+    "downloads": 15
   },
   {
     "name": "videojs-flvjs",
@@ -12722,7 +12690,39 @@
         "email": "npm@misterben.me"
       }
     ],
-    "downloads": 686
+    "downloads": 713
+  },
+  {
+    "name": "videojs-seek-buttons-google-free",
+    "scope": "unscoped",
+    "version": "1.6.1",
+    "description": "Plugin for video.js to add seek buttons to the control bar (fork without googleapis coupling)",
+    "keywords": [
+      "videojs",
+      "videojs-plugin"
+    ],
+    "date": "2021-05-10T10:48:29.652Z",
+    "links": {
+      "npm": "https://www.npmjs.com/package/videojs-seek-buttons-google-free",
+      "homepage": "https://github.com/joschahenningsen/videojs-seek-buttons#readme",
+      "repository": "https://github.com/joschahenningsen/videojs-seek-buttons",
+      "bugs": "https://github.com/joschahenningsen/videojs-seek-buttons/issues"
+    },
+    "author": {
+      "name": "mister-ben",
+      "email": "git@misterben.me"
+    },
+    "publisher": {
+      "username": "joschahenningsen",
+      "email": "joschahenn@gmail.com"
+    },
+    "maintainers": [
+      {
+        "username": "joschahenningsen",
+        "email": "joschahenn@gmail.com"
+      }
+    ],
+    "downloads": 9
   },
   {
     "name": "youbora-adapter-videojs",
@@ -12757,7 +12757,7 @@
         "email": "plugins@nicepeopleatwork.com"
       }
     ],
-    "downloads": 676
+    "downloads": 678
   },
   {
     "name": "videojs-contrib-dash-s1",
@@ -12795,7 +12795,7 @@
         "email": "nickygerritsen@me.com"
       }
     ],
-    "downloads": 14
+    "downloads": 10
   },
   {
     "name": "videojs-font",
@@ -12838,7 +12838,7 @@
         "email": "matt@mmcc.io"
       }
     ],
-    "downloads": 345660
+    "downloads": 348030
   },
   {
     "name": "videojs-playlist-autoplay",
@@ -12901,7 +12901,7 @@
         "email": "ozon1234@gmail.com"
       }
     ],
-    "downloads": 5
+    "downloads": 6
   },
   {
     "name": "@knowbly/video.js",
@@ -12974,7 +12974,7 @@
         "email": "yksingh@dminc.com"
       }
     ],
-    "downloads": 6
+    "downloads": 5
   },
   {
     "name": "@knowbly/http-streaming",
@@ -13175,7 +13175,7 @@
         "email": "development@douglassllc.com"
       }
     ],
-    "downloads": 85
+    "downloads": 121
   },
   {
     "name": "videojs-share-2",
@@ -13207,7 +13207,7 @@
         "email": "hyphen.wrex@gmail.com"
       }
     ],
-    "downloads": 90
+    "downloads": 81
   },
   {
     "name": "videojs-rotate-player-plugin",
@@ -13237,7 +13237,7 @@
         "email": "fatelei@gmail.com"
       }
     ],
-    "downloads": 88
+    "downloads": 89
   },
   {
     "name": "videojs-contrib-hls-4k-fix",
@@ -13312,7 +13312,7 @@
         "email": "olivier@api.video"
       }
     ],
-    "downloads": 133
+    "downloads": 122
   },
   {
     "name": "vjs-vast",
@@ -13378,7 +13378,7 @@
         "email": "5728057@qq.com"
       }
     ],
-    "downloads": 7
+    "downloads": 6
   },
   {
     "name": "videojs-age-limit-icon",
@@ -13442,7 +13442,7 @@
         "email": "thomas.deppisch93@gmail.com"
       }
     ],
-    "downloads": 45
+    "downloads": 40
   },
   {
     "name": "videojs-brand",
@@ -13475,7 +13475,7 @@
         "email": "manel.pb@gmail.com"
       }
     ],
-    "downloads": 311
+    "downloads": 297
   },
   {
     "name": "videojs-watermark-with-text",
@@ -13508,7 +13508,7 @@
         "email": "gophan1992@gmail.com"
       }
     ],
-    "downloads": 109
+    "downloads": 104
   },
   {
     "name": "videojs-ima",
@@ -13543,7 +13543,7 @@
         "email": "kiro705@gmail.com"
       }
     ],
-    "downloads": 13708
+    "downloads": 13974
   },
   {
     "name": "videojs-mux",
@@ -13723,7 +13723,7 @@
         "email": "mux-npmjs@mux.com"
       }
     ],
-    "downloads": 8041
+    "downloads": 8224
   },
   {
     "name": "@imagespark/video.js",
@@ -13785,7 +13785,7 @@
         "email": "npm@hola.org"
       }
     ],
-    "downloads": 21
+    "downloads": 18
   },
   {
     "name": "vue-video7",
@@ -13825,7 +13825,7 @@
         "email": "stayknight@qq.com"
       }
     ],
-    "downloads": 13
+    "downloads": 11
   },
   {
     "name": "@xdml/video.js",
@@ -14005,7 +14005,7 @@
         "email": "14bscsisatti@seecs.edu.pk"
       }
     ],
-    "downloads": 11
+    "downloads": 10
   },
   {
     "name": "@zramil/video.js",
@@ -14314,7 +14314,7 @@
         "email": "liuchao@errnil.com"
       }
     ],
-    "downloads": 9
+    "downloads": 5
   },
   {
     "name": "@devmobiliza/videojs-vimeo",
@@ -14348,7 +14348,7 @@
         "email": "dev@mobiliza.com.br"
       }
     ],
-    "downloads": 1151
+    "downloads": 1070
   },
   {
     "name": "mind-gallery",
@@ -14383,7 +14383,7 @@
         "email": "mail@petrmucha.cz"
       }
     ],
-    "downloads": 14
+    "downloads": 13
   },
   {
     "name": "@youon/videojs-font",
@@ -14462,7 +14462,7 @@
         "email": "mpfeiffer@conviva.com"
       }
     ],
-    "downloads": 365
+    "downloads": 345
   },
   {
     "name": "@dfl/videojs-record",
@@ -14508,7 +14508,7 @@
         "email": "microvac+npm@gmail.com"
       }
     ],
-    "downloads": 2
+    "downloads": 1
   },
   {
     "name": "videojs-qualityselector",
@@ -14538,7 +14538,7 @@
         "email": "manel.pb@gmail.com"
       }
     ],
-    "downloads": 120
+    "downloads": 398
   },
   {
     "name": "@capaj/videojs-youtube",
@@ -14642,7 +14642,7 @@
         "email": "pixel@sweetberry.com"
       }
     ],
-    "downloads": 32
+    "downloads": 38
   },
   {
     "name": "videojs-contrib-hls-webpack",
@@ -14774,7 +14774,7 @@
         "email": "burntcustard@gmail.com"
       }
     ],
-    "downloads": 57
+    "downloads": 60
   },
   {
     "name": "pthumbnails",
@@ -14807,7 +14807,7 @@
         "email": "sendmemail@rigelk.eu"
       }
     ],
-    "downloads": 33
+    "downloads": 30
   },
   {
     "name": "kinow-video-analytics",
@@ -14846,7 +14846,7 @@
         "email": "it@kinow.com"
       }
     ],
-    "downloads": 456
+    "downloads": 458
   },
   {
     "name": "videojs-hlsjs-progress-control",
@@ -14878,7 +14878,7 @@
         "email": "xttitanx@gmail.com"
       }
     ],
-    "downloads": 34
+    "downloads": 30
   },
   {
     "name": "videojs-remnant",
@@ -14939,7 +14939,7 @@
         "email": "jezperp@gmail.com"
       }
     ],
-    "downloads": 7
+    "downloads": 8
   },
   {
     "name": "@isman/videojs-resolution-switcher",
@@ -15076,7 +15076,7 @@
         "email": "cole@dlive.io"
       }
     ],
-    "downloads": 2
+    "downloads": 1
   },
   {
     "name": "@xiaoyexiang/videojs-resolution-switcher-v7",
@@ -15110,7 +15110,7 @@
         "email": "xiaoyexiang@126.com"
       }
     ],
-    "downloads": 93
+    "downloads": 94
   },
   {
     "name": "videojs_snapshot_new",
@@ -15142,7 +15142,7 @@
         "email": "80853434@qq.com"
       }
     ],
-    "downloads": 14
+    "downloads": 12
   },
   {
     "name": "videojs-vtt-thumbnails-freetube",
@@ -15237,7 +15237,7 @@
         "email": "manel.pb@gmail.com"
       }
     ],
-    "downloads": 104
+    "downloads": 81
   },
   {
     "name": "@video-js-plugins/videojs-rewind-fast-forward",
@@ -15269,7 +15269,7 @@
         "email": "krisnantobiyuh@gmail.com"
       }
     ],
-    "downloads": 7
+    "downloads": 6
   },
   {
     "name": "videojs-max-quality-selector",
@@ -15315,7 +15315,7 @@
         "email": "onefox@gmail.com"
       }
     ],
-    "downloads": 1012
+    "downloads": 1032
   },
   {
     "name": "@sony172/videojs-vz-player",
@@ -15374,7 +15374,7 @@
         "email": "onder.dal@gmail.com"
       }
     ],
-    "downloads": 6
+    "downloads": 7
   },
   {
     "name": "@filmgardi/videojs-phoenix-theme",
@@ -15436,7 +15436,7 @@
         "email": "mail@adamoliver.net"
       }
     ],
-    "downloads": 611
+    "downloads": 622
   },
   {
     "name": "@filmgardi/videojs-theme",
@@ -15472,7 +15472,7 @@
         "email": "mohamadsaffari90@gmail.com"
       }
     ],
-    "downloads": 23
+    "downloads": 22
   },
   {
     "name": "videojs-ppslides",
@@ -15538,7 +15538,7 @@
         "email": "chris@forgemotion.com"
       }
     ],
-    "downloads": 1784
+    "downloads": 1852
   },
   {
     "name": "@e10in/videojs-record",
@@ -15589,7 +15589,7 @@
         "email": "a@e10.in"
       }
     ],
-    "downloads": 8
+    "downloads": 11
   },
   {
     "name": "videojs-constant-timeupdate",
@@ -15619,7 +15619,7 @@
         "email": "me@arjun-g.com"
       }
     ],
-    "downloads": 102
+    "downloads": 91
   },
   {
     "name": "@shivam123425/videojs-record",
@@ -15745,7 +15745,7 @@
         "email": "kiemsi789@yahoo.com"
       }
     ],
-    "downloads": 14
+    "downloads": 13
   },
   {
     "name": "@hisolver/videojs-youtube",
@@ -15780,7 +15780,7 @@
         "email": "yan.kaled@hisolver.com"
       }
     ],
-    "downloads": 8
+    "downloads": 11
   },
   {
     "name": "videojs-countdown-start",
@@ -15812,7 +15812,7 @@
         "email": "hel.jer@ya.ru"
       }
     ],
-    "downloads": 14
+    "downloads": 13
   },
   {
     "name": "@caiqueportela/videojs-record",
@@ -15888,7 +15888,7 @@
         "email": "pgoneill@gmail.com"
       }
     ],
-    "downloads": 10
+    "downloads": 11
   },
   {
     "name": "videojs-resize",
@@ -15949,7 +15949,7 @@
         "email": "mail@adamoliver.net"
       }
     ],
-    "downloads": 28
+    "downloads": 13
   },
   {
     "name": "videojs-zapping",
@@ -15979,7 +15979,7 @@
         "email": "josepedro@qualabs.com"
       }
     ],
-    "downloads": 9
+    "downloads": 8
   },
   {
     "name": "videojs-hlsjs-quality-selector",
@@ -16012,7 +16012,7 @@
         "email": "xttitanx@gmail.com"
       }
     ],
-    "downloads": 3
+    "downloads": 2
   },
   {
     "name": "videojs-theater-toggle",
@@ -16080,7 +16080,7 @@
         "email": "alterhu2020@gmail.com"
       }
     ],
-    "downloads": 1092
+    "downloads": 1052
   },
   {
     "name": "videojs-dotsub-captions",
@@ -16154,7 +16154,7 @@
         "email": "petr.schuchmann@gmail.com"
       }
     ],
-    "downloads": 2522
+    "downloads": 2901
   },
   {
     "name": "@imfs/http-streaming",
@@ -16287,7 +16287,7 @@
         "email": "obidnov@gmail.com"
       }
     ],
-    "downloads": 138
+    "downloads": 133
   },
   {
     "name": "videojs-logo",
@@ -16318,7 +16318,7 @@
         "email": "h.mitani24@gmail.com"
       }
     ],
-    "downloads": 1129
+    "downloads": 1080
   },
   {
     "name": "videojs-mirror-plugin",
@@ -16379,7 +16379,7 @@
         "email": "yanwsh@gmail.com"
       }
     ],
-    "downloads": 1238
+    "downloads": 1186
   },
   {
     "name": "tohsaka888-video-player",
@@ -16411,7 +16411,7 @@
         "email": "156132264@qq.com"
       }
     ],
-    "downloads": 11
+    "downloads": 9
   },
   {
     "name": "@bitwave/video.js",
@@ -16504,7 +16504,7 @@
         "email": "yesterlloy@hotmail.com"
       }
     ],
-    "downloads": 25
+    "downloads": 27
   },
   {
     "name": "@gkatsev/videojs-release-test",
@@ -16612,7 +16612,7 @@
         "email": "arpit.arpit.jain5@gmail.com"
       }
     ],
-    "downloads": 191
+    "downloads": 187
   },
   {
     "name": "@youon/uon-player-skins",
@@ -16651,7 +16651,7 @@
         "email": "psilva@youongroup.com"
       }
     ],
-    "downloads": 8
+    "downloads": 5
   },
   {
     "name": "@ailivingtech/videojs-flv-iov",
@@ -16728,7 +16728,7 @@
         "email": "jasmina@inplayer.com"
       }
     ],
-    "downloads": 13
+    "downloads": 14
   },
   {
     "name": "videojs-dvrseekbar",
@@ -16756,7 +16756,7 @@
         "email": "faffonso@toolboxtve.com"
       }
     ],
-    "downloads": 433
+    "downloads": 407
   },
   {
     "name": "@csod-oss/react-video-js-player",
@@ -16826,7 +16826,7 @@
         "email": "jx915zz@163.com"
       }
     ],
-    "downloads": 3
+    "downloads": 2
   },
   {
     "name": "videojs-straas-live-event-listener",
@@ -16980,7 +16980,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 658
+    "downloads": 667
   },
   {
     "name": "zlear-videojs-flash",
@@ -17046,7 +17046,7 @@
         "email": "chihonlaw@gmail.com"
       }
     ],
-    "downloads": 27
+    "downloads": 26
   },
   {
     "name": "@jontsnz/video.js",
@@ -17113,7 +17113,7 @@
         "email": "sarhanaissi@gmail.com"
       }
     ],
-    "downloads": 87
+    "downloads": 84
   },
   {
     "name": "videojs-airplay",
@@ -17146,7 +17146,7 @@
         "email": "jon+npm@jgubman.com"
       }
     ],
-    "downloads": 499
+    "downloads": 510
   },
   {
     "name": "@youon/videojs-hotkeys",
@@ -17180,7 +17180,7 @@
         "email": "psilva@youongroup.com"
       }
     ],
-    "downloads": 62
+    "downloads": 48
   },
   {
     "name": "videojs-skippy",
@@ -17270,7 +17270,7 @@
         "email": "jon+npm@jgubman.com"
       }
     ],
-    "downloads": 38
+    "downloads": 44
   },
   {
     "name": "@cybergab/gab-react-video-js-player",
@@ -17378,7 +17378,7 @@
         "email": "seniorflexdeveloper@gmail.com"
       }
     ],
-    "downloads": 2
+    "downloads": 4
   },
   {
     "name": "videojs-dynamic-overlay-updated",
@@ -17442,7 +17442,7 @@
         "email": "npm@misterben.me"
       }
     ],
-    "downloads": 17
+    "downloads": 22
   },
   {
     "name": "videojs-social-share-overlay",
@@ -17502,7 +17502,7 @@
         "email": "shssoichiro@gmail.com"
       }
     ],
-    "downloads": 35
+    "downloads": 33
   },
   {
     "name": "videojs-concurrence-limiter",
@@ -17729,7 +17729,7 @@
         "email": "carlosaguilarcollins@gmail.com"
       }
     ],
-    "downloads": 64
+    "downloads": 59
   },
   {
     "name": "videojs-hotkeys",
@@ -17761,7 +17761,7 @@
         "email": "ctd1500@gmail.com"
       }
     ],
-    "downloads": 21712
+    "downloads": 21978
   },
   {
     "name": "@packt/videojs-transcript",
@@ -17795,7 +17795,7 @@
         "email": "a.stevenstaylor+npm@gmail.com"
       }
     ],
-    "downloads": 12
+    "downloads": 16
   },
   {
     "name": "reload-from-pause",
@@ -17857,7 +17857,7 @@
         "email": "lribelle@tbxnet.com"
       }
     ],
-    "downloads": 55
+    "downloads": 54
   },
   {
     "name": "@bwrong/v-video",
@@ -18010,7 +18010,7 @@
         "email": "pablo.bagliere2@gmail.com"
       }
     ],
-    "downloads": 7
+    "downloads": 6
   },
   {
     "name": "videojs-gifplayer",
@@ -18040,7 +18040,7 @@
         "email": "johnsonjo4531@gmail.com"
       }
     ],
-    "downloads": 10
+    "downloads": 11
   },
   {
     "name": "videojs-nonlin-vast",
@@ -18093,7 +18093,7 @@
         "email": "chaudavid92@gmail.com"
       }
     ],
-    "downloads": 16
+    "downloads": 10
   },
   {
     "name": "videojs-frames",
@@ -18150,7 +18150,7 @@
         "email": "1017319298@qq.com"
       }
     ],
-    "downloads": 2
+    "downloads": 3
   },
   {
     "name": "videojs-frames-bug",
@@ -18395,7 +18395,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 548
+    "downloads": 618
   },
   {
     "name": "videojs-time-offset",
@@ -18498,7 +18498,7 @@
         "email": "kasper.moskwiak@gmail.com"
       }
     ],
-    "downloads": 1163
+    "downloads": 1459
   },
   {
     "name": "videojs-related",
@@ -18559,7 +18559,7 @@
         "email": "seniorflexdeveloper@gmail.com"
       }
     ],
-    "downloads": 20
+    "downloads": 22
   },
   {
     "name": "videojs-plugin-audio-switch",
@@ -18587,7 +18587,7 @@
         "email": "richter.maximilian@gmx.net"
       }
     ],
-    "downloads": 44
+    "downloads": 51
   },
   {
     "name": "loners-player",
@@ -18622,7 +18622,7 @@
         "email": "tangmuchw@163.com"
       }
     ],
-    "downloads": 22
+    "downloads": 21
   },
   {
     "name": "videojs-chapter-thumbnails",
@@ -18658,7 +18658,7 @@
         "email": "carey.hinoki@gmail.com"
       }
     ],
-    "downloads": 22
+    "downloads": 27
   },
   {
     "name": "videojs-doc-generator",
@@ -18696,7 +18696,7 @@
         "email": "npm@heff.me"
       }
     ],
-    "downloads": 13
+    "downloads": 12
   },
   {
     "name": "videojs-rtc",
@@ -18725,7 +18725,7 @@
         "email": "mingyi.z@outlook.com"
       }
     ],
-    "downloads": 5
+    "downloads": 4
   },
   {
     "name": "videojs-mpegtsjs",
@@ -18756,7 +18756,7 @@
         "email": "kewell.tsao@qq.com"
       }
     ],
-    "downloads": 5
+    "downloads": 4
   },
   {
     "name": "farakav-quality-selector",
@@ -18785,7 +18785,7 @@
         "email": "me16eskandari@hotmail.com"
       }
     ],
-    "downloads": 227
+    "downloads": 228
   },
   {
     "name": "videojs-group-play",
@@ -18882,7 +18882,7 @@
         "email": "jeremy@thomersonfamily.com"
       }
     ],
-    "downloads": 1172
+    "downloads": 1432
   },
   {
     "name": "vue-videojs-async",
@@ -18946,7 +18946,7 @@
         "email": "hi@wangdaodao.com"
       }
     ],
-    "downloads": 7
+    "downloads": 13
   },
   {
     "name": "react-videojs-hook",
@@ -18980,7 +18980,7 @@
         "email": "hector1014really32@gmail.com"
       }
     ],
-    "downloads": 269
+    "downloads": 288
   },
   {
     "name": "videojs-flvh265",
@@ -19018,7 +19018,7 @@
         "email": "kai.ma@163.com"
       }
     ],
-    "downloads": 35
+    "downloads": 33
   },
   {
     "name": "@hola.org/hola_player",
@@ -19049,7 +19049,7 @@
         "email": "npm@hola.org"
       }
     ],
-    "downloads": 626
+    "downloads": 622
   },
   {
     "name": "videojs-youtube",
@@ -19096,7 +19096,7 @@
         "email": "pgoneill@gmail.com"
       }
     ],
-    "downloads": 12614
+    "downloads": 12562
   },
   {
     "name": "video-http-streaming-yj",
@@ -19234,7 +19234,7 @@
         "email": "melendez.stevenk@gmail.com"
       }
     ],
-    "downloads": 21
+    "downloads": 20
   },
   {
     "name": "videojs-react-enhanced",
@@ -19275,7 +19275,7 @@
         "email": "cadenzah93@gmail.com"
       }
     ],
-    "downloads": 2603
+    "downloads": 3081
   },
   {
     "name": "@hola.org/video.js",
@@ -19309,7 +19309,7 @@
         "email": "npm@hola.org"
       }
     ],
-    "downloads": 28
+    "downloads": 25
   },
   {
     "name": "videojs-ima-v7",
@@ -19340,7 +19340,7 @@
         "email": "i@orlov-vo.ru"
       }
     ],
-    "downloads": 14
+    "downloads": 17
   },
   {
     "name": "videojs-socialshare",
@@ -19378,7 +19378,7 @@
         "email": "jmccraw1+npm@kent.edu"
       }
     ],
-    "downloads": 10
+    "downloads": 9
   },
   {
     "name": "videojs-fbf-wheel",
@@ -19446,7 +19446,7 @@
         "email": "npm@heff.me"
       }
     ],
-    "downloads": 34272
+    "downloads": 34944
   },
   {
     "name": "videojs-resolution-selector",
@@ -19478,7 +19478,7 @@
         "email": "solaveritasteliberum@gmail.com"
       }
     ],
-    "downloads": 249
+    "downloads": 211
   },
   {
     "name": "videojs-vast-vpaid",
@@ -19536,7 +19536,7 @@
         "email": "yann.stepienik@mailonline.co.uk"
       }
     ],
-    "downloads": 916
+    "downloads": 907
   },
   {
     "name": "videojs-playbackrate-adjuster",
@@ -19642,7 +19642,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 947
+    "downloads": 989
   },
   {
     "name": "videojs-yojiang",
@@ -19709,7 +19709,7 @@
         "email": "frank.yll1016@gmail.com"
       }
     ],
-    "downloads": 597
+    "downloads": 654
   },
   {
     "name": "videojsflvh265car",
@@ -19789,7 +19789,7 @@
         "email": "jeremy@thomersonfamily.com"
       }
     ],
-    "downloads": 11
+    "downloads": 9
   },
   {
     "name": "ng-tactful-lib",
@@ -19825,7 +19825,7 @@
         "email": "thakurinfotech@gmail.com"
       }
     ],
-    "downloads": 14
+    "downloads": 15
   },
   {
     "name": "videojs-framebyframe",
@@ -19857,7 +19857,7 @@
         "email": "rasche.eric@gmail.com"
       }
     ],
-    "downloads": 8
+    "downloads": 7
   },
   {
     "name": "videojs-background",
@@ -19892,7 +19892,7 @@
         "email": "matt@matthojo.co.uk"
       }
     ],
-    "downloads": 92
+    "downloads": 115
   },
   {
     "name": "videojs-preview-thumbnails",
@@ -19934,7 +19934,7 @@
         "email": "erickuo13@gmail.com"
       }
     ],
-    "downloads": 25
+    "downloads": 58
   },
   {
     "name": "videojs-thumbnail-sprite",
@@ -19971,7 +19971,7 @@
         "email": "cadenzah93@gmail.com"
       }
     ],
-    "downloads": 322
+    "downloads": 325
   },
   {
     "name": "videojs-contrib-hls.js",
@@ -20006,7 +20006,7 @@
         "email": "opensource@peer5.com"
       }
     ],
-    "downloads": 1344
+    "downloads": 1405
   },
   {
     "name": "video.js-enhanced",
@@ -20141,7 +20141,7 @@
         "email": "alexander.barstow@gmail.com"
       }
     ],
-    "downloads": 5
+    "downloads": 9
   },
   {
     "name": "videojs-hlsjs",
@@ -20174,7 +20174,7 @@
         "email": "spa-technicalplayer@technical-player-srg.ch"
       }
     ],
-    "downloads": 79
+    "downloads": 77
   },
   {
     "name": "videojscarh265",
@@ -20274,7 +20274,7 @@
         "email": "supreme_monster@163.com"
       }
     ],
-    "downloads": 9
+    "downloads": 8
   },
   {
     "name": "videojs-wavesurfer-dealiased",
@@ -20310,7 +20310,7 @@
         "email": "misha.mykolyshyn@gmail.com"
       }
     ],
-    "downloads": 8
+    "downloads": 9
   },
   {
     "name": "videojs-landscape-fullscreen-2",
@@ -20343,7 +20343,7 @@
         "email": "r.tritto5@studenti.uniba.it"
       }
     ],
-    "downloads": 5
+    "downloads": 6
   },
   {
     "name": "video-http-streaming-yojiang",
@@ -20408,7 +20408,7 @@
         "email": "miguel.gonzalezsosa@gmail.com"
       }
     ],
-    "downloads": 5
+    "downloads": 4
   },
   {
     "name": "dev136-video.js",
@@ -20482,7 +20482,7 @@
         "email": "zerob4wl@gmail.com"
       }
     ],
-    "downloads": 38
+    "downloads": 40
   },
   {
     "name": "videojs-abloop",
@@ -20510,7 +20510,7 @@
         "email": "phhu.git@gmail.com"
       }
     ],
-    "downloads": 661
+    "downloads": 671
   },
   {
     "name": "videojs-skin-twitchy",
@@ -20611,7 +20611,7 @@
         "email": "dray@envylabs.com"
       }
     ],
-    "downloads": 67
+    "downloads": 70
   },
   {
     "name": "videojs-chromecast-extended",
@@ -20646,7 +20646,7 @@
         "email": "vnvista@gmail.com"
       }
     ],
-    "downloads": 46
+    "downloads": 47
   },
   {
     "name": "@klyukin/video.js",
@@ -20854,7 +20854,7 @@
         "email": "yanuar.gws@gmail.com"
       }
     ],
-    "downloads": 181
+    "downloads": 200
   },
   {
     "name": "videojs-externals-6",
@@ -21000,7 +21000,7 @@
         "email": "mariusz.rsky@gmail.com"
       }
     ],
-    "downloads": 105
+    "downloads": 85
   },
   {
     "name": "react-videojs-fancybox",
@@ -21035,7 +21035,7 @@
         "email": "yanuar.gws@gmail.com"
       }
     ],
-    "downloads": 34
+    "downloads": 45
   },
   {
     "name": "@thecotne/videojs-vast-vpaid",
@@ -21069,7 +21069,7 @@
         "email": "cotne.95@gmail.com"
       }
     ],
-    "downloads": 7
+    "downloads": 8
   },
   {
     "name": "yojiang-video.js",
@@ -21235,7 +21235,7 @@
         "email": "jmccraw1+npm@kent.edu"
       }
     ],
-    "downloads": 32
+    "downloads": 28
   },
   {
     "name": "video.js-saints",
@@ -21269,7 +21269,7 @@
         "email": "1017319298@qq.com"
       }
     ],
-    "downloads": 5
+    "downloads": 6
   },
   {
     "name": "uexio.test.video.js",
@@ -21303,7 +21303,7 @@
         "email": "nmpppc@gmail.com"
       }
     ],
-    "downloads": 3
+    "downloads": 4
   },
   {
     "name": "videojs-captions-toggle",
@@ -21422,7 +21422,7 @@
         "email": "misha.mykolyshyn@gmail.com"
       }
     ],
-    "downloads": 8
+    "downloads": 9
   },
   {
     "name": "videojs-ass",
@@ -21456,7 +21456,7 @@
         "email": "thatbaka@gmail.com"
       }
     ],
-    "downloads": 62
+    "downloads": 48
   },
   {
     "name": "videojs-fairplay-protection",
@@ -21526,7 +21526,7 @@
         "email": "carey.hinoki@gmail.com"
       }
     ],
-    "downloads": 18
+    "downloads": 19
   },
   {
     "name": "videojs-sublime-skin",
@@ -21562,7 +21562,7 @@
         "email": "me@zakj.net"
       }
     ],
-    "downloads": 81
+    "downloads": 80
   },
   {
     "name": "@syhcom/video.js",
@@ -21624,7 +21624,7 @@
         "email": "aman@tmm1.net"
       }
     ],
-    "downloads": 911
+    "downloads": 960
   },
   {
     "name": "videojs-resolution-switcher-v6",
@@ -21662,7 +21662,7 @@
         "email": "neilhem@hotmail.com"
       }
     ],
-    "downloads": 35
+    "downloads": 36
   },
   {
     "name": "videojs-resolution-switcher-beta",
@@ -21768,7 +21768,7 @@
         "email": "ptviet@Live.com"
       }
     ],
-    "downloads": 10
+    "downloads": 12
   },
   {
     "name": "videojs-structure",
@@ -21898,7 +21898,7 @@
         "email": "owen.r.edwards@gmail.com"
       }
     ],
-    "downloads": 5
+    "downloads": 4
   },
   {
     "name": "videojs-upnext-card",
@@ -22031,7 +22031,7 @@
         "email": "joris.daniel@gmail.com"
       }
     ],
-    "downloads": 3
+    "downloads": 4
   },
   {
     "name": "videojs-chapter-nav",
@@ -22062,7 +22062,7 @@
         "email": "aman@tmm1.net"
       }
     ],
-    "downloads": 4
+    "downloads": 5
   },
   {
     "name": "videojs-bif",
@@ -22123,7 +22123,7 @@
         "email": "thanhtuan.pfiev@gmail.com"
       }
     ],
-    "downloads": 1
+    "downloads": 2
   },
   {
     "name": "videojs-notations",
@@ -22153,7 +22153,7 @@
         "email": "383126908@qq.com"
       }
     ],
-    "downloads": 10
+    "downloads": 9
   },
   {
     "name": "amazeui-videojs",
@@ -22348,7 +22348,7 @@
         "email": "kbhutwala92@gmail.com"
       }
     ],
-    "downloads": 2998
+    "downloads": 3221
   },
   {
     "name": "ember-cli-videojs-shim",
@@ -22441,7 +22441,7 @@
         "email": "supreme_monster@163.com"
       }
     ],
-    "downloads": 5
+    "downloads": 4
   },
   {
     "name": "remark-preset-lint-videojs",
@@ -22575,7 +22575,7 @@
         "email": "sylvester.aswinstanley@gmail.com"
       }
     ],
-    "downloads": 39
+    "downloads": 49
   },
   {
     "name": "react-videojs",
@@ -22608,7 +22608,7 @@
         "email": "wzuoadjusted@gmail.com"
       }
     ],
-    "downloads": 50
+    "downloads": 57
   },
   {
     "name": "videojs-transcript-ac",
@@ -22639,7 +22639,7 @@
         "email": "asjchae@gmail.com"
       }
     ],
-    "downloads": 52
+    "downloads": 55
   },
   {
     "name": "videojs-audio-tracks",
@@ -22672,7 +22672,7 @@
         "email": "shawnp@gmail.com"
       }
     ],
-    "downloads": 11
+    "downloads": 12
   },
   {
     "name": "videojs-vlc",
@@ -22706,7 +22706,7 @@
         "email": "afterster@gmail.com"
       }
     ],
-    "downloads": 9
+    "downloads": 8
   },
   {
     "name": "videojs-hlsjs-live-record",
@@ -22805,7 +22805,7 @@
         "email": "npmjs@cultivatedops.com"
       }
     ],
-    "downloads": 0
+    "downloads": 3
   },
   {
     "name": "videojs-next-button",
@@ -22832,7 +22832,7 @@
         "email": "383126908@qq.com"
       }
     ],
-    "downloads": 9
+    "downloads": 10
   },
   {
     "name": "react-videojs-wrapper",
@@ -22864,7 +22864,7 @@
         "email": "ptviet@Live.com"
       }
     ],
-    "downloads": 50
+    "downloads": 41
   },
   {
     "name": "videojs-fairplay",
@@ -22898,7 +22898,7 @@
         "email": "carey.hinoki@gmail.com"
       }
     ],
-    "downloads": 25
+    "downloads": 44
   },
   {
     "name": "dhaval-npm-videojsplayer",
@@ -22997,7 +22997,7 @@
         "email": "pott.benjamin@gmail.com"
       }
     ],
-    "downloads": 22
+    "downloads": 16
   },
   {
     "name": "canplayhls",
@@ -23056,7 +23056,7 @@
         "email": "it@dnamicworld.com"
       }
     ],
-    "downloads": 1
+    "downloads": 2
   },
   {
     "name": "gigs-videojs-player",
@@ -23117,7 +23117,7 @@
         "email": "samuel.tschuemperlin@zeix.com"
       }
     ],
-    "downloads": 22
+    "downloads": 23
   },
   {
     "name": "videojs-ass-es6",
@@ -23152,7 +23152,7 @@
         "email": "yj.iedema@gmail.com"
       }
     ],
-    "downloads": 35
+    "downloads": 23
   },
   {
     "name": "ember-videojs",
@@ -23190,7 +23190,7 @@
         "email": "snow@hollysydney.com"
       }
     ],
-    "downloads": 187
+    "downloads": 181
   },
   {
     "name": "ang.video.js",
@@ -23275,7 +23275,7 @@
         "email": "jramos@arkusnexus.com"
       }
     ],
-    "downloads": 2
+    "downloads": 1
   },
   {
     "name": "videojs-webcomponent",
@@ -23342,7 +23342,7 @@
         "email": "davidtorroija@gmail.com"
       }
     ],
-    "downloads": 4
+    "downloads": 3
   },
   {
     "name": "videojs-livestream-keeper",
@@ -23442,7 +23442,7 @@
         "email": "thediveo@gmx.eu"
       }
     ],
-    "downloads": 5
+    "downloads": 7
   },
   {
     "name": "videojs-for-react",
@@ -23476,6 +23476,6 @@
         "email": "me@gwtcoder.me"
       }
     ],
-    "downloads": 30
+    "downloads": 31
   }
 ]
