@@ -20,7 +20,7 @@ const ProcessableImage = ({ filename, alt='', presentationWidth }) => (
     `}
     render={data => {
       const image = data.images.edges.find(n => {
-        return n.node.relativePath.includes(filename);
+        return n.node.relativePath === filename;
       });
 
       if (!image) {
