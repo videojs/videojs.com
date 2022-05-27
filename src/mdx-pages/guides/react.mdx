@@ -28,14 +28,17 @@ export const VideoJS = (props) => {
       if (!videoElement) return;
 
       const player = playerRef.current = videojs(videoElement, options, () => {
-        player.log('player is ready');
+        videojs.log('player is ready');
         onReady && onReady(player);
       });
 
-    // You can update player in the `else` block here, for example:
+    // You could update an existing player in the `else` block here
+    // on prop change, for example:
     } else {
-      player.autoplay(options.autoplay);
-      player.src(options.sources);
+      // const player = playerRef.current;
+
+      // player.autoplay(options.autoplay);
+      // player.src(options.sources);
     }
   }, [options, videoRef]);
 
@@ -88,11 +91,11 @@ const App = () => {
 
     // You can handle player events here, for example:
     player.on('waiting', () => {
-      player.log('player is waiting');
+      videojs.log('player is waiting');
     });
 
     player.on('dispose', () => {
-      player.log('player will dispose');
+      videojs.log('player will dispose');
     });
   };
 
@@ -120,7 +123,7 @@ export default class VideoPlayer extends React.Component {
   // Instantiate a Video.js player when the component mounts
   componentDidMount() {
     this.player = videojs(this.videoNode, this.props, () => {
-      player.log('onPlayerReady', this);
+      videojs.log('onPlayerReady', this);
     });
   }
 
@@ -237,7 +240,7 @@ Finally, the Video.js bridge component can be added to the player like so:
   // Instantiate a Video.js player when the component mounts
   componentDidMount() {
     this.player = videojs(this.videoNode, this.props, () => {
-      player.log('onPlayerReady', this);
+      videojs.log('onPlayerReady', this);
     });
 
     // Add the ExampleVjsBridgeComponent as a child of the player (or
