@@ -50,7 +50,7 @@ class Player extends React.Component {
         <div data-vjs-player>
           <video-js
             ref={node => (this.videoNode = node)}
-            class="vjs-16-9"
+            class="video-js vjs-16-9"
             playsInline={this.props.playsInline}
           />
         </div>
