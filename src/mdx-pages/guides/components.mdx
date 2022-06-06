@@ -95,10 +95,108 @@ There are a few used for creating and registering components:
 
 * `videojs.getComponent(String name)`: Retrieves component constructors from Video.js.
 * `videojs.registerComponent(String name, Function Comp)`: Registers component constructors with Video.js.
-* `videojs.extend(Function component, Object properties)`: Provides prototype inheritance. Can be used to extend a component's constructor, returning a new constructor with the given properties.
+* `videojs.extend(Function component, Object properties)`: Provides prototype inheritance. Can be used to extend a component's constructor, returning a new constructor with the given properties. *Deprecated, will be removed in Video.js 8 in favor of ES6 classes.
 
-For a working example, [we have a JSBin](https://jsbin.com/vobacas/edit?html,css,js,output) demonstrating the creation of a component for displaying a title across the top of the player.
+This example creates a title bar component, as a class extending `Component`.
 
+```js
+// Get the Component base class from Video.js
+const Component = videojs.getComponent('Component');
+
+class TitleBar extends Component {
+
+  // The constructor of a component receives two arguments: the
+  // player it will be associated with and an object of options.
+  constructor(player, options = {}) {
+
+    // It is important to invoke the superclass before anything else, 
+    // to get all the features of components out of the box!
+    super(player, options);
+
+    // If a `text` option was passed in, update the text content of 
+    // the component.
+    if (options.text) {
+      this.updateTextContent(options.text);
+    }
+  }
+
+  // The `createEl` function of a component creates its DOM element.
+  createEl() {
+    return videojs.dom.createEl('div', {
+
+      // Prefixing classes of elements within a player with "vjs-" 
+      // is a convention used in Video.js.
+      className: 'vjs-title-bar'
+    });
+  }
+
+  // This function could be called at any time to update the text 
+  // contents of the component.
+  updateTextContent(text) {
+
+    // If no text was provided, default to "Title Unknown"
+    if (typeof text !== 'string') {
+      text = 'Title Unknown';
+    }
+
+    // Use Video.js utility DOM methods to manipulate the content
+    // of the component's element.
+    videojs.emptyEl(this.el());
+    videojs.appendContent(this.el(), text);
+  }
+}
+```
+
+This creates the same component without using classes, using the `videojs.extend()` helper instead.
+
+```js
+var Component = videojs.getComponent('Component');
+
+// The videojs.extend function can be used instead of ES6 classes.
+var TitleBar = videojs.extend(Component, {
+
+  constructor: function(player, options) {
+
+    // Equivalent of `super(this, arguments)`
+    Component.apply(this, arguments);
+
+    if (options.text) {
+      this.updateTextContent(options.text);
+    }
+  },
+
+  createEl: function() {
+    return videojs.dom.createEl('div', {
+      className: 'vjs-title-bar'
+    });
+  },
+
+  updateTextContent: function(text) {
+    if (typeof text !== 'string') {
+      text = 'Title Unknown';
+    }
+
+    videojs.emptyEl(this.el());
+    videojs.appendContent(this.el(), text);
+  }
+});
+```
+
+Either way, the component can be registered, and used in a player.
+
+```js
+// Register the component with Video.js, so it can be used in players.
+videojs.registerComponent('TitleBar', TitleBar);
+
+// Create a player.
+var player = videojs('my-player');
+
+// Add the TitleBar as a child of the player and provide it some text 
+// in its options.
+player.addChild('TitleBar', {text: 'The Title of The Video!'});
+```
+
+A live example is in [this JSBin](https://jsbin.com/vobacas/edit?html,css,js,output).
 
 ## Component Children
 
