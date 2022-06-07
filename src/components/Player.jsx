@@ -45,12 +45,14 @@ class Player extends React.Component {
     }
   }
   render() {
+    // `class` is used here instead of `className` as `<video-js>`
+    // is neither a standard element nor a React component 
     return (
       <div>
         <div data-vjs-player>
-          <video
+          <video-js
             ref={node => (this.videoNode = node)}
-            className="video-js vjs-16-9"
+            class="video-js vjs-16-9"
             playsInline={this.props.playsInline}
           />
         </div>

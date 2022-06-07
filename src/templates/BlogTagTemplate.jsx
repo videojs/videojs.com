@@ -42,9 +42,7 @@ export const blogTagQuery = graphql`
               github
             }
           }
-          code {
-            body
-          }
+          body
         }
       }
     }

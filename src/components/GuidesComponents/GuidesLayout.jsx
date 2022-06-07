@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Layout from '../Layout';
-import SEO from '../SEO';
+import Seo from '../SEO';
 import Container from '../Container';
 import GuidesHero from './GuidesHero';
 
@@ -18,7 +18,7 @@ const StyledContainer = styled(Container)`
 
 const GuidesLayout = ({ children, seo }) => (
   <Layout>
-    <SEO {...seo} />
+    <Seo {...seo} />
     <GuidesHero />
     <StyledContainer>
       {children}

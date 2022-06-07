@@ -64,9 +64,7 @@ export const blogListQuery = graphql`
               github
             }
           }
-          code {
-            body
-          }
+          body
         }
       }
     }

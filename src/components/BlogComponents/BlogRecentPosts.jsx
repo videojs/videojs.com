@@ -21,6 +21,7 @@ const BlogRecentPosts = () => (
               frontmatter {
                 title
               }
+              body
             }
           }
         }

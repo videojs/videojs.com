@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Layout from '../Layout';
-import SEO from '../SEO';
+import Seo from '../SEO';
 import Container from '../Container';
 import BlogHero from './BlogHero';
 import BlogTags from './BlogTags';
@@ -38,7 +38,7 @@ const Sidebar = styled.aside`
 
 const BlogLayout = ({ children, seo }) => (
   <Layout>
-    <SEO {...seo} />
+    <Seo {...seo} />
     <BlogHero />
     <StyledContainer>
       <Sidebar>

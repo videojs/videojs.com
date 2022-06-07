@@ -72,9 +72,6 @@ export const guidesListQuery = graphql`
               title
               category
             }
-            code {
-              body
-            }
           }
         }
       }

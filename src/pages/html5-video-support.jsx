@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/SEO';
 import Hero from '../components/Hero';
 import {
   Table,
@@ -50,7 +50,7 @@ const StyledH2 = styled(H2)`
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="HTML5 Video Support" />
+    <Seo title="HTML5 Video Support" />
     <StyledHero theme={{ ...theme, currentTheme: theme.fantasy }}>
       <Container>
         <StyledH2>HTML5 Video Support by Codec</StyledH2>

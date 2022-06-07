@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/SEO';
 import Hero from '../components/Hero';
 import Container from '../components/Container';
 import { H2 } from '../components/Typography';
@@ -70,7 +70,7 @@ const Subheading = styled.p`
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="Video.js - 404: Not found" />
+    <Seo title="Video.js - 404: Not found" />
     <StyledHero theme={{ ...theme, currentTheme: theme.forest }}>
       <Container>
         <StyledH2>Uh oh...Not found!</StyledH2>

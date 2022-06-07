@@ -84,7 +84,8 @@ getPlugins(0)
 })
 .then(function(packages) {
   // get the download counts for each item
-  return Promise.mapSeries(packages, getDownloadCount);
+  console.log(`Fetching counts for ${packages.length} plugins...`)
+  return Promise.map(packages, getDownloadCount, {concurrency: 10});
 })
 .then(function(packages) {
   const dir = __dirname + '/src/data/plugins.json';
