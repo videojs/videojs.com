@@ -34,7 +34,7 @@ const Wrapper = styled.article`
 const GettingStartedArticle = ({ mdxData }) => (
   <Wrapper>
     <WithMdxComponents contentSlug={mdxData.fields.slug}>
-      <MDXRenderer>{mdxData.body.replace(/\$\{VJS_VERSION\}/g, version)}</MDXRenderer>
+      <MDXRenderer>{mdxData.body.replace(/\$\{VJS_VERSION\}/g, version.version)}</MDXRenderer>
     </WithMdxComponents>
   </Wrapper>
 );
