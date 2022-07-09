@@ -20,7 +20,7 @@ const BackBox = styled.div`
 const GuidesViewTemplate = ({
   data: { mdx }
 }) => (
-  <GuidesLayout seo={{ title: 'Video.js Guides' }}>
+  <GuidesLayout seo={{ title: mdx.frontmatter.title, description: mdx.frontmatter.description }}>
     <BackBox>
       <Link href="/guides">Back to Guides</Link>
     </BackBox>
@@ -39,6 +39,7 @@ export const guidesViewQuery = graphql`
       }
       frontmatter {
         title
+        description
       }
       body
     }

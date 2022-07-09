@@ -70,7 +70,7 @@ const Subheading = styled.p`
 
 const NotFoundPage = () => (
   <Layout>
-    <Seo title="Video.js - 404: Not found" />
+    <Seo title="404: Not found" description="Nothing to see here." />
     <StyledHero theme={{ ...theme, currentTheme: theme.forest }}>
       <Container>
         <StyledH2>Uh oh...Not found!</StyledH2>

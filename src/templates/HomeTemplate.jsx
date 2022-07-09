@@ -21,6 +21,7 @@ const IndexPage = props => {
       <Seo
         title="Video.js - Make your player yours"
         keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
+        description="The world's most popular open source HTML5 player framework"
       />
       <Hero
         heroTheme={heroTheme}
