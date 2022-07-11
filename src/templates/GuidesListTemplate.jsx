@@ -42,7 +42,7 @@ const GuidesListTemplate = ({
   });
 
   return (
-    <GuidesLayout seo={{ title: 'Video.js Guides' }}>
+    <GuidesLayout seo={{ title: 'Video.js Guides', description: 'Documentation for Video.js' }}>
       <Container>
         {categories.map(category => (
           <GuidesCategory key={shortid.generate()} category={category}></GuidesCategory>

@@ -52,7 +52,7 @@ function Seo({ description, lang, meta, keywords, title, ...props }) {
         },
         {
           property: `og:title`,
-          content: title,
+          content: `${title}${title.includes('Video.js') ? '' : ' | Video.js'}`,
         },
         {
           property: `og:description`,
@@ -72,7 +72,7 @@ function Seo({ description, lang, meta, keywords, title, ...props }) {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: `${title}${title.includes('Video.js') ? '' : ' | Video.js'}`,
         },
         {
           name: `twitter:description`,

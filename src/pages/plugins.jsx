@@ -8,7 +8,7 @@ import PluginsList from '../components/PluginsComponents/PluginsList';
 
 const PluginsPage = () => (
   <Layout>
-    <Seo title="plugins/index - Video.js: The Player Framework" />
+    <Seo title="Video.js Plugins" description="List of plugins for Video.js." />
     <PluginsHero />
     <PluginsList />
   </Layout>
