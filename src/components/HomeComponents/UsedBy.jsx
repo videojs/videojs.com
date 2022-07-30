@@ -34,6 +34,7 @@ const UsedByWrapper = styled.section`
 const IGNPlayer = () => (
   <VideoWrapper>
     <iframe
+      loading="lazy"
       title="IGN Example Player"
       src="https://widgets.ign.com/video/embed/content.html?url=https://www.ign.com/videos/2019/06/12/cyberpunk-2077-our-thoughts-after-seeing-50-minutes-of-new-gameplay-e3-2019"
       scrolling="no"
@@ -83,6 +84,7 @@ class TumblrPlayer extends React.Component {
 const LinkedInPlayer = () => (
   <VideoWrapper>
     <iframe
+      loading="lazy"
       src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6545287331673366528?compact=1"
       allowFullScreen=""
       title="Embedded post"
@@ -94,6 +96,7 @@ const LinkedInPlayer = () => (
 const GuardianPlayer = () => (
   <VideoWrapper>
     <iframe
+      loading="lazy"
       src="https://embed.theguardian.com/embed/video/news/video/2015/jul/20/california-drought-eat-beef-wash-video"
       frameBorder="0"
       title="Guardian Embed"
