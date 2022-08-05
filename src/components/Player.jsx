@@ -11,7 +11,6 @@ Object.keys(heroThemes).map(theme =>
 
 class Player extends React.Component {
   componentDidMount() {
-    console.log('BMC componentDidMount')
     // Extend the options with some defaults.
     const options = {
       ...this.props,
