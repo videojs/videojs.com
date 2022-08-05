@@ -43,10 +43,10 @@
     "shortid": "^2.2.14",
     "styled-components": "^5.3.5",
     "typescript": "^2.9.2",
-    "video.js": "^7.19.2",
+    "video.js": "^7.20.1",
     "videojs-mux": "^4.6.6",
     "videojs-playlist": "^4.3.1",
-    "videojs-playlist-ui": "github:mister-ben/videojs-playlist-ui#feat-lazy-image"
+    "videojs-playlist-ui": "^4.1.0"
   },
   "devDependencies": {
     "bluebird": "^3.7.2",
