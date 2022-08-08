@@ -24,7 +24,7 @@ const PassthroughImage = ({ filename, alt='' }) => (
         return null;
       }
 
-      return <img src={image.node.publicURL} alt={alt} />;
+      return <img src={image.node.publicURL} alt={alt} loading="lazy" />;
     }}
   />
 ); 
