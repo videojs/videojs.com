@@ -7,7 +7,13 @@ description: How to use audio tracks with Video.js
 
 Audio tracks are a feature of HTML5 video for providing alternate audio track selections
 to the user, so that a track other than the main track can be played. Video.js offers a
-cross-browser implementation of audio tracks.
+cross-browser implementation of audio tracks, providing the playback technology supports
+audio tracks.
+
+Audio tracks are supported in Video.js's MSE playback engine for HLS and DASH. Safari
+also supports audio tracks for native playback of HLS and MP4. **Other browsers do not
+support audio tracks for native playback including MP4**, so it is not possible to work
+with MP4 audio tracks in Chrome or Firefox for example.
 
 ## Caveats
 
@@ -15,7 +21,7 @@ cross-browser implementation of audio tracks.
   They must be added programmatically.
 * Video.js only stores track representations. Switching audio tracks for playback is
   _not handled by Video.js_ and must be handled elsewhere - for example,
-  [videojs-contrib-hls][hls] handles switching
+  [http-streaminfg][http-streaming] handles switching
   audio tracks to support track selection through the UI.
 
 ## Working with Audio Tracks
@@ -144,8 +150,8 @@ than one, the last one to be enabled will end up being the only one. While the s
 allows for more than one track to be enabled, Safari and most implementations only allow
 one audio track to be enabled at a time.
 
-[languages-guide]: /guides/languages
+[languages-guide]: /guides/languages/
 
 [spec-audiotrack]: https://html.spec.whatwg.org/multipage/embedded-content.html#audiotrack
 
-[hls]: https://github.com/videojs/videojs-contrib-hls
+[http-streaming]: https://github.com/videojs/http-streaming
