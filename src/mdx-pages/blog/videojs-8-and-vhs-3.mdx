@@ -1,0 +1,95 @@
+---
+title: Video.js 8 and Video.js HTTP Streaming 3
+author:
+  name: Pat O'Neill
+  github: misteroneill
+date: 2022-08-22 14:49:43
+tags:
+---
+
+We are very excited to announce that Video.js 8.0 and Video.js HTTP Streaming (VHS) 3.0 are available! These releases bring some much needed modernization to the Video.js platform and set us up for the next generation of websites and applications.
+
+## Contributors
+
+Before we dive into the software changes, open source doesn't work without _people_. Huge thanks to everyone who contributed pull requests to these releases!
+
+* [@alex-barstow](https://github.com/alex-barstow)
+* [@gesinger](https://github.com/gesinger)
+* [@gjanblaszczyk](https://github.com/gjanblaszczyk)
+* [@gkatsev](https://github.com/gkatsev)
+* [@harisha-swaminathan](https://github.com/harisha-swaminathan)
+* [@hugorogz](https://github.com/hugorogz)
+* [@kchang-brightcove](https://github.com/kchang-brightcove)
+* [@mister-ben](https://github.com/mister-ben)
+* [@misteroneill](https://github.com/misteroneill)
+* [@phloxic](https://github.com/phloxic)
+* [@roman-bc-dev](https://github.com/roman-bc-dev)
+
+## What's Changed?
+
+The first question you might ask upon installing is: what's changed? On the surface, not a whole lot, but here's what's different:
+
+### Video.js
+
+The [complete CHANGELOG is available](https://github.com/videojs/video.js/blob/TODO/CHANGELOG.md), but here are some highlights:
+
+* No longer transpiled into ES5 for compatibility with older browsers like Internet Explorer
+* Updated to VHS 3.0
+* Enabled the `sourceset` event by default, `enableSourceset: false` can be used to turn this off.
+* Added new title bar component, which is off by default (see below for details)
+* `addClass` and `removeClass` methods can now be given multiple class names
+* Clicking the playback rate button now opens the menu rather than changing the playback rate
+* Deprecated many old top-level utility methods in favor of utility methods stored on objects (see below for details)
+* Invalid event types will now throw instead of warn
+* Change `addRemoteTextTrack`'s `manualCleanup` option to default to `false`
+* Removed the `firstplay` event - use `one('play', fn)` instead!
+* Removed the `retryOnError` option and made this behavior the default
+* Removed the ability to set `aria-*`, `role`, and `type` attributes via the `props` argument of `createEl` methods
+* Removed remaining references and logic related to Flash and SWF
+* Remove fallbacks for missing flexbox support
+* Removed IE-specific code
+
+Overall, the minfied and gzipped size of Video.js is reduced by around **3%**. More savings are likely available through removal of dead code.
+
+### VHS
+
+The [complete CHANGELOG is available](https://github.com/videojs/http-streaming/blob/TODO/CHANGELOG.md), but here are some highlights:
+
+* No longer transpiled into ES5 for compatibility with older browsers like Internet Explorer.
+* Naming changes for more inclusive language (e.g. "master" becomes "main" and "blacklist" becomes "exclude").
+* Skip detected gaps immediately instead of waiting the duration of the gap before skipping.
+* Removed the deprecated `smoothQualityChange` method.
+* Improved behavior when encountering `output-restricted` event handling.
+* Cleaned up parameters of `excludePlaylist`.
+
+Overall, the minfied and gzipped size of VHS is reduced by around **4%**. More savings are likely available through removal of dead code.
+
+## Platform Support
+
+With these releases, our new browser/platform targets are generally focused on the last 3 major versions of so-called "evergreen" browsers:
+
+* Chrome
+* Firefox
+* Safari
+* Edge (Chromium, not Legacy)
+
+However, with Video.js being used in more contexts than just desktop and mobile web, like Smart TVs or OTT devices, we have an additional minimum support threshold for Chromium-based browsers of version 53+. This should grant support for:
+
+* [webOS TV](https://webostv.developer.lge.com/discover/specifications/web-engine/) 4.x and newer
+* [Tizen](https://developer.samsung.com/smarttv/develop/specifications/web-engine-specifications.html) 2018 models and newer
+
+## New Video.js `TitleBar` Component
+
+TODO
+
+## New Video.js Utility Method APIs
+
+TODO
+
+## Conclusion
+
+Thanks again to all our contributors and to the large community of developers who support Video.js by using it every day!
+
+If you'd like to contribute to Video.js, the place to start is our [CONTRIBUTING](https://github.com/videojs/video.js/blob/main/CONTRIBUTING.md) guide on GitHub.
+
+_Be well and build great things!_
