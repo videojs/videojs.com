@@ -425,7 +425,7 @@ Defines the order in which Video.js techs are preferred. By default, this means 
 
 > Type: `boolean|function`
 
-Controls how clicking on the player/tech operates. If set to `false`, clicking is disabled and will no longer cause the player to toggle between paused and playing.
+Controls how clicking on the player/tech operates. If set to `false`, clicking is disabled and will no longer cause the player to toggle between paused and playing. If controls are disabled with `controls: false`, this will not call the handler function.
 
 ```js
 videojs('my-player', {
@@ -479,7 +479,7 @@ videojs('my-player', {
 
 > Type: `boolean|function|object`
 
-Controls how player-wide hotkeys operate. If set to `false`, or `undefined`, hotkeys are disabled. If set to `true` or an object (to allow definitions of `fullscreenKey` etc. below), hotkeys are enabled as described below. To override the default hotkey handling, set `userActions.hotkeys` to a function which accepts a `keydown` event:
+Controls how player-wide hotkeys operate. If set to `false`, or `undefined`, hotkeys are disabled. If set to `true` or an object (to allow definitions of `fullscreenKey` etc. below), hotkeys are enabled as described below. To override the default hotkey handling, set `userActions.hotkeys` to a function which accepts a `keydown` event. If controls are disabled with `controls: false`, this will not call the handler function.
 
 ```js
 var player = videojs('my-player', {
