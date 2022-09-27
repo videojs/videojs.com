@@ -54,11 +54,11 @@ const Label = styled.label`
 
 const CheckboxInput = ({ label, checked, onChange }) => (
   <Wrapper>
-    <Input readOnly value={checked} name={label} id={label} />
+    <Input readOnly type="hidden" value={checked} name={label} id={label} />
     <Box checked={checked} onClick={onChange}>
       {checked && <StyledTickIcon />}
     </Box>
-    {label && <Label htmlFor={label}>{label}</Label>}
+    {label && <Label htmlFor={label} onClick={onChange}>{label}</Label>}
   </Wrapper>
 );
 
