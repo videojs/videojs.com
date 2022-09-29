@@ -36,7 +36,7 @@ The [complete CHANGELOG is available](https://github.com/videojs/video.js/blob/T
 * No longer transpiled into ES5 for compatibility with older browsers like Internet Explorer
 * Updated to VHS 3.0
 * Enabled the `sourceset` event by default, `enableSourceset: false` can be used to turn this off.
-* Added new title bar component, which is off by default (see below for details)
+* Added new title bar component, which is off by default (see below for details)* Moved the `BigPlayButton` component to the center of the player by default
 * `addClass` and `removeClass` methods can now be given multiple class names
 * Clicking the playback rate button now opens the menu rather than changing the playback rate
 * Deprecated many old top-level utility methods in favor of utility methods stored on objects (see below for details)
@@ -49,7 +49,7 @@ The [complete CHANGELOG is available](https://github.com/videojs/video.js/blob/T
 * Remove fallbacks for missing flexbox support
 * Removed IE-specific code
 
-Overall, the minfied and gzipped size of Video.js is reduced by around **3%**. More savings are likely available through removal of dead code.
+Overall, the minfied and gzipped size of Video.js is **reduced by around 3%**. More savings are likely available through further removal of dead code.
 
 ### VHS
 
@@ -62,7 +62,7 @@ The [complete CHANGELOG is available](https://github.com/videojs/http-streaming/
 * Improved behavior when encountering `output-restricted` event handling.
 * Cleaned up parameters of `excludePlaylist`.
 
-Overall, the minfied and gzipped size of VHS is reduced by around **4%**. More savings are likely available through removal of dead code.
+Overall, the minfied and gzipped size of VHS is **reduced by around 4%**. More savings are likely available through further removal of dead code.
 
 ## Platform Support
 
@@ -73,18 +73,140 @@ With these releases, our new browser/platform targets are generally focused on t
 * Safari
 * Edge (Chromium, not Legacy)
 
-However, with Video.js being used in more contexts than just desktop and mobile web, like Smart TVs or OTT devices, we have an additional minimum support threshold for Chromium-based browsers of version 53+. This should grant support for:
+However, with Video.js being used in more contexts than just desktop and mobile web, like Smart TVs or OTT devices, we have an additional minimum support threshold for _Chromium-based browsers version 53 and newer_. This grants support for:
 
 * [webOS TV](https://webostv.developer.lge.com/discover/specifications/web-engine/) 4.x and newer
 * [Tizen](https://developer.samsung.com/smarttv/develop/specifications/web-engine-specifications.html) 2018 models and newer
 
 ## New Video.js `TitleBar` Component
 
-TODO
+The new `TitleBar` component will show a UI element across the top of the player which displays the title and/or description of the current media in the player. The `TitleBar` will not show if no title or description is provided.
 
-## New Video.js Utility Method APIs
+### Using `loadMedia` to Populate the `TitleBar`
 
-TODO
+The easiest way to provide a title and/or description is to use your player's `loadMedia` method:
+
+```js
+player.loadMedia({
+  artist: 'Disney',
+  album: 'Oceans',
+  title: 'Oceans',
+  description: 'Journey in to the depths of a wonderland filled with mystery, beauty and power. Oceans is a spectacular story, narrated by Pierce Brosnan, about remarkable creatures under the sea. It\'s an unprecedented look at the lives of these elusive deepwater creatures through their own eyes. Incredible state-of-the-art-underwater filmmaking will take your breath away as you migrate with whales, swim alongside a great white shark and race with dolphins at play.',
+  poster: 'https://vjs.zencdn.net/v/oceans.png',
+  src: [{
+    src: 'https://vjs.zencdn.net/v/oceans.mp4',
+    type: 'video/mp4'
+  }, {
+    src: 'https://vjs.zencdn.net/v/oceans.webm',
+    type: 'video/webm'
+  }]
+})
+```
+
+If you're not familiar with the `loadMedia` method, it's a way to provide additional metadata for your media beyond what is available through the `src` method alone. As you see in the above example, the `title` and `description` are provided and will be used to populate the title bar.
+
+### Populating the `TitleBar` Directly
+
+The `TitleBar` can also be populated through direct input using the component's `update` method:
+
+```js
+player.titleBar.update({
+  title: 'Oceans',
+  description: 'Journey in to the depths ... and race with dolphins at play.'
+});
+```
+
+The title and/or description can be removed by passing an empty string for one or both of these values:
+
+```js
+player.titleBar.update({
+  title: '',
+  description: ''
+});
+```
+
+If both are removed, the `TitleBar` will no longer be visible.
+
+## New Video.js Utility Objects
+
+Over time, the `videojs` namespace has become cluttered with a wide variety of utility functions. One of the changes we are introducing is a more deliberately designed interface for these utility functions.
+
+The guiding principle here was that if a function didn't feel like a core part of the library, but was still _potentially useful_, we exposed it as part of a utility object instead of a top-level function.
+
+These are the utility objects attached to `videojs` in 8.0.0:
+
+Object                | Description
+----------------------|--------------------------------------
+`videojs.browser`     | Various user-agent detection values (available previously)
+`videojs.dom`         | DOM functions (available previously)
+`videojs.fn`          | Function... functions
+`videojs.num`         | Number functions
+`videojs.obj`         | Object functions
+`videojs.str`         | String functions
+`videojs.time`        | Time-related functions
+`videojs.url`         | URL-related functions
+
+### Newly Exposed Functions on Utility Objects
+
+These are some of the utility functions that are now exposed and were not previously exposed through another name:
+
+* `videojs.fn.debounce`
+* `videojs.fn.throttle`
+* `videojs.num.clamp`
+* `videojs.obj.each`
+* `videojs.obj.isObject`
+* `videojs.obj.isPlain`
+* `videojs.obj.reduce`
+* `videojs.str.titleCaseEquals`
+* `videojs.str.toLowerCase`
+* `videojs.str.toTitleCase`
+* `videojs.url.getAbsoluteURL`
+* `videojs.url.getFileExtension`
+
+### Newly Deprecated Functions
+
+As a result of this, many functions that were top-level in Video.js 7 and earlier have been (or remain) deprecated:
+
+Deprecated Function          | Instead, use...
+-----------------------------|--------------------------------------------------
+`videojs.bind`               | native `Function.prototype.bind`
+`videojs.computedStyle`      | `videojs.dom.computedStyle`
+`videojs.createTimeRange`    | `videojs.time.createTimeRanges`
+`videojs.createTimeRanges`   | `videojs.time.createTimeRanges`
+`videojs.defineLazyProperty` | `videojs.obj.defineLazyProperty`
+`videojs.extend`             | native ES6 classes
+`videojs.formatTime`         | `videojs.time.formatTime`
+`videojs.isCrossOrigin`      | `videojs.url.isCrossOrigin`
+`videojs.mergeOptions`       | `videojs.obj.merge`
+`videojs.parseUrl`           | `videojs.url.parseUrl`
+`videojs.resetFormatTime`    | `videojs.time.resetFormatTime`
+`videojs.setFormatTime`      | `videojs.time.setFormatTime`
+
+Each of these functions will log a deprecation warning the first time they are used, but only the first time so as not to be _too_ noisy!
+
+_These deprecated functions will be removed in Video.js 9.0!_
+
+### Older Deprecated Functions
+
+There are still a number of older functions that remain usable, but deprecated:
+
+Deprecated Function     | Instead, use...
+------------------------|--------------------------------------------------
+`videojs.addClass`      | `videojs.dom.addClass`
+`videojs.appendContent` | `videojs.dom.appendContent`
+`videojs.createEl`      | `videojs.dom.createEl`
+`videojs.emptyEl`       | `videojs.dom.emptyEl`
+`videojs.getAttributes` | `videojs.dom.getAttributes`
+`videojs.hasClass`      | `videojs.dom.hasClass`
+`videojs.insertContent` | `videojs.dom.insertContent`
+`videojs.isEl`          | `videojs.dom.isEl`
+`videojs.isTextNode`    | `videojs.dom.isTextNode`
+`videojs.plugin`        | `videojs.registerPlugin`
+`videojs.removeClass`   | `videojs.dom.removeClass`
+`videojs.setAttributes` | `videojs.dom.setAttributes`
+`videojs.toggleClass`   | `videojs.dom.toggleClass`
+
+_These deprecated functions will be removed in Video.js 9.0!_
 
 ## Conclusion
 
