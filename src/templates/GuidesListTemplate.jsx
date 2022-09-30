@@ -12,7 +12,8 @@ const CATEGORY_NAMES = {
   basics: 'Getting Started',
   general: 'General Usage',
   integrations: 'Integrations',
-  tracks: 'Tracks'
+  tracks: 'Tracks',
+  migration: 'Migration Guides'
 };
 
 const CATEGORY_ORDER = [
@@ -20,7 +21,8 @@ const CATEGORY_ORDER = [
   'general',
   'advanced',
   'integrations',
-  'tracks'
+  'tracks',
+  'migration'
 ];
 
 const Container = styled.div`

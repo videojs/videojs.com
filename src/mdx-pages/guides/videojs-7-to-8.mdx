@@ -1,0 +1,88 @@
+---
+title: Video.js 7 to 8 Migration
+category: migration
+order: 1
+description: Migrating your usage of Video.js from 7 to 8
+---
+
+This guide describes backward incompatible changes made between Video.js 7 and Video.js 8 and how to migrate your implementation, if needed.
+
+## IE11 Support
+
+Video.js 8 removes support for IE11. Attempting to use Video.js 8 in IE11 will cause errors to be thrown. There is no migration path here; so, if you must have IE11 support, use an older version of Video.js.
+
+## Removals
+### `firstplay` Event
+
+The `firstplay` event was removed from Video.js 8.
+
+Instead of listening for the `firstplay` event, use `one()` to bind a callback to the first occurrence of the `play` event, like this:
+
+```js
+player.ready(() => {
+  player.one('play', callback);
+});
+```
+
+### Setting Some Attributes as Properties
+
+In previous versions of Video.js, you could call the various flavors of `createEl()` with both DOM properties and attribute names in its second argument. While there is a one-to-one mapping of properties to attributes in most cases, there were a few attributes that we still allowed to be set via the second argument to this function:
+
+* All `aria-*` attributes, e.g. `aria-labeledby`
+* `role`
+* `type`
+
+These can no longer be set using the second argument of `createEl()` and must be set using the third argument, like this:
+
+```js
+videojs.dom.createEl('div', {id: 'example'}, {role: 'banner'});
+```
+
+## Deprecations
+
+Many functions were deprecated in Video.js 8 (or earlier). Below are lists of those functions.
+
+### Newly Deprecated Functions
+
+These functions are newly deprecated in Video.js 8, but should be replaced to suppress deprecation warnings and prepare for Video.js 9.
+
+Deprecated Function          | Instead, use...
+-----------------------------|--------------------------------------------------
+`videojs.bind`               | native `Function.prototype.bind`
+`videojs.computedStyle`      | `videojs.dom.computedStyle`
+`videojs.createTimeRange`    | `videojs.time.createTimeRanges`
+`videojs.createTimeRanges`   | `videojs.time.createTimeRanges`
+`videojs.defineLazyProperty` | `videojs.obj.defineLazyProperty`
+`videojs.extend`             | native ES6 classes
+`videojs.formatTime`         | `videojs.time.formatTime`
+`videojs.isCrossOrigin`      | `videojs.url.isCrossOrigin`
+`videojs.mergeOptions`       | `videojs.obj.merge`
+`videojs.parseUrl`           | `videojs.url.parseUrl`
+`videojs.resetFormatTime`    | `videojs.time.resetFormatTime`
+`videojs.setFormatTime`      | `videojs.time.setFormatTime`
+
+Each of these functions will log a deprecation warning the first time they are used... but only the first time so as not to be _too_ noisy!
+
+_These deprecated functions will be removed in Video.js 9.0!_
+
+### Older Deprecated Functions
+
+There are still a number of older functions that remain usable, but deprecated:
+
+Deprecated Function     | Instead, use...
+------------------------|--------------------------------------------------
+`videojs.addClass`      | `videojs.dom.addClass`
+`videojs.appendContent` | `videojs.dom.appendContent`
+`videojs.createEl`      | `videojs.dom.createEl`
+`videojs.emptyEl`       | `videojs.dom.emptyEl`
+`videojs.getAttributes` | `videojs.dom.getAttributes`
+`videojs.hasClass`      | `videojs.dom.hasClass`
+`videojs.insertContent` | `videojs.dom.insertContent`
+`videojs.isEl`          | `videojs.dom.isEl`
+`videojs.isTextNode`    | `videojs.dom.isTextNode`
+`videojs.plugin`        | `videojs.registerPlugin`
+`videojs.removeClass`   | `videojs.dom.removeClass`
+`videojs.setAttributes` | `videojs.dom.setAttributes`
+`videojs.toggleClass`   | `videojs.dom.toggleClass`
+
+_These deprecated functions will be removed in Video.js 9.0!_

@@ -7,9 +7,25 @@ import WithMdxComponents from '../WithMdxComponents';
 import VideoWrapper from '../VideoWrapper';
 import TableOfContents from '../TableOfContents';
 
-const Text = styled.div`
+const Article = styled.div`
   h1 {
+    font-size: 32px;
+  }
+
+  h2 {
     font-size: 28px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5, h6 {
+    font-size: 18px;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -37,6 +53,32 @@ const Text = styled.div`
     margin-bottom: 2.25em;
   }
 
+  .note {
+    background-color: #f9f9f9;
+    padding: 1em;
+    margin-bottom: 2em;
+  }
+
+  .note :last-child {
+    margin-bottom: 0;
+  }
+
+  table {
+    margin-bottom: 2em;
+  }
+
+  th, td {
+    padding: 1em;
+    border: 2px solid #ebebeb;
+  }
+
+  th {
+    background-color: #f9f9f9;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   ${VideoWrapper} {
     margin-bottom: 3em;
   }
@@ -46,11 +88,11 @@ const GuidesView = ({ guide: { tableOfContents, frontmatter, body, fields } }) =
   <>
     <h1>{frontmatter.title}</h1>
     <TableOfContents contents={tableOfContents} />
-    <Text>
+    <Article>
       <WithMdxComponents contentSlug={fields.slug}>
         <MDXRenderer>{body}</MDXRenderer>
       </WithMdxComponents>
-    </Text>
+    </Article>
   </>
 );
 

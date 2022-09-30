@@ -7,7 +7,13 @@ date: 2022-08-22 14:49:43
 tags:
 ---
 
-We are very excited to announce that Video.js 8.0 and Video.js HTTP Streaming (VHS) 3.0 are available! These releases bring some much needed modernization to the Video.js platform and set us up for the next generation of websites and applications.
+<div class="note">
+  <p><b>NOTE:</b> For details on migrating from Video.js 7.x to 8.x, please see <a href="/guides/videojs-7-to-8/">our migration guide</a>!</p>
+</div>
+
+We are very excited to announce that Video.js 8.0 and Video.js HTTP Streaming (VHS) 3.0 are available!
+
+While these releases are constituted of a lot of housecleaning tasks, there are some changes of interest to users of the Video.js platform.
 
 ## Contributors
 
@@ -26,9 +32,6 @@ Before we dive into the software changes, open source doesn't work without _peop
 * [@roman-bc-dev](https://github.com/roman-bc-dev)
 
 ## What's Changed?
-
-The first question you might ask upon installing is: what's changed? On the surface, not a whole lot, but here's what's different:
-
 ### Video.js
 
 The [complete CHANGELOG is available](https://github.com/videojs/video.js/blob/TODO/CHANGELOG.md), but here are some highlights:
@@ -36,11 +39,11 @@ The [complete CHANGELOG is available](https://github.com/videojs/video.js/blob/T
 * No longer transpiled into ES5 for compatibility with older browsers like Internet Explorer
 * Updated to VHS 3.0
 * Enabled the `sourceset` event by default, `enableSourceset: false` can be used to turn this off.
-* Added new title bar component, which is off by default (see below for details)* Moved the `BigPlayButton` component to the center of the player by default
+* Added new `TitleBar` component, which is not visible in the UI by default _(see below for details)_. As a result, we moved the `BigPlayButton` component to the center of the player by default
 * `addClass` and `removeClass` methods can now be given multiple class names
 * Clicking the playback rate button now opens the menu rather than changing the playback rate
-* Deprecated many old top-level utility methods in favor of utility methods stored on objects (see below for details)
-* Invalid event types will now throw instead of warn
+* Deprecated many old top-level utility methods in favor of utility methods stored on objects _(see below for details)_
+* Invalid event types will now throw errors instead of log warnings
 * Change `addRemoteTextTrack`'s `manualCleanup` option to default to `false`
 * Removed the `firstplay` event - use `one('play', fn)` instead!
 * Removed the `retryOnError` option and made this behavior the default
@@ -64,9 +67,9 @@ The [complete CHANGELOG is available](https://github.com/videojs/http-streaming/
 
 Overall, the minfied and gzipped size of VHS is **reduced by around 4%**. More savings are likely available through further removal of dead code.
 
-## Platform Support
+### Browser/Device Support
 
-With these releases, our new browser/platform targets are generally focused on the last 3 major versions of so-called "evergreen" browsers:
+With these releases, our new browser/device targets are generally focused on the last 3 major versions of so-called "evergreen" browsers:
 
 * Chrome
 * Firefox
@@ -91,7 +94,7 @@ player.loadMedia({
   artist: 'Disney',
   album: 'Oceans',
   title: 'Oceans',
-  description: 'Journey in to the depths of a wonderland filled with mystery, beauty and power. Oceans is a spectacular story, narrated by Pierce Brosnan, about remarkable creatures under the sea. It\'s an unprecedented look at the lives of these elusive deepwater creatures through their own eyes. Incredible state-of-the-art-underwater filmmaking will take your breath away as you migrate with whales, swim alongside a great white shark and race with dolphins at play.',
+  description: 'Journey in to the depths ... and race with dolphins at play.',
   poster: 'https://vjs.zencdn.net/v/oceans.png',
   src: [{
     src: 'https://vjs.zencdn.net/v/oceans.mp4',
@@ -146,67 +149,9 @@ Object                | Description
 `videojs.time`        | Time-related functions
 `videojs.url`         | URL-related functions
 
-### Newly Exposed Functions on Utility Objects
-
-These are some of the utility functions that are now exposed and were not previously exposed through another name:
-
-* `videojs.fn.debounce`
-* `videojs.fn.throttle`
-* `videojs.num.clamp`
-* `videojs.obj.each`
-* `videojs.obj.isObject`
-* `videojs.obj.isPlain`
-* `videojs.obj.reduce`
-* `videojs.str.titleCaseEquals`
-* `videojs.str.toLowerCase`
-* `videojs.str.toTitleCase`
-* `videojs.url.getAbsoluteURL`
-* `videojs.url.getFileExtension`
-
-### Newly Deprecated Functions
-
-As a result of this, many functions that were top-level in Video.js 7 and earlier have been (or remain) deprecated:
-
-Deprecated Function          | Instead, use...
------------------------------|--------------------------------------------------
-`videojs.bind`               | native `Function.prototype.bind`
-`videojs.computedStyle`      | `videojs.dom.computedStyle`
-`videojs.createTimeRange`    | `videojs.time.createTimeRanges`
-`videojs.createTimeRanges`   | `videojs.time.createTimeRanges`
-`videojs.defineLazyProperty` | `videojs.obj.defineLazyProperty`
-`videojs.extend`             | native ES6 classes
-`videojs.formatTime`         | `videojs.time.formatTime`
-`videojs.isCrossOrigin`      | `videojs.url.isCrossOrigin`
-`videojs.mergeOptions`       | `videojs.obj.merge`
-`videojs.parseUrl`           | `videojs.url.parseUrl`
-`videojs.resetFormatTime`    | `videojs.time.resetFormatTime`
-`videojs.setFormatTime`      | `videojs.time.setFormatTime`
-
-Each of these functions will log a deprecation warning the first time they are used, but only the first time so as not to be _too_ noisy!
-
-_These deprecated functions will be removed in Video.js 9.0!_
-
-### Older Deprecated Functions
-
-There are still a number of older functions that remain usable, but deprecated:
-
-Deprecated Function     | Instead, use...
-------------------------|--------------------------------------------------
-`videojs.addClass`      | `videojs.dom.addClass`
-`videojs.appendContent` | `videojs.dom.appendContent`
-`videojs.createEl`      | `videojs.dom.createEl`
-`videojs.emptyEl`       | `videojs.dom.emptyEl`
-`videojs.getAttributes` | `videojs.dom.getAttributes`
-`videojs.hasClass`      | `videojs.dom.hasClass`
-`videojs.insertContent` | `videojs.dom.insertContent`
-`videojs.isEl`          | `videojs.dom.isEl`
-`videojs.isTextNode`    | `videojs.dom.isTextNode`
-`videojs.plugin`        | `videojs.registerPlugin`
-`videojs.removeClass`   | `videojs.dom.removeClass`
-`videojs.setAttributes` | `videojs.dom.setAttributes`
-`videojs.toggleClass`   | `videojs.dom.toggleClass`
-
-_These deprecated functions will be removed in Video.js 9.0!_
+<div class="note">
+  <p><b>NOTE:</b> For details on migrating from Video.js 7.x to 8.x, please see <a href="/guides/videojs-7-to-8/">our migration guide</a>!</p>
+</div>
 
 ## Conclusion
 
