@@ -12,6 +12,40 @@ This guide describes backward incompatible changes made between Video.js 7 and V
 Video.js 8 removes support for IE11. Attempting to use Video.js 8 in IE11 will cause errors to be thrown. There is no migration path here; so, if you must have IE11 support, use an older version of Video.js.
 
 ## Removals
+### `videojs.extend()`
+
+The `videojs.extend()` function is removed from Video.js 8.
+
+Video.js now uses native ES6 classes internally and the `extend()` function only worked with plain function prototypes. It did not work with ES6 classes, so it has been removed.
+
+At the most basic level, the old way to create a component using `extend()` was:
+
+```js
+const Component = videojs.getComponent('Component');
+
+const MyComponent = videojs.extend(Component, {
+  constructor: function(player, options) {
+    Component.call(this, player, options);
+  }
+});
+
+videojs.registerComponent('MyComponent', MyComponent);
+```
+
+Going forward, only ES6 classes are supported. The equivalent would be:
+
+```js
+const Component = videojs.getComponent('Component');
+
+class MyComponent extends Component {
+  constructor(player, options) {
+    super(player, options);
+  }
+}
+
+videojs.registerComponent('MyComponent', MyComponent);
+```
+
 ### `firstplay` Event
 
 The `firstplay` event was removed from Video.js 8.
@@ -53,7 +87,6 @@ Deprecated Function          | Instead, use...
 `videojs.createTimeRange`    | `videojs.time.createTimeRanges`
 `videojs.createTimeRanges`   | `videojs.time.createTimeRanges`
 `videojs.defineLazyProperty` | `videojs.obj.defineLazyProperty`
-`videojs.extend`             | native ES6 classes
 `videojs.formatTime`         | `videojs.time.formatTime`
 `videojs.isCrossOrigin`      | `videojs.url.isCrossOrigin`
 `videojs.mergeOptions`       | `videojs.obj.merge`

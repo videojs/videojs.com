@@ -45,7 +45,8 @@ The [complete CHANGELOG is available](https://github.com/videojs/video.js/blob/T
 * Deprecated many old top-level utility methods in favor of utility methods stored on objects _(see below for details)_
 * Invalid event types will now throw errors instead of log warnings
 * Change `addRemoteTextTrack`'s `manualCleanup` option to default to `false`
-* Removed the `firstplay` event - use `one('play', fn)` instead!
+* Removed the `videojs.extend()` function
+* Removed the `firstplay` event
 * Removed the `retryOnError` option and made this behavior the default
 * Removed the ability to set `aria-*`, `role`, and `type` attributes via the `props` argument of `createEl` methods
 * Removed remaining references and logic related to Flash and SWF
