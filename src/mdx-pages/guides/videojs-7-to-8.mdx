@@ -46,6 +46,8 @@ class MyComponent extends Component {
 videojs.registerComponent('MyComponent', MyComponent);
 ```
 
+> **NOTE:** It should also be mentioned that native classes that have been already transpiled will not work with native `extend`! For example, current plugin build tools will transpile `class`es into plain constructor functions, which cannot be `extend`ed.
+
 ### `firstplay` Event
 
 The `firstplay` event was removed from Video.js 8.
@@ -58,18 +60,29 @@ player.ready(() => {
 });
 ```
 
-### Setting Some Attributes as Properties
+### Setting ARIA Attributes as Properties
 
-In previous versions of Video.js, you could call the various flavors of `createEl()` with both DOM properties and attribute names in its second argument. While there is a one-to-one mapping of properties to attributes in most cases, there were a few attributes that we still allowed to be set via the second argument to this function:
+In previous versions of Video.js, you could call the various flavors of `createEl()` with both DOM properties and attribute names in its second argument.
 
-* All `aria-*` attributes, e.g. `aria-labeledby`
-* `role`
-* `type`
-
-These can no longer be set using the second argument of `createEl()` and must be set using the third argument, like this:
+While there is a one-to-one mapping of properties to attributes in most cases, setting ARIA attribute names (i.e. `aria-label` vs. `ariaLabel`) through this mechanism is no longer supported:
 
 ```js
-videojs.dom.createEl('div', {id: 'example'}, {role: 'banner'});
+// NO LONGER SUPPORTED!!!
+videojs.dom.createEl('div', {id: 'example', 'aria-label': 'My Label'});
+```
+
+_Attempting to set these types of attributes in the second argument of `createEl()` functions will still set properties of those names on the DOM object, but **they will not set attributes or the standard DOM properties**._
+
+Instead, these must be set using the third argument, like this:
+
+```js
+videojs.dom.createEl('div', {id: 'example'}, {'aria-label': 'My Label'});
+```
+
+Alternatively, ARIA attributes can be set in their property name form:
+
+```js
+videojs.dom.createEl('div', {id: 'example', ariaLabel: 'My Label'});
 ```
 
 ## Deprecations

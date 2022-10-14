@@ -34,15 +34,15 @@ Before we dive into the software changes, open source doesn't work without _peop
 ## What's Changed?
 ### Video.js
 
-The [complete CHANGELOG is available](https://github.com/videojs/video.js/blob/TODO/CHANGELOG.md), but here are some highlights:
+The [complete CHANGELOG is available](https://github.com/videojs/video.js/blob/v8.0.0/CHANGELOG.md), but here are some highlights:
 
 * No longer transpiled into ES5 for compatibility with older browsers like Internet Explorer
 * Updated to VHS 3.0
 * Enabled the `sourceset` event by default, `enableSourceset: false` can be used to turn this off.
-* Added new `TitleBar` component, which is not visible in the UI by default _(see below for details)_. As a result, we moved the `BigPlayButton` component to the center of the player by default
+* Added new `TitleBar` component, which is not visible in the UI by default _([see below for details](#new-videojs-titlebar-component))_. As a result, we moved the `BigPlayButton` component to the center of the player by default
 * `addClass` and `removeClass` methods can now be given multiple class names
 * Clicking the playback rate button now opens the menu rather than changing the playback rate
-* Deprecated many old top-level utility methods in favor of utility methods stored on objects _(see below for details)_
+* Deprecated many old top-level utility methods in favor of utility methods stored on objects _([see below for details](#new-videojs-utility-objects))_
 * Invalid event types will now throw errors instead of log warnings
 * Change `addRemoteTextTrack`'s `manualCleanup` option to default to `false`
 * Removed the `videojs.extend()` function
@@ -53,20 +53,20 @@ The [complete CHANGELOG is available](https://github.com/videojs/video.js/blob/T
 * Remove fallbacks for missing flexbox support
 * Removed IE-specific code
 
-Overall, the minfied and gzipped size of Video.js is **reduced by around 3%**. More savings are likely available through further removal of dead code.
+Overall, the minfied and gzipped size of Video.js is **reduced by around 3%**. We will continue to look for ways to optimize the size of Video.js.
 
 ### VHS
 
-The [complete CHANGELOG is available](https://github.com/videojs/http-streaming/blob/TODO/CHANGELOG.md), but here are some highlights:
+The [complete CHANGELOG is available](https://github.com/videojs/http-streaming/blob/v3.0.0/CHANGELOG.md), but here are some highlights:
 
 * No longer transpiled into ES5 for compatibility with older browsers like Internet Explorer.
-* Naming changes for more inclusive language (e.g. "master" becomes "main" and "blacklist" becomes "exclude").
+* Naming changes for more inclusive language (e.g. "master" becomes "main", "blacklist" becomes "exclude", "whitelist" becomes "include").
 * Skip detected gaps immediately instead of waiting the duration of the gap before skipping.
 * Removed the deprecated `smoothQualityChange` method.
 * Improved behavior when encountering `output-restricted` event handling.
 * Cleaned up parameters of `excludePlaylist`.
 
-Overall, the minfied and gzipped size of VHS is **reduced by around 4%**. More savings are likely available through further removal of dead code.
+Overall, the minfied and gzipped size of VHS is **reduced by around 4%**. We will continue to look for ways to optimize the size of Video.js.
 
 ### Browser/Device Support
 
@@ -135,7 +135,7 @@ If both are removed, the `TitleBar` will no longer be visible.
 
 Over time, the `videojs` namespace has become cluttered with a wide variety of utility functions. One of the changes we are introducing is a more deliberately designed interface for these utility functions.
 
-The guiding principle here was that if a function didn't feel like a core part of the library, but was still _potentially useful_, we exposed it as part of a utility object instead of a top-level function.
+The guiding principle here was that if a function didn't feel like a core part of the library, but was still potentially useful to plugins and other integrations, we exposed it as part of a utility object instead of a top-level function.
 
 These are the utility objects attached to `videojs` in 8.0.0:
 
