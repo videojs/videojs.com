@@ -24,9 +24,11 @@ export const VideoJS = (props) => {
 
     // Make sure Video.js player is only initialized once
     if (!playerRef.current) {
-      const videoElement = videoRef.current;
+      // The Video.js player needs to be _inside_ the component el for React 18 Strict Mode. 
+      const videoElement = document.createElement("video-js");
 
-      if (!videoElement) return;
+      videoElement.className = 'videojs-big-play-centered';
+      videoRef.current.appendChild(videoElement);
 
       const player = playerRef.current = videojs(videoElement, options, () => {
         videojs.log('player is ready');
@@ -36,10 +38,10 @@ export const VideoJS = (props) => {
     // You could update an existing player in the `else` block here
     // on prop change, for example:
     } else {
-      // const player = playerRef.current;
+      const player = playerRef.current;
 
-      // player.autoplay(options.autoplay);
-      // player.src(options.sources);
+      player.autoplay(options.autoplay);
+      player.src(options.sources);
     }
   }, [options, videoRef]);
 
@@ -48,7 +50,7 @@ export const VideoJS = (props) => {
     const player = playerRef.current;
 
     return () => {
-      if (player) {
+      if (player && !player.isDisposed()) {
         player.dispose();
         playerRef.current = null;
       }
@@ -57,7 +59,7 @@ export const VideoJS = (props) => {
 
   return (
     <div data-vjs-player>
-      <video ref={videoRef} className='video-js vjs-big-play-centered' />
+      <div ref={videoRef} />
     </div>
   );
 }
