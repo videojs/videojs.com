@@ -5,7 +5,13 @@ order: 3
 description: Understanding components, the building blocks of the Video.js player.
 ---
 
-The architecture of the Video.js player is centered around components. The `Player` class and all classes representing player controls and other UI elements inherit from the `Component` class. This architecture makes it easy to construct the user interface of the Video.js player in a tree-like structure that mirrors the DOM.
+<div class="note">
+  <p><b>NOTE:</b> This guide is focused on Video.js 8+. It no longer mentions use of the <code>videojs.extend()</code> method, which was removed in 8.0. Please see <a href="/guides/videojs-7-to-8/">our migration guide</a> for further information!</p>
+</div>
+
+The architecture of the Video.js player is centered around components.
+
+The `Player` class and all classes representing player controls and other UI elements inherit from the `Component` class. This architecture makes it easy to construct the user interface of the Video.js player in a tree-like structure that mirrors the DOM.
 
 ## What is a Component?
 
@@ -90,13 +96,12 @@ myButton.addClass('vjs-visible-text');
 
 ## Creating a Component
 
-Video.js components can be inherited and registered with Video.js to add new features and UI to the player.
+Video.js components are es6 classes that can be extended using class syntax and registered with Video.js to add new features and UI to the player.
 
-There are a few used for creating and registering components:
+There are a few functions used for creating and registering components:
 
-* `videojs.getComponent(String name)`: Retrieves component constructors from Video.js.
-* `videojs.registerComponent(String name, Function Comp)`: Registers component constructors with Video.js.
-* `videojs.extend(Function component, Object properties)`: Provides prototype inheritance. Can be used to extend a component's constructor, returning a new constructor with the given properties. *Deprecated, will be removed in Video.js 8 in favor of ES6 classes.
+* `videojs.getComponent(String name)`: Retrieves component classes from Video.js.
+* `videojs.registerComponent(String name, Function Comp)`: Registers component classes with Video.js.
 
 This example creates a title bar component, as a class extending `Component`.
 
@@ -148,42 +153,7 @@ class TitleBar extends Component {
 }
 ```
 
-This creates the same component without using classes, using the `videojs.extend()` helper instead.
-
-```js
-var Component = videojs.getComponent('Component');
-
-// The videojs.extend function can be used instead of ES6 classes.
-var TitleBar = videojs.extend(Component, {
-
-  constructor: function(player, options) {
-
-    // Equivalent of `super(this, arguments)`
-    Component.apply(this, arguments);
-
-    if (options.text) {
-      this.updateTextContent(options.text);
-    }
-  },
-
-  createEl: function() {
-    return videojs.dom.createEl('div', {
-      className: 'vjs-title-bar'
-    });
-  },
-
-  updateTextContent: function(text) {
-    if (typeof text !== 'string') {
-      text = 'Title Unknown';
-    }
-
-    videojs.emptyEl(this.el());
-    videojs.appendContent(this.el(), text);
-  }
-});
-```
-
-Either way, the component can be registered, and used in a player.
+Once the component is created, it can be registered, and used in a player.
 
 ```js
 // Register the component with Video.js, so it can be used in players.

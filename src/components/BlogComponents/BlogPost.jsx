@@ -62,9 +62,26 @@ const Meta = styled.div`
   }
 `;
 
-const Text = styled.div`
+// TODO: This should be joined with the Article component from the GuidesView.jsx
+const Article = styled.div`
   h1 {
+    font-size: 32px;
+  }
+
+  h2 {
     font-size: 28px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5, h6 {
+    font-size: 18px;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -90,6 +107,32 @@ const Text = styled.div`
 
   .gatsby-highlight {
     margin-bottom: 2.25em;
+  }
+
+  .note {
+    background-color: #f9f9f9;
+    padding: 1em;
+    margin-bottom: 2em;
+  }
+
+  .note :last-child {
+    margin-bottom: 0;
+  }
+
+  table {
+    margin-bottom: 2em;
+  }
+
+  th, td {
+    padding: 1em;
+    border: 2px solid #ebebeb;
+  }
+
+  th {
+    background-color: #f9f9f9;
+    color: rgba(0, 0, 0, 0.3);
+    text-align: center;
+    text-transform: uppercase;
   }
 
   ${VideoWrapper} {
@@ -122,12 +165,12 @@ const BlogPost = ({ post: { frontmatter, body, fields } }) => (
         <span>{frontmatter.author.name}</span>
         <span>{frontmatter.date}</span>
       </Meta>
-      <Text>
+      <Article>
         <TitleLink to={fields.slug}><h1>{frontmatter.title}</h1></TitleLink>
         <WithMdxComponents contentSlug={fields.slug}>
           <MDXRenderer>{body}</MDXRenderer>
         </WithMdxComponents>
-      </Text>
+      </Article>
     </TextCol>
   </Wrapper>
 );

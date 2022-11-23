@@ -5,6 +5,10 @@ order: 2
 description: Video.js's plugin architecture, making it the most customizable player.
 ---
 
+<div class="note">
+  <p><b>NOTE:</b> This guide is focused on Video.js 8+. It no longer mentions use of the <code>videojs.extend()</code> method, which was removed in 8.0. Please see <a href="/guides/videojs-7-to-8/">our migration guide</a> for further information!</p>
+</div>
+
 One of the great strengths of Video.js is its ecosystem of plugins that allow authors from all over the world to share their video player customizations. This includes everything from the simplest UI tweaks to new [playback technologies and source handlers][tech]!
 
 Because we view plugins as such an important part of Video.js, the organization is committed to maintaining a robust set of tools for plugin authorship:
@@ -60,9 +64,7 @@ While reading the following sections, you may want to refer to the [Plugin API d
 
 ### Write a JavaScript Class/Constructor
 
-If you're familiar with creating [components][components], this process is similar. An advanced plugin starts with a JavaScript class (a.k.a. a constructor function).
-
-If you're using ES6 already, you can use that syntax with your transpiler/language of choice (Babel, TypeScript, etc):
+If you're familiar with creating [components][components], this process is similar. An advanced plugin starts with a JavaScript class:
 
 ```js
 const Plugin = videojs.getPlugin('plugin');
@@ -83,27 +85,6 @@ class ExamplePlugin extends Plugin {
 }
 ```
 
-Or with ES5:
-
-```js
-var Plugin = videojs.getPlugin('plugin');
-
-var ExamplePlugin = videojs.extend(Plugin, {
-
-  constructor: function(player, options) {
-    Plugin.call(this, player, options);
-
-    if (options.customClass) {
-      player.addClass(options.customClass);
-    }
-
-    player.on('playing', function() {
-      videojs.log('playback began!');
-    });
-  }
-});
-```
-
 For now, this example advanced plugin does the exact same thing as the basic plugin described above - not to worry, we will make it more interesting as we continue!
 
 ### Register an Advanced Plugin
@@ -113,8 +94,6 @@ The registration process for advanced plugins is identical to [the process for b
 ```js
 videojs.registerPlugin('examplePlugin', ExamplePlugin);
 ```
-
-> **Note:** Because ES6 classes are syntactic sugar on top of existing constructor function and prototype architecture in JavaScript, in all cases `registerPlugin`'s second argument is a function.
 
 ### Key Differences from Basic Plugins
 
