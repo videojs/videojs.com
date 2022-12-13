@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Layout from '../components/Layout';
-import Seo from '../components/SEO';
 import { heroThemes, blankTheme } from '../utils/styles';
 
 import Hero from '../components/HomeComponents/Hero';
@@ -18,11 +17,6 @@ const IndexPage = props => {
 
   return (
     <Layout heroTheme={heroTheme}>
-      <Seo
-        title="Video.js - Make your player yours"
-        keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
-        description="The world's most popular open source HTML5 player framework"
-      />
       <Hero
         heroTheme={heroTheme}
         transitionDuration={props.transitionDuration}

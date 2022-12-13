@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Link from '../components/Link';
 import GuidesLayout from '../components/GuidesComponents/GuidesLayout';
 import GuidesView from '../components/GuidesComponents/GuidesView';
+import Seo from '../components/SEO';
 
 const BackBox = styled.div`
   background: #f5f2f0;
@@ -29,6 +30,10 @@ const GuidesViewTemplate = ({
 );
 
 export default GuidesViewTemplate;
+
+export const Head = (props) => {
+  return <Seo title={props.data.mdx.frontmatter.title} description={props.data.mdx.frontmatter.description} />;
+};
 
 export const guidesViewQuery = graphql`
   query guidesViewQuery($id: String!) {

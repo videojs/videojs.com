@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import BlogLayout from '../components/BlogComponents/BlogLayout';
 import BlogPost from '../components/BlogComponents/BlogPost';
 import BlogPagination from '../components/BlogComponents/BlogPagination';
+import Seo from '../components/SEO';
 
 const BlogPostTemplate = ({
   data: { mdx },
@@ -21,6 +22,10 @@ const BlogPostTemplate = ({
 );
 
 export default BlogPostTemplate;
+
+export const Head = (props) => {
+  return <Seo title={props.data.mdx.frontmatter.title} description={props.data.mdx.frontmatter.description} />;
+};
 
 export const blogPostQuery = graphql`
   query blogPostQuery($id: String!) {
