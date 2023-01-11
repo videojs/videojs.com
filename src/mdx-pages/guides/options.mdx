@@ -2,7 +2,7 @@
 title: Video.js Options Reference
 category: basics
 order: 3
-description: The standard options available when creating a Video.js player. 
+description: The standard options available when creating a Video.js player.
 ---
 
 > **Note:** This document is only a reference for available options. To learn about passing options to Video.js, see [the setup guide](/guides/setup#options).
@@ -349,7 +349,7 @@ See [the plugins guide][plugins] for more information on Video.js plugins.
 
 > Type: `boolean`, Defaut: `false`
 
-Setting this to `true` will change fullscreen behaviour on devices which do not support the HTML5 fullscreen API but do support fullscreen on the video element, i.e. iPhone. Instead of making the video fullscreen, the player will be stretched to fill the browser window.  
+Setting this to `true` will change fullscreen behaviour on devices which do not support the HTML5 fullscreen API but do support fullscreen on the video element, i.e. iPhone. Instead of making the video fullscreen, the player will be stretched to fill the browser window.
 
 ### `responsive`
 
@@ -435,7 +435,7 @@ videojs('my-player', {
 });
 ```
 
-If undefined or set to `true`, clicking is enabled and toggles the player between paused and play. To override the default click handling, set `userActions.click` to a function which accepts a `click` event (in this example it will request Full Screen, the same as a `userAction.doubleClick`):
+If undefined or set to `true`, clicking is enabled and toggles the player between paused and play. To override the default click handling, set `userActions.click` to a function which accepts a `click` event (in this example it will request Full Screen, the same as a `userActions.doubleClick`):
 
 ```js
 function myClickHandler(event) = {
