@@ -143,5 +143,5 @@ const SecondPage = () => (
 export default SecondPage;
 
 export const Head = () => {
-  return <Seo title="SOME TITLE" description="SOME DESCRIPTION." />;
+  return <Seo title="HTML5 video support" description="A summary of codec support by browser for HTML5 video" />;
 };
