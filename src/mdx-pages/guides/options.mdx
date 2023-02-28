@@ -369,6 +369,48 @@ If set to `true`, a _copy_ of the placeholder element will be made before the pl
 
 If set to an HTML Element, that element would replace the disposed player instead.
 
+### `skipButtons`
+
+> Type: `Object`
+
+### `skipButtons.forward`
+
+> Type: `number`
+
+If specified, Video.js displays a control allowing the 
+user to jump forward in a video by the specified number of seconds.
+
+The following values are valid: **5 | 10 | 30**
+
+```js
+videojs('my-player', {
+  controlBar: {
+    skipButtons: {
+      forward: 5
+    }
+  }
+});
+```
+
+### `skipButtons.backward`
+
+> Type: `number`
+
+If specified, Video.js displays a control allowing the 
+user to jump back in a video by the specified number of seconds.
+
+The following values are valid: **5 | 10 | 30**
+
+```js
+videojs('my-player', {
+  controlBar: {
+    skipButtons: {
+      backward: 10
+    }
+  }
+});
+```
+
 ### `sources`
 
 > Type: `Array`
