@@ -86,7 +86,7 @@ For example, given the following video element, assuming the videojs-flash tech 
 
 ```html
 <!-- "techOrder": ["html5", "flash"] -->
-<video
+<video>
   <source src="http://your.static.provider.net/path/to/video.m3u8" type="application/x-mpegURL">
   <source src="http://your.static.provider.net/path/to/video.mp4" type="video/mp4">
 </video>
@@ -102,14 +102,14 @@ Now take the same sources again but without videojs-flash:
 
 ```html
 <!-- "techOrder": ["html5"] -->
-<video
+<video>
   <source src="http://your.static.provider.net/path/to/video.m3u8" type="application/x-mpegURL">
   <source src="http://your.static.provider.net/path/to/video.mp4" type="video/mp4">
 </video>
 ```
 
-* Safari will play HLS in the html5 tech.
-* Chrome will play HLS in the html5 tech.
+* Safari can play HLS in a standard HTML5 video element, so HLS will be played using the html5 tech.
+* Chrome will play HLS in the html5 tech using the [http-streaming][http-streaming] source handler via [Media Source Extensions][mse].
 * IE 10 can't play HLS in either the html5 or Flash tech. Next the MP4 source will be tested. MP4 can be played by HTML5, so that source-tech pair will be used.
 
 ## Flash Technology
