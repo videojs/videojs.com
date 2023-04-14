@@ -90,7 +90,7 @@ const PlaylistWrapper = styled.div`
 
 const Playlist = () => (
   <PlaylistWrapper>
-    <div className="vjs-playlist vjs-fluid" />
+    <div className="vjs-playlist" />
   </PlaylistWrapper>
 );
 
