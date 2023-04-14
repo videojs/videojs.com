@@ -11,6 +11,7 @@ import Sponsors from '../components/HomeComponents/Sponsors';
 import Implementation from '../components/HomeComponents/Implementation';
 import AdvancedExample from '../components/HomeComponents/AdvancedExample';
 import GetInvolved from '../components/HomeComponents/GetInvolved';
+import { Helmet } from 'react-helmet';
 
 const IndexPage = props => {
   const themeName = props.pageContext.theme;
@@ -23,6 +24,10 @@ const IndexPage = props => {
         keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
         description="The world's most popular open source HTML5 player framework"
       />
+      <Helmet>
+        {/* Oriign trial for documentPictureInPicture */}
+        <meta http-equiv="origin-trial" content="AtSClXdNOoAPsggUV+nqh187coO6axCtgTdtFue+P9rz9xqRA5qjlz0AB92Edaxh9imwk/NJueqxdO9QmkqrswUAAABzeyJvcmlnaW4iOiJodHRwczovL3ZpZGVvanMuY29tOjQ0MyIsImZlYXR1cmUiOiJEb2N1bWVudFBpY3R1cmVJblBpY3R1cmVBUEkiLCJleHBpcnkiOjE2OTQxMzExOTksImlzU3ViZG9tYWluIjp0cnVlfQ==" />
+      </Helmet>
       <Hero
         heroTheme={heroTheme}
         transitionDuration={props.transitionDuration}

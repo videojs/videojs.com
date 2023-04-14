@@ -115,7 +115,10 @@ class AdvancedExample extends React.Component {
   }
 
   componentDidMount() {
-    this.player = videojs(this.videoEl, {}, () => {
+    this.player = videojs(this.videoEl, {
+      aspectRatio: '21:9',
+      enableDocumentPictureInPicture: true
+    }, () => {
       if (this.player.hasPlugin('mux')) {
         this.player.mux({
           data: {
