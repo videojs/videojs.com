@@ -207,6 +207,8 @@ This does not disable the document picture-in-picture mode which allows the play
 
 > Type: `boolean`
 
+_Since 8.3.0_
+
 If `true`, the [documentPictureInPicture API](https://developer.chrome.com/docs/web-platform/document-picture-in-picture/) will be used for picture in picture, if available. Defaults to `false`, but may default to `true` when the feature has become established.
 
 Currently this is available in Chrome 111+ as an origin trial.
@@ -393,9 +395,13 @@ If set to an HTML Element, that element would replace the disposed player instea
 
 > Type: `Object`
 
+_Since 8.2.0_
+
 ### `skipButtons.forward`
 
 > Type: `number`
+
+_Since 8.2.0_
 
 If specified, Video.js displays a control allowing the 
 user to jump forward in a video by the specified number of seconds.
@@ -415,6 +421,8 @@ videojs('my-player', {
 ### `skipButtons.backward`
 
 > Type: `number`
+
+_Since 8.2.0_
 
 If specified, Video.js displays a control allowing the 
 user to jump back in a video by the specified number of seconds.
