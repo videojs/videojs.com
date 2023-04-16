@@ -2,7 +2,7 @@
 title: Video.js Options Reference
 category: basics
 order: 3
-description: The standard options available when creating a Video.js player. 
+description: The standard options available when creating a Video.js player.
 ---
 
 > **Note:** This document is only a reference for available options. To learn about passing options to Video.js, see [the setup guide](/guides/setup#options).
@@ -369,7 +369,7 @@ See [the plugins guide][plugins] for more information on Video.js plugins.
 
 > Type: `boolean`, Defaut: `false`
 
-Setting this to `true` will change fullscreen behaviour on devices which do not support the HTML5 fullscreen API but do support fullscreen on the video element, i.e. iPhone. Instead of making the video fullscreen, the player will be stretched to fill the browser window.  
+Setting this to `true` will change fullscreen behaviour on devices which do not support the HTML5 fullscreen API but do support fullscreen on the video element, i.e. iPhone. Instead of making the video fullscreen, the player will be stretched to fill the browser window.
 
 ### `responsive`
 
@@ -388,6 +388,48 @@ When this option is `false` (the default), responsive breakpoints will be ignore
 If set to `true`, a _copy_ of the placeholder element will be made before the player is initalised. If the player is disposed, the copy is put back into the DOM in the player's place.
 
 If set to an HTML Element, that element would replace the disposed player instead.
+
+### `skipButtons`
+
+> Type: `Object`
+
+### `skipButtons.forward`
+
+> Type: `number`
+
+If specified, Video.js displays a control allowing the 
+user to jump forward in a video by the specified number of seconds.
+
+The following values are valid: **5 | 10 | 30**
+
+```js
+videojs('my-player', {
+  controlBar: {
+    skipButtons: {
+      forward: 5
+    }
+  }
+});
+```
+
+### `skipButtons.backward`
+
+> Type: `number`
+
+If specified, Video.js displays a control allowing the 
+user to jump back in a video by the specified number of seconds.
+
+The following values are valid: **5 | 10 | 30**
+
+```js
+videojs('my-player', {
+  controlBar: {
+    skipButtons: {
+      backward: 10
+    }
+  }
+});
+```
 
 ### `sources`
 
@@ -455,7 +497,7 @@ videojs('my-player', {
 });
 ```
 
-If undefined or set to `true`, clicking is enabled and toggles the player between paused and play. To override the default click handling, set `userActions.click` to a function which accepts a `click` event (in this example it will request Full Screen, the same as a `userAction.doubleClick`):
+If undefined or set to `true`, clicking is enabled and toggles the player between paused and play. To override the default click handling, set `userActions.click` to a function which accepts a `click` event (in this example it will request Full Screen, the same as a `userActions.doubleClick`):
 
 ```js
 function myClickHandler(event) = {

@@ -115,8 +115,7 @@ const Features = props => (
         <P>
           Video.js is a web video player built from the ground up for an HTML5
           world. It supports HTML5 video and modern streaming formats, as well
-          as YouTube, Vimeo, and even Flash (through plugins, more on that
-          later).
+          as YouTube and Vimeo.
         </P>
 
         <P>
