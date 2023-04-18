@@ -152,6 +152,15 @@ class TitleBar extends Component {
   }
 }
 ```
+Note that due to the deprecation of the `extend()` function, to extend a component when transpiling to ES5, you will need to utilize the following syntax.
+```js
+// My ES5 constructor function extending Component
+function MyComponent(arguments) {
+  Component.call(this, arguments);
+}
+
+MyComponent.prototype = Object.create(Component.prototype);
+```
 
 Once the component is created, it can be registered, and used in a player.
 
