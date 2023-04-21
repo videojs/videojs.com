@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
@@ -155,11 +154,6 @@ const Layout = ({ children, heroTheme }) => {
         <ThemeProvider theme={{ ...theme, currentTheme: heroTheme || {} }}>
           <>
             <GlobalStyles />
-            {heroTheme ? (
-              <Helmet>
-                <link href={heroTheme.style} rel="stylesheet" />
-              </Helmet>
-            ) : null}
             <Header siteTitle={data.site.siteMetadata.title} />
             <main>{children}</main>
             <Footer heroVideoDetails={heroTheme && heroTheme.videoDetails} />

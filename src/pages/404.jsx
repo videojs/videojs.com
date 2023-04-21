@@ -70,7 +70,6 @@ const Subheading = styled.p`
 
 const NotFoundPage = () => (
   <Layout>
-    <Seo title="404: Not found" description="Nothing to see here." />
     <StyledHero theme={{ ...theme, currentTheme: theme.forest }}>
       <Container>
         <StyledH2>Uh oh...Not found!</StyledH2>
@@ -81,3 +80,7 @@ const NotFoundPage = () => (
 );
 
 export default NotFoundPage;
+
+export const Head = () => {
+  return <Seo title="404: Not found" description="Nothing to see here." />
+};

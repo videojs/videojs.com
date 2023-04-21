@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '../components/SEO';
 
 import { heroThemes } from '../utils/styles';
 import HomeTemplate from '../templates/HomeTemplate';
@@ -69,3 +70,7 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage;
+
+export const Head = () => {
+  return <Seo title="Video.js - Make your player yours" description="The world's most popular open source HTML5 player framework" />;
+};

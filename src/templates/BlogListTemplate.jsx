@@ -8,6 +8,7 @@ import BlogPost from '../components/BlogComponents/BlogPost';
 import BlogPagination from '../components/BlogComponents/BlogPagination';
 import BlogTags from '../components/BlogComponents/BlogTags';
 import BlogRecentPosts from '../components/BlogComponents/BlogRecentPosts';
+import Seo from '../components/SEO';
 import { extractNodes } from '../utils/graphql';
 
 const BottomPanels = styled.div`
@@ -42,6 +43,10 @@ const BlogListTemplate = ({
 };
 
 export default BlogListTemplate;
+
+export const Head = (props) => {
+  return <Seo title="Video.js Blog" description="Updates from the Video.js team" />;
+};
 
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {

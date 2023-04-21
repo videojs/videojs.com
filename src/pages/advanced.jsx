@@ -7,10 +7,13 @@ import AdvancedHero from '../components/AdvancedComponents/AdvancedHero';
 
 const AdvancedPage = () => (
   <Layout>
-    <Seo title="Advanced example" description="An extended example of Video.js player features." />
     <AdvancedHero />
     <AdvancedExample enableThemeQueryParam hideDescription />
   </Layout>
 );
 
 export default AdvancedPage;
+
+export const Head = () => {
+  return <Seo title="Advanced example" description="An extended example of Video.js player features." />;
+};

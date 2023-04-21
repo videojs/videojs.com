@@ -50,7 +50,6 @@ const StyledH2 = styled(H2)`
 
 const SecondPage = () => (
   <Layout>
-    <Seo title="HTML5 Video Support" description="A table of HTML5 codec support by browser." />
     <StyledHero theme={{ ...theme, currentTheme: theme.fantasy }}>
       <Container>
         <StyledH2>HTML5 Video Support by Codec</StyledH2>
@@ -140,4 +139,9 @@ const SecondPage = () => (
   </Layout>
 );
 
+
 export default SecondPage;
+
+export const Head = () => {
+  return <Seo title="HTML5 video support" description="A summary of codec support by browser for HTML5 video" />;
+};

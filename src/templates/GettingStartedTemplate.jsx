@@ -42,6 +42,10 @@ const GettingStartedPageTemplate = ({ data: { mdx }, location }) => (
 
 export default GettingStartedPageTemplate;
 
+export const Head = (props) => {
+  return <Seo title="Getting Started with Video.js - Video.js: The Player Framework" />;
+};
+
 export const pageQuery = graphql`
   query GettingStartedPage($id: String!) {
     mdx(id: { eq: $id }) {

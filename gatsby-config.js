@@ -4,9 +4,12 @@ module.exports = {
     description: `Make your player yours with the internet's most popular open source video player framework`,
     author: `@videojs`,
   },
+  flags: {
+    // Set to `true` to enable server side rendering, needed now to see the `lang="en"` added to `<html>`
+    DEV_SSR: false
+  },
   plugins: [
     'gatsby-plugin-styled-components',
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

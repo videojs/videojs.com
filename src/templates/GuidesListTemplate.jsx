@@ -5,6 +5,7 @@ import shortid from 'shortid';
 
 import GuidesLayout from '../components/GuidesComponents/GuidesLayout';
 import GuidesCategory from '../components/GuidesComponents/GuidesCategory';
+import Seo from '../components/SEO';
 import { extractNodes } from '../utils/graphql';
 
 const CATEGORY_NAMES = {
@@ -55,6 +56,10 @@ const GuidesListTemplate = ({
 };
 
 export default GuidesListTemplate;
+
+export const Head = (props) => {
+  return <Seo title="Video.js Guides" description="Detailed instructions on using Video.js" />;
+};
 
 export const guidesListQuery = graphql`
   query guidesListQuery {
