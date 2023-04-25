@@ -115,6 +115,7 @@ const HomeHero = props => (
               { src: props.heroTheme.video, type: 'application/x-mpegurl' },
             ]}
             poster={props.heroTheme.poster}
+            enableDocumentPictureInPicture='true'
             onPlay={props.onPlay}
             playsInline
           />
