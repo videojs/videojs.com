@@ -79,9 +79,15 @@ a component.
 
 To fix this issue please make sure that all event listeners are cleaned up on dispose.
 
+### Uncaught ReferenceError: X is not defined
+
+Errors like this, where `X` will vary, can be caused by transpilation breaking code that is used in web workers. See the [webpack guide][webpack] for details of how to prevent this.
+
 [hosting-media]: #problems-when-hosting-media
 
 [text-tracks]: /guides/text-tracks
+
+[webpack]: /guides/webpack
 
 [hls]: https://github.com/videojs/videojs-contrib-hls
 
