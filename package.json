@@ -70,9 +70,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/videojs/videojs.com"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+    "url": "https://github.com/videojs/videojs.com/issues"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all",
+    "not safari < 10",
+    "not chrome < 51",
+    "not android < 5",
+    "not ie < 12"
+  ]
 }

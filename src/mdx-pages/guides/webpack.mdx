@@ -4,11 +4,30 @@ category: integrations
 description: Using Video.js with webpack.
 ---
 
-Video.js and official libraries and plugins all work in a Webpack-based build environment.
+Video.js and official libraries and plugins work in a Webpack-based build environment, however some configuration may be needed to ensure code that is executed in workers is not broken by transpilation.
+
+The solutions [documented by the Mapbox project](https://docs.mapbox.com/mapbox-gl-js/guides/install/#targeting-transpilation-to-es6-with-browserslist) apply:
+
+1. Either set the production `browserslist` to
+```
+">0.2%",
+"not dead",
+"not op_mini all",
+"not safari < 10",
+"not chrome < 51",
+"not android < 5",
+"not ie < 12"
+```
+2. Or import using the ! syntax
+```js
+// eslint-disable-next-line import/no-webpack-loader-syntax
+import videojs from "!video.js";
+```
+
 
 ## Video.js CSS:
 
-The only thing you may need to add to your Webpack configuration is [`style-loader`](https://webpack.js.org/loaders/style-loader/).
+You may need to add [`style-loader`](https://webpack.js.org/loaders/style-loader/) to your Webpack configuration.
 
 Then add the CSS that the player requires, add the following to the file where the player is also included or initialized:
 
