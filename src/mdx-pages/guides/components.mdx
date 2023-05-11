@@ -72,7 +72,7 @@ console.log(button.el());
 // will have the same html result as the previous example
 ```
 
-Buttons should have text. The default buttons don't display their text, but it is present for screenreaders and dsplayed by browsers as a tooltip. The text of the button can be set as an option:
+Buttons should have text. The default buttons don't display their text, but it is present for screenreaders and displayed by browsers as a tooltip. The text of the button can be set as an option:
 
 ```js
 const myButton = player.getChild('ControlBar').addChild('button', {controlText: 'My button'});
@@ -92,6 +92,14 @@ Classes and control text could also be set after a button is created.
 ```js
 myButton.controlText('My button');
 myButton.addClass('vjs-visible-text');
+```
+
+When the [`useSVGIcons`](/guides/options/#useSVGIcons) option is enabled on the player, icons can be added or replaced on any `Component` using the `setIcon` method.
+
+You can view all of the icons available by renaming [`sandbox/svg-icons.html.example`](https://github.com/videojs/video.js/blob/main/sandbox/svg-icons.html.example) to `sandbox/svg-icons.html`, building Video.js with `npm run build`, and opening `sandbox/svg-icons.html` in your browser of choice.
+
+```js
+myButton.setIcon('play');
 ```
 
 ## Creating a Component
