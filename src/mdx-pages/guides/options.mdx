@@ -215,6 +215,20 @@ Currently this is available in Chrome 111+ as an origin trial.
 
 This is a different picture-in-picture mode than has previously been available, where the entire player element is windowed rather than just the video itself. Since there are scenarios where it would be desirable to allow PiP on the player but not PiP on the video alone (such as ads, overlays), the `disablePictureInPicture` option **only** disables the old-style picture-in-picture mode on the video.
 
+### `experimentalSvgIcons`
+
+> Type: `boolean`
+
+_Since 8.5.0_
+
+If set to `true`, the icons used throughout the player from [videojs/font][font] will be replaced by SVGs stored in Video.js. Defaults to `false`, but may default to `true` when the feature has become established.
+
+These SVGs were downloaded from [Font Awesome](https://fontawesome.com/icons) and [Google's Material UI](https://mui.com/material-ui/material-icons/).
+
+You can view all of the icons available by renaming [`sandbox/svg-icons.html.example`](https://github.com/videojs/video.js/blob/main/sandbox/svg-icons.html.example) to `sandbox/svg-icons.html`, building Video.js with `npm run build`, and opening `sandbox/svg-icons.html` in your browser of choice.
+
+Icons are expected to be added to a `Component` inside of the player using the [`setIcon`](/guides/components/#adding-a-component) method when customizing the player.
+
 ### `fluid`
 
 > Type: `boolean`
@@ -720,10 +734,14 @@ The default behavior is to preload all text tracks.
 
 [languages]: /guides/languages
 
+[skins]: /guides/skins
+
 [ios-10-updates]: https://webkit.org/blog/6784/new-video-policies-for-ios/
 
 [lang-codes]: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
 
 [video-attrs]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video#Attributes
+
+[font]: https://github.com/videojs/font
 
 [videojs-contrib-hls]: https://github.com/videojs/videojs-contrib-hls
