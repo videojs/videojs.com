@@ -49,13 +49,12 @@ const StyledHeader = styled(
 const getStringChild = children => {
   if (typeof children === 'string') {
     return children;
-  } else if (Array.isArray(children)) {
+  } else if (Array.isArray(children)){
+    let strChild = '';
     for (let child of children) {
-      const strChild = getStringChild(child);
-      if (strChild) {
-        return strChild;
-      }
+      strChild += getStringChild(child);
     }
+    return strChild;
   } else if ('props' in children) {
     return getStringChild(children.props.children);
   }
