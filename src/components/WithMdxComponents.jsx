@@ -32,6 +32,9 @@ const StyledLink = styled(Link)`
   margin-left: -20px;
   color: inherit;
   text-decoration: none;
+  &:active, &:focus {
+    outline: none;
+  }
 `;
 
 const StyledHeader = styled(
