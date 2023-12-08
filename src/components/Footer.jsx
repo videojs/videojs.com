@@ -104,7 +104,7 @@ const Footer = props => (
     </Copyright>
     <Logos>
       <Link href="https://twitter.com/@videojs">
-        <Image filename="twitter.svg" alt="Twitter logo" />
+        <Image filename="x-twitter.svg" alt="Twitter logo" />
       </Link>
       <Link href="https://github.com/videojs/video.js">
         <Image filename="github.svg" alt="Github logo" />
