@@ -28,7 +28,7 @@ Wow this is a really great post. Such thought leadership.
 Check out the repo locally, then npm install and off you go!
 
 ```
-$ git checkout https://github.com/videojs/videojs.com
+$ git clone https://github.com/videojs/videojs.com
 $ cd videojs.com
 $ npm install
 $ npm run develop
