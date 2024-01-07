@@ -215,6 +215,31 @@ Currently this is available in Chrome 111+ as an origin trial.
 
 This is a different picture-in-picture mode than has previously been available, where the entire player element is windowed rather than just the video itself. Since there are scenarios where it would be desirable to allow PiP on the player but not PiP on the video alone (such as ads, overlays), the `disablePictureInPicture` option **only** disables the old-style picture-in-picture mode on the video.
 
+### `enableSmoothSeeking`
+
+> Type: `boolean`
+> Default: `false`
+
+_Since 8.9.0_
+
+If set to `true`, will provide a smoother seeking experience on mobile and desktop devices.
+
+The following will enable the smooth seeking:
+
+```js
+videojs('my-player', {
+  enableSmoothSeeking: true
+});
+```
+
+Can also be modified after player creation:
+
+```js
+var player = videojs('my-player');
+
+player.options({ enableSmoothSeeking: true });
+```
+
 ### `experimentalSvgIcons`
 
 > Type: `boolean`
