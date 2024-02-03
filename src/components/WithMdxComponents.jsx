@@ -32,6 +32,9 @@ const StyledLink = styled(Link)`
   margin-left: -20px;
   color: inherit;
   text-decoration: none;
+  &:active, &:focus {
+    outline: none;
+  }
 `;
 
 const StyledHeader = styled(
@@ -49,13 +52,12 @@ const StyledHeader = styled(
 const getStringChild = children => {
   if (typeof children === 'string') {
     return children;
-  } else if (Array.isArray(children)) {
+  } else if (Array.isArray(children)){
+    let strChild = '';
     for (let child of children) {
-      const strChild = getStringChild(child);
-      if (strChild) {
-        return strChild;
-      }
+      strChild += getStringChild(child);
     }
+    return strChild;
   } else if ('props' in children) {
     return getStringChild(children.props.children);
   }
