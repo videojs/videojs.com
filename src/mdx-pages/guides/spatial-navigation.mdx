@@ -1,0 +1,126 @@
+---
+title: Spatial Navigation
+category: advanced
+description: Explaining the ways to set up Spatial Navigation in Video.js player.
+---
+
+
+Spatial Navigation in Video.js enhances user experience and accessibility on smartTV devices. This functionality enables seamless navigation through interactive elements within the player using remote control arrow keys.
+
+## Spatial Navigation Class
+
+The Spatial Navigation Class within Video.js offers essential functionality, allowing users to effortlessly navigate through focusable components.
+
+### Methods
+
+* `start()` - Starts the Spatial Navigation system.
+* `stop()` - Stops the Spatial Navigation.
+* `pause()` - Pauses the Spatial Navigation functionality.
+* `resume()` - Resumes the Spatial Navigation functionality.
+* `handlePlayerBlur(component)` - Handles player blur events.
+* `handlePlayerFocus()` - Handles player focus events.
+* `getComponents()` - Retrieves focusable components within the player.
+* `findSuitableDOMChild(component)` - Finds a suitable child element within a component.
+* `getCurrentComponent()` - Retrieves the currently focused component.
+* `add(component)` - Adds a component to the array of focusable components. If the component passed as parametter is not focusable it will not be added to the set of focusable components.
+* `remove(component)` - Removes a component from the array of focusable components.
+* `clear()` - Clears the array of focusable components.
+* `move(direction)` - Navigates to the next focusable component based on the specified direction.
+* `refocusComponent()` - Focuses on the last focused component.
+* `focus(component)` - Focuses on a given component if that component is focusable.
+* `calculateDistance(center1, center2, direction)` - Calculates the distance between two points.
+* `addEventListener(eventName, callback)` - Adds an event listener for a specific event.
+* `notifyListeners(eventName, eventDetails={})` - Notifies listeners for a specific event.
+
+**Difference between Stop and Pause**
+
+On technical level `stop()` removes the event listener `onKeyDown` added from the spatial-navigation when the `start()` function is called meanwhile `pause()` manages a flag in the mentioned `onKeyDown` function, when `pause()` is true the `move()` function is not called inside that event listener.
+
+## Video.js Options Reference - spatialNavigation
+
+To configure Spatial Navigation within Video.js, you can utilize the following option:
+
+`spatialNavigation`
+
+> Type: `Object`
+> Default: `{enabled:false, horizontalSeek:false}`
+
+Enables Spatial Navigation and specifies additional properties.
+
+### Properties:
+
+* `enabled`
+> Type: `boolean`, Default: `false`
+
+  Enables Spatial Navigation within the player.
+
+* `horizontalSeek`
+> Type: `boolean`, Default: `false`
+
+  Enables horizontal navigation seek functionality, using right and left RCU arrow keys.
+
+## Enable Spatial Navigation
+
+If you are already using any react/angular/vue/other spatial-navigation solution, you should just enable Spatial Navigation in Video.js using the following code:
+
+```js
+var player = videojs('my-player', {
+  spatialNavigation: {
+    enabled: true,
+    horizontalSeek: true
+  }
+});
+```
+
+Which can also be modified after player creation:
+
+```js
+var player = videojs('my-player');
+
+player.options({enabled:true, horizontalSeek:true});
+```
+
+This will instantiate the SpatialNavigation class.
+
+## Start Spatial Navigation
+
+In case you don’t use any react/angular/vue/other spatial-navigation solution, you must also start the Spatial Navigation. In this way Spatial Navigation will start listening for keydown events within the video.js player.
+
+```js
+var player = videojs('my-player');
+
+player.ready(function() {
+  player.spatialNavigation.start();
+});
+```
+
+## Spatial Navigation Events
+
+Spatial Navigation provides two custom events that you can listen to:
+
+### focusableComponentsChanged
+
+```js
+var player = videojs('my-player');
+
+player.ready(function() {
+  player.spatialNavigation.addEventListener('focusableComponentsChanged', event => {
+    console.log('Focusable elements changed:', event.detail.focusableComponents);
+  });
+});
+```
+
+### endOfFocusableComponents
+
+This event serves as a notification to the developer or the application when there are no more focusable components available in the desired direction within the player interface. By detecting this event, developers can implement logic to seamlessly transition focus to alternative elements, ensuring a smooth and intuitive user experience beyond the confines of the player interface.
+
+```js
+var player = videojs('my-player');
+
+player.ready(function() {
+  // Add an event listener to check when the player has no more element to focus
+  player.spatialNavigation.addEventListener('endOfFocusableComponents', event => {
+    // Your logic here
+  });
+});
+```
