@@ -54,16 +54,6 @@ Beginning with v7, we will no longer support Microsoft Internet Explorer version
 
 For versions of Video.js prior to v7, there are a few common things you should keep in mind regardless of how you end up including Video.js in your project. The core codebase uses a few modern features of Javascript (ES5), so if you'd like to support IE8 you'll need to include an ES5 shim. To make things easier, we created a single file you can include for IE8 support. No matter where the core Video.js library is placed, this file needs to be located in the <code>&lt;head&gt;</code> of the document.
 
-### Google Analytics
-
-We include a stripped down Google Analytics pixel that tracks a random percentage (currently 1%) of players loaded from the CDN. This allows us to see (roughly) what browsers are in use in the wild, along with other useful metrics such as OS and device. If you'd like to disable analytics, you can simply include the following global before including Video.js via the free CDN:
-
-Note: v7 will not send any data, and v6.8 and up respect the browser's do not track flag.
-
-```javascript
-window.HELP_IMPROVE_VIDEOJS = false;
-```
-
 ## What's in the box?
 
 If you've downloaded one of the [releases](https://github.com/videojs/Video.js/releases) or installed via a package manager, you've probably noticed that the contents are slightly different from the source code available on Github. The former includes just the compiled files necessary to use Video.js, and the latter includes the source used to create those files.
