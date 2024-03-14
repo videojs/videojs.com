@@ -13,24 +13,21 @@ The Spatial Navigation Class within Video.js offers essential functionality, all
 
 ### Methods
 
-* `start()` - Starts the Spatial Navigation system.
-* `stop()` - Stops the Spatial Navigation.
-* `pause()` - Pauses the Spatial Navigation functionality.
-* `resume()` - Resumes the Spatial Navigation functionality.
-* `handlePlayerBlur(component)` - Handles player blur events.
-* `handlePlayerFocus()` - Handles player focus events.
-* `getComponents()` - Retrieves focusable components within the player.
+* `start()` - Starts the Spatial Navigation system by adding keydown event listeners to the player.
+* `stop()` - Stops the Spatial Navigation by removing the keydown event listener from the player and updating the internal state.
+* `pause()` - Temporarily disables the Spatial Navigation functionality without removing the event listeners.
+* `resume()` - Re-enables the Spatial Navigation functionality after it has been paused.
+* `handlePlayerBlur(component)` - Handles blur events on the player, storing the last focused component.
+* `handlePlayerFocus()` - Resumes Spatial Navigation when the player gains focus.
+* `updateFocusableComponents()` - Updates and retrieves the list of focusable components within the player.
 * `findSuitableDOMChild(component)` - Finds a suitable child element within a component.
 * `getCurrentComponent()` - Retrieves the currently focused component.
-* `add(component)` - Adds a component to the array of focusable components. If the component passed as parametter is not focusable it will not be added to the set of focusable components.
-* `remove(component)` - Removes a component from the array of focusable components.
-* `clear()` - Clears the array of focusable components.
+* `add(component)` - Adds a new component to the focusable components list if it meets the focusability criteria.
+* `remove(component)` - Removes a specified component from the focusable components list.
+* `clear()` - Clears the list of focusable components.
 * `move(direction)` - Navigates to the next focusable component based on the specified direction.
 * `refocusComponent()` - Focuses on the last focused component.
-* `focus(component)` - Focuses on a given component if that component is focusable.
-* `calculateDistance(center1, center2, direction)` - Calculates the distance between two points.
-* `addEventListener(eventName, callback)` - Adds an event listener for a specific event.
-* `notifyListeners(eventName, eventDetails={})` - Notifies listeners for a specific event.
+* `focus(component)` - Sets focus on a specific component if it is focusable, or finds a focusable child within it to focus on.
 
 **Difference between Stop and Pause**
 
@@ -72,14 +69,6 @@ var player = videojs('my-player', {
 });
 ```
 
-Which can also be modified after player creation:
-
-```js
-var player = videojs('my-player');
-
-player.options({enabled:true, horizontalSeek:true});
-```
-
 This will instantiate the SpatialNavigation class.
 
 ## Start Spatial Navigation
@@ -104,8 +93,8 @@ Spatial Navigation provides two custom events that you can listen to:
 var player = videojs('my-player');
 
 player.ready(function() {
-  player.spatialNavigation.addEventListener('focusableComponentsChanged', event => {
-    console.log('Focusable elements changed:', event.detail.focusableComponents);
+  player.spatialNavigation.on('focusableComponentsChanged', event => {
+    console.log('Focusable elements changed:', event.focusableComponents);
   });
 });
 ```
@@ -119,7 +108,7 @@ var player = videojs('my-player');
 
 player.ready(function() {
   // Add an event listener to check when the player has no more element to focus
-  player.spatialNavigation.addEventListener('endOfFocusableComponents', event => {
+  player.spatialNavigation.on('endOfFocusableComponents', event => {
     // Your logic here
   });
 });
