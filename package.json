@@ -43,10 +43,10 @@
     "shortid": "^2.2.14",
     "styled-components": "^5.3.5",
     "typescript": "^2.9.2",
-    "video.js": "^8.5.2",
-    "videojs-mux": "^4.6.6",
+    "video.js": "^8.16.1",
+    "videojs-mux": "^4.19.0",
     "videojs-playlist": "^5.1.0",
-    "videojs-playlist-ui": "^4.2.0"
+    "videojs-playlist-ui": "^4.2.1"
   },
   "devDependencies": {
     "bluebird": "^3.7.2",
