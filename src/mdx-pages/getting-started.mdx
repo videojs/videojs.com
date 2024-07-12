@@ -96,7 +96,29 @@ Video.js/
 └── video.min.js
 ```
 
-This package includes everything you'll need to use Video.js on a production site. By default, we bundle Video.js with Mozilla's excellent [VTT.js](https://github.com/mozilla/vtt.js). If you don't need VTT.js functionality for whatever reason, you can use one of the Video.js copies that don't include VTT.js. These have <code>novtt</code> in the name and can be found in the <code>alt/</code> directory. <code>font/</code> includes all the generated icon font files from the [Videojs Font project](https://github.com/videojs/font). <code>lang/</code> contains all the generated translation files.
+This package includes everything you'll need to use Video.js on a production site.
+
+#### Explanation of Core Versions
+
+- **video.core.js**: The core version of Video.js without any plugins or additional features.
+- **video.core.min.js**: The minified version of the core Video.js file, optimized for production use.
+- **video.core.novtt.js**: The core version of Video.js without VTT.js, suitable if you don't need VTT.js functionality.
+- **video.core.novtt.min.js**: The minified version of the core Video.js file without VTT.js.
+- **video.novtt.js**: A version of Video.js with additional features but without VTT.js.
+- **video.novtt.min.js**: The minified version of Video.js with additional features but without VTT.js.
+
+#### Approximate File Sizes
+
+- **video.core.js**: ~943KB
+- **video.core.min.js**: ~252KB
+- **video.core.novtt.js**: ~886KB
+- **video.core.novtt.min.js**: ~233KB
+- **video.novtt.js**: ~2,225KB
+- **video.novtt.min.js**: ~629KB
+- **video.js**: ~2,282KB
+- **video.min.js**: ~648KB
+
+By default, we bundle Video.js with Mozilla's excellent [VTT.js](https://github.com/mozilla/vtt.js). If you don't need VTT.js functionality for whatever reason, you can use one of the Video.js copies that don't include VTT.js. These have <code>novtt</code> in the name and can be found in the <code>alt/</code> directory. <code>font/</code> includes all the generated icon font files from the [Videojs Font project](https://github.com/videojs/font). <code>lang/</code> contains all the generated translation files.
 
 ### Source Code
 
