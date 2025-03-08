@@ -670,6 +670,39 @@ Override the mute key definition. If this is set, the function receives the `key
 
 Override the play/pause key definition. If this is set, the function receives the `keydown` event; if the function returns `true`, then the play/pause toggle action is performed.
 
+### `userActions.globalHotkeys`
+
+> Type: `boolean`
+
+Enable hotkey functionality at the global level. When this is set to `true`, you can trigger hotkey functionality without need to be focused on the player. However, if the focus is on an interactive HTML element such as an `input` field, the hotkey functionality will not interfere.
+
+**Note**: This option needs to be used with `userActions.hotkeys` to work.
+
+e.g. with default `hotkeys`
+```js
+videojs('my-player', {
+  userActions: {
+    globalHotkeys: true,
+    hotkeys: true
+  }
+});
+```
+
+e.g. with custom `hotkeys` function
+```js
+videojs('my-player', {
+  userActions: {
+    globalHotkeys: true,
+    hotkeys: function(event) {
+      // `x` key = play/pause
+      if (event.which === 88) {
+        this.paused() ? this.play() : this.pause();
+      }
+    }
+  }
+});
+```
+
 ### `vtt.js`
 
 > Type: `string`
