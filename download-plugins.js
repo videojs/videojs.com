@@ -2,7 +2,7 @@ const https = require('https');
 const fs = require('fs');
 const Promise = require('bluebird');
 
-const pluginsUrl = new URL('https://registry.npmjs.org/-/v1/search?text=keywords:videojs,videojs-plugin,videojs-skin&size=250');
+const pluginsUrl = new URL('https://registry.npmjs.org/-/v1/search?text=keywords:videojs&size=250');
 
 function get(url) {
   return new Promise(function(fulfill, reject) {
