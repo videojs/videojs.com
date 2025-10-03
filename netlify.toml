@@ -3,8 +3,13 @@
   command = "npm run build"
 
 [[redirects]]
-  from = "/*"
-  to = "https://videojs.org/:splat"
+  from = "https://videojs.com/*"
+  to   = "https://videojs.org/:splat"
   status = 301
   force = true
-  conditions = { Host = ["videojs.com", "www.videojs.com"] }
+
+[[redirects]]
+  from = "https://www.videojs.com/*"
+  to   = "https://videojs.org/:splat"
+  status = 301
+  force = true
