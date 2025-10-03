@@ -83,5 +83,9 @@
     "not chrome < 51",
     "not android < 5",
     "not ie < 12"
-  ]
+  ],
+  "overrides": {
+    "postcss-inline-svg": "^6.0.0",
+    "postcss": "^8.4.31"
+  }
 }
