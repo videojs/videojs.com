@@ -104,7 +104,7 @@ const HomeHero = props => (
   <Hero role="contentinfo" aria-label="Videojs hero demo">
     <Container>
 
-      <H2>Make your player yours <span>with the world's most popular open source HTML5 player framework</span></H2>
+      <H2>Make your player yours <span>with the world's most popular open source HTML5 video player</span></H2>
 
       <DemoContainer>
         {props.heroTheme.video ? (

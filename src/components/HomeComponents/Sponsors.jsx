@@ -129,23 +129,19 @@ const Sponsors = props => (
             desktopAlign="left"
           />
           <P>
-            Brightcove is the main sponsor of the project, employing many of the
-            core members and investing thousands of engineering hours every year
-            in Video.js and Video.js plugins.
-          </P>
-
-          <P>
-            The Brightcove Player is built on Video.js and used on thousands of
-            video websites, ensuring Video.js can handle the most professional
-            use cases.
+            The role of Corporate Shepherd is held by the company that has been elected by the 
+            Video.js Technical Steering Committee (TSC) to be a steward of the project
+            and make significant investment into the development of Video.js.
+            The role is currently held by Mux, taking over for Brigthcove in 2025.
+            Mux is a leader in streaming video technology and was founded by Steve Heffernan, the creator of Video.js.
           </P>
         </PrimaryText>
 
         <Sponsor
           title="Corporate Shepherd"
-          image="logos/brightcove.svg"
-          name="Brightcove - Online Video Platform | Video Hosting"
-          url="https://brightcove.com"
+          image="logos/mux.svg"
+          name="Mux - Video API"
+          url="https://www.mux.com"
         />
       </PrimaryContainer>
 
@@ -157,10 +153,10 @@ const Sponsors = props => (
           url="https://fastly.com"
         />
         <Sponsor
-          title="Website"
-          image="logos/mux.svg"
-          name="Mux - Video API"
-          url="https://mux.com"
+          title="Emeritus Sponsor"
+          image="logos/brightcove.svg"
+          name="Brightcove - Online Video Platform | Video Hosting"
+          url="https://brightcove.com"
         />
         <Sponsor
           title="Device Testing"

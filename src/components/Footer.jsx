@@ -99,7 +99,7 @@ const Footer = props => (
       )}
       <p>Video.js is a free and open source HTML5 video player framework.</p>
       <p>
-        &copy; <a href="https://brightcove.com">Brightcove, Inc.</a>
+        &copy; 2010-present Video.js contributors | Sponsored by <a href="https://www.mux.com">Mux</a>
       </p>
     </Copyright>
     <Logos>
