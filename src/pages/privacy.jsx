@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import SEO from '../components/SEO';
+import Seo from '../components/SEO';
 import Container from '../components/Container';
 
 const PrivacyPage = () => (
   <Layout>
-    <SEO
+    <Seo
       title="Privacy Policy"
       description="Privacy policy for the Video.js website - learn about how we handle your data"
     />
