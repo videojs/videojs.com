@@ -85,7 +85,10 @@ const Footer = props => (
         <Link to="/blog">Blog</Link>
       </NavItem>
       <NavItem>
-        <Link href="https://github.com/videojs/video.js">Github</Link>
+        <Link href="https://github.com/videojs/video.js" rel="noopener noreferrer">Github</Link>
+      </NavItem>
+      <NavItem>
+        <Link to="/privacy">Privacy</Link>
       </NavItem>
     </Nav>
     <Copyright>
@@ -103,10 +106,10 @@ const Footer = props => (
       </p>
     </Copyright>
     <Logos>
-      <Link href="https://twitter.com/@videojs">
+      <Link href="https://twitter.com/@videojs" rel="noopener noreferrer">
         <Image filename="x-twitter.svg" alt="Twitter logo" />
       </Link>
-      <Link href="https://github.com/videojs/video.js">
+      <Link href="https://github.com/videojs/video.js" rel="noopener noreferrer">
         <Image filename="github.svg" alt="Github logo" />
       </Link>
     </Logos>

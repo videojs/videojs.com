@@ -231,7 +231,7 @@ const GetInvolved = () => (
           </TitleBox>
         </BoxWrapper>
         <BoxWrapper>
-          <TitleBox title="Video js twitter" url="https://twitter.com/videojs">
+          <TitleBox title="Video js twitter" url="https://twitter.com/videojs" rel="noopener noreferrer">
             <Image filename="videojs-twitter.svg" alt="videojs twitter logo" />
           </TitleBox>
         </BoxWrapper>

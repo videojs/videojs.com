@@ -118,25 +118,12 @@ class AdvancedExample extends React.Component {
     this.player = videojs(this.videoEl, {
       aspectRatio: '21:9',
       enableDocumentPictureInPicture: true
-    }, () => {
-      if (this.player.hasPlugin('mux')) {
-        this.player.mux({
-          data: {
-            property_key: 'VJSISBEST',
-          },
-        });
-      }
     });
 
     this.player.on('loadstart', () => {
       const pl = this.player.playlist();
       const plItem = pl[this.player.playlist.currentItem()];
       this.setQueryParam(plItem.id);
-      this.player.mux.emit('videochange', {
-        video_id: plItem.id,
-        video_title: plItem.name,
-        video_duration: plItem.duration,
-      });
     });
 
     const videoParam = queryString.parse(window.location.search).video;

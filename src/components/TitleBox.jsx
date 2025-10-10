@@ -49,13 +49,15 @@ const TitleBox = ({
   borderColor,
   textBorderColor,
   textColor,
+  rel,
+  ...linkProps
 }) => (
   <TitleBoxContainer
     className={className}
     bgColor={bgColor}
     borderColor={borderColor}
   >
-    <a href={url}>
+    <a href={url} rel={rel} {...linkProps}>
       <TitleBoxContent>{children}</TitleBoxContent>
       <Title color={textColor} borderColor={textBorderColor}>
         {title}

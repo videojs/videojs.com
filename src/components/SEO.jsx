@@ -39,11 +39,6 @@ function Seo({ description, lang, meta, keywords, title, ...props }) {
           rel: 'shortcut icon',
           href: '/favicon.ico',
         },
-        {
-          rel: 'stylesheet',
-          href:
-            'https://fonts.googleapis.com/css?family=Montserrat:300,400,600',
-        },
       ]}
       meta={[
         {
