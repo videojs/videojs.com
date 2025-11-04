@@ -104,6 +104,9 @@ const Footer = props => (
       <p>
         &copy; 2010-present Video.js contributors | Sponsored by <a href="https://www.mux.com">Mux</a>
       </p>
+      <p>
+        "VIDEO.JS" is a registered trademark of Brightcove Inc.
+      </p>
     </Copyright>
     <Logos>
       <Link href="https://twitter.com/@videojs" rel="noopener noreferrer">
