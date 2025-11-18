@@ -20,9 +20,9 @@ const IndexPage = props => {
   return (
     <Layout heroTheme={heroTheme}>
       <Seo
-        title="Video.js - Make your player yours"
+        title="HTML5 Video Player"
         keywords={['HTML5 video', 'player', 'hls', 'adaptive-bitrate']}
-        description="The world's most popular open source HTML5 player framework"
+        description="The world's most popular free and open source HTML5 video player for web and mobile."
       />
       <Helmet>
         {/* Origin trial for documentPictureInPicture */}

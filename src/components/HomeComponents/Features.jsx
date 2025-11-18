@@ -113,15 +113,14 @@ const Features = props => (
           tagline="Why Video.js?"
         />
         <P>
-          Video.js is a web video player built from the ground up for an HTML5
-          world. It supports HTML5 video and modern streaming formats, as well
-          as YouTube and Vimeo.
+          Video.js is the open-source HTML5 video player for the modern web:
+          embed html5 video easily, support all major formats, and style it your way.
         </P>
 
         <P>
           It supports video playback on desktop and mobile devices. The project
-          was started mid 2010, and now has hundreds of contributors and is used
-          on over 450,000 websites.
+          was started mid 2010, and now has hundreds of contributors and has been used
+          on over 3,000,000 websites.
         </P>
       </PrimaryText>
 

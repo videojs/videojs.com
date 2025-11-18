@@ -68,7 +68,7 @@ const Footer = props => (
   <Wrapper>
     <VideoJsLogoWrapper>
       <Link to="/">
-        <Image filename="logo-black.svg" alt="Video.js logo" />
+        <Image filename="logo-black.svg" alt="Video.js - HTML5 Video Player logo" />
       </Link>
     </VideoJsLogoWrapper>
     <Nav>
@@ -100,7 +100,7 @@ const Footer = props => (
           </a>
         </p>
       )}
-      <p>Video.js is a free and open source HTML5 video player framework.</p>
+      <p>Video.js is a free and open source <a href="/">HTML5 video player</a>.</p>
       <p>
         &copy; 2010-present Video.js contributors | Sponsored by <a href="https://www.mux.com">Mux</a>
       </p>

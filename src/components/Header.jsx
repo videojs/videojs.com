@@ -8,8 +8,8 @@ import LogoImg from '../images/logo-white.svg';
 
 const Logo = styled(props => (
   <div className={props.className}>
-    <h1>Videojs.com</h1>
-    <Link to="/" aria-label="Videojs.com homepage"></Link>
+    <h1>Video.js - HTML5 Video Player</h1>
+    <Link to="/" aria-label="Video.js - HTML5 Video Player"></Link>
   </div>
 ))`
   display: inline-block;

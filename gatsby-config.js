@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Video.js`,
-    description: `Make your player yours with the internet's most popular open source video player framework`,
+    description: `The open source HTML5 video player for web and mobile. Make your player yours.`,
     author: `@videojs`,
   },
   plugins: [
