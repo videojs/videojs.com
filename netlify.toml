@@ -1,15 +1,3 @@
 [build]
   publish = "public"
   command = "npm run build"
-
-[[redirects]]
-  from = "https://videojs.com/*"
-  to   = "https://videojs.org/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://www.videojs.com/*"
-  to   = "https://videojs.org/:splat"
-  status = 301
-  force = true
