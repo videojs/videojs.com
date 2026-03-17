@@ -24,7 +24,7 @@ import videojs from 'video.js';
 export class VjsPlayerComponent implements OnInit, OnDestroy {
   @ViewChild('target', {static: true}) target: ElementRef;
 
-  // See options: https://videojs.com/guides/options
+  // See options: /guides/options
   @Input() options: {
       fluid: boolean,
       aspectRatio: string,
@@ -57,7 +57,7 @@ export class VjsPlayerComponent implements OnInit, OnDestroy {
 }
 ```
 
-Finally, use the component like this (see [Video.js Options Reference](https://videojs.com/guides/options)):
+Finally, use the component like this (see [Video.js Options Reference](/guides/options)):
 
 ```html
 <app-vjs-player [options]="{autoplay: true, controls: true, sources: [{ src: '/path/to/video.mp4', type: 'video/mp4' }]}"></app-vjs-player>

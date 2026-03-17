@@ -18,7 +18,7 @@ const PrivacyPage = () => (
         <h2>Introduction</h2>
         <p>
           Video.js is a community-built, free and open source HTML5 video player framework. This privacy policy describes 
-          how the Video.js website (videojs.com) handles information when you visit our site.
+          how the Video.js website (legacy.videojs.org) handles information when you visit our site.
         </p>
         
         <h2>Information We Don't Collect</h2>

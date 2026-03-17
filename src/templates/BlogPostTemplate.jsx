@@ -9,7 +9,12 @@ const BlogPostTemplate = ({
   data: { mdx },
   pageContext: { prevPost, nextPost },
 }) => (
-  <BlogLayout seo={{ title: 'Video.js Blog' }}>
+  <BlogLayout seo={{
+    title: 'Video.js Blog',
+    link: [
+      { rel: 'canonical', href: `https://videojs.org${mdx.fields.slug}` },
+    ],
+  }}>
     <BlogPost post={mdx} />
     <BlogPagination
       prevLink={prevPost}
