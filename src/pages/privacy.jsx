@@ -6,124 +6,198 @@ import Container from '../components/Container';
 const PrivacyPage = () => (
   <Layout>
     <Seo
-      title="Privacy Policy"
-      description="Privacy policy for the Video.js website - learn about how we handle your data"
+      title="Privacy Notice"
+      description="Privacy notice for the Video.js website - learn about what information we collect and how we use it"
     />
     <Container>
-      <div style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem' }}>
-        <h1>Privacy Policy</h1>
-        
-        <p><strong>Last updated: {new Date().toLocaleDateString()}</strong></p>
-        
-        <h2>Introduction</h2>
+      <div
+        style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem 1rem' }}
+      >
+        <h1>VIDEO.JS PRIVACY NOTICE</h1>
+
         <p>
-          Video.js is a community-built, free and open source HTML5 video player framework. This privacy policy describes 
-          how the Video.js website (legacy.videojs.org) handles information when you visit our site.
+          <strong>Last Updated: August 24, 2026</strong>
         </p>
-        
-        <h2>Information We Don't Collect</h2>
+
         <p>
-          We are committed to protecting your privacy. This website does <strong>not</strong>:
+          Prior Versions of the Privacy Notice are Available Here (link to prior
+          version)
+        </p>
+
+        <p>
+          Video.js is a community-built, free and open source HTML5 video player
+          framework. This Privacy Notice describes what information Video.js
+          collects, and does not collect, in connection with its website and the
+          free and open source HTML5 video player.
+        </p>
+
+        <h2>Information We Collect and How We Use It</h2>
+
+        <h3>Information Collected Through Our Website</h3>
+        <p>
+          Like most websites, our web servers automatically collect standard
+          technical information when you interact with our website, including IP
+          adddress, device type and version, referring website addresses, and
+          the pages you have requested, events our servers observe, and the
+          relevant timestamps for each activity.
+        </p>
+        <p>
+          This information is used solely for maintaining our website’s
+          functionality, security and performance, as well as to understand how
+          individuals are using the website. This information is not used for
+          purposes of profiling website visitors, tracking individuals across
+          services or browsing sessions, or conducting advertising.
+        </p>
+
+        <h3>
+          Information Collected Through Our Community Channels and Development
+          Platforms
+        </h3>
+        <p>
+          We manage and interact with Video.js users through our official
+          community channels and development platforms (including on Discord and
+          GitHub). If you choose to interact with us through these channels and
+          platforms, we may be able to see the information that you permit the
+          relevant channel and platform to share with third parties (such as
+          profile information, profile picture, and username) as well as any
+          information you post in the channel or platform or you choose to send
+          directly to one of our channel / platform moderators.
+        </p>
+        <p>
+          This information is used solely for facilitating our official
+          community channels and development platforms (including to answer your
+          questions and requests), as well as to understand how individauls are
+          using our free and open source HTML5 video player and improve the
+          offering. This information is not used by us for purposes of profiling
+          channel / platform members, tracking individuals across services or
+          browsing sessions, or conducting advertising.
+        </p>
+
+        <h3>
+          Information Collected Through The Free and Open Source HTML5 Video
+          Player
+        </h3>
+        <p>
+          The Video.js HTML5 video player framework is a free and open source
+          solution that anyone can install on their website or other
+          applications. Video.js does not itself collect information through the
+          HTML5 video player. However, the company or individual that integrates
+          the Video.js HTML5 video player into their own website or application
+          may use the video player and services they to choose to integrate with
+          it to collect information about their users. We do not receive this
+          information, nor do we control how third parties may collect or use
+          this information. Please refer to the privacy notice of the company or
+          individual with which you are interacting to learn more about how they
+          may use the Video.js HTML5 video player and integrated third-party
+          services to collect information about you.
+        </p>
+
+        <h2>How We Share Information</h2>
+        <p>
+          We engage certain third parties to perform services on our behalf in
+          connetion with the uses of information described in the sections
+          above. Depending on the applicable services, these service providers
+          may process information on our behalf or have access to information
+          while performing services on our behalf. For example, our website
+          hosting provider may collect standard technical website visitor
+          information on our behalf.
+        </p>
+        <p>
+          In addition, we rely on several third-party sponsors (identified on
+          our homepage) to support the Video.js open source project. These third
+          parties may process information on our behalf or have access to
+          information while performing services for the project. These
+          third-party sponsors do not use the information described in the
+          sections above for their own business or commercial purposes.
+        </p>
+        <p>
+          In addition, we may disclose or otherwise make available the
+          information described in the sections above in the following ways:
         </p>
         <ul>
-          <li>Use analytics or tracking services (like Google Analytics)</li>
-          <li>Set advertising or tracking cookies</li>
-          <li>Share your data with third-party services for tracking purposes</li>
-          <li>Collect personal information unless you voluntarily provide it</li>
-          <li>Track your browsing behavior across other websites</li>
+          <li>
+            <strong>
+              In Connection with a Business Transaction or Reorganization:
+            </strong>{' '}
+            We may take part in or be involved with a business transaction or
+            reorganization, such as a merger, acquisition, joint venture, or
+            financing or sale of company assets. We may disclose, transfer, or
+            assign the information described in the sections above to a third
+            party during negotiation of, in connection with, or as an asset in
+            such a business transaction or reorganization.
+          </li>
+          <li>
+            <strong>To Facilitate Legal Obligations and Rights:</strong> We may
+            disclose the information described in the sections above to third
+            parties, such as legal advisors and law enforcement:
+            <ul>
+              <li>
+                in connection with the establishment, exercise, or defense of
+                legal claims;
+              </li>
+              <li>
+                to comply with laws or to respond to lawful requests and legal
+                process;
+              </li>
+              <li>
+                to protect our rights and property and the rights and property
+                of others, including to enforce our license terms;
+              </li>
+              <li>to detect, suppress, or prevent fraud;</li>
+              <li>to protect the health and safety of us or others; or</li>
+              <li>as otherwise required by applicable law.</li>
+            </ul>
+          </li>
         </ul>
-        
-        <h2>Information We May Collect</h2>
-        <p>
-          Like most websites, our web servers may automatically collect standard technical information including:
-        </p>
-        <ul>
-          <li>IP addresses (for security and server administration)</li>
-          <li>Browser type and version</li>
-          <li>Referring website addresses</li>
-          <li>Pages requested and timestamps</li>
-        </ul>
-        <p>
-          This information is used solely for maintaining the website's functionality, security, 
-          and performance. It is not used for tracking or profiling visitors.
-        </p>
-        
-        <h2>Open Source and Development Platforms</h2>
-        <p>
-          Video.js is an open source project hosted on external development platforms. Our 
-          documentation may link to code repositories, issue trackers, and other development 
-          resources. When you interact with these platforms (such as submitting issues, viewing 
-          code, or participating in discussions), you are subject to their respective privacy 
-          policies and terms of service.
-        </p>
-        
-        <h2>Third-Party Content and Services</h2>
-        <p>
-          Our website may include content from third-party services, including but not limited to:
-        </p>
-        <ul>
-          <li>Embedded videos and media players</li>
-          <li>Code repositories and development platforms</li>
-          <li>External documentation and resources</li>
-          <li>Interactive demos and examples</li>
-        </ul>
-        <p>
-          These third-party services may:
-        </p>
-        <ul>
-          <li>Set their own cookies and tracking technologies</li>
-          <li>Collect information about your interaction with their content</li>
-          <li>Be governed by their own privacy policies and terms of service</li>
-          <li>Process data according to their own data handling practices</li>
-        </ul>
-        <p>
-          We do not control these third-party services or their data practices. When you interact 
-          with third-party content, you are subject to their respective privacy policies.
-        </p>
-        
-        <h2>Cookies</h2>
-        <p>
-          This website does not set first-party tracking cookies. However, cookies may be set by:
-        </p>
-        <ul>
-          <li><strong>Third-party services:</strong> When you interact with embedded content or external links</li>
-          <li><strong>Functional cookies:</strong> Strictly necessary for website operation</li>
-          <li><strong>Development platforms:</strong> When accessing linked code repositories or development tools</li>
-        </ul>
-        <p>
-          We recommend reviewing the privacy policies of any third-party services you interact 
-          with through our website.
-        </p>
-        
-        <h2>Children's Privacy</h2>
-        <p>
-          Our website does not specifically target children under 13, and we do not knowingly 
-          collect personal information from children under 13.
-        </p>
-        
+
         <h2>Data Retention</h2>
         <p>
-          Server logs containing technical information may be retained for security and 
-          operational purposes for a reasonable period, typically not exceeding 12 months.
+          Server logs containing technical information may be retained for
+          security and operational purposes for a reasonable period, typically
+          not exceeding 12 months.
         </p>
-        
-        <h2>Changes to This Policy</h2>
+
+        <h2>Children’s Data</h2>
         <p>
-          We may update this privacy policy from time to time. Any changes will be posted on 
-          this page with an updated "Last updated" date.
+          Our services are not directed to, and we do not intend to, or
+          knowingly, collect or solicit data from children under the age of 13.
+          If an individual is under the age of 13, they should not use our
+          services or otherwise provide us with any data either directly or by
+          other means. If a child under the age of 13 has provided data to us,
+          we encourage the child’s parent or guardian to contact us to request
+          that we remove the data from our systems. If we learn that any data we
+          collect has been provided by a child under the age of 13, we will
+          promptly delete that data.
         </p>
-        
-        <h2>Contact</h2>
+
+        <h2>Third-Party Websites and Services</h2>
         <p>
-          If you have questions about this privacy policy, please contact us through our 
-          official community channels or development platforms. Links to these resources 
-          can be found throughout our website and documentation.
+          Video.js is an open source project hosted on external development
+          platforms. Our documentation may link to code repositories, issue
+          trackers, and other development resources or other third-party
+          websites, platforms or services. Third-party websites and other
+          services may also reference or link to our website and services. This
+          Privacy Notice does not apply to any data practices of these
+          third-party repositories, issue trackers, development resources,
+          websites, platforms or other services. To learn about these third
+          parties’ data practices, please visit their respective privacy
+          notices.
         </p>
-        <h2>Open Source Commitment</h2>
+
+        <h2>Updates to This Privacy Notice</h2>
         <p>
-          Video.js is committed to transparency and user privacy. As an open source project, 
-          our website source code is publicly available, allowing you to verify our privacy 
-          practices and the technical implementation of this policy.
+          We may update this Privacy Notice from time to time. When we make
+          changes to this Privacy Notice, we will change the date at the
+          beginning of this Privacy Notice. All changes shall be effective from
+          the date of publication unless otherwise provided.
+        </p>
+
+        <h2>Contact Us</h2>
+        <p>
+          If you have questions about this Privacy Notice, please contact us
+          through our official community channels or development platforms.
+          Links to these resources can be found throughout our website and
+          documentation.
         </p>
       </div>
     </Container>
