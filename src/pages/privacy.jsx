@@ -108,46 +108,38 @@ const PrivacyPage = () => (
           parties may process information on our behalf or have access to
           information while performing services for the project. These
           third-party sponsors do not use the information described in the
-          sections above for their own business or commercial purposes.
+          sections above for their own business or commercial purposes. Please
+          note our third-party sponsors may change over time and, when they do,
+          the new third-party sponsors will be listed on our homepage.
         </p>
         <p>
-          In addition, we may disclose or otherwise make available the
-          information described in the sections above in the following ways:
+          We may also from time to time change the governing structure of the
+          open-source project, including by changing the sponsorship structure
+          or the legal vehicle within which the open-source project is
+          maintained. If we do so, we may need to disclose or transfer the
+          information described in the sections above to necessary third parties
+          in connection with the change in governing structure.
+        </p>
+        <p>
+          We may also disclose the information described in the sections above
+          to third parties, such as legal advisors and law enforcement:
         </p>
         <ul>
           <li>
-            <strong>
-              In Connection with a Business Transaction or Reorganization:
-            </strong>{' '}
-            We may take part in or be involved with a business transaction or
-            reorganization, such as a merger, acquisition, joint venture, or
-            financing or sale of company assets. We may disclose, transfer, or
-            assign the information described in the sections above to a third
-            party during negotiation of, in connection with, or as an asset in
-            such a business transaction or reorganization.
+            in connection with the establishment, exercise, or defense of legal
+            claims;
           </li>
           <li>
-            <strong>To Facilitate Legal Obligations and Rights:</strong> We may
-            disclose the information described in the sections above to third
-            parties, such as legal advisors and law enforcement:
-            <ul>
-              <li>
-                in connection with the establishment, exercise, or defense of
-                legal claims;
-              </li>
-              <li>
-                to comply with laws or to respond to lawful requests and legal
-                process;
-              </li>
-              <li>
-                to protect our rights and property and the rights and property
-                of others, including to enforce our license terms;
-              </li>
-              <li>to detect, suppress, or prevent fraud;</li>
-              <li>to protect the health and safety of us or others; or</li>
-              <li>as otherwise required by applicable law.</li>
-            </ul>
+            to comply with laws or to respond to lawful requests and legal
+            process;
           </li>
+          <li>
+            to protect our rights and property and the rights and property of
+            others, including to enforce our license terms;
+          </li>
+          <li>to detect, suppress, or prevent fraud;</li>
+          <li>to protect the health and safety of us or others; or</li>
+          <li>as otherwise required by applicable law.</li>
         </ul>
 
         <h2>Data Retention</h2>
