@@ -1,3 +1,345 @@
 [build]
   publish = "public"
   command = "npm run build"
+
+# The Video.js 8 API reference, built from the video.js 8.x branch and deployed to its own Netlify site, is served here
+# under /api so the legacy docs live on one host. Its pages use relative links, which resolve under /api/ from every
+# page except the bare /api, so that one goes to the index page.
+[[redirects]]
+  from = "/api"
+  to = "/api/index.html"
+  status = 301
+  force = true
+
+# The API reference used to host the guides as tutorial pages. Its own redirects for them point at videojs.com, so
+# answer them here in one hop.
+[[redirects]]
+  from = "/api/tutorial-angular.html"
+  to = "/guides/angular/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-audio-tracks.html"
+  to = "/guides/audio-tracks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-components.html"
+  to = "/guides/components/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-debugging.html"
+  to = "/guides/debugging/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-embeds.html"
+  to = "/guides/embeds/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-event-target.html"
+  to = "/guides/event-target/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-faq.html"
+  to = "/guides/faqs/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-hooks.html"
+  to = "/guides/hooks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-languages.html"
+  to = "/guides/languages/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-layout.html"
+  to = "/guides/layout/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-live.html"
+  to = "/guides/live/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-middleware.html"
+  to = "/guides/middleware/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-modal-dialog.html"
+  to = "/guides/modal-dialog/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-options.html"
+  to = "/guides/options/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-player-workflows.html"
+  to = "/guides/player-workflows/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-plugins.html"
+  to = "/guides/plugins/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-react.html"
+  to = "/guides/react/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-setup.html"
+  to = "/guides/setup/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-skins.html"
+  to = "/guides/skins/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-tech.html"
+  to = "/guides/tech/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-text-tracks.html"
+  to = "/guides/text-tracks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-troubleshooting.html"
+  to = "/guides/troubleshooting/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-video-tracks.html"
+  to = "/guides/video-tracks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-videojs.html"
+  to = "/api/module-videojs-videojs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-vue.html"
+  to = "/guides/vue/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorial-webpack.html"
+  to = "/guides/webpack/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://videojs-docs.netlify.app/:splat"
+  status = 200
+  force = true
+
+# docs.videojs.com, once its domain is attached to this site. Until then these rules never match.
+[[redirects]]
+  from = "https://docs.videojs.com/"
+  to = "https://videojs.org/docs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-angular.html"
+  to = "https://legacy.videojs.org/guides/angular/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-audio-tracks.html"
+  to = "https://legacy.videojs.org/guides/audio-tracks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-components.html"
+  to = "https://legacy.videojs.org/guides/components/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-debugging.html"
+  to = "https://legacy.videojs.org/guides/debugging/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-embeds.html"
+  to = "https://legacy.videojs.org/guides/embeds/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-event-target.html"
+  to = "https://legacy.videojs.org/guides/event-target/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-faq.html"
+  to = "https://legacy.videojs.org/guides/faqs/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-hooks.html"
+  to = "https://legacy.videojs.org/guides/hooks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-languages.html"
+  to = "https://legacy.videojs.org/guides/languages/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-layout.html"
+  to = "https://legacy.videojs.org/guides/layout/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-live.html"
+  to = "https://legacy.videojs.org/guides/live/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-middleware.html"
+  to = "https://legacy.videojs.org/guides/middleware/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-modal-dialog.html"
+  to = "https://legacy.videojs.org/guides/modal-dialog/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-options.html"
+  to = "https://legacy.videojs.org/guides/options/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-player-workflows.html"
+  to = "https://legacy.videojs.org/guides/player-workflows/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-plugins.html"
+  to = "https://legacy.videojs.org/guides/plugins/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-react.html"
+  to = "https://legacy.videojs.org/guides/react/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-setup.html"
+  to = "https://legacy.videojs.org/guides/setup/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-skins.html"
+  to = "https://legacy.videojs.org/guides/skins/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-tech.html"
+  to = "https://legacy.videojs.org/guides/tech/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-text-tracks.html"
+  to = "https://legacy.videojs.org/guides/text-tracks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-troubleshooting.html"
+  to = "https://legacy.videojs.org/guides/troubleshooting/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-video-tracks.html"
+  to = "https://legacy.videojs.org/guides/video-tracks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-videojs.html"
+  to = "https://legacy.videojs.org/api/module-videojs-videojs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-vue.html"
+  to = "https://legacy.videojs.org/guides/vue/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-webpack.html"
+  to = "https://legacy.videojs.org/guides/webpack/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/*"
+  to = "https://legacy.videojs.org/api/:splat"
+  status = 301
+  force = true

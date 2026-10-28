@@ -154,7 +154,7 @@ const NavigationLinks = styled(props => (
       <Link href="/guides">Guides</Link>
     </li>
     <li>
-      <Link href="https://docs.videojs.com">API Docs</Link>
+      <Link href="/api/index.html">API Docs</Link>
     </li>
     <li>
       <Link to="/blog">Blog</Link>

@@ -3,9 +3,11 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const { createFilePath } = require('gatsby-source-filesystem');
+const { canonicalUrl, pageUrl } = require('./src/utils/canonical');
 
 const createHomePages = async ({ actions }) => {
   ['city', 'fantasy', 'forest', 'sea'].forEach(theme => {
@@ -201,4 +203,36 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     });
   }
+};
+
+// List every page that is its own canonical URL, so search engines can find
+// the legacy pages without relying on redirects from videojs.org.
+exports.onPostBuild = async ({ graphql }) => {
+  const result = await graphql(`
+    {
+      allSitePage {
+        nodes {
+          path
+        }
+      }
+    }
+  `);
+
+  const urls = _.uniq(
+    result.data.allSitePage.nodes
+      .filter(
+        ({ path: pagePath }) => canonicalUrl(pagePath) === pageUrl(pagePath)
+      )
+      .map(({ path: pagePath }) => pageUrl(pagePath))
+  ).sort();
+
+  const sitemap = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...urls.map(url => `  <url><loc>${_.escape(url)}</loc></url>`),
+    '</urlset>',
+    '',
+  ].join('\n');
+
+  fs.writeFileSync(path.join('public', 'sitemap.xml'), sitemap);
 };
