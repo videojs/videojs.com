@@ -169,6 +169,25 @@
   status = 301
   force = true
 
+# Links Search Console found to API pages that never existed.
+[[redirects]]
+  from = "/api/tutorial-migration-v10.html"
+  to = "https://videojs.org/docs/framework/html/guides/migrate-from-video-js-8"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorials/getting-started/*"
+  to = "https://legacy.videojs.org/getting-started/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/api/tutorials/play-a-video/*"
+  to = "https://legacy.videojs.org/getting-started/"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/api/*"
   to = "https://videojs-docs.netlify.app/:splat"
@@ -335,6 +354,24 @@
 [[redirects]]
   from = "https://docs.videojs.com/tutorial-webpack.html"
   to = "https://legacy.videojs.org/guides/webpack/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-migration-v10.html"
+  to = "https://videojs.org/docs/framework/html/guides/migrate-from-video-js-8"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorials/getting-started/*"
+  to = "https://legacy.videojs.org/getting-started/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorials/play-a-video/*"
+  to = "https://legacy.videojs.org/getting-started/"
   status = 301
   force = true
 
