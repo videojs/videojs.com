@@ -27,10 +27,13 @@ https.get('https://registry.npmjs.org/video.js', (res) => {
     try {
       let parsedData = JSON.parse(rawData);
 
-      console.log(parsedData['dist-tags'].latest);
+      // This site documents Video.js 8; `latest` is Video.js 10 now.
+      const version = parsedData['dist-tags']['latest-8'];
+
+      console.log(version);
       fs.writeFileSync(
         __dirname + '/src/data/videojs-version.json',
-        JSON.stringify({version: parsedData['dist-tags'].latest}, null, 2));
+        JSON.stringify({version}, null, 2));
     } catch (e) {
       console.error(e.message);
     }
