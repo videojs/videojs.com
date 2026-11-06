@@ -88,7 +88,7 @@ const Footer = props => (
         <Link href="https://github.com/videojs/video.js" rel="noopener noreferrer">Github</Link>
       </NavItem>
       <NavItem>
-        <Link to="/privacy">Privacy</Link>
+        <Link href="https://videojs.org/privacy">Privacy</Link>
       </NavItem>
     </Nav>
     <Copyright>

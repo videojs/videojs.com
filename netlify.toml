@@ -1,3 +1,15 @@
 [build]
   publish = "public"
   command = "npm run build"
+
+# Overrides the NODE_VERSION set in the Netlify UI. package-lock.json is
+# lockfileVersion 3, which needs npm 7+; older Node/npm ignores it and
+# re-resolves every dependency, which broke gatsby's webpack import.
+[build.environment]
+  NODE_VERSION = "22"
+
+[[redirects]]
+  from = "/privacy"
+  to = "https://videojs.org/privacy"
+  status = 301
+  force = true
