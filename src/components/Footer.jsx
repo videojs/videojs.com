@@ -79,7 +79,7 @@ const Footer = props => (
         <Link href="/guides">Guides</Link>
       </NavItem>
       <NavItem>
-        <Link href="https://docs.videojs.com">API Docs</Link>
+        <Link href="/api/">API Docs</Link>
       </NavItem>
       <NavItem>
         <Link to="/blog">Blog</Link>
