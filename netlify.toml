@@ -13,3 +13,11 @@
   to = "https://videojs.org/privacy"
   status = 301
   force = true
+
+# The Video.js 8 API reference is built and deployed by the videojs-docs
+# Netlify site (from videojs/videojs-v8) under /api/, and served here by proxy.
+[[redirects]]
+  from = "/api/*"
+  to = "https://videojs-docs.netlify.app/api/:splat"
+  status = 200
+  force = true
