@@ -30,6 +30,8 @@ https.get('https://registry.npmjs.org/video.js', (res) => {
       // This site documents Video.js 8; `latest` is Video.js 10 now.
       const version = parsedData['dist-tags']['latest-8'];
 
+      if (!version) throw new Error('npm has no latest-8 dist-tag for video.js');
+
       console.log(version);
       fs.writeFileSync(
         __dirname + '/src/data/videojs-version.json',
