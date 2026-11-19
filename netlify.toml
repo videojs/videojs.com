@@ -2,6 +2,18 @@
   publish = "public"
   command = "npm run build"
 
+# Overrides the NODE_VERSION set in the Netlify UI. package-lock.json is
+# lockfileVersion 3, which needs npm 7+; older Node/npm ignores it and
+# re-resolves every dependency, which broke gatsby's webpack import.
+[build.environment]
+  NODE_VERSION = "22"
+
+[[redirects]]
+  from = "/privacy"
+  to = "https://videojs.org/privacy"
+  status = 301
+  force = true
+
 # The Video.js 8 API reference, built from the video.js 8.x branch and deployed to its own Netlify site, is served here
 # under /api so the legacy docs live on one host. Its pages use relative links, which resolve under /api/ from every
 # page except the bare /api, so that one goes to the index page.
