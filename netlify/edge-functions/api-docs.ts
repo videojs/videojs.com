@@ -19,19 +19,22 @@ You're viewing the API reference for Video.js 8 and earlier.
 <a href="https://videojs.org/docs/framework/html/guides/migrate-from-video-js-8">Migrate from Video.js 8</a>
 </div>`;
 
-// The docs site serves every page with and without .html, so name the extensionless one canonical.
-const canonicalUrl = (path: string) =>
-  `https://legacy.videojs.org${
-    path.endsWith('/index.html') ? path : path.replace(/\.html$/, '')
+// Netlify serves every page with and without .html and in any letter case, so name the lowercase, extensionless one
+// canonical. The index keeps .html, the form the site's navigation links to.
+const canonicalUrl = (path: string) => {
+  const page = path.toLowerCase().replace(/\.html$/, '');
+
+  return `https://legacy.videojs.org${
+    page.endsWith('/index') ? `${page}.html` : page
   }`;
+};
 
 export function addLegacyNotice(html: string, pathname: string): string {
-  // Pages from the oldest docs already name their docs.videojs.com counterpart, which the docs site serves lowercased.
+  // Pages from the oldest docs already name their docs.videojs.com counterpart.
   const withCanonical = /<link[^>]*rel="canonical"/.test(html)
     ? html.replace(
         /(<link[^>]*rel="canonical"[^>]*href=")https?:\/\/docs\.videojs\.com\/([^"]*)"/,
-        (_, start, path) =>
-          `${start}${canonicalUrl(`/api/${path.toLowerCase()}`)}"`
+        (_, start, path) => `${start}${canonicalUrl(`/api/${path}`)}"`
       )
     : html.replace(
         '</head>',

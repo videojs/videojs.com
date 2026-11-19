@@ -146,6 +146,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/tutorial-tracks.html"
+  to = "/guides/text-tracks/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/api/tutorial-text-tracks.html"
   to = "/guides/text-tracks/"
   status = 301
@@ -330,6 +336,12 @@
 [[redirects]]
   from = "https://docs.videojs.com/tutorial-tech.html"
   to = "https://legacy.videojs.org/guides/tech/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://docs.videojs.com/tutorial-tracks.html"
+  to = "https://legacy.videojs.org/guides/text-tracks/"
   status = 301
   force = true
 
