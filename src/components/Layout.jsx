@@ -12,6 +12,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import Header from './Header';
+import LegacyBanner from './LegacyBanner';
 import Footer from './Footer';
 import { theme } from '../utils/styles';
 
@@ -160,6 +161,7 @@ const Layout = ({ children, heroTheme }) => {
                 <link href={heroTheme.style} rel="stylesheet" />
               </Helmet>
             ) : null}
+            <LegacyBanner />
             <Header siteTitle={data.site.siteMetadata.title} />
             <main>{children}</main>
             <Footer heroVideoDetails={heroTheme && heroTheme.videoDetails} />
